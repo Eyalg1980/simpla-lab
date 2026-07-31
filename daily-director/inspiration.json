@@ -1,0 +1,37 @@
+{
+  "categories": [
+    {
+      "name": "מעקב תחרויות וקולות פתוחים",
+      "emoji": "🏆",
+      "links": [
+        {"title": "AI Film Contests", "desc": "כל תחרויות הווידאו AI במקום אחד, עם דדליינים. מקור המעקב המרכזי", "url": "https://aifilmcontests.com/", "tag": "מעקב"},
+        {"title": "Open Arthouse", "desc": "קולות פתוחים לאמני AI: דדליינים, עלויות, תנאי זכאות", "url": "https://open-arthouse.com/", "tag": "מעקב"},
+        {"title": "Kajimelo · Submission Index", "desc": "אינדקס פסטיבלים והגשות AI מתעדכן", "url": "https://www.kajimelo.com/ai-film-festivals", "tag": "מעקב"},
+        {"title": "Higgsfield Contests", "desc": "עמוד התחרויות של הפלטפורמה שלך, אפשר להשתתף ישירות מהחיבור", "url": "https://higgsfield.ai/contests", "tag": "פלטפורמה"},
+        {"title": "Runway AI Film Festival", "desc": "הפסטיבל השנתי של Runway", "url": "https://aif.runwayml.com/", "tag": "פסטיבל"}
+      ]
+    },
+    {
+      "name": "סרטונים משפיעים ופורמטים",
+      "emoji": "🎞️",
+      "links": [
+        {"title": "Top 5 Features from Config 2026", "desc": "פורמט שורטס מהודק לחדשות מוצר", "url": "https://www.youtube.com/shorts/PztFPFEook0", "tag": "פורמט"},
+        {"title": "הרילס של janm_ux", "desc": "רשימת כלים כרילס עם פילים צפים, 616 שמירות", "url": "https://www.facebook.com/share/r/198DrnL8L6/", "tag": "פורמט"},
+        {"title": "Designing With AI: Claude, Codex, Figma", "desc": "142K צפיות למדריך וורקפלואו, הוכחה שתוכן עומק עובד גם בווידאו", "url": "https://www.youtube.com/watch?v=j_ZPV10bu54", "tag": "עומק"},
+        {"title": "רילס · לתיוג", "desc": "מסבבי ההשראה של אייל, לפתוח ולתייג", "url": "https://www.facebook.com/share/r/199jcQbZSm/", "tag": "לתיוג"},
+        {"title": "רילס · לתיוג", "desc": "מסבבי ההשראה של אייל, לפתוח ולתייג", "url": "https://www.facebook.com/share/r/1DBFCf9BCd/", "tag": "לתיוג"},
+        {"title": "רילס · לתיוג", "desc": "מסבבי ההשראה של אייל, לפתוח ולתייג", "url": "https://www.facebook.com/share/r/1EQy48pgHG/", "tag": "לתיוג"}
+      ]
+    },
+    {
+      "name": "הכלים והנכסים שלך",
+      "emoji": "🧰",
+      "links": [
+        {"title": "Higgsfield", "desc": "הפלטפורמה המרכזית: Cinema Studio, Kling, Veo, Nano Banana, Shorts Studio", "url": "https://higgsfield.ai/", "tag": "כלי"},
+        {"title": "HeyGen", "desc": "אבטארים לגרסאות מדוברות של אקספליינרים", "url": "https://www.heygen.com/", "tag": "כלי"},
+        {"title": "Figma Weave", "desc": "וורקפלואים ויזואליים, גם לסטוריבורדים", "url": "https://figmalion.com/topics/figma-weave", "tag": "כלי"},
+        {"title": "ה-LoRA שלך", "desc": "empathyportrait, empathymoments, empathymovement על Fal.ai, שפה ויזואלית עקבית לקליפים", "url": "https://fal.ai/", "tag": "נכס"}
+      ]
+    }
+  ]
+}
