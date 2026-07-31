@@ -76,6 +76,12 @@
   .angle{font-size:14px;color:#2B2B28;margin-bottom:10px}
   .why{font-size:13px;color:var(--white);background:var(--black);border-radius:12px;padding:9px 12px;margin-bottom:12px}
   .why b{color:var(--green)}
+  .prompts{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 12px}
+  .p-btn{
+    border:2px solid var(--black);cursor:pointer;font-family:inherit;background:var(--white);color:var(--black);
+    font-size:11.5px;font-weight:800;padding:6px 11px;border-radius:999px;
+  }
+  .p-btn:active{background:var(--green);transform:scale(.97)}
   .card-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-top:2px dashed #D8D6CE;padding-top:11px}
   .src{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;text-decoration:none;color:var(--black);border:2px solid var(--black);padding:6px 12px;border-radius:999px;background:var(--white)}
   .expand-btn{border:none;cursor:pointer;font-family:inherit;margin-inline-start:auto;background:var(--black);color:var(--white);font-size:12.5px;font-weight:800;padding:9px 15px;border-radius:999px}
@@ -177,9 +183,18 @@ function showTab(id){
   window.scrollTo({top:0});
 }
 
+const PROMPT_KINDS=[
+  {k:'video', label:'🎥 פרומפט וידאו'},
+  {k:'script',label:'✍️ פיתוח תסריט'},
+  {k:'image', label:'🖼️ סטוריבורד'},
+  {k:'raw',   label:'📋 טקסט גולמי'}
+];
+let PBANK=[];
+
 function renderIdeas(data){
   const el=document.getElementById('ideas');
   let html='';
+  PBANK=[];
   const days=[...data.days].sort((a,b)=>b.date.localeCompare(a.date));
   for(const day of days){
     html+='<section><div class="date-chip"><span>'+esc(day.dateLabel)+'</span></div>';
@@ -192,6 +207,14 @@ function renderIdeas(data){
       html+='<div class="label">הקונספט</div><div class="angle">'+esc(idea.concept)+'</div>';
       html+='<div class="label">איך מבצעים</div><div class="angle">'+esc(idea.execution)+'</div>';
       html+='<div class="why"><b>למה עכשיו:</b> '+esc(idea.why)+'</div>';
+      if(idea.prompts){
+        const pi=PBANK.push(idea.prompts)-1;
+        html+='<div class="label">פרומפטים מוכנים</div><div class="prompts">';
+        for(const pk of PROMPT_KINDS){
+          if(idea.prompts[pk.k])html+='<button class="p-btn" data-p="'+pi+'" data-k="'+pk.k+'">'+pk.label+'</button>';
+        }
+        html+='</div>';
+      }
       html+='<div class="card-actions">';
       if(idea.srcUrl)html+='<a class="src" href="'+esc(idea.srcUrl)+'" target="_blank" rel="noopener">🔗 '+esc(idea.srcLabel||'מקור')+'</a>';
       html+='<button class="expand-btn" data-cmd="'+esc(cmd)+'">🎬 פתח לתסריט</button>';
@@ -207,6 +230,9 @@ function renderIdeas(data){
   }
   el.innerHTML=html;
   el.querySelectorAll('.expand-btn').forEach(b=>b.addEventListener('click',()=>copyCmd(b.dataset.cmd)));
+  el.querySelectorAll('.p-btn').forEach(b=>b.addEventListener('click',()=>{
+    const p=PBANK[+b.dataset.p]; if(p&&p[b.dataset.k])copyCmd(p[b.dataset.k]);
+  }));
 }
 
 function renderComps(data){

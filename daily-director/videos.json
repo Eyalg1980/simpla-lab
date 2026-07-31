@@ -13,8 +13,14 @@
           "execution": "Higgsfield: פריימים ב-Nano Banana בסגנון הקליי של השיעורים, הנפשה ב-Kling, 9:16 לרילס + 1:1 לפיד. מוזיקה: סטופ-מושן קווירקי.",
           "why": "מחבר את עולם הפוסטים החדש שלך לעולם הווידאו, נכס אחד שעובד פעמיים.",
           "competition": null,
-          "srcUrl": null,
-          "srcLabel": null
+          "srcUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/hamburger/",
+          "srcLabel": "הסטוריבורד המלא",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. The three clay bars of a hamburger menu icon standing on a lit museum pedestal, slow push-in, dust motes drifting through a single dramatic spotlight, the bars slowly rotating to face camera, dignified and monumental",
+            "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט: ההמבורגר מניו\" לתסריט מלא: לוגליין, קריינות מתוזמנת בעברית בקול שלי, שוט-ליסט עם משך וסוג תנועה לכל שוט, ופרומפט מוכן להיגספילד לכל שוט. שפה ויזואלית: קליי סטופ-מושן, 9:16.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Museum hero portrait: three horizontal clay bars on a lit pedestal, single dramatic spotlight, slight cracks repaired with thin gold veins in kintsugi style, dignified and monumental mood",
+            "raw": "ביוגרפיה של אובייקט: ההמבורגר מניו\nעולם: וידאו ארט\nקונספט: קליי-אנימציה 30 עד 40 שניות. שלושת הפסים נולדים ב-1981 בזירוקס, שורדים 40 שנה של טרנדים וביקורת, וכמעט נמחקים על ידי AI. מסתיים בפריים: הוא עדיין כאן.\nביצוע: פריימים ב-Nano Banana, הנפשה ב-Kling 3, שוט אחד ב-Veo 3. 9:16 לרילס, 1:1 לפיד. מוזיקה סטופ-מושן עם קליקים של חימר. כתוביות צהובות.\nלמה עכשיו: אותו נכס משרת גם את סדרת הפוסטים, קרוס-פרומו מובנה.\nסטטוס: סטוריבורד מלא בן 8 שוטים כבר קיים."
+          }
         },
         {
           "id": "2026-07-31-2",
@@ -26,7 +32,13 @@
           "why": "הזהב מההרצאה של דניאל, ואין על זה עדיין תוכן וידאו בעברית. משרת גם את שיווק קורס נובמבר.",
           "competition": null,
           "srcUrl": null,
-          "srcLabel": null
+          "srcLabel": null,
+          "prompts": {
+            "video": "Kinetic typography on a deep charcoal background, split screen composition, left half shows a glowing text bubble that dissolves into particles and vanishes, right half shows a solid engraved plaque that stays lit and pulses steadily, minimal editorial motion design, coral and warm yellow accents, clean sans-serif geometry, 16:9, smooth confident pacing",
+            "script": "פתח לי את רעיון הווידאו \"פרומפט הוא בקשה. סקיל הוא זיכרון.\" לתסריט אקספליינר של 45 שניות: קריינות מתוזמנת בעברית בקול שלי, שוט-ליסט טיפוגרפי, והנחיות אנימציה לכל מקטע. בלי הייפ, ישיר ומעשי.",
+            "image": "Editorial split-screen key visual on deep charcoal, left side a translucent speech bubble mid-dissolve into fine particles, right side a solid engraved metal plaque glowing steadily, coral and warm yellow accents, minimal geometric composition, lots of negative space, no text",
+            "raw": "פרומפט הוא בקשה. סקיל הוא זיכרון.\nעולם: סרטון הסבר\nקונספט: אקספליינר 45 שניות. מסך מפוצל טיפוגרפי. צד אחד בקשה שנעלמת בסוף השיחה, צד שני זיכרון שמופעל אוטומטית. סוגר בשורה: כתבת את זה פעמיים? זה כבר סקיל.\nביצוע: טיפוגרפיה קינטית על רקע כהה, או HeyGen אבטאר לגרסה אישית. 16:9 ליוטיוב ולינקדאין, קאט 9:16.\nלמה עכשיו: הזהב מההרצאה של דניאל בוארון, אין על זה תוכן וידאו בעברית, ומשרת את שיווק קורס נובמבר."
+          }
         },
         {
           "id": "2026-07-31-3",
@@ -38,7 +50,13 @@
           "why": "קרן פרסים של 3.5 מיליון דולר, והנושא הוא מגרש הבית שלך: חינוך, טכנולוגיה ותקווה.",
           "competition": "Future Vision XPRIZE",
           "srcUrl": "https://futurevisionxprize.com/",
-          "srcLabel": "futurevisionxprize.com"
+          "srcLabel": "futurevisionxprize.com",
+          "prompts": {
+            "video": "Year 2040 bright optimistic classroom bathed in Mediterranean afternoon light, a young woman speaking calmly while translucent holographic interface panels assemble themselves in the air around her, one continuous orbiting camera move, warm sunlit palette of sand cream and soft teal, hopeful and human rather than cold sci-fi, cinematic shallow depth of field, 16:9",
+            "script": "פתח לי את רעיון הווידאו \"העתיד של ללמוד: כיתה שבה מפסלים אפליקציות בדיבור\" לתסריט טיזר של דקה להגשה ל-Future Vision XPRIZE: לוגליין, קריינות בעברית, שוט-ליסט לשוט אחד ארוך עם מצלמה חגה, ופרומפט להיגספילד לכל מקטע. הבריף: עתיד טכנולוגי מלא תקווה.",
+            "image": "Cinematic still, year 2040 sunlit classroom, a young woman mid-sentence with translucent holographic UI panels assembling in the air around her, warm sand cream and soft teal palette, Mediterranean light, hopeful human atmosphere, shallow depth of field, no text",
+            "raw": "העתיד של ללמוד: כיתה שבה מפסלים אפליקציות בדיבור\nעולם: קונספטואלי, לתחרות\nתחרות: Future Vision XPRIZE, דדליין 15.8.2026, קרן פרסים מעל 3.5 מיליון דולר\nקונספט: טיזר של דקה. שנת 2040, סטודנטית מתארת בקול רעיון והמרחב סביבה בונה את המוצר בזמן אמת. שוט אחד ארוך, מצלמה חגה.\nביצוע: Higgsfield Cinema Studio לשוטים, Veo 3 לרצף המרכזי, סאונד דיבור אמיתי שלך.\nלמה עכשיו: הבריף הוא בדיוק מגרש הבית, חינוך וטכנולוגיה ותקווה, וזווית ישראלית שאין לאף מגיש אחר."
+          }
         }
       ],
       "watch": [
