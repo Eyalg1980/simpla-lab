@@ -116,7 +116,11 @@ window.SB = {
     prompts: function (s) {
       return [
         { label: "פריים פותח (Nano Banana)", btn: "העתק פרומפט פריים",
-          text: STYLE + ". " + s.still + ", vertical composition, generous negative space above, 9:16, no text" },
+          // full:true = שוט שממלא את כל הפריים. בלי הסיומת הזאת המודל נוטה להוסיף
+          // מסגור פנימי ולהניח את התמונה כמו מוצג ממוסגר על רקע קרם.
+          text: STYLE + ". " + s.still + (s.full
+            ? ", the photograph fills the whole canvas edge to edge: no matte, no inner frame, no border, no white or cream margin, no vignette, not a picture inside a picture, 9:16, no text"
+            : ", vertical composition, generous negative space above, 9:16, no text") },
         { label: "תנועה (" + (s.model.indexOf("Veo") > -1 ? "Veo 3" : "Kling 3, image-to-video") + ")", btn: "העתק פרומפט תנועה",
           text: STYLE + ". " + s.motion + ", 9:16" }
       ];
@@ -162,8 +166,9 @@ window.SB = {
         model:"Veo 3",
         title:"1998, הזמן נפתח", titleEn:"1998, time opens up",
         type:"מערכה 2 · הפסגה",
-        img:"hf_20260801_161613_33e1ecaf-ce94-4d76-aa37-f00ab54e9b2f.png",
-        still:"A tall vertical strip of clay motion-picture film rising straight up through the frame, with clearly sculpted square sprocket holes punched in a regular row along BOTH edges of the strip so it is unmistakably a filmstrip, each film cell in the strip holding the same small crushed clay object a little more repaired than the cell below it, dents rising back out and seams closing as the strip climbs, warm rim light travelling up the edge of the strip, deep teal falloff behind, hopeful and mechanical mood",
+        full:true,
+        img:"hf_20260801_171036_425b9b49-d885-479f-ac26-f37cc17ce38f.png",
+        still:"EXTREME CLOSE-UP, FULL BLEED: a vertical strip of clay motion-picture film fills the ENTIRE image from the very top edge to the very bottom edge and is cropped off by both edges, with clearly sculpted square sprocket holes punched in a regular row along both sides of the strip, each film cell holding the same small clay object a little more repaired than the cell below it, dents rising back out and seams closing as the strip climbs, the deep teal background bleeding all the way to all four corners of the image with no border of any kind, warm rim light travelling up the edge of the strip, hopeful and mechanical mood",
         motion:"The camera cranes straight up along the tall clay filmstrip while the crushed clay object inside the cells rebuilds itself cell by cell, seams closing and dents rising back out, the sculpted sprocket holes along both edges sliding past the lens and marking the passage of time, warm rim light travelling up the strip, mechanical and hopeful, one continuous move" },
 
       { n:7, dur:"4 שנ'", durEn:"4s", cam:"נסיגה רחבה, חושפת את הקנה מידה", camEn:"Wide pull-back revealing scale",
@@ -201,6 +206,7 @@ window.SB = {
     title: "מה עושים עם הפריימים האלה",
     items: [
       "סבב תיקונים 1.8: הסרט גדל מ-8 ל-10 שוטים ומ-40 ל-52 שניות. נוספו שוט 7 (הפסגה) ושוט 9 (האנדרטה), שוט 6 יוצר מחדש, ושוט הסיום הישן (מפתח על מדף) הוחלף בשוט 10.",
+      "שוט 6 יוצר פעמיים. בגרסה הראשונה המודל הוסיף מסגור פנימי והניח את הצילום כמו תמונה ממוסגרת על רקע קרם. האשם הוא הסיומת \"generous negative space above\" שנוספת לכל פרומפט פריים. לשוטים שאמורים למלא את כל הפריים יש עכשיו דגל full:true בכרטיס, והוא מחליף את הסיומת ההיא בהוראה מפורשת של edge to edge בלי מאט, בלי מסגרת פנימית ובלי שוליים. כשמייצרים שוט חדש שהוא קלוז-אפ, מסמנים אותו full.",
       "ארבעה פריימים חדשים: 6, 7, 9, 10. הפריימים של שוטים 1, 2, 3, 4, 5 ו-8 נשארו בדיוק כפי שהם, רק פרומפט התנועה שלהם התהדק.",
       "למה שוט הסיום הוחלף: הקריינות שם מדברת על גבול ועל חוסר, והפריים הישן הראה ריפוי. התמונה והטקסט משכו לכיוונים הפוכים. שוט 10 מראה בדיוק את מה שהמשפט אומר, כלומר את הקו שבו התיקון נעצר.",
       "האייקון של Undo מקבל שוט משלו, שוט 9. הוא מפוסל כאובייקט חימר עומד ולא מגולף בתוך משטח, כי חריטה עדינה על מפתח קטן זה בדיוק מה שמודלים מאבדים. אם החץ יוצא לא קריא, מייצרים שוב עם דגש על loop ועל arrowhead ולא על המילה undo.",
