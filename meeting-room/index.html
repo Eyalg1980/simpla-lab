@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>חדר הישיבות</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F3EADB; --cream-2:#EADFCC; --ink:#2A2318; --ink-soft:#6B5F4E;
+  --coral:#F7636B; --mustard:#E8B33A; --teal:#3E8E8A;
+  --navy:#0B1622; --navy-2:#101F30; --blue-line:rgba(126,196,224,.13);
+  --blue-ink:#8FC7DE; --paper:#DDE7EC; --stamp:#C9403F; --stamp-green:#2F7D5B;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:var(--navy);color:var(--ink);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;position:relative}
+button{font-family:'Heebo',sans-serif}
+
+/* ============ APP BAR ============ */
+.appbar{position:sticky;top:0;z-index:60;background:rgba(243,234,219,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(42,35,24,.12)}
+.appbar .in{max-width:1240px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.wordmark{display:flex;align-items:baseline;gap:8px}
+.wordmark .u{font-size:11px;letter-spacing:3px;color:var(--ink-soft)}
+.wordmark .n{font-size:19px;font-weight:900;letter-spacing:-.4px}
+.tabs{display:flex;gap:4px;margin-inline-start:auto;flex-wrap:wrap}
+.tab{background:none;border:0;font-size:14px;font-weight:500;color:var(--ink-soft);padding:8px 14px;border-radius:999px;cursor:pointer;transition:.15s;position:relative}
+.tab:hover{background:rgba(42,35,24,.06)}
+.tab.on{background:var(--ink);color:var(--cream);font-weight:700}
+.tab .badge{display:inline-block;min-width:18px;margin-inline-start:6px;font-size:11px;font-weight:700;background:var(--coral);color:#fff;border-radius:999px;padding:1px 6px}
+.tab.on .badge{background:var(--mustard);color:#231C0C}
+
+.view{display:none}
+.view.on{display:block}
+
+/* ============ WARM SURFACE ============ */
+.warm{background:var(--cream);position:relative;padding:34px 24px 50px;overflow:hidden}
+.warm::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 20% 10%,rgba(232,179,58,.16),transparent 45%),radial-gradient(circle at 85% 0%,rgba(62,142,138,.12),transparent 40%);pointer-events:none}
+.masthead{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.brand h1{font-size:36px;font-weight:900;letter-spacing:-1px;line-height:1}
+.brand .sub{margin-top:7px;color:var(--ink-soft);font-size:15px}
+.meta-chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:12px;font-weight:500;padding:6px 12px;border-radius:999px;background:rgba(42,35,24,.06);border:1px dashed rgba(42,35,24,.25);color:var(--ink-soft)}
+.chip.hot{background:rgba(247,99,107,.12);border-color:rgba(247,99,107,.45);color:#B23C43}
+
+.readback{position:relative;display:flex;gap:12px;align-items:flex-start;background:rgba(62,142,138,.10);border:1px dashed rgba(62,142,138,.45);border-radius:14px;padding:13px 16px;margin-bottom:22px;font-size:14.5px;line-height:1.55;color:#2C5B58}
+.readback b{font-size:10.5px;letter-spacing:2px;color:var(--teal);display:block;margin-bottom:3px}
+
+.panel{display:grid;grid-template-columns:1.35fr 1fr;gap:24px;position:relative}
+.advisors{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.adv{background:#fff;border-radius:20px;padding:16px 14px 14px;text-align:center;border:1px solid rgba(42,35,24,.08);box-shadow:0 10px 24px -18px rgba(42,35,24,.5);transition:transform .18s ease}
+.adv:hover{transform:translateY(-3px)}
+.adv .face{width:88px;height:88px;border-radius:50%;margin:0 auto 10px;overflow:hidden;background:var(--cream-2);border:3px solid #fff;box-shadow:0 0 0 2px rgba(42,35,24,.08)}
+.adv .face img{width:100%;height:100%;object-fit:cover;display:block}
+.adv .name{font-weight:700;font-size:17px}
+.adv .angle{font-size:12px;color:var(--ink-soft);line-height:1.45;margin-top:5px;min-height:52px}
+.adv .voice{font-size:11.5px;color:var(--teal);font-style:italic;margin-top:4px}
+.adv .tally{margin-top:11px;padding-top:10px;border-top:1px dashed rgba(42,35,24,.18);display:flex;justify-content:center;gap:14px;font-size:11.5px;color:var(--ink-soft)}
+.adv .tally b{display:block;font-size:19px;color:var(--ink);font-weight:700;line-height:1.1}
+.adv .tally .pass b{color:var(--coral)}
+
+.manager{background:linear-gradient(160deg,#2A2318,#3B3123);color:var(--cream);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.manager::after{content:"";position:absolute;left:-40px;bottom:-40px;width:160px;height:160px;border-radius:50%;background:rgba(232,179,58,.10)}
+.manager .top{display:flex;align-items:center;gap:14px;position:relative}
+.manager .face{width:74px;height:74px;border-radius:50%;overflow:hidden;flex:0 0 auto;border:3px solid rgba(243,234,219,.9)}
+.manager .face img{width:100%;height:100%;object-fit:cover;display:block}
+.manager .role{font-size:11px;letter-spacing:2px;color:var(--mustard);font-weight:500}
+.manager .nm{font-size:22px;font-weight:900;margin-top:2px}
+.manager .line{font-size:12px;color:rgba(243,234,219,.62);margin-top:3px}
+.manager blockquote{font-size:15.5px;line-height:1.62;padding-right:14px;border-right:3px solid var(--coral)}
+.manager .stats{display:flex;gap:9px;flex-wrap:wrap;position:relative}
+.manager .stat{background:rgba(243,234,219,.09);border-radius:12px;padding:8px 12px;font-size:11.5px;color:rgba(243,234,219,.75)}
+.manager .stat b{display:block;font-size:20px;color:var(--cream);font-weight:700}
+
+/* ============ SEAM ============ */
+.seam{height:60px;background:var(--cream);position:relative;overflow:hidden}
+.seam svg{position:absolute;bottom:-1px;width:100%;height:100%;display:block}
+.seam .label{position:absolute;z-index:2;bottom:7px;right:50%;transform:translateX(50%);font-size:10.5px;letter-spacing:5px;color:rgba(143,199,222,.55)}
+.seam.up{background:var(--navy)}
+
+/* ============ COLD SURFACE ============ */
+.cold{background:var(--navy);position:relative;padding:24px 24px 64px;color:var(--paper);min-height:52vh}
+.cold::before{content:"";position:absolute;inset:0;
+ background-image:linear-gradient(var(--blue-line) 1px,transparent 1px),linear-gradient(90deg,var(--blue-line) 1px,transparent 1px),linear-gradient(rgba(126,196,224,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(126,196,224,.05) 1px,transparent 1px);
+ background-size:120px 120px,120px 120px,24px 24px,24px 24px;pointer-events:none}
+.cold-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:20px;position:relative}
+.cold-head h2{font-size:13px;letter-spacing:6px;color:var(--blue-ink);font-weight:500}
+.cold-head .note{font-size:12px;color:rgba(221,231,236,.42)}
+
+.pitches{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative}
+.card{background:rgba(16,31,48,.78);border:1px solid rgba(143,199,222,.22);border-radius:4px;padding:20px 18px 16px;position:relative;display:flex;flex-direction:column;gap:12px}
+.card::before{content:"";position:absolute;inset:6px;border:1px solid rgba(143,199,222,.10);pointer-events:none}
+.card .corner{position:absolute;top:-1px;left:-1px;width:26px;height:26px;border-top:2px solid var(--blue-ink);border-left:2px solid var(--blue-ink);opacity:.55}
+.card .corner.br{top:auto;left:auto;bottom:-1px;right:-1px;border:0;border-bottom:2px solid var(--blue-ink);border-right:2px solid var(--blue-ink)}
+.card .idnum{font-size:10.5px;letter-spacing:3px;color:rgba(143,199,222,.55);font-family:'IBM Plex Mono',monospace;padding-left:104px}
+.card h3{font-size:25px;font-weight:900;color:#fff;letter-spacing:-.5px;line-height:1.1;padding-left:104px;min-height:56px}
+.card .one{font-size:14.5px;line-height:1.55;color:rgba(221,231,236,.86)}
+.spec{border-top:1px dashed rgba(143,199,222,.22);padding-top:11px;display:flex;flex-direction:column;gap:9px}
+.row{display:grid;grid-template-columns:64px 1fr;gap:10px;align-items:start}
+.row .k{font-size:10px;letter-spacing:2px;color:rgba(143,199,222,.6);padding-top:3px}
+.row .v{font-size:13px;line-height:1.5;color:rgba(221,231,236,.8)}
+.screens{display:flex;flex-wrap:wrap;gap:5px}
+.screens span{font-size:11px;padding:3px 8px;border:1px solid rgba(143,199,222,.28);border-radius:2px;color:rgba(221,231,236,.75)}
+.screens span.main{border-color:var(--mustard);color:var(--mustard)}
+.tags{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.tag{font-size:11px;padding:4px 9px;border-radius:2px;border:1px solid rgba(143,199,222,.3);color:rgba(221,231,236,.75)}
+.tag.time{border-color:var(--teal);color:#7FD8CF}
+.tag.time.weekend{border-color:var(--mustard);color:var(--mustard)}
+.tag.time.project{border-color:var(--coral);color:var(--coral)}
+.tag.by{border-style:dashed;border-color:rgba(232,179,58,.5);color:var(--mustard)}
+.counter{background:rgba(247,99,107,.09);border-right:3px solid var(--coral);padding:10px 12px;border-radius:2px}
+.counter .who{font-size:10px;letter-spacing:2px;color:var(--coral);margin-bottom:4px}
+.counter p{font-size:13px;line-height:1.5;color:rgba(221,231,236,.85)}
+.actions{display:flex;gap:8px;margin-top:auto;padding-top:12px}
+.btn{flex:1;font-size:13px;font-weight:700;padding:10px 6px;border-radius:2px;border:1px solid rgba(143,199,222,.35);background:transparent;color:var(--paper);cursor:pointer;transition:.15s}
+.btn:hover{background:rgba(143,199,222,.12)}
+.btn.go{background:var(--mustard);border-color:var(--mustard);color:#231C0C}
+.btn.go:hover{filter:brightness(1.08)}
+.btn:disabled{opacity:.35;cursor:default}
+
+.stamp{position:absolute;top:16px;left:16px;width:88px;height:88px;pointer-events:none;opacity:0;transform:scale(2.6) rotate(-24deg)}
+.stamp.show{animation:land .45s cubic-bezier(.2,1.4,.4,1) forwards}
+@keyframes land{0%{opacity:0;transform:scale(2.6) rotate(-24deg)}60%{opacity:.95;transform:scale(.92) rotate(-11deg)}100%{opacity:.88;transform:scale(1) rotate(-13deg)}}
+.stamp .ring{width:100%;height:100%;border:3px solid var(--stamp);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--stamp);font-weight:900;font-size:19px;box-shadow:inset 0 0 0 2px rgba(201,64,63,.35);background:rgba(201,64,63,.06);text-align:center;line-height:1.1;padding:6px}
+.stamp.green .ring{border-color:var(--stamp-green);color:var(--stamp-green);box-shadow:inset 0 0 0 2px rgba(47,125,91,.35);background:rgba(47,125,91,.07)}
+.stamp.set{opacity:.88;transform:rotate(-13deg)}
+.stamp.idle{opacity:.32;transform:rotate(-7deg);animation:none}
+.stamp.idle .ring{border-color:rgba(143,199,222,.6);color:rgba(143,199,222,.7);box-shadow:none;background:transparent;font-size:15px}
+.card.stamped{border-color:rgba(232,179,58,.5)}
+
+.rejects{margin-top:32px;position:relative}
+.rejects summary{cursor:pointer;list-style:none;font-size:12px;letter-spacing:4px;color:var(--blue-ink);padding:12px 0;border-top:1px dashed rgba(143,199,222,.25);border-bottom:1px dashed rgba(143,199,222,.25)}
+.rejects summary::-webkit-details-marker{display:none}
+.rejects summary::after{content:"  +";opacity:.6}
+.rejects[open] summary::after{content:"  −"}
+.rej-list{padding:16px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.rej{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:13px;padding:9px 12px;background:rgba(143,199,222,.04);border-right:2px solid rgba(201,64,63,.45)}
+.rej .why{color:rgba(221,231,236,.42);font-size:12px;display:flex;align-items:center;gap:8px}
+.rej button{background:none;border:1px solid rgba(143,199,222,.3);color:rgba(143,199,222,.8);font-size:11px;padding:2px 8px;border-radius:2px;cursor:pointer;white-space:nowrap}
+.rej button:hover{background:rgba(143,199,222,.14)}
+.rej.revived{border-right-color:var(--mustard);background:rgba(232,179,58,.07)}
+
+/* ============ TABLE (השולחן) ============ */
+.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px;position:relative}
+.fchip{background:transparent;border:1px solid rgba(143,199,222,.3);color:rgba(221,231,236,.8);font-size:13px;padding:7px 14px;border-radius:2px;cursor:pointer}
+.fchip.on{background:var(--blue-ink);border-color:var(--blue-ink);color:var(--navy);font-weight:700}
+.pool{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;position:relative}
+.pitem{background:rgba(16,31,48,.7);border:1px solid rgba(143,199,222,.18);border-radius:3px;padding:13px 14px;display:flex;flex-direction:column;gap:6px;position:relative}
+.pitem .ptop{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.pitem h4{font-size:17px;font-weight:700;color:#fff}
+.pitem .line{font-size:13px;color:rgba(221,231,236,.72);line-height:1.45}
+.pitem .foot{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:11px;color:rgba(143,199,222,.6);margin-top:2px}
+.pitem .ev{font-size:11.5px;color:var(--mustard);opacity:.85}
+.pitem .clock{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:rgba(221,231,236,.35)}
+.pitem.pitched{border-color:rgba(232,179,58,.45)}
+.abadge{font-size:10px;letter-spacing:1px;padding:2px 7px;border-radius:2px;border:1px dashed}
+.abadge.visionary{border-color:rgba(232,179,58,.6);color:var(--mustard)}
+.abadge.pain{border-color:rgba(127,216,207,.6);color:#7FD8CF}
+.abadge.teacher{border-color:rgba(247,99,107,.55);color:var(--coral)}
+
+/* ============ STUDIO ============ */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative}
+.gcard{background:#fff;border-radius:16px;padding:16px;border:1px solid rgba(42,35,24,.08);box-shadow:0 10px 24px -20px rgba(42,35,24,.6);display:flex;flex-direction:column;gap:6px;text-decoration:none;color:inherit;transition:transform .16s}
+.gcard:hover{transform:translateY(-3px)}
+.gcard .st{font-size:10px;letter-spacing:2px;color:var(--teal)}
+.gcard h4{font-size:18px;font-weight:700}
+.gcard .dt{font-size:11.5px;color:var(--ink-soft)}
+.sec-title{font-size:12px;letter-spacing:5px;color:var(--ink-soft);margin:30px 0 14px;position:relative}
+.prodpage{background:var(--navy);border-radius:8px;padding:22px;color:var(--paper);position:relative;overflow:hidden}
+.prodpage::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(126,196,224,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(126,196,224,.06) 1px,transparent 1px);background-size:24px 24px}
+.prodpage h3{font-size:26px;font-weight:900;color:#fff;position:relative}
+.prodpage .fields{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px;position:relative}
+.field{border:1px dashed rgba(143,199,222,.25);border-radius:3px;padding:11px 13px}
+.field .k{font-size:10px;letter-spacing:2px;color:rgba(143,199,222,.6);margin-bottom:5px}
+.field .v{font-size:13.5px;line-height:1.5;color:rgba(221,231,236,.55);font-style:italic}
+.field .v.filled{color:rgba(221,231,236,.9);font-style:normal}
+
+/* ============ BAG ============ */
+.dropbox{background:#fff;border:2px dashed rgba(42,35,24,.22);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:12px;position:relative}
+.dropbox label{font-size:12px;letter-spacing:3px;color:var(--ink-soft)}
+.dropbox textarea{width:100%;min-height:88px;border:0;resize:vertical;font-family:'Heebo';font-size:16px;color:var(--ink);outline:none;line-height:1.5}
+.dropbox .brow{display:flex;gap:8px;align-items:center}
+.dropbox .brow .send{background:var(--ink);color:var(--cream);border:0;font-weight:700;font-size:14px;padding:10px 22px;border-radius:999px;cursor:pointer}
+.dropbox .brow .mic{background:rgba(247,99,107,.12);border:1px dashed rgba(247,99,107,.5);color:#B23C43;font-size:13px;padding:9px 16px;border-radius:999px;cursor:pointer}
+.dropbox .hint{font-size:12px;color:var(--ink-soft);margin-inline-start:auto}
+.inboxlist{display:flex;flex-direction:column;gap:8px;position:relative}
+.inrow{background:#fff;border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid rgba(42,35,24,.07)}
+.inrow .t{font-size:14.5px}
+.inrow .m{font-size:11.5px;color:var(--ink-soft);white-space:nowrap;display:flex;gap:8px;align-items:center}
+.pill{font-size:10.5px;padding:2px 8px;border-radius:999px;border:1px dashed rgba(42,35,24,.3);color:var(--ink-soft)}
+.pill.used{border-color:rgba(62,142,138,.55);color:var(--teal)}
+.linklist{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative}
+.lcard{background:#fff;border-radius:14px;padding:14px;border:1px solid rgba(42,35,24,.07);text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:5px}
+.lcard h4{font-size:16px;font-weight:700}
+.lcard .nt{font-size:12.5px;color:var(--ink-soft);line-height:1.45}
+.lcard .u{font-size:11px;color:var(--teal);font-family:'IBM Plex Mono',monospace;overflow:hidden;text-overflow:ellipsis}
+
+.footer{margin-top:34px;text-align:center;font-size:11.5px;color:rgba(221,231,236,.3);letter-spacing:2px;position:relative}
+.footer.dark{color:rgba(42,35,24,.35)}
+
+
+/* ---- added in review pass ---- */
+:focus-visible{outline:2px solid var(--mustard);outline-offset:2px}
+.miss{color:#FF9AA0;border-bottom:1px dotted #FF9AA0;font-size:12.5px}
+.counter.bad{background:rgba(247,99,107,.05);border-right-style:dashed}
+.lockmsg{font-size:11.5px;color:rgba(232,179,58,.8);border-top:1px dashed rgba(232,179,58,.3);padding-top:9px;margin-top:-4px}
+.msel{font-family:'Heebo';background:transparent;cursor:pointer;color:var(--ink);border:1px dashed rgba(42,35,24,.35)}
+.chip.past{background:rgba(42,35,24,.12);border-style:solid;color:var(--ink)}
+.uppill{font-size:10.5px;padding:2px 8px;border-radius:2px;border:1px solid var(--mustard);color:var(--mustard)}
+.pitem .clock{color:rgba(221,231,236,.5)}
+.pitem .clock.warn{color:var(--coral)}
+.pitem .clock.up{color:var(--mustard)}
+.pitem.up{border-color:rgba(232,179,58,.5);background:rgba(232,179,58,.05)}
+.prodpage.empty p{font-size:16px;color:rgba(221,231,236,.55);position:relative}
+.patbox{background:#fff;border-radius:16px;padding:18px 20px;border:1px solid rgba(42,35,24,.08);position:relative}
+.patbox b{display:block;font-size:11px;letter-spacing:2px;color:var(--teal);margin-bottom:7px}
+.patbox p{font-size:16px;line-height:1.6}
+.patbox.wait p{color:var(--ink-soft);font-size:14.5px}
+.prog{margin-top:12px;height:6px;background:rgba(42,35,24,.08);border-radius:999px;overflow:hidden}
+.prog span{display:block;height:100%;background:var(--mustard)}
+.gcard:focus-visible,.lcard:focus-visible{outline-offset:3px}
+
+@media(max-width:1000px){
+  .panel{grid-template-columns:1fr}
+  .pitches,.pool,.rej-list,.linklist{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .prodpage .fields{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .appbar .in{padding:8px 14px;gap:10px}
+  .tabs{width:100%;margin:0;justify-content:space-between}
+  .tab{padding:7px 9px;font-size:13px}
+  .warm{padding:24px 14px 38px}.cold{padding:20px 14px 48px}
+  .brand h1{font-size:29px}
+  .advisors{grid-template-columns:1fr;gap:10px}
+  .adv{display:grid;grid-template-columns:70px 1fr;text-align:right;gap:14px;align-items:center;padding:12px}
+  .adv .face{width:64px;height:64px;margin:0}
+  .adv .angle{min-height:0}
+  .adv .tally{justify-content:flex-start;grid-column:1/-1;margin-top:6px;padding-top:8px}
+  .card h3{font-size:22px;padding-left:86px;min-height:48px}
+  .card .idnum{padding-left:86px}
+  .stamp{width:74px;height:74px}
+  .stamp .ring{font-size:16px}.stamp.idle .ring{font-size:13px}
+  .gallery{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="appbar">
+  <div class="in">
+    <div class="wordmark"><span class="u">eyal</span><span class="n">חדר הישיבות</span></div>
+    <nav class="tabs" role="tablist">
+      <button class="tab on" role="tab" aria-selected="true" data-v="meeting">הישיבה</button>
+      <button class="tab" role="tab" aria-selected="false" data-v="table">השולחן<span class="badge" id="bTable">0</span></button>
+      <button class="tab" role="tab" aria-selected="false" data-v="studio">הסטודיו</button>
+      <button class="tab" role="tab" aria-selected="false" data-v="bag">התיק<span class="badge" id="bBag">0</span></button>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= א. הישיבה ================= -->
+<section class="view on" id="v-meeting">
+  <div class="warm">
+    <div class="wrap">
+      <div class="masthead">
+        <div class="brand">
+          <h1>הישיבה</h1>
+          <div class="sub" id="mDate"></div>
+        </div>
+        <div class="meta-chips" id="mChips"></div>
+      </div>
+      <div class="readback" id="readback"></div>
+      <div class="panel">
+        <div class="advisors" id="advisors"></div>
+        <div class="manager">
+          <div class="top">
+            <div class="face" id="pmFaceWrap"></div>
+            <div>
+              <div class="role">מנהל המוצר</div>
+              <div class="nm">הפילטר</div>
+              <div class="line">חד, מחליט, מנמק בשורה</div>
+            </div>
+          </div>
+          <blockquote id="pmNote"></blockquote>
+          <div class="stats" id="pmStats"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="seam">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,60 L0,28 C180,6 320,50 520,32 C720,14 860,54 1040,36 C1200,20 1330,48 1440,30 L1440,60 Z" fill="#0B1622"></path></svg>
+    <span class="label">B L U E P R I N T</span>
+  </div>
+  <div class="cold">
+    <div class="wrap">
+      <div class="cold-head">
+        <h2>שלושת הפיצ'ים</h2>
+        <div class="note">כרטיס נקרא ב־40 שניות · רק המאושר נכנס ל־screen-architect</div>
+      </div>
+      <div class="pitches" id="pitches"></div>
+      <details class="rejects">
+        <summary id="rejSum">מה נפסל השבוע</summary>
+        <div class="rej-list" id="rejects"></div>
+      </details>
+      <div class="footer">חדר הישיבות · הפיצ'ים לא מתרעננים באמצע השבוע</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ב. השולחן ================= -->
+<section class="view" id="v-table">
+  <div class="cold" style="padding-top:34px">
+    <div class="wrap">
+      <div class="cold-head">
+        <h2>ה ש ו ל ח ן</h2>
+        <div class="note">כל רעיון שלא נגעת בו 14 יום מתארכב לבד</div>
+      </div>
+      <div class="filters" id="filters"></div>
+      <div class="pool" id="pool"></div>
+      <div class="cold-head" style="margin-top:36px"><h2>ה פ ס י ל ו ת</h2><div class="note">להרים רעיון שנפסל הוא הסיגנל החזק ביותר שאתה נותן לפילטר</div></div>
+      <div class="rej-list" id="rejects2"></div>
+      <div class="footer">השולחן · מתעדכן כל בוקר ב־06:57</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ג. הסטודיו ================= -->
+<section class="view" id="v-studio">
+  <div class="warm" style="min-height:calc(100vh - 52px)">
+    <div class="wrap">
+      <div class="masthead">
+        <div class="brand"><h1>הסטודיו</h1><div class="sub">מה שאושר, ומה שכבר באוויר</div></div>
+        <div class="meta-chips" id="sChips"></div>
+      </div>
+      <div class="sec-title">ב א ו ו י ר</div>
+      <div class="gallery" id="gallery"></div>
+      <div class="sec-title">ב ב נ י י ה</div>
+      <div id="building"></div>
+      <div class="sec-title">ה ד פ ו ס</div>
+      <div id="pattern"></div>
+      <div class="footer dark">הסטודיו · דף מוצר לכל מה שאושר</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ד. התיק ================= -->
+<section class="view" id="v-bag">
+  <div class="warm" style="min-height:calc(100vh - 52px)">
+    <div class="wrap">
+      <div class="masthead">
+        <div class="brand"><h1>התיק</h1><div class="sub">מה שאתה מזין לפאנל, לפני שהם מנחשים</div></div>
+      </div>
+      <div class="dropbox">
+        <label>ל ש ו ל ח ן</label>
+        <textarea id="drop" placeholder="ראיתי היום ש... / שוב עשיתי את זה ידנית / סטודנט שאל אותי..."></textarea>
+        <div class="brow">
+          <button class="send" onclick="dropIt()">לשולחן</button>
+          <button class="mic">הקלטה</button>
+          <span class="hint">נקרא על ידי היועצים לפני הישיבה הבאה</span>
+        </div>
+      </div>
+      <div class="sec-title">מ ה ש נ כ נ ס</div>
+      <div class="inboxlist" id="inbox"></div>
+      <div class="sec-title">ה ש ר א ה</div>
+      <div class="linklist" id="links"></div>
+      <div class="footer dark">התיק · פריט שלא נוצל תוך 30 יום עולה לחוקר הכאבים בעדיפות</div>
+    </div>
+  </div>
+</section>
+
+<script id="fallback" type="application/json">{"portraits": {"portraits": [{"key": "visionary", "role": "הרעיונאי", "jobId": "d569b012-c2b8-4afe-b47c-a1983596cf9b", "url": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20260801_113337_d569b012-c2b8-4afe-b47c-a1983596cf9b.png", "prompt": "Portrait bust of a bright-eyed clay scout figure leaning forward with an eager expression, holding one small glowing cube while a few tiny geometric shapes float around the head"}, {"key": "pain", "role": "חוקר הכאבים", "jobId": "61cd827e-b7b8-430b-a26b-49f3f1e46044", "url": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20260801_113340_61cd827e-b7b8-430b-a26b-49f3f1e46044.png", "prompt": "Portrait bust of a calm deadpan clay investigator figure with round spectacles, holding a small magnifying glass in one hand and a tiny clipboard with tally marks in the other"}, {"key": "teacher", "role": "המורה", "jobId": "0e5c6237-1236-4e59-9663-457fcb8a0e12", "url": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20260801_113343_0e5c6237-1236-4e59-9663-457fcb8a0e12.png", "prompt": "Portrait bust of a thoughtful clay teacher figure with arms crossed and one eyebrow raised, a small blank presentation screen standing beside the shoulder"}, {"key": "pm", "role": "מנהל המוצר", "jobId": "8391d804-cacb-4638-9bae-72b73b31f0e7", "url": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20260801_113345_8391d804-cacb-4638-9bae-72b73b31f0e7.png", "prompt": "Portrait bust of a sharp decisive clay manager figure in a collared shirt, gripping a wooden rubber stamp raised mid air about to strike, small stack of blank cards below"}], "baseStyle": "coral red, mustard yellow, teal and cream palette, 3D Pop art rendered illustration in soft pastel colors with clay art style, matte finish, rounded shapes, studio lighting, playful yet professional aesthetic, miniature diorama feel, clean light cream background, no text, no logos", "model": "nano_banana_pro", "aspect": "1:1", "resolution": "1k"}, "meetings": {"current": "M-2026-W31", "meetings": [{"id": "M-2026-W31", "date": "2026-08-02", "reviewed": 18, "rejected": 15, "pmNote": "סיננתי 18, נשארו 3. השבוע כל השלושה נופלים על אותו קו: הפער בין מה שאתה מלמד לבין מה שאתה בונה. זה לא במקרה, וכדאי שתשים לב לזה לפני שתבחר.", "tally": {"visionary": [9, 1], "pain": [5, 1], "teacher": [4, 1]}, "pitches": [{"id": "P-31-01", "ideaId": "I-2026-0231", "title": "סטייטים", "one": "לוקח מסך אחד ומחזיר את כל המצבים שלא ציירת: ריק, טעינה, שגיאה, הרשאה חסרה, טקסט ארוך מדי.", "who": "אתה, וכל כיתת UI/UX בשיעור 6", "pain": "יצא MCP חדש של Figma שקורא מצבי קומפוננטות. עד היום זו הייתה עבודה ידנית.", "mainScreen": "מפת הסטייטים", "screens": ["מפת הסטייטים", "העלאת מסך", "כרטיס סטייט", "ייצוא ל-Figma"], "whyNow": "היכולת קיימת מהשבוע, ואף אחד עוד לא עטף אותה בכלי", "effort": "weekend", "by": "visionary", "counterBy": "pain", "counter": "מגניב, אבל אתה עצמך לא נתקלת בזה אפילו פעם אחת החודש. זה כלי שנבנה בשביל הדמו שלו.", "state": "pending"}, {"id": "P-31-02", "ideaId": "I-2026-0233", "title": "בנק סעיפים", "one": "בונה הצעת מחיר בארבע שאלות, מתוך בנק הסעיפים שכבר כתבת, במקום לחפש הצעה ישנה ולהעתיק ממנה.", "who": "אתה בלבד", "pain": "שלוש פעמים החודש פתחת הצעה ישנה כדי להעתיק ממנה סעיף אחד.", "mainScreen": "בונה ההצעה", "screens": ["בונה ההצעה", "בנק סעיפים", "תמחור", "ייצוא PDF"], "whyNow": "עונת ההצעות של ספטמבר מתחילה בעוד שלושה שבועות", "effort": "session", "by": "pain", "counterBy": "visionary", "counter": "זה פותר לך כאב אמיתי, אבל אין כאן סיפור. אף אחד לא יראה את זה ואין על זה פוסט.", "state": "pending"}, {"id": "P-31-03", "ideaId": "I-2026-0236", "title": "שובר מערכות", "one": "מקבל URL, מחלץ ממנו דיזיין סיסטם, ואז נותן לשנות טוקן אחד ולראות בזמן אמת את כל המסך מתפרק.", "who": "סטודנטים בשיעור דיזיין סיסטמס", "pain": "סטודנטים לא מבינים מה זה טוקן עד שהם רואים אחד נשבר.", "mainScreen": "המסך החי", "screens": ["המסך החי", "סרגל הטוקנים", "לפני ואחרי", "ייצוא tokens.css"], "whyNow": "השיעור הזה עולה שוב במחזור נובמבר", "effort": "weekend", "by": "teacher", "counterBy": "pain", "counter": "יש לך כבר סקיל שמחלץ דיזיין סיסטם. זו תוספת של מסך אחד, לא מוצר חדש.", "state": "pending"}], "rejects": [{"ideaId": "I-2026-0198", "title": "מחולל תמונות לפוסטים", "why": "יש כזה טוב ובחינם", "advisor": "visionary"}, {"ideaId": "I-2026-0201", "title": "CRM ללקוחות סימפלה", "why": "שבועיים בנייה", "advisor": "pain"}, {"ideaId": "I-2026-0203", "title": "בוט טלגרם לתזכורות", "why": "מעניין אותך רק השבוע", "advisor": "visionary"}, {"ideaId": "I-2026-0205", "title": "מסכם פגישות זום", "why": "כבר בנוי אצלך", "advisor": "pain"}, {"ideaId": "I-2026-0207", "title": "אפליקציית מתכונים חברתית", "why": "לא אתה המשתמש", "advisor": "visionary"}, {"ideaId": "I-2026-0209", "title": "מנתח מתחרים אוטומטי", "why": "אין לך בעיה כזו", "advisor": "visionary"}, {"ideaId": "I-2026-0211", "title": "לוח שנה לתוכן", "why": "הדשבורד כבר עושה את זה", "advisor": "pain"}, {"ideaId": "I-2026-0214", "title": "מחשבון ROI לקורסים", "why": "תבנה פעם אחת ולא תחזור", "advisor": "teacher"}, {"ideaId": "I-2026-0216", "title": "ספריית פרומפטים", "why": "קובץ טקסט מספיק", "advisor": "pain"}, {"ideaId": "I-2026-0218", "title": "מדד קריאות לעברית", "why": "פרויקט, לא סשן", "advisor": "teacher"}, {"ideaId": "I-2026-0220", "title": "מייצר תרגילים לכיתה", "why": "המורה כבר הגיש גרסה טובה יותר", "advisor": "teacher"}, {"ideaId": "I-2026-0222", "title": "חנות תבניות Figma", "why": "זה עסק, לא כלי", "advisor": "visionary"}, {"ideaId": "I-2026-0224", "title": "סורק נגישות", "why": "קיים, בחינם, טוב יותר", "advisor": "visionary"}, {"ideaId": "I-2026-0226", "title": "מתרגם סילבוסים", "why": "עשית את זה פעם אחת", "advisor": "teacher"}, {"ideaId": "I-2026-0228", "title": "מנוע המלצות לסרטים", "why": "אין קשר לכלום", "advisor": "visionary"}], "pattern": null}, {"id": "M-2026-W30", "date": "2026-07-26", "reviewed": 16, "rejected": 13, "pmNote": "סיננתי 16, נשארו 3. שבוע חלש לרעיונאי, שני הרעיונות שלו היו כותרות ולא יכולות.", "tally": {"visionary": [7, 1], "pain": [5, 1], "teacher": [4, 1]}, "pitches": [{"id": "P-30-01", "ideaId": "I-2026-0180", "title": "מחלץ דיזיין סיסטם", "one": "URL נכנס, tokens.css יוצא.", "who": "אתה וכיתת UI/UX", "pain": "בכל שיעור אתה מחלץ פלטה ידנית מאתר לדוגמה.", "mainScreen": "טבלת הטוקנים", "screens": ["טבלת הטוקנים", "הזנת URL", "תצוגה מקדימה", "ייצוא"], "whyNow": "השיעור בעוד שבועיים", "effort": "weekend", "by": "teacher", "counterBy": "visionary", "counter": "שימושי, אבל זה כלי שקוף. אף אחד לא רואה מה עשית.", "state": "approved"}, {"id": "P-30-02", "ideaId": "I-2026-0182", "title": "מנוע ניוזלטרים", "one": "קורא 40 ניוזלטרים ומחזיר מה חדש באמת.", "who": "אתה", "pain": "יצא Reader API חדש.", "mainScreen": "הפיד", "screens": ["הפיד", "מקורות", "סיכום שבועי"], "whyNow": "היכולת חדשה", "effort": "project", "by": "visionary", "counterBy": "pain", "counter": "אתה לא קורא ניוזלטרים. זה כלי לבן אדם אחר.", "state": "archived"}, {"id": "P-30-03", "ideaId": "I-2026-0186", "title": "בודק תרגילים", "one": "מקבל הגשה של סטודנט ומחזיר הערות לפי הרובריקה.", "who": "אתה בבדיקת עבודות", "pain": "שלוש שעות בשבוע על בדיקת הגשות.", "mainScreen": "מסך הבדיקה", "screens": ["מסך הבדיקה", "רובריקה", "היסטוריית סטודנט"], "whyNow": "עונת ההגשות", "effort": "weekend", "by": "pain", "counterBy": "teacher", "counter": "אם הכלי בודק, מה בדיוק אתה מלמד? זה מוריד ממך את החלק שהסטודנטים באים בשבילו.", "state": "snoozed"}], "rejects": [{"ideaId": "I-2026-0150", "title": "מחולל אווטארים", "why": "קיים, בחינם, טוב יותר", "advisor": "visionary"}, {"ideaId": "I-2026-0151", "title": "מפענח גיבריש", "why": "קטן מדי בשביל מוצר", "advisor": "pain"}, {"ideaId": "I-2026-0152", "title": "סימולטור כיתה", "why": "פרויקט, לא סשן", "advisor": "teacher"}, {"ideaId": "I-2026-0153", "title": "בונה סילבוסים", "why": "עשית את זה פעם אחת", "advisor": "teacher"}, {"ideaId": "I-2026-0154", "title": "גלריית תבניות", "why": "זה עסק, לא כלי", "advisor": "visionary"}, {"ideaId": "I-2026-0155", "title": "מנתח לוגים", "why": "אין לך לוגים", "advisor": "pain"}, {"ideaId": "I-2026-0156", "title": "מתזמן פוסטים", "why": "קיים ובחינם", "advisor": "visionary"}, {"ideaId": "I-2026-0157", "title": "מחשבון שעות", "why": "גיליון מספיק", "advisor": "pain"}, {"ideaId": "I-2026-0158", "title": "בוט שאלות לכיתה", "why": "המורה עצמו פסל", "advisor": "teacher"}, {"ideaId": "I-2026-0159", "title": "סורק תמונות", "why": "לא קשור לכלום", "advisor": "visionary"}, {"ideaId": "I-2026-0160", "title": "מנהל קבצים", "why": "לא בעיה שלך", "advisor": "pain"}, {"ideaId": "I-2026-0161", "title": "מחולל אייקונים", "why": "קיים, טוב יותר", "advisor": "visionary"}, {"ideaId": "I-2026-0162", "title": "לוח מחוונים ללקוחות", "why": "שבועיים בנייה", "advisor": "pain"}], "pattern": null}]}, "ideas": {"updated": "2026-08-02", "ideas": [{"id": "I-2026-0231", "title": "סטייטים", "line": "מסך אחד נכנס, כל המצבים שלא ציירת יוצאים", "advisor": "visionary", "createdAt": "2026-07-20", "capability": {"name": "Figma MCP component states", "releasedAt": "2026-07-28"}, "evidence": null, "lesson": null, "sourceInboxId": null, "status": "pitched", "touchedAt": "2026-08-01"}, {"id": "I-2026-0233", "title": "בנק סעיפים", "line": "הצעת מחיר בארבע שאלות מתוך סעיפים שכבר כתבת", "advisor": "pain", "createdAt": "2026-07-21", "capability": null, "evidence": "שלוש פעמים החודש פתחת הצעה ישנה כדי להעתיק סעיף", "lesson": null, "sourceInboxId": null, "status": "pitched", "touchedAt": "2026-08-01"}, {"id": "I-2026-0236", "title": "שובר מערכות", "line": "משנים טוקן אחד ורואים את כל המסך מתפרק", "advisor": "teacher", "createdAt": "2026-07-22", "capability": null, "evidence": null, "lesson": "דיזיין סיסטמס, מודול 3", "sourceInboxId": null, "status": "pitched", "touchedAt": "2026-08-01"}, {"id": "I-2026-0240", "title": "קורא ריפו", "line": "מצביע על ריפו ומקבל את מפת המסכים שלו", "advisor": "visionary", "createdAt": "2026-07-23", "capability": {"name": "Claude Agent SDK subagents", "releasedAt": "2026-07-21"}, "evidence": null, "lesson": null, "sourceInboxId": null, "status": "pool", "touchedAt": "2026-08-01"}, {"id": "I-2026-0241", "title": "תמלול לכרטיס", "line": "הודעה קולית נכנסת, כרטיס משימה יוצא", "advisor": "pain", "createdAt": "2026-07-24", "capability": null, "evidence": "פעמיים השבוע הקלטת לעצמך ואז הקלדת ידנית", "lesson": null, "sourceInboxId": null, "status": "pool", "touchedAt": "2026-08-01"}, {"id": "I-2026-0242", "title": "מד עומס כיתה", "line": "כמה תרגילים באמת נכנסים בחמש שעות", "advisor": "teacher", "createdAt": "2026-07-25", "capability": null, "evidence": null, "lesson": "תכנון שיעור, מודול 1", "sourceInboxId": null, "status": "pool", "touchedAt": "2026-08-01"}, {"id": "I-2026-0244", "title": "מנוע וריאציות", "line": "גרסה אחת של באנר, שמונה פורמטים החוצה", "advisor": "visionary", "createdAt": "2026-07-26", "capability": {"name": "Nano Banana Pro batch aspect", "releasedAt": "2026-07-15"}, "evidence": null, "lesson": null, "sourceInboxId": null, "status": "pool", "touchedAt": "2026-08-01"}, {"id": "I-2026-0245", "title": "מי ענה לי", "line": "סורק מיילים ומראה על מה עוד לא ענו לך", "advisor": "pain", "createdAt": "2026-07-27", "capability": null, "evidence": "ארבע פעמים החודש חיפשת ידנית מי לא חזר אליך", "lesson": null, "sourceInboxId": null, "status": "pool", "touchedAt": "2026-08-01"}, {"id": "I-2026-0246", "title": "תרגיל בלחיצה", "line": "מייצר תרגיל כיתה מתוך סעיף בסילבוס", "advisor": "teacher", "createdAt": "2026-07-28", "capability": null, "evidence": null, "lesson": "מחקר משתמשים, מודול 2", "sourceInboxId": null, "status": "pool", "touchedAt": "2026-08-01"}, {"id": "I-2026-0248", "title": "סרגל טוקנים חי", "line": "עורך טוקנים שמתעדכן על אתר אמיתי", "advisor": "visionary", "createdAt": "2026-07-29", "capability": {"name": "Chrome DevTools MCP", "releasedAt": "2026-07-24"}, "evidence": null, "lesson": null, "sourceInboxId": null, "status": "pool", "touchedAt": "2026-08-01"}, {"id": "I-2026-0250", "title": "חוזר ללקוח", "line": "מנסח עדכון סטטוס מתוך הקומיטים של השבוע", "advisor": "pain", "createdAt": "2026-07-20", "capability": null, "evidence": "שלוש פעמים כתבת עדכון סטטוס מאפס", "lesson": null, "sourceInboxId": null, "status": "pool", "touchedAt": "2026-08-01"}, {"id": "I-2026-0251", "title": "מסך הכיתה", "line": "משקף את המסך שלך לכיתה עם הדגשות אוטומטיות", "advisor": "teacher", "createdAt": "2026-07-21", "capability": null, "evidence": null, "lesson": "פרזנטציה של עבודה, מודול 4", "sourceInboxId": null, "status": "pool", "touchedAt": "2026-08-01"}]}, "decisions": {"decisions": [{"at": "2026-07-26", "meetingId": "M-2026-W30", "ideaId": "I-2026-0180", "title": "מחלץ דיזיין סיסטם", "advisor": "teacher", "effort": "weekend", "action": "approved", "reason": null, "weight": 1}, {"at": "2026-07-26", "meetingId": "M-2026-W30", "ideaId": "I-2026-0182", "title": "מנוע ניוזלטרים", "advisor": "visionary", "effort": "project", "action": "archived", "reason": "שבועיים בנייה בשביל משהו שלא תקרא", "weight": -1}, {"at": "2026-07-19", "meetingId": "M-2026-W29", "ideaId": "I-2026-0161", "title": "דרישת תשלום", "advisor": "pain", "effort": "session", "action": "approved", "reason": null, "weight": 1}, {"at": "2026-07-19", "meetingId": "M-2026-W29", "ideaId": "I-2026-0163", "title": "גלריית תבניות", "advisor": "visionary", "effort": "weekend", "action": "snoozed", "reason": null, "weight": 0.5}, {"at": "2026-07-19", "meetingId": "M-2026-W29", "ideaId": "I-2026-0158", "title": "מפענח גיבריש", "advisor": "pain", "effort": "session", "action": "revived", "reason": "נפסל כקטן מדי, ואתה השתמשת בו באותו שבוע", "weight": 3}, {"at": "2026-07-12", "meetingId": "M-2026-W28", "ideaId": "I-2026-0140", "title": "לוח משימות", "advisor": "pain", "effort": "weekend", "action": "approved", "reason": null, "weight": 1}, {"at": "2026-07-12", "meetingId": "M-2026-W28", "ideaId": "I-2026-0143", "title": "סימולטור כיתה", "advisor": "teacher", "effort": "project", "action": "archived", "reason": "פרויקט, לא סשן", "weight": -1}, {"at": "2026-07-05", "meetingId": "M-2026-W27", "ideaId": "I-2026-0121", "title": "הבמאי היומי", "advisor": "visionary", "effort": "weekend", "action": "approved", "reason": null, "weight": 1}, {"at": "2026-07-05", "meetingId": "M-2026-W27", "ideaId": "I-2026-0125", "title": "מחולל אווטארים", "advisor": "visionary", "effort": "weekend", "action": "archived", "reason": "קיים, בחינם, טוב יותר", "weight": -1}, {"at": "2026-06-28", "meetingId": "M-2026-W26", "ideaId": "I-2026-0104", "title": "מנתח ויזה", "advisor": "pain", "effort": "session", "action": "approved", "reason": null, "weight": 1}, {"at": "2026-06-28", "meetingId": "M-2026-W26", "ideaId": "I-2026-0108", "title": "בונה סילבוסים", "advisor": "teacher", "effort": "weekend", "action": "snoozed", "reason": null, "weight": 0.5}, {"at": "2026-06-21", "meetingId": "M-2026-W25", "ideaId": "I-2026-0090", "title": "בונה אתרים סימפלה", "advisor": "pain", "effort": "weekend", "action": "approved", "reason": null, "weight": 1}], "readBack": "שמתי לב שאתה מאשר כלים שאתה עצמך משתמש בהם, ופוסל כמעט כל כלי שנועד למישהו אחר. שלושת הפיצ'ים השבוע נבחרו עם זה בראש."}, "products": {"products": [{"id": "PR-001", "slug": "design-system", "title": "מחלץ דיזיין סיסטם", "approvedAt": "2026-07-26", "fromPitch": null, "concept": "", "goal": "", "audience": "", "screens": [], "dataSchema": "", "buildPrompt": "", "screenArchitectUrl": null, "liveUrl": "https://eyalg1980.github.io/simpla-lab/design-system/", "status": "live"}, {"id": "PR-002", "slug": "payment-request", "title": "דרישת תשלום", "approvedAt": "2026-07-19", "fromPitch": null, "concept": "", "goal": "", "audience": "", "screens": [], "dataSchema": "", "buildPrompt": "", "screenArchitectUrl": null, "liveUrl": "https://eyalg1980.github.io/simpla-lab/payment-request/", "status": "live"}, {"id": "PR-003", "slug": "gibberish", "title": "מפענח גיבריש", "approvedAt": "2026-07-19", "fromPitch": null, "concept": "", "goal": "", "audience": "", "screens": [], "dataSchema": "", "buildPrompt": "", "screenArchitectUrl": null, "liveUrl": "https://eyalg1980.github.io/simpla-lab/gibberish/", "status": "live"}, {"id": "PR-004", "slug": "daily-board", "title": "לוח משימות", "approvedAt": "2026-07-12", "fromPitch": null, "concept": "", "goal": "", "audience": "", "screens": [], "dataSchema": "", "buildPrompt": "", "screenArchitectUrl": null, "liveUrl": "https://eyalg1980.github.io/simpla-lab/daily-board/", "status": "live"}, {"id": "PR-005", "slug": "daily-director", "title": "הבמאי היומי", "approvedAt": "2026-07-05", "fromPitch": null, "concept": "", "goal": "", "audience": "", "screens": [], "dataSchema": "", "buildPrompt": "", "screenArchitectUrl": null, "liveUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/", "status": "live"}, {"id": "PR-006", "slug": "visa", "title": "מנתח ויזה", "approvedAt": "2026-06-28", "fromPitch": null, "concept": "", "goal": "", "audience": "", "screens": [], "dataSchema": "", "buildPrompt": "", "screenArchitectUrl": null, "liveUrl": "https://eyalg1980.github.io/simpla-lab/visa/", "status": "live"}, {"id": "PR-007", "slug": "simpla-site", "title": "בונה אתרים סימפלה", "approvedAt": "2026-06-21", "fromPitch": null, "concept": "", "goal": "", "audience": "", "screens": [], "dataSchema": "", "buildPrompt": "", "screenArchitectUrl": null, "liveUrl": "https://eyalg1980.github.io/simpla-lab/simpla-site/", "status": "live"}]}, "inbox": {"items": [{"id": "IN-0044", "at": "2026-07-30", "text": "שוב חיפשתי הצעה ישנה כדי להעתיק סעיף", "kind": "voice", "consumedBy": "I-2026-0233"}, {"id": "IN-0045", "at": "2026-07-31", "text": "סטודנט שאל למה הכפתור נראה אחר בעמוד השני", "kind": "text", "consumedBy": "I-2026-0236"}, {"id": "IN-0046", "at": "2026-08-01", "text": "ראיתי שיצא MCP של דבטולס בכרום", "kind": "text", "consumedBy": "I-2026-0248"}, {"id": "IN-0047", "at": "2026-08-01", "text": "שוב הקלדתי ידנית מה שהקלטתי לעצמי בדרך", "kind": "voice", "consumedBy": null}, {"id": "IN-0048", "at": "2026-08-01", "text": "בכיתה אף אחד לא הבין מה זה סטייט ריק", "kind": "text", "consumedBy": null}]}, "inspiration": {"items": [{"title": "Figma MCP component states", "url": "https://figma.com", "note": "היכולת שהרעיונאי הביא השבוע", "at": "2026-07-28"}, {"title": "Artem Shcherbakov portfolio", "url": "https://www.artemshcherbakov.com", "note": "השפה של הבמאי היומי", "at": "2026-07-20"}, {"title": "Claude Agent SDK", "url": "https://docs.claude.com", "note": "סאב-אייג'נטים, אולי בסיס לקורא ריפו", "at": "2026-07-21"}]}}</script>
+<script>
+const ROLES={visionary:{name:"הרעיונאי",angle:"מה שוחרר החודש שאפשר לבנות עליו עכשיו: יכולת, MCP או מודל חדש",voice:"“ראיתי ש...”"},
+ pain:{name:"חוקר הכאבים",angle:"אתה. מה שעשית ידנית יותר מפעם אחת, עם ראיות",voice:"“שלוש פעמים החודש”"},
+ teacher:{name:"המורה",angle:"הסילבוסים: UI/UX בג'ון ברייס ומיישם AI בארגונים",voice:"“איך זה נראה על מסך בכיתה?”"},
+ pm:{name:"מנהל המוצר",angle:"הפילטר",voice:""}};
+const EFFORT={session:"סשן אחד",weekend:"סוף שבוע",project:"פרויקט"};
+const FILES=["portraits","meetings","ideas","decisions","products","inbox","inspiration"];
+const MAX_SNOOZE=3, PATTERN_EVERY=5;
+let D={},filter="all",viewMeeting=null;
+
+/* ---------- helpers ---------- */
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const today=()=>new Date().toISOString().slice(0,10);
+const store={
+  read(){try{return JSON.parse(localStorage.getItem('mr-pending')||'null')}catch(e){return null}},
+  write(o){try{localStorage.setItem('mr-pending',JSON.stringify(o))}catch(e){}}
+};
+function missing(txt){return `<span class="miss" title="חסר בדאטה, נוגד את הספק">${txt}</span>`}
+
+/* ---------- boot ---------- */
+async function boot(){
+  const fb=JSON.parse(document.getElementById('fallback').textContent);
+  try{
+    const got=await Promise.all(FILES.map(f=>fetch('data/'+f+'.json').then(r=>r.ok?r.json():Promise.reject())));
+    FILES.forEach((f,i)=>D[f]=got[i]);
+  }catch(e){D=JSON.parse(JSON.stringify(fb))}
+  replay();
+  try{render()}catch(e){console.error(e);D=JSON.parse(JSON.stringify(fb));replay();render()}
+}
+
+/* pending decisions survive a reload until the weekly run absorbs them */
+function replay(){
+  const p=store.read();if(!p)return;
+  (p.decisions||[]).forEach(d=>{
+    if(D.decisions.decisions.some(x=>x.ideaId===d.ideaId&&x.at===d.at&&x.action===d.action))return;
+    D.decisions.decisions.push(d);
+    const m=D.meetings.meetings.find(x=>x.id===d.meetingId);
+    const pi=m&&m.pitches.find(x=>x.ideaId===d.ideaId);
+    if(pi&&d.action!=='revived')pi.state=d.action;
+    const idea=D.ideas.ideas.find(x=>x.id===d.ideaId);
+    if(idea)idea.status=d.action==='snoozed'?'pool':(d.action==='revived'?'pool':d.action);
+  });
+  (p.products||[]).forEach(pr=>{if(!D.products.products.some(x=>x.fromPitch===pr.fromPitch))D.products.products.push(pr)});
+  (p.inbox||[]).forEach(it=>{if(!D.inbox.items.some(x=>x.id===it.id))D.inbox.items.push(it)});
+}
+function persist(){
+  const p=store.read()||{decisions:[],products:[],inbox:[]};
+  store.write(p);
+}
+function remember(kind,obj){
+  const p=store.read()||{decisions:[],products:[],inbox:[]};
+  (p[kind]=p[kind]||[]).push(obj);store.write(p);
+}
+
+const P=k=>{const p=(D.portraits.portraits||[]).find(x=>x.key===k)||{};return {local:'img/'+k+'.png',cdn:p.url||''}};
+function faceTag(k,alt){const s=P(k);return `<img src="${s.local}" data-cdn="${esc(s.cdn)}" onerror="if(this.dataset.cdn&&this.src!==this.dataset.cdn)this.src=this.dataset.cdn" alt="${esc(alt)}">`}
+const meetings=()=>D.meetings.meetings;
+const meeting=()=>meetings().find(m=>m.id===(viewMeeting||D.meetings.current))||meetings()[0];
+const isCurrent=()=>meeting().id===D.meetings.current;
+
+/* ---------- render ---------- */
+function render(){
+  const m=meeting();
+  document.getElementById('mDate').textContent="ישיבת יום ראשון · "+fmt(m.date)+" · שבוע "+m.id.split('W')[1];
+  const sel=meetings().length>1?`<select class="chip msel" id="msel" aria-label="בחירת ישיבה">${meetings().map(x=>
+      `<option value="${x.id}" ${x.id===m.id?'selected':''}>שבוע ${x.id.split('W')[1]} · ${fmt(x.date)}</option>`).join('')}</select>`:'';
+  document.getElementById('mChips').innerHTML=
+    `${sel}<span class="chip hot">${m.pitches.length} פיצ'ים${m.pitches.length>3?' (חריגה מהספק)':''}</span>
+     <span class="chip">${m.reviewed} נסקרו</span><span class="chip">${m.rejected} נפסלו</span>
+     ${isCurrent()?'':'<span class="chip past">ישיבה שהסתיימה</span>'}`;
+  const ms=document.getElementById('msel');
+  if(ms)ms.onchange=e=>{viewMeeting=e.target.value;render()};
+
+  const rb=D.decisions.readBack, el=document.getElementById('readback');
+  el.innerHTML=rb?`<div><b>מה שהפילטר למד ממך</b>${esc(rb)}</div>`:'';
+  el.style.display=rb?'flex':'none';
+
+  document.getElementById('advisors').innerHTML=['visionary','pain','teacher'].map(k=>{
+    const r=ROLES[k],t=(m.tally||{})[k]||[0,0];
+    return `<div class="adv"><div class="face">${faceTag(k,r.name)}</div>
+      <div><div class="name">${r.name}</div><div class="angle">${r.angle}</div><div class="voice">${r.voice}</div></div>
+      <div class="tally"><span>הגיש<b>${t[0]}</b></span><span class="pass">עברו<b>${t[1]}</b></span></div></div>`}).join('');
+  document.getElementById('pmFaceWrap').innerHTML=faceTag('pm','מנהל המוצר');
+  document.getElementById('pmNote').textContent=m.pmNote||'';
+  const live=D.products.products.filter(p=>p.status==='live').length;
+  document.getElementById('pmStats').innerHTML=
+    `<div class="stat"><b>${m.reviewed}</b>נבדקו</div><div class="stat"><b>${m.rejected}</b>נפסלו</div>
+     <div class="stat"><b>${m.pitches.length}</b>פותחו למוצר</div><div class="stat"><b>${live}</b>נבנו עד היום</div>`;
+
+  const locked=m.pitches.some(p=>p.state==='approved');
+  document.getElementById('pitches').innerHTML=m.pitches.map((p,i)=>{
+    const done=p.state&&p.state!=='pending';
+    const effOk=EFFORT[p.effort];
+    const cOk=p.counterBy&&p.counterBy!==p.by&&ROLES[p.counterBy];
+    return `<article class="card ${done?'stamped':''}" id="card${i}">
+      <span class="corner"></span><span class="corner br"></span>
+      <div class="stamp ${done?'set '+(p.state==='approved'?'green':''):'idle'}" id="stamp${i}">
+        <div class="ring">${done?({approved:'אושר',snoozed:'לא עכשיו',archived:'נפסל',building:'בבנייה',live:'חי'}[p.state]||p.state):'ממתין'}</div></div>
+      <div class="idnum">${esc(p.id)}</div>
+      <h3>${esc(p.title)}</h3>
+      <div class="one">${esc(p.one)}</div>
+      <div class="spec">
+        <div class="row"><div class="k">למי</div><div class="v">${esc(p.who)}</div></div>
+        <div class="row"><div class="k">הכאב</div><div class="v">${esc(p.pain)}</div></div>
+        <div class="row"><div class="k">מסכים</div><div class="v"><div class="screens">${(p.screens||[]).map(s=>`<span class="${s===p.mainScreen?'main':''}">${esc(s)}</span>`).join('')}</div></div></div>
+        <div class="row"><div class="k">למה עכשיו</div><div class="v">${esc(p.whyNow)}</div></div>
+      </div>
+      <div class="tags">
+        ${effOk?`<span class="tag time ${p.effort}">${effOk}</span>`:missing('חסר תג זמן')}
+        <span class="tag by">הביא: ${ROLES[p.by]?ROLES[p.by].name:esc(p.by)}</span>
+      </div>
+      ${cOk?`<div class="counter"><div class="who">הערת נגד · ${ROLES[p.counterBy].name}</div><p>${esc(p.counter)}</p></div>`
+           :`<div class="counter bad"><div class="who">הערת נגד</div><p>${missing('חסרה הערת נגד מיועץ אחר. אינווריאנט 2 בספק.')}</p></div>`}
+      <div class="actions">
+        <button class="btn go" ${done||!isCurrent()||locked?'disabled':''} onclick="decide(${i},'approved')">בונים</button>
+        <button class="btn" ${done||!isCurrent()?'disabled':''} onclick="decide(${i},'snoozed')">לא עכשיו</button>
+        <button class="btn" ${done||!isCurrent()?'disabled':''} onclick="decide(${i},'archived')">לארכיון</button>
+      </div>
+      ${locked&&!done?'<div class="lockmsg">כבר אישרת פיץ׳ השבוע. אחד בכל פעם.</div>':''}
+    </article>`}).join('');
+
+  document.getElementById('rejSum').textContent=`מה נפסל השבוע (${m.rejects.length})`;
+  document.getElementById('rejects').innerHTML=rejHTML('a');
+  document.getElementById('rejects2').innerHTML=rejHTML('b');
+
+  renderPool();renderStudio();renderBag();badges();
+}
+
+function rejHTML(pre){
+  const m=meeting();
+  return m.rejects.map((r,i)=>{
+    const up=D.ideas.ideas.some(x=>x.id===r.ideaId&&(x.status==='pool'||x.status==='revived'));
+    return `<div class="rej ${up?'revived':''}" id="rj${pre}${i}"><span>${esc(r.title)}</span>
+      <span class="why">${esc(r.why)} ${up?'<span class="uppill">הורם</span>':
+      (isCurrent()?`<button onclick="revive(${i})" aria-label="הרם את ${esc(r.title)} בחזרה לשולחן">הרם</button>`:'')}</span></div>`}).join('');
+}
+
+function renderPool(){
+  const f=['all','visionary','pain','teacher'];
+  document.getElementById('filters').innerHTML=f.map(k=>
+    `<button class="fchip ${filter===k?'on':''}" onclick="setF('${k}')">${k==='all'?'הכל':ROLES[k].name}</button>`).join('');
+  const items=D.ideas.ideas.filter(i=>['pool','pitched','revived'].includes(i.status)).filter(i=>filter==='all'||i.advisor===filter);
+  document.getElementById('pool').innerHTML=items.map(i=>{
+    let ev='';
+    if(i.advisor==='visionary')ev=i.capability?`יכולת: ${esc(i.capability.name)} · ${esc(i.capability.releasedAt)}`:missing('אין יכולת מתוארכת. אינווריאנט 8.');
+    else if(i.advisor==='pain')ev=i.evidence?esc(i.evidence):missing('אין ראיה. אינווריאנט 9.');
+    else ev=i.lesson?`מהסילבוס: ${esc(i.lesson)}`:'';
+    const sn=(i.snoozes||0);
+    return `<div class="pitem ${i.status==='pitched'?'pitched':''} ${i.status==='revived'?'up':''}">
+      <div class="ptop"><h4>${esc(i.title)}</h4><span class="abadge ${i.advisor}">${ROLES[i.advisor]?ROLES[i.advisor].name:esc(i.advisor)}</span></div>
+      <div class="line">${esc(i.line)}</div>
+      <div class="ev">${ev}</div>
+      <div class="foot"><span class="clock">${esc(i.id)}</span>
+        <span class="clock">${i.status==='pitched'?'על הבמה השבוע':'נותרו '+days(i.touchedAt)+' ימים לארכוב'}</span>
+        ${sn?`<span class="clock warn">נדחה ${sn} מתוך ${MAX_SNOOZE}</span>`:''}
+        ${i.status==='revived'?'<span class="clock up">הורם על ידך</span>':''}</div>
+    </div>`}).join('')||`<div class="pitem"><div class="line">אין רעיונות מהיועץ הזה השבוע.</div></div>`;
+}
+function setF(k){filter=k;renderPool()}
+
+function renderStudio(){
+  const ps=D.products.products, live=ps.filter(p=>p.status==='live');
+  document.getElementById('sChips').innerHTML=
+    `<span class="chip">${live.length} באוויר</span><span class="chip hot">${ps.filter(p=>p.status==='building').length} בבנייה</span>`;
+  document.getElementById('gallery').innerHTML=live.map(p=>
+    `<a class="gcard" href="${esc(p.liveUrl||'#')}" target="_blank" rel="noopener"><span class="st">חי</span><h4>${esc(p.title)}</h4><span class="dt">אושר ${fmt(p.approvedAt)}</span></a>`).join('');
+  const b=ps.filter(p=>p.status==='building');
+  document.getElementById('building').innerHTML=b.length?b.map(p=>`
+    <div class="prodpage">
+      <h3>${esc(p.title)}</h3>
+      <div class="fields">
+        ${[['concept','קונספט'],['goal','מטרה'],['audience','קהל'],['dataSchema','סכמת דאטה'],['buildPrompt','פרומפט בנייה'],['liveUrl','לינק חי']].map(([k,label])=>{
+          const v=p[k];return `<div class="field"><div class="k">${label}</div><div class="v ${v?'filled':''}">${v?esc(v):'ממתין ל-screen-architect'}</div></div>`}).join('')}
+      </div>
+    </div>`).join(''):`<div class="prodpage empty"><p>אין מוצר בבנייה. אשר פיץ' בישיבה כדי לפתוח דף מוצר.</p></div>`;
+
+  /* פסקת הדפוס, כל 5 מוצרים */
+  const n=live.length, next=Math.ceil((n+1)/PATTERN_EVERY)*PATTERN_EVERY;
+  const pat=meetings().map(x=>x.pattern).filter(Boolean).slice(-1)[0];
+  document.getElementById('pattern').innerHTML=pat
+    ? `<div class="patbox"><b>מנהל המוצר, אחרי ${n} מוצרים</b><p>${esc(pat)}</p></div>`
+    : `<div class="patbox wait"><b>הדפוס הבא</b><p>מנהל המוצר כותב פסקת דפוס כל ${PATTERN_EVERY} מוצרים. ${n} באוויר, עוד ${next-n} עד הבאה.</p>
+       <div class="prog"><span style="width:${Math.round((n%PATTERN_EVERY||PATTERN_EVERY)/PATTERN_EVERY*100)}%"></span></div></div>`;
+}
+
+function renderBag(){
+  document.getElementById('inbox').innerHTML=D.inbox.items.slice().reverse().map(i=>
+    `<div class="inrow"><span class="t">${esc(i.text)}</span>
+     <span class="m">${fmt(i.at)} <span class="pill ${i.consumedBy?'used':''}">${i.consumedBy?'הפך לרעיון':'ממתין'}</span></span></div>`).join('');
+  document.getElementById('links').innerHTML=D.inspiration.items.map(l=>
+    `<a class="lcard" href="${esc(l.url)}" target="_blank" rel="noopener"><h4>${esc(l.title)}</h4><div class="nt">${esc(l.note)}</div><div class="u">${esc(l.url)}</div></a>`).join('');
+}
+
+function badges(){
+  document.getElementById('bTable').textContent=D.ideas.ideas.filter(i=>i.status==='pool'||i.status==='revived').length;
+  document.getElementById('bBag').textContent=D.inbox.items.filter(i=>!i.consumedBy).length;
+}
+
+/* ---------- actions ---------- */
+function nextId(list,prefix,pad){
+  const n=Math.max(0,...list.map(x=>parseInt(String(x.id||'').replace(/\D/g,''),10)||0))+1;
+  return prefix+String(n).padStart(pad,'0');
+}
+
+function decide(i,action){
+  const m=meeting();if(!isCurrent())return;
+  const p=m.pitches[i];if(!p||(p.state&&p.state!=='pending'))return;
+  if(action==='approved'){
+    if(m.pitches.some(x=>x.state==='approved'))return;
+    if(p.effort==='project'&&!confirm('תג הזמן הוא פרויקט, וזה לרוב אומר לא עכשיו. לבנות בכל זאת?'))return;
+  }
+  let reason=null;
+  if(action==='archived'){
+    reason=(prompt('למה לארכיון? שורה אחת.')||'').trim();
+    if(!reason)return;
+  }
+  const at=today();
+  p.state=action;
+  const dec={at,meetingId:m.id,ideaId:p.ideaId,title:p.title,advisor:p.by,effort:p.effort,action,reason,
+    weight:{approved:1,snoozed:.5,archived:-1}[action]};
+  D.decisions.decisions.push(dec);remember('decisions',dec);
+
+  const idea=D.ideas.ideas.find(x=>x.id===p.ideaId);
+  if(action==='snoozed'&&idea){
+    idea.snoozes=(idea.snoozes||0)+1;
+    if(idea.snoozes>=MAX_SNOOZE){idea.status='archived';
+      m.rejects.unshift({ideaId:idea.id,title:idea.title,why:'נדחה '+MAX_SNOOZE+' פעמים, נסגר אוטומטית',advisor:idea.advisor});}
+    else{idea.status='pool';idea.touchedAt=at}
+  }else if(idea){idea.status=action}
+
+  if(action==='archived'){m.rejects.unshift({ideaId:p.ideaId,title:p.title,why:reason,advisor:p.by})}
+
+  if(action==='approved'){
+    const pr={id:nextId(D.products.products,'PR-',3),slug:'',title:p.title,approvedAt:at,fromPitch:p.id,
+      concept:p.one,goal:p.whyNow,audience:p.who,screens:p.screens||[],dataSchema:"",buildPrompt:"",
+      screenArchitectUrl:null,liveUrl:null,status:'building'};
+    D.products.products.push(pr);remember('products',pr);
+  }
+  render();
+  const st=document.getElementById('stamp'+i);
+  if(st){void st.offsetWidth;st.classList.add('show')}
+}
+
+function revive(i){
+  const m=meeting();if(!isCurrent())return;
+  const r=m.rejects[i];if(!r)return;
+  const at=today();
+  const ex=D.ideas.ideas.find(x=>x.id===r.ideaId);
+  if(ex){ex.status='revived';ex.touchedAt=at}
+  else D.ideas.ideas.push({id:r.ideaId,title:r.title,line:'נפסל: '+r.why,advisor:r.advisor||'pain',
+    createdAt:at,capability:null,evidence:null,lesson:null,sourceInboxId:null,status:'revived',touchedAt:at,snoozes:0});
+  const dec={at,meetingId:m.id,ideaId:r.ideaId,title:r.title,advisor:r.advisor||null,effort:null,action:'revived',reason:r.why,weight:3};
+  D.decisions.decisions.push(dec);remember('decisions',dec);
+  document.getElementById('rejects').innerHTML=rejHTML('a');
+  document.getElementById('rejects2').innerHTML=rejHTML('b');
+  renderPool();badges();
+}
+
+function dropIt(){
+  const t=document.getElementById('drop');const v=t.value.trim();if(!v)return;
+  const it={id:nextId(D.inbox.items,'IN-',4),at:today(),text:v,kind:'text',consumedBy:null};
+  D.inbox.items.push(it);remember('inbox',it);
+  t.value='';renderBag();badges();
+}
+
+function days(d){if(!d)return 14;const t=Date.now()-new Date(d).getTime();return Math.max(0,14-Math.floor(t/864e5))}
+function fmt(d){if(!d)return '';const M=['ינו','פבר','מרץ','אפר','מאי','יונ','יול','אוג','ספט','אוק','נוב','דצמ'];const p=String(d).split('-');return +p[2]+' ב'+M[+p[1]-1]}
+
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-selected','false')});
+  b.classList.add('on');b.setAttribute('aria-selected','true');
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  document.getElementById('v-'+b.dataset.v).classList.add('on');window.scrollTo(0,0);
+});
+boot();
+</script>
+</body>
+</html>

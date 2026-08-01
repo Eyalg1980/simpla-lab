@@ -1,0 +1,173 @@
+{
+  "updated": "2026-08-02",
+  "ideas": [
+    {
+      "id": "I-2026-0231",
+      "title": "סטייטים",
+      "line": "מסך אחד נכנס, כל המצבים שלא ציירת יוצאים",
+      "advisor": "visionary",
+      "createdAt": "2026-07-20",
+      "capability": {
+        "name": "Figma MCP component states",
+        "releasedAt": "2026-07-28"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pitched",
+      "touchedAt": "2026-08-01"
+    },
+    {
+      "id": "I-2026-0233",
+      "title": "בנק סעיפים",
+      "line": "הצעת מחיר בארבע שאלות מתוך סעיפים שכבר כתבת",
+      "advisor": "pain",
+      "createdAt": "2026-07-21",
+      "capability": null,
+      "evidence": "שלוש פעמים החודש פתחת הצעה ישנה כדי להעתיק סעיף",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pitched",
+      "touchedAt": "2026-08-01"
+    },
+    {
+      "id": "I-2026-0236",
+      "title": "שובר מערכות",
+      "line": "משנים טוקן אחד ורואים את כל המסך מתפרק",
+      "advisor": "teacher",
+      "createdAt": "2026-07-22",
+      "capability": null,
+      "evidence": null,
+      "lesson": "דיזיין סיסטמס, מודול 3",
+      "sourceInboxId": null,
+      "status": "pitched",
+      "touchedAt": "2026-08-01"
+    },
+    {
+      "id": "I-2026-0240",
+      "title": "קורא ריפו",
+      "line": "מצביע על ריפו ומקבל את מפת המסכים שלו",
+      "advisor": "visionary",
+      "createdAt": "2026-07-23",
+      "capability": {
+        "name": "Claude Agent SDK subagents",
+        "releasedAt": "2026-07-21"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "touchedAt": "2026-08-01"
+    },
+    {
+      "id": "I-2026-0241",
+      "title": "תמלול לכרטיס",
+      "line": "הודעה קולית נכנסת, כרטיס משימה יוצא",
+      "advisor": "pain",
+      "createdAt": "2026-07-24",
+      "capability": null,
+      "evidence": "פעמיים השבוע הקלטת לעצמך ואז הקלדת ידנית",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "touchedAt": "2026-08-01"
+    },
+    {
+      "id": "I-2026-0242",
+      "title": "מד עומס כיתה",
+      "line": "כמה תרגילים באמת נכנסים בחמש שעות",
+      "advisor": "teacher",
+      "createdAt": "2026-07-25",
+      "capability": null,
+      "evidence": null,
+      "lesson": "תכנון שיעור, מודול 1",
+      "sourceInboxId": null,
+      "status": "pool",
+      "touchedAt": "2026-08-01"
+    },
+    {
+      "id": "I-2026-0244",
+      "title": "מנוע וריאציות",
+      "line": "גרסה אחת של באנר, שמונה פורמטים החוצה",
+      "advisor": "visionary",
+      "createdAt": "2026-07-26",
+      "capability": {
+        "name": "Nano Banana Pro batch aspect",
+        "releasedAt": "2026-07-15"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "touchedAt": "2026-08-01"
+    },
+    {
+      "id": "I-2026-0245",
+      "title": "מי ענה לי",
+      "line": "סורק מיילים ומראה על מה עוד לא ענו לך",
+      "advisor": "pain",
+      "createdAt": "2026-07-27",
+      "capability": null,
+      "evidence": "ארבע פעמים החודש חיפשת ידנית מי לא חזר אליך",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "touchedAt": "2026-08-01"
+    },
+    {
+      "id": "I-2026-0246",
+      "title": "תרגיל בלחיצה",
+      "line": "מייצר תרגיל כיתה מתוך סעיף בסילבוס",
+      "advisor": "teacher",
+      "createdAt": "2026-07-28",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מחקר משתמשים, מודול 2",
+      "sourceInboxId": null,
+      "status": "pool",
+      "touchedAt": "2026-08-01"
+    },
+    {
+      "id": "I-2026-0248",
+      "title": "סרגל טוקנים חי",
+      "line": "עורך טוקנים שמתעדכן על אתר אמיתי",
+      "advisor": "visionary",
+      "createdAt": "2026-07-29",
+      "capability": {
+        "name": "Chrome DevTools MCP",
+        "releasedAt": "2026-07-24"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "touchedAt": "2026-08-01"
+    },
+    {
+      "id": "I-2026-0250",
+      "title": "חוזר ללקוח",
+      "line": "מנסח עדכון סטטוס מתוך הקומיטים של השבוע",
+      "advisor": "pain",
+      "createdAt": "2026-07-20",
+      "capability": null,
+      "evidence": "שלוש פעמים כתבת עדכון סטטוס מאפס",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "touchedAt": "2026-08-01"
+    },
+    {
+      "id": "I-2026-0251",
+      "title": "מסך הכיתה",
+      "line": "משקף את המסך שלך לכיתה עם הדגשות אוטומטיות",
+      "advisor": "teacher",
+      "createdAt": "2026-07-21",
+      "capability": null,
+      "evidence": null,
+      "lesson": "פרזנטציה של עבודה, מודול 4",
+      "sourceInboxId": null,
+      "status": "pool",
+      "touchedAt": "2026-08-01"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "portraits": [
+    {
+      "key": "visionary",
+      "role": "הרעיונאי",
+      "jobId": "d569b012-c2b8-4afe-b47c-a1983596cf9b",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20260801_113337_d569b012-c2b8-4afe-b47c-a1983596cf9b.png",
+      "prompt": "Portrait bust of a bright-eyed clay scout figure leaning forward with an eager expression, holding one small glowing cube while a few tiny geometric shapes float around the head"
+    },
+    {
+      "key": "pain",
+      "role": "חוקר הכאבים",
+      "jobId": "61cd827e-b7b8-430b-a26b-49f3f1e46044",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20260801_113340_61cd827e-b7b8-430b-a26b-49f3f1e46044.png",
+      "prompt": "Portrait bust of a calm deadpan clay investigator figure with round spectacles, holding a small magnifying glass in one hand and a tiny clipboard with tally marks in the other"
+    },
+    {
+      "key": "teacher",
+      "role": "המורה",
+      "jobId": "0e5c6237-1236-4e59-9663-457fcb8a0e12",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20260801_113343_0e5c6237-1236-4e59-9663-457fcb8a0e12.png",
+      "prompt": "Portrait bust of a thoughtful clay teacher figure with arms crossed and one eyebrow raised, a small blank presentation screen standing beside the shoulder"
+    },
+    {
+      "key": "pm",
+      "role": "מנהל המוצר",
+      "jobId": "8391d804-cacb-4638-9bae-72b73b31f0e7",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20260801_113345_8391d804-cacb-4638-9bae-72b73b31f0e7.png",
+      "prompt": "Portrait bust of a sharp decisive clay manager figure in a collared shirt, gripping a wooden rubber stamp raised mid air about to strike, small stack of blank cards below"
+    }
+  ],
+  "baseStyle": "coral red, mustard yellow, teal and cream palette, 3D Pop art rendered illustration in soft pastel colors with clay art style, matte finish, rounded shapes, studio lighting, playful yet professional aesthetic, miniature diorama feel, clean light cream background, no text, no logos",
+  "model": "nano_banana_pro",
+  "aspect": "1:1",
+  "resolution": "1k"
+}

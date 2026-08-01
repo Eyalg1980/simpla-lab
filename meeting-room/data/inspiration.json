@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "title": "Figma MCP component states",
+      "url": "https://figma.com",
+      "note": "היכולת שהרעיונאי הביא השבוע",
+      "at": "2026-07-28"
+    },
+    {
+      "title": "Artem Shcherbakov portfolio",
+      "url": "https://www.artemshcherbakov.com",
+      "note": "השפה של הבמאי היומי",
+      "at": "2026-07-20"
+    },
+    {
+      "title": "Claude Agent SDK",
+      "url": "https://docs.claude.com",
+      "note": "סאב-אייג'נטים, אולי בסיס לקורא ריפו",
+      "at": "2026-07-21"
+    }
+  ]
+}

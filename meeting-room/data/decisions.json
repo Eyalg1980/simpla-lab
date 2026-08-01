@@ -1,0 +1,137 @@
+{
+  "decisions": [
+    {
+      "at": "2026-07-26",
+      "meetingId": "M-2026-W30",
+      "ideaId": "I-2026-0180",
+      "title": "מחלץ דיזיין סיסטם",
+      "advisor": "teacher",
+      "effort": "weekend",
+      "action": "approved",
+      "reason": null,
+      "weight": 1
+    },
+    {
+      "at": "2026-07-26",
+      "meetingId": "M-2026-W30",
+      "ideaId": "I-2026-0182",
+      "title": "מנוע ניוזלטרים",
+      "advisor": "visionary",
+      "effort": "project",
+      "action": "archived",
+      "reason": "שבועיים בנייה בשביל משהו שלא תקרא",
+      "weight": -1
+    },
+    {
+      "at": "2026-07-19",
+      "meetingId": "M-2026-W29",
+      "ideaId": "I-2026-0161",
+      "title": "דרישת תשלום",
+      "advisor": "pain",
+      "effort": "session",
+      "action": "approved",
+      "reason": null,
+      "weight": 1
+    },
+    {
+      "at": "2026-07-19",
+      "meetingId": "M-2026-W29",
+      "ideaId": "I-2026-0163",
+      "title": "גלריית תבניות",
+      "advisor": "visionary",
+      "effort": "weekend",
+      "action": "snoozed",
+      "reason": null,
+      "weight": 0.5
+    },
+    {
+      "at": "2026-07-19",
+      "meetingId": "M-2026-W29",
+      "ideaId": "I-2026-0158",
+      "title": "מפענח גיבריש",
+      "advisor": "pain",
+      "effort": "session",
+      "action": "revived",
+      "reason": "נפסל כקטן מדי, ואתה השתמשת בו באותו שבוע",
+      "weight": 3
+    },
+    {
+      "at": "2026-07-12",
+      "meetingId": "M-2026-W28",
+      "ideaId": "I-2026-0140",
+      "title": "לוח משימות",
+      "advisor": "pain",
+      "effort": "weekend",
+      "action": "approved",
+      "reason": null,
+      "weight": 1
+    },
+    {
+      "at": "2026-07-12",
+      "meetingId": "M-2026-W28",
+      "ideaId": "I-2026-0143",
+      "title": "סימולטור כיתה",
+      "advisor": "teacher",
+      "effort": "project",
+      "action": "archived",
+      "reason": "פרויקט, לא סשן",
+      "weight": -1
+    },
+    {
+      "at": "2026-07-05",
+      "meetingId": "M-2026-W27",
+      "ideaId": "I-2026-0121",
+      "title": "הבמאי היומי",
+      "advisor": "visionary",
+      "effort": "weekend",
+      "action": "approved",
+      "reason": null,
+      "weight": 1
+    },
+    {
+      "at": "2026-07-05",
+      "meetingId": "M-2026-W27",
+      "ideaId": "I-2026-0125",
+      "title": "מחולל אווטארים",
+      "advisor": "visionary",
+      "effort": "weekend",
+      "action": "archived",
+      "reason": "קיים, בחינם, טוב יותר",
+      "weight": -1
+    },
+    {
+      "at": "2026-06-28",
+      "meetingId": "M-2026-W26",
+      "ideaId": "I-2026-0104",
+      "title": "מנתח ויזה",
+      "advisor": "pain",
+      "effort": "session",
+      "action": "approved",
+      "reason": null,
+      "weight": 1
+    },
+    {
+      "at": "2026-06-28",
+      "meetingId": "M-2026-W26",
+      "ideaId": "I-2026-0108",
+      "title": "בונה סילבוסים",
+      "advisor": "teacher",
+      "effort": "weekend",
+      "action": "snoozed",
+      "reason": null,
+      "weight": 0.5
+    },
+    {
+      "at": "2026-06-21",
+      "meetingId": "M-2026-W25",
+      "ideaId": "I-2026-0090",
+      "title": "בונה אתרים סימפלה",
+      "advisor": "pain",
+      "effort": "weekend",
+      "action": "approved",
+      "reason": null,
+      "weight": 1
+    }
+  ],
+  "readBack": "שמתי לב שאתה מאשר כלים שאתה עצמך משתמש בהם, ופוסל כמעט כל כלי שנועד למישהו אחר. שלושת הפיצ'ים השבוע נבחרו עם זה בראש."
+}
