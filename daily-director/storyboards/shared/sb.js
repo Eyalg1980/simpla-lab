@@ -128,16 +128,32 @@
     }).join('');
   }
 
-  function hasClips() {
-    return ((S.shots && S.shots.list) || []).some(function (s) { return !!s.vid; });
+  /* The media switch is data driven so a board can carry more than one cut of the
+     same shot list. Default, when the page says nothing: stills plus the single
+     `vid` track, exactly as before. A page that wants several versions declares
+     shots.media = [{key:'img',label:'תמונות'},{key:'vid',label:'וידאו v1'},{key:'vid2',label:'וידאו v2'}]
+     and gives each shot a matching field per track. A shot with no clip on the
+     selected track keeps its still, same rule as a clip missing for a ratio. */
+  function tracks() {
+    var list = (S.shots && S.shots.list) || [];
+    var declared = S.shots && S.shots.media;
+    if (declared && declared.length) {
+      return declared.filter(function (t) {
+        return t.key === 'img' || list.some(function (s) { return !!s[t.key]; });
+      });
+    }
+    if (!list.some(function (s) { return !!s.vid; })) return [];
+    return [{ key: 'img', label: 'תמונות' }, { key: 'vid', label: 'וידאו' }];
   }
 
   function mediaSwitch() {
-    if (!hasClips()) return '';
-    return '<div class="ratio media">' +
-      '<button class="' + (MEDIA === 'img' ? 'on' : '') + '" onclick="sbSetMedia(\'img\')">תמונות</button>' +
-      '<button class="' + (MEDIA === 'vid' ? 'on' : '') + '" onclick="sbSetMedia(\'vid\')">וידאו</button>' +
-    '</div>';
+    var t = tracks();
+    if (t.length < 2) return '';
+    return '<div class="ratio media">' + t.map(function (x) {
+      return '<button class="' + (MEDIA === x.key ? 'on' : '') + '" onclick="sbSetMedia(\'' + x.key + '\')">' +
+             esc(x.label) + '</button>';
+    }).join('') + '</div>' +
+    (S.shots.mediaHint ? '<p class="ratio-hint">' + esc(S.shots.mediaHint) + '</p>' : '');
   }
 
   function ratioSwitch() {
@@ -160,8 +176,9 @@
       var pr = shotPrompts(s);
       // A clip only shows for the ratio it was actually rendered in. No fallback:
       // a square clip under the 16:9 switch would be a lie, so that ratio keeps the still.
-      var vid = typeof s.vid === 'string' ? s.vid : (s.vid && s.vid[RATIO]);
-      var media = (vid && MEDIA === 'vid')
+      var raw = MEDIA === 'img' ? null : s[MEDIA];
+      var vid = typeof raw === 'string' ? raw : (raw && raw[RATIO]);
+      var media = vid
         ? '<video src="' + esc((S.cdn || '') + vid) + '" poster="' + esc((S.cdn || '') + img) +
           '" controls playsinline preload="none"></video>'
         : '<img src="' + esc((S.cdn || '') + img) + '" alt="שוט ' + s.n + '" loading="lazy">';

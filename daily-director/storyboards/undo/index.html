@@ -128,6 +128,12 @@ window.SB = {
 
   shots: {
     style: STYLE,
+    media: [
+      { key: "img",  label: "תמונות" },
+      { key: "vid",  label: "וידאו v1" },
+      { key: "vid2", label: "וידאו v2" }
+    ],
+    mediaHint: "v1 היא ההנפשה של הסרט. v2 היא סט טייקים חלופי על אותם פריימים פותחים, קיים לשוטים 1 עד 5 ול-8 בלבד. בשוט שאין לו טייק שני המתג מציג את הסטילס.",
     prompts: function (s) {
       return [
         { label: "פריים פותח (Nano Banana)", btn: "העתק פרומפט פריים",
@@ -146,6 +152,7 @@ window.SB = {
         title:"הטעות", titleEn:"The mistake",
         vid:"hf_20260801_172612_6c5977b5-0518-4e70-9edd-a723112ae1c5.mp4",
         img:"hf_20260801_144856_0b4cbbad-515b-4f28-a636-c898dd6fb6f3.png",
+        vid2:"hf_20260801_184807_ba38f952-320f-4ec5-bbe1-1173f76a8548.mp4",
         still:"A single clay hand pressing down hard on a small clay object on a cream studio table, the object crushed flat and deformed under the palm, fingerprints pressed deep into it, one warm key light from the upper left, long soft shadow, regretful mood",
         motion:"The clay hand presses down and crushes the small clay object flat, then lifts away and leaves it deformed on the table, the camera pushes in very slowly on the damage, one warm key light, dust motes drifting, a single dull impact and then stillness" },
 
@@ -154,6 +161,7 @@ window.SB = {
         title:"1976, המשפט נכתב", titleEn:"1976, the sentence is written",
         vid:"hf_20260801_173611_6ce7813e-3c02-435e-a366-1bb981837221.mp4",
         img:"hf_20260801_144858_f36800ab-bb90-4f5d-b148-30d33aef2161.png",
+        vid2:"hf_20260801_184821_6a0a6fcc-9ba6-4ded-a8a3-913b122c04e0.mp4",
         still:"A 1976 research office in clay: two small clay researchers in brown suits at a wooden desk with a bulky beige clay terminal, a single typed clay page between them with one line marked by a coral stripe, tungsten desk lamp, dust motes drifting in the beam, quiet and historic mood",
         motion:"A clay typewriter arm strikes the page letter by letter and finishes the single line, then one of the researchers reaches in and smears a coral stripe across that line with his thumb, the camera drifts slowly sideways and settles on the marked line, warm tungsten light, dust in the beam" },
 
@@ -162,6 +170,7 @@ window.SB = {
         title:"גם רק לדעת", titleEn:"Even just knowing",
         vid:"hf_20260801_172549_07dcadb4-8d6b-476e-ac48-66b03a338cc8.mp4",
         img:"hf_20260801_144900_ae9cdf3b-873a-4652-90c4-7997bf831609.png",
+        vid2:"hf_20260801_184810_c71ca119-b9d0-4e01-a63f-f0d3d43f9a2f.mp4",
         still:"Close portrait of a small anxious clay figure at a chunky clay keyboard, its hunched shoulders dropping and the clay of its face smoothing out, a soft teal glow rising from the keyboard onto its face, one warm key light, relieved and tender mood",
         motion:"The tense clay figure slowly unclenches, its shoulders drop and the pressed creases in its clay face smooth themselves out, the teal glow from the keyboard steadies on its face, micro push-in, tender and calm, no cuts" },
 
@@ -170,6 +179,7 @@ window.SB = {
         title:"צעד אחד, ואז קיר", titleEn:"One step, then a wall",
         vid:"hf_20260801_172618_2538bfea-e7ea-4e06-9772-0013fbe0336e.mp4",
         img:"hf_20260801_144901_01850f1b-076d-42c7-8a0f-57f62c3bd07f.png",
+        vid2:"hf_20260801_184812_2fe88deb-b6db-4f7a-a4fb-9b556440ea25.mp4",
         still:"A small clay figure taking one step backwards on a cream studio floor and stopping short against an invisible barrier, behind the barrier a long receding row of crushed clay objects it cannot reach, one hard side light casting a long shadow, lonely and limited mood",
         motion:"The clay figure takes one step backwards, hits the invisible barrier and stops dead, then strikes the empty air once with an open palm and a burst of dust scatters off the unseen surface, the wall does not move, the camera pulls back slowly to reveal the long row of crushed objects stretching away behind it, lonely and final" },
 
@@ -178,6 +188,7 @@ window.SB = {
         title:"1983, שלוש שריטות", titleEn:"1983, three strokes",
         vid:"hf_20260801_173532_3e28b7de-f54d-4770-9712-7c06c8a4c942.mp4",
         img:"hf_20260801_144907_077fdfdd-368e-4b62-b151-676584bf7a60.png",
+        vid2:"hf_20260801_184839_5271ceec-9a97-4022-a732-e314020c133d.mp4",
         still:"Macro shot of a clay hand carving an angular zigzag glyph of three strokes into the top of a chunky plasticine keyboard key, the grooves cut deep with visible tool marks, coral light pooling inside the grooves, warm single spotlight, precise and deliberate mood",
         motion:"The clay hand carves the three strokes of the angular zigzag into the key one after another, right then left then right, coral light filling each groove as it is cut, the hand withdraws and the finished key holds alone in the spotlight, macro, precise and deliberate" },
 
@@ -203,6 +214,7 @@ window.SB = {
         title:"לסוכן אין Undo", titleEn:"The agent has no Undo",
         vid:"hf_20260801_173537_9583731d-578e-4001-b905-9a3b9813c677.mp4",
         img:"hf_20260801_144912_c6e33250-b289-4a9d-996a-e9747e274a68.png",
+        vid2:"hf_20260801_184830_6205b6ef-74bd-4486-8e11-c093d43974ce.mp4",
         still:"A small clay robot at a clay desk, one key missing from its chunky keyboard leaving an empty square socket, a plain grey clay stone resting beside the keyboard, and out on the cream floor beyond the desk several clay objects it already moved lying scattered and unreachable, cool teal light on the floor and warm key light on the robot, unresolved mood",
         motion:"The clay robot presses down into the empty square socket where the key should be, once, then a second time harder, and nothing happens at all, it lifts its hand and looks at the plain grey stone lying beside the keyboard, the camera orbits slowly around it revealing the scattered clay objects on the floor beyond the desk lying exactly where they were left, unresolved" },
 
@@ -227,6 +239,8 @@ window.SB = {
   notes: {
     title: "מה עושים עם הפריימים האלה",
     items: [
+      "וידאו v2: סט טייקים חלופי שיוצר ב-Kling 3 std על אותם פריימים פותחים, קיים לשוטים 1, 2, 3, 4, 5 ו-8. הוא נוצר לפני שהסרט גדל ל-10 שוטים, ולכן שוטים 6, 7, 9 ו-10 מציגים בו את הסטילס. אם v2 של שוט מסוים נראה טוב יותר, מחליפים אותו ב-v1 בעריכה בלי לייצר מחדש.",
+      "שני טייקים מ-v2 יתומים כי הפריים שלהם ירד מהסרט בסבב התיקונים, והם עדיין שמורים בהיגספילד: hf_20260801_184826 (מגדל הפריימים, שוט 6 הישן) ו-hf_20260801_184833 (מפתח על מדף, שוט הסיום הישן). אם תרצה להחזיר אחד מהרעיונות האלה, הקליפ כבר קיים.",
       "סבב תיקונים 1.8: הסרט גדל מ-8 ל-10 שוטים ומ-40 ל-52 שניות. נוספו שוט 7 (הפסגה) ושוט 9 (האנדרטה), שוט 6 יוצר מחדש, ושוט הסיום הישן (מפתח על מדף) הוחלף בשוט 10.",
       "סטטוס הפקה (1.8, אחרי \"צא להפקה\"): עשרת הפריימים, עשרת הקליפים ועשרת קטעי הקריינות יוצרו ומקושרים בדף. מה שנשאר זה העריכה עצמה: להרכיב לפי התזמונים בסעיף הקריינות, להוסיף מוזיקה ואפקטי חימר, ולצרוב כתוביות.",
       "האורך האמיתי הוא 63 שניות ולא 52. כשמדדתי את הקריינות המוקלטת היא יצאה 58.6 שניות של דיבור, ועם ארבע שניות השקט בסוף זה 62.6. התכנון המקורי היה אופטימי, והמספרים בדף עודכנו למה שבאמת קיים.",
@@ -252,6 +266,8 @@ window.SB = {
       "עקביות: פרק 1 וההמבורגר חולקים את אותה מחרוזת סגנון בדיוק. אל תשנו אותה בין הפרקים, זו החתימה של הסדרה."
     ],
     itemsEn: [
+      "Video v2: an alternate take set rendered in Kling 3 std from the same opening frames, covering shots 1, 2, 3, 4, 5 and 8. It was made before the film grew to 10 shots, so shots 6, 7, 9 and 10 fall back to the still on that track. Where a v2 take reads better, swap it for v1 in the edit rather than regenerating.",
+      "Two v2 takes are orphaned because their frames were cut in the revision round, and both are still stored in Higgsfield: hf_20260801_184826 (the stack of frames, old shot 6) and hf_20260801_184833 (key on a shelf, the old closing shot). If either idea comes back, the clip already exists.",
       "Revision pass 1 Aug: the film grew from 8 shots to 10 and from 40 seconds to 52. Shot 7 (the crest) and shot 9 (the monument) were added, shot 6 was regenerated, and the old closing shot (a key on a shelf) was replaced by shot 10.",
       "Four new frames: 6, 7, 9, 10. The frames for shots 1, 2, 3, 4, 5 and 8 are unchanged, only their motion prompts were tightened.",
       "Why the closing shot was replaced: the voice over there is about a boundary and an absence, while the old frame showed healing. Image and text pulled in opposite directions. Shot 10 shows exactly what the line says, the point where repair stops.",
