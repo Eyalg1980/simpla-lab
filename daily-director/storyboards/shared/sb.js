@@ -125,7 +125,9 @@
     return mediaSwitch() + ratioSwitch() + list.map(function (s) {
       var img = typeof s.img === 'string' ? s.img : (s.img && (s.img[RATIO] || s.img[Object.keys(s.img)[0]]));
       var pr = shotPrompts(s);
-      var vid = typeof s.vid === 'string' ? s.vid : (s.vid && (s.vid[RATIO] || s.vid[Object.keys(s.vid)[0]]));
+      // A clip only shows for the ratio it was actually rendered in. No fallback:
+      // a square clip under the 16:9 switch would be a lie, so that ratio keeps the still.
+      var vid = typeof s.vid === 'string' ? s.vid : (s.vid && s.vid[RATIO]);
       var media = (vid && MEDIA === 'vid')
         ? '<video src="' + esc((S.cdn || '') + vid) + '" poster="' + esc((S.cdn || '') + img) +
           '" controls playsinline preload="none"></video>'
