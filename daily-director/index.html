@@ -31,6 +31,7 @@
           background:rgba(244,243,239,.94);backdrop-filter:blur(12px);
           border-bottom:1.5px solid var(--black);margin:0 -14px;padding:11px 14px}
   .appbar .back{width:40px;height:40px;min-width:40px;border-radius:50%;border:1.5px solid var(--black);
+                cursor:pointer;font-family:inherit;padding:0;
                 background:none;color:var(--black);display:flex;align-items:center;justify-content:center;
                 cursor:pointer;text-decoration:none}
   .appbar .back:active{background:var(--black);color:var(--green)}
@@ -171,8 +172,8 @@
 
 <!-- Same sticky app bar the storyboard pages use, one to one -->
 <div class="appbar">
-  <a class="back" href="../" aria-label="חזרה למעבדה">
-    <svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7"/></svg></a>
+  <button class="back" id="btn-back" onclick="goBack()" aria-label="חזרה">
+    <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
   <div class="logo"><svg viewBox="0 0 24 24"><path d="M3.4 8.2 20.4 5.6M3.4 8.2 4.9 17.9C5 18.9 5.9 19.6 6.9 19.4L19.5 17.5C20.5 17.4 21.2 16.4 21 15.4L19.6 6.1M3.4 8.2 3 5.6 20 3.1 20.4 5.6M8.2 7.5 6.2 4.3M13.2 6.7 11.3 3.6M18 6 16.2 2.9"/></svg><span class="wm"><b>daily</b> <i>director</i></span></div>
   <div class="spacer"></div>
 </div>
@@ -213,10 +214,25 @@ function fallback(cmd,done){
   ta.select();try{document.execCommand('copy');done()}catch(e){prompt('העתק ידנית:',cmd)}
   document.body.removeChild(ta);
 }
-function showTab(id){
+/* one nav history for the whole app, same contract as the rest of the family:
+   back walks the tabs first, and only leaves for the lab when there is nothing left */
+let navHist=[], curTab='ideas';
+function applyTab(id){
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.id===id));
   document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
+  curTab=id;
   window.scrollTo({top:0});
+}
+function showTab(id){
+  if(id===curTab)return;
+  navHist.push(curTab); if(navHist.length>25)navHist.shift();
+  applyTab(id);
+  try{history.pushState({t:id},'')}catch(e){}
+}
+window.addEventListener('popstate',()=>{if(navHist.length)applyTab(navHist.pop())});
+function goBack(){
+  if(!navHist.length){location.href='../';return}
+  if(history.state&&history.state.t){history.back()}else{applyTab(navHist.pop())}
 }
 
 const SK={

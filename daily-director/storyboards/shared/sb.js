@@ -41,7 +41,7 @@
   function appbar() {
     return '<div class="appbar">' +
       '<a class="back" href="../../" aria-label="חזרה להבמאי היומי">' +
-        '<svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7"/></svg></a>' +
+        '<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>' +
       '<div class="logo">' + BOX + '<span class="wm"><b>daily</b> <i>director</i></span></div>' +
       '<div class="spacer"></div>' +
     '</div>';
