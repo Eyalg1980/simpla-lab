@@ -166,6 +166,83 @@
   footer{margin-top:26px;text-align:center;font-size:11.5px;color:#5A5A55;border-top:3px solid var(--black);padding-top:12px;font-weight:600}
   footer a{color:inherit}
   .loading{text-align:center;color:#5A5A55;padding:40px 0;font-size:14px}
+
+  /* ============================================================
+     DESKTOP · min-width 1024px
+     תוספת בלבד. שום כלל מעל השורה הזו לא השתנה, ולכן המובייל זהה.
+     ============================================================ */
+  @media (min-width:1024px){
+    :root{ --rail:236px; --band:1400px; --gut:28px; --railx:max(0px, calc(50% - (var(--band) / 2))); }
+
+    body{
+      max-width:var(--band);
+      padding:0 var(--gut) 60px;
+      padding-inline-start:calc(var(--rail) + var(--gut));
+    }
+
+    /* --- ראש הסרגל --- */
+    .appbar{
+      position:fixed; top:0; left:auto; right:var(--railx);
+      width:var(--rail); height:104px;
+      margin:0; padding:18px 16px 0;
+      flex-direction:column; align-items:stretch; gap:10px;
+      background:transparent; backdrop-filter:none; border-bottom:none;
+      z-index:51;
+    }
+    .appbar .back{ order:2; align-self:flex-start; margin-inline-start:2px }
+    .appbar .logo{ order:1; flex:none; justify-content:center }
+    .appbar .spacer{ display:none }
+
+    /* --- הטאבים הופכים לסרגל צד --- */
+    .navwrap{
+      position:fixed; top:0; bottom:0; left:auto; right:var(--railx);
+      width:var(--rail); z-index:50;
+      padding:104px 12px 24px; background:var(--paper);
+      border-inline-end:1.5px solid var(--black);
+    }
+    .navwrap nav{ flex-direction:column; gap:4px; border-radius:20px; padding:6px }
+    .navwrap nav button{
+      flex:none; justify-content:flex-start; gap:10px;
+      padding:11px 14px; border-radius:15px; text-align:start;
+    }
+
+    /* --- ההירו מפסיק לדלוף לרוחב המסך ונשאר בתוך אזור התוכן --- */
+    .hero{
+      width:auto;
+      margin-inline-start:calc(var(--gut) * -1);
+      margin-inline-end:calc(var(--gut) * -1);
+    }
+    .hero-card > *{ max-width:760px }
+    .hero p{ max-width:none }
+
+    /* --- רעיונות: פיד רב-טורי --- */
+    #ideas section{
+      display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px; align-items:start;
+    }
+    #ideas section > .date-chip, #ideas section > h2{ grid-column:1/-1 }
+    .card{ margin-bottom:0 }
+    .card-actions{ flex-direction:row; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px }
+    .card-actions .big-btn{ width:auto; min-width:220px }
+    .gen-btn{ max-width:420px; margin-inline:auto }
+
+    /* --- תחרויות: רשת כרטיסים (ID גובר על .tab.active) --- */
+    #comps.active{
+      display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px; align-items:start;
+    }
+    #comps > p{ grid-column:1/-1 }
+    .comp-card{ margin-bottom:0 }
+
+    /* --- השראה: לינקים בטורים --- */
+    .lk-cat{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; align-items:start }
+    .lk-cat > h2{ grid-column:1/-1 }
+    .lk{ margin-bottom:0 }
+  }
+
+  @media (min-width:1500px){
+    #ideas section, #comps.active, .lk-cat{ grid-template-columns:repeat(3,minmax(0,1fr)) }
+  }
 </style>
 </head>
 <body>
