@@ -237,7 +237,12 @@
   window.sbCopyMaster = function () { sbCopyText(masterPrompt()); };
 
   function body(key) {
-    if (key === 'synopsis') return dirBlock(S.synopsis, 'synopsis');
+    /* Synopsis is mandatory on every board. A page that ships without one says so
+       on the page instead of quietly dropping the section. */
+    if (key === 'synopsis') {
+      if (!S.synopsis) return '<div class="dir"><p><b>חסר סינופסיס.</b> כל סטוריבורד חייב בלוק synopsis קצר: מה קורה בסרט ביט אחרי ביט, בקול של אייל, ומשפט תזה בסוף.</p></div>';
+      return dirBlock(S.synopsis, 'synopsis');
+    }
     if (key === 'mood') return dirBlock(S.mood, 'mood');
     if (key === 'story') return dirBlock(S.story, 'story');
     if (key === 'vo') return voBlock();
@@ -247,6 +252,7 @@
   }
 
   function has(key) {
+    if (key === 'synopsis') return true;
     if (key === 'vo') return (S.vo || []).length > 0;
     if (key === 'shots') return ((S.shots && S.shots.list) || []).length > 0;
     return !!S[key];
