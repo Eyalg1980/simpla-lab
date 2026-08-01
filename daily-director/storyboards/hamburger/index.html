@@ -55,6 +55,17 @@
   .copy{margin-top:8px;background:var(--ink);color:#fff;border:0;border-radius:100px;
         font-family:inherit;font-size:12px;font-weight:700;padding:7px 15px;cursor:pointer}
 
+  /* Direction blocks: mood, motion language, backstory */
+  .dir{background:#fff;border:1.5px solid var(--ink);border-radius:18px;padding:16px 17px;margin-bottom:12px}
+  .dir h3{font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:10px}
+  .dir .row{display:flex;gap:9px;font-size:13.5px;margin-bottom:7px;align-items:flex-start}
+  .dir .row b{min-width:74px;font-weight:900;flex:none}
+  .dir p{font-size:13.5px;margin-bottom:8px}
+  .dir p:last-of-type{margin-bottom:0}
+  .dir .copy{margin-top:12px}
+  .rule{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .rule span{font-size:11.5px;font-weight:700;border:1.5px solid var(--ink);border-radius:100px;padding:3px 10px}
+
   .note{background:var(--ink);color:#fff;border-radius:18px;padding:18px;font-size:13.5px;margin-top:12px}
   .note b{color:var(--green)}
   .note ul{margin:9px 0 0;padding-right:18px}
@@ -79,6 +90,29 @@
   <span class="spec">גם 1:1</span>
   <span class="spec">קליי סטופ-מושן</span>
   <span class="spec">8 שוטים</span>
+</div>
+
+<h2>אווירה והלך רוח</h2>
+<div class="dir">
+  <h3>הטון של הסרט</h3>
+  <p id="mood-text">חם, נוסטלגי וקצת מחויך, אבל בלי לעג. מתייחסים לשלושת הפסים כאל דמות ותיקה שעברה הרבה, לא כאל בדיחה. הרגש שצריך להישאר בסוף הוא כבוד: משהו קטן שרוב האנשים לא שמים לב אליו החזיק ארבעים וחמש שנה.</p>
+  <div class="row"><b>קצב</b><span>איטי בשלושת השוטים הראשונים, מתהדק באמצע, ונפתח שוב לנשימה ארוכה בסיום. אף חיתוך לא נופל על הביט, תמיד חצי פעימה אחריו.</span></div>
+  <div class="row"><b>מצלמה</b><span>תנועה אחת לשוט. דולי, פאן או ריחוף, אף פעם לא שניים ביחד. גובה עיניים של הדמות, כלומר נמוך, כדי שהאובייקט יקבל נוכחות.</span></div>
+  <div class="row"><b>חומר</b><span>חימר עם טביעות אצבע גלויות. חוסר שלמות זו התכונה, לא באג. כל תנועה נשארת עם מיקרו קפיצה של סטופ מושן, בלי אינטרפולציה חלקה מדי.</span></div>
+  <div class="row"><b>אור</b><span>מקור אור אחד רך מלמעלה בצד, צללים ארוכים, רקע קרם נקי. ככל שמתקדמים בזמן האור נעשה קריר במעט.</span></div>
+  <div class="row"><b>סאונד</b><span>קליקים של חימר, נשימה של חדר, מוזיקת סטופ מושן קווירקית וקלילה. שקט מוחלט לפני הפריים האחרון.</span></div>
+  <div class="rule"><span>תנועה אחת לשוט</span><span>בלי טקסט בג'ינרוט</span><span>חיתוך אחרי הביט</span><span>סוף בשקט</span></div>
+  <button class="copy" onclick="copyBlock('mood')">העתק הוראות אווירה</button>
+</div>
+
+<h2>סיפור רקע</h2>
+<div class="dir">
+  <h3>מה באמת קרה</h3>
+  <p id="story-text">ב-1981, במעבדה של זירוקס, מעצב בשם נורם קוקס צייר שלושה קווים אופקיים בשביל תחנת העבודה Xerox Star. המשימה היתה טכנית לגמרי: לדחוס רשימת פעולות שלמה לתוך ריבוע של שש עשרה פיקסלים, בלי מילים, כך שיהיה ברור שמאחורי הסימן מסתתרת רשימה. הצורה נבחרה כי היא נראתה כמו רשימה מוקטנת, לא כי מישהו חשב שהיא תהפוך לסמל.</p>
+  <p>אחר כך הוא כמעט נעלם. במשך יותר מעשרים שנה, כשמסכים היו רחבים ותפריטים היו שורה של מילים, לא היה בו צורך. הוא חזר רק כשהמסך התכווץ שוב: העידן הנייד החזיר בדיוק את אותה בעיה שהוא נולד לפתור, ומה שנראה כמו רעיון ישן היה פתאום הפתרון הכי הגיוני שהיה.</p>
+  <p>סביב 2014 התחילה מתקפה מסודרת עליו. טענו שהוא מסתיר, שאנשים לא מבינים מה יש מאחוריו, שהוא פוגע בגילוי של תכונות. הוצעו לו יורשים אינספור, פסי ניווט תחתונים, טקסט במקום סימן, כפתורים מפורשים. הוא ספג את הכל ונשאר, כי הוא פותר בעיה שלא נעלמה: מקום קטן מדי מכדי להסביר את עצמו במילים.</p>
+  <p>הזווית של היום: ממשקים מתחילים להימס לתוך שיחה עם סוכנים, ותפריטים כבר לא מובנים מאליהם. השאלה שהסרט משאיר פתוחה היא לא אם האייקון ישרוד, אלא מה זה אומר שסימן שנולד מאילוץ טכני של שנייה אחת שרד ארבעה עשורים של אופנות עיצוב. מהמופשט לאובייקט: כל אייקון שאתם מכירים, מישהו צייר אותו פעם ראשונה.</p>
+  <button class="copy" onclick="copyBlock('story')">העתק סיפור רקע</button>
 </div>
 
 <h2>קריינות</h2>
@@ -166,6 +200,29 @@ document.getElementById('shots').innerHTML = SHOTS.map(s => `
     </div>
   </div>`).join('');
 
+function copyBlock(kind){
+  const box = document.getElementById(kind+'-text').closest('.dir');
+  const parts = [];
+  box.querySelectorAll('p').forEach(p=>parts.push(p.textContent.trim()));
+  box.querySelectorAll('.row').forEach(r=>{
+    const b=r.querySelector('b'), s=r.querySelector('span');
+    if(b&&s)parts.push(b.textContent.trim()+': '+s.textContent.trim());
+  });
+  const rules=[...box.querySelectorAll('.rule span')].map(s=>s.textContent.trim());
+  if(rules.length)parts.push('כללים: '+rules.join(' · '));
+  const head = kind==='mood'
+    ? 'הוראות אווירה והלך רוח לסרט "ביוגרפיה של אובייקט: ההמבורגר מניו":'
+    : 'סיפור הרקע לסרט "ביוגרפיה של אובייקט: ההמבורגר מניו":';
+  copyText(head+'\n\n'+parts.join('\n\n'));
+}
+function copyText(t){
+  const done = () => { const el=document.getElementById('toast'); el.textContent='הועתק'; el.classList.add('on'); setTimeout(()=>el.classList.remove('on'),1600); };
+  if(navigator.clipboard){ navigator.clipboard.writeText(t).then(done, fb); } else { fb(); }
+  function fb(){
+    const ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy'); ta.remove(); done();
+  }
+}
 function copyP(n){
   const t = document.getElementById('p'+n).textContent;
   const done = () => { const el=document.getElementById('toast'); el.classList.add('on'); setTimeout(()=>el.classList.remove('on'),1600); };

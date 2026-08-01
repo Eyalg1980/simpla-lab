@@ -34,7 +34,13 @@ Hebrew inside `video` and `image` prompts is forbidden; image models mangle Hebr
 Match the existing JSON structures exactly. New day objects go to the TOP of `days`. Validate with `python3 -m json.tool`.
 
 ## Storyboards
-Full breakdowns Eyal approves get published to `daily-director/storyboards/<slug>/index.html` (self-contained page: script, shot cards with generated frames, per-shot copy-prompt buttons) and the idea's `srcUrl` points at it. Reference implementation: `storyboards/hamburger/`. Daily runs do NOT create storyboards; only an explicit "פתח לתסריט" request does.
+Full breakdowns Eyal approves get published to `daily-director/storyboards/<slug>/index.html` (self-contained page) and the idea gets a **`storyboardUrl`** field pointing at it. `storyboardUrl` is what flips the card's primary button from the black "פתח תסריט" to the green "סטוריבורד", so never leave it out once a board is published, and never put a storyboard link in `srcUrl` (that field is for the source that inspired the idea).
+
+Every storyboard page carries, in this order: title and logline, spec pills, **אווירה והלך רוח**, **סיפור רקע**, קריינות, שוט-ליסט with generated frames and a per-shot copy-prompt button, and הערות הפקה.
+- **אווירה והלך רוח** is the direction the shot prompts do not carry on their own: the emotional tone, pacing, camera discipline, material behaviour, light and sound, plus 3-5 short rule pills. One copy button copies the whole block as a directive.
+- **סיפור רקע** is the researched history behind the subject in Eyal's voice, 3-4 paragraphs, ending on the angle the film leaves open. One copy button. It doubles as the source material for the written post, so it must be factual and specific with real dates and names.
+
+Reference implementation: `storyboards/hamburger/`. Daily runs do NOT create storyboards; only an explicit "פתח תסריט" request does.
 
 ## Design language (locked)
 The app's visual language is black/white video-matte frames, chunky Rubik 900 type, and neon green (#71F73C) hand-drawn scribbles (inspired by Artem Shcherbakov's director portfolio, per Eyal's request). Daily runs edit ONLY the JSON files, never index.html.
@@ -44,5 +50,5 @@ Same repo flow as the post brainstormer (see /CLAUDE.md in repo root): clone sim
 
 ## Buttons contract
 - **"עוד רעיונות"** and the per-competition variant: copy a Hebrew command Eyal pastes into Claude. Handling it means generating new ideas per this spec and publishing them.
-- **"פתח לתסריט"**: produce a full breakdown in chat — logline, 45-90s script, shot list (per shot: duration, camera, action), and ready generation prompts per shot (name the model). Offer 2 style-test frames before the full set. Publish to `storyboards/` only if Eyal approves the result.
+- **"פתח תסריט"** (black button, shown only while the idea has no `storyboardUrl`): produce a full breakdown in chat — logline, 45-90s script, shot list (per shot: duration, camera, action), and ready generation prompts per shot (name the model). Offer 2 style-test frames before the full set. Publish to `storyboards/` only if Eyal approves the result.
 - **The four prompt buttons**: pure clipboard copies of the `prompts` object. No Claude round trip needed, which is the point.
