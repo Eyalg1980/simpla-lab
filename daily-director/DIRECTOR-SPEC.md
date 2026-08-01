@@ -36,7 +36,7 @@ Match the existing JSON structures exactly. New day objects go to the TOP of `da
 ## Storyboards
 Full breakdowns Eyal approves get published to `daily-director/storyboards/<slug>/index.html` (built on the shared template, see below) and the idea gets a **`storyboardUrl`** field pointing at it. `storyboardUrl` is what flips the card's primary button from the black "פתח תסריט" to the green "סטוריבורד", so never leave it out once a board is published, and never put a storyboard link in `srcUrl` (that field is for the source that inspired the idea).
 
-Every storyboard page is built from the SHARED template in `storyboards/_shared/` and carries nothing of its own beyond data. A page contains only: head with `<link rel="stylesheet" href="../_shared/sb.css">`, `<body><div id="sb"></div>`, one `<script>` defining `window.SB`, and `<script src="../_shared/sb.js"></script>`. No inline `<style>`, no per-page rendering code. If a page needs a new capability, extend `sb.js` and `sb.css` so every page gains it at once, never fork one page.
+Every storyboard page is built from the SHARED template in `storyboards/shared/` and carries nothing of its own beyond data. A page contains only: head with `<link rel="stylesheet" href="../shared/sb.css">`, `<body><div id="sb"></div>`, one `<script>` defining `window.SB`, and `<script src="../shared/sb.js"></script>`. No inline `<style>`, no per-page rendering code. If a page needs a new capability, extend `sb.js` and `sb.css` so every page gains it at once, never fork one page.
 
 Fixed furniture, identical on every page:
 - A **sticky app bar** at the top: round back button to `../../` on the right, the daily director wordmark centred, matching the daily-board pattern.
