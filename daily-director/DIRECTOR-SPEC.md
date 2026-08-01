@@ -36,11 +36,13 @@ Match the existing JSON structures exactly. New day objects go to the TOP of `da
 ## Storyboards
 Full breakdowns Eyal approves get published to `daily-director/storyboards/<slug>/index.html` (self-contained page) and the idea gets a **`storyboardUrl`** field pointing at it. `storyboardUrl` is what flips the card's primary button from the black "פתח תסריט" to the green "סטוריבורד", so never leave it out once a board is published, and never put a storyboard link in `srcUrl` (that field is for the source that inspired the idea).
 
-Every storyboard page carries, in this order: title and logline, spec pills, **אווירה והלך רוח**, **סיפור רקע**, קריינות, שוט-ליסט with generated frames and a per-shot copy-prompt button, and הערות הפקה.
-- **אווירה והלך רוח** is the direction the shot prompts do not carry on their own: the emotional tone, pacing, camera discipline, material behaviour, light and sound, plus 3-5 short rule pills. One copy button copies the whole block as a directive.
+Every storyboard page carries, in this order: title and logline, spec pills, **סינופסיס**, **סטוריבורד**, **הוראות הנפשה והלך רוח**, קריינות, סיפור רקע, and הערות הפקה. The visual work comes first; the reference material sits below it.
+- **סינופסיס** is the film told as prose in Eyal's voice, 5-7 short paragraphs, what actually happens beat by beat, ending on the thesis line. One copy button for the Hebrew, plus a collapsible `<pre>` holding the English version under 300 words with its own copy button, because competition cover sheets ask for exactly that.
+- **סטוריבורד** is the shot list: generated frames (or numbered placeholder frames until they exist), per-shot duration, camera, model pill, and a copy-prompt button per shot. Prefer TWO prompts per shot, one for the opening frame and one for the motion.
+- **הוראות הנפשה והלך רוח** is the direction the shot prompts do not carry on their own: the emotional tone, pacing, camera discipline, material behaviour, light and sound, plus 3-5 short rule pills. One copy button copies the whole block as a directive.
 - **סיפור רקע** is the researched history behind the subject in Eyal's voice, 3-4 paragraphs, ending on the angle the film leaves open. One copy button. It doubles as the source material for the written post, so it must be factual and specific with real dates and names.
 
-Reference implementation: `storyboards/hamburger/`. Daily runs do NOT create storyboards; only an explicit "פתח תסריט" request does.
+Reference implementation for the current structure: `storyboards/future-of-learning/`. (`storyboards/hamburger/` predates it and still uses the old order.) Daily runs do NOT create storyboards; only an explicit "פתח תסריט" request does.
 
 ## Design language (locked)
 The app's visual language is black/white video-matte frames, chunky Rubik 900 type, and neon green (#71F73C) hand-drawn scribbles (inspired by Artem Shcherbakov's director portfolio, per Eyal's request). Daily runs edit ONLY the JSON files, never index.html.
