@@ -57,6 +57,8 @@ h1{font-weight:900;font-size:clamp(31px,8.6vw,36px);line-height:1.13;letter-spac
 .film video,.film iframe{width:100%;display:block;border:0;aspect-ratio:16/9}
 .film.r1 video,.film.r1 iframe{aspect-ratio:1/1}
 .film.r9 video,.film.r9 iframe{aspect-ratio:9/16}
+.film-note{font-size:12px;color:var(--soft);margin:-8px 0 18px;line-height:1.6;text-align:center}
+.film-note b{color:var(--ink)}
 
 /* ---------- narration ---------- */
 .vo{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:8px}

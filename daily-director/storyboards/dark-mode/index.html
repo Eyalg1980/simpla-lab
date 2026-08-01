@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>סטוריבורד · ביוגרפיה של אובייקט · פרק 5: דארק מוד</title>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../shared/sb.css">
+<link rel="stylesheet" href="../shared/sb.css?v=3">
 </head>
 <body>
 <div id="sb"></div>
@@ -38,7 +38,22 @@ window.SB = {
   ],
   cdn: "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/",
 
-  film: null,
+  // עריכה גסה: שמונת הקליפים רצים ברצף בנגן אחד. אין קריינות, אין מוזיקה, אין כתוביות.
+  // כשתהיה עריכה סופית, מחליפים את clips ב-src של קובץ אחד ומורידים את ה-note.
+  film: {
+    ratio: "9",
+    note: "עריכה גסה, שמונה קליפים ברצף. בלי קריינות, בלי מוזיקה ובלי כתוביות.",
+    clips: [
+      "hf_20260801_174402_d1834e88-bc0d-40f2-b72f-4373b3505e04.mp4",
+      "hf_20260801_174408_c008276e-0baa-459b-a117-a242f46caec0.mp4",
+      "hf_20260801_174421_dcf7aeca-d362-4eba-86d0-3207d3ebb8a8.mp4",
+      "hf_20260801_174433_df492fe0-f1c4-4fb3-9eeb-e2d3e235bc59.mp4",
+      "hf_20260801_174443_ed4a8157-02f5-4951-a7f4-30789808a753.mp4",
+      "hf_20260801_174451_3657aa58-bd80-4d79-b588-f68b9fc41ab2.mp4",
+      "hf_20260801_174458_52dc91d5-4581-4899-806a-c18b5fc4c07c.mp4",
+      "hf_20260801_174505_303f13be-3212-445f-89e4-8807d9cadb26.mp4"
+    ]
+  },
 
   synopsis: {
     h3: "מה קורה בארבעים השניות",
@@ -225,6 +240,6 @@ window.SB = {
   }
 };
 </script>
-<script src="../shared/sb.js"></script>
+<script src="../shared/sb.js?v=3"></script>
 </body>
 </html>

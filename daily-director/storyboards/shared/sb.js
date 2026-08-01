@@ -58,13 +58,36 @@
   }
 
   // The finished film, when there is one, sits above the whole storyboard.
+  // Three shapes: {youtube:"id"}, {src:"...mp4"}, or {clips:[...]} for a rough cut
+  // that plays the rendered shot clips back to back, in order, in one player.
   function film() {
     if (!S.film) return '';
     var cls = 'film' + (S.film.ratio === '1' ? ' r1' : S.film.ratio === '9' ? ' r9' : '');
-    var inner = S.film.youtube
-      ? '<iframe src="https://www.youtube.com/embed/' + esc(S.film.youtube) + '" allowfullscreen loading="lazy"></iframe>'
-      : '<video src="' + esc(S.film.src) + '" controls playsinline preload="metadata"></video>';
-    return '<div class="' + cls + '">' + inner + '</div>';
+    var inner;
+    if (S.film.youtube) {
+      inner = '<iframe src="https://www.youtube.com/embed/' + esc(S.film.youtube) + '" allowfullscreen loading="lazy"></iframe>';
+    } else if (S.film.clips && S.film.clips.length) {
+      inner = '<video id="sb-film" src="' + esc((S.cdn || '') + S.film.clips[0]) +
+              '" controls playsinline preload="metadata"></video>';
+    } else {
+      inner = '<video src="' + esc(S.film.src) + '" controls playsinline preload="metadata"></video>';
+    }
+    return '<div class="' + cls + '">' + inner + '</div>' +
+      (S.film.note ? '<p class="film-note">' + esc(S.film.note) + '</p>' : '');
+  }
+
+  // A rough cut has no single file yet, so the player walks the clip list itself.
+  function wireFilm() {
+    if (!S.film || !S.film.clips || !S.film.clips.length) return;
+    var v = document.getElementById('sb-film');
+    if (!v) return;
+    var list = S.film.clips, cdn = S.cdn || '', i = 0;
+    v.addEventListener('ended', function () {
+      i++;
+      if (i >= list.length) { i = 0; v.src = cdn + list[0]; v.load(); return; }
+      v.src = cdn + list[i];
+      v.play();
+    });
   }
 
   function dirBlock(d, key) {
@@ -293,6 +316,7 @@
     html += promptBlock();
     html += '<footer>Simpla Lab · Daily Director</footer><div class="toast" id="sb-toast">הועתק</div>';
     document.getElementById('sb').innerHTML = html;
+    wireFilm();
   }
 
   /* ---------------- interaction ---------------- */
