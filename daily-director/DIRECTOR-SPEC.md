@@ -48,7 +48,15 @@ The app's visual language is black/white video-matte frames, chunky Rubik 900 ty
 ## Publish
 Same repo flow as the post brainstormer (see /CLAUDE.md in repo root): clone simpla-lab, edit files under `daily-director/`, commit, push BOTH `main` and `gh-pages` with the token from your instructions. Verify with WebFetch (sandbox blocks curl to github.io).
 
+## Prompt engine (single source for every copy button)
+`index.html` builds every copied command from one set of functions instead of hand-written strings: `pBrief` (who Eyal is + read this spec and the reference storyboard first), `pDeliver` (the six required outputs, in the storyboard page's own order), `pRules` (visual and voice constraints) and `pClose` (style-test first, then publish). On top of them sit `buildScriptPrompt` (an idea), `buildCompPrompt` (a competition idea, with the competition's theme, prize, deadline, notes and a mandatory check of the real submission terms), `buildMoreIdeas` and `buildMoreCompIdeas`.
+
+Two consequences to preserve:
+- Every prompt-producing button, on both tabs, targets the SAME deliverable: a published storyboard page plus the JSON update. That is why the outputs are numbered in the page's section order.
+- The card's four prompt buttons and its big primary button share one bank, so the `script` button is the builder's output, not free text from `videos.json`. Never reintroduce a hand-written command string in the markup; extend the builders instead.
+
 ## Buttons contract
 - **"עוד רעיונות"** and the per-competition variant: copy a Hebrew command Eyal pastes into Claude. Handling it means generating new ideas per this spec and publishing them.
+- **"העתק פרומפט"** on a competition idea: the full competition brief plus the idea, ending in the same storyboard deliverable. Verify the real submission terms on the competition site before writing, and correct the card if they differ.
 - **"פתח תסריט"** (black button, shown only while the idea has no `storyboardUrl`): produce a full breakdown in chat — logline, 45-90s script, shot list (per shot: duration, camera, action), and ready generation prompts per shot (name the model). Offer 2 style-test frames before the full set. Publish to `storyboards/` only if Eyal approves the result.
 - **The four prompt buttons**: pure clipboard copies of the `prompts` object. No Claude round trip needed, which is the point.

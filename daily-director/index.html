@@ -134,6 +134,10 @@
   .comp-idea{border:1.5px solid #3A3A36;border-radius:12px;padding:9px 12px;margin-bottom:8px}
   .comp-idea b{font-size:13.5px;display:block;color:var(--green)}
   .comp-idea p{font-size:12.5px;color:#BDBCB6;margin-top:2px}
+  .ci-btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;margin-top:9px;
+    border:1.5px solid var(--green);cursor:pointer;font-family:inherit;background:transparent;color:var(--green);
+    font-size:11.5px;font-weight:800;padding:6px 12px;border-radius:999px}
+  .ci-btn:active{background:var(--green);color:var(--black);transform:scale(.97)}
   .comp-actions{display:flex;gap:8px;margin-top:12px}
   .comp-link{flex:1;text-align:center;text-decoration:none;font-size:13px;font-weight:800;padding:10px;border-radius:12px;background:var(--white);color:var(--black)}
   .comp-gen{flex:1;border:none;cursor:pointer;font-family:inherit;font-size:13px;font-weight:900;padding:10px;border-radius:12px;background:var(--green);color:var(--black)}
@@ -165,7 +169,7 @@
       <span class="hero-kicker">מנוע הרעיונות לסרטונים</span>
       <h1>הבמאי היומי<svg class="scribble" viewBox="0 0 200 22" preserveAspectRatio="none"><path d="M6 13 C 44 5, 92 18, 138 9 C 162 4, 184 8, 195 12" stroke="#71F73C" stroke-width="4.5" fill="none" stroke-linecap="round"/><path d="M14 18.5 C 58 12, 104 21, 150 15 C 170 12, 184 14, 192 16.5" stroke="#71F73C" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".7"/></svg></h1>
       <p>רעיונות · תחרויות · השראה · מתעדכן כל בוקר</p>
-      <button class="gen-btn" onclick="copyCmd('צור עוד 3 רעיונות לסרטונים לבמאי היומי, בנוסף לאלה שכבר יש, ועדכן את הדף')"><svg class="ic" viewBox="0 0 24 24"><path d="M13.2 2.3 4.1 13.4C3.6 14 3.9 14.6 4.7 14.6H10.2L9.9 21.6C9.9 22.2 10.5 22.4 10.9 21.9L20 10.7C20.5 10.1 20.2 9.5 19.4 9.5H13.9L14.2 2.6C14.2 2 13.6 1.8 13.2 2.3Z"/></svg> צור עוד רעיונות</button>
+      <button class="gen-btn" onclick="copyCmd(buildMoreIdeas())"><svg class="ic" viewBox="0 0 24 24"><path d="M13.2 2.3 4.1 13.4C3.6 14 3.9 14.6 4.7 14.6H10.2L9.9 21.6C9.9 22.2 10.5 22.4 10.9 21.9L20 10.7C20.5 10.1 20.2 9.5 19.4 9.5H13.9L14.2 2.6C14.2 2 13.6 1.8 13.2 2.3Z"/></svg> צור עוד רעיונות</button>
     </div>
   </div>
 </div>
@@ -223,6 +227,86 @@ const SK={
 const CAT_IC={'מעקב תחרויות וקולות פתוחים':'cup','סרטונים משפיעים ופורמטים':'clap','הכלים והנכסים שלך':'pen'};
 function ic(n,cls){return '<svg class="ic'+(cls?' '+cls:'')+'" viewBox="0 0 24 24"><path d="'+SK[n]+'"/></svg>';}
 
+/* ============================================================
+   Prompt engine — one builder for every "copy a command" button.
+   Every command lands on the same target: a published storyboard
+   page under storyboards/<slug>/ with the exact section order the
+   reference page uses. Sharper input, less drift, one place to fix.
+   ============================================================ */
+const APP_URL='https://eyalg1980.github.io/simpla-lab/daily-director/';
+const SPEC_URL=APP_URL+'DIRECTOR-SPEC.md';
+const REF_URL=APP_URL+'storyboards/hamburger/';
+
+function pLine(label,val){return val?label+': '+val+'\n':''}
+function pBrief(){
+  return 'אתה עובד על "הבמאי היומי", מנוע רעיונות הווידאו של אייל גרשון (סימפלה, UX ו-AI, מלמד בג\'ון ברייס).\n'+
+         'לפני שאתה מתחיל, קרא שני דברים: את הספק החי '+SPEC_URL+' ואת הסטוריבורד הקיים '+REF_URL+' כרפרנס למבנה ולרמת הפירוט הנדרשת. אל תעתיק ממנו תוכן, רק את הרמה.';
+}
+function pDeliver(){
+  return 'מה לייצר, בסדר הזה בדיוק:\n'+
+    '1. לוגליין במשפט אחד, פורמט ומשך יעד.\n'+
+    '2. אווירה והלך רוח: טון רגשי, קצב, שפת מצלמה (תנועה אחת לשוט), התנהגות החומר, אור, סאונד, ועוד ארבעה כללי ברזל קצרים.\n'+
+    '3. סיפור רקע: מחקר אמיתי עם תאריכים, שמות ומספרים, שלוש עד ארבע פסקאות בקול שלי, נגמר בזווית שהסרט משאיר פתוחה. חובה לאמת ברשת לפני הכתיבה.\n'+
+    '4. קריינות בעברית, מחולקת לבלוקים של שניות.\n'+
+    '5. שוט ליסט: לכל שוט מספר, משך, תנועת מצלמה, מה קורה בפריים, המודל המומלץ (Nano Banana, Kling 3, Veo 3), ופרומפט מלא באנגלית שנפתח בשפה הוויזואלית הנעולה.\n'+
+    '6. הערות הפקה: מה מייצרים, מה מוסיפים בעריכה, ואיפה הנכס עובד פעם שנייה.';
+}
+function pRules(){
+  return 'כללי דיוק:\n'+
+    '- שפה ויזואלית אחת לכל הסרט, בלי לערבב סגנונות בין שוטים.\n'+
+    '- כל פרומפט וידאו בנוי כך: סגנון, סצנה קונקרטית, תנועת מצלמה אחת, אור, יחס גובה רוחב. בלי טקסט בתוך הג\'ינרוט.\n'+
+    '- עברית ישירה ואישית, משפטים קצרים, קול פעיל. בלי קווים מפרידים, בלי חצים, בלי קלישאות שיווקיות.\n'+
+    '- אל תמציא עובדות, תאריכים, שמות או קישורים. מה שלא אימתת, אל תכתוב.';
+}
+function pClose(){
+  return 'תהליך: קודם הצע לי שני פריימים למבחן סגנון ותעצור. אחרי שאאשר, ייצר את שאר הפריימים.\n'+
+    'בסיום: פרסם דף סטוריבורד ב-storyboards/<slug>/ במבנה של הרפרנס, הוסף storyboardUrl לרעיון ב-videos.json, ודחוף לגיט.';
+}
+function buildScriptPrompt(idea,day){
+  return pBrief()+'\n\nהמשימה: לפתח את הרעיון הבא לסרט שלם ולפרסם לו דף סטוריבורד.\n\n'+
+    'הרעיון (הבמאי היומי, '+(day&&day.dateLabel||'')+'):\n'+
+    pLine('כותרת',idea.hook)+
+    pLine('עולם תוכן',idea.world)+
+    pLine('קונספט',idea.concept)+
+    pLine('ביצוע',idea.execution)+
+    pLine('למה עכשיו',idea.why)+
+    pLine('משויך לתחרות',idea.competition)+
+    (idea.prompts&&idea.prompts.video?pLine('פרומפט וידאו שכבר נכתב',idea.prompts.video):'')+
+    (idea.prompts&&idea.prompts.image?pLine('פרומפט תמונה שכבר נכתב',idea.prompts.image):'')+
+    '\n'+pDeliver()+'\n\n'+pRules()+'\n\n'+pClose();
+}
+function buildCompPrompt(comp,idea){
+  return pBrief()+'\n\nהמשימה: לפתח את הרעיון הבא לסרט הגשה לתחרות, ולפרסם לו דף סטוריבורד.\n\n'+
+    'התחרות:\n'+
+    pLine('שם',comp.name)+
+    pLine('מארגנים',comp.org)+
+    pLine('נושא',comp.theme)+
+    pLine('פרס',comp.prize)+
+    pLine('דדליין',comp.deadline)+
+    pLine('סטטוס',comp.status)+
+    pLine('הערות',comp.notes)+
+    pLine('אתר',comp.url)+
+    '\nהרעיון:\n'+
+    pLine('כותרת',idea.hook)+
+    pLine('קונספט',idea.concept)+
+    '\nלפני הכתיבה: היכנס לאתר התחרות ואמת את תנאי ההגשה בפועל, אורך מותר, פורמט, יחס גובה רוחב, שפה, זכויות ותאריך סגירה מדויק. אם משהו לא תואם למה שכתוב כאן, תקן ותגיד לי.\n'+
+    'הסרט צריך לענות על הנושא של התחרות בצורה שאפשר להצביע עליה, לא רק להיות יפה. כתוב לי במשפט אחד איך השופטים אמורים לקרוא אותו.\n\n'+
+    pDeliver()+'\n\n'+pRules()+'\n\n'+pClose();
+}
+function buildMoreIdeas(){
+  return pBrief()+'\n\nהמשימה: שלושה רעיונות חדשים לסרטונים בשביל הבריף של היום, בנוסף לאלה שכבר קיימים, ופרסום לדף.\n\n'+
+    'לכל רעיון: עולם תוכן, כותרת חדה בשורה אחת, קונספט של שתיים עד שלוש שורות, ביצוע קונקרטי (איזה מודל, פורמט, אורך, יחסי גובה רוחב), למה עכשיו, ואובייקט prompts מלא לפי הספק.\n'+
+    'אל תחזור על רעיונות שכבר מופיעים ב-videos.json מהשבועיים האחרונים. לפחות אחד מהם צריך להיות כזה שאפשר לפתוח אותו לדף סטוריבורד מלא באותו יום.\n\n'+
+    pRules()+'\n\nבסיום: הוסף אותם ליום הנוכחי ב-videos.json ודחוף.';
+}
+function buildMoreCompIdeas(comp){
+  return pBrief()+'\n\nהמשימה: שלושה קונספטים חדשים לסרטים בשביל התחרות הבאה, ועדכון דף התחרויות.\n\n'+
+    pLine('תחרות',comp.name)+pLine('נושא',comp.theme)+pLine('פרס',comp.prize)+pLine('דדליין',comp.deadline)+pLine('אתר',comp.url)+
+    '\nלכל קונספט: כותרת חדה, שתי שורות קונספט, והמשפט שמסביר איך הוא עונה על הנושא של התחרות.\n'+
+    'אל תחזור על הרעיונות שכבר מופיעים בכרטיס התחרות. אמת את תנאי ההגשה באתר לפני שאתה מציע.\n'+
+    'בסיום: הוסף אותם ל-competitions.json תחת התחרות הזאת ודחוף.\n\n'+pRules();
+}
+
 const PROMPT_KINDS=[
   {k:'video', label:'פרומפט וידאו', i:'cam'},
   {k:'script',label:'פיתוח תסריט',  i:'pen'},
@@ -239,7 +323,7 @@ function renderIdeas(data){
   for(const day of days){
     html+='<section><div class="date-chip"><span>'+esc(day.dateLabel)+'</span></div>';
     for(const idea of (day.ideas||[])){
-      const cmd='פתח את רעיון הווידאו הזה לברייקדאון מלא: תסריט, שוט-ליסט ופרומפטים להיגספילד. הרעיון (הבמאי היומי '+day.dateLabel+'): "'+idea.hook+'"';
+      const cmd=buildScriptPrompt(idea,day);
       html+='<article class="card">';
       html+='<div class="tags"><span class="tag">'+esc(idea.world)+'</span>';
       if(idea.competition)html+='<span class="tag comp">'+ic('cup')+' '+esc(idea.competition)+'</span>';
@@ -247,14 +331,15 @@ function renderIdeas(data){
       html+='<div class="label">הקונספט</div><div class="angle">'+esc(idea.concept)+'</div>';
       html+='<div class="label">איך מבצעים</div><div class="angle">'+esc(idea.execution)+'</div>';
       html+='<div class="why"><b>למה עכשיו:</b> '+esc(idea.why)+'</div>';
-      if(idea.prompts){
-        const pi=PBANK.push(idea.prompts)-1;
-        html+='<div class="label">פרומפטים מוכנים</div><div class="prompts">';
-        for(const pk of PROMPT_KINDS){
-          if(idea.prompts[pk.k])html+='<button class="p-btn" data-p="'+pi+'" data-k="'+pk.k+'">'+ic(pk.i)+' '+pk.label+'</button>';
-        }
-        html+='</div>';
+      /* The script button always runs through the shared prompt engine, so the
+         four buttons and the big one below never drift apart. */
+      const bank=Object.assign({},idea.prompts||{},{script:cmd});
+      const pi=PBANK.push(bank)-1;
+      html+='<div class="label">פרומפטים מוכנים</div><div class="prompts">';
+      for(const pk of PROMPT_KINDS){
+        if(bank[pk.k])html+='<button class="p-btn" data-p="'+pi+'" data-k="'+pk.k+'">'+ic(pk.i)+' '+pk.label+'</button>';
       }
+      html+='</div>';
       html+='<div class="card-actions">';
       if(idea.srcUrl)html+='<a class="src" href="'+esc(idea.srcUrl)+'" target="_blank" rel="noopener">'+ic('link')+' '+esc(idea.srcLabel||'מקור')+'</a>';
       /* One primary button, two states: no storyboard yet = black "open script";
@@ -281,8 +366,10 @@ function renderIdeas(data){
   }));
 }
 
+let CBANK=[];
 function renderComps(data){
   const el=document.getElementById('comps');
+  CBANK=[];
   let html='<p style="font-size:12.5px;color:#5A5A55;margin-bottom:14px;font-weight:600">עודכן: '+esc(data.updated)+' · המערכת סורקת תחרויות חדשות בכל בוקר</p>';
   data.competitions.forEach((c,i)=>{
     const watch=c.status!=='פתוח';
@@ -295,17 +382,19 @@ function renderComps(data){
     if(c.ideas&&c.ideas.length){
       html+='<div class="comp-ideas"><div class="label" style="color:#71F73C;margin-bottom:6px">'+ic('bulb')+' רעיונות לתחרות הזאת</div>';
       for(const idea of c.ideas){
-        html+='<div class="comp-idea"><b>'+esc(idea.hook)+'</b><p>'+esc(idea.concept)+'</p></div>';
+        const ci=CBANK.push(buildCompPrompt(c,idea))-1;
+        html+='<div class="comp-idea"><b>'+esc(idea.hook)+'</b><p>'+esc(idea.concept)+'</p>';
+        html+='<button class="ci-btn" data-ci="'+ci+'">'+ic('pen')+' העתק פרומפט</button></div>';
       }
       html+='</div>';
     }
-    const cmd='ברינסטורם לתחרות '+c.name+' ('+c.theme+', דדליין '+c.deadline+'): צור עוד 3 קונספטים בשבילי ועדכן את דף התחרויות';
+    const gi=CBANK.push(buildMoreCompIdeas(c))-1;
     html+='<div class="comp-actions"><a class="comp-link" href="'+esc(c.url)+'" target="_blank" rel="noopener">'+ic('link')+' לאתר התחרות</a>';
-    html+='<button class="comp-gen" data-cmd="'+esc(cmd)+'">'+ic('bulb')+' עוד רעיונות</button></div>';
+    html+='<button class="comp-gen" data-ci="'+gi+'">'+ic('bulb')+' עוד רעיונות</button></div>';
     html+='</div>';
   });
   el.innerHTML=html;
-  el.querySelectorAll('.comp-gen').forEach(b=>b.addEventListener('click',()=>copyCmd(b.dataset.cmd)));
+  el.querySelectorAll('[data-ci]').forEach(b=>b.addEventListener('click',()=>copyCmd(CBANK[+b.dataset.ci])));
 }
 
 function renderInsp(data){
