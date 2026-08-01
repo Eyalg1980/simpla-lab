@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>סטוריבורד · ביוגרפיה של אובייקט · פרק 5: דארק מוד</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/sb.css">
+</head>
+<body>
+<div id="sb"></div>
+
+<script>
+/* מחרוזת הסגנון של הסדרה. פרק 5 הוא היחיד שנוגע בה, ובדיוק בשני טוקנים:
+   הרקע והפלטה. זו החריגה שהפרק עוסק בה, ולכן היא מתועדת ולא מוסתרת. */
+const LOOK_WARM  = "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field";
+const LOOK_SPLIT = "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, studio background split down the middle of the frame from cream on the right to deep charcoal on the left, coral yellow teal palette, soft studio lighting, shallow depth of field";
+const LOOK_COLD  = "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, deep charcoal studio background, inverted cool palette of cyan violet blue and pale mint, shallow depth of field";
+const LOOKS = { warm: LOOK_WARM, split: LOOK_SPLIT, cold: LOOK_COLD };
+
+window.SB = {
+  kicker: "STORYBOARD · CLAY · פרק 5 · סיום עונה",
+  titleTop: "ביוגרפיה של אובייקט · פרק 5:",
+  titleMark: "דארק מוד, המעגל שנסגר",
+  titleEn: "Biography of an Object, Episode 5: Dark Mode, the Circle Closes",
+  logline: "המסך נולד כהה מסיבה פיזיקלית. ב-1973 זירוקס הלבינה אותו כדי שייראה כמו נייר, ובין 2016 ל-2019 כולנו החזרנו את השחור בשם קריאות וסוללה שהמחקר לא באמת מאשר. ארבעים שניות בקליי על מעגל שנסגר מהסיבות הלא נכונות.",
+  loglineEn: "The screen was born dark for a reason of physics. In 1973 Xerox whitened it so it would look like paper, and between 2016 and 2019 all of us brought the black back, in the name of readability and battery life the research does not actually support. Forty seconds in clay about a circle that closed for the wrong reasons.",
+  specs: ["40 שניות", "9:16 · רילס", "גם 1:1 לפיד", "קליי סטופ-מושן", "קול Gideon", "8 שוטים", "סיום עונה"],
+  specsEn: [
+    "40 seconds",
+    "9:16 vertical, primary delivery",
+    "1:1 secondary cut for the feed",
+    "Claymation stop-motion, one locked visual language, with a single deliberate inversion",
+    "Hebrew voice over, ElevenLabs Gideon voice, laid in the edit",
+    "8 shots",
+    "Season finale: the only episode allowed to break the series cream background",
+    "Burned-in Hebrew subtitles added in the edit, never in the generation"
+  ],
+  cdn: "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/",
+
+  film: null,
+
+  synopsis: {
+    h3: "מה קורה בארבעים השניות",
+    copyLabel: "העתק סינופסיס",
+    copyHead: 'סינופסיס לסרט "ביוגרפיה של אובייקט · פרק 5: דארק מוד, המעגל שנסגר":',
+    enLabel: "English synopsis",
+    enCopyLabel: "Copy English synopsis",
+    paras: [
+      "מסך חימר קטן עומד על מדף עץ, על רקע קרם. המסך שחור, ועליו אייקון שמש צהוב אחד שזוהר. זה לא עיצוב, זו פיזיקה: בשפופרת קרינה שחור הוא פשוט מקום שהאלומה לא הגיעה אליו.",
+      "מאקרו על פני הזכוכית. גרגרי זרחן חימריים, חלקם דלוקים וחלקם כבויים. הירוק ניצח כי העין שלנו קוראת אותו כהכי בהיר תמורת אותה אנרגיה.",
+      "1973. שתי ידי חימר תופסות את המסך ומסובבות אותו מרוחב לאורך. ואז יד אחת מורחת עליו שכבת חימר לבן עד שהזכוכית הופכת לדף נייר, עם קצה מסולסל וטביעות אצבע.",
+      "טיים-לאפס על מדף ארוך. שורה של מסכים לפי עשורים, מ-CRT מגושם ועד טלפון קטן, וכולם לבנים. ארבעים וחמש שנה של ברירת מחדל אחת.",
+      "ואז יד קולפת את הדף הלבן מהמסך כמו מדבקה. מתחתיו שחור. הקיר מאחור מתהפך תוך כדי, קרם מימין ופחם משמאל, והאור לא זז.",
+      "עכשיו הכל קר. מאזני חימר: הכף עם האריח הבהיר יורדת, הכף עם האריח הכהה עולה. לידם סוללה עם פס ציאן דק אחד. שני המספרים שאף אחד לא רצה לשמוע.",
+      "הסרט נוחת על אותו מסך, על אותו מדף, באותו אור בדיוק. רק שהפעם הרקע פחם, הפלטה התהפכה לקרה, והשמש הצהובה הפכה לירח ציאן. חזרנו הביתה, פשוט לא מהסיבות שסיפרנו לעצמנו."
+    ],
+    en: "A small clay monitor stands on a wooden shelf against a cream wall. The screen is black, and on it a single glowing yellow sun icon. That is not design, it is physics: on a cathode ray tube, black is simply a place the beam never reached.\n\nMacro on the surface of the glass. Clay phosphor grains, some lit and some dead. Green won because the human eye reads it as the brightest colour for the same amount of energy.\n\n1973. Two clay hands grip the monitor and turn it from landscape onto its end into portrait. Then one hand smears a layer of white clay across it until the glass becomes a sheet of paper, with a curled edge and fingerprints in it.\n\nTime lapse along a long shelf. A row of screens by decade, from a bulky CRT to a small phone, and every one of them is white. Forty five years of a single default.\n\nThen a hand peels the white sheet off the screen like a sticker. Underneath is black. The wall behind inverts while it happens, cream on the right and charcoal on the left, and the light never moves.\n\nNow everything is cold. A clay balance scale: the pan holding the pale tile sits low, the pan holding the dark tile rides high. Beside it a battery with one thin cyan sliver. The two numbers nobody wanted to hear.\n\nThe film lands on the same monitor, on the same shelf, under exactly the same light. Only now the background is charcoal, the palette has inverted to cold, and the yellow sun has become a cyan moon. We came home. Just not for the reasons we told ourselves."
+  },
+
+  mood: {
+    h3: "הטון של הסרט",
+    copyLabel: "העתק הוראות אווירה",
+    copyHead: 'הוראות אווירה והלך רוח לסרט "ביוגרפיה של אובייקט · פרק 5: דארק מוד":',
+    paras: ["יבש, מדויק ובלי ניצחון. זה לא סרט שמנצח ויכוח, זה סרט שמראה מעגל. אין לעג לאף צד ואין פאנץ' חכם, יש רק תזוזה איטית של הקיר שהצופה מרגיש לפני שהוא שם לב אליה. הרגש שצריך להישאר בסוף הוא לא בושה אלא הכרה: הגענו למקום סביר בדרך לא סבירה."],
+    rows: [
+      ["קצב", "שלוש פתיחות איטיות, אמצע מהודק בשוטים 4 עד 6, ושני שוטי סיום ארוכים. השבירה האמיתית קורית בשוט 6, ומשם הסרט לא חוזר לקרם אף לא לרגע אחד."],
+      ["מצלמה", "תנועה אחת לשוט, אף פעם לא שתיים. שתי דחיפות, מאקרו אחד, סיבוב פיזי אחד של האובייקט מול מצלמה נעולה, טיים-לאפס נעול אחד, נסיגה אחת ומיקרו דחיפה אחת בסוף."],
+      ["חומר", "החימר עצמו לא משנה צבע, רק הסביבה. הלבן שנמרח על המסך הוא שכבת חימר ממש, עם טביעות אצבע וקצה מסולסל, ולכן כשקולפים אותה בשוט 6 מבינים שהיא תמיד היתה ציפוי ולא תכונה."],
+      ["אור", "מקור מפתח אחד משמאל למעלה, באותה זווית ובאותו אורך צל בכל שמונת השוטים. מה שמשתנה זה טמפרטורת הצבע, שמתהפכת מחמה לקרה בשוט 6. הגיאומטריה נשארת, רק הצבע מתהפך, וזו כל התזה של הפרק בשורה אחת."],
+      ["סאונד", "זמזום CRT נמוך בפתיחה, קליקים של חימר, פסנתר יחיד ורך. בשוט 6 הזמזום נפסק בחיתוך יבש בדיוק ברגע הקילוף. ארבע השניות האחרונות בשקט מוחלט, בלי מוזיקה, רק אוויר."],
+      ["מוטיב", "השמש והירח הם הסוגריים של הסרט. אייקון שמש צהוב על מסך שחור בשוט 1, אייקון ירח ציאן על מסך פחם בשוט 8. אותו מסך, אותו מדף, אותו אור, סמל הפוך ופלטה הפוכה. אלה שני הפריימים היחידים שבהם מופיע סמל על המסך."]
+    ],
+    rules: ["תנועה אחת לשוט", "גיאומטריית האור לא זזה", "הרקע מתהפך פעם אחת ולא חוזר", "שמש בפתיחה, ירח בסיום", "בלי טקסט בג'ינרוט"],
+    en: "Dry, precise, and without a victory lap. This is not a film that wins an argument, it is a film that shows a circle. No side gets mocked and there is no clever punchline, only the slow movement of the wall behind, which the viewer feels before noticing it. The feeling left at the end is not embarrassment but recognition: we arrived somewhere reasonable by an unreasonable route.\n\nPacing: three slow opening shots, a tightened middle across shots 4 to 6, and two long closing shots. The real break happens in shot 6, and from there the film never returns to cream, not for a single frame.\n\nCamera: exactly one move per shot, never two. Two push-ins, one macro, one physical rotation of the object in front of a locked camera, one locked time lapse, one pull-back and one micro push-in at the end.\n\nMaterial: the clay itself never changes colour, only its surroundings. The white smeared onto the screen is a real layer of clay, with fingerprints and a curled edge, so that when it is peeled off in shot 6 you understand it was always a coating and never a property.\n\nLight: one key source from the upper left, at the same angle and casting the same shadow length in all eight shots. What changes is colour temperature, which inverts from warm to cold in shot 6. The geometry stays, only the colour flips, and that is the whole thesis of the episode in one line.\n\nSound: a low CRT hum at the open, clay clicks, a single soft piano. In shot 6 the hum stops on a hard cut at the exact moment of the peel. Total silence for the last four seconds, no music, only air.\n\nMotif: the sun and the moon are the brackets of the film. A yellow sun icon on a black screen in shot 1, a cyan moon icon on a charcoal screen in shot 8. Same screen, same shelf, same light, inverted symbol and inverted palette. These are the only two frames in which a symbol appears on the screen.\n\nRules: one camera move per shot | the light geometry never moves | the background inverts once and never returns | sun at the open, moon at the close | no text inside the generation."
+  },
+
+  story: {
+    h3: "מה באמת קרה",
+    copyLabel: "העתק סיפור רקע",
+    copyHead: 'סיפור הרקע לסרט "ביוגרפיה של אובייקט · פרק 5: דארק מוד":',
+    paras: [
+      "בשפופרת קרינה שחור הוא לא צבע, הוא היעדר. אלומת אלקטרונים מכה בציפוי זרחן ומאירה אותו, וכל מקום שהאלומה לא הגיעה אליו נשאר זכוכית כהה. אין שם דיו ואין נייר, יש רק דבר אחד שנדלק. הזרחן הירוק התקני היה P1, סיליקט אבץ עם מנגן, ולידו היו גם P3 ענברי ו-P4 לבן ששימש בטלוויזיות. הירוק ניצח כי רגישות העין האנושית בתאורת יום מגיעה לשיא סביב 555 ננומטר, כלומר ירוק נראה הכי בהיר תמורת אותה אנרגיה. במילים אחרות, המסך הראשון שלנו היה כהה עם טקסט בהיר כי ככה עובדת מנורה, לא כי ככה עובדת קריאה.",
+      "ב-1 במרץ 1973 הופעל בזירוקס פארק ה-Alto, שתוכנן בעיקרו על ידי צ'אק ת'אקר יחד עם באטלר לאמפסון, בהשראת רעיון הדיינאבוק של אלן קיי, ובוב טיילור נתן לו את השם. ה-Alto עשה שני דברים שאיש לא עשה קודם: הוא הציב את שפופרת הקרינה לאורך במקום לרוחב, והוא הפך את הקוטביות. טקסט שחור על רקע לבן. ב-1974 רץ עליו Bravo, עורך הטקסט הראשון מסוג WYSIWYG, בפיתוח של צ'ארלס סימוני ובאטלר לאמפסון. ההיגיון היה פשוט וגם מסחרי לגמרי: זירוקס מוכרת מכונות צילום, והמסך צריך להיראות כמו הדף שייצא מהמדפסת. הדף ניצח את המנורה, והלבן הפך לברירת המחדל של העולם.",
+      "ואז, ארבעים וחמש שנה אחר כך, החזרנו את השחור. באוגוסט 2016 מיקרוסופט הוסיפה מצב אפליקציות כהה ב-Windows 10 Anniversary Update. ב-24 בספטמבר 2018 אפל שחררה את macOS Mojave עם Dark Mode. ב-3 בספטמבר 2019 יצא אנדרואיד 10 עם מצב כהה מערכתי, וב-19 בספטמבר 2019 יצא iOS 13 עם Dark Mode. שלוש שנים, ארבע מערכות הפעלה, וברירת המחדל של הממשק חזרה בדיוק לנקודה שממנה יצאה.",
+      "רק שהסיפור שסיפרנו לעצמנו לא ממש מחזיק. הסיכום של Nielsen Norman Group מצביע על יתרון עקבי לקוטביות חיובית, כלומר טקסט כהה על רקע בהיר, אצל אנשים עם ראייה תקינה: פיפנברוק ועמיתיו ב-2013 ב-Ergonomics מצאו יתרון למצב הבהיר גם אצל צעירים בני 18 עד 33 וגם אצל מבוגרים בני 60 עד 85, והפער גדל ככל שהגופן קטן. דוברס ועמיתיו ב-2017 ב-Applied Ergonomics מצאו שביום אין הבדל מובהק ובלילה דווקא הבהיר עדיף. הכיוון ההפוך קיים אבל ממוקד: לג' ועמיתיו כבר ב-1985 ב-Vision Research מצאו קצב קריאה טוב יותר במצב כהה אצל אנשים עם עכירות בתווך העין, כמו קטרקט. ועל הסוללה: המחקר של צ'רלי הו ופרנב דאש מפרדו, שהוצג ב-MobiSys 2021 ונבדק על Pixel 2, Moto Z3, Pixel 4 ו-Pixel 5, מצא חיסכון של 3 עד 9 אחוזים בלבד בבהירות של 30 עד 50 אחוז. רק בבהירות מלאה הוא קופץ ל-39 עד 47.",
+      "והזווית שהסרט משאיר פתוחה: יש ממצא אחד שלא נוח לאף צד. אלמן ועמיתיו פרסמו ב-2018 ב-Scientific Reports שקריאה ממושכת במצב בהיר נקשרה להידקקות הכורואיד, סמן שמקושר בספרות להתפתחות קוצר ראייה. כלומר יכול להיות שדווקא בטווח הארוך צדקנו, רק שאף אחד מאיתנו לא בחר דארק מוד בגלל זה. חזרנו הביתה מהסיבות הלא נכונות, ואולי בכל זאת הגענו למקום הנכון."
+    ],
+    en: "On a cathode ray tube, black is not a colour, it is an absence. An electron beam strikes a phosphor coating and lights it, and everywhere the beam never reached stays dark glass. There is no ink and no paper there, only one thing that switches on. The standard green phosphor was P1, zinc silicate doped with manganese, alongside amber P3 and the white P4 used in television sets. Green won because human photopic sensitivity peaks around 555 nanometres, meaning green looks brightest for the same amount of energy. In other words, our first screen was dark with bright text because that is how a lamp works, not because that is how reading works.\n\nOn 1 March 1973 the Alto came up at Xerox PARC, designed mostly by Chuck Thacker together with Butler Lampson, inspired by Alan Kay's Dynabook idea, and named by Bob Taylor. The Alto did two things nobody had done before: it stood the cathode ray tube in portrait rather than landscape, and it inverted the polarity. Black text on a white background. In 1974 it ran Bravo, the first WYSIWYG text editor, developed by Charles Simonyi and Butler Lampson. The logic was simple and entirely commercial: Xerox sells copiers, and the screen should look like the page that will come out of the printer. The page beat the lamp, and white became the world's default.\n\nThen, forty five years later, we brought the black back. In August 2016 Microsoft added a dark app mode in the Windows 10 Anniversary Update. On 24 September 2018 Apple shipped macOS Mojave with Dark Mode. On 3 September 2019 Android 10 arrived with a system-wide dark theme, and on 19 September 2019 iOS 13 shipped with Dark Mode. Three years, four operating systems, and the default of the interface returned to exactly the point it had left.\n\nExcept the story we told ourselves does not really hold. The Nielsen Norman Group summary points to a consistent advantage for positive polarity, meaning dark text on a light background, for people with normal vision: Piepenbrock and colleagues in 2013 in Ergonomics found a light-mode advantage for both younger adults aged 18 to 33 and older adults aged 60 to 85, and the gap widened as font size shrank. Dobres and colleagues in 2017 in Applied Ergonomics found no significant difference by day and a light-mode advantage at night. The opposite direction exists but is specific: Legge and colleagues, back in 1985 in Vision Research, found faster reading in dark mode for people with cloudy ocular media, such as cataracts. And on battery: the study by Charlie Hu and Pranab Dash of Purdue, presented at MobiSys 2021 and measured on the Pixel 2, Moto Z3, Pixel 4 and Pixel 5, found only 3 to 9 percent savings at 30 to 50 percent brightness. Only at full brightness does it jump to 39 to 47 percent.\n\nAnd here is the angle the film leaves open: there is one finding that suits nobody. Aleman and colleagues reported in 2018 in Scientific Reports that sustained reading in light mode was associated with choroidal thinning, a marker linked in the literature to the development of myopia. Which means that in the long run we may have been right after all, except that not one of us chose dark mode for that reason. We came home for the wrong reasons, and maybe still arrived at the right place."
+  },
+
+  vo: [
+    { t: "0-5",   text: "המסכים לא נולדו כהים בגלל אופנה. בשפופרת קרינה, שחור זה פשוט אלומה כבויה.",
+                  en: "Screens were not born dark because of fashion. On a cathode ray tube, black is simply a beam that is off." },
+    { t: "5-9",   text: "הזוהר הוא זרחן. והירוק ניצח כי העין קוראת אותו כהכי בהיר, בפחות אנרגיה.",
+                  en: "The glow is phosphor. Green won because the eye reads it as the brightest, for less energy." },
+    { t: "9-14",  text: "1 במרץ 1973, זירוקס פארק. האלטו מעמיד את המסך לאורך.",
+                  en: "1 March 1973, Xerox PARC. The Alto stands the screen up in portrait." },
+    { t: "14-19", text: "ואז מלבין אותו. שחור על לבן, כי המחשב צריך להיראות כמו הדף שיצא מהמדפסת.",
+                  en: "Then it whitens it. Black on white, because the computer should look like the page coming out of the printer." },
+    { t: "19-23", text: "ארבעים וחמש שנה זאת היתה ברירת המחדל של העולם.",
+                  en: "For forty five years that was the world's default." },
+    { t: "23-29", text: "ואז 2016, 2018, 2019. חלונות, מאק, אנדרואיד, אייפון. כולם קילפו את הלבן.",
+                  en: "Then 2016, 2018, 2019. Windows, Mac, Android, iPhone. Everyone peeled the white off." },
+    { t: "29-35", text: "רק שהמחקר לא זז. טקסט כהה על רקע בהיר עדיין נקרא טוב יותר. והסוללה, שלושה עד תשעה אחוזים.",
+                  en: "Except the research did not move. Dark text on a light background still reads better. And the battery, three to nine percent." },
+    { t: "35-40", text: "חזרנו הביתה. פשוט לא מהסיבות שסיפרנו לעצמנו.",
+                  en: "We came home. Just not for the reasons we told ourselves." }
+  ],
+
+  shots: {
+    style: LOOK_WARM,
+    prompts: function (s) {
+      var look = LOOKS[s.look] || LOOK_WARM;
+      return [
+        { label: "פריים פותח (Nano Banana)", btn: "העתק פרומפט פריים",
+          text: look + ". " + s.still + ", vertical composition, generous negative space above, 9:16, no text" },
+        { label: "תנועה (" + (s.model.indexOf("Veo") > -1 ? "Veo 3" : "Kling 3, image-to-video") + ")", btn: "העתק פרומפט תנועה",
+          text: look + ". " + s.motion + ", 9:16" }
+      ];
+    },
+    list: [
+      { n:1, dur:"5 שנ'", durEn:"5s", cam:"דחיפה איטית פנימה", camEn:"Slow push-in",
+        model:"Nano Banana ואז Kling 3", look:"warm",
+        title:"שחור זה אלומה כבויה", titleEn:"Black is a beam switched off",
+        img:"hf_20260801_172245_2da215b3-8275-4699-82a5-5c78f5699620.png",
+        still:"A small handmade clay CRT monitor with a chunky rounded bezel sits on a plain wooden shelf, its curved glass screen a slab of deep black clay, and on the screen a single simple glowing warm yellow clay sun icon, a plain circle with short straight rays around it, thick and childlike and centred, the warm yellow glow spilling softly onto the shelf, a single warm key light from the upper left, long soft shadow, quiet and archival mood",
+        motion:"The camera pushes in very slowly on the small clay CRT monitor on its wooden shelf, the yellow clay sun icon on the black screen pulsing once as if the tube is warming up and its glow breathing across the shelf, everything else completely still, one warm key light from the upper left, dust drifting through the beam, a low tube hum" },
+
+      { n:2, dur:"4 שנ'", durEn:"4s", cam:"מאקרו נעול", camEn:"Locked-off macro",
+        model:"Nano Banana ואז Kling 3", look:"warm",
+        title:"הזרחן", titleEn:"The phosphor",
+        img:"hf_20260801_172251_eb4171f1-5f3d-4999-a1bb-e9fdcec3e410.png",
+        still:"Extreme macro of the surface of a clay CRT screen: a grid of tiny raised green clay dots on black clay, some of the dots lit and glowing green and the rest dark and dull, fingerprints visible between the dots, one warm key light raking across the surface from the upper left, technical and intimate mood",
+        motion:"Locked-off macro on the grid of tiny green clay dots, individual dots lighting up one after another in a slow sweeping wave across the surface while the rest stay dark and dull, the glow rising and settling, no camera movement at all, warm raking light, quiet electrical texture" },
+
+      { n:3, dur:"5 שנ'", durEn:"5s", cam:"סיבוב פיזי של האובייקט, מצלמה נעולה", camEn:"Physical rotation of the object, camera locked",
+        model:"Nano Banana ואז Kling 3", look:"warm",
+        title:"1973, מסובבים את המסך", titleEn:"1973, turning the screen",
+        img:"hf_20260801_172257_bcd28680-fa5e-4a12-866f-8fa97f3e4938.png",
+        still:"Two large clay hands gripping the sides of a small clay CRT monitor on a wooden desk and turning it from a wide landscape orientation up onto its end into a tall portrait orientation, the monitor caught mid rotation at a tilt, its dark screen still blank, a 1973 clay research lab suggested behind in soft focus, one warm key light from the upper left, deliberate and historic mood",
+        motion:"The two clay hands rotate the monitor a full quarter turn from landscape up onto its end into portrait and set it down, the camera stays completely locked off, the dark screen stays blank throughout, one warm key light from the upper left, a single dull wooden knock as it lands" },
+
+      { n:4, dur:"5 שנ'", durEn:"5s", cam:"דחיפה איטית פנימה", camEn:"Slow push-in",
+        model:"Nano Banana ואז Kling 3", look:"warm",
+        title:"מלבינים את הזכוכית", titleEn:"Whitening the glass",
+        img:"hf_20260801_172303_5975fad2-e679-46cd-9d38-08c49a0cf394.png",
+        still:"A clay hand smearing a thick layer of white clay across the dark screen of a small portrait clay CRT monitor, half the screen already covered in flat matte white with visible finger streaks and the other half still deep black, the white half reading exactly like a sheet of paper with a slight curled edge, one warm key light from the upper left, transformative and calm mood",
+        motion:"The clay hand drags the thick white clay steadily across the rest of the dark screen until the whole surface is flat matte white with finger streaks in it and one corner curling like paper, the hand withdraws out of frame, the camera pushes in slowly the whole time, one warm key light, calm and deliberate" },
+
+      { n:5, dur:"4 שנ'", durEn:"4s", cam:"טיים-לאפס נעול", camEn:"Locked-off time lapse",
+        model:"Veo 3", look:"warm",
+        title:"ארבעים וחמש שנה של לבן", titleEn:"Forty five years of white",
+        img:"hf_20260801_172309_bf0c4940-51c7-4933-9000-61b64fab26c6.png",
+        still:"A long plain wooden shelf receding into the frame holding a row of handmade clay screens in order of era, a boxy CRT at the near end then a beige monitor then a flat panel then a laptop then a small phone, every single one of them showing a blank white paper-like screen, all identical in whiteness, one warm key light from the upper left, orderly and slightly monotonous mood",
+        motion:"Locked-off time lapse along the shelf: each clay screen in the row is swapped for the next era one after another down the line, boxy CRT to beige monitor to flat panel to laptop to phone, every replacement arriving with the same blank white screen, the shadows sweeping slowly across the shelf as decades pass, the camera never moves" },
+
+      { n:6, dur:"5 שנ'", durEn:"5s", cam:"דחיפה קטנה", camEn:"Small push-in",
+        model:"Nano Banana ואז Kling 3", look:"split",
+        title:"2016 עד 2019, מקלפים את הלבן", titleEn:"2016 to 2019, peeling the white off",
+        img:"hf_20260801_172315_d53914f8-47e8-4c4e-b6a9-963427394297.png",
+        still:"A clay hand peeling the white clay sheet off the screen of a small portrait clay monitor like peeling a sticker, the sheet curling away in one piece and the deep black screen revealed underneath, the peeled white sheet still warm cream and the exposed screen cold, the same single key light from the upper left casting the same shadow, decisive turning-point mood",
+        motion:"The clay hand peels the white clay sheet off the screen in one continuous piece and lifts it away, the deep black screen revealed underneath, and while the peel happens the studio wall behind inverts from cream to deep charcoal and the light shifts from warm to cold without moving, small push-in, the hum cutting out on the peel" },
+
+      { n:7, dur:"6 שנ'", durEn:"6s", cam:"נסיגה איטית אחורה", camEn:"Slow pull-back",
+        model:"Nano Banana ואז Kling 3", look:"cold",
+        title:"מה המחקר באמת אומר", titleEn:"What the research actually says",
+        img:"hf_20260801_172322_b2b275a7-76c9-4928-93bd-09584595aa8a.png",
+        still:"A small handmade clay balance scale on a cold blue grey wooden surface, on its right pan a pale bone white clay tile carrying a thick dark mark and the pan sitting clearly lower, on its left pan a deep charcoal clay tile carrying a pale mark and the pan riding high, and beside the scale a chunky clay battery lying on its side with only a thin sliver of cyan filled at one end, one cool key light from the upper left casting a long shadow, sober and factual mood",
+        motion:"The clay balance scale tips and settles, the pan holding the pale tile with the dark mark sinking clearly lower while the pan with the charcoal tile rides up, beside it the thin cyan sliver inside the clay battery creeps forward barely at all and stops, the camera pulls back slowly to hold both objects in one cold frame, sober and factual" },
+
+      { n:8, dur:"6 שנ'", durEn:"6s", cam:"מיקרו דחיפה והחזקה", camEn:"Micro push-in and hold",
+        model:"Nano Banana · גם תמונת הפוסט", look:"cold",
+        title:"פורטרט הסיום, המעגל נסגר", titleEn:"Closing portrait, the circle closes",
+        img:"hf_20260801_170413_833445a3-acb5-47ad-9349-4a14360d6cf4.png",
+        still:"Hero portrait: the same small handmade clay CRT monitor with a chunky rounded bezel on the same plain wooden shelf, the wood rendered in cold blue grey, its curved screen a slab of deep charcoal clay, and on the screen a single simple glowing cyan clay crescent moon icon, thick and childlike and centred, the cyan glow spilling softly onto the shelf, the same single key light from the upper left casting the same long shadow but cold instead of warm, contemplative full-circle mood",
+        motion:"Micro push-in on the same clay monitor on the same shelf, the cyan clay crescent moon on the charcoal screen breathing once exactly the way the yellow sun did in the opening shot, nothing else moves and the shadow stays where it was, dust drifts once through the cold beam, ends on a held still frame in total silence" }
+    ]
+  },
+
+  notes: {
+    title: "מה עושים עם הפריימים האלה",
+    items: [
+      "שמונת הפריימים כבר יוצרו ב-Nano Banana ב-9:16. כל פריים הוא סטילס פתיחה, מכניסים אותו ל-Kling 3 std כ-image-to-video עם פרומפט התנועה שבכרטיס.",
+      "מודל האודיו כבוי בכל ההנפשות. המוזיקה, הקריינות ואפקטי החימר נכנסים בעריכה.",
+      "הקריינות בעברית בקול Gideon ב-ElevenLabs דרך היגספילד. מקליטים את שמונת הבלוקים בנפרד ומרכיבים לפי התזמונים, כדי ששוט 8 ייפול על שקט מלא.",
+      "חריגה מתועדת מספר 1, הרקע. זהו הפרק היחיד בסדרה שנוגע במחרוזת הסגנון. הרקע מתחיל cream, עובר ל-split בשוט 6 בלבד, ומסיים deep charcoal. אחרי שוט 6 אין חזרה לקרם, גם לא לפריים אחד.",
+      "חריגה מתועדת מספר 2, הפלטה. שוטים 7 ו-8 רצים על פלטה הפוכה, ציאן וכחול סגלגל ומנטה חיוורת במקום קורל וצהוב. זו בחירה של סיום עונה שנועדה להפוך את הצבעוניות ולא רק את הרקע. אין להעביר אותה לפרקים אחרים.",
+      "המוטיב היחיד שנשמר בין הקצוות: שמש צהובה על מסך שחור בשוט 1, ירח ציאן על מסך פחם בשוט 8. אותו מסך, אותו מדף, אותה זווית אור. רק הסמל והצבע התהפכו.",
+      "שוט 5 הוא היחיד שהולך ל-Veo 3, כי טיים-לאפס עם החלפה מצטברת של אובייקטים לאורך מדף זה בדיוק מה ש-Kling מפספס.",
+      "שוט 6 הוא נקודת הכשל היחידה, כי הוא מבקש מעבר רקע ומעבר טמפרטורה בתוך שוט אחד. אם Kling לא מחזיק, מייצרים שני פריימים, אחד קרם ואחד פחם, ועושים dissolve איטי בעריכה בדיוק על רגע הקילוף.",
+      "שוט 7 נושא מידע מספרי בלי טקסט. אם המאזניים לא נקראים, נופלים לגיבוי: שני אריחים זה לצד זה על משטח אחד, האחד נטוי קדימה, והסוללה בקדמת הפריים.",
+      "כל הכתוביות והכיתוב העברי נכנסים בעריכה. לכן כל פרומפט נגמר ב-no text ומשאיר שטח נגטיבי בשליש העליון.",
+      "גרסת ה-1:1 לפיד נגזרת מהאנכית בהרחבת שוליים ולא בייצור מחדש, כי הקומפוזיציות מרכזיות ולא נשברות בריבוע.",
+      "שוט 8 הוא גם תמונת הפוסט הכתוב על אותו נושא, וסיפור הרקע כאן הוא כבר טיוטת הפוסט. נכס אחד, שני ערוצים, כמו בכל הסדרה.",
+      "לפוסט קיימת גם גרסת רקע מפוצל, חצי קרם וחצי פחם, שלא נכנסת לסרט ומשמשת כתמונת כותרת בלבד."
+    ],
+    itemsEn: [
+      "All eight frames are already generated in Nano Banana at 9:16. Each frame is an opening still: feed it to Kling 3 std as image-to-video with the motion prompt on the card.",
+      "Keep the video model's audio off on every animation. Music, voice over and clay foley all go in during the edit.",
+      "Hebrew voice over in the ElevenLabs Gideon voice. Record the eight blocks separately and assemble to the listed timings so shot 8 lands on full silence.",
+      "Documented deviation 1, the background. This is the only episode in the series that touches the style string. The background starts cream, becomes split for shot 6 only, and ends deep charcoal. After shot 6 there is no return to cream, not for a single frame.",
+      "Documented deviation 2, the palette. Shots 7 and 8 run on an inverted palette, cyan and violet blue and pale mint instead of coral and yellow. This is a season-finale choice meant to invert the colour and not only the background. Do not carry it into other episodes.",
+      "The one motif kept across the two ends: a yellow sun on a black screen in shot 1, a cyan moon on a charcoal screen in shot 8. Same screen, same shelf, same light angle. Only the symbol and the colour flipped.",
+      "Shot 5 is the only one that goes to Veo 3, because a time lapse with cumulative object replacement along a shelf is exactly what Kling misses.",
+      "Shot 6 is the single point of failure, because it asks for a background change and a temperature change inside one shot. If Kling cannot hold it, generate two frames, one cream and one charcoal, and dissolve slowly in the edit exactly on the peel.",
+      "Shot 7 carries numeric information without text. If the balance scale does not read, fall back to two tiles side by side on one surface, one tipped forward, with the battery in the foreground.",
+      "All Hebrew subtitles and titling go in during the edit. That is why every prompt ends in no text and leaves negative space in the upper third.",
+      "The 1:1 feed cut is derived from the vertical by extending the margins rather than regenerating, because these compositions are centred and survive the square.",
+      "Shot 8 doubles as the cover image for the written post on the same subject, and the backstory here is already the draft of that post. One asset, two channels, as in every episode.",
+      "A split-background variant also exists for the post, half cream and half charcoal, which does not appear in the film and is used as a cover image only."
+    ]
+  }
+};
+</script>
+<script src="../shared/sb.js"></script>
+</body>
+</html>
