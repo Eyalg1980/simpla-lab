@@ -170,3 +170,8 @@ footer{text-align:center;font-size:11.5px;color:var(--soft);margin-top:32px}
   #sec-shots .sec-b{ grid-template-columns:repeat(3,minmax(0,1fr)) }
   #sec-shots .sec-b > .shot:has(details[open]){ grid-column:span 2 }
 }
+
+/* קריינות שכבר הוקלטה: נגן inline + הערת הפקה לבלוק */
+.vo audio{width:100%;height:34px;margin-top:9px;display:block}
+.vo .vo-note{font-size:11.5px;color:var(--soft);line-height:1.55;margin-top:7px;
+             border-inline-start:2px solid var(--green);padding-inline-start:9px}

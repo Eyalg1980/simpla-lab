@@ -91,7 +91,10 @@
   function voBlock() {
     return (S.vo || []).map(function (v) {
       return '<div class="vo"><span class="t">' + esc(v.t) + '</span><p>' + esc(v.text) + '</p>' +
-             (v.en ? '<p class="en">' + esc(v.en) + '</p>' : '') + '</div>';
+             (v.en ? '<p class="en">' + esc(v.en) + '</p>' : '') +
+             // v.mp3 = הבלוק כבר הוקלט. הנגן מופיע רק למי שיש לו קובץ, כך שלוחות ישנים לא מושפעים.
+             (v.mp3 ? '<audio src="' + esc((S.cdn || '') + v.mp3) + '" controls preload="none"></audio>' : '') +
+             (v.note ? '<p class="vo-note">' + esc(v.note) + '</p>' : '') + '</div>';
     }).join('');
   }
 

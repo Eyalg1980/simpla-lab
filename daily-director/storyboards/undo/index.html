@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>סטוריבורד · ביוגרפיה של אובייקט · פרק 2: Undo</title>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../shared/sb.css?v=2">
+<link rel="stylesheet" href="../shared/sb.css?v=3">
 </head>
 <body>
 <div id="sb"></div>
@@ -18,25 +18,27 @@ window.SB = {
   titleTop: "ביוגרפיה של אובייקט · פרק 2:",
   titleMark: "Undo, המכונה שלמדה לסלוח",
   titleEn: "Biography of an Object, Episode 2: Undo, the Machine That Learned to Forgive",
-  logline: "בדצמבר 1976 שני חוקרים ב-IBM כתבו משפט אחד על לקחת פקודה בחזרה, ובלי לשים לב עיצבו את המחווה הכי אנושית בממשק. חמישים שניות בקליי על הכפתור היחיד שנבנה כדי להרגיע אותנו, ועל הקו שבו הסליחה נגמרת.",
-  loglineEn: "In December 1976 two IBM researchers wrote a single sentence about letting a user take back a command, and without noticing designed the most human gesture in the interface. Fifty seconds in clay about the one button built to calm us down, and the line where its forgiveness stops.",
-  specs: ["52 שניות", "9:16 · רילס", "גם 1:1 לפיד", "קליי סטופ-מושן", "קול Gideon", "10 שוטים"],
+  logline: "בדצמבר 1976 שני חוקרים ב-IBM כתבו משפט אחד על לקחת פקודה בחזרה, ובלי לשים לב עיצבו את המחווה הכי אנושית בממשק. דקה בקליי על הכפתור היחיד שנבנה כדי להרגיע אותנו, ועל הקו שבו הסליחה נגמרת.",
+  loglineEn: "In December 1976 two IBM researchers wrote a single sentence about letting a user take back a command, and without noticing designed the most human gesture in the interface. A minute in clay about the one button built to calm us down, and the line where its forgiveness stops.",
+  specs: ["63 שניות", "9:16 · רילס", "גם 1:1 לפיד", "קליי סטופ-מושן", "קול Gideon", "10 שוטים"],
   specsEn: [
-    "52 seconds",
+    "63 seconds",
     "9:16 vertical, primary delivery",
     "1:1 secondary cut for the feed",
     "Claymation stop-motion, one locked visual language for the whole film",
     "Hebrew voice over, ElevenLabs Gideon voice, laid in the edit",
     "10 shots, three-act shape: the promise, the crest, the missing net",
+    "All 10 clips and all 10 voice-over blocks are generated; only the assembly is left",
     "Burned-in Hebrew subtitles added in the edit, never in the generation"
   ],
   cdn: "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/",
 
-  // כשהסרט מוכן: film:{src:"...mp4", ratio:"9"} והוא יופיע מעל הסטוריבורד כולו
+  // עשרת הקליפים ועשרת קטעי הקריינות מוכנים ומקושרים בכרטיסים למטה.
+  // כשהעריכה תיסגר לקובץ אחד: film:{src:"...mp4", ratio:"9"} והוא יופיע מעל הסטוריבורד כולו.
   film: null,
 
   synopsis: {
-    h3: "מה קורה בחמישים ושתיים השניות",
+    h3: "מה קורה בדקה הזאת",
     copyLabel: "העתק סינופסיס",
     copyHead: 'סינופסיס לסרט "ביוגרפיה של אובייקט · פרק 2: Undo, המכונה שלמדה לסלוח":',
     enLabel: "English synopsis",
@@ -88,27 +90,40 @@ window.SB = {
   },
 
   vo: [
-    { t: "0-5",   text: "לחצת, וזה נהרס. כולם מכירים את השנייה הזאת.",
+    { t: "0:00-0:04.5",  mp3:"hf_20260801_172442_ffa835cb-ba40-4560-a234-9b1985b67fb9.mp3",
+                  text: "לחצת, וזה נהרס. כולם מכירים את השנייה הזאת.",
                   en: "You pressed, and it broke. Everyone knows that second." },
-    { t: "5-10",  text: "דצמבר 1976. שני חוקרים ב-IBM כותבים משפט אחד: תנו למשתמש לקחת בחזרה פקודה.",
+    { t: "0:04.5-0:12.4", mp3:"hf_20260801_172447_c33478c8-cdd7-4499-9bb7-ca55f28063b5.mp3",
+                  text: "דצמבר 1976. שני חוקרים ב-IBM כותבים משפט אחד: תנו למשתמש לקחת בחזרה פקודה.",
                   en: "December 1976. Two IBM researchers write one sentence: let the user take a command back." },
-    { t: "10-15", text: "ואז הם מוסיפים משהו יפה. גם רק לדעת שאפשר, כבר מרגיע.",
+    { t: "0:12.4-0:18.2", mp3:"hf_20260801_172451_3ff44bc9-1c3e-42ac-9ad7-92c3972387a7.mp3",
+                  text: "ואז הם מוסיפים משהו יפה. גם רק לדעת שאפשר, כבר מרגיע.",
                   en: "Then they add something beautiful. Even just knowing you can is already calming." },
-    { t: "15-20", text: "בהתחלה זה היה צעד אחד בלבד. אחורה, ועצור.",
+    { t: "0:18.2-0:22.5", mp3:"hf_20260801_172455_3f2a1708-219b-40b3-aa95-de361bd97e23.mp3",
+                  text: "בהתחלה זה היה צעד אחד בלבד. אחורה, ועצור.",
                   en: "At first it was a single step. Back, and stop." },
-    { t: "20-25", text: "1983. טסלר בוחר את האות Z. היא צמודה ל-X C V, והצורה שלה היא קדימה, אחורה, קדימה.",
-                  en: "1983. Tesler picks the letter Z. It sits next to X, C and V, and its shape is forward, back, forward." },
-    { t: "25-31", text: "1998. פוטושופ פותח את הזמן. כבר לא צעד אחד, שרשרת שלמה.",
-                  en: "1998. Photoshop opens up time. No longer one step, a whole chain." },
-    { t: "31-35", text: "וזה הפך לרפלקס של מיליארדי אנשים. כפתור שסולח, בלי שאף אחד ביקש אותו.",
+    { t: "0:22.5-0:29.7", mp3:"hf_20260801_173500_98324dee-42ef-4d32-b4f8-70859ba472f3.mp3",
+                  text: "1983. טסלר בוחר את האות Z, כי הצורה שלה היא קדימה, אחורה, קדימה.",
+                  en: "1983. Tesler picks the letter Z, because its shape is forward, back, forward.",
+                  note: "המשפט קוצר בהקלטה. הפרט על X C V ירד כי הוא הוציא את השוט לעשר שניות, והוא ממילא מופיע בסיפור הרקע" },
+    { t: "0:29.7-0:36.2", mp3:"hf_20260801_172508_133e4dc5-1446-4f13-80d6-eacdd7d55c11.mp3",
+                  text: "1998. פוטושופ פותח את הזמן. כבר לא צעד אחד, שרשרת שלמה.",
+                  en: "1998. Photoshop opens up time. No longer one step, a whole chain.",
+                  note: "הקריינות ארוכה בחצי שנייה מהקליפ. מתחילים אותה חצי שנייה לפני החיתוך, על הזנב של שוט 5" },
+    { t: "0:36.2-0:41.9", mp3:"hf_20260801_172513_55260e03-1f8b-43ae-b450-0eb2de0a5adc.mp3",
+                  text: "וזה הפך לרפלקס של מיליארדי אנשים. כפתור שסולח, בלי שאף אחד ביקש אותו.",
                   en: "And it became a reflex for billions of people. A button that forgives, that nobody ever asked for." },
-    { t: "35-41", text: "היום יש לי סוכן שכותב, מריץ ומוחק. אין לו Cmd-Z. יש לו צ'קפוינט.",
-                  en: "Today I work with an agent that writes, runs and deletes. It has no Cmd-Z. It has a checkpoint." },
-    { t: "41-45", text: "פעם לימדנו מכונה לסלוח. זה מה שנשאר מזה.",
+    { t: "0:41.9-0:48.5", mp3:"hf_20260801_172518_f90a93dc-8853-464e-8cdd-bf6c5158cc42.mp3",
+                  text: "היום יש לי סוכן שכותב, מריץ ומוחק. אין לו Cmd-Z. יש לו צ'קפוינט.",
+                  en: "Today I work with an agent that writes, runs and deletes. It has no Cmd-Z. It has a checkpoint.",
+                  note: "בהקלטה נאמר \"קומנד זי\" ולא Cmd-Z, כדי שהמנוע לא יאיית אותיות" },
+    { t: "0:48.5-0:52.2", mp3:"hf_20260801_172522_6d63b3e3-bb81-41d7-9b87-a8b07a451dab.mp3",
+                  text: "פעם לימדנו מכונה לסלוח. זה מה שנשאר מזה.",
                   en: "We once taught a machine to forgive. This is what is left of it." },
-    { t: "45-48", text: "והצ'קפוינט לא מכסה את מה שהוא עשה מחוץ לקבצים. שם עוד לא לימדנו אף אחד לסלוח.",
+    { t: "0:52.2-0:58.6", mp3:"hf_20260801_172525_a6570fcf-04aa-4ce7-bc09-1293003bc2fe.mp3",
+                  text: "והצ'קפוינט לא מכסה את מה שהוא עשה מחוץ לקבצים. שם עוד לא לימדנו אף אחד לסלוח.",
                   en: "And the checkpoint does not cover what it did outside the files. There we have not taught anyone to forgive yet.",
-                  note: "אחרי המשפט הזה נשארות ארבע שניות של שקט מוחלט עד סוף השוט" }
+                  note: "המשפט נגמר ב-58.6. הקליפ רץ עד 60.2, ואז מקפיאים את הפריים האחרון עד 62.6. ארבע שניות של שקט מוחלט" }
   ],
 
   shots: {
@@ -129,21 +144,23 @@ window.SB = {
       { n:1, dur:"5 שנ'", durEn:"5s", cam:"דחיפה איטית פנימה", camEn:"Slow push-in",
         model:"Nano Banana ואז Kling 3",
         title:"הטעות", titleEn:"The mistake",
-        type:"מערכה 1 · ההבטחה",
+        vid:"hf_20260801_172612_6c5977b5-0518-4e70-9edd-a723112ae1c5.mp4",
         img:"hf_20260801_144856_0b4cbbad-515b-4f28-a636-c898dd6fb6f3.png",
         still:"A single clay hand pressing down hard on a small clay object on a cream studio table, the object crushed flat and deformed under the palm, fingerprints pressed deep into it, one warm key light from the upper left, long soft shadow, regretful mood",
         motion:"The clay hand presses down and crushes the small clay object flat, then lifts away and leaves it deformed on the table, the camera pushes in very slowly on the damage, one warm key light, dust motes drifting, a single dull impact and then stillness" },
 
-      { n:2, dur:"5 שנ'", durEn:"5s", cam:"זחילת צד איטית ימינה", camEn:"Slow lateral drift to the right",
+      { n:2, dur:"9 שנ'", durEn:"9s", cam:"זחילת צד איטית ימינה", camEn:"Slow lateral drift to the right",
         model:"Nano Banana ואז Kling 3",
         title:"1976, המשפט נכתב", titleEn:"1976, the sentence is written",
+        vid:"hf_20260801_173611_6ce7813e-3c02-435e-a366-1bb981837221.mp4",
         img:"hf_20260801_144858_f36800ab-bb90-4f5d-b148-30d33aef2161.png",
         still:"A 1976 research office in clay: two small clay researchers in brown suits at a wooden desk with a bulky beige clay terminal, a single typed clay page between them with one line marked by a coral stripe, tungsten desk lamp, dust motes drifting in the beam, quiet and historic mood",
         motion:"A clay typewriter arm strikes the page letter by letter and finishes the single line, then one of the researchers reaches in and smears a coral stripe across that line with his thumb, the camera drifts slowly sideways and settles on the marked line, warm tungsten light, dust in the beam" },
 
-      { n:3, dur:"5 שנ'", durEn:"5s", cam:"מיקרו דחיפה, כמעט נעול", camEn:"Micro push-in, nearly locked off",
+      { n:3, dur:"6 שנ'", durEn:"6s", cam:"מיקרו דחיפה, כמעט נעול", camEn:"Micro push-in, nearly locked off",
         model:"Nano Banana ואז Kling 3",
         title:"גם רק לדעת", titleEn:"Even just knowing",
+        vid:"hf_20260801_172549_07dcadb4-8d6b-476e-ac48-66b03a338cc8.mp4",
         img:"hf_20260801_144900_ae9cdf3b-873a-4652-90c4-7997bf831609.png",
         still:"Close portrait of a small anxious clay figure at a chunky clay keyboard, its hunched shoulders dropping and the clay of its face smoothing out, a soft teal glow rising from the keyboard onto its face, one warm key light, relieved and tender mood",
         motion:"The tense clay figure slowly unclenches, its shoulders drop and the pressed creases in its clay face smooth themselves out, the teal glow from the keyboard steadies on its face, micro push-in, tender and calm, no cuts" },
@@ -151,13 +168,15 @@ window.SB = {
       { n:4, dur:"5 שנ'", durEn:"5s", cam:"נסיגה איטית אחורה", camEn:"Slow pull-back",
         model:"Nano Banana ואז Kling 3",
         title:"צעד אחד, ואז קיר", titleEn:"One step, then a wall",
+        vid:"hf_20260801_172618_2538bfea-e7ea-4e06-9772-0013fbe0336e.mp4",
         img:"hf_20260801_144901_01850f1b-076d-42c7-8a0f-57f62c3bd07f.png",
         still:"A small clay figure taking one step backwards on a cream studio floor and stopping short against an invisible barrier, behind the barrier a long receding row of crushed clay objects it cannot reach, one hard side light casting a long shadow, lonely and limited mood",
         motion:"The clay figure takes one step backwards, hits the invisible barrier and stops dead, then strikes the empty air once with an open palm and a burst of dust scatters off the unseen surface, the wall does not move, the camera pulls back slowly to reveal the long row of crushed objects stretching away behind it, lonely and final" },
 
-      { n:5, dur:"5 שנ'", durEn:"5s", cam:"מאקרו, דחיפה קטנה", camEn:"Macro, slight push-in",
+      { n:5, dur:"7 שנ'", durEn:"7s", cam:"מאקרו, דחיפה קטנה", camEn:"Macro, slight push-in",
         model:"Nano Banana ואז Kling 3",
         title:"1983, שלוש שריטות", titleEn:"1983, three strokes",
+        vid:"hf_20260801_173532_3e28b7de-f54d-4770-9712-7c06c8a4c942.mp4",
         img:"hf_20260801_144907_077fdfdd-368e-4b62-b151-676584bf7a60.png",
         still:"Macro shot of a clay hand carving an angular zigzag glyph of three strokes into the top of a chunky plasticine keyboard key, the grooves cut deep with visible tool marks, coral light pooling inside the grooves, warm single spotlight, precise and deliberate mood",
         motion:"The clay hand carves the three strokes of the angular zigzag into the key one after another, right then left then right, coral light filling each groove as it is cut, the hand withdraws and the finished key holds alone in the spotlight, macro, precise and deliberate" },
@@ -165,37 +184,40 @@ window.SB = {
       { n:6, dur:"6 שנ'", durEn:"6s", cam:"קריין אנכי כלפי מעלה", camEn:"Vertical crane up",
         model:"Veo 3",
         title:"1998, הזמן נפתח", titleEn:"1998, time opens up",
-        type:"מערכה 2 · הפסגה",
         full:true,
+        vid:"hf_20260801_172539_a2669f81-6a93-46d8-9d78-d573070f01e1.mp4",
         img:"hf_20260801_171036_425b9b49-d885-479f-ac26-f37cc17ce38f.png",
         still:"EXTREME CLOSE-UP, FULL BLEED: a vertical strip of clay motion-picture film fills the ENTIRE image from the very top edge to the very bottom edge and is cropped off by both edges, with clearly sculpted square sprocket holes punched in a regular row along both sides of the strip, each film cell holding the same small clay object a little more repaired than the cell below it, dents rising back out and seams closing as the strip climbs, the deep teal background bleeding all the way to all four corners of the image with no border of any kind, warm rim light travelling up the edge of the strip, hopeful and mechanical mood",
         motion:"The camera cranes straight up along the tall clay filmstrip while the crushed clay object inside the cells rebuilds itself cell by cell, seams closing and dents rising back out, the sculpted sprocket holes along both edges sliding past the lens and marking the passage of time, warm rim light travelling up the strip, mechanical and hopeful, one continuous move" },
 
-      { n:7, dur:"4 שנ'", durEn:"4s", cam:"נסיגה רחבה, חושפת את הקנה מידה", camEn:"Wide pull-back revealing scale",
+      { n:7, dur:"6 שנ'", durEn:"6s", cam:"נסיגה רחבה, חושפת את הקנה מידה", camEn:"Wide pull-back revealing scale",
         model:"Nano Banana ואז Kling 3",
         title:"הרפלקס של מיליארדים", titleEn:"The reflex of billions",
+        vid:"hf_20260801_172600_31801e88-092d-4e79-b2c5-e08878242482.mp4",
         img:"hf_20260801_161616_a05148b1-4775-4243-ad54-57a21af2637d.png",
         still:"A wide view of dozens of small clay figures seated at chunky clay keyboards in long receding rows across a cream studio floor, every one of them relaxed with dropped shoulders and an open posture, an identical soft teal glow rising from each keyboard onto each face, warm key light from above, shallow depth of field softening the back rows into haze, calm and vast and slightly overwhelming mood",
         motion:"The camera pulls back steadily to reveal row after row of relaxed clay figures at their keyboards stretching away into haze, all of them breathing in the same slow rhythm, the teal glow flickering softly across every face at once, a low warm hum of dozens of keyboards, calm and vast, ends wide" },
 
-      { n:8, dur:"6 שנ'", durEn:"6s", cam:"אורביט איטי משמאל לימין", camEn:"Slow orbit, left to right",
+      { n:8, dur:"7 שנ'", durEn:"7s", cam:"אורביט איטי משמאל לימין", camEn:"Slow orbit, left to right",
         model:"Nano Banana ואז Kling 3",
         title:"לסוכן אין Undo", titleEn:"The agent has no Undo",
-        type:"מערכה 3 · הרשת החסרה",
+        vid:"hf_20260801_173537_9583731d-578e-4001-b905-9a3b9813c677.mp4",
         img:"hf_20260801_144912_c6e33250-b289-4a9d-996a-e9747e274a68.png",
         still:"A small clay robot at a clay desk, one key missing from its chunky keyboard leaving an empty square socket, a plain grey clay stone resting beside the keyboard, and out on the cream floor beyond the desk several clay objects it already moved lying scattered and unreachable, cool teal light on the floor and warm key light on the robot, unresolved mood",
         motion:"The clay robot presses down into the empty square socket where the key should be, once, then a second time harder, and nothing happens at all, it lifts its hand and looks at the plain grey stone lying beside the keyboard, the camera orbits slowly around it revealing the scattered clay objects on the floor beyond the desk lying exactly where they were left, unresolved" },
 
-      { n:9, dur:"4 שנ'", durEn:"4s", cam:"מיקרו דחיפה, נעולה", camEn:"Micro push-in, locked off",
+      { n:9, dur:"5 שנ'", durEn:"5s", cam:"מיקרו דחיפה, נעולה", camEn:"Micro push-in, locked off",
         model:"Nano Banana · גם תמונת הפוסט",
         title:"האנדרטה", titleEn:"The monument",
+        vid:"hf_20260801_172636_cc5451c1-38ce-41e6-969c-58f660888b2a.mp4",
         img:"hf_20260801_161624_3e729191-15ab-471e-a533-36336c73e714.png",
         still:"Hero portrait of ONE single thick sculpted coral plasticine arrow standing upright on a small wooden shelf like a museum piece: the arrow is a smooth thick semicircular loop of clay that rises, curves over the top and comes back down, ending in a blunt triangular arrowhead that points back and to the left, the universal undo gesture rendered as a solid physical clay sculpture with visible thumbprints, one warm spotlight from directly above, long soft shadow falling behind it, cream background falling away into darkness, dignified and reverent mood",
         motion:"Micro push-in on the sculpted coral clay undo arrow standing alone on its wooden shelf, the spotlight holding perfectly steady, a single mote of dust drifting slowly down past the arrowhead, the clay surface catching the light along its curve, nothing else moves, reverent and still" },
 
-      { n:10, dur:"7 שנ'", durEn:"7s", cam:"נסיגה איטית מעבר לקצה השולחן", camEn:"Slow pull-back past the edge of the desk",
+      { n:10, dur:"8 שנ'", durEn:"8s", cam:"נסיגה איטית מעבר לקצה השולחן", camEn:"Slow pull-back past the edge of the desk",
         model:"Veo 3",
         title:"הקו שבו האור נעצר", titleEn:"The line where the light stops",
+        vid:"hf_20260801_173540_d5db5052-507f-4ab6-a037-ebf1f817d9d1.mp4",
         img:"hf_20260801_161627_a67a203c-ba5b-4928-9c59-a91398e73f63.png",
         still:"A clay desk seen from a low angle, a sharply defined warm rectangle of golden light lying across the desk surface with several small clay objects sitting inside that rectangle knitting themselves back together with closing seams, and just past the front edge of the desk on the cool cream floor OUTSIDE the light several broken and scattered clay objects lying completely still in cold teal shadow, the boundary line between the warm rectangle and the cold floor hard and clearly visible, quiet unresolved and lonely mood",
         motion:"Inside the warm rectangle of light the small clay objects knit themselves back together one seam at a time, then the camera pulls back slowly and crosses the front edge of the desk to reveal the cold floor beyond the light where broken clay pieces lie completely motionless and nothing repairs itself, the hard boundary line between the warm rectangle and the cold floor holds in the centre of frame, the repairing stops exactly at that line, the move settles and holds on a still frame in total silence" }
@@ -206,6 +228,13 @@ window.SB = {
     title: "מה עושים עם הפריימים האלה",
     items: [
       "סבב תיקונים 1.8: הסרט גדל מ-8 ל-10 שוטים ומ-40 ל-52 שניות. נוספו שוט 7 (הפסגה) ושוט 9 (האנדרטה), שוט 6 יוצר מחדש, ושוט הסיום הישן (מפתח על מדף) הוחלף בשוט 10.",
+      "סטטוס הפקה (1.8, אחרי \"צא להפקה\"): עשרת הפריימים, עשרת הקליפים ועשרת קטעי הקריינות יוצרו ומקושרים בדף. מה שנשאר זה העריכה עצמה: להרכיב לפי התזמונים בסעיף הקריינות, להוסיף מוזיקה ואפקטי חימר, ולצרוב כתוביות.",
+      "האורך האמיתי הוא 63 שניות ולא 52. כשמדדתי את הקריינות המוקלטת היא יצאה 58.6 שניות של דיבור, ועם ארבע שניות השקט בסוף זה 62.6. התכנון המקורי היה אופטימי, והמספרים בדף עודכנו למה שבאמת קיים.",
+      "בעקבות זה חמישה קליפים יוצרו מחדש ארוכים יותר: שוט 2 ל-9 שניות, שוטים 5 ו-8 ל-7, ושוט 10 ל-8. שוט 6 נשאר 6 שניות והקריינות שלו ארוכה בחצי שנייה, אז מתחילים אותה על הזנב של שוט 5.",
+      "שוט 5 קוצר בטקסט: הפרט על X C V ירד, כי הוא הוציא את הבלוק לעשר שניות. ניסיתי לקצר גם את שוט 2 וההקלטה יצאה דווקא ארוכה יותר (8.2 מול 7.9), אז נשאר המקור. TTS הוא לא ליניארי בטקסט, תמיד למדוד ולא להעריך.",
+      "חלוקת המודלים בפועל: שוטים 1, 2, 4, 5, 8, 9 ב-Kling 3 std. שוטים 3, 6, 7, 10 ב-Veo 3.1 Lite, כי שם התנועה חוצה מישורים או רצה לאורך עומק. אודיו המודל כבוי בכולם.",
+      "הקריינות: ElevenLabs בקול Gideon, בלוק לכל שוט. בשוט 8 הוקלט \"קומנד זי\" ולא Cmd-Z, כי המנוע מאיית אותיות לטיניות במקום להגיד אותן.",
+      "הסוף: הקריינות נגמרת ב-58.6, הקליפ רץ עד 60.2, ואז מקפיאים את הפריים האחרון עד 62.6. ארבע שניות של שקט מוחלט, בלי מוזיקה.",
       "שוט 6 יוצר פעמיים. בגרסה הראשונה המודל הוסיף מסגור פנימי והניח את הצילום כמו תמונה ממוסגרת על רקע קרם. האשם הוא הסיומת \"generous negative space above\" שנוספת לכל פרומפט פריים. לשוטים שאמורים למלא את כל הפריים יש עכשיו דגל full:true בכרטיס, והוא מחליף את הסיומת ההיא בהוראה מפורשת של edge to edge בלי מאט, בלי מסגרת פנימית ובלי שוליים. כשמייצרים שוט חדש שהוא קלוז-אפ, מסמנים אותו full.",
       "ארבעה פריימים חדשים: 6, 7, 9, 10. הפריימים של שוטים 1, 2, 3, 4, 5 ו-8 נשארו בדיוק כפי שהם, רק פרומפט התנועה שלהם התהדק.",
       "למה שוט הסיום הוחלף: הקריינות שם מדברת על גבול ועל חוסר, והפריים הישן הראה ריפוי. התמונה והטקסט משכו לכיוונים הפוכים. שוט 10 מראה בדיוק את מה שהמשפט אומר, כלומר את הקו שבו התיקון נעצר.",
@@ -242,6 +271,6 @@ window.SB = {
   }
 };
 </script>
-<script src="../shared/sb.js?v=2"></script>
+<script src="../shared/sb.js?v=3"></script>
 </body>
 </html>
