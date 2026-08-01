@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>סטוריבורד · פרומפט הוא בקשה. סקיל הוא זיכרון.</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F3EF; --ink:#0B0B0B; --soft:#6B6B66;
+    --green:#71F73C; --line:#DFDDD6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Rubik",-apple-system,sans-serif;background:var(--paper);color:var(--ink);
+       max-width:560px;margin:0 auto;padding:24px 16px 64px;line-height:1.6}
+
+  .kicker{display:inline-block;background:var(--ink);color:#fff;font-size:11px;font-weight:700;
+          letter-spacing:.12em;padding:5px 11px;border-radius:100px;margin-bottom:12px}
+  h1{font-weight:900;font-size:31px;line-height:1.15;letter-spacing:-.02em;margin-bottom:10px}
+  .mark{position:relative;display:inline}
+  .mark::after{content:"";position:absolute;right:-2px;left:-2px;bottom:1px;height:9px;
+               background:var(--green);z-index:-1;border-radius:3px;opacity:.9}
+  .logline{font-size:14.5px;color:var(--soft);margin-bottom:20px}
+
+  .specs{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px}
+  .spec{font-size:11.5px;font-weight:700;border:1.5px solid var(--ink);border-radius:100px;padding:4px 11px}
+
+  h2{font-weight:900;font-size:19px;margin:34px 0 12px;letter-spacing:-.01em}
+
+  .vo{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:8px}
+  .vo .t{font-size:11px;font-weight:700;color:var(--green);background:var(--ink);
+         display:inline-block;padding:2px 8px;border-radius:100px;margin-bottom:5px}
+  .vo p{font-size:14px}
+
+  .shot{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:18px}
+  .frame{background:var(--ink);position:relative;line-height:0}
+  .frame img{width:100%;display:block;opacity:.97}
+  .num{position:absolute;top:10px;right:10px;background:var(--green);color:var(--ink);
+       font-weight:900;font-size:14px;width:32px;height:32px;border-radius:50%;
+       display:flex;align-items:center;justify-content:center;line-height:1}
+  .dur{position:absolute;bottom:10px;left:10px;background:rgba(255,255,255,.92);color:var(--ink);
+       font-size:11px;font-weight:700;padding:3px 9px;border-radius:100px}
+  .meta{padding:14px 16px}
+  .meta b{display:block;font-size:15.5px;font-weight:700;margin-bottom:3px}
+  .meta .cam{font-size:12px;color:var(--soft);font-weight:500;margin-bottom:9px}
+  .meta .model{display:inline-block;font-size:11px;font-weight:700;border:1.5px solid var(--ink);
+               border-radius:100px;padding:3px 10px;margin-bottom:9px}
+  .meta .title-on{font-size:12px;color:var(--soft);font-weight:500;margin-bottom:9px}
+  .meta .title-on b{display:inline;font-weight:900;color:var(--ink)}
+  details{border-top:1px dashed var(--line);padding-top:9px;margin-top:2px}
+  summary{font-size:12.5px;font-weight:700;cursor:pointer;list-style:none;color:var(--soft)}
+  summary::-webkit-details-marker{display:none}
+  pre{background:#F7F6F2;border-radius:10px;padding:11px;margin-top:8px;font-size:11.5px;
+      line-height:1.55;white-space:pre-wrap;word-break:break-word;direction:ltr;text-align:left;
+      font-family:ui-monospace,Menlo,monospace;color:#333}
+  .plabel{font-size:11px;font-weight:900;letter-spacing:.08em;color:var(--soft);margin-top:10px}
+  .copy{margin-top:8px;background:var(--ink);color:#fff;border:0;border-radius:100px;
+        font-family:inherit;font-size:12px;font-weight:700;padding:7px 15px;cursor:pointer}
+  .copy.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+  .btnrow{display:flex;gap:7px;flex-wrap:wrap}
+
+  .dir{background:#fff;border:1.5px solid var(--ink);border-radius:18px;padding:16px 17px;margin-bottom:12px}
+  .dir h3{font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:10px}
+  .dir .row{display:flex;gap:9px;font-size:13.5px;margin-bottom:7px;align-items:flex-start}
+  .dir .row b{min-width:74px;font-weight:900;flex:none}
+  .dir p{font-size:13.5px;margin-bottom:8px}
+  .dir p:last-of-type{margin-bottom:0}
+  .dir .copy{margin-top:12px}
+  .rule{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .rule span{font-size:11.5px;font-weight:700;border:1.5px solid var(--ink);border-radius:100px;padding:3px 10px}
+
+  .note{background:var(--ink);color:#fff;border-radius:18px;padding:18px;font-size:13.5px;margin-top:12px}
+  .note b{color:var(--green)}
+  .note ul{margin:9px 0 0;padding-right:18px}
+  .note li{margin-bottom:6px}
+
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(80px);
+         background:var(--ink);color:var(--green);font-size:13px;font-weight:700;
+         padding:10px 20px;border-radius:100px;transition:transform .25s;z-index:99}
+  .toast.on{transform:translateX(-50%) translateY(0)}
+  .back{display:inline-block;font-size:12px;font-weight:700;color:var(--soft);text-decoration:none;margin-bottom:16px}
+  footer{text-align:center;font-size:11.5px;color:var(--soft);margin-top:32px}
+</style>
+</head>
+<body>
+
+<a class="back" href="../../">חזרה להבמאי היומי</a>
+
+<div class="kicker">STORYBOARD · EDITORIAL KINETIC</div>
+<h1>פרומפט הוא בקשה.<br><span class="mark">סקיל הוא זיכרון.</span></h1>
+<p class="logline">בכל בוקר אתה מסביר לבינה המלאכותית מי אתה מחדש. אקספליינר של 45 שניות שמראה בשני חומרים מה קורה כשאתה מפסיק לבקש ומתחיל לזכור, וסוגר במבחן אחד שאפשר להריץ הערב.</p>
+
+<div class="specs">
+  <span class="spec">45 שניות</span>
+  <span class="spec">16:9 ראשי</span>
+  <span class="spec">קאט 9:16 בן 30</span>
+  <span class="spec">טיפוגרפיה קינטית</span>
+  <span class="spec">9 שוטים</span>
+</div>
+
+<h2>אווירה והלך רוח</h2>
+<div class="dir">
+  <h3>הטון של הסרט</h3>
+  <p id="mood-text">בטוח, שקט וחד. לא הסבר טכני ולא הייפ. זה סרט של מישהו שכבר עבר את השלב שבו הכלי מרשים אותו ועכשיו מדבר על איך הוא באמת עובד. הרגש שצריך להישאר בסוף הוא הקלה קטנה: יש דרך לעצור את החזרה הזאת.</p>
+  <div class="row"><b>קצב</b><span>נשימה איטית בשלושת השוטים הראשונים, קפיצת מדרגה בשוט 4 כשהמסך מתפצל, ואז יציבות מוחלטת עד הסוף. שוט 8 הוא בלימה מלאה, שקט של שנייה לפני המשפט האחרון.</span></div>
+  <div class="row"><b>מצלמה</b><span>תנועה אחת לשוט, לעולם לא שתיים. דחיפות איטיות וזחילות צד בלבד. אין קאט מהיר בכל הסרט חוץ מהאחד בשוט 8, ולכן הוא עובד.</span></div>
+  <div class="row"><b>חומר</b><span>שני חומרים בלבד לאורך כל הסרט. זכוכית היא הבקשה: שקופה, קרירה, מתפוררת. מתכת חרוטה היא הזיכרון: אטומה, מוארת מבפנים, לא זזה. אין חומר שלישי.</span></div>
+  <div class="row"><b>אור</b><span>מקור אחד רך מלמעלה-שמאל. הזכוכית מקבלת אור קר ומפוזר, המתכת מקבלת אור קורל חם שיוצא מתוך החריטה עצמה ולא מבחוץ.</span></div>
+  <div class="row"><b>סאונד</b><span>פולס נמוך אחד בלי מלודיה. עולה בשוט 5 כשהמתכת מנצחת, נעלם לגמרי בשוט 8. שני אפקטים בסך הכל: רסק זכוכית רך בשוט 3, קליק מתכתי עמוק בשוט 9.</span></div>
+  <div class="rule"><span>שני חומרים בלבד</span><span>תנועה אחת לשוט</span><span>עברית רק בעריכה</span><span>קאט אחד בכל הסרט</span></div>
+  <button class="copy" onclick="copyBlock('mood')">העתק הוראות אווירה</button>
+</div>
+
+<h2>סיפור רקע</h2>
+<div class="dir">
+  <h3>מאיפה זה מגיע</h3>
+  <p id="story-text">רוב האנשים שעובדים היום עם מודלים שפה עדיין עובדים בשיטה של 2023: פותחים שיחה, מסבירים מי הם, מה הטון שלהם, מה אסור ומה חובה, מקבלים תשובה טובה, וסוגרים את החלון. מחר בבוקר הכל מתחיל מאפס. זה לא באג של המשתמש, זה פשוט המבנה של פרומפט. פרומפט חי בתוך שיחה אחת ומת איתה.</p>
+  <p>סקיל הוא דבר אחר לגמרי מבחינה ארכיטקטונית. זה תיקייה עם קובץ SKILL.md שיושבת על מערכת קבצים, לא בתוך שיחה. יש לה שם ותיאור, ואפשר לצרף אליה סקריפטים, תבניות וקבצי רפרנס. אנת'רופיק פרסמה את זה כיכולת ב-Claude בסוף 2025 ובדצמבר אותה שנה פתחה את הפורמט כתקן פתוח, כך שהוא כבר לא קשור למודל אחד.</p>
+  <p>המנגנון שהופך את זה למעניין נקרא Progressive Disclosure, חשיפה מדורגת. בהתחלה נטענים רק השם והתיאור, בערך מאה טוקנים לסקיל. רק כשהמשימה באמת מתאימה נטען גוף ההוראות, ורק אם צריך נפתחים הקבצים הנלווים. זאת הסיבה שאפשר להתקין עשרות סקילים בלי לשלם על זה בחלון ההקשר, ובדיוק שם נמצא ההבדל המעשי: פרומפט תמיד נטען וצריך לכתוב אותו שוב, סקיל נטען לבד רק כשהוא רלוונטי.</p>
+  <p>הזווית שלי: זה בכלל לא סיפור טכני, זה סיפור של UX. ההבדל בין ממשק שאתה מפעיל לבין ממשק שמכיר אותך הוא ההבדל הכי ותיק בעיצוב מוצר, והוא חזר עכשיו בדלת האחורית דרך קובץ מרקדאון. המבחן שאני נותן לתלמידים הוא אחד, והוא לא דורש שום ידע מוקדם: אם כתבת את אותה הוראה פעמיים, זה כבר לא פרומפט. זה סקיל שעוד לא שמרת.</p>
+  <button class="copy" onclick="copyBlock('story')">העתק סיפור רקע</button>
+</div>
+
+<h2>קריינות</h2>
+<div class="vo"><span class="t">0-4</span><p>כל יום אתה כותב לקלוד את אותה בקשה.</p></div>
+<div class="vo"><span class="t">4-9</span><p>תסביר לי את זה קצר. בעברית. בלי באזוורדס.</p></div>
+<div class="vo"><span class="t">9-14</span><p>וכל יום, בסוף השיחה, זה נעלם.</p></div>
+<div class="vo"><span class="t">14-19</span><p>פרומפט הוא בקשה. הוא חי בשיחה אחת ומת איתה.</p></div>
+<div class="vo"><span class="t">19-25</span><p>סקיל הוא זיכרון. אתה כותב את זה פעם אחת, והוא נשאר.</p></div>
+<div class="vo"><span class="t">25-31</span><p>בפעם הבאה שתבקש משהו דומה, הוא יעלה לבד. בלי שתזכיר.</p></div>
+<div class="vo"><span class="t">31-37</span><p>זה ההבדל בין להסביר את עצמך כל בוקר מחדש, לבין לעבוד עם מישהו שכבר מכיר אותך.</p></div>
+<div class="vo"><span class="t">37-41</span><p>אז הנה המבחן הכי פשוט:</p></div>
+<div class="vo"><span class="t">41-45</span><p>כתבת את זה פעמיים? זה כבר סקיל.</p></div>
+
+<h2>שוט-ליסט</h2>
+<div id="shots"></div>
+
+<h2>הערות הפקה</h2>
+<div class="note">
+  <b>מה עושים עם הפריימים האלה</b>
+  <ul>
+    <li>כל פריים הוא סטילס פתיחה מ-Nano Banana Pro. מכניסים אותו ל-Kling 3 כ-image-to-video עם פרומפט התנועה שבכרטיס.</li>
+    <li>שוט 6 הוא היחיד שהולך ל-Veo 3, כי הוא צריך אורביט אמיתי עם עומק. כל השאר Kling.</li>
+    <li>כל הטקסט העברי נכנס בעריכה, לא בג'ינרוט. לכן כל פרומפט נגמר ב-no text ומשאיר שטח נגטיבי מוגדר.</li>
+    <li>טיפוגרפיה: Rubik 900 לשלוש הכותרות המפתח, Rubik 500 לכתוביות. קורל על charcoal, בלי צבע שלישי.</li>
+    <li>הגרסה האנכית: 30 שניות, מוותרת על שוטים 6 ו-7, ופותחת ישר בשוט 3 כדי לתפוס בשנייה הראשונה. שוטים 4 ו-7 צריכים הרכבה מחדש בעריכה כי הפיצול הופך לעליון ותחתון.</li>
+    <li>הפריים של שוט 9 הוא הקאבר של פוסט הלינקדאין באותו נושא. נכס אחד, שני ערוצים.</li>
+  </ul>
+</div>
+
+<footer>Simpla Lab · Daily Director</footer>
+<div class="toast" id="toast">הועתק</div>
+
+<script>
+const STYLE = "Editorial motion-design frame on a deep charcoal background, minimal geometric composition, coral and warm yellow accents only, generous negative space, cinematic soft rim lighting, shallow depth of field, premium editorial design language, 16:9, no text, no letters, no words";
+const CDN = "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/";
+
+const SHOTS = [
+  {n:1, dur:"4 שנ'", cam:"דחיפה איטית פנימה", model:"Nano Banana Pro ואז Kling 3",
+   title:"בועה אחת בחלל ריק", type:"אין כיתוב",
+   img:"hf_20260801_004537_510f563b-43ae-4598-aca5-c05919b359a6.png",
+   still:"a single translucent glass speech bubble floating alone in an empty void, perfectly intact, faint coral light refracting through its surface, tiny dust particles suspended around it",
+   motion:"Very slow push-in toward the glass bubble, it drifts and rotates almost imperceptibly, dust particles float upward, absolutely calm, no cuts"},
+
+  {n:2, dur:"5 שנ'", cam:"נעול, רעד עדין", model:"Nano Banana Pro ואז Kling 3",
+   title:"הבקשה מתמלאת", type:"3 שורות בקשה נערמות",
+   img:"hf_20260801_004539_b9005544-8ee5-4f29-8df4-0ce9e05e5f75.png",
+   still:"a translucent glass speech bubble filling from the bottom with stacked horizontal bands of warm coral light like lines of writing accumulating inside it, the glass surface tensing slightly under the weight, generous negative space in the lower third",
+   motion:"Coral light bands rise and stack inside the bubble one after another, the glass trembles faintly with each new band, camera locked off, tense and building"},
+
+  {n:3, dur:"5 שנ'", cam:"נסיגה איטית", model:"Nano Banana Pro ואז Kling 3",
+   title:"וזה נעלם", type:"המילה נמחקת יחד עם הבועה",
+   img:"hf_20260801_004542_78decc67-56a7-47ab-98a4-dffb896b6179.png",
+   still:"a translucent glass speech bubble caught mid-dissolve, its upper half already broken into thousands of fine drifting particles sweeping toward the frame edge and fading, the coral light inside going cold and grey as it disperses",
+   motion:"The bubble disintegrates completely into particles that sweep out of frame, camera slowly pulls back revealing empty void, the coral light drains to grey, melancholy and final"},
+
+  {n:4, dur:"5 שנ'", cam:"נעול, המסך מתפצל", model:"Nano Banana Pro ואז Kling 3",
+   title:"שני חומרים, קו אחד", type:"פרומפט = בקשה",
+   img:"hf_20260801_002905_082d1f3a-b002-48ec-9db2-060979e549dc.png",
+   still:"perfect vertical split composition with a thin bright hairline rule down the center, left half shows the last grey particles of a dissolved glass bubble drifting away, right half shows a solid engraved metal plaque mounted flush and just beginning to ignite with warm coral light inside its grooves",
+   motion:"The center hairline draws itself across the frame from top to bottom, the right plaque ignites with coral light spreading through the engraved grooves, the left particles keep drifting away, camera locked off"},
+
+  {n:5, dur:"6 שנ'", cam:"דחיפה איטית ימינה", model:"Nano Banana Pro ואז Kling 3",
+   title:"המתכת נשארת", type:"סקיל = זיכרון",
+   img:"hf_20260801_004544_ded4a45a-6928-4176-af9b-2e4ba42aa9da.png",
+   still:"the left half of frame completely black and empty, the right half dominated by a solid engraved metal plaque with warm coral and amber light glowing steadily and evenly from within its grooves, permanent and grounded, faint reflection on the surface below it",
+   motion:"The left half fades to pure black, camera pushes in slowly on the metal plaque, the coral light in the grooves swells to a steady confident glow and holds, calm and resolved"},
+
+  {n:6, dur:"6 שנ'", cam:"אורביט קל", model:"Veo 3",
+   title:"הוא עולה לבד, שוב ושוב", type:"אין כיתוב",
+   img:"hf_20260801_004550_c298f2ad-82f3-4424-b527-cde0645cd7e6.png",
+   still:"a solid engraved metal plaque seen at a three-quarter angle revealing it is the first in a receding row of identical plaques stretching into depth, the nearest fully lit with warm coral light in its grooves and the ones behind it lighting up in sequence with falling intensity",
+   motion:"Camera orbits slowly around a lit engraved metal plaque on a deep charcoal void, revealing a receding row of identical plaques behind it that ignite one by one in sequence into the depth of frame, warm coral light in the engraved grooves, minimal editorial motion design, shallow depth of field, calm confident pacing, 16:9"},
+
+  {n:7, dur:"6 שנ'", cam:"זחילת צד איטית", model:"Nano Banana Pro ואז Kling 3",
+   title:"להסביר כל בוקר מחדש", type:"אין כיתוב",
+   img:"hf_20260801_004552_5dcabbb3-720d-4ad8-b3e6-d70157f1c89d.png",
+   still:"split composition, left side shows a silhouetted figure at a desk rendered in cool grey with three ghosted duplicates of itself layered behind it suggesting endless repetition, right side shows a single engraved metal plaque lit once with steady warm coral light and no duplicates",
+   motion:"The grey figure on the left loops the same typing motion over and over with its ghost duplicates lagging behind it, the plaque on the right stays perfectly still and lit, camera drifts laterally very slowly to the right"},
+
+  {n:8, dur:"4 שנ'", cam:"קאט חד, נעול", model:"Nano Banana Pro ואז Kling 3",
+   title:"בלימה", type:"המבחן:",
+   img:"hf_20260801_004554_6478b25c-9705-402e-bcb7-4c1ff80a96b6.png",
+   still:"an almost entirely empty void with a single small point of warm coral light suspended dead center, faint atmospheric haze catching the glow, extreme minimalism, generous negative space across the entire frame",
+   motion:"Everything is already gone, the single point of coral light pulses once slowly and holds, faint haze drifts, camera completely static, a held beat of silence"},
+
+  {n:9, dur:"4 שנ'", cam:"מיקרו דחיפה, החזקה", model:"Nano Banana Pro · גם קאבר הפוסט",
+   title:"פריים סיום", type:"כתבת את זה פעמיים? זה כבר סקיל.",
+   img:"hf_20260801_002910_1a4d2d70-b1d7-425c-9652-b418a420d451.png",
+   still:"a single solid engraved metal plaque centered in frame with its grooves filled with steady warm coral and amber light, a faint ghosted duplicate of the same plaque directly behind it slightly offset, suggesting a repeated action becoming permanent, empty charcoal void all around, generous negative space across the upper half",
+   motion:"The ghosted plaque behind slides forward and merges into the front plaque, the coral light in the grooves brightens once on the merge and holds steady, micro push-in, final and confident, ends on a still frame"}
+];
+
+document.getElementById('shots').innerHTML = SHOTS.map(s => `
+  <div class="shot">
+    <div class="frame">
+      <img src="${CDN}${s.img}" alt="שוט ${s.n}" loading="lazy">
+      <div class="num">${s.n}</div>
+      <div class="dur">${s.dur}</div>
+    </div>
+    <div class="meta">
+      <b>${s.title}</b>
+      <div class="cam">${s.cam}</div>
+      <span class="model">${s.model}</span>
+      <div class="title-on">כיתוב על המסך: <b>${s.type}</b></div>
+      <details>
+        <summary>פרומפטים מלאים</summary>
+        <div class="plabel">פריים (Nano Banana Pro)</div>
+        <pre id="ps${s.n}">${STYLE.replace('background,', 'background, ' + s.still + ',')}</pre>
+        <div class="plabel">תנועה (${s.n===6?'Veo 3':'Kling 3, image-to-video'})</div>
+        <pre id="pm${s.n}">${s.motion}</pre>
+        <div class="btnrow">
+          <button class="copy" onclick="copyEl('ps${s.n}')">העתק פרומפט פריים</button>
+          <button class="copy ghost" onclick="copyEl('pm${s.n}')">העתק פרומפט תנועה</button>
+        </div>
+      </details>
+    </div>
+  </div>`).join('');
+
+function copyBlock(kind){
+  const box = document.getElementById(kind+'-text').closest('.dir');
+  const parts = [];
+  box.querySelectorAll('p').forEach(p=>parts.push(p.textContent.trim()));
+  box.querySelectorAll('.row').forEach(r=>{
+    const b=r.querySelector('b'), s=r.querySelector('span');
+    if(b&&s)parts.push(b.textContent.trim()+': '+s.textContent.trim());
+  });
+  const rules=[...box.querySelectorAll('.rule span')].map(s=>s.textContent.trim());
+  if(rules.length)parts.push('כללים: '+rules.join(' · '));
+  const head = kind==='mood'
+    ? 'הוראות אווירה והלך רוח לסרט "פרומפט הוא בקשה. סקיל הוא זיכרון.":'
+    : 'סיפור הרקע לסרט "פרומפט הוא בקשה. סקיל הוא זיכרון.":';
+  copyText(head+'\n\n'+parts.join('\n\n'));
+}
+function copyEl(id){ copyText(document.getElementById(id).textContent); }
+function copyText(t){
+  const done = () => { const el=document.getElementById('toast'); el.classList.add('on'); setTimeout(()=>el.classList.remove('on'),1600); };
+  if(navigator.clipboard){ navigator.clipboard.writeText(t).then(done, fb); } else { fb(); }
+  function fb(){
+    const ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy'); ta.remove(); done();
+  }
+}
+</script>
+</body>
+</html>
