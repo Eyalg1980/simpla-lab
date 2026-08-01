@@ -64,6 +64,7 @@ h1{font-weight:900;font-size:clamp(31px,8.6vw,36px);line-height:1.13;letter-spac
        display:inline-block;padding:2px 8px;border-radius:100px;margin-bottom:5px}
 .vo p{font-size:14px}
 .vo .en{font-size:12px;color:var(--soft);direction:ltr;text-align:left;margin-top:5px}
+.vo .sec{display:inline-block;margin-top:5px;font-size:11px;color:var(--soft)}
 
 /* ---------- ratio switch ---------- */
 .ratio{display:flex;border:1.5px solid var(--ink);border-radius:100px;overflow:hidden;

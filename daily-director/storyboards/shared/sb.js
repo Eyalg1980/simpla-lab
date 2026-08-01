@@ -88,12 +88,19 @@
     return h;
   }
 
+  // A recorded voice-over line gets a player. `audio` is a filename under S.cdn,
+  // or a full URL. `sec` is the real recorded length, which is what the edit needs.
   function voBlock() {
     return (S.vo || []).map(function (v) {
+      var a = v.audio || v.mp3;
+      var src = a && (/^https?:/.test(a) ? a : (S.cdn || '') + a);
       return '<div class="vo"><span class="t">' + esc(v.t) + '</span><p>' + esc(v.text) + '</p>' +
              (v.en ? '<p class="en">' + esc(v.en) + '</p>' : '') +
-             // v.mp3 = הבלוק כבר הוקלט. הנגן מופיע רק למי שיש לו קובץ, כך שלוחות ישנים לא מושפעים.
-             (v.mp3 ? '<audio src="' + esc((S.cdn || '') + v.mp3) + '" controls preload="none"></audio>' : '') +
+             // The player appears only for a line that has a recording, so older boards
+             // are untouched. `audio` and `mp3` are the same thing, two sessions named it
+             // differently; both are honoured so neither set of pages breaks.
+             (src ? '<audio src="' + esc(src) + '" controls preload="none"></audio>' : '') +
+             (v.sec ? '<span class="sec">' + esc(v.sec) + '</span>' : '') +
              (v.note ? '<p class="vo-note">' + esc(v.note) + '</p>' : '') + '</div>';
     }).join('');
   }
