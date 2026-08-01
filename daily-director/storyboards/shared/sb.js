@@ -9,14 +9,15 @@
   // Fixed order for every storyboard page. Collapsed by default where open:false.
   var ORDER = [
     { key: 'synopsis', title: 'סינופסיס',        open: false },
+    { key: 'shots',    title: 'שוט-ליסט',        open: true  },
+    { key: 'vo',       title: 'קריינות ודיאלוג', open: true  },
     { key: 'mood',     title: 'אווירה והלך רוח', open: false },
     { key: 'story',    title: 'סיפור רקע',       open: false },
-    { key: 'vo',       title: 'קריינות',         open: true  },
-    { key: 'shots',    title: 'שוט-ליסט',        open: true  },
-    { key: 'notes',    title: 'הערות הפקה',      open: true  }
+    { key: 'notes',    title: 'הערות הפקה',      open: false }
   ];
 
   var RATIO = (S.shots && S.shots.ratios && S.shots.ratios.def) || null;
+  var MEDIA = 'img';   // shot list shows stills by default, video only on demand
   var STORE = 'sb-' + (location.pathname.split('/').filter(Boolean).pop() || 'sb');
 
   function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
@@ -94,6 +95,18 @@
     }).join('');
   }
 
+  function hasClips() {
+    return ((S.shots && S.shots.list) || []).some(function (s) { return !!s.vid; });
+  }
+
+  function mediaSwitch() {
+    if (!hasClips()) return '';
+    return '<div class="ratio media">' +
+      '<button class="' + (MEDIA === 'img' ? 'on' : '') + '" onclick="sbSetMedia(\'img\')">תמונות</button>' +
+      '<button class="' + (MEDIA === 'vid' ? 'on' : '') + '" onclick="sbSetMedia(\'vid\')">וידאו</button>' +
+    '</div>';
+  }
+
   function ratioSwitch() {
     var r = S.shots && S.shots.ratios;
     if (!r) return '';
@@ -109,11 +122,11 @@
 
   function shotsBlock() {
     var list = (S.shots && S.shots.list) || [];
-    return ratioSwitch() + list.map(function (s) {
+    return mediaSwitch() + ratioSwitch() + list.map(function (s) {
       var img = typeof s.img === 'string' ? s.img : (s.img && (s.img[RATIO] || s.img[Object.keys(s.img)[0]]));
       var pr = shotPrompts(s);
       var vid = typeof s.vid === 'string' ? s.vid : (s.vid && (s.vid[RATIO] || s.vid[Object.keys(s.vid)[0]]));
-      var media = vid
+      var media = (vid && MEDIA === 'vid')
         ? '<video src="' + esc((S.cdn || '') + vid) + '" poster="' + esc((S.cdn || '') + img) +
           '" controls playsinline preload="none"></video>'
         : '<img src="' + esc((S.cdn || '') + img) + '" alt="שוט ' + s.n + '" loading="lazy">';
@@ -144,6 +157,84 @@
       (S.notes.items || []).map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') +
       '</ul></div>';
   }
+
+  /* ---------------- master prompt ---------------- */
+
+  function txt(d) {
+    if (!d) return '';
+    if (d.en) return d.en;
+    var out = (d.paras || []).join('\n\n');
+    (d.rows || []).forEach(function (r) { out += '\n- ' + r[0] + ': ' + r[1]; });
+    if (d.rules && d.rules.length) out += '\nRules: ' + d.rules.join(' | ');
+    return out;
+  }
+
+  function masterPrompt() {
+    var L = [];
+    var title = S.titleEn || [S.titleTop, S.titleMark].filter(Boolean).join(' ');
+    L.push('FILM BRIEF: ' + title);
+    L.push('');
+    L.push('You are an AI film director. Produce the short film described below, exactly as specified. Everything after this line is the brief.');
+    L.push('');
+    L.push('## 1. LOGLINE');
+    L.push(S.loglineEn || S.logline || '');
+    L.push('');
+    L.push('## 2. FORMAT');
+    (S.specsEn || S.specs || []).forEach(function (x) { L.push('- ' + x); });
+    L.push('');
+    if (S.synopsis) { L.push('## 3. SYNOPSIS'); L.push(txt(S.synopsis)); L.push(''); }
+    if (S.mood) { L.push('## 4. VISUAL STYLE, CAMERA AND MOOD'); L.push(txt(S.mood)); L.push(''); }
+    if (S.shots && S.shots.style) { L.push('## 5. BASE STYLE STRING (repeat verbatim in every shot prompt)'); L.push(S.shots.style); L.push(''); }
+    var list = (S.shots && S.shots.list) || [];
+    if (list.length) {
+      L.push('## 6. SHOT LIST (' + list.length + ' shots, in order)');
+      list.forEach(function (s) {
+        L.push('');
+        L.push('### Shot ' + s.n + ' — ' + (s.titleEn || s.title) + ' — ' + (s.durEn || s.dur));
+        if (s.camEn || s.cam) L.push('Camera: ' + (s.camEn || s.cam));
+        if (s.model) L.push('Suggested model: ' + s.model);
+        if (s.type) L.push('On screen text: ' + s.type);
+        var pr = shotPrompts(s);
+        pr.forEach(function (p) { L.push(p.label + ': ' + p.text); });
+      });
+      L.push('');
+    }
+    if ((S.vo || []).length) {
+      L.push('## 7. DIALOGUE AND VOICE OVER (spoken language: see FORMAT)');
+      (S.vo || []).forEach(function (v) {
+        L.push('[' + v.t + '] ' + (v.en || v.text));
+        if (v.en && v.text) L.push('   original: ' + v.text);
+      });
+      L.push('');
+    }
+    if (S.story) { L.push('## 8. BACKSTORY AND INTENT'); L.push(txt(S.story)); L.push(''); }
+    if (S.notes) {
+      L.push('## 9. PRODUCTION NOTES');
+      var items = S.notes.itemsEn || S.notes.items || [];
+      items.forEach(function (i) { L.push('- ' + i); });
+      L.push('');
+    }
+    L.push('## 10. PRODUCTION GUIDANCE');
+    L.push('- Lock the characters first: generate one master still per character, save it as a reusable reference element, and inject that reference into every single frame prompt. Never rely on a text description alone for continuity.');
+    L.push('- Generate the opening still for each shot before any motion. Approve the stills as a set, then animate.');
+    L.push('- Animate each shot image to video with the motion prompt above, keeping the approved still as the start frame.');
+    L.push('- For a continuous camera move, extract the last frame of each clip and feed it as the start frame of the next clip. Do not fix continuity in the edit.');
+    L.push('- Record spoken dialogue separately and lay it over the picture. Do not let the video model generate speech.');
+    L.push('- Add all on screen text, subtitles and end cards in the edit, never inside the generated frames.');
+    L.push('- Deliver at the format and duration listed above; trim inside shots rather than dropping a shot.');
+    return L.join('\n');
+  }
+
+  function promptBlock() {
+    return '<div class="promptbar">' +
+      '<b>פרומפט נושא</b>' +
+      '<p>כל התוכן של הדף באנגלית, בהיררכיה מלאה, כולל הנחיות הפקה. מוכן להדבקה למודל.</p>' +
+      '<pre id="sb-master" hidden></pre>' +
+      '<button class="copy" onclick="sbCopyMaster()">העתק פרומפט נושא</button>' +
+    '</div>';
+  }
+
+  window.sbCopyMaster = function () { sbCopyText(masterPrompt()); };
 
   function body(key) {
     if (key === 'synopsis') return dirBlock(S.synopsis, 'synopsis');
@@ -181,6 +272,7 @@
         '<div class="sec-b">' + body(sec.key) + '</div>' +
       '</div>';
     });
+    html += promptBlock();
     html += '<footer>Simpla Lab · Daily Director</footer><div class="toast" id="sb-toast">הועתק</div>';
     document.getElementById('sb').innerHTML = html;
   }
@@ -197,6 +289,12 @@
 
   window.sbSetRatio = function (r) {
     RATIO = r;
+    var el = document.querySelector('#sec-shots .sec-b');
+    if (el) el.innerHTML = shotsBlock();
+  };
+
+  window.sbSetMedia = function (m) {
+    MEDIA = m;
     var el = document.querySelector('#sec-shots .sec-b');
     if (el) el.innerHTML = shotsBlock();
   };
