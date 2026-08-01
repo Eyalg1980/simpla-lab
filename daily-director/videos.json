@@ -1,6 +1,85 @@
 {
   "days": [
     {
+      "date": "2026-08-01",
+      "dateLabel": "שבת, 1 באוגוסט",
+      "ideas": [
+        {
+          "id": "2026-08-01-1",
+          "world": "וידאו ארט",
+          "color": "#FF6B5E",
+          "hook": "ביוגרפיה של אובייקט · פרק 2: Undo, המכונה שלמדה לסלוח",
+          "concept": "פרק 2 של הסדרה, והוא בכוונה לא אייקון אלא מחווה. בדצמבר 1976 שני חוקרים ב-IBM, לאנס מילר וג'ון תומאס, כותבים בדוח פנימי משפט קטן: כדאי לתת למשתמש לקחת בחזרה את הפקודה האחרונה. הם מוסיפים שגם עצם הידיעה שאפשר לחזור אחורה שווה משהו. שבע שנים אחר כך לארי טסלר מכניס את Cmd-Z לליסה ובוחר את האות Z כי הצורה שלה היא קדימה, אחורה, קדימה. הפרק נסגר על החור בסיפור: לסוכן AI אין Undo, יש לו צ'קפוינט.",
+          "execution": "קליי סטופ-מושן, שפת הבית של הסדרה. קריינות בעברית בקול Gideon (ElevenLabs דרך היגספילד). 40 שניות, 8 שוטים, 9:16 ראשי ו-1:1 לפיד. פריימים ב-Nano Banana, הנפשה ב-Kling 3 std, אודיו מודל כבוי, מוזיקה וקול בעריכה, כתוביות עברית צרובות.",
+          "why": "ההמשך הכי חזק אחרי ההמבורגר, כי הוא מוכיח שהסדרה מחזיקה גם מושג מופשט ולא רק צורה. וגם: זה הרעיון היחיד מהארבעה שיש לו סוף פתוח אמיתי לעידן ה-AI.",
+          "competition": null,
+          "srcUrl": "https://apps.dtic.mil/sti/pdfs/ADA043033.pdf",
+          "srcLabel": "IBM RC 6326, מילר ותומאס 1976",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A single clay hand presses a chunky clay key marked with a curved backward arrow, and the clay object it just crushed slowly un-crushes itself and rebuilds into its original shape, the fingerprints smoothing away in reverse, slow push-in, one warm key light, dust motes drifting, tender and forgiving mood, no text",
+            "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט · פרק 2: Undo, המכונה שלמדה לסלוח\" לסטוריבורד מלא בסדרה: לוגליין, סינופסיס, קריינות מתוזמנת בעברית לקול Gideon, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט (פריים פותח ותנועה), אווירה והלך רוח, וסיפור רקע מתוחקר. עובדות מאומתות לעגן בהן: דוח IBM RC 6326 מ-14.12.1976 של לאנס מילר וג'ון תומאס שממליץ לאפשר למשתמש למשוך בחזרה פקודה, BRAVO של זירוקס פארק מ-1974 עם Undo של צעד אחד בלבד, לארי טסלר שבוחר את Z ב-1983 בגלל הצורה קדימה-אחורה-קדימה ובגלל שהיא צמודה ל-X C V, פוטושופ 5.0 ב-1998 שמביא ריבוי Undo, והכלל השישי של שניידרמן שהפיכות מרגיעה חרדה ומעודדת ניסוי. הסוף: לסוכן AI אין Undo אמיתי, יש צ'קפוינט שלא מכסה פעולות מחוץ למערכת הקבצים. שפה ויזואלית: קליי סטופ-מושן, 9:16 ראשי.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Hero portrait: a chunky clay keyboard key with a curved backward arrow carved into it, resting on a wooden shelf, warm single spotlight, a second half-repaired clay object beside it with a visible seam, dignified and tender mood, vertical composition, no text",
+            "raw": "ביוגרפיה של אובייקט · פרק 2: Undo, המכונה שלמדה לסלוח\nעולם: וידאו ארט, סדרה\nקונספט: קליי סטופ-מושן 40 שניות. ב-1976 שני חוקרים ב-IBM כותבים שכדאי לתת למשתמש לקחת בחזרה פקודה, ומוסיפים שגם הידיעה שאפשר שווה משהו. 1983, טסלר בוחר Z כי הצורה שלה היא קדימה אחורה קדימה. הסוף: לסוכן AI אין Undo, יש צ'קפוינט.\nביצוע: פריימים ב-Nano Banana, הנפשה ב-Kling 3 std, קריינות Gideon, 9:16 ראשי ו-1:1 לפיד, כתוביות עברית בעריכה.\nלמה עכשיו: פרק 2 של הסדרה, ומוכיח שהיא מחזיקה מושג מופשט ולא רק אייקון.\nמקור: IBM Research Report RC 6326, מילר ותומאס, 14.12.1976"
+          }
+        },
+        {
+          "id": "2026-08-01-2",
+          "world": "וידאו ארט",
+          "color": "#2BB3A3",
+          "hook": "ביוגרפיה של אובייקט · פרק 3: הזכוכית המגדלת מאבדת את התיבה",
+          "concept": "פרק 3, והכי אקטואלי. ב-1987 קית' אולפס מעצב את הממשק של NeXT ובוחר זכוכית מגדלת אחרי שפסל משקפת, טלסקופ וספרנית, כי חיפוש זה מחט בערימת שחת. ב-1990 מישהו במשרד של מיקרוסופט בחו\"ל שואל למה יש מחבת בסרגל הכלים של Windows 3.0. אחר כך היא איבדה את המילה שלידה, ועכשיו היא מאבדת את התיבה: ב-2026 יותר משני שליש מהחיפושים בגוגל נגמרים בלי אף קליק. הפרק שואל מה קורה כשהתיבה הריקה הופכת לשיחה.",
+          "execution": "קליי סטופ-מושן, קריינות Gideon בעברית, 40 שניות, 8 שוטים, 9:16 ראשי ו-1:1 לפיד. השוט המרכזי: זכוכית מגדלת מקליי שמתקרבת לתיבה ריקה, והתיבה נמסה לפה שמדבר. פריימים ב-Nano Banana, הנפשה ב-Kling 3.",
+          "why": "זה הפרק שמתחבר ישירות לשיח של עכשיו ולתוכן הקורס, והוא הכי קל להפוך גם לפוסט. הסטטיסטיקה של 2026 היא הוו.",
+          "competition": null,
+          "srcUrl": "https://sparktoro.com/blog/in-2026-less-than-one-third-of-google-searches-still-send-a-click/",
+          "srcLabel": "SparkToro, 2026",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A clay magnifying glass hovers over an empty clay input box, the box slowly softens and melts into the shape of an open speaking mouth, the glass lens tilts as if confused, slow dolly in, single warm key light, quiet unsettling curiosity, no text",
+            "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט · פרק 3: הזכוכית המגדלת מאבדת את התיבה\" לסטוריבורד מלא בסדרה: לוגליין, סינופסיס, קריינות מתוזמנת בעברית לקול Gideon, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט, אווירה והלך רוח וסיפור רקע מתוחקר. עובדות מאומתות לעגן בהן: קית' אולפס מעצב אייקונים ב-NeXT מ-1987 ובוחר זכוכית מגדלת על פני משקפת וספרנית, Windows 3.0 ב-1990 עם הזכוכית ב-WinHelp שנקראה מחבת ולכן מיקרוסופט הורידה אייקונים ב-3.1, Sherlock של אפל ב-1998, מאמר NN/g מ-2014 שאייקון בלי מילה מקשה על איתור החיפוש, ו-SparkToro 2026 שמראה שיותר משני שליש מהחיפושים בגוגל נגמרים בלי קליק. חשוב: אל תייחס את הזכוכית ל-HyperCard, זו פולקלור לא מאומת. שפה ויזואלית: קליי סטופ-מושן, 9:16 ראשי.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Hero portrait: a handmade clay magnifying glass standing upright on a wooden shelf, its lens a thick imperfect disc of translucent clay, an empty clay input box lying flat beside it half melted, single dramatic spotlight, vertical composition, no text",
+            "raw": "ביוגרפיה של אובייקט · פרק 3: הזכוכית המגדלת מאבדת את התיבה\nעולם: וידאו ארט, סדרה\nקונספט: קליי סטופ-מושן 40 שניות. 1987, קית' אולפס ב-NeXT בוחר זכוכית מגדלת כי חיפוש זה מחט בערימת שחת. 1990, במיקרוסופט שואלים למה יש מחבת בסרגל הכלים. היא איבדה את המילה שלידה, ועכשיו מאבדת את התיבה: 2026, יותר משני שליש מהחיפושים בגוגל בלי קליק.\nביצוע: פריימים ב-Nano Banana, הנפשה ב-Kling 3, קריינות Gideon, 9:16 ראשי ו-1:1 לפיד.\nלמה עכשיו: הפרק הכי אקטואלי בסדרה, מתחבר ישירות לתוכן הקורס ולפוסט מקביל.\nמקור: SparkToro 2026"
+          }
+        },
+        {
+          "id": "2026-08-01-3",
+          "world": "וידאו ארט",
+          "color": "#FFC940",
+          "hook": "ביוגרפיה של אובייקט · פרק 4: הלודר, השקר הכי אדיב בממשק",
+          "concept": "פרק 4, והוא על האובייקט היחיד שתפקידו לשקר לנו לטובתנו. 1985, בראד מאיירס מוכיח שאנשים מעדיפים לחכות עם פס התקדמות מאשר בלי. 2010, כריס הריסון מראה שפס עם פסים שזזים אחורה מקצר את ההמתנה הנתפסת ב-11 אחוז. 2011, בואל ונורטון מגלים שיותר מ-60 אחוז מהאנשים מעדיפים לחכות דקה ולראות את העבודה מאשר לקבל תשובה מיד. וב-2026 מחקר מוצא שתשובת AI שהגיעה בשתי שניות נתפסת כפחות מחושבת מאותה תשובה בדיוק אחרי עשרים.",
+          "execution": "קליי סטופ-מושן, קריינות Gideon, 40 שניות, 8 שוטים, 9:16 ראשי ו-1:1 לפיד. שושלת מלאה בקליי: שעון היד של המק מ-1984, שעון החול של ווינדוס, כדור החוף, הספינר, ולבסוף שלוש נקודות שמהבהבות וכותבות חושב. פריימים ב-Nano Banana, הנפשה ב-Kling 3.",
+          "why": "זה הפרק שהכי קל להבין ממנו משהו מעשי על עיצוב AI, והוא נוגע בדיוק במה שכל אחד רואה עשר פעמים ביום בצ'אט.",
+          "competition": null,
+          "srcUrl": "https://www.chrisharrison.net/projects/progressbars/ProgBarHarrison.pdf",
+          "srcLabel": "Rethinking the Progress Bar, UIST 2007",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A row of clay wait indicators on a wooden shelf coming to life one after another, a small clay wristwatch, a clay hourglass, a rainbow clay beach ball spinning, a clay ring rotating, and finally three clay dots pulsing in place, slow lateral tracking shot along the shelf, warm side light, playful but slightly ironic mood, no text",
+            "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט · פרק 4: הלודר, השקר הכי אדיב בממשק\" לסטוריבורד מלא בסדרה: לוגליין, סינופסיס, קריינות מתוזמנת בעברית לקול Gideon, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט, אווירה והלך רוח וסיפור רקע מתוחקר. עובדות מאומתות לעגן בהן: בראד מאיירס CHI 1985 שמראה שאנשים מעדיפים אינדיקטור אחוזים, שעון היד של המק ב-1984 ושעון החול של ווינדוס, הספינר של NeXTSTEP מ-1989 שהפך לכדור החוף, ה-throbber של נטסקייפ, לוק ורובלבסקי שטבע skeleton screen ב-2013, הריסון UIST 2007 ו-CHI 2010 עם 11 אחוז קיצור בהמתנה הנתפסת, בואל ונורטון 2011 על אשליית העבודה שבה יותר מ-60 אחוז העדיפו לחכות, אדר טאן וטיוון CHI 2013 על הונאה מיטיבה, ומחקר 2026 שבו תשובת LLM בשתי שניות דורגה כפחות מחושבת מתשובה אחרי 9 עד 20 שניות. אל תטען שמאיירס המציא את פס ההתקדמות ואל תנקוב בשם חברה שמאטה בכוונה, זה לא מתועד. שפה ויזואלית: קליי סטופ-מושן, 9:16 ראשי.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Hero portrait: a thick clay progress bar filled about seventy percent, standing upright on a wooden shelf, the unfilled part slightly cracked, a tiny clay hourglass leaning against it, single dramatic spotlight, vertical composition, no text",
+            "raw": "ביוגרפיה של אובייקט · פרק 4: הלודר, השקר הכי אדיב בממשק\nעולם: וידאו ארט, סדרה\nקונספט: קליי סטופ-מושן 40 שניות. 1985 מאיירס מוכיח שמעדיפים לחכות עם פס. 2010 הריסון מקצר את ההמתנה הנתפסת ב-11 אחוז עם פסים שזזים אחורה. 2011 בואל ונורטון: יותר מ-60 אחוז מעדיפים לחכות ולראות את העבודה. 2026: תשובת AI בשתי שניות נתפסת כפחות מחושבת מאותה תשובה אחרי עשרים.\nביצוע: שושלת בקליי, שעון יד, שעון חול, כדור חוף, ספינר, ושלוש נקודות שכותבות חושב. Nano Banana ו-Kling 3, קריינות Gideon, 9:16 ראשי.\nלמה עכשיו: זה מה שכל אחד רואה עשר פעמים ביום בצ'אט, והמסקנה מעשית לעיצוב AI.\nמקור: Rethinking the Progress Bar, UIST 2007"
+          }
+        },
+        {
+          "id": "2026-08-01-4",
+          "world": "וידאו ארט",
+          "color": "#8A7CFF",
+          "hook": "ביוגרפיה של אובייקט · פרק 5: דארק מוד, המעגל שנסגר",
+          "concept": "פרק 5, וסיום עונה. המסכים נולדו כהים לא מתוך אופנה אלא מתוך פיזיקה: בשפופרת קרינה שחור זה פשוט אלומה כבויה, והזרחן הירוק היה הזול ביותר. ב-1973 האלטו של זירוקס מסובב את המסך לאורך ומלבין אותו כדי לחקות דף נייר, וארבעים וחמש שנה אחר כך, בין 2016 ל-2019, כולם מחזירים את השחור. הפרק לא מוכר את המיתוס: המחקר עדיין נותן יתרון קריאות לטקסט כהה על רקע בהיר, והחיסכון בסוללה ב-OLED הוא 3 עד 9 אחוז בבהירות רגילה. חזרנו הביתה מהסיבות הלא נכונות.",
+          "execution": "קליי סטופ-מושן עם היפוך מכוון של שפת הסדרה: הפרק מתחיל על רקע קרם ונגמר על רקע פחם, אותה תאורה בדיוק. קריינות Gideon, 40 שניות, 8 שוטים, 9:16 ראשי ו-1:1 לפיד. פריימים ב-Nano Banana, הנפשה ב-Kling 3.",
+          "why": "סיום עונה טבעי, כי זה הפרק היחיד שבו האובייקט חוזר לנקודת ההתחלה. וגם ההזדמנות היחידה לשבור את הרקע הקרם של הסדרה בלי שזה ייראה כמו טעות.",
+          "competition": null,
+          "srcUrl": "https://www.purdue.edu/newsroom/releases/2021/Q3/dark-mode-may-not-save-your-phones-battery-life-as-much-as-you-think,-but-there-are-a-few-silver-linings.html",
+          "srcLabel": "Purdue University, 2021",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A small clay monitor with a glowing green clay screen sits on a wooden shelf, a clay hand slowly wipes white clay across the screen until it becomes a sheet of paper, then time-lapse and the white peels back to reveal the dark screen underneath again, slow push-in then pull-out, single warm key light unchanged throughout, contemplative full-circle mood, no text",
+            "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט · פרק 5: דארק מוד, המעגל שנסגר\" לסטוריבורד מלא בסדרה: לוגליין, סינופסיס, קריינות מתוזמנת בעברית לקול Gideon, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט, אווירה והלך רוח וסיפור רקע מתוחקר. עובדות מאומתות לעגן בהן: מסך CRT הוא פולט אור ולכן שחור הוא אלומה כבויה, זרחן P1 ירוק ו-P3 ענבר שלטו משנות השישים לשמונים, האלטו של זירוקס מ-1973 עם מסך ביט-מפ לאורך ו-BRAVO מ-1974 של למפסון וסימוני כ-WYSIWYG הראשון מול מדפסת לייזר ב-300 נקודות לאינץ' לעומת מסך ב-72, מחקרי פייפנברוק ובוכנר 2013 ו-2014 שמראים יתרון קריאות לטקסט כהה על בהיר, ווינדוס 10 באוגוסט 2016, מקאוס מוחאבי בספטמבר 2018, iOS 13 ואנדרואיד 10 בספטמבר 2019, ומחקר פרדיו 2021 שהחיסכון בסוללה בבהירות טיפוסית הוא 3 עד 9 אחוז בלבד. חשוב: אל תטען שהרקע הלבן נבחר במפורש כדי לחקות נייר, זו מסקנה סבירה אבל לא מתועדת בציטוט ראשוני, ואל תטען שדארק מוד מפחית מאמץ עיניים, המחקר לא תומך בזה. שפה ויזואלית: קליי סטופ-מושן, הפרק מתחיל על רקע קרם ונגמר על רקע פחם.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Hero portrait: a small handmade clay CRT monitor on a wooden shelf, its screen a glowing slab of deep charcoal clay, one half of the background cream and the other half charcoal split down the middle of the frame, single dramatic spotlight, vertical composition, no text",
+            "raw": "ביוגרפיה של אובייקט · פרק 5: דארק מוד, המעגל שנסגר\nעולם: וידאו ארט, סדרה\nקונספט: קליי סטופ-מושן 40 שניות. המסכים נולדו כהים מתוך פיזיקה, לא אופנה. 1973, האלטו של זירוקס מלבין את המסך כדי לחקות נייר. 2016 עד 2019, כולם מחזירים את השחור. אבל המחקר עדיין נותן יתרון קריאות לכהה על בהיר, והסוללה חוסכת 3 עד 9 אחוז בלבד בבהירות רגילה.\nביצוע: היפוך מכוון של שפת הסדרה, מתחיל על קרם ונגמר על פחם, אותה תאורה. Nano Banana ו-Kling 3, קריינות Gideon, 9:16 ראשי.\nלמה עכשיו: סיום עונה, הפרק היחיד שבו האובייקט חוזר לנקודת ההתחלה.\nמקור: Purdue University, 2021"
+          }
+        }
+      ],
+      "watch": []
+    },
+    {
       "date": "2026-07-31",
       "dateLabel": "יום שישי, 31 ביולי",
       "ideas": [
