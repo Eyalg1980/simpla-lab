@@ -112,8 +112,13 @@
     return ratioSwitch() + list.map(function (s) {
       var img = typeof s.img === 'string' ? s.img : (s.img && (s.img[RATIO] || s.img[Object.keys(s.img)[0]]));
       var pr = shotPrompts(s);
+      var vid = typeof s.vid === 'string' ? s.vid : (s.vid && (s.vid[RATIO] || s.vid[Object.keys(s.vid)[0]]));
+      var media = vid
+        ? '<video src="' + esc((S.cdn || '') + vid) + '" poster="' + esc((S.cdn || '') + img) +
+          '" controls playsinline preload="none"></video>'
+        : '<img src="' + esc((S.cdn || '') + img) + '" alt="שוט ' + s.n + '" loading="lazy">';
       return '<div class="shot">' +
-        '<div class="frame"><img src="' + esc((S.cdn || '') + img) + '" alt="שוט ' + s.n + '" loading="lazy">' +
+        '<div class="frame">' + media +
           '<div class="num">' + s.n + '</div><div class="dur">' + esc(s.dur) + '</div></div>' +
         '<div class="meta"><b>' + esc(s.title) + '</b>' +
           '<div class="cam">' + esc(s.cam) + '</div>' +

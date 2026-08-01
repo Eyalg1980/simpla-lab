@@ -77,6 +77,7 @@ h1{font-weight:900;font-size:clamp(31px,8.6vw,36px);line-height:1.13;letter-spac
 .shot{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:18px}
 .frame{background:var(--ink);position:relative;line-height:0}
 .frame img{width:100%;display:block;opacity:.97}
+.frame video{width:100%;display:block;background:var(--ink)}
 .num{position:absolute;top:10px;right:10px;background:var(--green);color:var(--ink);
      font-weight:900;font-size:14px;width:32px;height:32px;border-radius:50%;
      display:flex;align-items:center;justify-content:center;line-height:1}
