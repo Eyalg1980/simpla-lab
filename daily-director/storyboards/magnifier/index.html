@@ -20,21 +20,22 @@ window.SB = {
   titleEn: "Biography of an Object, Episode 3: The Magnifying Glass Loses Its Box",
   logline: "ב-1987 מעצב אחד ב-NeXT פסל משקפת, טלסקופ וספרנית, ובחר זכוכית מגדלת כי חיפוש זה מחט בערימת שחת. ארבעים שניות בקליי על האייקון ששרד ארבעה עשורים, ועל התיבה שמתחתיו שנעלמת עכשיו.",
   loglineEn: "In 1987 a designer at NeXT rejected binoculars, a telescope and a librarian, and picked a magnifying glass because search is finding a needle in a haystack. Forty seconds in clay about the icon that survived four decades, and about the box beneath it that is disappearing right now.",
-  specs: ["40 שניות", "9:16 · רילס", "גם 1:1 לפיד", "קליי סטופ-מושן", "8 קליפים מונפשים", "קריינות מוקלטת", "8 שוטים"],
+  specs: ["הסרט מוכן", "40 שניות", "9:16 · רילס", "קליי סטופ-מושן", "קריינות Gideon", "8 שוטים"],
   specsEn: [
     "40 seconds",
     "9:16 vertical, primary delivery",
     "1:1 secondary cut for the feed",
     "Claymation stop-motion, one locked visual language for the whole film",
-    "Hebrew voice over recorded in the ElevenLabs Gideon voice, laid in the edit",
-    "All 8 shots already animated, 7 in Kling 3 std and 1 in Veo 3.1 Lite",
     "8 shots",
+    "Hebrew voice over recorded in the ElevenLabs Gideon voice and mixed into the master",
+    "All 8 shots animated, 7 in Kling 3 std and 1 in Veo 3.1 Lite",
+    "Finished master delivered: 40.000s, 720x1280, h264 and aac",
     "Burned-in Hebrew subtitles added in the edit, never in the generation"
   ],
   cdn: "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/",
 
-  // כשהסרט מוכן: film:{src:"...mp4", ratio:"9"} והוא יופיע מעל הסטוריבורד כולו
-  film: null,
+  // הסרט המורכב, 40.000 שניות בדיוק, 720x1280, קריינות מעורבבת פנימה
+  film: { src: "https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/53e43201-9175-4088-bc8c-847f04513ffe.mp4", ratio: "9" },
 
   synopsis: {
     h3: "מה קורה בארבעים השניות",
@@ -191,11 +192,14 @@ window.SB = {
   notes: {
     title: "מה עושים עם הפריימים האלה",
     items: [
-      "הכל כבר מיוצר. שמונה פריימים ב-Nano Banana Pro ושמונה קליפים מונפשים, כולם 9:16. המתג בראש השוט-ליסט מחליף בין הפריימים לקליפים.",
+      "הסרט מורכב ויושב בראש הדף. 40.000 שניות בדיוק, 720 על 1280, h264 ו-aac, הקריינות כבר מעורבבת פנימה.",
+      "הכל מיוצר. שמונה פריימים ב-Nano Banana Pro ושמונה קליפים מונפשים, כולם 9:16. המתג בראש השוט-ליסט מחליף בין הפריימים לקליפים.",
       "שבעה קליפים ב-Kling 3 std, כל אחד במשך המדויק של השוט ולא ב-5 שניות אחידות, כך שאין מה למתוח או לחתוך בעריכה. שוט 6 יצא ב-Veo 3.1 Lite.",
       "האודיו של מודל הווידאו כבוי בכל הקליפים. המוזיקה ואפקטי החימר נכנסים בעריכה.",
       "הקריינות מוקלטת, שמונה בלוקים בקול Gideon ב-ElevenLabs דרך היגספילד. הנגן יושב על כל בלוק בסקציית הקריינות, ולידו האורך האמיתי של ההקלטה.",
-      "סך הקריינות 39.4 שניות בתוך סרט של 40, אז היא נכנסת בלי דחיסה. שלושה בלוקים נכתבו מחדש קצר יותר אחרי ההקלטה הראשונה, כי גדעון קורא לאט והם חרגו.",
+      "סך הקריינות 39.68 שניות בתוך 40, אז היא נכנסת ברצף כמעט בלי אוויר. שלושה בלוקים נכתבו מחדש קצר יותר אחרי ההקלטה הראשונה, כי גדעון קורא לאט והם חרגו.",
+      "הבלוקים ממוקמים ברצף עם 0.04 שניות ביניהם ולא בדיוק על גבולות השוטים, אחרת הם היו דורסים זה את זה. הסטייה הגדולה ביותר היא 0.74 שניות בבלוק 4, והיא נשמעת כמו טיימינג ולא כמו באג.",
+      "מה שעוד לא בפנים: מוזיקה, אפקטי חימר וכתוביות עברית צרובות. שלושתם שלב עריכה, והקריינות כבר מתוזמנת כך שיש להם מקום.",
       "שוט 6 הוא היחיד ב-Veo, כי המון של דמויות חימר שזזות בכיוונים מנוגדים זה בדיוק מה ש-Kling מפספס. יש גם גרסת Kling של אותו שוט בהיסטוריה של היגספילד אם הקריין של Veo יוצא חלק מדי.",
       "הרצף של שוטים 3 ו-4 חייב להיות אותו מסך בז' בדיוק. אם המסך יוצא שונה בין שני הפריימים, מייצרים מחדש את שוט 4 עם פריים 3 כרפרנס, כי הבדיחה עובדת רק אם רואים שזאת אותה מכונה.",
       "אין אף אות בשום פריים בסרט הזה, בכוונה. לוחית התווית בשוט 5 ריקה, והחריצים בשוט 4 חלקים. לכן כל פרומפט נגמר ב-no text ומשאיר שטח נגטיבי בשליש העליון לכתוביות.",
@@ -205,11 +209,14 @@ window.SB = {
       "עקביות: שלושת הפרקים חולקים את אותה מחרוזת סגנון בדיוק. אל תשנו אותה, זו החתימה של הסדרה."
     ],
     itemsEn: [
+      "The film is assembled and sits at the top of the page. Exactly 40.000 seconds, 720 by 1280, h264 and aac, with the narration already mixed in.",
       "Everything is generated. Eight frames in Nano Banana Pro and eight animated clips, all at 9:16. The switch at the top of the shot list swaps between the stills and the clips.",
       "Seven clips in Kling 3 std, each rendered at its exact shot duration rather than a uniform 5 seconds, so nothing needs stretching or trimming in the edit. Shot 6 came out of Veo 3.1 Lite.",
       "The video model's audio is off on every clip. Music and clay foley go in during the edit.",
       "The voice over is recorded: eight blocks in the ElevenLabs Gideon voice. A player sits on each block in the narration section with its real recorded length beside it.",
-      "Total narration is 39.4 seconds inside a 40 second film, so it fits without compression. Three blocks were rewritten shorter after the first take, because Gideon reads slowly and they ran long.",
+      "Total narration is 39.68 seconds inside 40, so it runs nearly back to back. Three blocks were rewritten shorter after the first take, because Gideon reads slowly and they ran long.",
+      "The blocks are placed sequentially with 0.04s between them rather than exactly on the shot boundaries, otherwise they would overlap each other. The largest drift is 0.74s on block 4, and it reads as timing rather than as a bug.",
+      "Still missing: music, clay foley and burned-in Hebrew subtitles. All three are edit steps, and the narration is timed to leave room for them.",
       "Shot 6 is the only Veo shot, because a crowd of clay figures moving in opposing directions is exactly what Kling misses. A Kling version of the same shot is in the Higgsfield history if the Veo crane comes out too smooth.",
       "Shots 3 and 4 must show the identical beige monitor. If the monitor differs between the two frames, regenerate shot 4 using frame 3 as a reference, because the joke only works if the viewer sees it is the same machine.",
       "There is not a single letter anywhere in this film, deliberately. The label plate in shot 5 is blank and the slots in shot 4 are smooth. That is why every prompt ends in no text and leaves negative space in the upper third for subtitles.",
