@@ -227,7 +227,7 @@ function ic(n,cls){return '<svg class="ic'+(cls?' '+cls:'')+'" viewBox="0 0 24 2
    ============================================================ */
 const APP_URL='https://eyalg1980.github.io/simpla-lab/daily-director/';
 const SPEC_URL=APP_URL+'DIRECTOR-SPEC.md';
-const REF_URL=APP_URL+'storyboards/hamburger/';
+const REF_URL=APP_URL+'storyboards/skill-vs-prompt/';
 
 function pLine(label,val){return val?label+': '+val+'\n':''}
 function pBrief(){
@@ -252,7 +252,7 @@ function pRules(){
 }
 function pClose(){
   return 'תהליך: קודם הצע לי שני פריימים למבחן סגנון ותעצור. אחרי שאאשר, ייצר את שאר הפריימים.\n'+
-    'בסיום: פרסם דף סטוריבורד ב-storyboards/<slug>/ במבנה של הרפרנס, הוסף storyboardUrl לרעיון ב-videos.json, ודחוף לגיט.';
+    'בסיום: פרסם דף סטוריבורד ב-storyboards/<slug>/ על גבי הטמפלט המשותף storyboards/shared/ (הדף מכיל רק window.SB, בלי style ובלי קוד רינדור, וסדר האזורים נאכף ב-sb.js), הוסף storyboardUrl לרעיון ב-videos.json, ודחוף לגיט.';
 }
 function buildScriptPrompt(idea,day){
   return pBrief()+'\n\nהמשימה: לפתח את הרעיון הבא לסרט שלם ולפרסם לו דף סטוריבורד.\n\n'+
