@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>סטוריבורד · ביוגרפיה של אובייקט · פרק 4: הלודר</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/sb.css">
+</head>
+<body>
+<div id="sb"></div>
+
+<script>
+const STYLE = "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field";
+
+window.SB = {
+  kicker: "STORYBOARD · CLAY · פרק 4",
+  titleTop: "ביוגרפיה של אובייקט · פרק 4:",
+  titleMark: "הלודר, השקר הכי אדיב בממשק",
+  titleEn: "Biography of an Object, Episode 4: The Loader, the Kindest Lie in the Interface",
+  logline: "ב-1985 בראד מאיירס הוכיח שאנשים מעדיפים לחכות עם פס התקדמות מאשר בלי, וארבעים שנה אחר כך אנחנו מודדים כמה חכם AI לפי כמה זמן הוא לקח. ארבעים שניות בקליי על האובייקט היחיד בממשק שתפקידו לשקר לנו, ועל היום שבו התחלנו לבקש את השקר הזה בעצמנו.",
+  loglineEn: "In 1985 Brad Myers proved that people would rather wait with a progress bar than without one, and forty years later we judge how smart an AI is by how long it took. Forty seconds in clay about the one object in the interface whose job is to lie to us, and the day we started asking for the lie ourselves.",
+  specs: ["40 שניות", "9:16 · רילס", "גם 1:1 לפיד", "קליי סטופ-מושן", "קול Gideon", "8 שוטים"],
+  specsEn: [
+    "40 seconds",
+    "9:16 vertical, primary delivery",
+    "1:1 secondary cut for the feed",
+    "Claymation stop-motion, one locked visual language for the whole film",
+    "Hebrew voice over, ElevenLabs Gideon voice, laid in the edit",
+    "8 shots, 5 seconds each",
+    "Burned-in Hebrew subtitles added in the edit, never in the generation"
+  ],
+  cdn: "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/",
+
+  // כשהסרט מוכן: film:{src:"...mp4", ratio:"9"} והוא יופיע מעל הסטוריבורד כולו
+  film: null,
+
+  synopsis: {
+    h3: "מה קורה בארבעים השניות",
+    copyLabel: "העתק סינופסיס",
+    copyHead: 'סינופסיס לסרט "ביוגרפיה של אובייקט · פרק 4: הלודר, השקר הכי אדיב בממשק":',
+    enLabel: "English synopsis",
+    enCopyLabel: "Copy English synopsis",
+    paras: [
+      "פס התקדמות מחימר שוכב על מדף עץ. שמונים ותשעה אחוז חרוטים בתוך החימר עצמו. הוא זז שערה אחת ונעצר, ורועד. השנייה הזאת מוכרת לכל אחד, והיא נשארת בפריים קצת יותר מדי זמן, בדיוק כמו במציאות.",
+      "חיתוך ל-1985. שני מסופים בז' בחימר, אחד עם פס ואחד ריק. אצל זה עם הפס יש תור קטן וסבלני. אצל הריק יושבת דמות אחת ואוחזת את הראש. זה כל המחקר של מאיירס בפריים אחד.",
+      "המצלמה נוסעת לאורך מדף שעליו כל השושלת: שעון יד, שעון חול, כדור חוף, טבעת מסתובבת, ולבסוף שלוש נקודות. כל אחד קם לחיים כשהמצלמה מגיעה אליו. אף אחד מהם לא מוסר לך שום מידע.",
+      "ואז שני שוטים שמראים איך הפכנו את זה למדע. מאקרו על פס שהפסים בתוכו מרוחים אחורה, נגד כיוון ההתקדמות, כי ככה ההמתנה מרגישה קצרה יותר. ואחריו שני דלפקים: אחד מיידי וכמעט ריק, ואחד שעובד לעין עם תור ארוך מולו.",
+      "האמת נחשפת. הפס חתוך לאורך כמו דגם חתך, ובפנים אין כלום. רק ארכובת חימר קטנה שמסתובבת לבד ומחוברת ללא כלום, בזמן שהמילוי בחוץ ממשיך להתקדם.",
+      "ואז היום. רובוט חימר יושב מאחורי מסך שעליו שלוש נקודות. התשובה כבר מוכנה בידיים שלו, מגולגלת, והוא לא מוסר אותה. לידו סטופר קטן. הוא מחכה בשבילנו.",
+      "הסרט נוחת על פורטרט: אותו פס חימר, הפעם עומד זקוף על מדף עץ כמו פריט מוזיאון, שעון חול קטן נשען עליו. התזה: לימדנו את המכונה להיראות עסוקה, ועכשיו אנחנו מודדים אינטליגנציה בשניות."
+    ],
+    en: "A clay progress bar lies flat on a wooden shelf. Eighty-nine percent is carved into the clay itself. It advances by a hair, stops, and trembles. Everyone knows that second, and the shot holds on it a beat too long, exactly like the real thing.\n\nCut to 1985. Two beige clay terminals, one with a bar and one blank. At the one with the bar a small patient queue has formed. At the blank one a single figure sits holding its own head. That is the whole of Myers' study in one frame.\n\nThe camera travels along a shelf holding the entire lineage: a wristwatch, an hourglass, a beach ball, a spinning ring, and finally three dots. Each comes alive as the camera reaches it. Not one of them tells you anything.\n\nThen two shots showing how we turned this into a science. A macro of a bar whose internal ribs are smeared backwards, against the direction of travel, because that makes the wait feel shorter. Then two counters: one instant and nearly empty, one visibly working with a long queue in front of it.\n\nThe truth comes out. The bar is sliced open like a cutaway model, and there is nothing inside. Only a tiny clay crank turning by itself, connected to nothing, while the fill outside keeps advancing.\n\nThen today. A clay robot sits behind a screen showing three dots. The answer is already finished in its hands, rolled up, and it is not handing it over. A small stopwatch sits beside it. It is waiting on our behalf.\n\nThe film lands on a portrait: the same clay bar, now standing upright on a wooden shelf like a museum piece, a small hourglass leaning against it. The thesis: we taught the machine to look busy, and now we measure intelligence in seconds."
+  },
+
+  mood: {
+    h3: "הטון של הסרט",
+    copyLabel: "העתק הוראות אווירה",
+    copyHead: 'הוראות אווירה והלך רוח לסרט "ביוגרפיה של אובייקט · פרק 4: הלודר":',
+    paras: ["שנון ורך, לא ציני. זה סרט שמגלה תרמית ולא כועס עליה, כי התרמית עובדת ואנחנו שותפים לה. הרגש שנשאר בסוף הוא חיוך קטן ואי נוחות קטנה באותה מידה: ידענו כל הזמן שהפס משקר, ובכל זאת אנחנו רוצים אותו."],
+    rows: [
+      ["קצב", "שני השוטים הראשונים איטיים ומאופקים, שוטים 3 עד 6 מתהדקים לקצב אחיד כמעט מכני, שוט 7 נעצר ונושם, ושוט 8 מחזיק. אין האצה דרמטית בשום מקום, הסרט עצמו מסרב למהר."],
+      ["מצלמה", "תנועה אחת לשוט, לעולם לא שתיים. דחיפה, זחילת צד, טראקינג, מאקרו, נסיגה, אורביט, דחיפה, מיקרו דחיפה. גובה עיניים של האובייקט, כלומר נמוך, כדי שהפס יקבל נוכחות של דמות."],
+      ["חומר", "החימר תמיד קצת לא מוכן. הפס אף פעם לא מגיע לקצה, תמיד יש סדק בחלק הריק. תנועה מכנית של חימר ולא נוזלית: מיקרו קפיצות של סטופ מושן נשארות בפנים ולא מחליקים אותן."],
+      ["אור", "מקור אחד רך מלמעלה-שמאל לאורך כל הסרט. ההיסטוריה מוארת בטונגסטן חם, ההווה מקבל זוהר טיל קריר מהמסך, הפורטרט האחרון מקבל ספוט אחד ותו לא."],
+      ["סאונד", "טיק מכני רך ואחיד לאורך כל הסרט, כמו מנגנון שרץ. הוא לא נעצר אף פעם, גם כשכלום לא קורה. בשוט 6 הוא נחשף כריק. בארבע השניות האחרונות הוא נעלם לגמרי."]
+    ],
+    rules: ["תנועה אחת לשוט", "הפס לעולם לא מתמלא", "בלי טקסט בג'ינרוט", "הטיק לא נעצר עד הסוף"],
+    en: "Witty and soft, never cynical. This is a film that exposes a deception without being angry at it, because the deception works and we are complicit in it. The feeling left at the end is a small smile and an equal measure of discomfort: we knew all along that the bar was lying, and we want it anyway.\n\nPacing: the first two shots are slow and restrained, shots 3 to 6 tighten into an almost mechanical steady rhythm, shot 7 stops and breathes, shot 8 holds. There is no dramatic acceleration anywhere. The film itself refuses to hurry.\n\nCamera: exactly one move per shot, never two. Push-in, lateral drift, tracking, macro, pull-back, orbit, push-in, micro push-in. Keep the lens at the object's eye level, meaning low, so the bar reads as a character.\n\nMaterial: the clay is always slightly unfinished. The bar never reaches the end, and there is always a crack in the empty part. Clay motion is mechanical rather than fluid: keep the stop-motion micro-jitter and do not smooth it out.\n\nLight: one soft source from above and to the left across the whole film. The history shots are lit in warm tungsten, the present-day shot gets a cool teal wash from the screen, and the final portrait gets a single spotlight and nothing else.\n\nSound: one soft, steady mechanical tick running under the entire film, like a mechanism in motion. It never stops, even when nothing is happening. In shot 6 it is revealed as hollow. In the last four seconds it disappears completely.\n\nRules: one camera move per shot | the bar never fills | no text inside the generation | the tick runs until the end."
+  },
+
+  story: {
+    h3: "מה באמת קרה",
+    copyLabel: "העתק סיפור רקע",
+    copyHead: 'סיפור הרקע לסרט "ביוגרפיה של אובייקט · פרק 4: הלודר":',
+    paras: [
+      "באפריל 1985 פרסם בראד א. מאיירס מאמר בשם The importance of percent-done progress indicators for computer-human interfaces, ב-ACM SIGCHI Bulletin כרך 16 גיליון 4. הוא לא המציא את פס ההתקדמות, הוא עשה משהו אחר: הוא בדק אותו. ארבעים ושמונה נבדקים, אותן משימות חיפוש, פעם עם אינדיקטור אחוזים ופעם בלי. שמונים ושישה אחוז מהם העדיפו את הגרסה עם הפס, בדירוג ממוצע של 2.94 בסולם שבו 1 זה מאוד שימושי ו-9 זה מעצבן ומיותר, עם מובהקות של 0.0006. מאיירס כתב שהפס מוריד חרדה ומאפשר לאנשים לתכנן את הזמן שלהם. מה שהוא לא כתב, וזה הלב של הסרט, זה שהפס לא באמת יודע כמה זמן נשאר.",
+      "מאז נבנתה שושלת שלמה של אובייקטים שתפקידם למלא את השנייה הזאת. שעון היד היה סמן ההמתנה הראשון במק המקורי, HyperCard נתן לנו כדור חוף שחור לבן מחולק לרבעים, ו-NeXTSTEP נתן סמן שנראה כמו דיסק אופטי מסתובב, שבגרסה הצבעונית שלו הפך לגלגל הצבעים שכולנו מכירים כ-spinning beach ball של מק. אף אחד מהם לא מוסר מידע. כולם מוסרים נוכחות.",
+      "ואז זה הפך למדע מדויק. בכנס CHI ב-2010 פרסמו כריס הריסון, ז'יקוואן יאו וסקוט הדסון מאמר בשם Faster Progress Bars: Manipulating Perceived Duration with Visual Augmentations. הם הראו שאפשר לשחק עם התחושה של אורך ההמתנה בלי לגעת באורך האמיתי שלה: הגרסה החזקה, פסים בתוך הפס שנעים בכיוון ההפוך להתקדמות ובקצב שמתגבר, קיצרה את ההמתנה הנתפסת בכ-11 אחוז. שנה אחר כך ראיין בואל ומייקל נורטון פרסמו ב-Management Science, כרך 57 גיליון 9, ספטמבר 2011, את The Labor Illusion. הם נתנו לאנשים לבחור בין תוצאה מיידית לבין המתנה שרואים בה את העבודה קורית. כשההמתנה הייתה ריקה, רק עשרים ושלושה אחוז הסכימו לחכות דקה. כשראו את העבודה, שישים ושלושה אחוז בחרו לחכות. ב-2013 איתן אדר, דזני טן וג'יימי טיוון נתנו לזה שם במאמר Benevolent Deception in Human Computer Interaction. הונאה מיטיבה.",
+      "והנה איפה זה נוחת עכשיו. פליסיה פאנג-יי טאן, מוריץ מסרשמידט, וון יין ועודד נוב פרסמו מחקר ב-CHI 2026 בשם The Impact of Response Latency and Task Type on Human-LLM Interaction and Perception. מאתיים ארבעים משתתפים, אותן תשובות בדיוק, שלושה זמני המתנה עד התו הראשון: שתי שניות, תשע ועשרים. התשובה שהגיעה אחרי שתי שניות דורגה כפחות מחושבת מזו שהגיעה אחרי תשע ואחרי עשרים, ופחות שימושית מזו שאחרי תשע. אותן מילים בדיוק. משתתפים תיארו את ההמתנה הארוכה כשיקול דעת. וזה בדיוק המקום שבו הסרט משאיר את זה פתוח: ארבעים שנה לימדנו מכונות להיראות עסוקות כדי להרגיע אותנו, ועכשיו המכונה יודעת לענות מהר מדי, ומי שמעצב אותה צריך להחליט אם להאט אותה בשבילנו. אין לי תשובה טובה לשאלה הזאת, ואני לא בטוח שמישהו עוד שאל אותה בקול."
+    ],
+    en: "In April 1985 Brad A. Myers published a paper titled The importance of percent-done progress indicators for computer-human interfaces, in ACM SIGCHI Bulletin volume 16 issue 4. He did not invent the progress bar. He did something else: he tested it. Forty-eight subjects, the same search tasks, once with a percent-done indicator and once without. Eighty-six percent of them preferred the version with the bar, with a mean rating of 2.94 on a scale where 1 is very useful and 9 is useless and annoying, at a significance of 0.0006. Myers wrote that the bar reduces anxiety and lets people plan their time. What he did not write, and this is the heart of the film, is that the bar does not actually know how long is left.\n\nSince then an entire lineage of objects has been built to fill that second. The wristwatch was the first wait cursor on the original Macintosh, HyperCard gave us a black and white quartered beach ball, and NeXTSTEP gave us a cursor resembling a spinning optical disk, whose colour version became the rainbow wheel everyone knows as the Mac spinning beach ball. None of them delivers information. All of them deliver presence.\n\nThen it became an exact science. At CHI 2010, Chris Harrison, Zhiquan Yeo and Scott Hudson published Faster Progress Bars: Manipulating Perceived Duration with Visual Augmentations. They showed you can manipulate how long a wait feels without touching how long it actually is: the strongest version, ribbing inside the bar moving in the opposite direction to the fill at an accelerating rate, shortened the perceived duration by around 11 percent. A year later Ryan Buell and Michael Norton published The Labor Illusion in Management Science, volume 57 issue 9, September 2011. They let people choose between an instant result and a wait in which the work is visible. When the wait was blank, only 23 percent agreed to wait a minute. When they could see the work, 63 percent chose to wait. In 2013 Eytan Adar, Desney Tan and Jaime Teevan gave it a name in Benevolent Deception in Human Computer Interaction.\n\nAnd here is where it lands now. Felicia Fang-Yi Tan, Moritz Messerschmidt, Wen Yin and Oded Nov published a study at CHI 2026 titled The Impact of Response Latency and Task Type on Human-LLM Interaction and Perception. Two hundred and forty participants, identical answers, three time-to-first-token latencies: two seconds, nine, and twenty. The answer that arrived after two seconds was rated less thoughtful than the one that arrived after nine and after twenty, and less useful than the one after nine. The same words exactly. Participants described the longer wait as deliberation. And that is exactly where the film leaves it open: for forty years we taught machines to look busy in order to calm us down, and now the machine can answer too fast, and whoever designs it has to decide whether to slow it down on our behalf. I do not have a good answer to that question, and I am not sure anyone has asked it out loud yet."
+  },
+
+  vo: [
+    { t: "0-5",   text: "הפס שרץ עכשיו על המסך שלך לא יודע כמה זמן נשאר. הוא אף פעם לא ידע.",
+                  en: "The bar running on your screen right now does not know how long is left. It never did." },
+    { t: "5-10",  text: "1985. בראד מאיירס בודק ארבעים ושמונה אנשים. שמונים ושישה אחוז מעדיפים לחכות עם פס מאשר בלי.",
+                  en: "1985. Brad Myers tests forty-eight people. Eighty-six percent prefer waiting with a bar over waiting without one." },
+    { t: "10-15", text: "מאז נבנתה שושלת שלמה. שעון יד, שעון חול, כדור חוף, ספינר. אף אחד מהם לא אומר לך כלום.",
+                  en: "Since then a whole lineage has been built. Wristwatch, hourglass, beach ball, spinner. Not one of them tells you anything." },
+    { t: "15-20", text: "2010. הריסון מזיז את הפסים בתוך הפס אחורה. אותה המתנה בדיוק, מרגישה קצרה באחד עשר אחוז.",
+                  en: "2010. Harrison moves the ribbing inside the bar backwards. The exact same wait feels eleven percent shorter." },
+    { t: "20-25", text: "2011. בואל ונורטון נותנים לבחור: תשובה מיד, או דקה שרואים בה את העבודה. שישים ושלושה אחוז בוחרים לחכות.",
+                  en: "2011. Buell and Norton offer a choice: an answer now, or a minute in which you watch the work. Sixty-three percent choose to wait." },
+    { t: "25-30", text: "כי מה שאנחנו קונים זה לא זמן. זאת ההרגשה שמישהו עובד בשבילנו.",
+                  en: "Because what we are buying is not time. It is the feeling that someone is working for us." },
+    { t: "30-35", text: "2026. אותה תשובה של AI בדיוק, פעם אחרי שתי שניות ופעם אחרי עשרים. המהירה דורגה כפחות מחושבת.",
+                  en: "2026. The exact same AI answer, once after two seconds and once after twenty. The fast one was rated less thoughtful." },
+    { t: "35-40", text: "אז שלוש הנקודות שאתה רואה בצ'אט הן לא באג. הן השקר הכי אדיב בממשק, ואנחנו מבקשים אותו.",
+                  en: "So the three dots you see in the chat are not a bug. They are the kindest lie in the interface, and we are the ones asking for it." }
+  ],
+
+  shots: {
+    style: STYLE,
+    prompts: function (s) {
+      var tail = s.tail || "no text";
+      return [
+        { label: "פריים פותח (Nano Banana)", btn: "העתק פרומפט פריים",
+          text: STYLE + ". " + s.still + ", vertical composition, generous negative space above, 9:16, " + tail },
+        { label: "תנועה (" + (s.model.indexOf("Veo") > -1 ? "Veo 3" : "Kling 3, image-to-video") + ")", btn: "העתק פרומפט תנועה",
+          text: STYLE + ". " + s.motion + ", 9:16" }
+      ];
+    },
+    list: [
+      { n:1, dur:"5 שנ'", durEn:"5s", cam:"דחיפה איטית פנימה", camEn:"Slow push-in",
+        model:"Nano Banana ואז Kling 3",
+        title:"שמונים ותשעה אחוז", titleEn:"Eighty-nine percent",
+        type:"אין כיתוב",
+        img:"hf_20260801_165206_8d78044e-bdf4-4479-8d42-c8fbaefe3089.png",
+        tail:"the carved numerals 89% are the only lettering in the frame and no other text appears anywhere",
+        still:"Close low-angle view of a thick chunky HORIZONTAL clay progress bar lying flat across a wooden shelf in a cream studio, its warm coral clay fill stretching nearly to the right end and stopping just short with the last sliver empty and cracked, and the numerals 89% pressed and carved directly into the surface of the filled coral clay with visible tool marks, one warm key light from the upper left, long soft shadow, dust motes in the beam, patient and slightly absurd mood",
+        motion:"The coral fill of the horizontal clay progress bar creeps forward by a hair and stops, then trembles in place without advancing further, the crack in the empty sliver at the end opens slightly wider, camera pushes in very slowly, dust drifting through the warm key light, patient and absurd" },
+
+      { n:2, dur:"5 שנ'", durEn:"5s", cam:"זחילת צד איטית", camEn:"Slow lateral drift",
+        model:"Nano Banana ואז Kling 3",
+        title:"1985, ארבעים ושמונה אנשים", titleEn:"1985, forty-eight people",
+        type:"אין כיתוב",
+        img:"hf_20260801_170657_a1da1f4d-3e9d-4b8e-a7f0-dfa11af85243.png",
+        still:"A 1985 research lab in clay: two chunky beige clay computer terminals side by side on a wooden bench, the left screen holding a fat horizontal coral clay bar filling across it and the right screen completely blank, a small orderly queue of little clay figures waiting calmly at the left terminal while one lone clay figure at the blank right terminal grips its own head, warm tungsten desk lamp, dust motes in the beam, quiet and historic mood",
+        motion:"The camera drifts slowly sideways from the blank right terminal across to the left one, the coral clay bar on the left screen advances one notch, the queueing clay figures settle and relax while the lone figure at the blank terminal stiffens, warm tungsten light, dust in the beam, one continuous move" },
+
+      { n:3, dur:"5 שנ'", durEn:"5s", cam:"טראקינג צד לאורך המדף", camEn:"Lateral tracking along the shelf",
+        model:"Nano Banana ואז Kling 3",
+        title:"השושלת", titleEn:"The lineage",
+        type:"אין כיתוב",
+        img:"hf_20260801_170659_936b4c96-d512-4735-8eda-13e69ca75b61.png",
+        still:"A long wooden shelf in a cream studio holding a row of clay wait indicators lined up in order, a small clay wristwatch, a clay hourglass, a rainbow clay beach ball, a chunky clay ring, and finally three fat clay dots resting in a row, every object lit by the same warm side light, dust in the air, playful but slightly ironic mood",
+        motion:"Slow lateral tracking shot along the wooden shelf past the row of clay wait indicators, each one coming alive as the camera reaches it, the wristwatch hand sweeping, the hourglass grains falling, the beach ball spinning, the ring rotating, and the three dots pulsing in place, warm side light, playful but slightly ironic, one continuous move" },
+
+      { n:4, dur:"5 שנ'", durEn:"5s", cam:"מאקרו, דחיפה קטנה", camEn:"Macro, slight push-in",
+        model:"Nano Banana ואז Kling 3",
+        title:"2010, הפסים זזים אחורה", titleEn:"2010, the ribbing moves backwards",
+        type:"אין כיתוב",
+        img:"hf_20260801_170705_9586c975-6ea2-4ebd-b76e-e7d4e610ccf6.png",
+        still:"Extreme macro of a thick horizontal clay progress bar, its coral fill advancing to the right while a row of sculpted diagonal clay ribs inside the fill is caught mid-slide in the opposite direction, the ribs visibly smeared backwards against the direction of the fill, tool marks and fingerprints across every rib, one hard raking side light picking out the ridges, precise and slightly deceptive mood",
+        motion:"Macro on the clay progress bar, the diagonal clay ribs inside the coral fill slide steadily backwards while the fill itself creeps forward, the ribs speeding up as they travel, the camera pushes in slightly, hard raking side light across the ridges, hypnotic and precise" },
+
+      { n:5, dur:"5 שנ'", durEn:"5s", cam:"נסיגה איטית אחורה", camEn:"Slow pull-back",
+        model:"Nano Banana ואז Kling 3",
+        title:"2011, שישים ושלושה בחרו לחכות", titleEn:"2011, sixty-three percent chose to wait",
+        type:"אין כיתוב",
+        img:"hf_20260801_170708_8bf95507-1814-4c3f-b023-2e53cca842ff.png",
+        still:"Two clay service counters facing camera on a cream studio floor: the left counter instant and bare with a single finished clay parcel already sitting on it and almost nobody in front of it, the right counter fitted with a small clay machine visibly working with turning gears and flipping cards and a long patient queue of little clay figures in front of it, warm key light from above, teal falloff behind, wry and human mood",
+        motion:"The camera pulls back slowly to reveal how long the queue at the working right counter really is while the instant left counter stays almost empty, the little clay machine keeps flipping its cards, the waiting clay figures shift their weight, warm key light, one continuous move" },
+
+      { n:6, dur:"5 שנ'", durEn:"5s", cam:"אורביט איטי", camEn:"Slow orbit",
+        model:"Veo 3",
+        title:"מאחורי הפס אין כלום", titleEn:"There is nothing behind the bar",
+        type:"אין כיתוב",
+        img:"hf_20260801_170713_8fd6b639-b367-48fb-ac50-ee5eabaa0af6.png",
+        still:"A thick horizontal clay progress bar lying on a wooden shelf and sliced open along its length like a cutaway display model, revealing that nothing is connected inside it, only a tiny clay crank turning by itself in the hollow interior attached to nothing, the coral fill continuing past the cut as if nothing were wrong, one warm key light and a cool teal rim, honest and quietly damning mood",
+        motion:"The camera orbits slowly around the sliced-open clay progress bar on its shelf, the hollow interior coming into view with the tiny clay crank turning by itself and connected to nothing, the coral fill keeps advancing regardless, warm key light sweeping across the cut edge, one continuous move" },
+
+      { n:7, dur:"5 שנ'", durEn:"5s", cam:"דחיפה איטית פנימה", camEn:"Slow push-in",
+        model:"Nano Banana ואז Kling 3",
+        title:"2026, שתי שניות מול עשרים", titleEn:"2026, two seconds against twenty",
+        type:"אין כיתוב",
+        img:"hf_20260801_161731_89cdd4aa-ab63-4c55-a024-b7aefbf27ab7.png",
+        still:"A small clay robot sitting behind a chunky clay screen on a wooden desk, on the screen three fat clay dots resting in a row, and in the robot's hands a finished clay scroll it is already holding and not handing over, a tiny clay stopwatch on the desk beside it, cool teal glow from the screen and one warm key light on the robot, patient and quietly guilty mood",
+        motion:"The three fat clay dots on the screen begin pulsing one after another, the clay robot glances down at the tiny stopwatch on the desk and keeps the finished clay scroll held back in its hands, waiting, camera pushes in very slowly, cool teal glow from the screen, patient and quietly guilty" },
+
+      { n:8, dur:"5 שנ'", durEn:"5s", cam:"מיקרו דחיפה והחזקה", camEn:"Micro push-in and hold",
+        model:"Nano Banana · גם תמונת הפוסט",
+        title:"פורטרט הסיום", titleEn:"Closing portrait",
+        type:"אין כיתוב",
+        img:"hf_20260801_170715_00efeaab-0539-4075-a36e-11bae22b3348.png",
+        still:"Hero portrait: a thick clay progress bar filled about seventy percent standing upright on a wooden shelf like a museum piece, the unfilled part slightly cracked, a tiny clay hourglass leaning against its base, single dramatic spotlight from directly above, long soft shadow, cream background falling away into darkness, dignified and slightly tender mood",
+        motion:"Micro push-in on the clay progress bar standing on its wooden shelf, the coral fill rises one last hair and stops, the tiny hourglass beside it settles a millimetre, the spotlight holds steady, dust drifts once across the beam, ends on a held still frame in silence" }
+    ]
+  },
+
+  notes: {
+    title: "מה עושים עם הפריימים האלה",
+    items: [
+      "שמונת הפריימים כבר יוצרו ב-Nano Banana ב-9:16. כל פריים הוא סטילס פתיחה, מכניסים אותו ל-Kling 3 std כ-image-to-video עם פרומפט התנועה שבכרטיס.",
+      "מודל האודיו כבוי בכל ההנפשות. המוזיקה, הקריינות ואפקטי החימר נכנסים בעריכה.",
+      "הקריינות בעברית בקול Gideon ב-ElevenLabs דרך היגספילד. מקליטים את שמונת הבלוקים בנפרד ומרכיבים לפי התזמונים.",
+      "כל שוט הוא בדיוק 5 שניות והקליפים של Kling יוצאים 5. אין מתיחות ואין חיתוכים, וזאת הסיבה שהסרט בנוי ככה מלכתחילה.",
+      "שוט 6 הוא היחיד שהולך ל-Veo 3, כי אורביט רציף סביב אובייקט חתוך עם חלל פנימי זה בדיוק מה ש-Kling מפספס.",
+      "שוט 1 הוא הפריים היחיד בסרט שמכיל טקסט בג'ינרוט, המספר 89% חרוט בחימר עצמו. הפרומפט שלו נגמר בחריגה מכוונת מהכלל, וזה מכוון: מספר קריא בחימר עדיף על כיתוב שנוסף מעל.",
+      "כל שאר הכתוביות והכיתוב העברי נכנסים בעריכה. לכן כל פרומפט אחר נגמר ב-no text ומשאיר שטח נגטיבי בשליש העליון.",
+      "הטיק המכני הוא הדבק של הסרט. שכבה אחת רציפה מעל הכל, נחתכת בבת אחת בשנייה 36 כדי שהמשפט האחרון ייפול על שקט.",
+      "הסרט נפתח בפס ששוכב ורץ ונגמר בפס שעומד זקוף כמו מונומנט. זה לא מקרי, זה כל הקשת של הפרק.",
+      "גרסת ה-1:1 לפיד נגזרת מהאנכית בהרחבת שוליים ולא בייצור מחדש, כי הקומפוזיציות כאן מרכזיות ולא נשברות בריבוע.",
+      "שוט 8 הוא גם תמונת הפוסט הכתוב על אותו נושא, ושוט 3 עומד בפני עצמו כלופ קצר. אותו מדף עץ מופיע בפריים הסיום של פרק 1, אז זו רציפות ולא במקרה.",
+      "עקביות: פרק 1, פרק 2 והפרק הזה חולקים את אותה מחרוזת סגנון בדיוק. אל תשנו אותה בין הפרקים, זו החתימה של הסדרה."
+    ],
+    itemsEn: [
+      "All eight frames are already generated in Nano Banana at 9:16. Each frame is an opening still: feed it to Kling 3 std as image-to-video with the motion prompt on the card.",
+      "Keep the video model's audio off on every animation. Music, voice over and clay foley all go in during the edit.",
+      "Hebrew voice over in the ElevenLabs Gideon voice. Record the eight blocks separately and assemble to the listed timings.",
+      "Every shot is exactly 5 seconds and Kling clips come out at 5. No stretching and no trimming, which is why the film was built this way in the first place.",
+      "Shot 6 is the only one that goes to Veo 3, because a continuous orbit around a cutaway object with a hollow interior is exactly what Kling misses.",
+      "Shot 1 is the only frame in the film that carries text inside the generation, the numerals 89% carved into the clay itself. Its prompt deliberately breaks the no-text rule, and that is on purpose: a legible number sculpted in clay beats a caption laid on top.",
+      "Every other Hebrew subtitle and title goes in during the edit. That is why every other prompt ends in no text and leaves negative space in the upper third.",
+      "The mechanical tick is the glue of the film. One continuous layer over everything, cut dead at second 36 so the last line lands on silence.",
+      "The film opens on a bar lying flat and running, and ends on a bar standing upright like a monument. That is not incidental, it is the whole arc of the episode.",
+      "The 1:1 feed cut is derived from the vertical by extending the margins rather than regenerating, because these compositions are centred and survive the square.",
+      "Shot 8 doubles as the cover image for the written post on the same subject, and shot 3 stands alone as a short loop. The same wooden shelf appears in the closing frame of episode 1, so this is continuity and not coincidence.",
+      "Consistency: episode 1, episode 2 and this episode share the identical style string. Never change it between episodes, it is the signature of the series."
+    ]
+  }
+};
+</script>
+<script src="../shared/sb.js"></script>
+</body>
+</html>
