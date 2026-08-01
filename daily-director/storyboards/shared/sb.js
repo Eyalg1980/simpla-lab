@@ -111,13 +111,55 @@
     return h;
   }
 
+  /* SUBTITLES. A caption line is not the same string as the script line.
+     Hebrew is RTL but digits and Latin runs are not, so a punctuation mark sitting
+     right after "1976" or "Cmd-Z" is a bidi neutral and the renderer is free to park
+     it on the wrong side. The result reads ".1976" instead of "1976.". Fixing the
+     letter order does NOT fix this, it is a separate bug.
+     A line therefore carries an optional `sub`: the same sentence, already hardened
+     with RLM marks (U+200F) after every Latin or digit run that a punctuation mark
+     follows. Whoever burns the captions uses `sub` verbatim and never re-derives it
+     from `text`. srtStamp/subSrt below build a ready SRT out of the same field. */
+  function srtStamp(x) {
+    var m = Math.floor(x / 60), s = x - m * 60;
+    return '00:' + String(m).padStart(2, '0') + ':' + s.toFixed(3).padStart(6, '0').replace('.', ',');
+  }
+  // "0:52.2-0:58.6" -> [52.2, 58.6]. Returns null for any other shape.
+  function parseRange(t) {
+    var m = String(t).match(/^(\d+):(\d+(?:\.\d+)?)\s*-\s*(\d+):(\d+(?:\.\d+)?)$/);
+    if (!m) return null;
+    return [(+m[1]) * 60 + parseFloat(m[2]), (+m[3]) * 60 + parseFloat(m[4])];
+  }
+  function subSrt() {
+    var out = [], i = 0;
+    (S.vo || []).forEach(function (v) {
+      var r = parseRange(v.t);
+      if (!r) return;
+      i++;
+      out.push(String(i), srtStamp(r[0]) + ' --> ' + srtStamp(r[1]), v.sub || v.text, '');
+    });
+    return out.join('\n');
+  }
+
   // A recorded voice-over line gets a player. `audio` is a filename under S.cdn,
   // or a full URL. `sec` is the real recorded length, which is what the edit needs.
   function voBlock() {
-    return (S.vo || []).map(function (v) {
+    var srt = subSrt();
+    var hardened = (S.vo || []).some(function (v) { return !!v.sub; });
+    var head = srt
+      ? '<div class="subbar' + (hardened ? '' : ' raw') + '"><b>כתוביות מוכנות לצריבה</b>' +
+        '<p>' + (hardened
+          ? 'הטקסט כאן כבר מוקשח לסימני פיסוק ב-RTL. משתמשים בו כמו שהוא, לא גוזרים אותו מחדש מהתסריט.'
+          : 'הלוח הזה עוד לא עבר הקשחת פיסוק. הייצוא נגזר מהתסריט, ולכן שורה שיש בה מספר או מילה באנגלית לפני סימן פיסוק צריכה בדיקה לפני צריבה.') + '</p>' +
+        '<pre id="sb-srt" hidden>' + esc(srt) + '</pre>' +
+        '<button class="copy" onclick="sbCopyEl(\'sb-srt\')">העתק SRT</button></div>'
+      : '';
+    return head + (S.vo || []).map(function (v) {
       var a = v.audio || v.mp3;
       var src = a && (/^https?:/.test(a) ? a : (S.cdn || '') + a);
       return '<div class="vo"><span class="t">' + esc(v.t) + '</span><p>' + esc(v.text) + '</p>' +
+             (v.sub && v.sub !== v.text
+               ? '<p class="sub"><span>כתובית</span>' + esc(v.sub) + '</p>' : '') +
              (v.en ? '<p class="en">' + esc(v.en) + '</p>' : '') +
              // The player appears only for a line that has a recording, so older boards
              // are untouched. `audio` and `mp3` are the same thing, two sessions named it
