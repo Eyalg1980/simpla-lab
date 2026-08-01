@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>סטוריבורד · ביוגרפיה של אובייקט · פרק 2: Undo</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/sb.css">
+</head>
+<body>
+<div id="sb"></div>
+
+<script>
+const STYLE = "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field";
+
+window.SB = {
+  kicker: "STORYBOARD · CLAY · פרק 2",
+  titleTop: "ביוגרפיה של אובייקט · פרק 2:",
+  titleMark: "Undo, המכונה שלמדה לסלוח",
+  titleEn: "Biography of an Object, Episode 2: Undo, the Machine That Learned to Forgive",
+  logline: "בדצמבר 1976 שני חוקרים ב-IBM כתבו משפט אחד על לקחת פקודה בחזרה, ובלי לשים לב עיצבו את המחווה הכי אנושית בממשק. ארבעים שניות בקליי על הכפתור היחיד שנבנה כדי להרגיע אותנו, ועל היום שבו הוא נעלם.",
+  loglineEn: "In December 1976 two IBM researchers wrote a single sentence about letting a user take a command back, and without noticing designed the most human gesture in the interface. Forty seconds in clay about the one button built to calm us down, and the day it went missing.",
+  specs: ["40 שניות", "9:16 · רילס", "גם 1:1 לפיד", "קליי סטופ-מושן", "קול Gideon", "8 שוטים"],
+  specsEn: [
+    "40 seconds",
+    "9:16 vertical, primary delivery",
+    "1:1 secondary cut for the feed",
+    "Claymation stop-motion, one locked visual language for the whole film",
+    "Hebrew voice over, ElevenLabs Gideon voice, laid in the edit",
+    "8 shots",
+    "Burned-in Hebrew subtitles added in the edit, never in the generation"
+  ],
+  cdn: "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/",
+
+  // כשהסרט מוכן: film:{src:"...mp4", ratio:"9"} והוא יופיע מעל הסטוריבורד כולו
+  film: null,
+
+  synopsis: {
+    h3: "מה קורה בארבעים השניות",
+    copyLabel: "העתק סינופסיס",
+    copyHead: 'סינופסיס לסרט "ביוגרפיה של אובייקט · פרק 2: Undo, המכונה שלמדה לסלוח":',
+    enLabel: "English synopsis",
+    enCopyLabel: "Copy English synopsis",
+    paras: [
+      "יד מחימר לוחצת חזק על אובייקט קטן, והוא נמעך. השנייה הזאת מוכרת לכל אחד, והיא נשארת בפריים קצת יותר מדי זמן, בדיוק כמו במציאות.",
+      "חיתוך ל-1976. שני חוקרים בחליפות חימר יושבים מול מסוף בז' מגושם. על הדף שביניהם שורה אחת מסומנת בקורל: תנו למשתמש לקחת בחזרה את הפקודה האחרונה.",
+      "אבל הם כתבו עוד משהו, וזה החלק היפה. גם רק לדעת שאפשר, כבר מרגיע. דמות חימר מכווצת מול מקלדת נרגעת מולנו, הכתפיים יורדות, החימר בפנים מתיישר.",
+      "רק שבהתחלה זה היה צעד אחד בלבד. הדמות עושה צעד אחורה ונעצרת בקיר שקוף. מעבר לקיר שורה ארוכה של דברים שנמעכו קודם, קרובים ובלתי אפשריים.",
+      "1983. יד מגלפת בראש מפתח חימר שלוש שריטות: קדימה, אחורה, קדימה. הצורה הזאת הפכה לרפלקס של מיליארדי אנשים בלי שאף אחד מהם יודע למה היא נראית ככה. ואז 1998, מגדל של פריימים מתגלגל אחורה והאובייקט המעוך מתקן את עצמו שכבה אחרי שכבה. הזמן נפתח.",
+      "ואז היום. רובוט חימר יושב מול מקלדת שחסר בה מפתח אחד. במקומו מונחת אבן אפורה קטנה. מעבר לשולחן, על הרצפה, מפוזרים דברים שהוא כבר הזיז, והם לא זזים בחזרה.",
+      "הסרט נוחת על פורטרט: מפתח החימר על מדף עץ, ולידו אובייקט מתוקן עם תפר גלוי שלא מנסים להסתיר. התזה: לימדנו מכונה לסלוח, ועכשיו בנינו אחת שעוד לא יודעת."
+    ],
+    en: "A clay hand presses down hard on a small clay object and crushes it. The shot holds a beat too long, the way that moment always does.\n\nCut to 1976. Two clay researchers in brown suits sit at a bulky beige terminal. On the typed page between them one line is marked in coral: let the user take back the last command.\n\nThey wrote something else too, and that is the beautiful part. Even just knowing you can go back is already calming. A tense clay figure at a keyboard unclenches in front of us, its shoulders drop, the clay of its face smooths out.\n\nOnly at first it was a single step. The figure steps once backwards and stops against an invisible wall. Beyond the wall stretches a long row of things it crushed earlier, close and unreachable.\n\n1983. A hand carves three strokes into the top of a clay key: forward, back, forward. That shape became a reflex for billions of people, none of whom know why it looks like that. Then 1998: a tower of frames rolls backwards and the crushed object repairs itself layer by layer. Time opens up.\n\nThen today. A clay robot sits at a keyboard with one key missing. In its place lies a small grey stone. Beyond the desk, on the floor, are things it already moved, and they do not move back.\n\nThe film lands on a portrait: the clay key on a wooden shelf, and beside it a repaired object with a visible seam nobody tried to hide. The thesis: we taught a machine to forgive, and now we have built one that has not learned yet."
+  },
+
+  mood: {
+    h3: "הטון של הסרט",
+    copyLabel: "העתק הוראות אווירה",
+    copyHead: 'הוראות אווירה והלך רוח לסרט "ביוגרפיה של אובייקט · פרק 2: Undo":',
+    paras: ["רך, מכובד וקצת עצוב. זה לא סרט על פיצ'ר, זה סרט על מחילה. מתייחסים ל-Undo כאל דמות שנולדה מתוך אמפתיה ולא מתוך הנדסה, ולכן אף שוט לא מתחכם ואף שוט לא צוחק על אף אחד. הרגש שצריך להישאר בסוף הוא געגוע קטן: היה לנו כפתור שסלח לנו, ובינתיים אין לו יורש."],
+    rows: [
+      ["קצב", "פתיחה איטית ומאופקת, האמצע מתהדק בשלושת שוטי ההיסטוריה, והסוף נפתח שוב לנשימה ארוכה. שני שוטי הסיום ארוכים בכוונה, כי הם הרגש ולא המידע."],
+      ["מצלמה", "תנועה אחת לשוט, אף פעם לא שתיים. דחיפות איטיות, נסיגה אחת, מאקרו אחד ואורביט אחד. גובה עיניים של האובייקט, כלומר נמוך, כדי שהחפץ יקבל נוכחות של דמות."],
+      ["חומר", "כל תיקון בחימר קורה לאט ואף פעם לא מושלם. תפר נשאר תפר, טביעת אצבע נשארת. חוסר השלמות הוא הנושא של הסרט ולא באג של ההנפשה, ולכן שומרים על מיקרו קפיצות של סטופ מושן ולא מחליקים אותן."],
+      ["אור", "מקור אחד רך מלמעלה בצד לאורך כל הסרט. ההיסטוריה מוארת בטונגסטן חם, ההווה מקבל נגיעת טיל קרירה על הרצפה. הפורטרט האחרון מקבל ספוט אחד ותו לא."],
+      ["סאונד", "קליקים של חימר, נשימה של חדר, פסנתר בודד ורך. מכה אחת עמומה בשוט הראשון כשהאובייקט נמעך. שקט מוחלט בארבע השניות האחרונות, בלי מוזיקה, רק אוויר."]
+    ],
+    rules: ["תנועה אחת לשוט", "כל תיקון נשאר עם תפר", "בלי טקסט בג'ינרוט", "הסוף בשקט"],
+    en: "Soft, dignified, a little sad. This is not a film about a feature, it is a film about forgiveness. Treat Undo as a character born out of empathy rather than engineering, so no shot is clever and no shot laughs at anyone. The feeling left at the end is a small longing: we had a button that forgave us, and right now it has no successor.\n\nPacing: slow and restrained at the open, tightening through the three history shots, opening back into a long breath at the end. The last two shots are deliberately long because they carry the emotion, not the information.\n\nCamera: exactly one move per shot, never two. Slow push-ins, one pull-back, one macro, one orbit. Keep the lens at the object's eye level, meaning low, so the object reads as a character.\n\nMaterial: every repair in clay happens slowly and is never perfect. A seam stays a seam, a fingerprint stays. The imperfection is the subject of the film, not an animation bug, so keep the stop-motion micro-jitter and do not smooth it out.\n\nLight: one soft source from above and to the side across the whole film. The history shots are lit in warm tungsten, the present-day shot gets a cool teal wash on the floor. The final portrait gets a single spotlight and nothing else.\n\nSound: clay clicks, room tone, one lonely soft piano. A single dull thud in shot 1 when the object is crushed. Total silence for the last four seconds, no music, only air.\n\nRules: one camera move per shot | every repair keeps a visible seam | no text inside the generation | end in silence."
+  },
+
+  story: {
+    h3: "מה באמת קרה",
+    copyLabel: "העתק סיפור רקע",
+    copyHead: 'סיפור הרקע לסרט "ביוגרפיה של אובייקט · פרק 2: Undo":',
+    paras: [
+      "ב-14 בדצמבר 1976 יצא ב-IBM דוח מחקר פנימי בשם Behavioral Issues in the Use of Interactive Systems, מספר RC 6326, מאת לאנס א. מילר וג'ון סי. תומאס. בפרק על פילוסופיית התאוששות הם כותבים שיהיה שימושי מאוד לאפשר למשתמשים לקחת בחזרה לפחות את הפקודה שקדמה מיד, באמצעות פקודה מיוחדת שהם קוראים לה undo. זה כל המשפט. אין בו דרמה ואין בו חזון, ובכל זאת הוא אחד המשפטים המשפיעים ביותר שנכתבו על ממשק.",
+      "אבל השורה שבאמת עושה את זה לסרט היא השורה שאחריה. הם מוסיפים שהתועלת למשתמש מעצם היכולת למשוך פקודה בחזרה, ואפילו רק מעצם הידיעה שהיכולת הזאת קיימת, יכולה להיות משמעותית מאוד, למשל בהקלה על המצוקה החריפה שמשתמשים חדשים חווים כשהם חוששים לעשות משהו לא נכון. שני חוקרים ב-1976 כתבו שהכפתור הזה קיים גם בשביל לא ללחוץ עליו. זה כבר לא הנדסה, זה אמפתיה.",
+      "בפועל הרעיון כבר התהלך שם. Bravo, עורך הטקסט הראשון עם תצוגה כמו התוצאה, שוחרר בזירוקס פארק ב-14 בספטמבר 1974 בפיתוח של באטלר לאמפסון וצ'ארלס סימוני, ואפשר לבטל פעולה אחת בלבד. צעד אחד אחורה, ואז קיר. ב-1983 לארי טסלר קובע את הקיצורים בליסה של אפל ובוחר את האות Z כי היא צמודה ל-X C V במקלדת, וגם, לפי ההסבר שלו עצמו, כי הצורה שלה מסמנת את השלישייה עשה, בטל, בצע שוב: קו ימינה, קו שמאלה, קו ימינה. בפוטושופ 5.0, שיצא במאי 1998, הגיע סוף סוף ביטול מרובה, ורק אז הזמן באמת נפתח. ובן שניידרמן מנסח את זה ככלל השישי מתוך שמונת כללי הזהב שלו: אפשרו ביטול קל של פעולות, כי זה מפחית חרדה ומעודד את המשתמש לנסות דברים שהוא לא מכיר.",
+      "והנה הזווית של היום. אני עובד עם סוכן שכותב קבצים, מריץ פקודות ומוחק דברים, ואין לו Cmd-Z. יש לו צ'קפוינט. בתיעוד של Claude Code כתוב במפורש מה הצ'קפוינט לא מכסה: קבצים ששונו דרך פקודות באש, שינויים שנעשו מחוץ לסשן, ועריכות של סוכני משנה. הם עצמם מגדירים את זה כביטול מקומי ולא כתחליף לניהול גרסאות. במילים אחרות, ככל שהסוכן פועל יותר בעולם, כך הרשת מתחתיו קטנה יותר. את הבעיה של 1976 פתרנו יפה, ואת הגרסה של 2026 שלה עוד לא התחלנו."
+    ],
+    en: "On 14 December 1976 IBM published an internal research report titled Behavioral Issues in the Use of Interactive Systems, number RC 6326, by Lance A. Miller and John C. Thomas. In its section on recovery philosophy the authors write that it would be quite useful to permit users to take back at least the immediately preceding command, through a special command they call undo. That is the whole sentence. No drama, no vision, and yet one of the most consequential sentences ever written about interface.\n\nThe line that turns it into a film is the one right after. They add that the benefit to the user of being able to withdraw a command, and even just of knowing that the capability exists, could be quite important, for example in easing the acute distress new users feel when they are worried about doing something wrong. Two researchers in 1976 wrote that this button exists partly so you never press it. That is not engineering, that is empathy.\n\nThe idea was already walking around. Bravo, the first WYSIWYG text editor, shipped at Xerox PARC on 14 September 1974, developed by Butler Lampson and Charles Simonyi, and it could undo exactly one action. One step back, then a wall. In 1983 Larry Tesler set the shortcuts for the Apple Lisa and chose the letter Z because it sits next to X, C and V on the keyboard, and also, by his own account, because its shape marks the do-undo-redo triad: a stroke forward, a stroke back, a stroke forward again. Photoshop 5.0, released in May 1998, finally brought multiple undo, and only then did time really open up. Ben Shneiderman states it as the sixth of his eight golden rules: permit easy reversal of actions, because it relieves anxiety and encourages exploration of unfamiliar options.\n\nAnd here is today's angle. I work with an agent that writes files, runs commands and deletes things, and it has no Cmd-Z. It has a checkpoint. The Claude Code documentation says plainly what a checkpoint does not cover: files modified by bash commands, changes made outside the session, and edits applied by subagents. They describe it themselves as local undo rather than a replacement for version control. Which means the more an agent acts in the world, the smaller the net beneath it. We solved the 1976 problem beautifully. We have not started on its 2026 version."
+  },
+
+  vo: [
+    { t: "0-5",   text: "לחצת, וזה נהרס. כולם מכירים את השנייה הזאת.",
+                  en: "You pressed, and it broke. Everyone knows that second." },
+    { t: "5-10",  text: "דצמבר 1976. שני חוקרים ב-IBM כותבים משפט אחד: תנו למשתמש לקחת בחזרה פקודה.",
+                  en: "December 1976. Two IBM researchers write one sentence: let the user take a command back." },
+    { t: "10-14", text: "ואז הם מוסיפים משהו יפה. גם רק לדעת שאפשר, כבר מרגיע.",
+                  en: "Then they add something beautiful. Even just knowing you can is already calming." },
+    { t: "14-18", text: "בהתחלה זה היה צעד אחד בלבד. אחורה, ועצור.",
+                  en: "At first it was a single step. Back, and stop." },
+    { t: "18-24", text: "1983. טסלר בוחר את האות Z. היא צמודה ל-X C V, והצורה שלה היא קדימה, אחורה, קדימה.",
+                  en: "1983. Tesler picks the letter Z. It sits next to X, C and V, and its shape is forward, back, forward." },
+    { t: "24-29", text: "1998. פוטושופ פותח את הזמן. כבר לא צעד אחד, שרשרת שלמה.",
+                  en: "1998. Photoshop opens up time. No longer one step, a whole chain." },
+    { t: "29-35", text: "היום יש לי סוכן שכותב, מריץ ומוחק. אין לו Cmd-Z. יש לו צ'קפוינט.",
+                  en: "Today I work with an agent that writes, runs and deletes. It has no Cmd-Z. It has a checkpoint." },
+    { t: "35-40", text: "והצ'קפוינט לא מכסה את מה שהוא עשה מחוץ לקבצים. שם עוד לא לימדנו אף אחד לסלוח.",
+                  en: "And the checkpoint does not cover what it did outside the files. There we have not taught anyone to forgive yet." }
+  ],
+
+  shots: {
+    style: STYLE,
+    prompts: function (s) {
+      return [
+        { label: "פריים פותח (Nano Banana)", btn: "העתק פרומפט פריים",
+          text: STYLE + ". " + s.still + ", vertical composition, generous negative space above, 9:16, no text" },
+        { label: "תנועה (" + (s.model.indexOf("Veo") > -1 ? "Veo 3" : "Kling 3, image-to-video") + ")", btn: "העתק פרומפט תנועה",
+          text: STYLE + ". " + s.motion + ", 9:16" }
+      ];
+    },
+    list: [
+      { n:1, dur:"5 שנ'", durEn:"5s", cam:"דחיפה איטית פנימה", camEn:"Slow push-in",
+        model:"Nano Banana ואז Kling 3",
+        title:"הטעות", titleEn:"The mistake",
+        img:"hf_20260801_144856_0b4cbbad-515b-4f28-a636-c898dd6fb6f3.png",
+        still:"A single clay hand pressing down hard on a small clay object on a cream studio table, the object crushed flat and deformed under the palm, fingerprints pressed deep into it, one warm key light from the upper left, long soft shadow, regretful mood",
+        motion:"The clay hand presses down and crushes the small clay object flat, then lifts away and leaves it deformed on the table, the camera pushes in very slowly on the damage, one warm key light, dust motes drifting, a single dull impact and then stillness" },
+
+      { n:2, dur:"5 שנ'", durEn:"5s", cam:"זחילת צד איטית ימינה", camEn:"Slow lateral drift to the right",
+        model:"Nano Banana ואז Kling 3",
+        title:"1976, הדוח הפנימי", titleEn:"1976, the internal report",
+        img:"hf_20260801_144858_f36800ab-bb90-4f5d-b148-30d33aef2161.png",
+        still:"A 1976 research office in clay: two small clay researchers in brown suits at a wooden desk with a bulky beige clay terminal, a single typed clay page between them with one line marked by a coral stripe, tungsten desk lamp, dust motes drifting in the beam, quiet and historic mood",
+        motion:"The camera drifts slowly sideways across the desk and settles on the typed clay page, the coral stripe on the single marked line brightens as it comes into focus, the two clay researchers stay almost still and only breathe, warm tungsten light, dust in the beam" },
+
+      { n:3, dur:"4 שנ'", durEn:"4s", cam:"מיקרו דחיפה, כמעט נעול", camEn:"Micro push-in, nearly locked off",
+        model:"Nano Banana ואז Kling 3",
+        title:"גם רק לדעת", titleEn:"Even just knowing",
+        img:"hf_20260801_144900_ae9cdf3b-873a-4652-90c4-7997bf831609.png",
+        still:"Close portrait of a small anxious clay figure at a chunky clay keyboard, its hunched shoulders dropping and the clay of its face smoothing out, a soft teal glow rising from the keyboard onto its face, one warm key light, relieved and tender mood",
+        motion:"The tense clay figure slowly unclenches, its shoulders drop and the pressed creases in its clay face smooth themselves out, the teal glow from the keyboard steadies on its face, micro push-in, tender and calm, no cuts" },
+
+      { n:4, dur:"4 שנ'", durEn:"4s", cam:"נסיגה איטית אחורה", camEn:"Slow pull-back",
+        model:"Nano Banana ואז Kling 3",
+        title:"צעד אחד בלבד", titleEn:"A single step only",
+        img:"hf_20260801_144901_01850f1b-076d-42c7-8a0f-57f62c3bd07f.png",
+        still:"A small clay figure taking one step backwards on a cream studio floor and stopping short against an invisible barrier, behind the barrier a long receding row of crushed clay objects it cannot reach, one hard side light casting a long shadow, lonely and limited mood",
+        motion:"The clay figure takes one step backwards, hits the invisible barrier and stops, it presses a hand against the empty air and cannot go further, the camera pulls back slowly to reveal the long row of crushed objects stretching away behind the barrier, lonely and still" },
+
+      { n:5, dur:"6 שנ'", durEn:"6s", cam:"מאקרו, דחיפה קטנה", camEn:"Macro, slight push-in",
+        model:"Nano Banana ואז Kling 3",
+        title:"1983, שלוש שריטות", titleEn:"1983, three strokes",
+        img:"hf_20260801_144907_077fdfdd-368e-4b62-b151-676584bf7a60.png",
+        still:"Macro shot of a clay hand carving an angular zigzag glyph of three strokes into the top of a chunky plasticine keyboard key, the grooves cut deep with visible tool marks, coral light pooling inside the grooves, warm single spotlight, precise and deliberate mood",
+        motion:"The clay hand carves the three strokes of the angular zigzag into the key one after another, right then left then right, coral light filling each groove as it is cut, the hand withdraws and the finished key holds alone in the spotlight, macro, precise and deliberate" },
+
+      { n:6, dur:"5 שנ'", durEn:"5s", cam:"קריין אנכי כלפי מעלה", camEn:"Vertical crane up",
+        model:"Veo 3",
+        title:"1998, הזמן נפתח", titleEn:"1998, time opens up",
+        img:"hf_20260801_144910_7ebd3743-dde5-4a08-8702-aa09184f326e.png",
+        still:"A tall vertical stack of clay film frames, each frame showing the same crushed clay object a little more repaired than the one below it, the seams closing as the stack rises, warm rim light along the edge of the stack, deep teal falloff behind, hopeful and mechanical mood",
+        motion:"The camera cranes straight up along the tall stack of clay film frames while the crushed clay object inside them rebuilds itself frame by frame, seams closing and dents rising back out, warm rim light travelling up the stack, mechanical and hopeful, one continuous move" },
+
+      { n:7, dur:"6 שנ'", durEn:"6s", cam:"אורביט איטי משמאל לימין", camEn:"Slow orbit, left to right",
+        model:"Nano Banana ואז Kling 3",
+        title:"לסוכן אין Undo", titleEn:"The agent has no Undo",
+        img:"hf_20260801_144912_c6e33250-b289-4a9d-996a-e9747e274a68.png",
+        still:"A small clay robot at a clay desk, one key missing from its chunky keyboard leaving an empty square socket, a plain grey clay stone resting beside the keyboard, and out on the cream floor beyond the desk several clay objects it already moved lying scattered and unreachable, cool teal light on the floor and warm key light on the robot, unresolved mood",
+        motion:"The camera orbits slowly around the clay robot at its desk, revealing the empty square socket where one key is missing and the plain grey stone lying next to it, on the floor beyond the desk the scattered clay objects stay exactly where they were left, the robot reaches toward the empty socket and stops, unresolved" },
+
+      { n:8, dur:"5 שנ'", durEn:"5s", cam:"מיקרו דחיפה והחזקה", camEn:"Micro push-in and hold",
+        model:"Nano Banana · גם תמונת הפוסט",
+        title:"פורטרט הסיום", titleEn:"Closing portrait",
+        img:"hf_20260801_144914_4e287d4c-394a-4551-9f39-338261ce8936.png",
+        still:"Hero portrait: a chunky clay keyboard key with a curved backward arrow carved into it, resting on a wooden shelf, warm single spotlight, a second half-repaired clay object beside it with a visible seam, dignified and tender mood",
+        motion:"Micro push-in on the clay key on its wooden shelf, the half-repaired object beside it settles a final millimetre and its seam stays visible, the spotlight holds steady, dust drifts once across the beam, ends on a held still frame in silence" }
+    ]
+  },
+
+  notes: {
+    title: "מה עושים עם הפריימים האלה",
+    items: [
+      "שמונת הפריימים כבר יוצרו ב-Nano Banana ב-9:16. כל פריים הוא סטילס פתיחה, מכניסים אותו ל-Kling 3 std כ-image-to-video עם פרומפט התנועה שבכרטיס.",
+      "מודל האודיו כבוי בכל ההנפשות. המוזיקה, הקריינות ואפקטי החימר נכנסים בעריכה.",
+      "הקריינות בעברית בקול Gideon ב-ElevenLabs דרך היגספילד. מקליטים את שמונת הבלוקים בנפרד ומרכיבים לפי התזמונים, כדי ששוט 8 ייפול על שקט מלא.",
+      "התזמונים נעים בין 4 ל-6 שניות והקליפים של Kling יוצאים 5. את שוטים 5 ו-7 מותחים קלות בעריכה, את שוטים 3 ו-4 חותכים.",
+      "שוט 6 הוא היחיד שהולך ל-Veo 3, כי קריין אנכי רציף על מגדל עם עומק זה בדיוק מה ש-Kling מפספס.",
+      "שוט 5 הוא הרגע היחיד שבו מופיעה צורה שקוראים אותה כאות. ביקשתי גליף זיגזג ולא את האות Z, כי מודלים שוברים שיניים על אותיות. אם הפריים יוצא כמו Z, מעולה. אם לא, מוסיפים את הצורה בעריכה.",
+      "כל הכתוביות והכיתוב העברי נכנסים בעריכה. לכן כל פרומפט נגמר ב-no text ומשאיר שטח נגטיבי בשליש העליון.",
+      "גרסת ה-1:1 לפיד נגזרת מהאנכית בהרחבת שוליים ולא בייצור מחדש, כי הקומפוזיציות כאן מרכזיות ולא נשברות בריבוע. אם נחליט על סט ריבועי אמיתי, מוסיפים לדף shots.ratios כמו בסטוריבורד של סקיל מול פרומפט.",
+      "שוט 8 הוא גם תמונת הפוסט הכתוב על אותו נושא. נכס אחד, שני ערוצים, בדיוק כמו בפרק 1.",
+      "עקביות: פרק 1 וההמבורגר חולקים את אותה מחרוזת סגנון בדיוק. אל תשנו אותה בין הפרקים, זו החתימה של הסדרה."
+    ],
+    itemsEn: [
+      "All eight frames are already generated in Nano Banana at 9:16. Each frame is an opening still: feed it to Kling 3 std as image-to-video with the motion prompt on the card.",
+      "Keep the video model's audio off on every animation. Music, voice over and clay foley all go in during the edit.",
+      "Hebrew voice over in the ElevenLabs Gideon voice. Record the eight blocks separately and assemble to the listed timings so shot 8 lands on full silence.",
+      "Shot durations run 4 to 6 seconds while Kling clips come out at 5. Stretch shots 5 and 7 slightly in the edit, trim shots 3 and 4.",
+      "Shot 6 is the only one that goes to Veo 3, because a continuous vertical crane along a stack with real depth is exactly what Kling misses.",
+      "Shot 5 is the only moment with a shape that reads as a letter. The prompt asks for a three-stroke zigzag glyph rather than the letter Z, because models mangle letters. If it comes out reading as a Z, keep it. If not, add the shape in the edit.",
+      "All Hebrew subtitles and titling go in during the edit, never in the generation. That is why every prompt ends in no text and leaves negative space in the upper third.",
+      "The 1:1 feed cut is derived from the vertical by extending the margins rather than regenerating, because these compositions are centred and survive the square. If a real square set is needed, add shots.ratios to this page as in the skill-vs-prompt board.",
+      "Shot 8 doubles as the cover image for the written post on the same subject. One asset, two channels, exactly like episode 1.",
+      "Consistency: episode 1 and this episode share the identical style string. Never change it between episodes, it is the signature of the series."
+    ]
+  }
+};
+</script>
+<script src="../shared/sb.js"></script>
+</body>
+</html>
