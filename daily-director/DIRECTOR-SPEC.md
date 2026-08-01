@@ -34,15 +34,23 @@ Hebrew inside `video` and `image` prompts is forbidden; image models mangle Hebr
 Match the existing JSON structures exactly. New day objects go to the TOP of `days`. Validate with `python3 -m json.tool`.
 
 ## Storyboards
-Full breakdowns Eyal approves get published to `daily-director/storyboards/<slug>/index.html` (self-contained page) and the idea gets a **`storyboardUrl`** field pointing at it. `storyboardUrl` is what flips the card's primary button from the black "פתח תסריט" to the green "סטוריבורד", so never leave it out once a board is published, and never put a storyboard link in `srcUrl` (that field is for the source that inspired the idea).
+Full breakdowns Eyal approves get published to `daily-director/storyboards/<slug>/index.html` (built on the shared template, see below) and the idea gets a **`storyboardUrl`** field pointing at it. `storyboardUrl` is what flips the card's primary button from the black "פתח תסריט" to the green "סטוריבורד", so never leave it out once a board is published, and never put a storyboard link in `srcUrl` (that field is for the source that inspired the idea).
 
-Every storyboard page carries, in this order: title and logline, spec pills, **סינופסיס**, **סטוריבורד**, **הוראות הנפשה והלך רוח**, קריינות, סיפור רקע, and הערות הפקה. The visual work comes first; the reference material sits below it.
-- **סינופסיס** is the film told as prose in Eyal's voice, 5-7 short paragraphs, what actually happens beat by beat, ending on the thesis line. One copy button for the Hebrew, plus a collapsible `<pre>` holding the English version under 300 words with its own copy button, because competition cover sheets ask for exactly that.
-- **סטוריבורד** is the shot list: generated frames (or numbered placeholder frames until they exist), per-shot duration, camera, model pill, and a copy-prompt button per shot. Prefer TWO prompts per shot, one for the opening frame and one for the motion.
-- **הוראות הנפשה והלך רוח** is the direction the shot prompts do not carry on their own: the emotional tone, pacing, camera discipline, material behaviour, light and sound, plus 3-5 short rule pills. One copy button copies the whole block as a directive.
+Every storyboard page is built from the SHARED template in `storyboards/_shared/` and carries nothing of its own beyond data. A page contains only: head with `<link rel="stylesheet" href="../_shared/sb.css">`, `<body><div id="sb"></div>`, one `<script>` defining `window.SB`, and `<script src="../_shared/sb.js"></script>`. No inline `<style>`, no per-page rendering code. If a page needs a new capability, extend `sb.js` and `sb.css` so every page gains it at once, never fork one page.
+
+Fixed furniture, identical on every page:
+- A **sticky app bar** at the top: round back button to `../../` on the right, the daily director wordmark centred, matching the daily-board pattern.
+- Then the hero: kicker pill, title with the green mark on the second line, logline, spec pills.
+- Then, ONLY when the film is finished, the finished video in full, above the whole storyboard. Set `film: {src:"...mp4", ratio:"1"|"16"|"9"}` or `{youtube:"id"}`. Leave it `null` while the film does not exist.
+
+**The section order is enforced by `sb.js`, not by the page**, so it can never drift: `סינופסיס` (optional), `אווירה והלך רוח`, `סיפור רקע`, `קריינות`, `שוט-ליסט`, `הערות הפקה`. Every section is collapsible with a chevron on the side. Defaults: `סינופסיס`, `אווירה והלך רוח` and `סיפור רקע` start CLOSED; `קריינות`, `שוט-ליסט` and `הערות הפקה` start OPEN. The open/closed state is remembered per page in localStorage.
+
+- **סינופסיס** is the film told as prose in Eyal's voice, 5-7 short paragraphs, what actually happens beat by beat, ending on the thesis line. Add `en` for the English version under 300 words; the template renders it as a collapsible block with its own copy button, because competition cover sheets ask for exactly that.
+- **שוט-ליסט** is the shot cards: generated frames, per-shot duration, camera, model pill, and copy-prompt buttons. Prefer TWO prompts per shot, one for the opening frame and one for the motion, returned by the page's `shots.prompts(shot, ratio)` function. When a film has more than one delivery ratio, add `shots.ratios` and give each shot per-ratio `img` and prompt fields; the switch then swaps frames and prompts together.
+- **אווירה והלך רוח** is the direction the shot prompts do not carry on their own: the emotional tone, pacing, camera discipline, material behaviour, light and sound, plus 3-5 short rule pills. One copy button copies the whole block as a directive.
 - **סיפור רקע** is the researched history behind the subject in Eyal's voice, 3-4 paragraphs, ending on the angle the film leaves open. One copy button. It doubles as the source material for the written post, so it must be factual and specific with real dates and names.
 
-Reference implementation for the current structure: `storyboards/future-of-learning/`. (`storyboards/hamburger/` predates it and still uses the old order.) Daily runs do NOT create storyboards; only an explicit "פתח תסריט" request does.
+Reference implementation: `storyboards/skill-vs-prompt/` (it also shows the ratio switch). All published boards run on this template. Daily runs do NOT create storyboards; only an explicit "פתח תסריט" request does.
 
 ## Design language (locked)
 The app's visual language is black/white video-matte frames, chunky Rubik 900 type, and neon green (#71F73C) hand-drawn scribbles (inspired by Artem Shcherbakov's director portfolio, per Eyal's request). Daily runs edit ONLY the JSON files, never index.html.
