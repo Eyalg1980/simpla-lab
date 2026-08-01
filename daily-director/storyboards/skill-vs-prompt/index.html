@@ -79,6 +79,13 @@
          padding:10px 20px;border-radius:100px;transition:transform .25s;z-index:99}
   .toast.on{transform:translateX(-50%) translateY(0)}
   .back{display:inline-block;font-size:12px;font-weight:700;color:var(--soft);text-decoration:none;margin-bottom:16px}
+
+  .ratio{display:flex;gap:0;border:1.5px solid var(--ink);border-radius:100px;overflow:hidden;
+         margin-bottom:22px;width:fit-content}
+  .ratio button{font-family:inherit;font-size:12.5px;font-weight:900;padding:8px 18px;border:0;
+                background:transparent;color:var(--ink);cursor:pointer;line-height:1}
+  .ratio button.on{background:var(--ink);color:var(--green)}
+  .ratio-hint{font-size:12px;color:var(--soft);margin:-14px 0 22px}
   footer{text-align:center;font-size:11.5px;color:var(--soft);margin-top:32px}
 </style>
 </head>
@@ -92,11 +99,19 @@
 
 <div class="specs">
   <span class="spec">45 שניות</span>
-  <span class="spec">16:9 ראשי</span>
+  <span class="spec">1:1 ראשי</span>
+  <span class="spec">גם 16:9</span>
   <span class="spec">קאט 9:16 בן 30</span>
   <span class="spec">טיפוגרפיה קינטית</span>
   <span class="spec">9 שוטים</span>
 </div>
+
+<h2>יחס</h2>
+<div class="ratio">
+  <button id="r1" class="on" onclick="setRatio('1:1')">1:1</button>
+  <button id="r16" onclick="setRatio('16:9')">16:9</button>
+</div>
+<p class="ratio-hint">המתג מחליף גם את הפריימים וגם את הפרומפטים. שני הסטים כבר יוצרו, זה לא חיתוך של אותה תמונה.</p>
 
 <h2>אווירה והלך רוח</h2>
 <div class="dir">
@@ -143,8 +158,9 @@
     <li>שוט 6 הוא היחיד שהולך ל-Veo 3, כי הוא צריך אורביט אמיתי עם עומק. כל השאר Kling.</li>
     <li>כל הטקסט העברי נכנס בעריכה, לא בג'ינרוט. לכן כל פרומפט נגמר ב-no text ומשאיר שטח נגטיבי מוגדר.</li>
     <li>טיפוגרפיה: Rubik 900 לשלוש הכותרות המפתח, Rubik 500 לכתוביות. קורל על charcoal, בלי צבע שלישי.</li>
-    <li>הגרסה האנכית: 30 שניות, מוותרת על שוטים 6 ו-7, ופותחת ישר בשוט 3 כדי לתפוס בשנייה הראשונה. שוטים 4 ו-7 צריכים הרכבה מחדש בעריכה כי הפיצול הופך לעליון ותחתון.</li>
-    <li>הפריים של שוט 9 הוא הקאבר של פוסט הלינקדאין באותו נושא. נכס אחד, שני ערוצים.</li>
+    <li>1:1 הוא עכשיו הפורמט הראשי, לפיד ולקרוסלה. שני הסטים יוצרו בנפרד ולא נחתכו זה מזה, כי בריבוע הקומפוזיציה משתנה באמת: שוט 5 עובר מחצי-חצי לשליש-שני-שליש, ושוט 7 מתהפך מפיצול ימין-שמאל לפיצול עליון-תחתון.</li>
+    <li>הגרסה האנכית: 30 שניות, מוותרת על שוטים 6 ו-7, ופותחת ישר בשוט 3 כדי לתפוס בשנייה הראשונה. אפשר לגזור אותה מהסט הריבועי בהרחבה כלפי מעלה ומטה במקום לייצר מחדש.</li>
+    <li>הפריים של שוט 9 הוא הקאבר של פוסט הלינקדאין באותו נושא, וגרסת ה-1:1 שלו היא זו שעובדת שם. נכס אחד, שני ערוצים.</li>
   </ul>
 </div>
 
@@ -152,69 +168,99 @@
 <div class="toast" id="toast">הועתק</div>
 
 <script>
-const STYLE = "Editorial motion-design frame on a deep charcoal background, minimal geometric composition, coral and warm yellow accents only, generous negative space, cinematic soft rim lighting, shallow depth of field, premium editorial design language, 16:9, no text, no letters, no words";
 const CDN = "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/";
+const HEAD = "Editorial motion-design frame on a deep charcoal background";
+const TAIL = "minimal geometric composition, coral and warm yellow accents only, cinematic soft rim lighting, shallow depth of field, premium editorial design language";
 
+// כל שוט נושא שני סטים: r16 ו-r1. הריבוע אינו חיתוך, הוא קומפוזיציה אחרת שיוצרה בנפרד.
 const SHOTS = [
   {n:1, dur:"4 שנ'", cam:"דחיפה איטית פנימה", model:"Nano Banana Pro ואז Kling 3",
    title:"בועה אחת בחלל ריק", type:"אין כיתוב",
-   img:"hf_20260801_004537_510f563b-43ae-4598-aca5-c05919b359a6.png",
-   still:"a single translucent glass speech bubble floating alone in an empty void, perfectly intact, faint coral light refracting through its surface, tiny dust particles suspended around it",
+   img:{ "16:9":"hf_20260801_004537_510f563b-43ae-4598-aca5-c05919b359a6.png",
+         "1:1" :"hf_20260801_005939_7632e322-9745-4335-b634-60b66d8116c2.png" },
+   still:{ "16:9":"a single translucent glass speech bubble floating alone in an empty void, perfectly intact, faint coral light refracting through its surface, tiny dust particles suspended around it, generous negative space",
+           "1:1" :"a single translucent glass speech bubble floating alone in an empty void, perfectly intact, faint coral light refracting through its surface, tiny dust particles suspended around it, generous negative space above and below the subject" },
    motion:"Very slow push-in toward the glass bubble, it drifts and rotates almost imperceptibly, dust particles float upward, absolutely calm, no cuts"},
 
   {n:2, dur:"5 שנ'", cam:"נעול, רעד עדין", model:"Nano Banana Pro ואז Kling 3",
    title:"הבקשה מתמלאת", type:"3 שורות בקשה נערמות",
-   img:"hf_20260801_004539_b9005544-8ee5-4f29-8df4-0ce9e05e5f75.png",
-   still:"a translucent glass speech bubble filling from the bottom with stacked horizontal bands of warm coral light like lines of writing accumulating inside it, the glass surface tensing slightly under the weight, generous negative space in the lower third",
+   img:{ "16:9":"hf_20260801_004539_b9005544-8ee5-4f29-8df4-0ce9e05e5f75.png",
+         "1:1" :"hf_20260801_005949_53e287a9-6a97-4f3d-8c47-02242911ee38.png" },
+   still:{ "16:9":"a translucent glass speech bubble filling from the bottom with stacked horizontal bands of warm coral light like lines of writing accumulating inside it, the glass surface tensing slightly under the weight, generous negative space in the lower third",
+           "1:1" :"a translucent glass speech bubble filling from the bottom with stacked horizontal bands of warm coral light like lines of writing accumulating inside it, the glass surface tensing slightly under the weight, generous negative space in the lower third" },
    motion:"Coral light bands rise and stack inside the bubble one after another, the glass trembles faintly with each new band, camera locked off, tense and building"},
 
   {n:3, dur:"5 שנ'", cam:"נסיגה איטית", model:"Nano Banana Pro ואז Kling 3",
    title:"וזה נעלם", type:"המילה נמחקת יחד עם הבועה",
-   img:"hf_20260801_004542_78decc67-56a7-47ab-98a4-dffb896b6179.png",
-   still:"a translucent glass speech bubble caught mid-dissolve, its upper half already broken into thousands of fine drifting particles sweeping toward the frame edge and fading, the coral light inside going cold and grey as it disperses",
+   img:{ "16:9":"hf_20260801_004542_78decc67-56a7-47ab-98a4-dffb896b6179.png",
+         "1:1" :"hf_20260801_005954_a907f3de-aa82-41e4-8f09-3208e0d3e2d6.png" },
+   still:{ "16:9":"a translucent glass speech bubble caught mid-dissolve, its upper half already broken into thousands of fine drifting particles sweeping toward the frame edge and fading, the coral light inside going cold and grey as it disperses, generous negative space",
+           "1:1" :"a translucent glass speech bubble caught mid-dissolve, its upper half already broken into thousands of fine drifting particles sweeping toward the frame edge and fading, the coral light inside going cold and grey as it disperses, generous negative space" },
    motion:"The bubble disintegrates completely into particles that sweep out of frame, camera slowly pulls back revealing empty void, the coral light drains to grey, melancholy and final"},
 
   {n:4, dur:"5 שנ'", cam:"נעול, המסך מתפצל", model:"Nano Banana Pro ואז Kling 3",
    title:"שני חומרים, קו אחד", type:"פרומפט = בקשה",
-   img:"hf_20260801_002905_082d1f3a-b002-48ec-9db2-060979e549dc.png",
-   still:"perfect vertical split composition with a thin bright hairline rule down the center, left half shows the last grey particles of a dissolved glass bubble drifting away, right half shows a solid engraved metal plaque mounted flush and just beginning to ignite with warm coral light inside its grooves",
+   img:{ "16:9":"hf_20260801_002905_082d1f3a-b002-48ec-9db2-060979e549dc.png",
+         "1:1" :"hf_20260801_005957_03b106a8-0653-4dc3-9aa2-a8618ac2dea9.png" },
+   still:{ "16:9":"perfect vertical split composition with a thin bright hairline rule down the center, left half shows the last grey particles of a dissolved glass bubble drifting away, right half shows a solid engraved metal plaque mounted flush and just beginning to ignite with warm coral light inside its grooves, generous negative space in the lower third",
+           "1:1" :"square composition with a perfect vertical split and a thin bright hairline rule down the center, left half shows the last grey particles of a dissolved glass bubble drifting away, right half shows a solid engraved metal plaque mounted flush and just beginning to ignite with warm coral light inside its grooves, generous negative space in the lower third" },
    motion:"The center hairline draws itself across the frame from top to bottom, the right plaque ignites with coral light spreading through the engraved grooves, the left particles keep drifting away, camera locked off"},
 
   {n:5, dur:"6 שנ'", cam:"דחיפה איטית ימינה", model:"Nano Banana Pro ואז Kling 3",
    title:"המתכת נשארת", type:"סקיל = זיכרון",
-   img:"hf_20260801_004544_ded4a45a-6928-4176-af9b-2e4ba42aa9da.png",
-   still:"the left half of frame completely black and empty, the right half dominated by a solid engraved metal plaque with warm coral and amber light glowing steadily and evenly from within its grooves, permanent and grounded, faint reflection on the surface below it",
-   motion:"The left half fades to pure black, camera pushes in slowly on the metal plaque, the coral light in the grooves swells to a steady confident glow and holds, calm and resolved"},
+   img:{ "16:9":"hf_20260801_004544_ded4a45a-6928-4176-af9b-2e4ba42aa9da.png",
+         "1:1" :"hf_20260801_010000_9f564f6d-e8fa-433e-b5c2-a05b925f4e75.png" },
+   still:{ "16:9":"the left half of frame completely black and empty, the right half dominated by a solid engraved metal plaque with warm coral and amber light glowing steadily and evenly from within its grooves, permanent and grounded, faint reflection on the surface below it, generous negative space",
+           "1:1" :"the left third of frame completely black and empty, the rest dominated by a solid engraved metal plaque with warm coral and amber light glowing steadily and evenly from within its grooves, permanent and grounded, faint reflection on the surface below it, generous negative space" },
+   motion:"The left side fades to pure black, camera pushes in slowly on the metal plaque, the coral light in the grooves swells to a steady confident glow and holds, calm and resolved"},
 
   {n:6, dur:"6 שנ'", cam:"אורביט קל", model:"Veo 3",
    title:"הוא עולה לבד, שוב ושוב", type:"אין כיתוב",
-   img:"hf_20260801_004550_c298f2ad-82f3-4424-b527-cde0645cd7e6.png",
-   still:"a solid engraved metal plaque seen at a three-quarter angle revealing it is the first in a receding row of identical plaques stretching into depth, the nearest fully lit with warm coral light in its grooves and the ones behind it lighting up in sequence with falling intensity",
-   motion:"Camera orbits slowly around a lit engraved metal plaque on a deep charcoal void, revealing a receding row of identical plaques behind it that ignite one by one in sequence into the depth of frame, warm coral light in the engraved grooves, minimal editorial motion design, shallow depth of field, calm confident pacing, 16:9"},
+   img:{ "16:9":"hf_20260801_004550_c298f2ad-82f3-4424-b527-cde0645cd7e6.png",
+         "1:1" :"hf_20260801_010010_76b4f0c7-5802-4200-8523-f37244de8172.png" },
+   still:{ "16:9":"a solid engraved metal plaque seen at a three-quarter angle revealing it is the first in a receding row of identical plaques stretching into depth, the nearest fully lit with warm coral light in its grooves and the ones behind it lighting up in sequence with falling intensity, generous negative space",
+           "1:1" :"a solid engraved metal plaque seen at a three-quarter angle revealing it is the first in a receding row of identical plaques stretching into depth, the nearest fully lit with warm coral light in its grooves and the ones behind it lighting up in sequence with falling intensity, generous negative space" },
+   motion:"Camera orbits slowly around a lit engraved metal plaque on a deep charcoal void, revealing a receding row of identical plaques behind it that ignite one by one in sequence into the depth of frame, warm coral light in the engraved grooves, minimal editorial motion design, shallow depth of field, calm confident pacing"},
 
   {n:7, dur:"6 שנ'", cam:"זחילת צד איטית", model:"Nano Banana Pro ואז Kling 3",
    title:"להסביר כל בוקר מחדש", type:"אין כיתוב",
-   img:"hf_20260801_004552_5dcabbb3-720d-4ad8-b3e6-d70157f1c89d.png",
-   still:"split composition, left side shows a silhouetted figure at a desk rendered in cool grey with three ghosted duplicates of itself layered behind it suggesting endless repetition, right side shows a single engraved metal plaque lit once with steady warm coral light and no duplicates",
-   motion:"The grey figure on the left loops the same typing motion over and over with its ghost duplicates lagging behind it, the plaque on the right stays perfectly still and lit, camera drifts laterally very slowly to the right"},
+   img:{ "16:9":"hf_20260801_004552_5dcabbb3-720d-4ad8-b3e6-d70157f1c89d.png",
+         "1:1" :"hf_20260801_010014_429079b2-9245-4e94-bbc0-b1561447c290.png" },
+   still:{ "16:9":"split composition, left side shows a silhouetted figure at a desk rendered in cool grey with three ghosted duplicates of itself layered behind it suggesting endless repetition, right side shows a single engraved metal plaque lit once with steady warm coral light and no duplicates, generous negative space",
+           "1:1" :"square composition split into an upper and a lower band, the upper band shows a silhouetted figure at a desk rendered in cool grey with three ghosted duplicates of itself layered behind it suggesting endless repetition, the lower band shows a single engraved metal plaque lit once with steady warm coral light and no duplicates, generous negative space" },
+   motion:"The grey figure loops the same typing motion over and over with its ghost duplicates lagging behind it, the plaque stays perfectly still and lit, camera drifts very slowly across the frame"},
 
   {n:8, dur:"4 שנ'", cam:"קאט חד, נעול", model:"Nano Banana Pro ואז Kling 3",
    title:"בלימה", type:"המבחן:",
-   img:"hf_20260801_004554_6478b25c-9705-402e-bcb7-4c1ff80a96b6.png",
-   still:"an almost entirely empty void with a single small point of warm coral light suspended dead center, faint atmospheric haze catching the glow, extreme minimalism, generous negative space across the entire frame",
+   img:{ "16:9":"hf_20260801_004554_6478b25c-9705-402e-bcb7-4c1ff80a96b6.png",
+         "1:1" :"hf_20260801_010017_51cf9f21-b909-440f-b739-da609f884d4d.png" },
+   still:{ "16:9":"an almost entirely empty void with a single small point of warm coral light suspended dead center, faint atmospheric haze catching the glow, extreme minimalism, generous negative space across the entire frame",
+           "1:1" :"an almost entirely empty void with a single small point of warm coral light suspended dead center, faint atmospheric haze catching the glow, extreme minimalism, generous negative space across the entire frame" },
    motion:"Everything is already gone, the single point of coral light pulses once slowly and holds, faint haze drifts, camera completely static, a held beat of silence"},
 
   {n:9, dur:"4 שנ'", cam:"מיקרו דחיפה, החזקה", model:"Nano Banana Pro · גם קאבר הפוסט",
    title:"פריים סיום", type:"כתבת את זה פעמיים? זה כבר סקיל.",
-   img:"hf_20260801_002910_1a4d2d70-b1d7-425c-9652-b418a420d451.png",
-   still:"a single solid engraved metal plaque centered in frame with its grooves filled with steady warm coral and amber light, a faint ghosted duplicate of the same plaque directly behind it slightly offset, suggesting a repeated action becoming permanent, empty charcoal void all around, generous negative space across the upper half",
+   img:{ "16:9":"hf_20260801_002910_1a4d2d70-b1d7-425c-9652-b418a420d451.png",
+         "1:1" :"hf_20260801_010019_2f68cc2f-54ce-408f-a1b0-2f313e1941c6.png" },
+   still:{ "16:9":"a single solid engraved metal plaque centered in frame with its grooves filled with steady warm coral and amber light, a faint ghosted duplicate of the same plaque directly behind it slightly offset, suggesting a repeated action becoming permanent, empty charcoal void all around, generous negative space across the upper half",
+           "1:1" :"a single solid engraved metal plaque centered in the lower half of frame with its grooves filled with steady warm coral and amber light, a faint ghosted duplicate of the same plaque directly behind it slightly offset, suggesting a repeated action becoming permanent, empty charcoal void all around, generous negative space across the upper half" },
    motion:"The ghosted plaque behind slides forward and merges into the front plaque, the coral light in the grooves brightens once on the merge and holds steady, micro push-in, final and confident, ends on a still frame"}
 ];
 
-document.getElementById('shots').innerHTML = SHOTS.map(s => `
+let RATIO = "1:1";
+
+function stillPrompt(s){
+  const body = s.still[RATIO];
+  const sq = (RATIO === "1:1" && !body.startsWith("square")) ? ", square composition" : "";
+  return `${HEAD}${sq}, ${body}, ${TAIL}, ${RATIO}, no text, no letters, no words`;
+}
+function motionPrompt(s){ return `${s.motion}, ${RATIO}`; }
+
+function render(){
+  document.getElementById('shots').innerHTML = SHOTS.map(s => `
   <div class="shot">
     <div class="frame">
-      <img src="${CDN}${s.img}" alt="שוט ${s.n}" loading="lazy">
+      <img src="${CDN}${s.img[RATIO]}" alt="שוט ${s.n}" loading="lazy">
       <div class="num">${s.n}</div>
       <div class="dur">${s.dur}</div>
     </div>
@@ -224,11 +270,11 @@ document.getElementById('shots').innerHTML = SHOTS.map(s => `
       <span class="model">${s.model}</span>
       <div class="title-on">כיתוב על המסך: <b>${s.type}</b></div>
       <details>
-        <summary>פרומפטים מלאים</summary>
+        <summary>פרומפטים מלאים · ${RATIO}</summary>
         <div class="plabel">פריים (Nano Banana Pro)</div>
-        <pre id="ps${s.n}">${STYLE.replace('background,', 'background, ' + s.still + ',')}</pre>
+        <pre id="ps${s.n}">${stillPrompt(s)}</pre>
         <div class="plabel">תנועה (${s.n===6?'Veo 3':'Kling 3, image-to-video'})</div>
-        <pre id="pm${s.n}">${s.motion}</pre>
+        <pre id="pm${s.n}">${motionPrompt(s)}</pre>
         <div class="btnrow">
           <button class="copy" onclick="copyEl('ps${s.n}')">העתק פרומפט פריים</button>
           <button class="copy ghost" onclick="copyEl('pm${s.n}')">העתק פרומפט תנועה</button>
@@ -236,6 +282,14 @@ document.getElementById('shots').innerHTML = SHOTS.map(s => `
       </details>
     </div>
   </div>`).join('');
+}
+function setRatio(r){
+  RATIO = r;
+  document.getElementById('r1').classList.toggle('on', r === '1:1');
+  document.getElementById('r16').classList.toggle('on', r === '16:9');
+  render();
+}
+render();
 
 function copyBlock(kind){
   const box = document.getElementById(kind+'-text').closest('.dir');

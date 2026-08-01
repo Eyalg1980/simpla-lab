@@ -27,16 +27,16 @@
           "color": "#2BB3A3",
           "hook": "פרומפט הוא בקשה. סקיל הוא זיכרון.",
           "concept": "אקספליינר של 45 שניות על ההבדל שכולם מפספסים: מסך מפוצל טיפוגרפי, צד אחד בקשה שנעלמת בסוף השיחה, צד שני זיכרון שמופעל אוטומטית. נגמר בשורה: כתבת את זה פעמיים? זה כבר סקיל.",
-          "execution": "טיפוגרפיה קינטית על רקע כהה (הסגנון של ההרצאות), או HeyGen אבטאר שלך לגרסה אישית. 16:9 ליוטיוב/לינקדאין + קאט 9:16.",
+          "execution": "טיפוגרפיה קינטית על רקע כהה, זכוכית מול מתכת חרוטה. 1:1 ראשי לפיד, גם 16:9 ליוטיוב ולינקדאין, וקאט 9:16 בן 30 שניות. פריימים ב-Nano Banana Pro, הנפשה ב-Kling 3, שוט אחד ב-Veo 3.",
           "why": "הזהב מההרצאה של דניאל, ואין על זה עדיין תוכן וידאו בעברית. משרת גם את שיווק קורס נובמבר.",
           "competition": null,
           "srcUrl": null,
           "srcLabel": null,
           "prompts": {
-            "video": "Kinetic typography on a deep charcoal background, split screen composition, left half shows a glowing text bubble that dissolves into particles and vanishes, right half shows a solid engraved plaque that stays lit and pulses steadily, minimal editorial motion design, coral and warm yellow accents, clean sans-serif geometry, 16:9, smooth confident pacing",
+            "video": "Kinetic typography on a deep charcoal background, split screen composition, left half shows a glowing text bubble that dissolves into particles and vanishes, right half shows a solid engraved plaque that stays lit and pulses steadily, minimal editorial motion design, coral and warm yellow accents, clean sans-serif geometry, 1:1, smooth confident pacing",
             "script": "פתח לי את רעיון הווידאו \"פרומפט הוא בקשה. סקיל הוא זיכרון.\" לתסריט אקספליינר של 45 שניות: קריינות מתוזמנת בעברית בקול שלי, שוט-ליסט טיפוגרפי, והנחיות אנימציה לכל מקטע. בלי הייפ, ישיר ומעשי.",
-            "image": "Editorial split-screen key visual on deep charcoal, left side a translucent speech bubble mid-dissolve into fine particles, right side a solid engraved metal plaque glowing steadily, coral and warm yellow accents, minimal geometric composition, lots of negative space, no text",
-            "raw": "פרומפט הוא בקשה. סקיל הוא זיכרון.\nעולם: סרטון הסבר\nקונספט: אקספליינר 45 שניות. מסך מפוצל טיפוגרפי. צד אחד בקשה שנעלמת בסוף השיחה, צד שני זיכרון שמופעל אוטומטית. סוגר בשורה: כתבת את זה פעמיים? זה כבר סקיל.\nביצוע: טיפוגרפיה קינטית על רקע כהה, או HeyGen אבטאר לגרסה אישית. 16:9 ליוטיוב ולינקדאין, קאט 9:16.\nלמה עכשיו: הזהב מההרצאה של דניאל בוארון, אין על זה תוכן וידאו בעברית, ומשרת את שיווק קורס נובמבר."
+            "image": "Editorial split-screen key visual on deep charcoal, left side a translucent speech bubble mid-dissolve into fine particles, right side a solid engraved metal plaque glowing steadily, coral and warm yellow accents, minimal geometric composition, lots of negative space, square composition, no text",
+            "raw": "פרומפט הוא בקשה. סקיל הוא זיכרון.\nעולם: סרטון הסבר\nקונספט: אקספליינר 45 שניות. מסך מפוצל טיפוגרפי. צד אחד בקשה שנעלמת בסוף השיחה, צד שני זיכרון שמופעל אוטומטית. סוגר בשורה: כתבת את זה פעמיים? זה כבר סקיל.\nביצוע: טיפוגרפיה קינטית על רקע כהה, או HeyGen אבטאר לגרסה אישית. 1:1 ראשי לפיד, 16:9 ליוטיוב ולינקדאין, קאט 9:16.\nלמה עכשיו: הזהב מההרצאה של דניאל בוארון, אין על זה תוכן וידאו בעברית, ומשרת את שיווק קורס נובמבר."
           },
           "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/skill-vs-prompt/"
         },
