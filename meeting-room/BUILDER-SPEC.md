@@ -77,6 +77,8 @@ meeting-room/
     products.json     the studio: approved products and their pages
     inbox.json        what Eyal threw on the table himself
     inspiration.json  the portfolio: the link library he feeds
+    portraits.json    the clay portraits and the exact prompts that made them
+  img/<key>.png       the four committed portrait files
 ```
 
 ### ideas.json
@@ -96,15 +98,18 @@ meeting-room/
       "lesson": null,
       "sourceInboxId": null,
       "status": "pool",
+      "snoozes": 0,
       "touchedAt": "2026-08-01"
     }
   ]
 }
 ```
 
-`status` is one of: `pool` (on the table), `pitched` (developed into a meeting card), `approved`, `snoozed` (לא עכשיו), `rejected`, `archived` (auto, after 14 days untouched), `revived` (Eyal pulled it back from rejected).
+`status` is one of: `pool` (on the table), `pitched` (developed into a meeting card), `approved`, `rejected`, `archived` (auto, after 14 days untouched, or after the third snooze).
 
-`snoozes` counts how many times Eyal pressed לא עכשיו on this idea. On the **third** snooze the idea closes itself and is added to the meeting's rejects with the reason "נדחה 3 פעמים, נסגר אוטומטית". An idea he keeps deferring is an idea he is not going to build, and saying so out loud is cheaper than letting it haunt the table.
+**`revived` and `snoozed` are decision actions, never resting statuses.** לא עכשיו returns the idea to `pool` with a bumped `snoozes` and a refreshed `touchedAt`. הרם returns it to `pool` too. Only `decisions.json` remembers that it happened. An idea sitting in a status no filter reads is an idea that silently leaves the game, which is exactly the failure this engine exists to prevent.
+
+`snoozes` counts how many times Eyal pressed לא עכשיו on this idea. It is written by the browser and must be carried by the weekly run. On the **third** snooze (`MAX_SNOOZE`) the idea flips to `archived` and is added to the meeting's rejects with the reason "נדחה 3 פעמים, נסגר אוטומטית". An idea he keeps deferring is an idea he is not going to build, and saying so out loud is cheaper than letting it haunt the table.
 
 `capability` is required for `visionary`, `evidence` for `pain`, `lesson` for `teacher`. The other two are `null`.
 
@@ -140,7 +145,7 @@ meeting-room/
         }
       ],
       "rejects": [
-        { "ideaId": "I-2026-0198", "title": "מחולל תמונות לפוסטים", "why": "יש כזה טוב ובחינם" }
+        { "ideaId": "I-2026-0198", "title": "מחולל תמונות לפוסטים", "why": "יש כזה טוב ובחינם", "advisor": "visionary" }
       ],
       "pattern": null
     }
@@ -149,7 +154,8 @@ meeting-room/
 ```
 
 `effort` is one of `session` (up to 3 hours, one file), `weekend`, `project` (which usually means not now).
-`state` is one of `pending`, `approved`, `snoozed`, `rejected`, `building`, `live`.
+`state` is one of `pending`, `approved`, `snoozed`, `archived`, `building`, `live`. A pitch keeps `snoozed` and `archived` as its resting state even though the underlying idea returns to `pool`, because the card has to remember what Eyal did to it this week.
+`rejects[].advisor` carries the advisor who raised the rejected idea, so השולחן can filter rejections by advisor.
 `pattern` is filled only on the meeting where the 5th product completed (see section 6).
 
 ### decisions.json
@@ -213,6 +219,32 @@ This is the engine's memory and the reason it is an advisor rather than a genera
 
 `status`: `building` | `live` | `parked`.
 
+### inspiration.json
+
+```json
+{
+  "items": [
+    { "title": "Figma MCP component states", "url": "https://figma.com", "note": "היכולת שהרעיונאי הביא השבוע", "at": "2026-07-28" }
+  ]
+}
+```
+
+Newest first. `note` says why it is here, not what it is. A link with no `note` is a bookmark, not inspiration.
+
+### portraits.json
+
+```json
+{
+  "portraits": [
+    { "key": "visionary", "role": "הרעיונאי", "jobId": "…", "url": "https://…", "prompt": "Portrait bust of …" }
+  ],
+  "baseStyle": "coral red, mustard yellow, teal and cream palette, 3D Pop art …",
+  "model": "nano_banana_pro", "aspect": "1:1", "resolution": "1k"
+}
+```
+
+`prompt` is the per-advisor line only. The shared house style lives once in `baseStyle` and is concatenated at generation time, so a restyle is a one-line change instead of four. `url` is the original Higgsfield CDN link, kept only as an `onerror` fallback behind the committed `img/<key>.png`.
+
 ---
 
 ## 3. The lifecycle of an idea
@@ -229,7 +261,7 @@ inbox  ->  pool  ->  pitched  ->  decision  ->  product page  ->  screens  ->  l
    - **One approval per meeting.** The moment one pitch is approved, בונים is disabled on the other two. Two builds in one week is the failure mode this engine exists to prevent, and the UI enforces it rather than trusting good intentions.
    - A pitch tagged `project` asks for a confirmation before it can be approved, because `project` usually means not now.
    - **בונים** creates a product entry in `products.json` with `status: "building"`, and only this pitch continues.
-   - **לא עכשיו** returns the idea to the pool with a refreshed `touchedAt` (it gets another 14 days).
+   - **לא עכשיו** returns the idea to the pool with a refreshed `touchedAt` (it gets another 14 days) and bumps `snoozes`. The third one archives it (see `snoozes` in section 2).
    - **לארכיון** requires a reason. Without one the action does not happen. The reason and the title are pushed into the current meeting's `rejects`, so Eyal's own rejections join `pm`'s and stay visible on השולחן.
 6. **Build chain.** The approved product page opens in the studio, `screen-architect` receives the card and builds desktop and mobile screens, which produce a build prompt, which publishes into `simpla-lab`. Card in the morning, live link in the evening.
 7. The other two pitches stay cards. **Zero work is spent on what was not chosen.**

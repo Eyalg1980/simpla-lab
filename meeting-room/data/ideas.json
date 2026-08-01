@@ -15,6 +15,7 @@
       "lesson": null,
       "sourceInboxId": null,
       "status": "pitched",
+      "snoozes": 0,
       "touchedAt": "2026-08-01"
     },
     {
@@ -28,6 +29,7 @@
       "lesson": null,
       "sourceInboxId": null,
       "status": "pitched",
+      "snoozes": 0,
       "touchedAt": "2026-08-01"
     },
     {
@@ -41,6 +43,7 @@
       "lesson": "דיזיין סיסטמס, מודול 3",
       "sourceInboxId": null,
       "status": "pitched",
+      "snoozes": 0,
       "touchedAt": "2026-08-01"
     },
     {
@@ -57,6 +60,7 @@
       "lesson": null,
       "sourceInboxId": null,
       "status": "pool",
+      "snoozes": 0,
       "touchedAt": "2026-08-01"
     },
     {
@@ -70,6 +74,7 @@
       "lesson": null,
       "sourceInboxId": null,
       "status": "pool",
+      "snoozes": 0,
       "touchedAt": "2026-08-01"
     },
     {
@@ -83,6 +88,7 @@
       "lesson": "תכנון שיעור, מודול 1",
       "sourceInboxId": null,
       "status": "pool",
+      "snoozes": 0,
       "touchedAt": "2026-08-01"
     },
     {
@@ -99,6 +105,7 @@
       "lesson": null,
       "sourceInboxId": null,
       "status": "pool",
+      "snoozes": 0,
       "touchedAt": "2026-08-01"
     },
     {
@@ -112,6 +119,7 @@
       "lesson": null,
       "sourceInboxId": null,
       "status": "pool",
+      "snoozes": 0,
       "touchedAt": "2026-08-01"
     },
     {
@@ -125,6 +133,7 @@
       "lesson": "מחקר משתמשים, מודול 2",
       "sourceInboxId": null,
       "status": "pool",
+      "snoozes": 0,
       "touchedAt": "2026-08-01"
     },
     {
@@ -141,6 +150,7 @@
       "lesson": null,
       "sourceInboxId": null,
       "status": "pool",
+      "snoozes": 0,
       "touchedAt": "2026-08-01"
     },
     {
@@ -154,6 +164,7 @@
       "lesson": null,
       "sourceInboxId": null,
       "status": "pool",
+      "snoozes": 0,
       "touchedAt": "2026-08-01"
     },
     {
@@ -167,6 +178,7 @@
       "lesson": "פרזנטציה של עבודה, מודול 4",
       "sourceInboxId": null,
       "status": "pool",
+      "snoozes": 0,
       "touchedAt": "2026-08-01"
     }
   ]
