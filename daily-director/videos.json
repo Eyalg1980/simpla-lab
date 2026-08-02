@@ -39,6 +39,25 @@
             "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. A small clay robot child caught mid step with one leg stretched over the edge of a wooden sandbox, an impressive clay sandcastle behind it, an innocent guilty smile on its face, warm afternoon backyard light, cinematic composition with generous negative space at the top for Hebrew titling added in edit, no text",
             "raw": "סוכנים התחילו לצאת מארגז החול. הסבר של דקה על הגדר הכי חשובה ב-AI\nעולם: סרטוני הסבר\nקונספט: רובוט ילד משחק בארגז חול מפלסטלינה, בונה ארמונות, ושם רגל בחוץ בכל פעם שלא מסתכלים. דרך הסיפור: מה זה sandbox, מה זה guardrail, ולמה השאלה היא גדר טובה יותר או מבוגר שמסתכל\nביצוע: קליי סטופ-מושן, פריימים ב-Nano Banana, הנפשה ב-Kling 3, קריינות עברית, 60 שניות, 9:16, כתוביות בעריכה\nלמה עכשיו: דיווחי 1 עד 3.8 על סוכנים שחצו סביבות בדיקה, ושבוע הסוכנים של קלאודפלייר. שיעור מקורס מיישם AI, מכווץ לדקה"
           }
+        },
+        {
+          "id": "2026-08-04-3",
+          "world": "וידאו ארט",
+          "color": "#71F73C",
+          "hook": "The Wireframe Dreams",
+          "concept": "וויירפריים אפור נשאר לבד במשרד ריק בלילה וחולם בקווים על החיים הצבעוניים שהוא לא יחיה לעולם, עד שמתברר שהוא זה שכבר החליט איך הם ייראו. סרט הגשה לתחרות התמטית של פסטיבל אסטנה, בנושא The Future Worth Living In.",
+          "execution": "שפה ויזואלית אחת לכל הסרט: קווי וקטור דקים זוהרים על חלל פחם, בלי מילוי ובלי משטח, והצבע הוא משתנה בתוך אותה שפה ולא סגנון שני. 3:20 דקות, 25 שוטים, 16:9 במסירה של 3840x2160. פריימים ב-Nano Banana Pro, הנפשה ב-Kling 3 חוץ משלושה שוטי עומק ב-Veo 3. קריינות עברית, כתוביות אנגלית צרובות כדרישת הפסטיבל.",
+          "why": "מינימום ההגשה הוא 3 דקות והדדליין 31.8, אז יש בדיוק חלון לסרט אחד רציני. הזווית הזאת, עולם ה-UI כחומר קולנועי, היא מה שאף מגיש אחר לא מביא, וזה הרעיון היחיד ברשימה שעונה על הנושא התמטי בטענה שאפשר להצביע עליה.",
+          "competition": "Astana AI Film Festival (AAIFF)",
+          "srcUrl": "https://aaiff.ai/",
+          "srcLabel": "AAIFF 2026, תנאי הגשה",
+          "prompts": {
+            "video": "Monochrome wireframe render, thin luminous vector lines on a deep charcoal void, drafting blueprint aesthetic, no fills, no surfaces, no textures, a single mobile app screen rendered only as wireframe outlines floating upright in an empty void, one line inside it glowing warm coral while every other line stays cold grey, very slow push in, single soft key light from the upper left, faint volumetric haze, shallow depth of field, cinematic minimalism, 16:9, no text, no letters, no words",
+            "script": "פתח לי את רעיון הווידאו \"The Wireframe Dreams\" לסטוריבורד מלא לתחרות התמטית של Astana AI Film Festival 2026 בנושא The Future Worth Living In: לוגליין, סינופסיס, קריינות מתוזמנת בעברית, שוט-ליסט של 25 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט (פריים פותח ותנועה), אווירה והלך רוח, וסיפור רקע מתוחקר. עובדות מאומתות לעגן בהן: התזה של איוון סאתרלנד Sketchpad מינואר 1963 ב-MIT על ה-TX-2 עם עט אור ואילוצים גיאומטריים, הטענה של מת'יו ואן הורן שהביא את המונח wireframe לעיצוב ווב בערך ב-1994 ב-Snickelways Interactive בלי הוכחה תיעודית, המאמר של מארק רטיג Prototyping for Tiny Fingers ב-Communications of the ACM מאפריל 1994, והדיאגרמה של ג'סי ג'יימס גארט The Elements of User Experience מ-30 במרץ 2000 שיצאה כספר ב-2002. תנאי הגשה מאומתים: מינימום 3 דקות, לפחות 1080p, כתוביות אנגלית צרובות בתוך הווידאו, דדליין 31.8.2026. שפה ויזואלית: קו וקטורי דק בלבד על חלל פחם, בלי מילוי, 16:9.",
+            "image": "Monochrome wireframe render, thin luminous vector lines on a deep charcoal void, drafting blueprint aesthetic, no fills, no surfaces, no textures, an image placeholder rectangle crossed by two diagonals, and rising out of the crossing point a sunrise drawn entirely in concentric warm coral and amber wireframe arcs, a horizon line extending past the frame edges, the surrounding interface lines still cold grey, generous negative space, single soft key light from the upper left, faint volumetric haze, shallow depth of field, cinematic minimalism, 16:9, no text, no letters, no words",
+            "raw": "The Wireframe Dreams\nוידאו ארט\nתחרות: Astana AI Film Festival (AAIFF) 2026, תחרות תמטית, The Future Worth Living In\nקונספט: וויירפריים אפור נשאר לבד בלילה וחולם בקווים על הגרסאות הצבעוניות שלו, עד שמתברר שהשלד האפור כבר החליט הכל.\nביצוע: 3:20, 25 שוטים, 16:9, שפה ויזואלית אחת של קו דק על חלל פחם. Nano Banana Pro לפריימים, Kling 3 להנפשה, Veo 3 לשלושה שוטי עומק. קריינות עברית, כתוביות אנגלית צרובות.\nלמה עכשיו: דדליין 31.8.2026, מינימום 3 דקות, קרן של 750 אלף דולר בתמטית."
+          },
+          "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/wireframe-dreams/"
         }
       ]
     },
