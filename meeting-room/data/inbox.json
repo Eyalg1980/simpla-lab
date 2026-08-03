@@ -26,14 +26,14 @@
       "at": "2026-08-01",
       "text": "שוב הקלדתי ידנית מה שהקלטתי לעצמי בדרך",
       "kind": "voice",
-      "consumedBy": null
+      "consumedBy": "I-2026-0241"
     },
     {
       "id": "IN-0048",
       "at": "2026-08-01",
       "text": "בכיתה אף אחד לא הבין מה זה סטייט ריק",
       "kind": "text",
-      "consumedBy": null
+      "consumedBy": "I-2026-0255"
     }
   ]
 }

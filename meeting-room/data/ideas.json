@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-02",
+  "updated": "2026-08-03",
   "ideas": [
     {
       "id": "I-2026-0231",
@@ -70,12 +70,12 @@
       "advisor": "pain",
       "createdAt": "2026-07-24",
       "capability": null,
-      "evidence": "פעמיים השבוע הקלטת לעצמך ואז הקלדת ידנית",
+      "evidence": "פעמיים השבוע הקלטת לעצמך ואז הקלדת ידנית, ושוב ב-1.8 לפי ההודעה בתיבה",
       "lesson": null,
       "sourceInboxId": null,
       "status": "pool",
       "snoozes": 0,
-      "touchedAt": "2026-08-01"
+      "touchedAt": "2026-08-03"
     },
     {
       "id": "I-2026-0242",
@@ -180,6 +180,82 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-08-01"
+    },
+    {
+      "id": "I-2026-0252",
+      "title": "סמן ותגיד",
+      "line": "ראיתי שפיגמה שחררה פאנל עריכה ב-Make שמבין סימון ותיאור כוונה. צילום מסך של סטודנט נכנס, סימון ומשפט אחד, והצעת תיקון מנומקת יוצאת",
+      "advisor": "visionary",
+      "createdAt": "2026-08-03",
+      "capability": {
+        "name": "Figma Make editing panel, annotate and describe intent",
+        "releasedAt": "2026-07-30"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-03"
+    },
+    {
+      "id": "I-2026-0253",
+      "title": "פרסונה חיה",
+      "line": "ראיתי ש-OpenAI הוזילו את GPT-5.6 בעד 80 אחוז. כרטיס פרסונה מהקורס הופך לדמות שסטודנטים מראיינים בצ'אט, במחיר שפתאום הגיוני לכיתה שלמה",
+      "advisor": "visionary",
+      "createdAt": "2026-08-03",
+      "capability": {
+        "name": "GPT-5.6 API price cut of 20 to 80 percent",
+        "releasedAt": "2026-08-01"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-03"
+    },
+    {
+      "id": "I-2026-0254",
+      "title": "מכונת פורמטים לסילבוס",
+      "line": "פעמיים בשבועיים הפכת את אותו סילבוס 53500 לפורמט אחר: אתר השולחן העגול ומצגת לפגישת היישור. חבילת השיווק לנובמבר היא הפעם השלישית. סילבוס נכנס, פורמט יוצא",
+      "advisor": "pain",
+      "createdAt": "2026-08-03",
+      "capability": null,
+      "evidence": "אתר השולחן העגול נבנה ב-2.8, מצגת שלב אחר שלב התבקשה לפגישת היישור באותו יום, וחבילת שיווק שלמה לצוות ג'ון ברייס עוד ממתינה, הכל מאותו סילבוס",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-03"
+    },
+    {
+      "id": "I-2026-0255",
+      "title": "גלריית מצבים ריקים",
+      "line": "איך נראה על מסך בכיתה תרגיל שמראה מה המשתמש רואה כשאין עדיין דאטה? אתמול אף אחד בכיתה לא הבין מה זה סטייט ריק",
+      "advisor": "teacher",
+      "createdAt": "2026-08-03",
+      "capability": null,
+      "evidence": null,
+      "lesson": "UI/UX, שיעור 6, סטייטים ומצבי מסך",
+      "sourceInboxId": "IN-0048",
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-03"
+    },
+    {
+      "id": "I-2026-0256",
+      "title": "זירת התנהגויות",
+      "line": "איך מדגימים על מסך אחד בכיתה סינמגרף מול video scrubbing, זו מול זו, בלי לפתוח שני פרויקטים? החלטת להראות את שתיהן בשיעור",
+      "advisor": "teacher",
+      "createdAt": "2026-08-03",
+      "capability": null,
+      "evidence": null,
+      "lesson": "שיעור בונוס C, עשר התנהגויות UX מודרניות",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-03"
     }
   ]
 }
