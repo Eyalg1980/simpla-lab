@@ -177,34 +177,24 @@
     body{
       max-width:var(--band);
       padding:0 var(--gut) 60px;
-      padding-inline-start:calc(var(--rail) + var(--gut));
     }
 
-    /* --- ראש הסרגל --- */
+    /* --- ה-appbar נשאר header עליון, נמתח על כל רוחב התוכן --- */
     .appbar{
-      position:fixed; top:0; left:auto; right:var(--railx);
-      width:var(--rail); height:104px;
-      margin:0; padding:18px 16px 0;
-      flex-direction:column; align-items:stretch; gap:10px;
-      background:transparent; backdrop-filter:none; border-bottom:none;
-      z-index:51;
+      margin:0 calc(var(--gut) * -1);
+      padding:12px var(--gut);
     }
-    .appbar .back{ order:2; align-self:flex-start; margin-inline-start:2px }
-    .appbar .logo{ order:1; flex:none; justify-content:center }
-    .appbar .spacer{ display:none }
+    .appbar .logo{ flex:1; justify-content:flex-start }
 
-    /* --- הטאבים הופכים לסרגל צד --- */
+    /* --- הטאבים: שורת header מתחת ללוגו, לא סרגל צד --- */
     .navwrap{
-      position:fixed; top:0; bottom:0; left:auto; right:var(--railx);
-      width:var(--rail); z-index:50;
-      padding:104px 12px 24px; background:var(--paper);
-      border-inline-end:1.5px solid var(--black);
+      top:64px;
+      margin:0 calc(var(--gut) * -1) 8px;
+      padding:10px var(--gut) 12px;
+      border-bottom:1.5px solid var(--black);
     }
-    .navwrap nav{ flex-direction:column; gap:4px; border-radius:20px; padding:6px }
-    .navwrap nav button{
-      flex:none; justify-content:flex-start; gap:10px;
-      padding:11px 14px; border-radius:15px; text-align:start;
-    }
+    .navwrap nav{ max-width:620px; margin:0 auto }
+    .navwrap nav button{ padding:10px 6px; font-size:14px }
 
     /* --- ההירו מפסיק לדלוף לרוחב המסך ונשאר בתוך אזור התוכן --- */
     .hero{
@@ -420,7 +410,7 @@ function renderIdeas(data){
   let html='';
   PBANK=[];
   const days=[...data.days].sort((a,b)=>b.date.localeCompare(a.date));
-  for(const day of days){
+  days.forEach((day,di)=>{
     html+='<section><div class="date-chip"><span>'+esc(day.dateLabel)+'</span></div>';
     for(const idea of (day.ideas||[])){
       const cmd=buildScriptPrompt(idea,day);
@@ -458,9 +448,10 @@ function renderIdeas(data){
       }
     }
     html+='</section>';
-  }
-  /* Generate-more sits at the END of the feed: you ask for more after reading what there is. */
-  html+='<button class="gen-btn" id="gen-more">'+ic('bolt')+' צור עוד רעיונות</button>';
+    /* Generate-more sits right after TODAY's ideas: you ask for more the moment
+       you finished today's batch, not after scrolling the whole archive. */
+    if(di===0)html+='<button class="gen-btn" id="gen-more">'+ic('bolt')+' צור עוד רעיונות</button>';
+  });
   el.innerHTML=html;
   const gm=document.getElementById('gen-more');
   if(gm)gm.addEventListener('click',()=>copyCmd(buildMoreIdeas()));
