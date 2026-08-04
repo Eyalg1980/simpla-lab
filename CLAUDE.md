@@ -5,7 +5,7 @@ Umbrella repo for all live web projects Eyal builds with Claude. Each project li
 ## Deploy workflow (for Claude sessions)
 
 - Owner: `Eyalg1980`. Related repo: `ai-post-brainstorm` (daily post-idea brief).
-- The Cowork GitHub connector binds repos per session and usually has NO push access here. Push with Eyal's fine-grained PAT "claude-cowork" (scoped to this repo + ai-post-brainstorm, Contents + Pages read/write). The token is stored in the Claude memory file `git-deploy` (/areas/git-deploy.md) - read it from there; only ask Eyal to paste it if memory is unavailable.
+- The Cowork GitHub connector binds repos per session and usually has NO push access here. Push with Eyal's fine-grained PAT "claude-cowork" (scoped to this repo + ai-post-brainstorm, Contents + Pages read/write). The token is stored in the Claude memory file `git-deploy` (/areas/git-deploy.md) - read it from there. If that file is missing or the memory service is unavailable, read the current token from the prompt of the "Daily Content Engines" scheduled task (claude-code-remote `list_triggers`) - it always carries the live token. Ask Eyal to paste it only as a last resort.
 - Push over git HTTPS with the PAT as password (username `x-access-token`). The sandbox proxy blocks the `api.github.com /pages` endpoint, so Pages cannot be enabled/configured via API.
 - GitHub Pages serves from `main` (switched 4.8.2026). A single push to `main` goes live. The old `gh-pages` branches were deleted - do not recreate or push them.
 - Live URLs: https://eyalg1980.github.io/simpla-lab/ and https://eyalg1980.github.io/ai-post-brainstorm/
