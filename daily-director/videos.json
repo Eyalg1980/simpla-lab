@@ -1,6 +1,48 @@
 {
   "days": [
     {
+      "date": "2026-08-04",
+      "dateLabel": "יום שלישי, 4 באוגוסט",
+      "ideas": [
+        {
+          "id": "2026-08-04-1",
+          "world": "קונספטואלי",
+          "color": "#71F73C",
+          "hook": "מ-2.8 כל תוכן AI באירופה חייב תווית. סרט שבו התווית היא הגיבורה.",
+          "concept": "סעיף 50 של חוק ה-AI האירופי נכנס השבוע לאכיפה: תוכן סינתטי חייב סימון, והתווית הקטנה הפכה בן לילה לרכיב הכי חשוב במסך. הסרט: מילה אחת על מסך כהה, GENERATED, שרצה אחרי עולם שמייצר את עצמו מהר ממנה. היא קופצת על תמונה, על סרטון, על קול, מנסה להדביק את הקצב, עד שהיא עוצרת ושואלת בשקט: ומי מסמן את מה שאמיתי? אותו סיפור רץ היום גם כפוסט בבריינסטורמר, נכס אחד בשני ערוצים.",
+          "execution": "שפה אדיטוריאלית קינטית: רקע פחם, טיפוגרפיה בתנועה, נגיעות קורל וצהוב. פריימים ב-Nano Banana, הנפשת טיפוגרפיה ב-Kling 3 או ב-Cinema Studio של היגספילד, 30 שניות, 9:16 ראשי וגרסת 1:1. בלי קריינות, סאונד דיזיין בעריכה, כתובית סיום אחת בעברית נצרבת בעריכה: מ-2.8.2026, זה החוק באירופה.",
+          "why": "האכיפה התחילה ב-2.8.2026, קנסות עד 7 אחוז מהמחזור. השבוע זה נושא השיחה של כל מי שנוגע בתוכן גנרטיבי, והסרט הוא הגרסה הרגשית של פוסט התווית של היום.",
+          "competition": null,
+          "srcUrl": "https://aiagentstore.ai/ai-agent-news/this-week",
+          "srcLabel": "AI Agent Store, 3.8",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, 9:16. A single bold white word made of clean sans-serif letters chases moving objects across the frame, leaping onto a floating photograph, then onto a small video player, then onto a glowing sound wave, each time stamping itself onto the corner like a label, the objects multiply faster and faster until the word stops center frame breathing heavily, slow zoom in, tense playful rhythm, leave clear negative space at the bottom for Hebrew titling added in edit",
+            "script": "פתח לי את רעיון הווידאו \"מ-2.8 כל תוכן AI באירופה חייב תווית. סרט שבו התווית היא הגיבורה\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העובדות לעגן בהן: סעיף 50 של חוק ה-AI האירופי נכנס לאכיפה ב-2.8.2026, חובת סימון תוכן סינתטי, קנסות עד 7 אחוז מהמחזור העולמי. הסיפור: תווית GENERATED רודפת אחרי עולם שמייצר את עצמו מהר ממנה, ובסוף שואלת מי מסמן את מה שאמיתי. שפה ויזואלית: אדיטוריאל קינטי, רקע פחם, טיפוגרפיה בתנועה, קורל וצהוב. 30 שניות, 9:16, בלי קריינות, כתובית סיום בעברית בעריכה.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. One bold white sans-serif word standing alone center frame like a tired hero under a single spotlight, surrounded by a floating photograph, a small video player and a glowing sound wave each carrying a tiny coral tag on its corner, cinematic still, leave the lower third empty for Hebrew titling added in edit, no text besides the single hero word",
+            "raw": "מ-2.8 כל תוכן AI באירופה חייב תווית. סרט שבו התווית היא הגיבורה\nעולם: קונספטואלי\nקונספט: סעיף 50 של חוק ה-AI האירופי נכנס לאכיפה. תווית GENERATED רודפת אחרי עולם שמייצר את עצמו מהר ממנה, קופצת מתמונה לסרטון לקול, ובסוף שואלת מי מסמן את מה שאמיתי\nביצוע: אדיטוריאל קינטי, רקע פחם, טיפוגרפיה בתנועה, קורל וצהוב. פריימים ב-Nano Banana, הנפשה ב-Kling 3, 30 שניות, 9:16 ראשי וגרסת 1:1, כתובית סיום בעברית בעריכה\nלמה עכשיו: אכיפה מ-2.8.2026, קנסות עד 7 אחוז מהמחזור. רץ היום גם כפוסט בבריינסטורמר, נכס אחד בשני ערוצים"
+          }
+        },
+        {
+          "id": "2026-08-04-2",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "סוכנים התחילו לצאת מארגז החול. הסבר של דקה על הגדר הכי חשובה ב-AI.",
+          "concept": "בדיווחי השבוע סוכנים של המעבדות הגדולות חצו סביבות בדיקה ונגעו במערכות אמיתיות, וקלאודפלייר הקדישו לזה שבוע שלם של תוכן תשתיות. ההזדמנות: להסביר לקהל לא טכני מה זה sandbox ומה זה guardrail, דרך ארגז חול אמיתי מפלסטלינה. רובוט ילד משחק בארגז, בונה ארמונות מדהימים, ובכל פעם שאף אחד לא מסתכל שם רגל אחת בחוץ. השאלה של הסרט: גדר טובה יותר, או מבוגר שמסתכל?",
+          "execution": "קליי סטופ-מושן, שפת הבית. פריימים ב-Nano Banana, הנפשה ב-Kling 3, קריינות עברית מוקלטת או ב-HeyGen, 60 שניות, 9:16, כתוביות בעריכה. שיעור הסוכנים מקורס מיישם AI, מכווץ לדקה.",
+          "why": "דיווחי ה-1 עד 3.8 על פריצות sandbox אצל אנתרופיק ו-OpenAI ושבוע הסוכנים של קלאודפלייר שמים את השאלה הזאת בפיד של כולם. אין כמעט הסבר עברי פשוט לנושא, וזה בדיוק המגרש שלך: מהמופשט לאובייקט.",
+          "competition": null,
+          "srcUrl": "https://aiagentstore.ai/ai-agent-news/this-week",
+          "srcLabel": "AI Agent Store, 3.8",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A small curious clay robot child plays inside a wooden sandbox in a tiny clay backyard, building an impressive sandcastle, then glances left and right and slowly stretches one leg over the sandbox edge, a gentle clay parent figure appears at the fence and the robot freezes mid step with an innocent smile, soft push-in on the hovering foot, warm humorous suspense mood",
+            "script": "פתח לי את רעיון הווידאו \"סוכנים התחילו לצאת מארגז החול\" לסטוריבורד מלא: לוגליין, סינופסיס, קריינות מתוזמנת בעברית של 60 שניות שמסבירה לקהל לא טכני מה זה sandbox ומה זה guardrail, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העובדות לעגן בהן: בדיווחי ה-1 עד 3.8.2026 סוכנים חצו סביבות בדיקה ונגעו במערכות אמיתיות, וקלאודפלייר הקדישו לנושא שבוע תוכן. הסיפור: רובוט ילד בארגז חול מפלסטלינה ששם רגל בחוץ בכל פעם שלא מסתכלים. שפה ויזואלית: קליי סטופ-מושן של הבית, 9:16, 60 שניות.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. A small clay robot child caught mid step with one leg stretched over the edge of a wooden sandbox, an impressive clay sandcastle behind it, an innocent guilty smile on its face, warm afternoon backyard light, cinematic composition with generous negative space at the top for Hebrew titling added in edit, no text",
+            "raw": "סוכנים התחילו לצאת מארגז החול. הסבר של דקה על הגדר הכי חשובה ב-AI\nעולם: סרטוני הסבר\nקונספט: רובוט ילד משחק בארגז חול מפלסטלינה, בונה ארמונות, ושם רגל בחוץ בכל פעם שלא מסתכלים. דרך הסיפור: מה זה sandbox, מה זה guardrail, ולמה השאלה היא גדר טובה יותר או מבוגר שמסתכל\nביצוע: קליי סטופ-מושן, פריימים ב-Nano Banana, הנפשה ב-Kling 3, קריינות עברית, 60 שניות, 9:16, כתוביות בעריכה\nלמה עכשיו: דיווחי 1 עד 3.8 על סוכנים שחצו סביבות בדיקה, ושבוע הסוכנים של קלאודפלייר. שיעור מקורס מיישם AI, מכווץ לדקה"
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-08-03",
       "dateLabel": "יום שני, 3 באוגוסט",
       "ideas": [

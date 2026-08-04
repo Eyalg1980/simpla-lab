@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-03",
+  "updated": "2026-08-04",
   "ideas": [
     {
       "id": "I-2026-0231",
@@ -256,6 +256,65 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-08-03"
+    },
+    {
+      "id": "I-2026-0257",
+      "title": "בודק פלואו",
+      "line": "ראיתי שגוגל שחררו ב-3.8 את Gemini Spark, אוטומציה של כרום שמחזיקה סשן שלם. מסך של סטודנט נכנס, הסוכן עובר את הפלואו כמו משתמש אמיתי ומחזיר דוח איפה נתקע",
+      "advisor": "visionary",
+      "createdAt": "2026-08-04",
+      "capability": {
+        "name": "Gemini Spark desktop Chrome automation",
+        "releasedAt": "2026-08-03"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-04"
+    },
+    {
+      "id": "I-2026-0258",
+      "title": "מנסח מחלוקות",
+      "line": "שם המנוי והבעיה נכנסים, מכתב מחלוקת מנומס ותקיף יוצא, מהתבניות שכבר כתבת",
+      "advisor": "pain",
+      "createdAt": "2026-08-04",
+      "capability": null,
+      "evidence": "שלוש פעמים ניסחת מכתב מחלוקת למנויים, סלאק, אודיו ופרטנר, כל פעם מאפס",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-04"
+    },
+    {
+      "id": "I-2026-0259",
+      "title": "עשר על מסך",
+      "line": "איך נראית בכיתה בדיקה של עשר ההיוריסטיקות של נילסן על מסך אחד של סטודנט, בלי לפתוח עשרה טאבים?",
+      "advisor": "teacher",
+      "createdAt": "2026-08-04",
+      "capability": null,
+      "evidence": null,
+      "lesson": "UI/UX, שיעור היוריסטיקות של נילסן",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-04"
+    },
+    {
+      "id": "I-2026-0260",
+      "title": "מהתרשים לריצה",
+      "line": "איך מראים על מסך בכיתה פלואוצ'רט שהופך לאוטומציית n8n רצה, צעד אחרי צעד?",
+      "advisor": "teacher",
+      "createdAt": "2026-08-04",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מיישם AI ואוטומציה 53500, מודול האוטומציות עם n8n",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-04"
     }
   ]
 }
