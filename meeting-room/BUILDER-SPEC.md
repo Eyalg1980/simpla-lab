@@ -276,7 +276,7 @@ inbox  ->  pool  ->  pitched  ->  decision  ->  product page  ->  screens  ->  l
 | Sunday 06:57 | weekly: full meeting, up to 3 developed pitches, they stay all week |
 | 08:00 | morning brief includes a חדר הישיבות section: on Sunday the three pitches, otherwise what landed on the table |
 
-Runs inside the existing **Daily Content Engines** scheduled task (`trig_01DWroUKnJzYLgwBbMph5XQa`), which pushes to `main` and `gh-pages`.
+Runs inside the existing **Daily Content Engines** scheduled task (`trig_01DWroUKnJzYLgwBbMph5XQa`), which pushes to `main` (Pages serves from `main` since 4.8.2026).
 
 The weekly pitches do **not** refresh mid-week. A meeting stays on the screen until the next Sunday, even if Eyal never opened it. Refreshing them would turn the meeting back into a feed.
 
@@ -360,6 +360,6 @@ Without this the stamp lies: it animates like a commitment and evaporates on rel
 
 ## 10. Reproduction notes
 
-- Repo: `Eyalg1980/simpla-lab`, folder `meeting-room/`, published to `gh-pages`.
+- Repo: `Eyalg1980/simpla-lab`, folder `meeting-room/`, published from `main` (Pages source switched 4.8.2026).
 - Skill: `meeting-room`, a thin router that fetches this file live and does not copy its rules, matching the `daily-director` pattern.
 - Advisor portraits: served from `meeting-room/img/<key>.png` with the original Higgsfield URL as an `onerror` fallback. The PNGs must be committed; a CDN link is not an asset. Generated with `nano_banana_pro` (routes to `nano_banana_2`), 1:1, 1k, about 2 credits each. Prompts are stored in `data/portraits.json` so they can be regenerated identically.

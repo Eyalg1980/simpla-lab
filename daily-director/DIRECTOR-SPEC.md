@@ -59,7 +59,7 @@ The main app page carries the SAME sticky app bar as the storyboard pages, one t
 The app's visual language is black/white video-matte frames, chunky Rubik 900 type, and neon green (#71F73C) hand-drawn scribbles (inspired by Artem Shcherbakov's director portfolio, per Eyal's request). Daily runs edit ONLY the JSON files, never index.html.
 
 ## Publish
-Same repo flow as the post brainstormer (see /CLAUDE.md in repo root): clone simpla-lab, edit files under `daily-director/`, commit, push BOTH `main` and `gh-pages` with the token from your instructions. Verify with WebFetch (sandbox blocks curl to github.io).
+Same repo flow as the post brainstormer (see /CLAUDE.md in repo root): clone simpla-lab, edit files under `daily-director/`, commit, push `main` ONLY (Pages serves from `main` since 4.8.2026) with the token from your instructions or from the Claude memory file `git-deploy`. Verify with WebFetch (sandbox blocks curl to github.io).
 
 ## Prompt engine (single source for every copy button)
 `index.html` builds every copied command from one set of functions instead of hand-written strings: `pBrief` (who Eyal is + read this spec and the reference storyboard first), `pDeliver` (the six required outputs, in the storyboard page's own order), `pRules` (visual and voice constraints) and `pClose` (style-test first, then publish). On top of them sit `buildScriptPrompt` (an idea), `buildCompPrompt` (a competition idea, with the competition's theme, prize, deadline, notes and a mandatory check of the real submission terms), `buildMoreIdeas` and `buildMoreCompIdeas`.
