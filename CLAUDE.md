@@ -4,11 +4,13 @@ Umbrella repo for all live web projects Eyal builds with Claude. Each project li
 
 ## Deploy workflow (for Claude sessions)
 
-- Owner: `Eyalg1980`. Related repo: `ai-post-brainstorm` (daily post-idea brief).
-- The Cowork GitHub connector binds repos per session and usually has NO push access here. Push with Eyal's fine-grained PAT "claude-cowork" (scoped to this repo + ai-post-brainstorm, Contents + Pages read/write). The token is stored in the Claude memory file `git-deploy` (/areas/git-deploy.md) - read it from there. If that file is missing or the memory service is unavailable, read the current token from the prompt of the "Daily Content Engines" scheduled task (claude-code-remote `list_triggers`) - it always carries the live token. Ask Eyal to paste it only as a last resort.
-- Push over git HTTPS with the PAT as password (username `x-access-token`). The sandbox proxy blocks the `api.github.com /pages` endpoint, so Pages cannot be enabled/configured via API.
-- GitHub Pages serves from `main` (switched 4.8.2026). A single push to `main` goes live. The old `gh-pages` branches were deleted - do not recreate or push them.
-- Live URLs: https://eyalg1980.github.io/simpla-lab/ and https://eyalg1980.github.io/ai-post-brainstorm/
+- Owner: `Eyalg1980`. Three repos share one deploy token: `simpla-lab`, `ai-post-brainstorm` (daily post-idea brief), `daily-board`.
+- There is NO GitHub connector in the Claude directory, and the sandbox's ambient `GH_TOKEN` / `GITHUB_TOKEN` belong to the Cowork connector and are **rejected for push**. Do not spend turns trying them.
+- Push with Eyal's fine-grained PAT **`claude-deploy`** (issued 4.8.2026, valid one year, Contents + Pages read/write on those three repos). The two older tokens, the fine-grained `claude-cowork` and the classic `ghp_` one, are **revoked**; never use them.
+- Read the token from the Claude memory file `git-deploy` (`/areas/git-deploy.md`), which is the canonical copy. If memory is unavailable, read it from the prompt of the "Daily Content Engines" scheduled task (claude-code-remote `list_triggers`), which carries a live runtime copy. Ask Eyal to paste it only as a last resort, and never echo it into chat, a commit, a log line or a file.
+- Auth format: token embedded in the URL with username `x-access-token`, i.e. `https://x-access-token:TOKEN@github.com/Eyalg1980/REPO.git`. The sandbox proxy blocks the `api.github.com /pages` endpoint, so Pages cannot be enabled/configured via API.
+- **Push to `main` only, in all three repos.** GitHub Pages was switched to serve from `main` on 4.8.2026 and the old `gh-pages` branches were deleted - do not recreate or push them.
+- Live URLs: https://eyalg1980.github.io/simpla-lab/ , https://eyalg1980.github.io/ai-post-brainstorm/ , https://eyalg1980.github.io/daily-board/
 - The egress proxy blocks direct curl to `*.github.io`; verify deploys with the WebFetch tool instead.
 - When adding a project: create `<project>/index.html`, add a card for it in the root `index.html`, push `main`.
 - Language: Hebrew RTL, mobile-first. No em dashes in any copy (Eyal's rule).
