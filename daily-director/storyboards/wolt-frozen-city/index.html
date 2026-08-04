@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>סטוריבורד · העיר שקפאה</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/sb.css?v=5">
+</head>
+<body>
+<div id="sb"></div>
+
+<script>
+const STYLE = "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field";
+
+window.SB = {
+  kicker: "STORYBOARD · CLAY · ADATHON",
+  titleTop: "עיר שלמה עצרה.",
+  titleMark: "מישהו אחד זז.",
+  titleEn: "The City That Stopped",
+  logline: "עיר פלסטלינה שלמה קופאת בשנייה שבה מישהו נעשה רעב, ושליח אחד על קטנוע טורקיז מחזיר אותה לתנועה, רחוב אחרי רחוב, עד שהוא עצמו כבר לא בפריים. ספוט של 45 שניות לאדתון של היגספילד ואדוויק.",
+  specs: ["45 שניות", "16:9 · 1920x1080", "גם קאט 9:16", "קליי סטופ-מושן", "8 שוטים", "אדתון · דדליין 24.8"],
+  specsEn: ["Runtime 45 seconds", "16:9, 1920x1080", "Vertical 9:16 cut", "Clay stop motion", "8 shots", "Higgsfield x ADWEEK Adathon, deadline 24.8.2026"],
+  cdn: "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/",
+
+  film: null,
+
+  synopsis: {
+    h3: "מה קורה בארבעים וחמש השניות",
+    copyLabel: "העתק סינופסיס",
+    copyHead: 'סינופסיס לספוט "העיר שקפאה":',
+    paras: [
+      "רחוב בעיר קטנה עשויה כולה פלסטלינה. הוא קפא. לא נהרס, לא ננטש, פשוט עצר באמצע צעד. הצבע לא נעלם מהעיר, הוא התנקז ממנה, והכל נוטה לקרם גירי וחיוור.",
+      "אישה אחת עומדת עם צלחת ריקה בידיים. הידיים שלה רועדות רעד קטן, וזה הדבר היחיד בכל הפריים שעדיין חי.",
+      "בקצה הרחוב נכנס שליח על קטנוע טורקיז. הוא הדבר היחיד בסרט שיש לו צבע מלא, והוא הדבר היחיד שיש לו טשטוש תנועה. כל השאר עומד.",
+      "כשהוא עובר ליד בית קפה, נולד מתחת לגלגל האחורי שלו גבול חם. קורל וצהוב שנמרחים אל תוך הקליי הקר בקצה חד ופיזי, כמו שני גושי חומר שנלחצו זה לזה. מאחורי הגבול הסוכך נפרש והקיטור עולה. לפניו עדיין קפוא.",
+      "הגבול מתחיל לרוץ. הוא מקדים את הגלגל, נוסע במורד הרחוב, ודמות אחרי דמות חוזרת לתנועה ברגע שהוא מגיע אליה. זה לא אפקט, זה גל.",
+      "התיק נפתח, האור נשפך על הפנים, והידיים נסגרות סביב הצלחת בפעם הראשונה. הקליי של הידיים עובר מקרם חיוור לקורל חם.",
+      "וחזרה לפריים הפתיחה, מאותה זווית בדיוק. העיר כולה נעה, הקיטור עולה מעשרות כלים, והקטנוע כבר קטן בקצה הפריים ועוזב. התזה: המוצר הוא לא הקטנוע. המוצר הוא הרגע שבו העיר זזה בשבילך."
+    ],
+    en: `A street in a small city made entirely of clay. It has stopped. Not destroyed, not abandoned, simply paused mid step. The colour has not vanished from the city, it has drained out of it, leaving everything a pale chalky cream.
+
+One woman stands holding an empty plate. Her hands tremble very slightly, and that tremor is the only living thing in the frame.
+
+A courier enters at the far end of the street on a teal scooter. He is the only fully saturated element in the film, and the only one carrying motion blur. Everything else holds still.
+
+As he passes a cafe, a warm boundary is born under his rear wheel. Coral and yellow press into the cold clay along a hard physical edge, like two blocks of plasticine squeezed together. Behind the boundary the awning unfurls and steam rises. Ahead of it, everything is still frozen.
+
+The boundary starts to run. It outpaces the wheel, travels down the street, and figure after figure returns to motion the instant it reaches them. It is not an effect, it is a wave.
+
+The bag opens, light spills onto the faces, and the hands close around the plate for the first time. The clay of those hands turns from pale cream to warm coral.
+
+Back to the opening frame, from the exact same angle. The whole city is moving, steam rises from a dozen dishes, and the scooter is already small at the edge of frame, leaving. The thesis: the product is not the scooter. The product is the moment the city moves for you.`
+  },
+
+  mood: {
+    h3: "הטון של הספוט",
+    copyLabel: "העתק הוראות אווירה",
+    copyHead: 'הוראות אווירה והלך רוח לספוט "העיר שקפאה":',
+    paras: ["חם, עשוי ביד, סבלני. זו לא פרסומת אנרגטית ולא הייפ טכנולוגי. הרגש שצריך להישאר בסוף הוא הקלה קטנה, לא התלהבות. הסרט צריך להיקרא גם בלי קול, כי חבר שופטים עובר על מאות ספוטים והרבה מהם ישתיקו את הראשון."],
+    rows: [
+      ["קצב", "שלושת השוטים הראשונים נושמים לאט ובלי שום תנועה בתוך הפריים. שוט 3 הוא נקודת השבירה, הרגע שבו משהו זז לראשונה. משם הקצב עולה בהדרגה עד שוט 7, ושוט 8 חוזר לשקט של הפתיחה אבל עם עיר שנעה."],
+      ["מצלמה", "תנועה אחת לשוט, לעולם לא שתיים. דחיפות איטיות וטראקים צדיים בלבד. אין קאט מהיר באף מקום בסרט."],
+      ["חומר", "פלסטלינה בלבד, בלי חומר שני. טביעות האצבע נשארות גלויות בכל שוט, וזה מה שמפריד את הסרט הזה מכל ספוט AI אחר בתחרות. שום משטח לא מושלם."],
+      ["אור", "מקור רך אחד מלמעלה-שמאל לאורך כל הסרט, בלי שינוי. כל ההבדל בין קפוא לחי נעשה בצבע החומר עצמו, לא בתאורה."],
+      ["סאונד", "דממה כמעט מלאה בשלושת השוטים הראשונים, רק רחש חדר. צליל אחד של גלגל בשוט 3. משם נבנית שכבה של קיטור, כלים וקולות, ונעצרת חד על המשפט האחרון."]
+    ],
+    rules: ["תנועה אחת לשוט", "חומר אחד, פלסטלינה", "בלי טקסט בג'ינרוט", "השליח לא מסתכל למצלמה"],
+    en: `Warm, handmade, patient. This is not an energetic commercial and not technology hype. The feeling left at the end should be small relief, not excitement. The film must read with the sound off, because a jury watching hundreds of spots will mute the first one.
+
+Pacing: the first three shots breathe slowly with no movement inside the frame at all. Shot 3 is the break, the moment something moves for the first time. From there the pace climbs steadily to shot 7, and shot 8 returns to the quiet of the opening but with a city in motion.
+
+Camera: one move per shot, never two. Slow push-ins and side tracks only. There is no fast cut anywhere in the film.
+
+Material: plasticine only, no second material. Fingerprints stay visible in every shot, and that is what separates this from every other AI spot in the contest. No surface is perfect.
+
+Light: one soft source from above left for the whole film, unchanged. The entire difference between frozen and alive is carried by the colour of the clay itself, never by lighting.
+
+Sound: near silence for the first three shots, room tone only. One wheel sound in shot 3. From there a layer of steam, dishes and voices builds, and cuts hard on the final line.
+
+Rules: one move per shot, one material, no text inside generation, the courier never looks at camera.`
+  },
+
+  story: {
+    h3: "מאיפה זה מגיע",
+    copyLabel: "העתק סיפור רקע",
+    copyHead: 'סיפור הרקע לספוט "העיר שקפאה":',
+    paras: [
+      "וולט נוסדה בהלסינקי ב-2014 על ידי שישה אנשים, ומיקי קוסי היה המנכ\"ל. תשעת החודשים הראשונים כולם ישבו יחד בחדר אחד של עשרה מטרים רבועים במרכז העיר. את השם הם מצאו ברשימה של שמות מומצאים ללהקות פאנק, שם היה כתוב Volt United, וזה הפך ל-Wolt. המועמדים שנפסלו בדרך היו Blueberry Pie, Skyliner, Zaplane ו-Sergei.",
+      "והנה החלק שהופך את כל הסיפור. האפליקציה עלתה לאוויר ב-2015, ובשנה הראשונה לא היה בה משלוח בכלל. הזמנת דרך האפליקציה והלכת ברגל לאסוף. המשלוח, הדבר שהמותג כולו מזוהה איתו היום, נוסף רק ב-2016, בגרסה השנייה.",
+      "לישראל הם הגיעו ב-2018. ב-31 במאי 2022 דורדאש השלימה את הרכישה שלהם בשמונה מיליארד ומאה מיליון דולר, ונכון ל-2023 הם פועלים ב-25 מדינות ובלמעלה משלוש מאות ערים.",
+      "הזווית שהסרט משאיר פתוחה: בגרסה הראשונה המשתמש הוא זה שזז. הגרסה השנייה הפכה את הכיוון, והיא זו שנצרבה. זה בדיוק הרגע שבו מוצר מפסיק להיות אפליקציה שמזמינים דרכה ומתחיל להיות הבטחה שהעיר תזוז בשבילך. אני מלמד את הרגע הזה סמסטר שלם, וזה מה שהספוט מנסה להראות בארבעים וחמש שניות בלי לומר עליו מילה."
+    ],
+    en: `Wolt was founded in Helsinki in 2014 by six people, with Miki Kuusi as CEO. For the first nine months all of them worked together in one room of ten square metres in the city centre. They found the name on a list of imaginary punk band names, where it read Volt United, and that became Wolt. The rejected candidates were Blueberry Pie, Skyliner, Zaplane and Sergei.
+
+Here is the part that turns the whole story around. The app went live in 2015, and in its first year it had no delivery at all. You ordered through the app and walked over to pick it up. Delivery, the thing the entire brand is identified with today, was only added in 2016, in the second version.
+
+They reached Israel in 2018. On 31 May 2022 DoorDash completed its acquisition of the company for 8.1 billion dollars, and as of 2023 they operate in 25 countries and more than three hundred cities.
+
+The angle the film leaves open: in the first version, the user is the one who moves. The second version reversed the direction, and that is the one that stuck. That is exactly the moment a product stops being an app you order through and becomes a promise that the city will move for you. I teach that moment for a full semester, and this is what the spot tries to show in forty five seconds without saying a word about it.`
+  },
+
+  vo: [
+    { t: "0-6",   text: "בלי קריינות. רחש חדר בלבד.", note: "השקט הזה הוא חצי מהסרט. אל תמלא אותו במוזיקה." },
+    { t: "6-12",  text: "יש רגע שבו עיר שלמה נעצרת.", en: "There is a moment when an entire city stops." },
+    { t: "12-18", text: "לא בגלל אסון. בגלל רעב.", en: "Not because of a disaster. Because of hunger." },
+    { t: "18-26", text: "בלי קריינות. השליח נכנס, הסאונד עושה את העבודה.", note: "צליל גלגל אחד, ותו לא." },
+    { t: "26-32", text: "ואז מישהו אחד זז.", en: "And then one person moves." },
+    { t: "32-38", text: "ורחוב אחרי רחוב, העיר זוכרת איך לנשום.", en: "And street after street, the city remembers how to breathe." },
+    { t: "38-45", text: "וולט. שמישהו אחד יזוז בשבילך.", en: "Wolt. So that someone moves for you." }
+  ],
+
+  shots: {
+    style: STYLE,
+    prompts: function (s) {
+      return [
+        { label: "פריים (Nano Banana Pro)", btn: "העתק פרומפט פריים",
+          text: STYLE + ", 16:9. " + s.still + ", no text" },
+        { label: "תנועה (" + (s.n === 6 ? "Veo 3" : "Kling 3, image-to-video") + ")", btn: "העתק פרומפט תנועה",
+          text: s.motion + ", 16:9" }
+      ];
+    },
+    list: [
+      { n:1, dur:"5 שנ'", durEn:"5 sec", cam:"דחיפה איטית פנימה", camEn:"Slow push in",
+        model:"Nano Banana Pro ואז Kling 3",
+        title:"העיר הקפואה", titleEn:"The Frozen City",
+        img:"hf_20260804_183919_16faf20e-eb01-48ba-8cd9-3bf113a31072.png",
+        still:"Wide establishing shot of a miniature clay city street seen slightly from above, every tiny clay figure frozen mid step, one woman paused holding a completely empty clay plate, a small clay dog frozen mid leap, a clay bicycle standing impossibly still without a rider, the entire scene drained to a pale chalky cream where the coral and teal are barely present, absolutely no motion blur anywhere, one soft studio light from above left, generous negative space in the upper third for titling added in edit",
+        motion:"Extremely slow push in toward the frozen clay street, nothing inside the frame moves at all except a barely perceptible drift of dust in the light, unsettling stillness, no cuts" },
+
+      { n:2, dur:"5 שנ'", durEn:"5 sec", cam:"נעול, רעד עדין", camEn:"Locked off, faint tremor",
+        model:"Nano Banana Pro ואז Kling 3",
+        title:"הצלחת הריקה", titleEn:"The Empty Plate",
+        img:"hf_20260804_185348_09f045f7-f042-43c4-a496-566f2dba8464.png",
+        still:"Tight close up of two clay hands holding a completely empty clay plate, the fingerprints in the plate rim clearly visible, the clay of the hands drained to a pale chalky cream with almost no colour left in it, the hands perfectly still, the street behind them softly out of focus and equally colourless, one soft light from above left, generous negative space in the upper third",
+        motion:"The clay hands tremble with a very small repeating shake, the only motion in the frame, the plate stays absolutely empty, camera locked off, quiet and tense" },
+
+      { n:3, dur:"6 שנ'", durEn:"6 sec", cam:"טראק צידי איטי", camEn:"Slow side track",
+        model:"Nano Banana Pro ואז Kling 3",
+        title:"הגלגל הראשון שזז", titleEn:"The First Wheel to Move",
+        img:"hf_20260804_185348_7911af01-2a25-426f-ab06-ee0a19271eed.png",
+        still:"A small clay delivery rider on a bright teal scooter entering at the far end of a pale drained frozen clay street, he is the only saturated element and the only one with motion blur in the entire frame, every other clay figure chalky and paused mid step, side tracking view down the length of the street, generous negative space in the upper third",
+        motion:"The teal clay scooter rides slowly toward camera down the frozen street, camera tracks sideways alongside him at the same speed, every other figure stays completely motionless as he passes, he never looks at camera" },
+
+      { n:4, dur:"6 שנ'", durEn:"6 sec", cam:"דחיפה עוקבת", camEn:"Push in following the wheel",
+        model:"Nano Banana Pro ואז Kling 3",
+        title:"הגבול נולד", titleEn:"The Boundary Is Born",
+        img:"hf_20260804_185348_c729093d-031a-4a7c-9308-abdb67b8f819.png",
+        still:"The teal clay scooter passing a frozen clay cafe, a warm coral and yellow boundary spreading outward from its rear wheel across the pale drained clay pavement like warm clay pressed into cold clay with a crisp physical edge, behind the boundary the cafe awning has unfurled and steam rises from a tiny clay cup, ahead of it everything still chalky and still, generous negative space in the upper third",
+        motion:"A warm coral and yellow boundary spreads out from under the scooter wheel across the pavement with a crisp physical edge, the cafe awning unfurls behind it and steam begins to rise, the area ahead of the boundary stays frozen and colourless, camera pushes in following the wheel" },
+
+      { n:5, dur:"6 שנ'", durEn:"6 sec", cam:"טראק נמוך לצד הגלגל", camEn:"Low track alongside the wheel",
+        model:"Nano Banana Pro ואז Kling 3",
+        title:"הגל", titleEn:"The Wave",
+        img:"hf_20260804_185348_7d2d05cc-44aa-4559-b7ef-4e2ebce08bcf.png",
+        still:"Low street level view alongside the moving teal clay scooter wheel, the warm coral and yellow colour boundary racing ahead of it down the street, clay figures springing back into motion one after another the instant it reaches them, a visible wave of returning colour and life travelling away from camera, generous negative space in the upper third",
+        motion:"The warm colour boundary races down the street ahead of the wheel, each clay figure it touches springs back into motion in sequence, a clear travelling wave of life moving away from camera, low tracking move alongside the wheel, joyful and building" },
+
+      { n:6, dur:"6 שנ'", durEn:"6 sec", cam:"אורביט סביב התיק", camEn:"Orbit around the bag",
+        model:"Veo 3",
+        title:"התיק נפתח", titleEn:"The Bag Opens",
+        img:"hf_20260804_185348_6563ab93-cee4-4f86-b1a4-3316855fec70.png",
+        still:"Orbiting view around a small teal clay delivery bag with its flap opening, warm golden light spilling out of the bag onto the pale drained clay faces gathered around it, the light physically colouring every piece of clay it touches from chalky cream to warm coral, very shallow depth of field, generous negative space in the upper third",
+        motion:"Slow continuous orbit around the clay delivery bag as its flap opens, warm golden light spills out and physically colours the pale clay faces around it one by one, the orbit travels a full half circle without cutting, reverent and warm" },
+
+      { n:7, dur:"6 שנ'", durEn:"6 sec", cam:"דחיפה איטית", camEn:"Slow push in",
+        model:"Nano Banana Pro ואז Kling 3",
+        title:"היד נסגרת", titleEn:"The Hand Closes",
+        img:"hf_20260804_185348_7b359a9f-2658-4e6e-9656-6cae96f2b75c.png",
+        still:"The same two clay hands and clay plate as before, the plate now full of steaming clay food, the fingers closing around the rim for the first time, the clay of the hands turning from pale drained cream to warm coral where the light from the plate reaches them, fingerprints catching the warm light, generous negative space in the upper third",
+        motion:"The clay fingers close around the rim of the full plate for the first time, the colour visibly travels up through the clay of the hands from pale cream to warm coral, steam rises from the food, slow push in, the emotional peak of the film" },
+
+      { n:8, dur:"5 שנ'", durEn:"5 sec", cam:"נסיגה איטית לזווית הפתיחה", camEn:"Slow pull back to the opening angle",
+        model:"Nano Banana Pro ואז Kling 3",
+        title:"העיר נושמת", titleEn:"The City Breathes",
+        img:"hf_20260804_185348_e86a178a-a74a-4061-8c58-8d5510a95627.png",
+        still:"Wide establishing shot of the miniature clay city street from the exact same elevated angle as the opening, now fully alive and fully saturated in coral yellow and teal, every clay figure caught in motion with soft motion blur, steam rising from a dozen tiny clay dishes, the small teal scooter already tiny and leaving at the far edge of frame, generous negative space in the upper third for an end card added in edit",
+        motion:"The whole clay city is in motion, figures walking and eating, steam rising everywhere, the small teal scooter rides away and out of frame at the far edge, camera pulls back slowly to the exact opening framing and settles, warm and complete" }
+    ]
+  },
+
+  notes: {
+    title: "מה עושים עם הפריימים האלה",
+    items: [
+      "מייצרים: שמונה פריימים ב-Nano Banana Pro, שבעה קליפים ב-Kling 3 std ואחד ב-Veo 3. הקריינות בגדעון על מנוע ElevenLabs. הכל בתוך היגספילד, כי התקנון דורש שכל תוכן ה-AI ייווצר בתוך המערכת שלהם.",
+      "התקנון גם דורש שלפחות 51 אחוז ממשך הסרט יהיה ויזואל שנוצר ב-AI. כאן זה מאה אחוז, אז אין בעיה, אבל צריך להצהיר על זה בטופס.",
+      "סדר עבודה מחייב: קודם מקליטים את הקריינות, מודדים אותה, ורק אז מייצרים כל קליפ באורך האמיתי שלו. Kling 3 מקבל 3 עד 15 שניות. שני הסרטים הקודמים בסדרה שהערכנו בלי למדוד יצאו חמישים אחוז ארוכים מהתכנון.",
+      "החלטת הסגנון שהתקבלה: השוטים 1 עד 3 רצים על הקפאה על ידי ניקוז צבע, קרם גירי חיוור. הגבול החם נולד רק בשוט 4, מתחת לגלגל של השליח, ולא קיים לפניו. זה מה שהופך את הגבול לתוצאה שלו ולא לאפקט.",
+      "שוט 6 הוא היחיד שהולך ל-Veo 3, כי אורביט אמיתי סביב אובייקט עם עומק זה בדיוק מה ש-Kling לא עושה טוב. קאוויאט מהלודר: Veo משכתב את הפרומפט לעצמו ומחזיר פסקול, צריך להפשיט אותו והרינדור לא יתאים בדיוק לטקסט בכרטיס.",
+      "מוסיפים בעריכה: כל הטקסט. הלוגו של וולט בפריים הסיום בלבד. כתוביות אנגלית צרובות. מוזיקה. שום עברית לא נכנסת לג'ינרוט, ולכן כל פרומפט נגמר ב-no text ומשאיר שטח נגטיבי מוגדר למעלה.",
+      "מלכודת הכתוביות בעברית, כבר עלתה בסרט קודם: להעביר את המחרוזת הלוגית ישירות ל-draw.text עם direction rtl, בלי python-bidi, אחרת כל שורה מתהפכת פעמיים.",
+      "גרסת 9:16 לפיד: אפשר לגזור מהסט האופקי בהרחבת שוליים למעלה ולמטה. שוטים 1 ו-8 הם היחידים שבאמת מפסידים מזה, כי הם רחבים במהות. אם יש זמן, לייצר להם סט אנכי נפרד.",
+      "איפה הנכס עובד פעם שנייה: סיפור הרקע כאן הוא פוסט לינקדאין מוכן, בשנה הראשונה של וולט לא היה משלוח, עם פריים שוט 1 ככריכה. וזו גם שקופית פתיחה לשיעור מחקר המשתמשים בג'ון ברייס, שבנוי ממילא סביב וולט. נכס אחד, שלושה ערוצים.",
+      "פתוח מול המארגנים: התקנון אומר on behalf of a real brand, with their own creative brief and direction. הקריאה הסבירה היא ספק-אד עם בריף שאתה כותב, אבל שווה שאלה קצרה לפני שמשקיעים בהפקה מלאה."
+    ],
+    itemsEn: [
+      "Generate: eight frames in Nano Banana Pro, seven clips in Kling 3 std and one in Veo 3. Narration with the Gideon voice on the ElevenLabs engine. Everything inside Higgsfield, because the rules require all AI content to be created within their platform.",
+      "The rules also require at least 51 percent of the runtime to be AI generated visuals. Here it is one hundred percent, which is fine, but it must be declared on the entry form.",
+      "Mandatory order of work: record the narration first, measure it, and only then generate each clip at its true length. Kling 3 accepts 3 to 15 seconds. The two previous films in this house style that were estimated instead of measured came out fifty percent longer than planned.",
+      "Style decision taken: shots 1 to 3 run on freeze by colour drain, a pale chalky cream. The warm boundary is born only in shot 4, under the courier's wheel, and does not exist before it. That is what makes the boundary his consequence rather than an effect.",
+      "Shot 6 is the only one going to Veo 3, because a true orbit around an object with depth is exactly what Kling does badly. Caveat carried from an earlier film: Veo rewrites the prompt itself and returns a model soundtrack, which has to be stripped, and a re-render will not match the card text exactly.",
+      "Added in edit: all text. The Wolt logo on the end card only. Burned English subtitles. Music. No Hebrew enters generation, which is why every prompt ends in no text and leaves defined negative space at the top.",
+      "Hebrew subtitle trap, already paid for once: pass the logical string straight to draw.text with direction rtl and no python-bidi, otherwise every line flips twice.",
+      "Vertical 9:16 cut: derive it from the horizontal set by extending the margins up and down. Shots 1 and 8 are the only ones that genuinely lose from this, because they are wide by nature. If there is time, generate a separate vertical set for those two.",
+      "Where the asset works a second time: the backstory here is a ready LinkedIn post, Wolt had no delivery in its first year, with the shot 1 frame as the cover. It is also an opening slide for the user research course at John Bryce, which is built around Wolt anyway. One asset, three channels.",
+      "Open with the organisers: the rules say on behalf of a real brand, with their own creative brief and direction. The reasonable reading is a spec ad with a brief you write, but it is worth a short question before committing to full production."
+    ]
+  }
+};
+</script>
+<script src="../shared/sb.js?v=5"></script>
