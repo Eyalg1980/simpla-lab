@@ -29,6 +29,16 @@ All the live apps (Daily Board, Post Brainstorm, Daily Director) and this lab in
 - Bump the page version stamp on every UI change, Eyal's in-app browser caches aggressively.
 - NOTE: several Claude sessions edit these repos in parallel. Always `git fetch` and rebase onto the remote before pushing, never force-push over someone else's commit.
 
+## Burning Hebrew captions into a film (learned 1.8.2026, the hard way)
+
+The edit runs inside the Higgsfield sandbox (`sandbox_exec`), because the Cowork sandbox proxy blocks the Higgsfield CDN and the clips cannot be downloaded here.
+
+- **Do NOT run caption text through `python-bidi`.** Pillow in that sandbox is built WITH libraqm, so it already applies bidi and shaping. Pre-reversing double-flips every line and the film ships with mirrored Hebrew. Pass the logical string straight to `draw.text(..., direction="rtl")`.
+- **Assert before you encode.** Render `"או"`, split the ink into glyph clusters, and require narrow-then-wide left to right: `א` is wide and belongs on the right. Fail the build if it is not, a wrong caption costs a full re-render.
+- Punctuation after a Latin or digit run is a separate bug from letter order, see the `sub` field and the SRT builder in `daily-director/storyboards/shared/sb.js`.
+- `sandbox_exec` is hard-killed at about 60 seconds no matter what `timeout_seconds` says, and both `nohup` and `background:true` proved unreliable. Split the render into chunks of about three shots per call. A killed call leaves zombie `ffmpeg` processes that silently corrupt the next run, so pass `restart:true` when anything looks off.
+- Deliver the result with `media_upload` plus a `curl -X PUT`, then `media_confirm`, and point the page's `film.src` at the returned URL.
+
 ## Responsive contract (settled 1.8.2026)
 
 The apps are **mobile-first and the mobile rendering is frozen**. Desktop is added on top, never by editing a mobile rule.
