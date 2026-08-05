@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>סטוריבורד · בשביל מי זה</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/sb.css?v=5">
+</head>
+<body>
+<div id="sb"></div>
+
+<script>
+const STYLE = "Claymation stop motion style, handcrafted plasticine with visible fingerprints thumb marks and sculpting tool grooves in the clay, bold high saturation fluorescent palette of electric magenta, acid lime, ultraviolet purple and hot cyan against a deep indigo background, coloured gel lighting with a magenta key and a hot cyan rim, practical neon tube glow reflecting off the clay, anamorphic lens flare, prism refraction streaks, long exposure light trails, heavy halation bloom around every bright edge, very shallow depth of field with creamy bokeh, subtle motion blur, 35mm film grain and slight chromatic aberration, tactile handmade and imperfect, 16:9";
+const G16 = "A clay puppet of a sixteen year old girl, dark curly clay hair with an electric magenta sheen, olive clay skin, three freckles above and two below on her left cheek, a small chip missing from the clay above her left eyebrow, an acid lime clay t shirt";
+const G50 = "The same clay woman aged to fifty, the same three and two freckles on the left cheek, the same chip above the left eyebrow, hair now a short grey clay bob cut at the jawline with the same magenta sheen, a faded acid lime clay shirt, deep sculpting grooves in her face";
+const G80 = "The same clay woman aged to eighty, the same freckles and the same chip above the left eyebrow, white clay hair gathered into a bun, a thin acid lime clay blanket over her knees, very deep tool grooves in the clay of her face";
+
+window.SB = {
+  kicker: "STORYBOARD · FUTURE VISION XPRIZE",
+  titleTop: "בשביל מי זה?",
+  titleMark: "מהדורת קליי ניאון",
+  logline: "נערה נושפת אור ובונה ממנו עיר שלמה, ולוקח לה שישים שנה להבין שכל מה שהיה צריך זו נקודה אחת שיש בה מישהו.",
+  loglineEn: "A girl breathes light and builds a whole city out of it, and it takes her sixty years to understand that all she needed was one single point with somebody inside it.",
+  titleEn: "Who Is It For?",
+  specs: ["3 דקות", "16:9 · 1080p+", "18 מקטעים", "פלסטלינה בעבודת יד · פלטה זרחנית", "שלושה משפטים בלבד", "דדליין 15.8.2026"],
+  specsEn: ["Runtime 3 minutes", "16:9, 1080p or higher", "18 segments", "Handcrafted claymation with a fluorescent palette", "Only three spoken lines in the entire film", "Deadline 15.8.2026"],
+  cdn: "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/",
+
+  film: { src: "https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/b1b4150d-d826-4789-bd3c-c12357b868f2.mp4", ratio: "16" },
+
+  titles: { vo: "קריינות ודיאלוג" },
+
+  synopsis: {
+    h3: "מה קורה בשלוש הדקות",
+    copyLabel: "העתק סינופסיס עברית",
+    copyHead: 'סינופסיס לסרט "בשביל מי זה?":',
+    paras: [
+      "נערה בת שש עשרה עומדת בחושך בעיניים עצומות. היא נושמת, פוקחת עיניים, וחוט אור אחד מתחיל להיצייר באוויר מול הפה שלה. היא מרימה את כף היד, אצבעות נפתחות כלפי מעלה, ואומרת: תראו לי מה אני יכולה.",
+      "החוט מתפצל לעשרות קווים. הקווים מתפוצצים לסריג. הסריג הופך לבניינים, הבניינים למגדלים, המגדלים לעיר שלמה שנבנית מאור פלואורסנטי עד לאופק. היא עומדת במרכז, זעירה, והיד עדיין מורמת. זה הרגע הכי רווי בסרט.",
+      "הקו האחרון ננעל והכל נעצר. המצלמה נכנסת אל תוך הרחובות. הכל מושלם, הכל דולק, ואין שם אף אחד. חזרה לפנים שלה, מוארות מג'נטה מהעיר שלה. ההתפעמות מתחלפת במשהו אחר. אין פה אף אחד, היא אומרת, ומורידה את היד.",
+      "המצלמה נשארת על היד. במשך עשר שניות רצופות היד מזדקנת מול העיניים של הצופה. כשהמצלמה נסוגה, אותה אישה עומדת בכיתה ריקה, בת חמישים, אותם נמשים על הלחי השמאלית, אותו שבב מעל הגבה. העיר איננה.",
+      "היא מרימה את היד באותה תנועה בדיוק, ובכף היד נבנית נקודת אור אחת. קטנה. איטית. היא הולכת בין הכיסאות הריקים, נעצרת ליד אחד מהם, מניחה עליו את הנקודה ולוחשת מילה אחת: בשבילך.",
+      "דירה קרה, כמעט מונוכרום. היא בת שמונים. על שולחן קטן לידה דולקת נקודת אור אחת, הדבר החם היחיד בפריים. המצלמה נכנסת לתוך הנקודה ובפנים, זעירה, נראית העיר שהיא בנתה בגיל שש עשרה. שלמה. ריקה.",
+      "היא מושיטה יד. אותה תנועה, פעם שלישית. הנקודה עולה ומתיישבת בכף היד, והיא קמה והולכת לדלת, והנקודה הולכת איתה. המצלמה נעצרת בפעם הראשונה בכל הסרט. כל אחד יכול לבנות הכל. השאלה היחידה שנשארה היא בשביל מי."
+    ],
+    enLabel: "סינופסיס באנגלית להגשה, עד 300 מילים",
+    enCopyLabel: "העתק סינופסיס אנגלית",
+    en: `A sixteen year old girl stands in darkness with her eyes closed. She breathes, opens her eyes, and a single thread of light begins to draw itself in the air in front of her mouth. She raises her palm, fingers opening upward from the thumb, and says: show me what I can do.
+
+The thread splits into dozens of lines. The lines explode into a lattice. The lattice becomes buildings, the buildings become towers, and the towers become an entire city built out of fluorescent light, stretching to the horizon. She stands at its centre, tiny, her hand still raised. It is the most saturated moment in the film.
+
+The last line locks into place and everything stops. The camera moves into the streets. Every surface is perfect, everything is lit, and there is nobody there. Back to her face, lit magenta by her own city. The wonder drains into something else. There's nobody here, she says, and lowers her hand.
+
+The camera stays on the hand. For ten unbroken seconds the hand ages in front of the viewer. When the camera pulls back, the same woman is standing in an empty classroom, fifty years old, the same freckles on the same cheek, the same chip above the same eyebrow. The city is gone.
+
+She raises her hand in exactly the same gesture, and one single point of light builds in her palm. Small. Slow. She walks between the empty chairs, stops beside one, sets the point down on it and whispers one word: for you.
+
+A cold apartment, almost monochrome. She is eighty. On a small table beside her, one point of light is still burning, the only warm thing in the frame. The camera pushes into it, and inside, faint and tiny, is the city she built at sixteen. Complete. Empty.
+
+She reaches out. The same gesture, a third time. The point rises into her palm, and she stands and walks toward the door, and the light goes with her. The camera stops moving for the first time in the film.
+
+Anyone can build anything. The only question left is who for.`
+  },
+
+  mood: {
+    h3: "הטון של הסרט",
+    copyLabel: "העתק הוראות הנפשה",
+    copyHead: 'הוראות הנפשה והלך רוח לסרט "בשביל מי זה?":',
+    paras: ["שלוש הדמויות בסרט הן אותה אישה בשלושה גילים, והסרט לא אומר את זה אף פעם. הבובה מזדקנת מול העיניים של הצופה והתפקיד היחיד של הבימוי הוא לא לאבד אותה בדרך. אין כאן טוויסט שמסבירים, יש חיים שרואים."],
+    rows: [
+      ["קצב", "התרחבות ואז כיווץ. מערכת 2 היא הכי מהירה והכי רועשת בסרט, ומשם הכל הולך ומאט עד לעצירה מוחלטת בפריים האחרון."],
+      ["צבע", "הפלטה נופלת לאורך הסרט. שיא רוויה במקטע 5, שני צבעים בלבד במקטע 12, וכמעט מונוכרום עם נקודה חמה אחת במקטע 15. זו הדרמטורגיה, לא סגנון."],
+      ["מצלמה", "עוצרת פעם אחת בכל הסרט, בפריים האחרון. עד אז היא לא נחה. זה מה שהופך את העצירה לסוף."],
+      ["חומר", "פלסטלינה בעבודת יד עם טביעות אצבע וסימני כלי פיסול גלויים. כל מה שנראה חלק מדי או ממוחשב מדי הורג את השפה."],
+      ["דיבור", "שלושה משפטים בכל הסרט. שניים בגיל שש עשרה, אחד בגיל חמישים. בגיל שמונים היא לא אומרת כלום."],
+      ["סאונד", "עלייה אחת ארוכה עד מקטע 6, נפילה חדה לשקט במקטע 8, ומשם רק נשימה. השקט הוא האירוע הכי חזק בפסקול."]
+    ],
+    rules: ["אותה אישה, שלושה גילים", "אף פעם לא מסבירים", "הצבע נופל לאורך הסרט", "המצלמה עוצרת רק בסוף", "שלושה משפטים בלבד"],
+    en: `The three characters in this film are the same woman at three ages, and the film never says so. The puppet ages in front of the viewer and the only job of the direction is not to lose her along the way. There is no twist to explain, there is a life to watch.
+
+Pace: expansion then contraction. Act 2 is the fastest and loudest part of the film, and from there everything slows until the camera comes to a complete stop in the final frame.
+Colour: the palette falls across the film. Peak saturation at shot 5, only two colours by shot 12, and almost monochrome with one warm point by shot 15. This is dramaturgy, not styling.
+Camera: it stops once in the whole film, on the last frame. Until then it never rests. That is what makes the stop feel like an ending.
+Material: handcrafted plasticine with visible fingerprints and sculpting tool grooves. Anything that reads as too smooth or too digital kills the language.
+Dialogue: three sentences in the entire film. Two at sixteen, one at fifty. At eighty she says nothing.
+Sound: one long build to shot 6, a hard drop to silence at shot 8, and only breathing after that. The silence is the strongest event in the mix.
+
+Rules: one woman three ages | never explain | colour falls across the film | the camera stops only at the end | three lines only`
+  },
+
+  story: {
+    h3: "מה באמת קרה",
+    copyLabel: "העתק סיפור רקע",
+    copyHead: 'סיפור הרקע לסרט "בשביל מי זה?":',
+    paras: [
+      "ב-1967, במעבדות BBN בקיימברידג', שלושה אנשים בנו שפת תכנות שנועדה מראש לילדים: וולי פויירצייג, סינתיה סולומון וסימור פפרט. קראו לה Logo, והדבר הראשון שילד יכול היה לעשות איתה היה להגיד לצב לזוז ולראות קו נמתח על המסך. זה נשמע קטן, אבל זה היה היפוך שלם: המחשב הפסיק להיות משהו שמלמדים עליו והתחיל להיות משהו שבונים איתו.",
+      "ב-1972 אלן קיי כתב בזירוקס PARC מאמר בשם A Personal Computer for Children of All Ages ותיאר את ה-Dynabook: מכשיר שילדים יוצרים בו, לא צורכים בו. הוא לא הצליח לבנות אותו אז, אבל הוא הגדיר את הכיוון של ארבעים השנים הבאות.",
+      "ב-1980 פפרט פרסם את Mindstorms וטבע את המונח קונסטרוקציוניזם: ילדים לומדים הכי טוב כשהם בונים משהו אמיתי שאפשר להראות לאחרים. המשפט החד שלו מהספר היה שאו שהילד מתכנת את המחשב, או שהמחשב מתכנת את הילד. במשך ארבעה עשורים החסם היה טכני לגמרי: תחביר. כדי לבנות היית צריך קודם ללמוד לדבר מכונה.",
+      "ואז השפה הטבעית הפכה לממשק והחסם נמס. הצב של פפרט קיבל אוזניים. מה שהסרט הזה שואל הוא מה שקורה ביום שאחרי, ולמה התשובה לא נמדדת בשיעור אחד אלא בחיים שלמים: אפשר לבנות עיר בגיל שש עשרה ולגלות בגיל שמונים שהדבר היחיד ששרד הוא נקודה אחת שהנחת על כיסא ריק."
+    ],
+    en: `In 1967, at BBN in Cambridge, three people built a programming language designed from the start for children: Wally Feurzeig, Cynthia Solomon and Seymour Papert. They called it Logo, and the first thing a child could do with it was tell a turtle to move and watch a line appear. That sounds small, but it was a full inversion: the computer stopped being something you learn about and became something you build with.
+
+In 1972 Alan Kay wrote A Personal Computer for Children of All Ages at Xerox PARC and described the Dynabook: a device children create on rather than consume from. He could not build it then, but he set the direction for the next forty years.
+
+In 1980 Papert published Mindstorms and named constructionism: children learn best while building something real they can show other people. His sharp line was that either the child programs the computer, or the computer programs the child. For four decades the barrier was purely technical: syntax. To build, you first had to learn to speak machine.
+
+Then natural language became the interface and the barrier dissolved. Papert's turtle got ears. What this film asks is what happens the day after, and why the answer is not measured in one lesson but across a whole life: you can build a city at sixteen and discover at eighty that the only thing that survived is one point of light you set down on an empty chair.`
+  },
+
+  vo: [
+    { t: "0:10-0:20 · בת 16",
+      text: "תראו לי מה אני יכולה.",
+      en: "Show me what I can do." },
+    { t: "0:20-1:10",
+      text: "בלי דיאלוג. העיר נבנית. רק סאונד עולה.",
+      en: "No dialogue. The city builds itself. Sound rising only." },
+    { t: "1:10-1:20 · בת 16",
+      text: "אין פה אף אחד.",
+      en: "There's nobody here." },
+    { t: "1:20-1:50",
+      text: "בלי דיאלוג. היד מזדקנת. שקט כמעט מוחלט.",
+      en: "No dialogue. The hand ages. Near total silence." },
+    { t: "2:10-2:20 · בת 50, לחישה",
+      text: "בשבילך.",
+      en: "For you." },
+    { t: "2:20-3:00",
+      text: "בלי דיאלוג. היא בת שמונים והיא לא אומרת כלום. כרטיס סיום נוסף בעריכה.",
+      en: "No dialogue. She is eighty and she says nothing. End card added in the edit: \"Anyone can build anything. The only question left is who for.\"" }
+  ],
+
+  shots: {
+    style: STYLE,
+    prompts: function (s) {
+      return [
+        { label: "פרומפט פריים פתיחה", btn: "העתק פריים", text: STYLE + ". " + s.frame },
+        { label: "פרומפט תנועה", btn: "העתק תנועה", text: STYLE + ". " + s.motion }
+      ];
+    },
+    list: [
+      { n:1, title:"הנשימה", titleEn:"The Breath", dur:"10 שנ'", durEn:"10 sec",
+        cam:"מאקרו, דחיפה איטית מאוד", camEn:"Extreme macro, very slow push in", model:"Nano Banana ואז Kling 3",
+        img:"hf_20260801_170148_58967e8a-4f94-48d9-bdd4-86876f602535.png",
+        vid:"hf_20260805_082927_74936666-ab21-4255-8974-29be9412efff.mp4",
+        frame: G16 + ". Extreme macro, her eyes closed, lips just parting, a single thin thread of fluorescent cyan light beginning to draw itself in the air in front of her mouth, no text",
+        motion:"Extreme macro on the clay girl, eyes closed, one slow breath, her eyes open, a single thin thread of fluorescent cyan light begins to draw itself in the air in front of her mouth, her clay hand rises into frame and the fingers open upward from the thumb, camera begins an extremely slow push in, intimate and quiet, no text" },
+
+      { n:2, title:"החוט מתפצל", titleEn:"The Thread Splits", dur:"10 שנ'", durEn:"10 sec",
+        cam:"מדיום קלוז, נסיגה עם הקווים", camEn:"Medium close, camera pulling back with the lines", model:"Kling 3",
+        img:"hf_20260805_043236_27275636-c25b-41c7-86c7-8c4f6a8eb8f0.png",
+        vid:"hf_20260805_083242_1d722ca5-9777-4477-91c1-dade0ef421ed.mp4",
+        frame: G16 + ". Medium close up, the single thread of cyan light has thickened and split into dozens of thin luminous lines racing outward past both sides of her clay face, her eyes wide, her lips parted as she speaks, no text",
+        motion:"The single thread of light thickens and splits into dozens of thin luminous lines racing outward past both sides of the clay girl's face, accelerating, she opens her eyes wide and speaks one short sentence, the camera pulling back with the lines, energy building, no text" },
+
+      { n:3, title:"הפיצוץ", titleEn:"The Lattice", dur:"10 שנ'", durEn:"10 sec",
+        cam:"נסיגה, הבניינים הראשונים", camEn:"Camera drifting backward, first buildings appear", model:"Kling 3",
+        img:"hf_20260805_043244_48a9a7b1-6fd3-4dde-86ef-1aa0364455b0.png",
+        vid:"hf_20260805_083312_c391e8ed-28d0-4b3b-a9cf-6cbf5c029ca1.mp4",
+        frame: G16 + ". The lines of fluorescent light have exploded outward into an enormous lattice all around her, the first clay buildings snapping into existence out of nothing at the edges of frame, no classroom anywhere, only the void and the light, no text",
+        motion:"The lattice of fluorescent light explodes outward around the clay girl and the first clay buildings snap into existence out of nothing all around her in rapid succession, structure assembling at speed, prism streaks flaring across the lens, the camera drifting backward, no text" },
+
+      { n:4, title:"העיר גדלה", titleEn:"The City Grows", dur:"10 שנ'", durEn:"10 sec",
+        cam:"עלייה והטיה כלפי מעלה", camEn:"Camera rising and tilting up", model:"Kling 3",
+        img:"hf_20260805_043250_f3b431da-84a6-46e9-8489-4c0c6806f584.png",
+        vid:"hf_20260805_105237_d7d53bf5-c41e-4891-9a6a-20c85a4ff0c9.mp4",
+        frame:"Towers and streets and bridges of glowing plasticine building themselves upward and outward around a low camera, thin luminous lines still writing new structure into the air, deep indigo sky above, no text",
+        motion:"The city grows upward and outward around a rising camera, towers and streets and bridges of glowing plasticine building themselves in rapid succession, luminous lines still writing new structure into the air, long exposure trails, awe and acceleration, no text" },
+
+      { n:5, title:"העיר השלמה", titleEn:"The Whole City", dur:"10 שנ'", durEn:"10 sec",
+        cam:"רחב מאוד, נסיגה איטית · שיא הרוויה", camEn:"Extreme wide, slow pull back, peak saturation", model:"Kling 3 · שוט מפתח",
+        img:"hf_20260805_043257_22cc4618-5d23-413d-befc-ed1a250caead.png",
+        vid:"hf_20260805_105248_7917d1bb-c55c-4888-9c05-c05476694a07.mp4",
+        frame:"An enormous wide view of a whole city built from fluorescent clay light stretching to the horizon under a deep indigo sky, and at the very centre, tiny and almost lost in scale, " + G16 + " standing with her hand still raised, the most saturated frame in the film, no text",
+        motion:"An enormous wide shot of the whole city of fluorescent clay light still completing itself toward the horizon, the camera drifting slowly backward to reveal even more scale, the tiny clay girl at the centre with her hand raised, peak saturation, prism streaks, joyful and vast, no text" },
+
+      { n:6, title:"הכל נעצר", titleEn:"Everything Holds", dur:"10 שנ'", durEn:"10 sec",
+        cam:"כמעט סטטי", camEn:"Almost completely static", model:"Kling 3",
+        img:"hf_20260805_043309_b68b69e0-aaec-4a59-ab2e-2a4fc3141305.png",
+        vid:"hf_20260805_105257_a9d805ed-2486-4a1d-b6f3-1dc72c7837dc.mp4",
+        frame:"The finished city of fluorescent clay light, absolutely motionless, the very last line of light just locked into place, no motion blur anywhere, the glow completely steady, a held frame of total silence, no text",
+        motion:"The very last line of light locks into place and the entire city stops moving and simply holds, absolute stillness after enormous motion, the glow steady and unchanging, only the faintest drift of dust in the air, the camera almost completely static, sudden total silence, no text" },
+
+      { n:7, title:"הרחוב הריק", titleEn:"The Empty Street", dur:"10 שנ'", durEn:"10 sec",
+        cam:"החלקה קדימה ברחוב", camEn:"Slow forward glide down a street", model:"Kling 3 · שוט מפתח",
+        img:"hf_20260805_043315_7e28d798-8907-4b7b-9bfa-adcca3bb5283.png",
+        vid:"hf_20260805_105305_21428cfc-fedc-48fb-bd8a-3e86f9e190d1.mp4",
+        frame:"A view down an empty street inside the finished city of glowing clay light, every surface perfect and lit, glowing windows and glowing squares, and not a single figure anywhere in the frame, beautiful and completely hollow, no text",
+        motion:"The camera glides slowly forward down an empty street inside the finished city of glowing clay light, past glowing windows and glowing squares, and there is not a single figure anywhere, nobody walking, nobody at any window, no movement except the camera, the emptiness is the subject, no text" },
+
+      { n:8, title:"אין פה אף אחד", titleEn:"There's Nobody Here", dur:"10 שנ'", durEn:"10 sec",
+        cam:"קלוז אפ, דחיפה איטית", camEn:"Close up, slow push in", model:"Kling 3 · שוט מפתח",
+        img:"hf_20260805_043322_19ba5a60-9895-4b25-9237-a726e0e0f91f.png",
+        vid:"hf_20260805_105315_2eb3aaae-a307-4f9f-ae4a-b47ccd044f84.mp4",
+        frame:"A close up of " + G16 + " her clay face lit strongly in magenta from her own glowing city far out of focus behind her, the wonder in her expression drained into something quieter and heavier, her raised hand beginning to come down at the bottom of frame, no text",
+        motion:"A slow push in on the clay girl's face lit magenta by her own city, the wonder in her expression slowly draining into something quieter and heavier, she says something almost to herself, and she lowers her raised hand out of the bottom of the frame, the city behind her going further out of focus, no text" },
+
+      { n:9, title:"היד", titleEn:"The Hand", dur:"10 שנ'", durEn:"10 sec",
+        cam:"מאקרו, כמעט סטטי", camEn:"Macro, almost static", model:"Kling 3",
+        img:"hf_20260804_191430_2b92b5ad-7b07-4f2b-800e-790afcfae0db.png",
+        vid:"hf_20260805_105325_85ce18a5-70f6-4077-ad42-cf1f27ad968e.mp4",
+        frame:"An extreme macro of a single young clay hand alone in frame, smooth olive clay with visible fingerprints, fingers opening upward from the thumb, palm turned up and empty, the background a soft out of focus dissolving field of magenta and cyan light, no text",
+        motion:"Macro, the young clay hand held open and still in the centre of the frame, the glowing magenta and cyan field behind it slowly falling further out of focus and fading toward darkness until only the hand remains lit, the camera holding almost completely still, no text" },
+
+      { n:10, title:"המורף", titleEn:"The Morph", dur:"10 שנ'", durEn:"10 sec",
+        cam:"מאקרו נעול, בלי תזוזה", camEn:"Locked off macro, no camera movement", model:"שלושה סטילס ומורף ב-ffmpeg",
+        img:"hf_20260805_042510_45218f10-287a-4e37-8139-f44a88f85cd3.png",
+        vid:"",
+        frame:"An extreme macro of a single very old clay hand in the identical pose and identical framing as the young hand, the plasticine heavily carved with deep crisscrossing wrinkles, knuckles swollen, veins and tendons raised, age spots pressed into the clay, hard raking side light so every wrinkle throws a shadow, no text",
+        motion:"The clay hand stays in exactly the same position and framing for the entire shot while it ages continuously in front of the camera, sixty years passing in ten seconds, the smooth plasticine filling with deep wrinkles, the knuckles thickening and the veins rising, one single unbroken transformation with no cut and no camera movement, no text" },
+
+      { n:11, title:"בת חמישים", titleEn:"Fifty", dur:"10 שנ'", durEn:"10 sec",
+        cam:"נסיגה לחשיפה", camEn:"Pull back to reveal", model:"Nano Banana ואז Kling 3 · שוט מפתח",
+        img:"hf_20260805_043330_8cd66aab-a98c-41e4-bf2c-9f8c8f053651.png",
+        vid:"hf_20260805_105335_aba8272b-db4d-4170-a71e-d0a1a56b76af.mp4",
+        frame: G50 + ". Standing alone in an empty clay classroom at the end of a day, rows of empty clay chairs, tall clay windows with cold evening light, no city and no fluorescent structures anywhere, medium wide, no text",
+        motion:"The camera pulls back slowly to reveal the fifty year old clay woman with her short grey bob standing alone in an empty clay classroom at the end of a day, rows of empty clay chairs, cold evening light through tall clay windows, she breathes and looks around the quiet room, unhurried, no text" },
+
+      { n:12, title:"אותה תנועה", titleEn:"The Same Gesture", dur:"10 שנ'", durEn:"10 sec",
+        cam:"דחיפה איטית על היד והפנים", camEn:"Slow push in on hand and face", model:"Kling 3 · שוט מפתח",
+        img:"hf_20260805_043337_fc077e23-4a15-4def-9279-2775460f6bdd.png",
+        vid:"hf_20260805_105345_3902040c-f1d4-4947-861c-c303228bba5d.mp4",
+        frame: G50 + ". Her hand raised in front of her, fingers opening upward from the thumb in exactly the same offering gesture the girl made at the start of the film, one single small point of fluorescent cyan light building in her open palm, nothing else in the dim classroom lit, no text",
+        motion:"The fifty year old clay woman holds her hand up with the fingers opening upward from the thumb, and one single small point of fluorescent cyan light slowly assembles itself in her open palm, deliberate and tiny, taking its time, nothing else in the dim classroom lights up at all, a slow push in, no text" },
+
+      { n:13, title:"בין הכיסאות", titleEn:"Between the Chairs", dur:"10 שנ'", durEn:"10 sec",
+        cam:"מעקב לצידה", camEn:"Camera tracking alongside her", model:"Kling 3",
+        img:"hf_20260805_043345_74c194f2-496b-411f-9bde-ea46f7c5937d.png",
+        vid:"hf_20260805_105354_8a3b38b5-b95d-4647-8d69-b4efe778a639.mp4",
+        frame: G50 + ". Walking slowly between rows of empty clay chairs carrying the single point of fluorescent light in her open palm, the point casting a small circle of colour onto the clay floor and onto her face from below, the rest of the room dark, no text",
+        motion:"The fifty year old clay woman walks slowly between rows of empty clay chairs carrying the single point of fluorescent light in her open palm, the small circle of colour travelling across the clay floor with her and lighting her face from below, the camera tracking alongside her, she slows and stops beside one particular chair, no text" },
+
+      { n:14, title:"בשבילך", titleEn:"For You", dur:"10 שנ'", durEn:"10 sec",
+        cam:"סטטי על הכיסא", camEn:"Static on the chair", model:"Kling 3 · שוט מפתח",
+        img:"hf_20260805_043352_cdfa84c0-71a8-44f7-b01b-06195f692ec1.png",
+        vid:"hf_20260805_105403_9b8f9208-09b4-4bb8-8c52-a36cbd350f30.mp4",
+        frame: G50 + ". She has leaned down and set the single point of fluorescent light onto the seat of one empty clay chair, she is straightening up and looking at it, the point burning steadily on the chair, the empty chair at the centre of frame, quiet and private, no text",
+        motion:"The fifty year old clay woman leans down and carefully sets the single point of fluorescent light onto the seat of the empty clay chair, straightens up, and looks at it, she says one quiet whispered word, the point of light stays exactly where she put it and keeps burning steadily, the camera holding still, no text" },
+
+      { n:15, title:"בת שמונים", titleEn:"Eighty", dur:"10 שנ'", durEn:"10 sec",
+        cam:"כמעט סטטי, דחיפה איטית מאוד", camEn:"Almost static, extremely slow push in", model:"Nano Banana ואז Kling 3",
+        img:"hf_20260805_043359_f5167cb4-5ee1-4788-9a09-7f14bbdc9f86.png",
+        vid:"hf_20260805_105414_fa1b73ef-91ca-43fd-be36-ffd3be828fcc.mp4",
+        frame: G80 + ". Sitting very still in a chair in a cold dim clay apartment, empty clay furniture, a clay window with weak grey daylight, almost monochrome pale cyan and grey, no neon and no magenta anywhere, medium wide, no text",
+        motion:"An almost static shot of the eighty year old clay woman sitting very still in her chair in a cold dim clay apartment, she does not move except for the smallest breath and one slow blink, dust hanging in the still air, almost monochrome pale cyan and grey, an extremely slow push in, silent and patient, no text" },
+
+      { n:16, title:"עדיין דולקת", titleEn:"Still Burning", dur:"10 שנ'", durEn:"10 sec",
+        cam:"החלקה איטית אל השולחן", camEn:"Slow drift toward the table", model:"Kling 3",
+        img:"hf_20260805_043406_1c8e6bd0-7ee1-4b45-aef6-950f86287eef.png",
+        vid:"hf_20260805_105423_b27a974c-0053-46c2-bb72-11f5163475db.mp4",
+        frame:"A small clay side table beside her chair, and resting on it one single small point of fluorescent cyan light still burning after decades, the only warm saturated colour in an otherwise cold pale cyan and grey frame, she is out of focus behind it, no text",
+        motion:"The camera drifts slowly toward the small clay side table where one single point of fluorescent light is still burning after decades, it pulses very faintly like breathing, the only warm saturated colour in an otherwise cold frame, the old woman out of focus behind it, quiet and tender, no text" },
+
+      { n:17, title:"בתוך הנקודה", titleEn:"Inside the Point", dur:"10 שנ'", durEn:"10 sec",
+        cam:"דחיפה מלאה אל תוך האור", camEn:"Full push into the light", model:"Kling 3 · שוט מפתח",
+        img:"hf_20260805_043412_7d458fdd-74dc-4567-868b-66a773cbe5f8.png",
+        vid:"hf_20260805_105433_3916978f-4325-4ea8-bc1d-fb4d60164f10.mp4",
+        frame:"An extreme macro pushed all the way into the single point of light until it fills the frame as a glowing sphere, and visible inside it, faint and tiny and perfectly formed, the reflection of an entire city built from magenta and cyan clay light, complete and with no figure anywhere in it, no text",
+        motion:"An extremely slow push all the way into the glowing sphere of light until it fills the frame, and inside it the reflection of an entire miniature city of magenta and cyan clay light slowly comes into focus, complete and perfect and with no figure anywhere in it, the reflection holding steady, no text" },
+
+      { n:18, title:"היא קמה", titleEn:"She Stands", dur:"10 שנ'", durEn:"10 sec",
+        cam:"נסיגה קלה ואז עצירה מוחלטת", camEn:"Slight pull back and then a complete stop", model:"Kling 3 · שוט אחרון",
+        img:"hf_20260805_043420_2c99a780-9699-462b-8307-1fee23d2b5ac.png",
+        vid:"hf_20260805_105443_a0a46ac2-8884-44f5-978a-5b0c4a7f8557.mp4",
+        frame: G80 + ". She has stood up out of her chair, her old hand extended with the fingers opening upward from the thumb for the third time in the film, the single point of fluorescent light settled into her open palm, turned toward a clay door and beginning to walk, its warm colour the only saturated thing in a cold frame, no text",
+        motion:"The eighty year old clay woman extends her hand with the fingers opening upward from the thumb, the single point of fluorescent light rises off the table and settles gently into her open palm, she stands the rest of the way up and begins to walk toward the clay door, the point of light travelling beside her, and then the camera stops moving completely and holds a still frame, no text" }
+    ]
+  },
+
+  notes: {
+    title: "איך מרכיבים את זה בפועל",
+    items: [
+      "עוגני הזהות: חמישה סימנים חוזרים בכל שלושת הגילים ובכל פריים. נמשים בתבנית קבועה על הלחי השמאלית, שבב חסר בחומר מעל הגבה השמאלית, ירוק ליים חומצי (חולצה, חולצה דהויה, שמיכה), ברק מג'נטה בשיער, ותנועת כף יד שחוזרת בדיוק שלוש פעמים. בלי אלה הצופה לא מזהה שזו אותה אישה והסרט מת.",
+      "שרשרת הדמות: בת ה-50 נוצרה כ-Reference Element מתוך בת ה-16, ובת ה-80 מתוך בת ה-50. אף פעם לא מאפס. אותו דבר ליד: שלוש הידיים נגזרו מ-Reference Element אחד של היד הצעירה עם הוראה מפורשת לא להפוך ולא לסובב.",
+      "שוט 10 לא יוצר במודל וידאו. שלושה סטילס של אותה יד בשלושה גילים ומורף מבוקר ב-ffmpeg עם דחיפה איטית. המודל ניסה קודם ושינה את צורת היד תוך כדי, לכן החלופה הזאת עדיפה.",
+      "התסרוקות שונות בכל גיל בכוונה: תלתלים פזורים, בוב אפור חלק, לבן אסוף. זה מה שמייצר את תחושת הזמן יחד עם הקמטים.",
+      "הפלטה היא הדרמטורגיה: שיא רוויה בשוט 5, שני צבעים בלבד משוט 12, וכמעט מונוכרום עם נקודה חמה אחת משוט 15. אסור לתת למודל להחזיר צבע רווי למערכות האחרונות.",
+      "ההרכבה בפועל: כל מקטע נחתך ל-10.0 שניות ומעברים של 0.4 שניות בין כולם. 24 fps, סה\"כ 173.25 שניות. הורכב בשני חצאים כי 18 קלטים בו זמנית מפילים את ffmpeg על זיכרון.",
+      "מה שנשאר: אפסקייל ל-1080p (המאסטר יוצא ב-1280x720), הקלטת שלושת המשפטים בעברית, מוזיקה, כתוביות אנגלית צרובות, כרטיס סיום, וטריילר ספונסר של 15 שניות.",
+      "הגשה: 1080p מינימום, MP4 או MOV, עד 3 דקות. צריך גם טריטמנט עד 12 עמודים, לוגליין, סינופסיס עד 300 מילים והצהרה אישית עד 300 מילים, ופרסום ביוטיוב עם #FutureVisionXPRIZE. דדליין 15.8.2026 בשעה 23:59 PST."
+    ],
+    itemsEn: [
+      "Identity anchors: five marks repeat across all three ages and in every frame. A fixed freckle pattern on the left cheek, a chip missing from the clay above the left eyebrow, acid lime green (shirt, faded shirt, blanket), a magenta sheen in the hair, and one hand gesture that recurs exactly three times. Without these the viewer never realises it is the same woman and the film dies.",
+      "Character chain: the fifty year old was generated as a reference element derived from the sixteen year old, and the eighty year old from the fifty year old. Never from scratch. Same for the hand: all three hands derive from one reference element of the young hand with an explicit instruction not to flip or rotate.",
+      "Shot 10 is not generated by a video model. Three stills of the same hand at three ages, morphed under control in ffmpeg with a slow push in. The video model was tried first and deformed the hand mid shot, so this alternative wins.",
+      "The hairstyles differ deliberately at every age: loose curls, a straight grey bob, white hair gathered in a bun. That is what carries the sense of time alongside the wrinkles.",
+      "The palette is the dramaturgy: peak saturation at shot 5, only two colours from shot 12, almost monochrome with one warm point from shot 15. Never let the model bring saturated colour back into the final acts.",
+      "How it was actually assembled: every segment trimmed to 10.0 seconds with 0.4 second dissolves between all of them. 24 fps, 173.25 seconds total. Built in two halves because 18 simultaneous inputs exhaust ffmpeg's memory.",
+      "Still open: upscale to 1080p (the master renders at 1280x720), record the three Hebrew lines, music, burned in English subtitles, end card, and a 15 second sponsor trailer.",
+      "Delivery: 1080p minimum, MP4 or MOV, under 3 minutes. Also required: a treatment up to 12 pages, a logline, a synopsis up to 300 words, a personal statement up to 300 words, and a YouTube post tagged #FutureVisionXPRIZE. Deadline 15.8.2026 at 23:59 PST."
+    ]
+  }
+};
+</script>
+<script src="../shared/sb.js?v=5"></script>
+</body>
+</html>
