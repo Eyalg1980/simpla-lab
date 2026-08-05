@@ -29,6 +29,17 @@ All the live apps (Daily Board, Post Brainstorm, Daily Director) and this lab in
 - Bump the page version stamp on every UI change, Eyal's in-app browser caches aggressively.
 - NOTE: several Claude sessions edit these repos in parallel. Always `git fetch` and rebase onto the remote before pushing, never force-push over someone else's commit.
 
+### Deliberate exception: `hachug-sheli` (החוג שלי)
+
+`hachug-sheli/` does **not** follow the Daily Board family language, on purpose, and should not be "fixed" to match it. It is a portfolio case study whose whole argument is that the visual language was *derived from the research*, so it carries its own system and documents that derivation in `case-studies/hachug-sheli.html`. Do not port the app bar, the icon rule or the font stack into it.
+
+- Its own tokens live in `hachug-sheli/app/styles/tokens.css`: teal `#0F766E` primary (trust: money and kids), one warm amber `#F59E0B` for the energy moments (free trial lesson), Heebo rather than Rubik.
+- **Emojis are intentional here**, unlike everywhere else in the family. They carry the kid identities in the avatar picker and the class icons, where a single-colour stroke SVG would read as clinical.
+- Navigation is a **bottom nav**, not the sticky app bar with the `navHist` back button. It is a consumer mobile app pattern, matched to the persona.
+- Selection state travels in the URL (`?kids=itai,noa`), never in browser storage, so the screens work when opened from `file://` and so a link can be shared mid-demo.
+- `app/data/classes.json` is the single source of truth for the taxonomy, the demo kids and the classes. `app/data/classes.js` is a **generated mirror** of it (`window.APP_DATA`) so the screens run without `fetch` under `file://`. Edit the JSON, then regenerate the JS. Never edit `classes.js` by hand.
+- The case-study images in `hachug-sheli/content/shots/` are generated from the live screens by `hachug-sheli/scripts/make-shots.js` (`node scripts/make-shots.js` from inside `hachug-sheli/`). Re-run it after any UI change instead of hand-editing a PNG.
+
 ## Burning Hebrew captions into a film (learned 1.8.2026, the hard way)
 
 The edit runs inside the Higgsfield sandbox (`sandbox_exec`), because the Cowork sandbox proxy blocks the Higgsfield CDN and the clips cannot be downloaded here.

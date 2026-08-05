@@ -126,6 +126,26 @@ a:focus-visible, button:focus-visible {
   margin: var(--space-2) 0;
 }
 .decision strong { color: var(--color-accent); }
+/* מה שנחתך מה-MVP. אפור ומקווקו, כדי שייקרא כהחלטה ולא ככישלון. */
+.cut {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+  margin: var(--space-2) 0;
+}
+.cut h3 { margin: 0 0 var(--space-1); font-size: 1.05rem; }
+.cut h3 .cut-tag {
+  font-size: 0.7rem; font-weight: 700; vertical-align: middle;
+  background: var(--color-border); color: var(--color-muted);
+  border-radius: 999px; padding: 2px 10px; margin-inline-start: 8px;
+}
+.cut p { margin: 0 0 var(--space-1); }
+.cut p:last-child { margin-bottom: 0; }
+.cut blockquote {
+  margin: var(--space-1) 0; padding-inline-start: var(--space-2);
+  border-inline-start: 3px solid var(--color-accent);
+  font-style: normal; color: var(--color-muted);
+}
 .wip-note {
   border: 2px dashed var(--color-border); border-radius: var(--radius);
   padding: var(--space-3); text-align: center; color: var(--color-muted);

@@ -16,68 +16,34 @@
     <div class="avatar">ד</div>
   </header>
 
+  <!-- בוחר הילדים: אווטארים שנדלקים ונכבים -->
+  <div id="kidpick"></div>
+
   <div class="search is-visible reveal">🔍 מה מחפשים? כדורגל, קרמיקה, רובוטיקה...</div>
 
   <div class="chips">
-    <span class="chip active">גיל 6-9</span>
+    <span class="chip active" id="chip-age">גיל 6-9</span>
     <span class="chip">ספורט</span>
     <span class="chip">יצירה</span>
-    <span class="chip">עד 250 ₪</span>
+    <span class="chip">עד 250 ש"ח</span>
     <span class="chip">אחה"צ</span>
   </div>
 
-  <div class="section-title"><h2>מתאים לאיתי (7)</h2><a href="#">הכל</a></div>
+  <!-- מפה כתצוגה חלופית, לא כדף נפרד. הכאב הוא ודאות, לא גילוי. -->
+  <div class="viewtoggle">
+    <button type="button" id="v-list" class="on">רשימה</button>
+    <button type="button" id="v-map">מפה</button>
+  </div>
 
-  <article class="card chug-card is-visible reveal">
-    <div class="chug-icon">⚽</div>
-    <div>
-      <h3>ביה"ס לכדורגל של יוסי</h3>
-      <p class="meta">ימי ג' 17:00 · פארק גבעתיים · גילאי 6-9</p>
-      <span class="badge low">נותרו 2 מקומות</span>
-      <span class="badge trial">שיעור ניסיון חינם</span>
-    </div>
-    <div class="chug-side">
-      <div class="price">220 ₪<small>/חודש</small></div>
-    </div>
-  </article>
+  <div id="mapview" hidden>
+    <div class="maparea" id="maparea"></div>
+    <p class="maphint">הבית שלכם בשחור. זמן הנסיעה מופיע על כל כרטיס, כי זה מה שמתנגש עם שעת האיסוף.</p>
+  </div>
 
-  <article class="card chug-card is-visible reveal">
-    <div class="chug-icon warm">🎨</div>
-    <div>
-      <h3>סטודיו קרמיקה קטן</h3>
-      <p class="meta">ימי ה' 16:30 · רח' כצנלסון · גילאי 6-10</p>
-      <span class="badge open">יש מקום</span>
-      <span class="badge trial">שיעור ניסיון חינם</span>
-    </div>
-    <div class="chug-side">
-      <div class="price">240 ₪<small>/חודש</small></div>
-    </div>
-  </article>
-
-  <article class="card chug-card is-visible reveal">
-    <div class="chug-icon">🤖</div>
-    <div>
-      <h3>רובוטיקה צעירה</h3>
-      <p class="meta">ימי ב' 17:30 · מרכז קהילתי · גילאי 7-10</p>
-      <span class="badge open">יש מקום</span>
-    </div>
-    <div class="chug-side">
-      <div class="price">280 ₪<small>/חודש</small></div>
-    </div>
-  </article>
-
-  <div class="section-title"><h2>נרשמים עכשיו באזור שלך</h2><a href="#">הכל</a></div>
-  <article class="card chug-card is-visible reveal">
-    <div class="chug-icon warm">🩰</div>
-    <div>
-      <h3>בלט מודרני · סטודיו רוני</h3>
-      <p class="meta">ימי א' 17:15 · רח' ויצמן · גילאי 5-8</p>
-      <span class="badge low">נותרו 3 מקומות</span>
-    </div>
-    <div class="chug-side">
-      <div class="price">260 ₪<small>/חודש</small></div>
-    </div>
-  </article>
+  <div id="listview">
+    <div class="section-title"><h2 id="sec-title">מתאים לילדים שלכם</h2><a href="#">הכל</a></div>
+    <div id="results"></div>
+  </div>
 </main>
 
 <nav class="bottom-nav">
@@ -86,5 +52,112 @@
   <a href="family-board.html"><span class="ic">📅</span>הלוח שלנו</a>
   <a href="#"><span class="ic">👤</span>פרופיל</a>
 </nav>
+
+<script src="../data/classes.js"></script>
+<script src="../scripts/kids.js"></script>
+<script>
+(function () {
+  var D = window.APP_DATA;
+  var $ = function (id) { return document.getElementById(id); };
+  var WARM = { 'יצירה': 1, 'מחול': 1 };
+
+  function badgeFor(c) {
+    return c.spotsLeft <= 3
+      ? '<span class="badge low">נותרו ' + c.spotsLeft + ' מקומות</span>'
+      : '<span class="badge open">יש מקום</span>';
+  }
+
+  // דירוג לפי התאמה לילדים המסומנים. חוג חסום יורד למטה ולא נעלם,
+  // כי הורה עדיין רוצה לדעת שהוא קיים.
+  function scored() {
+    var kids = window.Kids.selected;
+    return D.classes.map(function (c) {
+      var fits = kids.map(function (k) { return window.Kids.fitFor(k, c); });
+      var anyOk = fits.some(function (f) { return f.verdict === 'ok'; });
+      var allBlock = fits.length && fits.every(function (f) { return f.verdict === 'block'; });
+      return { c: c, fits: fits, rank: anyOk ? 0 : (allBlock ? 2 : 1) };
+    }).sort(function (a, b) { return a.rank - b.rank; });
+  }
+
+  function render() {
+    var kids = window.Kids.selected;
+    $('sec-title').textContent = kids.length
+      ? 'מתאים ל' + kids.map(function (k) { return k.name + ' (' + k.age + ')'; }).join(' ול')
+      : 'כל החוגים באזור';
+
+    // שבב הגיל נגזר מהילדים המסומנים, כדי שהמסננים לא יסתרו את הבחירה
+    var chip = $('chip-age');
+    if (!kids.length) { chip.textContent = 'כל הגילאים'; chip.classList.remove('active'); }
+    else {
+      var ages = kids.map(function (k) { return k.age; });
+      var lo = Math.min.apply(null, ages), hi = Math.max.apply(null, ages);
+      chip.textContent = lo === hi ? 'גיל ' + lo : 'גילאי ' + lo + ' עד ' + hi;
+      chip.classList.add('active');
+    }
+
+    $('results').innerHTML = scored().map(function (row) {
+      var c = row.c;
+      var note = '';
+      if (row.rank === 2) note = '<p class="meta" style="color:var(--color-danger)">לא בטווח הגילאים או מתנגש בלוח</p>';
+      else if (row.rank === 1) note = '<p class="meta" style="color:#B45309">מתאים לחלק מהילדים</p>';
+      return '' +
+        '<article class="card chug-card is-visible reveal" style="' + (row.rank === 2 ? 'opacity:.62' : '') + '">' +
+          '<div class="chug-icon' + (WARM[c.tags[0]] ? ' warm' : '') + '">' + c.emoji + '</div>' +
+          '<div>' +
+            '<h3>' + c.name + '</h3>' +
+            '<p class="meta">ימי ' + c.day + "' " + c.from + ' · ' + c.place + ' · ' + c.travelMin + ' דק נסיעה</p>' +
+            badgeFor(c) +
+            (c.tags.indexOf('שיעור ניסיון חינם') > -1 ? '<span class="badge trial">שיעור ניסיון חינם</span>' : '') +
+            note +
+          '</div>' +
+          '<div class="chug-side"><div class="price">' + c.price + ' ש"ח<small>/חודש</small></div></div>' +
+        '</article>';
+    }).join('');
+
+    // הכרטיס הראשון מוביל לדף החוג המלא
+    var first = $('results').querySelector('.chug-card');
+    if (first) {
+      first.style.cursor = 'pointer';
+      first.addEventListener('click', function () {
+        location.href = 'class.html?kids=' + encodeURIComponent(window.Kids.param());
+      });
+    }
+    drawMap();
+  }
+
+  /* ---- המפה ---- */
+  var SPOTS = [
+    { x: 62, y: 34 }, { x: 30, y: 58 }, { x: 74, y: 70 }, { x: 44, y: 22 }
+  ];
+  function drawMap() {
+    var host = $('maparea');
+    var roads =
+      '<div class="road" style="right:0; left:0; top:46%; height:10px"></div>' +
+      '<div class="road" style="top:0; bottom:0; right:48%; width:10px"></div>';
+    var home = '<div class="mappin home" style="right:50%; top:52%">' +
+      '<div class="dot"><span>🏠</span></div><div class="lbl">הבית</div></div>';
+    var pins = D.classes.map(function (c, i) {
+      var s = SPOTS[i % SPOTS.length];
+      return '<div class="mappin" style="right:' + s.x + '%; top:' + s.y + '%">' +
+        '<div class="dot"><span>' + c.emoji + '</span></div>' +
+        '<div class="lbl">' + c.travelMin + ' דק</div></div>';
+    }).join('');
+    host.innerHTML = roads + home + pins;
+  }
+
+  $('v-list').addEventListener('click', function () {
+    this.classList.add('on'); $('v-map').classList.remove('on');
+    $('listview').hidden = false; $('mapview').hidden = true;
+  });
+  $('v-map').addEventListener('click', function () {
+    this.classList.add('on'); $('v-list').classList.remove('on');
+    $('listview').hidden = true; $('mapview').hidden = false;
+  });
+
+  window.Kids.mount('#kidpick');
+  window.Kids.onChange(render);
+  render();
+})();
+</script>
 </body>
 </html>
