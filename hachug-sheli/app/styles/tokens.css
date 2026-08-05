@@ -1,0 +1,35 @@
+/* ============================================================
+   tokens.css - החוג שלי · השפה העיצובית
+   נגזר מהפרסונות: דנה ונועם (הורים) צריכים אמון ורוגע (teal),
+   הילדים והאנרגיה מקבלים accent חם אחד (amber). נימוקים בקייס.
+   ============================================================ */
+:root {
+  /* צבע */
+  --color-primary: #0F766E;          /* teal: אמון, רוגע, "אפשר לסמוך" */
+  --color-primary-dark: #0B5A54;
+  --color-primary-soft: #E6F4F2;
+  --color-accent: #F59E0B;           /* amber: אנרגיית ילדים, נקודות וואו בלבד */
+  --color-accent-soft: #FEF3C7;
+  --color-bg: #F7FAF9;
+  --color-surface: #FFFFFF;
+  --color-text: #17252A;
+  --color-muted: #5B6B6E;
+  --color-border: #E3EBEA;
+  --color-success: #16A34A;          /* "נותרו מקומות" */
+  --color-danger: #DC2626;           /* "כמעט מלא" */
+
+  /* טיפוגרפיה */
+  --font-main: 'Heebo', 'Segoe UI', Arial, sans-serif;
+  --fs-h1: 1.5rem;
+  --fs-h2: 1.15rem;
+  --fs-body: 0.95rem;
+  --fs-small: 0.8rem;
+
+  /* צורה וריווח */
+  --radius: 16px;
+  --radius-small: 10px;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --shadow-card: 0 2px 10px rgba(15, 118, 110, 0.08);
+}

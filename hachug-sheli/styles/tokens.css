@@ -1,0 +1,43 @@
+/* ============================================================
+   tokens.css - השפה העיצובית של האתר. זה הקובץ שמחליפים!
+   ערכת ברירת המחדל ניטרלית בכוונה. החליפו בערכים מהפרויקט שלכם
+   (או הריצו את סקיל 06 על רפרנס ועדכנו כאן).
+   ============================================================ */
+:root {
+  /* צבע */
+  --color-bg: #FAFAF8;
+  --color-surface: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-muted: #6B6B6B;
+  --color-border: #E8E6E1;
+  --color-accent: #0F766E;          /* הצבע שלכם. אחד. חזק. */
+  --color-accent-contrast: #FFFFFF; /* טקסט על גבי accent */
+  --color-accent-soft: #E6F4F2;     /* רקע עדין נגזר מה-accent */
+
+  /* טיפוגרפיה */
+  --font-main: 'Heebo', 'Segoe UI', Arial, sans-serif;
+  --fs-hero: clamp(2.2rem, 6vw, 3.6rem);
+  --fs-h2: clamp(1.5rem, 3.5vw, 2.1rem);
+  --fs-h3: 1.25rem;
+  --fs-body: 1.05rem;
+  --fs-small: 0.9rem;
+  --lh-body: 1.7;
+
+  /* ריווח */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+
+  /* צורה */
+  --radius: 14px;
+  --radius-small: 8px;
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 10px 28px rgba(0, 0, 0, 0.10);
+
+  /* פריסה */
+  --max-width: 1080px;
+  --grid-gap: var(--space-3);
+}

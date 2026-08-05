@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>החוג שלי · הרשמה</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles/tokens.css" /><link rel="stylesheet" href="../styles/app.css" />
+</head>
+<body>
+<main class="screen">
+  <p style="margin:0 0 10px;"><a href="class.html" style="color:var(--color-primary); text-decoration:none; font-weight:600;">→ חזרה לפרטי החוג</a></p>
+  <h1 style="font-size:var(--fs-h1); margin:0 0 4px;">הרשמה: כדורגל של יוסי</h1>
+  <p style="color:var(--color-muted); margin:0 0 16px; font-size:var(--fs-small);">שלב 2 מתוך 2 · פרטי הילד ותשלום</p>
+
+  <section class="card is-visible reveal">
+    <div class="field">
+      <label for="kid">שם הילד/ה</label>
+      <input id="kid" type="text" value="איתי לוי" />
+    </div>
+    <div class="field">
+      <label for="age">גיל</label>
+      <select id="age"><option>7</option></select>
+    </div>
+    <div class="field">
+      <label>מסלול</label>
+      <div class="plan">
+        <div class="opt selected">פעם בשבוע<br /><strong>220 ₪</strong></div>
+        <div class="opt">פעמיים בשבוע<br /><strong>380 ₪</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card is-visible reveal">
+    <div class="summary-row"><span>מנוי חודשי · פעם בשבוע</span><span>220 ₪</span></div>
+    <div class="summary-row"><span>שיעור ניסיון</span><span style="color:var(--color-success); font-weight:700;">חינם</span></div>
+    <div class="summary-row"><span>דמי רישום</span><span>0 ₪</span></div>
+    <div class="summary-row total"><span>לתשלום היום</span><span>0 ₪</span></div>
+    <p style="margin:8px 0 0; font-size:0.75rem; color:var(--color-muted);">החיוב הראשון רק אחרי שיעור הניסיון, ואפשר לבטל בקליק עד 48 שעות לפניו.</p>
+  </section>
+
+  <a class="btn is-visible reveal" href="family-board.html">אישור ושריון המקום של איתי</a>
+  <div class="trust">🔒 תשלום מאובטח · ביטול חופשי · אישור מיידי למייל</div>
+</main>
+
+<nav class="bottom-nav">
+  <a href="home.html"><span class="ic">🏠</span>חיפוש</a>
+  <a href="#"><span class="ic">❤️</span>שמורים</a>
+  <a href="family-board.html"><span class="ic">📅</span>הלוח שלנו</a>
+  <a href="#"><span class="ic">👤</span>פרופיל</a>
+</nav>
+</body>
+</html>

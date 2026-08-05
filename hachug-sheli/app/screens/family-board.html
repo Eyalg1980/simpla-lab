@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>החוג שלי · הלוח המשפחתי</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles/tokens.css" /><link rel="stylesheet" href="../styles/app.css" />
+</head>
+<body>
+<main class="screen">
+  <header class="app-header">
+    <div>
+      <h1 class="hello">הלוח המשפחתי 📅</h1>
+      <span class="loc">השבוע · 2 ילדים · 3 חוגים</span>
+    </div>
+    <div class="avatar">ד</div>
+  </header>
+
+  <div class="week is-visible reveal">
+    <div class="day">א'</div><div class="day">ב'</div><div class="day today">ג'</div>
+    <div class="day">ד'</div><div class="day">ה'</div><div class="day">ו'</div>
+  </div>
+
+  <div class="section-title"><h2>היום, יום ג'</h2></div>
+  <article class="card chug-card is-visible reveal">
+    <div class="chug-icon">⚽</div>
+    <div>
+      <h3>כדורגל של יוסי <span class="kid-tag kid-a">איתי</span></h3>
+      <p class="meta">17:00-18:00 · פארק גבעתיים · להביא בקבוק מים</p>
+      <span class="badge trial">שיעור ניסיון · היום!</span>
+    </div>
+  </article>
+
+  <div class="section-title"><h2>בהמשך השבוע</h2></div>
+  <article class="card chug-card is-visible reveal">
+    <div class="chug-icon warm">🎨</div>
+    <div>
+      <h3>קרמיקה קטן <span class="kid-tag kid-b">נועה</span></h3>
+      <p class="meta">יום ה' 16:30 · רח' כצנלסון</p>
+    </div>
+  </article>
+  <article class="card chug-card is-visible reveal">
+    <div class="chug-icon warm">🩰</div>
+    <div>
+      <h3>בלט מודרני <span class="kid-tag kid-b">נועה</span></h3>
+      <p class="meta">יום א' 17:15 · סטודיו רוני</p>
+    </div>
+  </article>
+
+  <div class="section-title"><h2>תשלומים</h2><a href="#">היסטוריה</a></div>
+  <section class="card is-visible reveal">
+    <div class="pay-row"><span>⚽ כדורגל · איתי</span><span class="pill-paid">אחרי שיעור ניסיון</span></div>
+    <div class="pay-row"><span>🎨 קרמיקה · נועה</span><span class="pill-paid">שולם · אוגוסט</span></div>
+    <div class="pay-row"><span>🩰 בלט · נועה</span><span class="pill-due">לתשלום עד 1/8</span></div>
+  </section>
+
+  <div class="section-title"><h2>הודעות מהמדריכים</h2></div>
+  <section class="card is-visible reveal">
+    <p style="margin:0; font-size:var(--fs-small);"><strong>יוסי (כדורגל):</strong> "מחכים לאיתי היום! מגרש 2, ליד השער הצפוני" · לפני שעה</p>
+  </section>
+</main>
+
+<nav class="bottom-nav">
+  <a href="home.html"><span class="ic">🏠</span>חיפוש</a>
+  <a href="#"><span class="ic">❤️</span>שמורים</a>
+  <a href="#" class="active"><span class="ic">📅</span>הלוח שלנו</a>
+  <a href="#"><span class="ic">👤</span>פרופיל</a>
+</nav>
+</body>
+</html>

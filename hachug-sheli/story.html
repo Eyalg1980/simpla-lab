@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מאפס למוצר חי · הסיפור של החוג שלי</title>
+  <meta name="description" content="איך נראה תהליך מלא של עיצוב מוצר בעידן ה-AI: ממחקר משתמשים, דרך שפה עיצובית, ועד מוצר שרץ בדפדפן" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    .story-hero { padding: var(--space-6) 0 var(--space-4); }
+    .story-hero h1 { font-size: var(--fs-hero); line-height: 1.15; margin: 0 0 var(--space-3); }
+    .story-hero .accent { color: var(--color-accent); }
+    .story-hero .lede { font-size: 1.2rem; color: var(--color-muted); max-width: 62ch; line-height: var(--lh-body); }
+    .story-hero .cta-row { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+
+    .block { border-top: 1px solid var(--color-border); padding: var(--space-5) 0; }
+    .block-head { display: flex; align-items: baseline; gap: var(--space-2); margin-bottom: var(--space-3); }
+    .block-num {
+      font-size: 3.4rem; font-weight: 900; line-height: 1;
+      color: var(--color-accent); opacity: 0.22; letter-spacing: -0.03em;
+    }
+    .block-head h2 { font-size: var(--fs-h2); margin: 0; }
+    .block-lede { font-size: 1.08rem; max-width: 66ch; line-height: var(--lh-body); margin: 0 0 var(--space-3); }
+
+    .steps { display: grid; gap: var(--space-2); grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin-top: var(--space-3); }
+    .step {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius); padding: var(--space-3);
+      box-shadow: var(--shadow-card);
+    }
+    .step h3 { font-size: 1rem; margin: 0 0 6px; }
+    .step p { font-size: var(--fs-small); color: var(--color-muted); margin: 0; line-height: 1.6; }
+    .step .tool {
+      display: inline-block; margin-top: 10px; font-size: 0.78rem;
+      background: var(--color-accent-soft); color: var(--color-accent);
+      padding: 3px 10px; border-radius: 999px; font-weight: 500;
+    }
+
+    .pull {
+      border-inline-start: 4px solid var(--color-accent);
+      background: var(--color-accent-soft);
+      padding: var(--space-3); border-radius: var(--radius-small);
+      font-size: 1.05rem; line-height: 1.65; margin: var(--space-3) 0 0;
+    }
+    .pull strong { display: block; margin-bottom: 4px; }
+
+    .shots { display: grid; gap: var(--space-2); grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-top: var(--space-3); }
+    .shots img { width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--color-border); display: block; }
+
+    .outcome { display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-top: var(--space-3); }
+    .outcome-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius); padding: var(--space-3); box-shadow: var(--shadow-card);
+      display: flex; flex-direction: column;
+    }
+    .outcome-card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+    .outcome-card p { font-size: var(--fs-small); color: var(--color-muted); line-height: 1.6; margin: 0 0 var(--space-3); flex: 1; }
+    .outcome-card a { font-weight: 500; color: var(--color-accent); text-decoration: none; }
+    .outcome-card a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">אייל גרשון</a>
+      <nav class="site-nav" aria-label="ניווט ראשי">
+        <a href="index.html">עבודות</a>
+        <a href="story.html" aria-current="page">התהליך</a>
+        <a href="about.html">עליי</a>
+        <a href="mailto:eyal@simpla.co.il">צרו קשר</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="story-hero">
+      <div class="container">
+        <h1 class="reveal">מאפס למוצר חי.<br /><span class="accent">בלי מצגת באמצע</span></h1>
+        <p class="lede reveal">רוב תהליכי העיצוב נגמרים בקובץ. זה נגמר במשהו שאפשר לפתוח בדפדפן ולנסות. שלושה בלוקים, וכל אחד מהם מתועד: מה שאלנו, מה החלטנו, ומה יצא.</p>
+        <div class="cta-row reveal">
+          <a class="btn" href="case-studies/hachug-sheli.html">לקייס סטאדי המלא</a>
+          <a class="btn btn--ghost" href="case-studies/compare.html">לפני ואחרי: אותו פרויקט, שתי כתיבות</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="container">
+        <div class="block-head reveal">
+          <span class="block-num">01</span>
+          <h2>התחלנו בשאלה, לא ברעיון</h2>
+        </div>
+        <p class="block-lede reveal">הורים לא מחפשים "אפליקציה לחוגים". הם מחפשים חוג שמתאים לילד, שיש בו מקום, ושלא מתנגש עם ההסעה. הראיונות לא הזכירו מוצר אף פעם, רק את מה שקרה בפועל בשבוע שעבר.</p>
+
+        <div class="pull reveal">
+          <strong>הכלל שהחזיק את כל התהליך</strong>
+          לא עושים מחקר שמצדיק את מה שכבר בנוי. עושים מחקר על שאלה שהתשובה שלה לא ידועה.
+        </div>
+
+        <div class="steps reveal">
+          <div class="step">
+            <h3>ראיונות</h3>
+            <p>שאלות בזמן עבר בלבד. מבקשים להראות, לא לספר.</p>
+          </div>
+          <div class="step">
+            <h3>תמות וקבוצות</h3>
+            <p>מה חזר על עצמו, ומי מתנהג דומה למי.</p>
+            <span class="tool">interview-analyzer</span>
+          </div>
+          <div class="step">
+            <h3>פרסונה ואמפתיה</h3>
+            <p>הפער בין מה שהורים אומרים למה שהם באמת עושים.</p>
+            <span class="tool">figjam-persona-builder</span>
+          </div>
+          <div class="step">
+            <h3>מסע וארכיטקטורה</h3>
+            <p>המסע האמיתי, ומפת המסכים שנגזרה ממנו.</p>
+            <span class="tool">figjam-cjm-builder</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="container">
+        <div class="block-head reveal">
+          <span class="block-num">02</span>
+          <h2>כל החלטת עיצוב נשענת על ממצא</h2>
+        </div>
+        <p class="block-lede reveal">השפה העיצובית לא נבחרה כי היא נעימה לעין. כל טוקן, מהצבע ועד רדיוס הפינה, מנומק מול משהו שעלה במחקר. זה ההבדל בין קייס שמסביר את עצמו לקייס שמתנצל.</p>
+
+        <div class="steps reveal">
+          <div class="step">
+            <h3>Design Tokens</h3>
+            <p>קובץ אחד שמחזיק את כל השפה. מחליפים אותו, וכל המוצר משתנה.</p>
+            <span class="tool">extract-design-system</span>
+          </div>
+          <div class="step">
+            <h3>בנייה בשילוב AI</h3>
+            <p>ארבעה מסכים חיים, לא תמונות. נבנו מהטוקנים החוצה.</p>
+          </div>
+          <div class="step">
+            <h3>התנהגויות</h3>
+            <p>הרגע שבו המסך מפסיק להיראות כמו מוקאפ ומתחיל להרגיש כמו מוצר.</p>
+          </div>
+        </div>
+
+        <div class="shots reveal">
+          <img src="content/shots/hachug-sheli-screens.png" alt="ארבעת מסכי האפליקציה זה לצד זה" />
+          <img src="content/shots/hachug-sheli-research.png" alt="לוחות המחקר: תמות, פרסונה ומסע לקוח" />
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="container">
+        <div class="block-head reveal">
+          <span class="block-num">03</span>
+          <h2>נגמר במשהו שאפשר לפתוח</h2>
+        </div>
+        <p class="block-lede reveal">המוצר רץ. הקייס מנמק. והגרסה הגרועה קיימת בכוונה, כדי שאפשר יהיה להראות בדיוק מה ההבדל בין השתיים כשהפרויקט זהה לגמרי.</p>
+
+        <div class="outcome reveal">
+          <div class="outcome-card">
+            <h3>המוצר החי</h3>
+            <p>ארבעה מסכים שרצים בדפדפן: חיפוש, עמוד חוג, הרשמה, ולוח משפחתי.</p>
+            <a href="app/screens/home.html">לפתיחת המוצר</a>
+          </div>
+          <div class="outcome-card">
+            <h3>הקייס סטאדי</h3>
+            <p>התהליך המלא: מה שאלנו, מה מצאנו, ומה זה שינה בכל החלטה.</p>
+            <a href="case-studies/hachug-sheli.html">לקריאת הקייס</a>
+          </div>
+          <div class="outcome-card">
+            <h3>לפני ואחרי</h3>
+            <p>אותו פרויקט בדיוק, כתיבה אחרת. ההשוואה שמלמדת מה עושה קייס טוב.</p>
+            <a href="case-studies/compare.html">להשוואה</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span data-year>2026</span> אייל גרשון</span>
+      <div class="footer-links">
+        <a href="mailto:eyal@simpla.co.il">eyal@simpla.co.il</a>
+        <a href="https://www.linkedin.com/in/eyalgershon" rel="noopener" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>

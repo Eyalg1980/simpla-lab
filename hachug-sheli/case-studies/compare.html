@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>לפני ואחרי · אותו פרויקט, שתי כתיבות</title>
+  <meta name="description" content="השוואה בין קייס סטאדי חלש לקייס סטאדי חזק על אותו פרויקט בדיוק" />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/main.css" />
+  <style>
+    .cmp-hero { padding: var(--space-5) 0 var(--space-3); }
+    .cmp-hero h1 { font-size: var(--fs-hero); margin: 0 0 var(--space-2); line-height: 1.15; }
+    .cmp-hero .accent { color: var(--color-accent); }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .cmp-hero p { font-size: 1.15rem; color: var(--color-muted); max-width: 64ch; line-height: var(--lh-body); margin: 0; }
+
+    .verdict {
+      margin-top: var(--space-3); padding: var(--space-3);
+      border-inline-start: 4px solid var(--color-accent);
+      background: var(--color-accent-soft); border-radius: var(--radius-small);
+      font-size: 1.08rem; line-height: 1.65;
+    }
+
+    .diff-table { width: 100%; border-collapse: collapse; margin-top: var(--space-4); font-size: 0.97rem; }
+    .diff-table th, .diff-table td {
+      text-align: start; padding: 14px 16px;
+      border-bottom: 1px solid var(--color-border); vertical-align: top; line-height: 1.6;
+    }
+    .diff-table thead th { font-size: 0.85rem; letter-spacing: 0.04em; color: var(--color-muted); font-weight: 500; border-bottom-width: 2px; }
+    .diff-table th[scope="row"] { font-weight: 700; width: 22%; }
+    .col-bad { background: #FDF2F2; }
+    .col-good { background: var(--color-accent-soft); }
+    .diff-table td.col-bad { color: #7f1d1d; }
+    .tag-bad, .tag-good {
+      display: inline-block; font-size: 0.78rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 999px; margin-bottom: 6px;
+    }
+    .tag-bad { background: #FDECEC; color: #B91C1C; border: 1px dashed #DC2626; }
+    .tag-good { background: var(--color-accent); color: var(--color-accent-contrast); }
+
+    .frames { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-top: var(--space-4); }
+    .frame-col { display: flex; flex-direction: column; min-width: 0; }
+    .frame-label {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--space-2); padding: 10px 14px; border-radius: var(--radius-small) var(--radius-small) 0 0;
+      font-weight: 700; font-size: 0.95rem;
+    }
+    .frame-label.bad { background: #FDECEC; color: #B91C1C; border: 1px solid #F3C4C4; border-bottom: none; }
+    .frame-label.good { background: var(--color-accent); color: var(--color-accent-contrast); border: 1px solid var(--color-accent); border-bottom: none; }
+    .frame-label a { font-size: 0.82rem; font-weight: 500; text-decoration: underline; color: inherit; }
+    .frame-col iframe {
+      width: 100%; height: 74vh; border: 1px solid var(--color-border);
+      border-radius: 0 0 var(--radius-small) var(--radius-small); background: var(--color-surface);
+    }
+    .frame-hint { font-size: var(--fs-small); color: var(--color-muted); margin: 10px 0 0; }
+
+    @media (max-width: 900px) {
+      .frames { grid-template-columns: 1fr; }
+      .frame-col iframe { height: 60vh; }
+      .diff-table th[scope="row"] { width: auto; }
+    }
+
+    /* במסך צר הטבלה נשברת לכרטיסים, אחרת שלוש עמודות נמעכות */
+    @media (max-width: 640px) {
+      .diff-table, .diff-table tbody, .diff-table tr, .diff-table td, .diff-table th { display: block; width: auto; }
+      .diff-table thead { display: none; }
+      .diff-table { margin-top: var(--space-3); }
+      .diff-table tr {
+        border: 1px solid var(--color-border); border-radius: var(--radius);
+        margin-bottom: var(--space-2); overflow: hidden;
+      }
+      .diff-table th, .diff-table td { border-bottom: none; padding: 12px 14px; }
+      .diff-table th[scope="row"] { background: #F1F1EE; font-size: 1.02rem; }
+      .diff-table td.col-bad::before {
+        content: "הגרסה החלשה"; display: block; font-weight: 700;
+        font-size: 0.74rem; margin-bottom: 5px; color: #B91C1C;
+      }
+      .diff-table td.col-good::before {
+        content: "הגרסה החזקה"; display: block; font-weight: 700;
+        font-size: 0.74rem; margin-bottom: 5px; color: var(--color-accent);
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="../index.html">אייל גרשון</a>
+      <nav class="site-nav" aria-label="ניווט ראשי">
+        <a href="../index.html">עבודות</a>
+        <a href="../story.html">התהליך</a>
+        <a href="../about.html">עליי</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="cmp-hero">
+      <div class="container">
+        <h1>אותו פרויקט בדיוק.<br /><span class="accent">שתי כתיבות</span></h1>
+        <p>שני הקייסים למטה מתארים את אותה אפליקציה, אותו מחקר ואותם מסכים. אחד מהם יגרום למגייס לסגור את הטאב. ההבדל הוא לא בעיצוב ולא בכמות העבודה, הוא רק במה שנכתב.</p>
+
+        <div class="verdict">
+          <strong>מה מבדיל ביניהם, במשפט אחד:</strong>
+          הקייס החלש מתאר <em>מה עשיתי</em>. הקייס החזק מתאר <em>מה החלטתי, ולמה</em>.
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <table class="diff-table">
+        <caption class="visually-hidden">השוואה בין קייס חלש לקייס חזק</caption>
+        <thead>
+          <tr>
+            <th scope="col">הנקודה</th>
+            <th scope="col"><span class="tag-bad">הגרסה החלשה</span></th>
+            <th scope="col"><span class="tag-good">הגרסה החזקה</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">המחקר</th>
+            <td class="col-bad">"ביצעתי מחקר משתמשים מעמיק ומקיף." אין מספר, אין ציטוט, אין ממצא.</td>
+            <td class="col-good">כמה אנשים, מה נשאלו, ומה בדיוק הם אמרו. ציטוט מדויק במקום תואר.</td>
+          </tr>
+          <tr>
+            <th scope="row">הצבע</th>
+            <td class="col-bad">"בחרתי פלטה ירקרקה כי היא נעימה לעין ומשדרת רוגע."</td>
+            <td class="col-good">הצבע נבחר מול ממצא ספציפי מהמחקר, ומוסבר למה דווקא הוא.</td>
+          </tr>
+          <tr>
+            <th scope="row">ההחלטות</th>
+            <td class="col-bad">רשימת שלבים לפי הסדר: מחקר, פרסונות, מסע, ויירפריימים, עיצוב.</td>
+            <td class="col-good">כל שלב מסתיים בהחלטה, וכל החלטה מסתיימת בהשלכה על המסך.</td>
+          </tr>
+          <tr>
+            <th scope="row">מה נכשל</th>
+            <td class="col-bad">כלום. הכל הלך חלק, והכל היה "מאתגר ומלמד".</td>
+            <td class="col-good">הנחות שנפלו, ומה זה שינה. זה הפרק שהכי קשה לכתוב ושהכי משכנע.</td>
+          </tr>
+          <tr>
+            <th scope="row">התוצאה</th>
+            <td class="col-bad">"אני מאמין שהאפליקציה פותרת בעיה אמיתית."</td>
+            <td class="col-good">מוצר חי שאפשר לפתוח ולנסות. לא צריך להאמין לי.</td>
+          </tr>
+          <tr>
+            <th scope="row">מה המגייס מקבל</th>
+            <td class="col-bad">רושם שהמועמד למד מתודולוגיה.</td>
+            <td class="col-good">ראיה שהמועמד יודע לקבל החלטה ולהגן עליה.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="container">
+      <div class="frames">
+        <div class="frame-col">
+          <div class="frame-label bad">
+            <span>הגרסה החלשה</span>
+            <a href="hachug-sheli-bad.html" target="_blank" rel="noopener">פתיחה בלשונית</a>
+          </div>
+          <iframe src="hachug-sheli-bad.html" title="הקייס סטאדי בגרסה החלשה"></iframe>
+        </div>
+        <div class="frame-col">
+          <div class="frame-label good">
+            <span>הגרסה החזקה</span>
+            <a href="hachug-sheli.html" target="_blank" rel="noopener">פתיחה בלשונית</a>
+          </div>
+          <iframe src="hachug-sheli.html" title="הקייס סטאדי בגרסה החזקה"></iframe>
+        </div>
+      </div>
+      <p class="frame-hint">אפשר לגלול כל צד בנפרד. להקרנה בכיתה עדיף מסך רחב, ובמובייל השניים יוצגו זה מתחת לזה.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span data-year>2026</span> אייל גרשון</span>
+      <div class="footer-links">
+        <a href="../story.html">התהליך המלא</a>
+        <a href="mailto:eyal@simpla.co.il">eyal@simpla.co.il</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../scripts/main.js"></script>
+</body>
+</html>

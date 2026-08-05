@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>החוג שלי · קייס סטאדי · אייל גרשון</title>
+  <meta name="description" content="כל החוגים של הילדים במקום אחד: מהכאב של קבוצות הוואטסאפ למוצר חי עם הרשמה בקליק" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="../index.html">אייל גרשון</a>
+      <nav class="site-nav" aria-label="ניווט ראשי">
+        <a href="../index.html">עבודות</a>
+        <a href="../about.html">עליי</a>
+        <a href="mailto:eyal@simpla.co.il">צרו קשר</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="case-hero">
+      <div class="container">
+        <h1 class="reveal">החוג שלי</h1>
+        <p class="summary reveal">כל החוגים של הילדים במקום אחד: חיפוש והשוואה, זמינות בזמן אמת, שריון שיעור ניסיון והרשמה בקליק. מהכאב המוכר של קבוצות הוואטסאפ ועד מוצר חי.</p>
+
+        <dl class="meta-card reveal">
+          <div><dt>תפקיד</dt><dd>מחקר, עיצוב ובנייה מקצה לקצה</dd></div>
+          <div><dt>משך</dt><dd>6 שבועות</dd></div>
+          <div><dt>כלים</dt><dd>Claude + Cowork, FigJam, Figma, HTML/CSS</dd></div>
+          <div><dt>מוצר חי</dt><dd><a href="https://eyalg1980.github.io/simpla-lab/hachug-sheli/app/screens/home.html" target="_blank" rel="noopener">לצפייה</a></dd></div>
+        </dl>
+
+        <figure class="wide reveal">
+          <img src="../content/shots/hachug-sheli-hero.png" alt="שלושה מסכי מובייל של החוג שלי על רקע ירוק כהה: פרטי חוג, מסך חיפוש והלוח המשפחתי" />
+          <figcaption>שלושת מסכי הליבה: חיפוש עם זמינות בזמן אמת, פרטי חוג עם שיעור ניסיון, והלוח המשפחתי</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="container case-body">
+
+      <h2 class="reveal">הבעיה</h2>
+      <p class="reveal">כל הורה בישראל מכיר את ספטמבר: המידע על חוגים מפוזר בין קבוצות וואטסאפ, חוברות מתנ"ס ופוסטים בפייסבוק. אי אפשר לדעת אם נשאר מקום בלי להתקשר, ההרשמה טלפונית והתשלום בהעברה ידנית. התוצאה: הורים מבזבזים ערבים שלמים על תיאום, ומנהלי חוגים טובעים באקסלים. שאלת המוצר: איך הופכים את המסע הזה מסדרת שיחות טלפון לחוויה של קליק?</p>
+
+      <h2 class="reveal">המחקר בקצרה</h2>
+      <p class="reveal">חמישה ראיונות עומק, ארבעה הורים ומנהל חוגים אחד, נותחו בשיטת הניתוח הדו-שלבי. שתי תובנות הכריעו את הכיוון: המידע המפוזר הופיע אצל כל חמשת המרואיינים, אבל הכאב החריף ביותר היה דווקא אי הוודאות על מקום פנוי (ארבעה מתוך חמישה). וההפתעה: להורים לא חסרים חוגים, יש להם עודף מידע. חסרה להם ודאות. הפרסונה הראשית, דנה, ההורה המתאם, נבנתה מקבוצת המרואיינים הדומיננטית.</p>
+      <figure class="reveal">
+        <img src="../content/shots/hachug-sheli-research.png" alt="לוח מחקר עם כרטיס הפרסונה של דנה ומפת מסע בת שישה שלבים עם עקומת רגש, נקודת שפל אדומה ושיא ירוק" loading="lazy" />
+        <figcaption>הפרסונה ומפת המסע: נקודת השפל היא בירור המקום בטלפון, והשיא המתוכנן הוא הרשמה בקליק</figcaption>
+      </figure>
+
+      <h2 class="reveal">החלטות מרכזיות</h2>
+      <div class="decision reveal">
+        <p><strong>גילינו:</strong> הכאב החריף הוא אי ודאות על מקום פנוי ("עד שהשגתי את המדריך בטלפון, כבר לא היה מקום").</p>
+        <p><strong>ולכן החלטתי:</strong> הזמינות היא אזרח ראשון בממשק: כל כרטיס חוג מציג "נותרו 2 מקומות" או "יש מקום" כבר בתוצאות החיפוש, לפני שנכנסים לפרטים.</p>
+      </div>
+      <div class="decision reveal">
+        <p><strong>גילינו:</strong> הורים לא מתחייבים לשנה בלי שהילד ניסה, ונועם הספונטני נוטש כל תהליך שדורש שיחה.</p>
+        <p><strong>ולכן החלטתי:</strong> שיעור הניסיון הוא הפעולה הראשית (כפתור amber בולט), עם 0 ₪ לתשלום היום והבטחת ביטול חופשי. ההרשמה המלאה היא הפעולה המשנית.</p>
+      </div>
+      <div class="decision reveal">
+        <p><strong>גילינו:</strong> דנה מנהלת שלושה חוגים של שני ילדים בראש, באקסל ובצילומי מסך.</p>
+        <p><strong>ולכן החלטתי:</strong> הוספתי את "הלוח שלנו", מסך בית משפחתי שמרכז את כל החוגים, התשלומים והודעות המדריכים, עם תיוג צבעוני לכל ילד. זה גם מנוע החזרתיות של המוצר.</p>
+      </div>
+
+      <h2 class="reveal">העיצוב</h2>
+      <p class="reveal">השפה נגזרה מהפרסונות: teal עמוק כצבע ראשי, כי דנה צריכה לסמוך על המוצר בכספים ובילדים שלה, ו-amber חם אחד לרגעי האנרגיה (שיעור ניסיון, "היום!"). הכל מנוהל ב-tokens.css אחד, מהצ'יפים ועד פס התפוסה, כך שהמערכת עקבית בכל מסך. המוצר נבנה ישירות בקוד בעבודה עם Claude, על בסיס ה-wireframes וה-tokens, עם התנהגויות עדינות: חשיפת כרטיסים בגלילה ומדדי תפוסה חיים.</p>
+      <figure class="reveal">
+        <img src="../content/shots/hachug-sheli-screens.png" alt="ארבעה מסכי האפליקציה זה לצד זה: חיפוש, פרטי חוג, הרשמה ותשלום, והלוח המשפחתי" loading="lazy" />
+        <figcaption>ארבעת מסכי ה-MVP: חיפוש, פרטי חוג, הרשמה בקליק, והלוח המשפחתי</figcaption>
+      </figure>
+
+      <h2 class="reveal">אימפקט ומדדים</h2>
+      <p class="reveal">שלושת המדדים שהוגדרו למוצר: זמן מרעיון לשריון שיעור ניסיון (יעד: מתחת ל-3 דקות, מול שעות עד ימים בתהליך הטלפוני), שיעור השלמת הרשמה ללא עזרה, ואחוז ההורים שחוזרים ללוח המשפחתי שבועית. בבדיקת מסדרון על חמישה משתמשים, חמישה מתוך חמישה השלימו שריון שיעור ניסיון ללא הכוונה, בזמן ממוצע של 2:10 דקות. שני מבחני הקבלה של הארכיטקטורה עברו: דנה מגיעה לוודאות על מקום בשני צעדים, נועם סוגר שיעור ניסיון בשלושה.</p>
+
+      <h2 class="reveal">מה למדתי</h2>
+      <p class="reveal">ההחלטה הקשה באמת הייתה מה לא לבנות: צד מנהל החוגים נשאר מחוץ ל-MVP למרות שהוא מפתה, כי הערך להורים חייב להיות מוכח קודם. למדתי גם ששקיפות מנצחת שכנוע: הרגע שהפך את הבדיקות היה "0 ₪ לתשלום היום", לא עוד מסך שיווקי. ובפעם הבאה הייתי מקדים את בדיקת המסדרון לשלב ה-wireframes, כי תיקון אחד שעלה בה היה זול פי עשרה לפני הבנייה.</p>
+
+      <p class="reveal" style="margin-block: var(--space-5);">
+        <a class="btn" href="https://eyalg1980.github.io/simpla-lab/hachug-sheli/app/screens/home.html" target="_blank" rel="noopener">למוצר החי</a>
+        <a class="btn btn--ghost" href="../index.html#projects">לכל העבודות</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span data-year>2026</span> אייל גרשון</span>
+      <div class="footer-links">
+        <a href="mailto:eyal@simpla.co.il">eyal@simpla.co.il</a>
+        <a href="https://www.linkedin.com/in/eyalgershon" rel="noopener" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../scripts/main.js"></script>
+</body>
+</html>
