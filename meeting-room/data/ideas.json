@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-04",
+  "updated": "2026-08-06",
   "ideas": [
     {
       "id": "I-2026-0231",
@@ -315,6 +315,96 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-08-04"
+    },
+    {
+      "id": "I-2026-0261",
+      "title": "ייבוא חי",
+      "line": "ראיתי שמסכים מיובאים בפיגמה, דרך MCP או התוסף, נקשרים עכשיו אוטומטית לוואריאבלים שכבר בקובץ. מצביעים על אתר חי ומקבלים מסך שמדבר טוקנים מהרגע הראשון, בסיס מיידי לרידיזיין",
+      "advisor": "visionary",
+      "createdAt": "2026-08-06",
+      "capability": {
+        "name": "Figma code-backed screens bind to existing variables",
+        "releasedAt": "2026-07-16"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-06"
+    },
+    {
+      "id": "I-2026-0262",
+      "title": "לוח בדיבור",
+      "line": "ראיתי ש-OpenAI שחררו ב-3.8 את GPT-Live, קול בזמן אמת בלי תורות שמותר לקטוע. שיחה רציפה עם הלוח בנסיעה: מדברים חופשי, קוטעים, מתקנים, והמשימות מסתדרות לבד",
+      "advisor": "visionary",
+      "createdAt": "2026-08-06",
+      "capability": {
+        "name": "OpenAI GPT-Live turnless real-time voice",
+        "releasedAt": "2026-08-03"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-06"
+    },
+    {
+      "id": "I-2026-0263",
+      "title": "מקצר הקלטות",
+      "line": "עשרים הקלטות של יום שלם מחכות, צפית באחת. כלי שהופך שמונה שעות לתקציר עם נקודות קפיצה, כך שחלון של שעה וחצי באמת מספיק",
+      "advisor": "pain",
+      "createdAt": "2026-08-06",
+      "capability": null,
+      "evidence": "אחת מעשרים הקלטות של זאביק נצפתה, ושריינת שני חלונות ביומן כל שבוע עד תחילת אוקטובר כדי לדחוס כל יום צילומים לשעה וחצי",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-06"
+    },
+    {
+      "id": "I-2026-0264",
+      "title": "דיבריף בדקה",
+      "line": "הקלטה קולית של דקה אחרי שיעור נכנסת, חמש שורות דיבריף מסודרות ועדכון לתכנון המפגש הבא יוצאים לבד",
+      "advisor": "pain",
+      "createdAt": "2026-08-06",
+      "capability": null,
+      "evidence": "רוטינה קבועה שהגדרת לעצמך: אחרי כל מפגש דיבריף של חמש שורות לקלוד לעדכון הזיכרון והתאמת המפגש הבא, ובמסלול הערב לבד כבר שישה עשר מפגשים מאחוריך",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-06"
+    },
+    {
+      "id": "I-2026-0265",
+      "title": "ממיין בגרירה",
+      "line": "איך נראה על מסך בכיתה תרגיל MoSCoW שבו גוררים פיצ'רים בין ארבע עמודות ורואים את ה-MVP מצטמק בזמן אמת?",
+      "advisor": "teacher",
+      "createdAt": "2026-08-06",
+      "capability": null,
+      "evidence": null,
+      "lesson": "UI/UX, שיעור תעדוף MoSCoW",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-06"
+    },
+    {
+      "id": "I-2026-0266",
+      "title": "מחליף פלטות",
+      "line": "איך מראים על מסך אחד בכיתה איך אותו מוצר מחליף אישיות כשמחליפים לו רק את הפלטה, בלי לגעת בלייאאוט?",
+      "advisor": "teacher",
+      "createdAt": "2026-08-06",
+      "capability": null,
+      "evidence": null,
+      "lesson": "UI/UX, שיעור פסיכולוגיית הצבע",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-06"
     }
   ]
 }

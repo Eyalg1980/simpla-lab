@@ -1,6 +1,50 @@
 {
   "days": [
     {
+      "date": "2026-08-06",
+      "dateLabel": "יום חמישי, 6 באוגוסט",
+      "ideas": [
+        {
+          "id": "2026-08-06-1",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "סוכן עיצב וקיבל 69. נתנו לו חוזה, קיבל 100. דקה אחת על החוזה שכל קומפוננטה צריכה עכשיו.",
+          "concept": "מחקר טרי של Smart Interface Design Patterns: חוזה כתוב בשפה פשוטה לקומפוננטה מזניק סוכן מציון 69 ל-100. הסרט: כפתור אחד שסוכן משכפל שוב ושוב, כל עותק קצת עקום, עד שהמסך רועד. ואז נכנס דף חוזה אחד וכל העותקים מתיישרים בבת אחת. אותו סיפור רץ היום גם כפוסט בבריינסטורמר, נכס אחד בשני ערוצים.",
+          "execution": "שפה אדיטוריאלית קינטית: רקע פחם, טיפוגרפיה בתנועה, נגיעות קורל וצהוב. פריימים ב-Nano Banana, הנפשה ב-Kling 3 או ב-Cinema Studio של היגספילד, 45 עד 60 שניות, 9:16 ראשי ועותק 1:1. בלי קריינות, סאונד דיזיין וכתוביות עברית נצרבות בעריכה.",
+          "why": "המחקר פורסם השבוע והשיח על מערכות עיצוב קריאות למכונה בשיא. ההסבר הראשון בעברית על component contracts שווה הרבה.",
+          "competition": null,
+          "srcUrl": "https://www.aiuxdesign.guide/news/ai-ux-daily-aug-4-component-contracts-voice-architecture-and-ai-agents-that-li",
+          "srcLabel": "AI UX Design Guide, 4.8",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, 9:16. A single glowing button component multiplies into a grid of slightly wrong copies, each clone drifting in size and color until the whole frame trembles, then a bright paper sheet with a wax seal slides in from the side and every clone snaps back into one perfect aligned row, calm settles over the frame, slow push in on the single correct button, crisp modern rhythm, leave clear negative space at the bottom for Hebrew titling added in edit",
+            "script": "פתח לי את רעיון הווידאו \"סוכן עיצב וקיבל 69. נתנו לו חוזה, קיבל 100\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העובדות לעגן בהן: מחקר של Smart Interface Design Patterns על component contracts, חוזה בשפה פשוטה לקומפוננטה העלה סוכן מציון 69 ל-100. הסיפור: כפתור שמשתכפל עקום עד שדף חוזה אחד מיישר הכל. שפה אדיטוריאלית קינטית, רקע פחם עם קורל וצהוב, 45 עד 60 שניות, 9:16, קריינות עברית מתוזמנת.",
+            "image": "Editorial kinetic style key frame, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A grid of slightly mismatched glowing button components with one bright paper contract sheet bearing a wax seal cutting through the center, the buttons nearest the sheet perfectly aligned while distant ones drift crooked, no text",
+            "raw": "הוק: סוכן עיצב וקיבל 69. נתנו לו חוזה, קיבל 100. דקה אחת על החוזה שכל קומפוננטה צריכה עכשיו.\nעולם: סרטוני הסבר\nקונספט: מחקר של Smart Interface Design Patterns מראה שחוזה כתוב בשפה פשוטה לקומפוננטה מעלה סוכן מ-69 ל-100. כפתור משתכפל עקום עד שדף חוזה אחד מיישר את כולם.\nביצוע: שפה אדיטוריאלית קינטית, פריימים ב-Nano Banana, הנפשה ב-Kling 3 או Cinema Studio, 45 עד 60 שניות, 9:16 ועותק 1:1, כתוביות עברית בעריכה.\nלמה עכשיו: המחקר פורסם השבוע והשיח על design systems קריאים למכונות בשיא. רץ היום גם כפוסט בבריינסטורמר."
+          },
+          "storyboardUrl": null
+        },
+        {
+          "id": "2026-08-06-2",
+          "world": "קונספטואלי",
+          "color": "#71F73C",
+          "hook": "OpenAI שחררו קול בלי תורות. סרט על היום שבו הממשק הפסיק לחכות שתסיים משפט.",
+          "concept": "GPT-Live, ששוחרר ב-3.8, מקשיב ברצף: מדברים, קוטעים, מתחרטים באמצע משפט, והוא זורם. הסרט: יום שלם בלי מסך אחד. ידיים עובדות, בית באור בוקר, וטבעת אור קטנה על השולחן שנושמת בקצב השיחה, מהבהבת כשקוטעים אותה וזוהרת כשהיא מקשיבה. בסוף, על פריים רחב וריק, שאלה אחת: מה מעצבים כשאין מה ללחוץ?",
+          "execution": "שפת עתיד קרוב אופטימי: אור ים תיכוני חם, חול קרם וטיל רך, אנושי ולא מדע בדיוני קר. הפקה ב-Cinema Studio של היגספילד או Veo 3, 30 עד 45 שניות, 9:16, סאונד מוביל: מלמול שיחה בלי מילים ברורות. כתובית סיום בעברית נצרבת בעריכה.",
+          "why": "GPT-Live שוחרר ב-3.8 והדיון על ממשקי קול חזר לשולחן של כל צוות מוצר. וידאו ארט שעונה בדיוק לשאלת השבוע.",
+          "competition": null,
+          "srcUrl": "https://www.aiuxdesign.guide/news/ai-ux-daily-aug-4-component-contracts-voice-architecture-and-ai-agents-that-li",
+          "srcLabel": "AI UX Design Guide, 4.8",
+          "prompts": {
+            "video": "Optimistic near-future style, warm Mediterranean morning light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field, 9:16. A sunlit apartment with no screens anywhere, intimate close shots of hands watering a plant, pouring coffee, sketching on paper, while a small ring of soft light resting on the wooden table breathes and pulses in rhythm with an unheard conversation, flickering briefly when interrupted and glowing steadily when listening, camera drifts slowly from room to room, tender documentary pacing, final wide shot holds on the empty table with generous negative space for a Hebrew closing caption added in edit",
+            "script": "פתח לי את רעיון הווידאו \"OpenAI שחררו קול בלי תורות. סרט על היום שבו הממשק הפסיק לחכות שתסיים משפט\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העובדות לעגן בהן: OpenAI שחררו ב-3.8.2026 את GPT-Live, מודל קול בזמן אמת עם עיבוד רציף בלי תורות שמאפשר לקטוע באמצע משפט. הסיפור: יום שלם בלי מסכים, טבעת אור קטנה נושמת עם השיחה, והשאלה בסוף: מה מעצבים כשאין מה ללחוץ. שפת עתיד קרוב אופטימי, אור ים תיכוני, 30 עד 45 שניות, 9:16.",
+            "image": "Optimistic near-future style key frame, warm Mediterranean morning light, sand cream and soft teal palette, shallow depth of field. A wooden table by an open window with a small glowing ring of soft light resting where a phone would normally be, a hand reaching toward it mid gesture, no screens anywhere in the scene, hopeful and calm domestic atmosphere, no text",
+            "raw": "הוק: OpenAI שחררו קול בלי תורות. סרט על היום שבו הממשק הפסיק לחכות שתסיים משפט.\nעולם: קונספטואלי\nקונספט: GPT-Live מקשיב ברצף ומאפשר קטיעות. יום שלם בלי מסכים, טבעת אור על השולחן נושמת עם השיחה, ובסוף שאלה: מה מעצבים כשאין מה ללחוץ.\nביצוע: עתיד קרוב אופטימי, Cinema Studio או Veo 3, 30 עד 45 שניות, 9:16, סאונד מוביל, כתובית עברית בעריכה.\nלמה עכשיו: GPT-Live שוחרר ב-3.8 והחזיר את ממשקי הקול לשולחן."
+          },
+          "storyboardUrl": null
+        }
+      ]
+    },
+    {
       "date": "2026-08-04",
       "dateLabel": "יום שלישי, 4 באוגוסט",
       "ideas": [
