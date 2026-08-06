@@ -118,7 +118,7 @@ button, .btn { font-family: inherit; }
 }
 .bottom-nav a { text-decoration: none; color: var(--color-muted); font-size: 0.7rem; text-align: center; }
 .bottom-nav a.active { color: var(--color-primary); font-weight: 700; }
-.bottom-nav .ic { font-size: 1.25rem; display: block; }
+.bottom-nav .ic { display: block; margin-inline: auto; }
 
 /* Reveal (וואו עדין) */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity 450ms ease, transform 450ms ease; }
@@ -245,30 +245,189 @@ button, .btn { font-family: inherit; }
    ============================================================ */
 .appbar {
   position: sticky; top: 0; z-index: 40;
-  display: grid; grid-template-columns: 44px 1fr 44px; align-items: center;
+  display: grid; grid-template-columns: 40px 1fr 40px; align-items: center;
   gap: var(--space-1);
-  max-width: 430px; margin-inline: auto;
-  padding: 8px var(--space-2);
-  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
-  backdrop-filter: saturate(1.4) blur(10px);
-  -webkit-backdrop-filter: saturate(1.4) blur(10px);
-  border-bottom: 1px solid var(--color-border);
+  padding: 9px var(--space-2);
+  background: linear-gradient(120deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #fff;
+  box-shadow: 0 2px 14px rgba(11, 90, 84, 0.22);
 }
 .appbar-name {
   text-align: center; font-weight: 700; font-size: 1rem;
-  color: var(--color-primary); letter-spacing: -0.2px;
+  color: #fff; letter-spacing: -0.2px;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.appbar-pad { width: 44px; }
+.appbar-pad { width: 40px; }
 .appbar-back {
-  width: 38px; height: 38px; border-radius: 50%;
+  width: 36px; height: 36px; border-radius: 50%;
   display: grid; place-items: center;
-  border: 1.5px solid var(--color-border); background: var(--color-surface);
-  color: var(--color-primary); cursor: pointer; padding: 0;
+  border: 1.5px solid rgba(255, 255, 255, 0.42); background: rgba(255, 255, 255, 0.13);
+  color: #fff; cursor: pointer; padding: 0;
   transition: transform .12s ease, background .12s ease;
 }
-.appbar-back svg { width: 20px; height: 20px; }
-.appbar-back:active { transform: scale(0.92); background: var(--color-primary-soft); }
-.appbar-back:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
-/* במסך הבית אין לאן לחזור. הכפתור נשאר בפריסה כדי שהשם יישאר במרכז. */
+.appbar-back .ic { width: 19px; height: 19px; }
+.appbar-back:active { transform: scale(0.9); background: rgba(255, 255, 255, 0.3); }
+.appbar-back:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 .appbar-back[disabled] { visibility: hidden; }
+
+/* ============================================================
+   נוסף 6.8.2026 · אייקוני קו, אווטארים, הדרים צבועים ואפורדנס
+   ============================================================ */
+
+/* ---- אייקונים: צבע יחיד, יורשים את צבע ההורה ---- */
+.ic { width: 20px; height: 20px; flex: 0 0 auto; display: inline-block; vertical-align: -0.22em; }
+.ic-sm { width: 16px; height: 16px; }
+
+/* ---- הבאנר הצבעוני בראש מסך ---- */
+.hero-band {
+  position: relative; overflow: hidden;
+  background: linear-gradient(140deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #fff; border-radius: 0 0 26px 26px;
+  margin: 0 calc(var(--space-2) * -1) var(--space-2);
+  padding: var(--space-2) var(--space-2) var(--space-3);
+}
+.hero-band::after {                       /* עיגול אור, שובר את השטח האחיד */
+  content: ''; position: absolute; top: -120px; left: -70px;
+  width: 240px; height: 240px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.09);
+}
+.hero-band > * { position: relative; z-index: 1; }
+.hero-band .hello { font-size: var(--fs-h1); font-weight: 700; margin: 0; color: #fff; }
+.hero-band .loc { display: inline-flex; align-items: center; gap: 5px; font-size: var(--fs-small); color: #C9E7E3; }
+.hero-band .avatar { background: rgba(255, 255, 255, 0.18); color: #fff; }
+.hero-band .kidpick-label, .hero-band .kidpick-hint { color: #C9E7E3; }
+.hero-band .kidchip { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.3); }
+.hero-band .kidchip-name { color: #C9E7E3; }
+.hero-band .kidchip-age { color: #9FCFC9; }
+.hero-band .kidchip.on { background: #fff; }
+.hero-band .kidchip.on .kidchip-name { color: var(--color-text); }
+.hero-band .kidchip.on .kidchip-age { color: var(--color-muted); }
+
+/* ---- כותרת משנה עם פס צבע ---- */
+.section-title h2, .card > h2:not(.fold-h), .fold-t {
+  position: relative; padding-inline-start: 11px;
+}
+.section-title h2::before, .card > h2:not(.fold-h)::before, .fold-t::before {
+  content: ''; position: absolute; inset-inline-start: 0; top: 0.18em; bottom: 0.18em;
+  width: 4px; border-radius: 2px; background: var(--color-primary);
+}
+.card.group-card > h2:not(.fold-h)::before,
+.card.group-card .fold-t::before { background: var(--color-accent); }
+
+/* ---- אווטארים מצוירים ---- */
+.kidav { display: block; border-radius: 50%; }
+.kidchip-face { width: 46px; height: 46px; padding: 0; background: none; overflow: hidden; border-radius: 50%; }
+.kidchip-face .kidav { width: 46px; height: 46px; }
+.fit-face { width: 42px; height: 42px; padding: 0; overflow: hidden; }
+.fit-face .kidav { width: 42px; height: 42px; }
+
+/* ---- אפורדנס: כרטיס שאפשר לפתוח ---- */
+.chug-card { position: relative; cursor: pointer; transition: transform .12s ease, box-shadow .12s ease; }
+.chug-card:active { transform: scale(0.985); }
+.go {
+  display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--color-primary-soft); color: var(--color-primary); flex: 0 0 auto;
+}
+.go .ic { width: 17px; height: 17px; }
+.chug-side { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+
+/* ---- אזור נפתח ---- */
+.fold { padding-block: 0; }
+.fold > .fold-h { margin: 0; }
+.fold-btn {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: var(--space-1);
+  background: none; border: 0; padding: var(--space-2) 0; cursor: pointer;
+  font-size: var(--fs-h2); font-weight: 700; color: var(--color-text); text-align: start;
+}
+.fold-arrow {
+  display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
+  background: var(--color-bg); color: var(--color-primary); flex: 0 0 auto;
+  transition: transform .22s ease, background .18s ease;
+}
+.fold.is-open .fold-arrow { transform: rotate(180deg); background: var(--color-primary-soft); }
+.fold-b { padding-bottom: var(--space-2); }
+.fold-btn:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: 8px; }
+
+/* ---- תגיות פרושות לפי ממדי הטקסונומיה ---- */
+.taxo { display: grid; gap: 10px; }
+.taxo-row { display: grid; grid-template-columns: 92px 1fr; gap: 10px; align-items: start; }
+.taxo-key {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.72rem; font-weight: 700; color: var(--color-muted);
+  padding-top: 3px;
+}
+.taxo-key .ic { width: 14px; height: 14px; }
+.taxo-vals { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag.on { background: var(--color-primary-soft); border-color: #B7DDD8; color: var(--color-primary-dark); font-weight: 600; }
+.tag.warn { background: var(--color-accent-soft); border-color: #F0CE7A; color: #92600A; font-weight: 600; }
+
+/* ---- תפריט תחתון עם אייקוני קו ---- */
+.bottom-nav .ic { width: 22px; height: 22px; margin-bottom: 2px; }
+.bottom-nav a { color: var(--color-muted); }
+.bottom-nav a.active { color: var(--color-primary); }
+.bottom-nav a.active .ic { stroke-width: 2.2; }
+
+/* ---- שורת עובדות עם אייקונים ---- */
+.facts > div { display: flex; align-items: center; gap: 7px; }
+.facts .ic { color: var(--color-primary); }
+
+/* ---- מסך השמורים ---- */
+.saved-card { display: grid; grid-template-columns: 52px 1fr 28px; gap: var(--space-2); align-items: center; cursor: pointer; }
+.saved-note {
+  background: var(--color-accent-soft); border-radius: var(--radius-small);
+  padding: 7px 10px; font-size: 0.76rem; color: #7C5308; margin-top: 6px;
+}
+.saved-for { display: flex; gap: 4px; align-items: center; margin-top: 6px; }
+.saved-for .kidav { width: 22px; height: 22px; }
+.saved-when { font-size: 0.68rem; color: var(--color-muted); }
+.empty { text-align: center; color: var(--color-muted); padding: var(--space-3) var(--space-2); }
+.empty .ic { width: 34px; height: 34px; color: var(--color-border); margin-bottom: 8px; }
+
+/* ---- מסך הפרופיל ---- */
+.prof-head { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+.prof-head .kidav { width: 88px; height: 88px; box-shadow: 0 6px 20px rgba(6, 40, 38, .28); }
+.prof-name { font-size: var(--fs-h1); font-weight: 700; margin: 0; color: #fff; }
+.prof-sub { font-size: var(--fs-small); color: #C9E7E3; margin: 0; }
+.stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: var(--space-2); }
+.stat {
+  background: rgba(255, 255, 255, 0.13); border-radius: var(--radius-small);
+  padding: 9px 6px; text-align: center;
+}
+.stat b { display: block; font-size: 1.15rem; }
+.stat span { font-size: 0.64rem; color: #C9E7E3; line-height: 1.25; display: block; }
+.kid-row { display: grid; grid-template-columns: 52px 1fr 28px; gap: var(--space-2); align-items: center; padding-block: 10px; }
+.kid-row + .kid-row { border-top: 1px solid var(--color-border); }
+.kid-row .kidav { width: 52px; height: 52px; }
+.kid-row h3 { margin: 0; font-size: 1rem; }
+.kid-row p { margin: 2px 0 0; font-size: var(--fs-small); color: var(--color-muted); }
+.pref { display: grid; grid-template-columns: 1fr 46px; gap: var(--space-2); align-items: center; padding-block: 11px; }
+.pref + .pref { border-top: 1px solid var(--color-border); }
+.pref b { font-weight: 600; font-size: var(--fs-body); display: block; }
+.pref small { color: var(--color-muted); font-size: 0.72rem; }
+.sw {
+  width: 46px; height: 27px; border-radius: 999px; border: 0; padding: 0; cursor: pointer;
+  background: var(--color-border); position: relative; transition: background .18s ease;
+}
+.sw::after {
+  content: ''; position: absolute; top: 3px; inset-inline-start: 3px;
+  width: 21px; height: 21px; border-radius: 50%; background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .22); transition: transform .18s ease;
+}
+/* ב-RTL הידית מתחילה מימין, וכשדולקים היא נעה שמאלה */
+.sw[aria-checked="true"] { background: var(--color-primary); }
+.sw[aria-checked="true"]::after { transform: translateX(-19px); }
+.sw:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+/* ---- תיקוני פריסה אחרי המעבר לאייקוני SVG ---- */
+/* החץ מקבל עמודה משלו, אחרת הוא נופל מתחת למחיר */
+.chug-card { grid-template-columns: 56px 1fr auto 30px; }
+.chug-side { align-items: flex-end; gap: 0; }
+.chug-card .go { margin: 0; }
+.viewtoggle button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; }
+.viewtoggle button .ic { width: 17px; height: 17px; }
+/* הפס הצבעוני נצמד לשורת הכותרת ולא נמתח לגובה הכפתור כולו */
+.fold-t { display: block; line-height: 1.35; }
+.fold-t::before { top: 0.16em; bottom: 0.16em; height: auto; }
+.search { justify-content: flex-start; }
+.prof-head .kidav { border: 3px solid rgba(255, 255, 255, 0.9); }
+.chug-icon svg { width: 26px; height: 26px; }

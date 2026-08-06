@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>החוג שלי · פרופיל</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles/tokens.css" /><link rel="stylesheet" href="../styles/app.css" />
+</head>
+<body data-back="home.html" data-title="פרופיל">
+<main class="screen">
+
+  <header class="hero-band">
+    <div class="prof-head">
+      <span id="p-face"></span>
+      <h1 class="prof-name" id="p-name"></h1>
+      <p class="prof-sub" id="p-sub"></p>
+    </div>
+    <div class="stat-row" id="p-stats"></div>
+  </header>
+
+  <section class="card is-visible reveal">
+    <h2 style="font-size:var(--fs-h2); margin:0 0 4px;">הילדים</h2>
+    <p style="margin:0 0 6px; font-size:0.74rem; color:var(--color-muted);">
+      מה שרשום כאן הוא מה שמפעיל את ההתאמה בכל מסך</p>
+    <div id="p-kids"></div>
+  </section>
+
+  <section class="card fold is-visible reveal" data-open>
+    <h2 class="fold-h">מה שולחים לי</h2>
+    <div class="fold-b">
+      <p style="margin:0 0 6px; font-size:0.74rem; color:var(--color-muted);">
+        הכל כבוי כברירת מחדל חוץ ממה שההורים ביקשו במפורש בראיונות</p>
+      <div id="p-prefs"></div>
+    </div>
+  </section>
+
+  <section class="card fold is-visible reveal">
+    <h2 class="fold-h">ההורה השני</h2>
+    <div class="fold-b">
+      <p style="margin:0 0 10px; font-size:var(--fs-small); color:var(--color-muted);">
+        מקבל את ההרשמות לאישור בלחיצה אחת, בלי להתקין כלום ובלי חשבון.
+        זו הדרך היחידה שהתיאום הזה שרד את הראיונות.</p>
+      <button type="button" class="btn secondary" id="p-invite">שליחת קישור להורה השני</button>
+      <p class="coord-msg" id="p-msg" hidden></p>
+    </div>
+  </section>
+
+  <section class="card fold is-visible reveal">
+    <h2 class="fold-h">מה לא נכנס לגרסה הזו</h2>
+    <div class="fold-b">
+      <ul style="margin:0; padding-inline-start:18px; font-size:var(--fs-small); color:var(--color-muted);">
+        <li>לוח מודעות שכונתי. סותר ציטוט ישיר מהראיונות, ודורש צפיפות משתמשים שאין לפני השקה.</li>
+        <li>משחק בניית אווטאר לילד. המשתמש כאן הוא ההורה. האייקון של הילד נשאר, העורך מחכה.</li>
+        <li>צד מנהל החוגים. מפתה, אבל הערך להורים צריך להיות מוכח קודם.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<nav class="bottom-nav" id="nav"></nav>
+
+<script src="../data/classes.js"></script>
+<script src="../scripts/ui.js"></script>
+<script src="../scripts/kids.js"></script>
+<script src="../scripts/nav.js"></script>
+<script src="../scripts/appbar.js"></script>
+<script>
+(function () {
+  var D = window.APP_DATA;
+  var P = D.parent;
+  var $ = function (x) { return document.getElementById(x); };
+
+  $('p-face').innerHTML = window.UI.avatar(P, 88);
+  $('p-name').textContent = P.name;
+  $('p-sub').textContent = P.city + ' · איתנו מ' + P.since;
+  $('p-stats').innerHTML = P.stats.map(function (s) {
+    return '<div class="stat"><b>' + s.v + '</b><span>' + s.k + '</span></div>';
+  }).join('');
+
+  // כל ילד עם התיוגים שמפעילים את ההתאמה, כדי שיהיה ברור מאיפה היא באה
+  $('p-kids').innerHTML = D.kids.map(function (k) {
+    return '<a class="kid-row" href="' + window.Kids.link('home.html') + '" style="text-decoration:none; color:inherit;">' +
+      window.UI.avatar(k, 52) +
+      '<div><h3>' + k.name + ', ' + k.age + '</h3>' +
+      '<p>' + k.note + '</p>' +
+      '<div class="tagrow" style="margin-top:5px;">' +
+        (k.interests || []).slice(0, 3).map(function (t) { return '<span class="tag on">' + t + '</span>'; }).join('') +
+        (k.avoid || []).map(function (t) { return '<span class="tag warn">לא ' + t + '</span>'; }).join('') +
+      '</div></div>' +
+      '<span class="go">' + window.UI.icon('chevron') + '</span></a>';
+  }).join('');
+
+  // המתגים אמיתיים, כדי שההדגמה תראה מצב ולא תמונה
+  $('p-prefs').innerHTML = P.prefs.map(function (f) {
+    return '<div class="pref"><div><b>' + f.label + '</b><small>' + f.why + '</small></div>' +
+      '<button type="button" class="sw" role="switch" data-id="' + f.id + '" ' +
+      'aria-checked="' + (f.on ? 'true' : 'false') + '" aria-label="' + f.label + '"></button></div>';
+  }).join('');
+
+  $('p-prefs').querySelectorAll('.sw').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var on = b.getAttribute('aria-checked') === 'true';
+      b.setAttribute('aria-checked', on ? 'false' : 'true');
+    });
+  });
+
+  $('p-invite').addEventListener('click', function () {
+    this.textContent = 'הקישור נשלח';
+    var m = $('p-msg');
+    m.textContent = 'שלחנו קישור אישי. ההורה השני יראה את ההרשמות הממתינות ויאשר בלחיצה, בלי חשבון ובלי אפליקציה.';
+    m.hidden = false;
+  });
+
+  window.Kids.mount('#kidpick');
+})();
+</script>
+</body>
+</html>

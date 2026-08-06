@@ -81,6 +81,22 @@
     return out;
   }
 
+  /* ---------- פרצוף הילד ---------- */
+  // דמות מצוירת אם ui.js נטען, ואמוג'י כגיבוי, כדי שאף מסך לא יישבר
+  function face(kid, size) {
+    return (window.UI && window.UI.avatar) ? window.UI.avatar(kid, size || 44) : (kid.emoji || '🙂');
+  }
+
+  /* ---------- קיבוץ תגיות לפי ממדי הטקסונומיה ---------- */
+  // התגיות של החוג נפרשות לפי הממד שהן שייכות אליו, במקום שורת פילים
+  // שטוחה שאי אפשר לקרוא. זה מה שהופך את הטקסונומיה לנראית לעין.
+  function tagGroups(cls) {
+    return (D.tagGroups || []).map(function (g) {
+      var all = D.taxonomy[g.key] || [];
+      return { key: g.key, icon: g.icon, tags: all.filter(function (t) { return cls.tags.indexOf(t) > -1; }) };
+    }).filter(function (g) { return g.tags.length; });
+  }
+
   /* ---------- רינדור בוחר האווטארים ---------- */
   function renderPicker(host) {
     host.className = 'kidpick';
@@ -100,7 +116,7 @@
       b.className = 'kidchip kid-' + k.colorKey + (selected.indexOf(k.id) > -1 ? ' on' : '');
       b.setAttribute('aria-pressed', selected.indexOf(k.id) > -1 ? 'true' : 'false');
       b.innerHTML =
-        '<span class="kidchip-face">' + k.emoji + '</span>' +
+        '<span class="kidchip-face">' + face(k, 46) + '</span>' +
         '<span class="kidchip-name">' + k.name + '</span>' +
         '<span class="kidchip-age">' + k.age + '</span>';
       b.addEventListener('click', function () {
@@ -137,6 +153,11 @@
     get selected() { return selectedKids(); },
     param: selectionParam,
     fitFor: fitFor,
+    face: face,
+    tagGroups: tagGroups,
+    byId: function (id) { return D.kids.filter(function (k) { return k.id === id; })[0]; },
+    classById: function (id) { return D.classes.filter(function (c) { return c.id === id; })[0]; },
+    link: function (href) { return href + '?kids=' + encodeURIComponent(selectionParam()); },
     mount: function (sel) {
       var host = document.querySelector(sel);
       if (host) renderPicker(host);

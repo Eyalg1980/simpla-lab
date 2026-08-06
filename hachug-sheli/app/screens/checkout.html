@@ -8,45 +8,67 @@
 </head>
 <body data-back="class.html" data-title="הרשמה">
 <main class="screen">
-  <h1 style="font-size:var(--fs-h1); margin:0 0 4px;">הרשמה: כדורגל של יוסי</h1>
-  <p style="color:var(--color-muted); margin:0 0 16px; font-size:var(--fs-small);">שלב 2 מתוך 2 · פרטי הילד ותשלום</p>
+  <header class="hero-band">
+    <h1 class="hello" id="c-title">הרשמה</h1>
+    <span class="loc" data-ic="check">שלב 2 מתוך 2 · פרטי הילד ותשלום</span>
+  </header>
 
   <section class="card is-visible reveal">
     <div class="field">
       <label for="kid">שם הילד/ה</label>
-      <input id="kid" type="text" value="איתי לוי" />
+      <input id="kid" type="text" value="" />
     </div>
     <div class="field">
       <label for="age">גיל</label>
-      <select id="age"><option>7</option></select>
+      <select id="age"></select>
     </div>
     <div class="field">
       <label>מסלול</label>
       <div class="plan">
-        <div class="opt selected">פעם בשבוע<br /><strong>220 ₪</strong></div>
-        <div class="opt">פעמיים בשבוע<br /><strong>380 ₪</strong></div>
+        <div class="opt selected">פעם בשבוע<br /><strong id="p1"></strong></div>
+        <div class="opt">פעמיים בשבוע<br /><strong id="p2"></strong></div>
       </div>
     </div>
   </section>
 
   <section class="card is-visible reveal">
-    <div class="summary-row"><span>מנוי חודשי · פעם בשבוע</span><span>220 ₪</span></div>
+    <div class="summary-row"><span>מנוי חודשי · פעם בשבוע</span><span id="s1"></span></div>
     <div class="summary-row"><span>שיעור ניסיון</span><span style="color:var(--color-success); font-weight:700;">חינם</span></div>
     <div class="summary-row"><span>דמי רישום</span><span>0 ₪</span></div>
     <div class="summary-row total"><span>לתשלום היום</span><span>0 ₪</span></div>
     <p style="margin:8px 0 0; font-size:0.75rem; color:var(--color-muted);">החיוב הראשון רק אחרי שיעור הניסיון, ואפשר לבטל בקליק עד 48 שעות לפניו.</p>
   </section>
 
-  <a class="btn is-visible reveal" href="family-board.html">אישור ושריון המקום של איתי</a>
-  <div class="trust">🔒 תשלום מאובטח · ביטול חופשי · אישור מיידי למייל</div>
+  <a class="btn is-visible reveal" id="c-cta" href="family-board.html">אישור ושריון המקום</a>
+  <div class="trust" data-ic="check">תשלום מאובטח · ביטול חופשי · אישור מיידי למייל</div>
 </main>
 
-<nav class="bottom-nav">
-  <a href="home.html"><span class="ic">🏠</span>חיפוש</a>
-  <a href="#"><span class="ic">❤️</span>שמורים</a>
-  <a href="family-board.html"><span class="ic">📅</span>הלוח שלנו</a>
-  <a href="#"><span class="ic">👤</span>פרופיל</a>
-</nav>
+<nav class="bottom-nav" id="nav"></nav>
+<script src="../data/classes.js"></script>
+<script src="../scripts/ui.js"></script>
+<script src="../scripts/kids.js"></script>
+<script src="../scripts/nav.js"></script>
 <script src="../scripts/appbar.js"></script>
+<script>
+(function () {
+  // המסך נגזר מהחוג ומהילד שהגיעו בכתובת, אחרת לחיצה על בלט
+  // הייתה מגיעה למסך שכתוב בו כדורגל
+  var id = new URLSearchParams(location.search).get('id');
+  var cls = window.Kids.classById(id) || window.APP_DATA.classes[0];
+  var kid = window.Kids.selected[0] || window.APP_DATA.kids[0];
+  var $ = function (x) { return document.getElementById(x); };
+
+  document.title = 'החוג שלי · הרשמה ל' + cls.name;
+  $('c-title').textContent = 'הרשמה: ' + cls.name;
+  $('kid').value = kid.name;
+  $('age').innerHTML = '<option>' + kid.age + '</option>';
+  $('p1').textContent = cls.price + ' ש"ח';
+  $('p2').textContent = Math.round(cls.price * 1.73 / 10) * 10 + ' ש"ח';
+  $('s1').textContent = cls.price + ' ש"ח';
+  $('c-cta').textContent = 'אישור ושריון המקום של ' + kid.name;
+  $('c-cta').setAttribute('href', window.Kids.link('family-board.html'));
+  window.Kids.mount('#nothing');
+})();
+</script>
 </body>
 </html>

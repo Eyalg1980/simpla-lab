@@ -2,16 +2,16 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>החוג שלי · ביה"ס לכדורגל של יוסי</title>
+<title>החוג שלי · דף החוג</title>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../styles/tokens.css" /><link rel="stylesheet" href="../styles/app.css" />
 </head>
-<body data-back="home.html" data-title="פרטי החוג">
+<body data-back="home.html" data-title="דף החוג">
 <main class="screen">
 
   <section class="hero-block is-visible reveal">
-    <h1 id="h-name">ביה"ס לכדורגל של יוסי</h1>
-    <p id="h-sub">פארק גבעתיים · מדריך מוסמך</p>
+    <h1 id="h-name"></h1>
+    <p id="h-sub"></p>
   </section>
 
   <!-- בוחר הילדים. כל מה שמתחתיו משתנה לפי מי מסומן. -->
@@ -22,16 +22,15 @@
 
   <section class="card is-visible reveal">
     <div class="facts">
-      <div><span>🗓️</span><span id="f-when"></span></div>
-      <div><span>💰</span><span id="f-price"></span></div>
-      <div><span>👥</span><span id="f-group"></span></div>
-      <div><span>🚗</span><span id="f-travel"></span></div>
+      <div><span data-ic="calendar"></span><span id="f-when"></span></div>
+      <div><span data-ic="wallet"></span><span id="f-price"></span></div>
+      <div><span data-ic="group"></span><span id="f-group"></span></div>
+      <div><span data-ic="car"></span><span id="f-travel"></span></div>
     </div>
     <div class="capacity">
       <div class="bar"><span id="f-bar"></span></div>
       <p id="f-spots"></p>
     </div>
-    <div class="tagrow" id="f-tags"></div>
   </section>
 
   <!-- התיאום: שני הכפתורים שנגזרו ישירות מהמחקר -->
@@ -46,49 +45,63 @@
     <p style="margin:0; color:var(--color-muted);" id="f-about"></p>
   </section>
 
-  <section class="card is-visible reveal">
-    <h2 style="font-size:var(--fs-h2); margin:0 0 4px;">מה קורה בשיעור</h2>
-    <p style="margin:0 0 8px; font-size:0.74rem; color:var(--color-muted);">כי "שיעור כדורגל" לא אומר לילד שלכם כלום</p>
-    <div id="f-lesson"></div>
-  </section>
-
-  <section class="card group-card is-visible reveal">
-    <h2 style="font-size:var(--fs-h2); margin:0 0 4px;">קבוצת החוג</h2>
-    <p style="margin:0; font-size:0.74rem; color:var(--color-muted);">ההודעות של המדריך והטרמפים, במקום אחד. <strong>מחליפה את קבוצת הוואטסאפ, לא מוסיפה עוד אחת.</strong></p>
-    <div class="group-msg" id="g-msg"></div>
-    <div class="group-meta">
-      <span id="g-parents"></span>
-      <span id="g-carpool"></span>
-      <span>נפתחת רק אחרי הרשמה</span>
+  <!-- התגיות נפרשות לפי ממדי הטקסונומיה. פתוח כברירת מחדל,
+       כי זה הבסיס שכל השאר יושב עליו. -->
+  <section class="card fold is-visible reveal" data-open>
+    <h2 class="fold-h">התגיות של החוג</h2>
+    <div class="fold-b">
+      <p style="margin:0 0 10px; font-size:0.74rem; color:var(--color-muted);">
+        ירוק הוא תיוג שהילדים המסומנים אוהבים, כתום הוא תיוג שבדרך כלל לא עובד אצלם</p>
+      <div class="taxo" id="f-taxo"></div>
     </div>
   </section>
 
-  <section class="card is-visible reveal">
-    <h2 style="font-size:var(--fs-h2); margin:0 0 6px;">הורים מספרים</h2>
-    <div id="f-reviews"></div>
+  <section class="card fold is-visible reveal" data-open>
+    <h2 class="fold-h">מה קורה בשיעור</h2>
+    <div class="fold-b">
+      <p style="margin:0 0 8px; font-size:0.74rem; color:var(--color-muted);">כי "שיעור כדורגל" לא אומר לילד שלכם כלום</p>
+      <div id="f-lesson"></div>
+    </div>
   </section>
 
-  <a class="btn accent is-visible reveal" href="checkout.html" style="margin-bottom:10px;">שריינו שיעור ניסיון חינם</a>
-  <a class="btn secondary is-visible reveal" href="checkout.html">הרשמה ישירה לחוג</a>
+  <section class="card group-card fold is-visible reveal">
+    <h2 class="fold-h">קבוצת החוג</h2>
+    <div class="fold-b">
+      <p style="margin:0; font-size:0.74rem; color:var(--color-muted);">ההודעות של המדריך והטרמפים, במקום אחד. <strong>מחליפה את קבוצת הוואטסאפ, לא מוסיפה עוד אחת.</strong></p>
+      <div class="group-msg" id="g-msg"></div>
+      <div class="group-meta">
+        <span id="g-parents"></span>
+        <span id="g-carpool"></span>
+        <span>נפתחת רק אחרי הרשמה</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card fold is-visible reveal">
+    <h2 class="fold-h">הורים מספרים</h2>
+    <div class="fold-b"><div id="f-reviews"></div></div>
+  </section>
+
+  <a class="btn accent is-visible reveal" id="cta-trial" href="checkout.html" style="margin-bottom:10px;">שריינו שיעור ניסיון חינם</a>
+  <a class="btn secondary is-visible reveal" id="cta-full" href="checkout.html">הרשמה ישירה לחוג</a>
 </main>
 
-<nav class="bottom-nav">
-  <a href="home.html"><span class="ic">🏠</span>חיפוש</a>
-  <a href="#"><span class="ic">❤️</span>שמורים</a>
-  <a href="family-board.html"><span class="ic">📅</span>הלוח שלנו</a>
-  <a href="#"><span class="ic">👤</span>פרופיל</a>
-</nav>
+<nav class="bottom-nav" id="nav"></nav>
 
 <script src="../data/classes.js"></script>
+<script src="../scripts/ui.js"></script>
 <script src="../scripts/kids.js"></script>
+<script src="../scripts/nav.js"></script>
 <script src="../scripts/appbar.js"></script>
 <script>
 (function () {
   var D = window.APP_DATA;
-  var cls = D.classes[0];
-  var $ = function (id) { return document.getElementById(id); };
+  var id = new URLSearchParams(location.search).get('id');
+  var cls = window.Kids.classById(id) || D.classes[0];
+  var $ = function (x) { return document.getElementById(x); };
 
   /* ---- עובדות קבועות, כולן מתוך הטקסונומיה ---- */
+  document.title = 'החוג שלי · ' + cls.name;
   $('h-name').textContent = cls.emoji + ' ' + cls.name;
   $('h-sub').textContent = cls.place + ' · ' + cls.teacher + ' · גילאי ' + cls.ageMin + ' עד ' + cls.ageMax;
   $('f-when').textContent = 'ימי ' + cls.day + "' " + cls.from + ' עד ' + cls.to;
@@ -100,8 +113,6 @@
   var taken = cls.groupSize - cls.spotsLeft;
   $('f-bar').style.width = Math.round(taken / cls.groupSize * 100) + '%';
   $('f-spots').textContent = 'נותרו ' + cls.spotsLeft + ' מקומות בקבוצה הזו';
-
-  $('f-tags').innerHTML = cls.tags.map(function (t) { return '<span class="tag">' + t + '</span>'; }).join('');
 
   $('f-lesson').innerHTML = cls.lesson.map(function (l) {
     return '<div class="lesson-line"><span class="t">' + l.min + '</span><span class="w">' + l.what + '</span></div>';
@@ -116,6 +127,24 @@
       '★'.repeat(r.stars) + ' "' + r.text + '" · ' + r.by + '</p>';
   }).join('');
 
+  /* ---- התגיות, פרושות לפי ממד ומסומנות לפי הילדים ---- */
+  function renderTaxo() {
+    var kids = window.Kids.selected;
+    var loves = {}, avoids = {};
+    kids.forEach(function (k) {
+      (k.interests || []).forEach(function (t) { loves[t] = 1; });
+      (k.avoid || []).forEach(function (t) { avoids[t] = 1; });
+    });
+    $('f-taxo').innerHTML = window.Kids.tagGroups(cls).map(function (g) {
+      return '<div class="taxo-row">' +
+        '<span class="taxo-key">' + window.UI.icon(g.icon, 'ic-sm') + g.key + '</span>' +
+        '<span class="taxo-vals">' + g.tags.map(function (t) {
+          var c = avoids[t] ? ' warn' : (loves[t] ? ' on' : '');
+          return '<span class="tag' + c + '">' + t + '</span>';
+        }).join('') + '</span></div>';
+    }).join('');
+  }
+
   /* ---- ההתאמה, מתעדכנת בכל שינוי בחירה ---- */
   var ICON = { ok: '✓', warn: '!', block: '×' };
   var HEAD = { ok: 'מתאים ל', warn: 'כדאי לבדוק לפני, ל', block: 'לא מתאים ל' };
@@ -125,34 +154,40 @@
     var host = $('fits');
     if (!kids.length) {
       host.innerHTML = '<p class="maphint">סמנו ילד למעלה כדי לראות אם החוג מתאים לו</p>';
-      return;
+    } else {
+      host.innerHTML = kids.map(function (k) {
+        var f = window.Kids.fitFor(k, cls);
+        var lines = []
+          .concat(f.block.map(function (t) { return { c: 'block', t: t }; }))
+          .concat(f.warn.map(function (t) { return { c: 'warn', t: t }; }))
+          .concat(f.ok.map(function (t) { return { c: 'ok', t: t }; }));
+        return '' +
+          '<div class="fit ' + f.verdict + ' is-visible reveal">' +
+            '<div class="fit-head">' +
+              '<span class="fit-face">' + window.Kids.face(k, 42) + '</span>' +
+              '<div><p class="fit-title">' + HEAD[f.verdict] + k.name + '</p>' +
+              '<p class="fit-sub">' + k.note + '</p></div>' +
+            '</div>' +
+            '<ul>' + lines.map(function (l) {
+              return '<li class="i-' + l.c + '"><span class="m">' + ICON[l.c] + '</span><span>' + l.t + '</span></li>';
+            }).join('') + '</ul>' +
+            (f.verdict === 'block'
+              ? '<p class="fit-note">אפשר עדיין לשריין שיעור ניסיון ולראות, אבל שווה לדעת מראש</p>'
+              : '') +
+          '</div>';
+      }).join('');
     }
-    host.innerHTML = kids.map(function (k) {
-      var f = window.Kids.fitFor(k, cls);
-      var lines = []
-        .concat(f.block.map(function (t) { return { c: 'block', t: t }; }))
-        .concat(f.warn.map(function (t) { return { c: 'warn', t: t }; }))
-        .concat(f.ok.map(function (t) { return { c: 'ok', t: t }; }));
-      return '' +
-        '<div class="fit ' + f.verdict + ' is-visible reveal">' +
-          '<div class="fit-head">' +
-            '<span class="fit-face">' + k.emoji + '</span>' +
-            '<div><p class="fit-title">' + HEAD[f.verdict] + k.name + '</p>' +
-            '<p class="fit-sub">' + k.note + '</p></div>' +
-          '</div>' +
-          '<ul>' + lines.map(function (l) {
-            return '<li class="i-' + l.c + '"><span class="m">' + ICON[l.c] + '</span><span>' + l.t + '</span></li>';
-          }).join('') + '</ul>' +
-          (f.verdict === 'block'
-            ? '<p class="fit-note">אפשר עדיין לשריין שיעור ניסיון ולראות, אבל שווה לדעת מראש</p>'
-            : '') +
-        '</div>';
-    }).join('');
+    renderTaxo();
   }
 
   window.Kids.mount('#kidpick');
   window.Kids.onChange(renderFits);
   renderFits();
+
+  // הכפתורים למטה שומרים גם את זהות החוג
+  ['cta-trial', 'cta-full'].forEach(function (x) {
+    $(x).setAttribute('href', window.Kids.link('checkout.html') + '&id=' + cls.id);
+  });
 
   /* ---- פעולות התיאום ---- */
   function say(msg) { var m = $('coord-msg'); m.textContent = msg; m.hidden = false; }

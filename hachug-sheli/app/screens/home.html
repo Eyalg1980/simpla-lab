@@ -8,18 +8,20 @@
 </head>
 <body data-back="" data-title="החוג שלי">
 <main class="screen">
-  <header class="app-header">
-    <div>
-      <h1 class="hello">שלום דנה 👋</h1>
-      <span class="loc">📍 גבעתיים והסביבה</span>
+
+  <!-- ההדר צבוע, ובוחר הילדים יושב בתוכו. הצבע מסמן "כאן מתחילים" -->
+  <header class="hero-band">
+    <div class="app-header" style="padding-block:0 var(--space-2);">
+      <div>
+        <h1 class="hello">שלום דנה 👋</h1>
+        <span class="loc" data-ic="pin">גבעתיים והסביבה</span>
+      </div>
+      <div class="avatar">ד</div>
     </div>
-    <div class="avatar">ד</div>
+    <div id="kidpick"></div>
   </header>
 
-  <!-- בוחר הילדים: אווטארים שנדלקים ונכבים -->
-  <div id="kidpick"></div>
-
-  <div class="search is-visible reveal">🔍 מה מחפשים? כדורגל, קרמיקה, רובוטיקה...</div>
+  <div class="search is-visible reveal" data-ic="search">מה מחפשים? כדורגל, קרמיקה, רובוטיקה...</div>
 
   <div class="chips">
     <span class="chip active" id="chip-age">גיל 6-9</span>
@@ -31,8 +33,8 @@
 
   <!-- מפה כתצוגה חלופית, לא כדף נפרד. הכאב הוא ודאות, לא גילוי. -->
   <div class="viewtoggle">
-    <button type="button" id="v-list" class="on">רשימה</button>
-    <button type="button" id="v-map">מפה</button>
+    <button type="button" id="v-list" class="on" data-ic="list">רשימה</button>
+    <button type="button" id="v-map" data-ic="map">מפה</button>
   </div>
 
   <div id="mapview" hidden>
@@ -46,15 +48,12 @@
   </div>
 </main>
 
-<nav class="bottom-nav">
-  <a href="#" class="active"><span class="ic">🏠</span>חיפוש</a>
-  <a href="#"><span class="ic">❤️</span>שמורים</a>
-  <a href="family-board.html"><span class="ic">📅</span>הלוח שלנו</a>
-  <a href="#"><span class="ic">👤</span>פרופיל</a>
-</nav>
+<nav class="bottom-nav" id="nav"></nav>
 
 <script src="../data/classes.js"></script>
+<script src="../scripts/ui.js"></script>
 <script src="../scripts/kids.js"></script>
+<script src="../scripts/nav.js"></script>
 <script src="../scripts/appbar.js"></script>
 <script>
 (function () {
@@ -102,7 +101,8 @@
       if (row.rank === 2) note = '<p class="meta" style="color:var(--color-danger)">לא בטווח הגילאים או מתנגש בלוח</p>';
       else if (row.rank === 1) note = '<p class="meta" style="color:#B45309">מתאים לחלק מהילדים</p>';
       return '' +
-        '<article class="card chug-card is-visible reveal" style="' + (row.rank === 2 ? 'opacity:.62' : '') + '">' +
+        '<article class="card chug-card is-visible reveal" data-id="' + c.id + '" ' +
+                 'style="' + (row.rank === 2 ? 'opacity:.62' : '') + '">' +
           '<div class="chug-icon' + (WARM[c.tags[0]] ? ' warm' : '') + '">' + c.emoji + '</div>' +
           '<div>' +
             '<h3>' + c.name + '</h3>' +
@@ -111,37 +111,36 @@
             (c.tags.indexOf('שיעור ניסיון חינם') > -1 ? '<span class="badge trial">שיעור ניסיון חינם</span>' : '') +
             note +
           '</div>' +
-          '<div class="chug-side"><div class="price">' + c.price + ' ש"ח<small>/חודש</small></div></div>' +
+          // החץ הוא האפורדנס: הכרטיס נראה כמו משהו שנפתח, לא כמו טקסט
+          '<div class="chug-side"><div class="price">' + c.price + ' ש"ח<small>/חודש</small></div>' +
+            '<span class="go">' + window.UI.icon('chevron') + '</span></div>' +
         '</article>';
     }).join('');
 
-    // הכרטיס הראשון מוביל לדף החוג המלא
-    var first = $('results').querySelector('.chug-card');
-    if (first) {
-      first.style.cursor = 'pointer';
-      first.addEventListener('click', function () {
-        location.href = 'class.html?kids=' + encodeURIComponent(window.Kids.param());
+    // כל כרטיס מוביל לדף החוג שלו, לא רק הראשון
+    $('results').querySelectorAll('.chug-card').forEach(function (el) {
+      el.addEventListener('click', function () {
+        location.href = window.Kids.link('class.html') + '&id=' + el.getAttribute('data-id');
       });
-    }
+    });
     drawMap();
   }
 
   /* ---- המפה ---- */
-  var SPOTS = [
-    { x: 62, y: 34 }, { x: 30, y: 58 }, { x: 74, y: 70 }, { x: 44, y: 22 }
-  ];
+  var SPOTS = [{ x: 62, y: 34 }, { x: 30, y: 58 }, { x: 74, y: 70 }, { x: 44, y: 22 }];
   function drawMap() {
     var host = $('maparea');
     var roads =
       '<div class="road" style="right:0; left:0; top:46%; height:10px"></div>' +
       '<div class="road" style="top:0; bottom:0; right:48%; width:10px"></div>';
     var home = '<div class="mappin home" style="right:50%; top:52%">' +
-      '<div class="dot"><span>🏠</span></div><div class="lbl">הבית</div></div>';
+      '<div class="dot">' + window.UI.icon('pin') + '</div><div class="lbl">הבית</div></div>';
     var pins = D.classes.map(function (c, i) {
       var s = SPOTS[i % SPOTS.length];
-      return '<div class="mappin" style="right:' + s.x + '%; top:' + s.y + '%">' +
+      return '<a class="mappin" href="' + window.Kids.link('class.html') + '&id=' + c.id + '" ' +
+        'style="right:' + s.x + '%; top:' + s.y + '%">' +
         '<div class="dot"><span>' + c.emoji + '</span></div>' +
-        '<div class="lbl">' + c.travelMin + ' דק</div></div>';
+        '<div class="lbl">' + c.travelMin + ' דק</div></a>';
     }).join('');
     host.innerHTML = roads + home + pins;
   }

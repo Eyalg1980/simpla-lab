@@ -17,7 +17,9 @@ const SHOTS = [
   { key: 'home', file: 'home.html' },
   { key: 'class', file: 'class.html' },
   { key: 'checkout', file: 'checkout.html' },
-  { key: 'board', file: 'family-board.html' }
+  { key: 'board', file: 'family-board.html' },
+  { key: 'saved', file: 'saved.html' },
+  { key: 'profile', file: 'profile.html' }
 ];
 
 // מידות הטלפון בקנה מידה 1, לפני ההקטנה לכל הרכבה
@@ -73,11 +75,11 @@ function page(body, css) {
   }
 
   /* ---- ארבעת מסכי ה-MVP, רקע בהיר. סדר RTL: החיפוש מימין ---- */
-  await compose(1200, 506,
-    `<div class="stage">${[shot.home, shot.class, shot.checkout, shot.board]
-      .map(s => phone(s, 0.50)).join('')}</div>`,
+  await compose(1200, 420,
+    `<div class="stage">${[shot.home, shot.class, shot.saved, shot.profile, shot.checkout, shot.board]
+      .map(s => phone(s, 0.39)).join('')}</div>`,
     `body{background:#F7F8F8}
-     .stage{width:1200px;height:506px;gap:68px;padding-top:41px}`,
+     .stage{width:1200px;height:420px;gap:22px;padding-top:35px}`,
     'hachug-sheli-screens.png');
 
   /* ---- ההירו: שלושה מסכים על teal, עם שם המוצר בפינה ---- */

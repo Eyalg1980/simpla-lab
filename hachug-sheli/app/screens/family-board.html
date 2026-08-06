@@ -8,12 +8,14 @@
 </head>
 <body data-back="home.html" data-title="הלוח שלנו">
 <main class="screen">
-  <header class="app-header">
-    <div>
-      <h1 class="hello">הלוח המשפחתי 📅</h1>
-      <span class="loc">השבוע · 2 ילדים · 3 חוגים</span>
+  <header class="hero-band">
+    <div class="app-header" style="padding-block:0;">
+      <div>
+        <h1 class="hello">הלוח המשפחתי</h1>
+        <span class="loc" data-ic="calendar">השבוע · 2 ילדים · 3 חוגים</span>
+      </div>
+      <div class="avatar">ד</div>
     </div>
-    <div class="avatar">ד</div>
   </header>
 
   <div class="week is-visible reveal">
@@ -29,6 +31,7 @@
       <p class="meta">17:00-18:00 · פארק גבעתיים · להביא בקבוק מים</p>
       <span class="badge trial">שיעור ניסיון · היום!</span>
     </div>
+    <div class="chug-side"><span class="go" data-ic="chevron"></span></div>
   </article>
 
   <div class="section-title"><h2>בהמשך השבוע</h2></div>
@@ -38,6 +41,7 @@
       <h3>קרמיקה קטן <span class="kid-tag kid-b">נועה</span></h3>
       <p class="meta">יום ה' 16:30 · רח' כצנלסון</p>
     </div>
+    <div class="chug-side"><span class="go" data-ic="chevron"></span></div>
   </article>
   <article class="card chug-card is-visible reveal">
     <div class="chug-icon warm">🩰</div>
@@ -45,27 +49,32 @@
       <h3>בלט מודרני <span class="kid-tag kid-b">נועה</span></h3>
       <p class="meta">יום א' 17:15 · סטודיו רוני</p>
     </div>
+    <div class="chug-side"><span class="go" data-ic="chevron"></span></div>
   </article>
 
-  <div class="section-title"><h2>תשלומים</h2><a href="#">היסטוריה</a></div>
-  <section class="card is-visible reveal">
+  <section class="card fold is-visible reveal" data-open>
+    <h2 class="fold-h">תשלומים</h2>
+    <div class="fold-b">
     <div class="pay-row"><span>⚽ כדורגל · איתי</span><span class="pill-paid">אחרי שיעור ניסיון</span></div>
     <div class="pay-row"><span>🎨 קרמיקה · נועה</span><span class="pill-paid">שולם · אוגוסט</span></div>
     <div class="pay-row"><span>🩰 בלט · נועה</span><span class="pill-due">לתשלום עד 1/8</span></div>
+    </div>
   </section>
 
-  <div class="section-title"><h2>הודעות מהמדריכים</h2></div>
-  <section class="card is-visible reveal">
-    <p style="margin:0; font-size:var(--fs-small);"><strong>יוסי (כדורגל):</strong> "מחכים לאיתי היום! מגרש 2, ליד השער הצפוני" · לפני שעה</p>
+  <section class="card fold is-visible reveal" data-open>
+    <h2 class="fold-h">הודעות מהמדריכים</h2>
+    <div class="fold-b">
+      <p style="margin:0; font-size:var(--fs-small);"><strong>יוסי (כדורגל):</strong> "מחכים לאיתי היום! מגרש 2, ליד השער הצפוני" · לפני שעה</p>
+    </div>
   </section>
 </main>
 
-<nav class="bottom-nav">
-  <a href="home.html"><span class="ic">🏠</span>חיפוש</a>
-  <a href="#"><span class="ic">❤️</span>שמורים</a>
-  <a href="#" class="active"><span class="ic">📅</span>הלוח שלנו</a>
-  <a href="#"><span class="ic">👤</span>פרופיל</a>
-</nav>
+<nav class="bottom-nav" id="nav"></nav>
+<script src="../data/classes.js"></script>
+<script src="../scripts/ui.js"></script>
+<script src="../scripts/kids.js"></script>
+<script src="../scripts/nav.js"></script>
 <script src="../scripts/appbar.js"></script>
+<script>window.Kids.mount("#nothing");</script>
 </body>
 </html>

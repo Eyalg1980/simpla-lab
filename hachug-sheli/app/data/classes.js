@@ -78,7 +78,15 @@ window.APP_DATA = {
           "what": "תנועת נוער"
         }
       ],
-      "gender": "m"
+      "gender": "m",
+      "avatar": {
+        "skin": "#F0C098",
+        "hair": "#2E2119",
+        "style": "curly",
+        "acc": "freckles",
+        "bg": "#CFE9E5",
+        "shirt": "#0F766E"
+      }
     },
     {
       "id": "noa",
@@ -110,7 +118,15 @@ window.APP_DATA = {
           "what": "חוג תנועה"
         }
       ],
-      "gender": "f"
+      "gender": "f",
+      "avatar": {
+        "skin": "#F8D8BC",
+        "hair": "#8A4B24",
+        "style": "bun",
+        "acc": "none",
+        "bg": "#FDE7B4",
+        "shirt": "#F59E0B"
+      }
     }
   ],
   "classes": [
@@ -338,6 +354,115 @@ window.APP_DATA = {
         "lastMsg": "רוני: המופע בסוף השנה, פרטים בקרוב",
         "carpool": 2
       }
+    }
+  ],
+  "parent": {
+    "name": "דנה",
+    "city": "גבעתיים",
+    "since": "ספטמבר 2025",
+    "avatar": {
+      "skin": "#F3C9A6",
+      "hair": "#4A2E1C",
+      "style": "long",
+      "acc": "none",
+      "bg": "#0F766E",
+      "shirt": "#FFFFFF"
+    },
+    "prefs": [
+      {
+        "id": "reminders",
+        "label": "תזכורת ערב לפני שיעור",
+        "on": true,
+        "why": "כי ההודעה של המדריך נבלעת בקבוצה"
+      },
+      {
+        "id": "conflicts",
+        "label": "התראה על התנגשות בלוח",
+        "on": true,
+        "why": "לפני ההרשמה, לא אחריה"
+      },
+      {
+        "id": "carpool",
+        "label": "הצעות טרמפ מקבוצת החוג",
+        "on": false,
+        "why": "נפתח רק אחרי הרשמה לחוג"
+      },
+      {
+        "id": "marketing",
+        "label": "חוגים חדשים באזור",
+        "on": false,
+        "why": "כבוי כברירת מחדל. עודף מידע הוא הכאב, לא הפתרון"
+      }
+    ],
+    "stats": [
+      {
+        "k": "חוגים פעילים",
+        "v": "3"
+      },
+      {
+        "k": "שיעורי ניסיון שנוצלו",
+        "v": "4"
+      },
+      {
+        "k": "שעות טלפונים שנחסכו",
+        "v": "~6"
+      }
+    ]
+  },
+  "saved": [
+    {
+      "classId": "ceramics-studio",
+      "note": "נועה ביקשה אחרי שראתה את האובניים",
+      "for": [
+        "noa"
+      ],
+      "addedAgo": "לפני יומיים"
+    },
+    {
+      "classId": "robotics-young",
+      "note": "לבדוק אם יש מסלול בלי מנוי שנתי",
+      "for": [
+        "itai"
+      ],
+      "addedAgo": "לפני שבוע"
+    },
+    {
+      "classId": "ballet-roni",
+      "note": "מתנגש עם השחייה של איתי, אבל שווה לנועה",
+      "for": [
+        "noa"
+      ],
+      "addedAgo": "לפני שבוע"
+    }
+  ],
+  "tagGroups": [
+    {
+      "key": "תחום",
+      "icon": "sparkle"
+    },
+    {
+      "key": "מסגרת",
+      "icon": "group"
+    },
+    {
+      "key": "מרחב",
+      "icon": "pin"
+    },
+    {
+      "key": "אופי",
+      "icon": "trophy"
+    },
+    {
+      "key": "מיומנות",
+      "icon": "check"
+    },
+    {
+      "key": "לוגיסטיקה",
+      "icon": "car"
+    },
+    {
+      "key": "מחויבות",
+      "icon": "tag"
     }
   ]
 };
