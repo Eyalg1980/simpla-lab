@@ -24,5 +24,18 @@
   "webFetches": 7,
   "commits": 3,
   "notes": "clean; 7th fetch was a cache-busting retry of live posts.json verification, research stayed at 3 fetches"
+ },
+ {
+  "date": "2026-08-06",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
+  },
+  "durationMin": 22,
+  "webSearches": 5,
+  "webFetches": 5,
+  "commits": 3,
+  "notes": "clean; 2 of 5 fetches denied with PROVENANCE_REQUIRED (unattended), live verify done via fresh clone; Thursday light competitions pass, no deadline inside 7 days"
  }
 ]
