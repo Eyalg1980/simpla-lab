@@ -238,3 +238,37 @@ button, .btn { font-family: inherit; }
 .mappin.home .dot { background: var(--color-text); }
 .mappin .lbl { font-size: 0.62rem; font-weight: 700; background: #fff; border-radius: 999px; padding: 1px 7px; white-space: nowrap; box-shadow: var(--shadow-card); }
 .maphint { margin: 0 0 var(--space-2); font-size: 0.72rem; color: var(--color-muted); }
+
+/* ============================================================
+   נוסף 6.8.2026 · הכותרת העליונה
+   נבנית ב-appbar.js ולא מועתקת לכל מסך.
+   ============================================================ */
+.appbar {
+  position: sticky; top: 0; z-index: 40;
+  display: grid; grid-template-columns: 44px 1fr 44px; align-items: center;
+  gap: var(--space-1);
+  max-width: 430px; margin-inline: auto;
+  padding: 8px var(--space-2);
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  backdrop-filter: saturate(1.4) blur(10px);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+.appbar-name {
+  text-align: center; font-weight: 700; font-size: 1rem;
+  color: var(--color-primary); letter-spacing: -0.2px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.appbar-pad { width: 44px; }
+.appbar-back {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1.5px solid var(--color-border); background: var(--color-surface);
+  color: var(--color-primary); cursor: pointer; padding: 0;
+  transition: transform .12s ease, background .12s ease;
+}
+.appbar-back svg { width: 20px; height: 20px; }
+.appbar-back:active { transform: scale(0.92); background: var(--color-primary-soft); }
+.appbar-back:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+/* במסך הבית אין לאן לחזור. הכפתור נשאר בפריסה כדי שהשם יישאר במרכז. */
+.appbar-back[disabled] { visibility: hidden; }
