@@ -1,6 +1,50 @@
 {
   "days": [
     {
+      "date": "2026-08-07",
+      "dateLabel": "יום שישי, 7 באוגוסט",
+      "ideas": [
+        {
+          "id": "2026-08-07-1",
+          "world": "וידאו ארט",
+          "color": "#71F73C",
+          "hook": "ביוגרפיה של אובייקט · פרק 6: הפריים, הקופסה שלמדה לחשוב",
+          "concept": "ב-2016 פיגמה החליפה את הארטבורד בפריים, וכולם חשבו שזה שינוי שם. הסרט מספר את חיי הקופסה: מארטבורד נייח שרק מחזיק ציורים, לפריים שלמד להחזיק חוקים, קונסטריינטים, אוטו לייאאוט, ועכשיו גם קוד וסוכנים. אותו סיפור רץ כפוסט בבריינסטורמר ב-4.8, נכס אחד בשני ערוצים.",
+          "execution": "שפת הקליי של הסדרה: פריימים ב-Nano Banana, הנפשה ב-Kling 3 או Cinema Studio של היגספילד, 45 עד 60 שניות, 1:1 ראשי לפיד ועותק 9:16 לסטורי, בלי קריינות, סאונד דיזיין עדין וכתוביות עברית נצרבות בעריכה.",
+          "why": "המחקר כבר נעשה בשביל הפוסט של 4.8, אז הפרק עולה כמעט חינם. הסדרה היא הנכס המצטבר הכי חזק של הערוץ, וכל פרק חדש מחזק את הקודמים.",
+          "competition": null,
+          "srcUrl": "https://help.figma.com/hc/en-us/articles/360041539473-Frames-in-Figma-Design",
+          "srcLabel": "Figma Help, המקור מהפוסט של 4.8",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field, 1:1. A rigid clay rectangle sits pinned to a corkboard like a museum specimen, then it softens, grows tiny corner handles and stretches itself wider, smaller frames sprout nested inside it and rearrange in a neat breathing row like living tiles, tiny clay rulers and dashed constraint lines snap around them, finally the frame lifts off the corkboard and hovers, alive, slow orbiting camera, gentle handmade stop-motion jitter, leave clear negative space at the top for Hebrew titling added in edit",
+            "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט · פרק 6: הפריים, הקופסה שלמדה לחשוב\" לסטוריבורד מלא במבנה הסדרה: לוגליין, סינופסיס, שוט-ליסט של 8 עד 10 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העובדות לעגן בהן: ב-2016 פיגמה החליפה את הארטבורד בפריים, הפריים קיבל קונסטריינטים, אחר כך אוטו לייאאוט, והיום הוא נקשר לקוד ולסוכנים. הקשת: קופסה שמחזיקה ציורים הופכת לקופסה שמחזיקה חוקים. שפת קליי של הסדרה, 45 עד 60 שניות, 1:1, בלי קריינות, כתוביות עברית בעריכה.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field. A single elegant clay frame hovering above a corkboard, smaller nested clay frames arranged inside it like a living blueprint, tiny clay rulers and dashed constraint lines orbiting around it, museum specimen pins left abandoned below, 1:1, no text",
+            "raw": "הוק: ביוגרפיה של אובייקט · פרק 6: הפריים, הקופסה שלמדה לחשוב\nעולם: וידאו ארט\nקונספט: ב-2016 פיגמה החליפה את הארטבורד בפריים. הסרט מספר את חיי הקופסה: מארטבורד שמחזיק ציורים לפריים שמחזיק חוקים, קונסטריינטים, אוטו לייאאוט, קוד וסוכנים. אותו סיפור רץ כפוסט בבריינסטורמר ב-4.8.\nביצוע: שפת הקליי של הסדרה, פריימים ב-Nano Banana, הנפשה ב-Kling 3 או Cinema Studio, 45 עד 60 שניות, 1:1 ועותק 9:16, כתוביות עברית בעריכה.\nלמה עכשיו: המחקר כבר נעשה בשביל הפוסט של 4.8, הפרק עולה כמעט חינם והסדרה היא הנכס המצטבר של הערוץ."
+          },
+          "storyboardUrl": null
+        },
+        {
+          "id": "2026-08-07-2",
+          "world": "תיעוד תהליך",
+          "color": "#71F73C",
+          "hook": "פרומפט אחד, ארבעה מודלים, שופט אחד: אתה. הטסט שחסר בעברית למי שבוחר מודל וידאו",
+          "concept": "לוקחים פרומפט קליי אחד זהה ומריצים אותו על Kling v3, Runway Gen-4.5, Hailuo 02 ו-Veo דרך Cinema Studio. שמים את הארבעה בגריד מפוצל ורואים מה כל מודל מבין על חומר, אור ותנועה. הריל הוא הביקורת: כמה שניות לכל מודל, פסק דין של שורה אחת, ובסוף המלצה לפי סוג פרויקט.",
+          "execution": "Higgsfield batch generation לארבעת המודלים עם אותו פרומפט בדיוק, הרכבת גריד בעריכה, פתיח וכותרות בשפה האדיטוריאלית הקינטית, 60 שניות, 9:16, קריינות עברית קצרה או כתוביות בלבד.",
+          "why": "מאמרי ההשוואה של 2026 מציפים את הפיד באנגלית, ואין כמעט השוואה בעברית שמריצה את אותו פרומפט אחד לאחד. תוכן שמצטלם מהעבודה האמיתית שלך ממילא: לבחור מודל לפרויקט.",
+          "competition": null,
+          "srcUrl": "https://www.aimagicx.com/blog/ai-video-generation-showdown-2026",
+          "srcLabel": "AI Magicx, 2026",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field, 9:16. A small clay potter's wheel spins at the center of the frame, a pair of handmade clay hands shape a lump of coral clay that gradually becomes a tiny smartphone with a glowing screen, the phone folds itself into a paper plane and glides off the wheel and out of frame, one slow push in from a low angle, soft handmade motion with visible stop-motion jitter, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"פרומפט אחד, ארבעה מודלים, שופט אחד: אתה\" לסטוריבורד מלא: לוגליין, סינופסיס, מבנה ריל של 60 שניות עם טיימליין מדויק, פתיח קינטי, ארבעה מקטעי מודל של 10 עד 12 שניות עם פסק דין של שורה לכל מודל, וסיום עם המלצה לפי סוג פרויקט. הפרומפט שנבחן, לצרף אותו כלשונו: גלגל קדרות קליי שמפסל סמארטפון שהופך למטוס נייר. המודלים: Kling v3, Runway Gen-4.5, Hailuo 02, Veo דרך Cinema Studio. כתוב גם קריינות עברית מתוזמנת וכותרות לכל מקטע.",
+            "image": "Editorial kinetic style key frame, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A two by two grid of four identical small clay potter's wheels, each rendered in a subtly different finish and lighting temperature, one glowing slightly brighter than the others, thin frame lines separating the quadrants, 1:1, no text",
+            "raw": "הוק: פרומפט אחד, ארבעה מודלים, שופט אחד: אתה. הטסט שחסר בעברית למי שבוחר מודל וידאו\nעולם: תיעוד תהליך\nקונספט: מריצים פרומפט קליי אחד זהה על Kling v3, Runway Gen-4.5, Hailuo 02 ו-Veo דרך Cinema Studio, גריד מפוצל, פסק דין של שורה לכל מודל והמלצה לפי סוג פרויקט.\nביצוע: Higgsfield batch generation, גריד בעריכה, פתיח אדיטוריאלי קינטי, 60 שניות, 9:16, כתוביות עברית.\nלמה עכשיו: שיח ההשוואות של 2026 בשיא ואין כמעט השוואה בעברית עם אותו פרומפט אחד לאחד."
+          },
+          "storyboardUrl": null
+        }
+      ]
+    },
+    {
       "date": "2026-08-06",
       "dateLabel": "יום חמישי, 6 באוגוסט",
       "ideas": [

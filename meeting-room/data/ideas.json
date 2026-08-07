@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-06",
+  "updated": "2026-08-07",
   "ideas": [
     {
       "id": "I-2026-0231",
@@ -405,6 +405,62 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-08-06"
+    },
+    {
+      "id": "I-2026-0267",
+      "title": "רודף קבלות",
+      "line": "התשלום נכנס, הקבלה יוצאת לבד",
+      "advisor": "pain",
+      "createdAt": "2026-08-07",
+      "capability": null,
+      "evidence": "שני 'ברגע שישלמו' פתוחים בלוח החודש: קבלה לגוגאנו אחרי חשבונית שנשלחה ב-3.8, וחשבונית מס קבלה לג'ון ברייס על תשלום שצפוי ב-10.8",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-07"
+    },
+    {
+      "id": "I-2026-0268",
+      "title": "לוח הגשות",
+      "line": "רואים בשנייה מי מהסטודנטים הגיש מה ומי תקוע",
+      "advisor": "pain",
+      "createdAt": "2026-08-07",
+      "capability": null,
+      "evidence": "מעקב ידני בלוח מאז סוף יולי אחרי שלוש הגשות פתוחות: וונסה מתגלגל 2 עד 4, שחק וראמיז הכול",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-07"
+    },
+    {
+      "id": "I-2026-0269",
+      "title": "מחליף קולות",
+      "line": "איך נראה על מסך בכיתה אותו מסך שמחליף קול מיקרוקופי בין שלוש פרסונות כתיבה?",
+      "advisor": "teacher",
+      "createdAt": "2026-08-07",
+      "capability": null,
+      "evidence": null,
+      "lesson": "UI/UX ערב 45900, מפגש 1, מצגת UX Writing",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-07"
+    },
+    {
+      "id": "I-2026-0270",
+      "title": "צייד דפוסים",
+      "line": "איך נראה בכיתה ציד דפוסים חי: אותו פלואו אונבורדינג בחמש אפליקציות אמיתיות זו לצד זו?",
+      "advisor": "teacher",
+      "createdAt": "2026-08-07",
+      "capability": null,
+      "evidence": null,
+      "lesson": "UI/UX, שיעור דפוסי עיצוב ומחקר מתחרים עם Mobbin",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-07"
     }
   ]
 }
