@@ -368,12 +368,110 @@ footer .fbrand{font-family:'Karantina';font-weight:700;font-size:2.2rem;color:va
 body[data-mode="dada"] footer .fbrand{color:var(--blood)}
 footer p{max-width:640px;margin:0 auto 8px;line-height:1.8}
 
+/* ============ FILMSTRIP (horizontal scroll gallery) ============ */
+.filmstrip-outer{height:380vh;position:relative;padding:0;max-width:none;margin:0}
+.fs-sticky{
+  position:sticky;top:0;height:100svh;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center;gap:26px;
+}
+.fs-head{padding:0 6vw;display:flex;align-items:baseline;gap:20px;flex-wrap:wrap}
+.fs-head h2{margin-bottom:0}
+.fs-counter{
+  font-family:'Karantina';font-weight:700;font-size:1.8rem;color:var(--gold);
+  letter-spacing:.05em;direction:ltr;
+}
+body[data-mode="dada"] .fs-counter{color:var(--blood);transform:rotate(-3deg)}
+.fs-hint{font-size:.8rem;letter-spacing:.25em;opacity:.55}
+.fs-track{
+  display:flex;gap:4vw;padding:0 6vw;align-items:center;
+  will-change:transform;transition:none;
+}
+.frame{flex:0 0 auto;width:min(600px,74vw);position:relative;transition:transform .7s ease}
+.frame .fimg{
+  height:56vh;max-height:560px;overflow:hidden;background:#0a0805;
+  border:10px solid var(--gold);outline:1px solid var(--gold);outline-offset:6px;
+  transition:all .7s ease;
+}
+.frame .fimg img{width:100%;height:100%;object-fit:cover;filter:sepia(.2) contrast(1.05);transition:filter .7s ease}
+.frame .fcap{
+  margin-top:16px;text-align:center;font-family:'Secular One';
+  font-size:.95rem;letter-spacing:.15em;color:var(--gold);transition:all .5s ease;
+}
+.frame .fsub{display:block;font-family:'Heebo';font-weight:300;font-size:.75rem;letter-spacing:.1em;opacity:.65;margin-top:4px;color:var(--bone)}
+/* dada: polaroids with tape */
+body[data-mode="dada"] .frame:nth-child(odd){transform:rotate(-2.2deg)}
+body[data-mode="dada"] .frame:nth-child(even){transform:rotate(1.8deg) translateY(14px)}
+body[data-mode="dada"] .frame .fimg{
+  border:14px solid #fffdf5;border-bottom-width:56px;outline:1px solid rgba(0,0,0,.25);outline-offset:0;
+  box-shadow:12px 14px 0 rgba(0,0,0,.22);background:#fffdf5;
+}
+body[data-mode="dada"] .frame .fimg img{filter:grayscale(.55) contrast(1.15)}
+body[data-mode="dada"] .frame::before{
+  content:"";position:absolute;top:-14px;right:34%;width:110px;height:30px;
+  background:rgba(210,195,160,.85);transform:rotate(-4deg);z-index:3;
+  border-right:1px dashed rgba(0,0,0,.2);border-left:1px dashed rgba(0,0,0,.2);
+}
+body[data-mode="dada"] .frame .fcap{
+  font-family:'Amatic SC';font-weight:700;font-size:1.6rem;letter-spacing:.05em;color:var(--ink);
+  margin-top:-44px;position:relative;z-index:2;
+}
+body[data-mode="dada"] .frame .fsub{color:#4a4436;font-family:'Amatic SC';font-size:1.1rem}
+/* waiting frame (photo not yet supplied) */
+.frame.waiting .fimg{
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  border-style:dashed;background:repeating-linear-gradient(45deg, rgba(201,162,39,.05) 0 16px, transparent 16px 32px),#14100c;
+}
+body[data-mode="dada"] .frame.waiting .fimg{border-style:dashed;border-color:var(--blood);background:repeating-linear-gradient(45deg, rgba(161,29,29,.05) 0 16px, transparent 16px 32px),#f7f0dd}
+.frame.waiting .wtxt{font-family:'Karantina';font-weight:700;font-size:2.6rem;color:var(--gold);line-height:1;padding:20px}
+body[data-mode="dada"] .frame.waiting .wtxt{color:var(--blood)}
+.frame.waiting .wtxt small{display:block;font-family:'Heebo';font-weight:300;font-size:.8rem;letter-spacing:.2em;margin-top:12px;color:var(--bone);opacity:.6}
+body[data-mode="dada"] .frame.waiting .wtxt small{color:var(--ink)}
+
+/* ============ CINEMA ============ */
+.cinema-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:34px;margin-top:44px}
+.vwork{position:relative;transition:transform .6s ease}
+.vwork .vframe{
+  aspect-ratio:16/9;background:#000;
+  border:8px solid var(--gold);transition:all .7s ease;
+}
+.vwork iframe{width:100%;height:100%;border:0;display:block}
+.vwork .vcap{
+  margin-top:12px;font-family:'Secular One';font-size:.92rem;letter-spacing:.06em;
+}
+.vwork .vsrc{display:block;font-size:.72rem;font-family:'Heebo';font-weight:300;opacity:.6;margin-top:3px;letter-spacing:.15em}
+body[data-mode="dada"] .vwork .vframe{
+  border:10px solid #fffdf5;box-shadow:10px 12px 0 rgba(0,0,0,.2);outline:1px solid rgba(0,0,0,.25);
+}
+body[data-mode="dada"] .vwork:nth-child(3n){transform:rotate(-1.4deg)}
+body[data-mode="dada"] .vwork:nth-child(3n+1){transform:rotate(1.1deg)}
+body[data-mode="dada"] .vwork:nth-child(3n+2){transform:rotate(-.6deg)}
+body[data-mode="dada"] .vwork .vcap{font-family:'Amatic SC';font-weight:700;font-size:1.4rem}
+
 /* utility */
 .center{text-align:center}
 .dim{opacity:.65}
+
+/* ============ DESKTOP POLISH ============ */
+@media (min-width:1400px){
+  section{max-width:1360px;padding:110px 60px}
+  .hall-sub{font-size:1.25rem;max-width:820px}
+  h2.hall-title{font-size:clamp(3rem,7vw,7rem)}
+  .monument{max-width:960px}
+  .walls{gap:44px}
+  .gallery-grid{grid-template-columns:repeat(3,1fr);gap:36px}
+  .cinema-grid{grid-template-columns:repeat(3,1fr)}
+  .timeline{padding-right:40px}
+  .tl-item p{max-width:820px;font-size:1.05rem}
+  .quotes-band{grid-template-columns:repeat(4,1fr)}
+  .navlinks{gap:26px;font-size:.92rem}
+  .frame{width:640px}
+}
 @media (max-width:640px){
   .navlinks{display:none}
   section{padding:70px 5vw}
+  .filmstrip-outer{padding:0}
+  .frame .fimg{height:44vh}
+  .fs-head{padding:0 5vw}
 }
 </style>
 </head>
@@ -386,6 +484,8 @@ footer p{max-width:640px;margin:0 auto 8px;line-height:1.8}
     <a href="#story">הסיפור</a>
     <a href="#walls">הפרשנויות</a>
     <a href="#gallery">הגלריה</a>
+    <a href="#filmstrip">הצילומים</a>
+    <a href="#cinema">ההקרנה</a>
     <a href="#archive">הארכיון</a>
     <a href="#manifesto">המניפסט</a>
   </nav>
@@ -698,9 +798,133 @@ footer p{max-width:640px;margin:0 auto 8px;line-height:1.8}
 
   </div>
 </section>
+<!-- ============ FILMSTRIP: horizontal photo corridor ============ -->
+<section class="filmstrip-outer" id="filmstrip">
+  <div class="fs-sticky">
+    <div class="fs-head">
+      <div>
+        <div class="hall-label">מסדרון הצילומים · 05</div>
+        <h2 class="hall-title">הקשת כולה</h2>
+      </div>
+      <div class="fs-counter" id="fscounter">01 / 12</div>
+      <div class="fs-hint">▼ המשיכו לגלול — המסדרון נע הצידה ▼</div>
+    </div>
+    <div class="fs-track" id="fstrack">
+
+      <div class="frame">
+        <div class="fimg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20statue%20of%20Jonathan%20Netanyahu%20at%20Entebbe%20International%20Airport%20in%20Uganda%3B%20sculptor%20Itay%20Zalait%20(6).jpg?width=1000" alt="פסל יוני נתניהו באנטבה" loading="lazy" onerror="this.closest('.frame').remove()"></div>
+        <div class="fcap">אנטבה, אוגנדה · 2026<span class="fsub">פסל יוני נתניהו · הטרמינל הישן · צילום: ויקישיתוף</span></div>
+      </div>
+
+      <div class="frame">
+        <div class="fimg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20statue%20of%20Jonathan%20Netanyahu%20at%20Entebbe%20International%20Airport%20in%20Uganda%3B%20sculptor%20Itay%20Zalait%20(1).jpg?width=1000" alt="פסל יוני נתניהו באנטבה — מבט נוסף" loading="lazy" onerror="this.closest('.frame').remove()"></div>
+        <div class="fcap">אנטבה · הברונזה בתנועה<span class="fsub">בנקודת הנפילה המדויקת · צילום: ויקישיתוף</span></div>
+      </div>
+
+      <div class="frame">
+        <div class="fimg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20statue%20of%20Jonathan%20Netanyahu%20at%20Entebbe%20International%20Airport%20in%20Uganda%3B%20sculptor%20Itay%20Zalait%20(2).jpg?width=1000" alt="פסל יוני נתניהו באנטבה — פרט" loading="lazy" onerror="this.closest('.frame').remove()"></div>
+        <div class="fcap">אנטבה · פרט<span class="fsub">חצי שנת עבודה · צילום: ויקישיתוף</span></div>
+      </div>
+
+      <div class="frame">
+        <div class="fimg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20statue%20of%20Jonathan%20Netanyahu%20at%20Entebbe%20International%20Airport%20in%20Uganda%3B%20sculptor%20Itay%20Zalait%20(4).jpg?width=1000" alt="פסל יוני נתניהו באנטבה — הטקס" loading="lazy" onerror="this.closest('.frame').remove()"></div>
+        <div class="fcap">אנטבה · 1.8.2026<span class="fsub">חמישים שנה למבצע · צילום: ויקישיתוף</span></div>
+      </div>
+
+      <div class="frame">
+        <div class="fimg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hero%20of%20Israel%20-%20sculpture%20of%20Itay%20Zalait.jpg?width=1000" alt="גיבור ישראל" loading="lazy" onerror="this.closest('.frame').remove()"></div>
+        <div class="fcap">גיבור ישראל · 2020<span class="fsub">ברונזה, 6 טון · על פי צילומו של עודד בלילטי · צילום: ויקישיתוף</span></div>
+      </div>
+
+      <div class="frame">
+        <div class="fimg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hero%20of%20Israel%20-%20sculpture%20of%20Itay%20Zalait%201.jpg?width=1000" alt="גיבור ישראל — מבט נוסף" loading="lazy" onerror="this.closest('.frame').remove()"></div>
+        <div class="fcap">גיבור ישראל · המפגין והדגל<span class="fsub">הוסר, הוצב, נוסר, הוצב שוב · צילום: ויקישיתוף</span></div>
+      </div>
+
+      <div class="frame">
+        <div class="fimg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hero%20of%20Israel%20-%20sculpture%20of%20Itay%20Zalait%20ramat2.jpg?width=1000" alt="גיבור ישראל ברמת השרון" loading="lazy" onerror="this.closest('.frame').remove()"></div>
+        <div class="fcap">גיבור ישראל · רמת השרון<span class="fsub">התחנה הנוכחית · צילום: ויקישיתוף</span></div>
+      </div>
+
+      <div class="frame waiting">
+        <div class="fimg"><div class="wtxt">קינג ביבי<small>2016 · התמונה בדרך אל הקיר</small></div></div>
+        <div class="fcap">כיכר רבין · שש שעות של זהב</div>
+      </div>
+
+      <div class="frame waiting">
+        <div class="fimg"><div class="wtxt">הסעודה האחרונה<small>2020 · התמונה בדרך אל הקיר</small></div></div>
+        <div class="fcap">שולחן אחד · שנים־עשר כיסאות ריקים</div>
+      </div>
+
+      <div class="frame waiting">
+        <div class="fimg"><div class="wtxt">דגל<small>2018 · התמונה בדרך אל הקיר</small></div></div>
+        <div class="fcap">תורן נטוי · ישראל 2018</div>
+      </div>
+
+      <div class="frame waiting">
+        <div class="fimg"><div class="wtxt">בלב האומה<small>2018 · התמונה בדרך אל הקיר</small></div></div>
+        <div class="fcap">מראה מראה שעל הקיר</div>
+      </div>
+
+      <div class="frame waiting">
+        <div class="fimg"><div class="wtxt">לַשָּׁוְא<small>2023 · התמונה בדרך אל הקיר</small></div></div>
+        <div class="fcap">מאה משפחות · מאה מדליות</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CINEMA ============ -->
+<section id="cinema">
+  <div class="hall-label">אולם ההקרנה · 06</div>
+  <h2 class="hall-title">זלאיט על המסך</h2>
+  <p class="hall-sub">
+    כתבות, ראיונות ורגעים מתועדים — מהצבת פסל הזהב ועד ניסור &laquo;גיבור ישראל&raquo;. כל
+    הסרטונים מהרשת, מאומתים.
+  </p>
+  <div class="cinema-grid">
+    <div class="vwork">
+      <div class="vframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/LEesmHvrZp4" title="Gold Netanyahu statue debuts in Rabin Square — CNN" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="vcap">פסל הזהב מוצב בכיכר רבין<span class="vsrc">CNN · 2016</span></div>
+    </div>
+    <div class="vwork">
+      <div class="vframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/M-EhbRcC2ac" title="איתי זלאיט — מה שעומד מאחורי פסל הזהב" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="vcap">מה עומד מאחורי פסל הזהב — ראיון<span class="vsrc">רדיו קול אחר · 2016</span></div>
+    </div>
+    <div class="vwork">
+      <div class="vframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/J-A1gziUzj0" title="Israeli artist mocks Netanyahu in Last Supper installation — AFP" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="vcap">&laquo;הסעודה האחרונה&raquo; בכיכר רבין<span class="vsrc">AFP · 2020</span></div>
+    </div>
+    <div class="vwork">
+      <div class="vframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/N6OrOZh7ZFA" title="זלאיט מספר על הסעודה האחרונה של הדמוקרטיה" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="vcap">האמן מספר: הסעודה האחרונה של הדמוקרטיה<span class="vsrc">TLVTIMES · 2020</span></div>
+    </div>
+    <div class="vwork">
+      <div class="vframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/GCr-DbNuiAk" title="כאן 11 — כתבה על פסל גיבור ישראל" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="vcap">&laquo;גיבור ישראל&raquo; — כתבת כאן 11<span class="vsrc">כאן 11 · 2020</span></div>
+    </div>
+    <div class="vwork">
+      <div class="vframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/or_2Jw8EeCM" title="פקחי ירושלים מנסרים את הפסל" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="vcap">הניסור: פינוי הפסל מכיכר פריז<span class="vsrc">ynet · 2021</span></div>
+    </div>
+    <div class="vwork">
+      <div class="vframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Nm6ns-geHVY" title="איתי זלאיט — סקירת כל העבודות" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="vcap">האיש שעשה את כולם — סקירה<span class="vsrc">LiriTV</span></div>
+    </div>
+    <div class="vwork">
+      <div class="vframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/tnPt79p3A3E" title="ראיון עם האמן איתי זלאיט" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="vcap">ראיון עם האמן<span class="vsrc">TLVTIMES</span></div>
+    </div>
+    <div class="vwork">
+      <div class="vframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/cA3tcmvHUU8" title="הארכיון לא שוכח — פסלון הזהב" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="vcap">#הארכיון_לא_שוכח — פסלון הזהב<span class="vsrc">ערוץ כנסת · 99</span></div>
+    </div>
+  </div>
+</section>
 <!-- ============ ARCHIVE ============ -->
 <section id="archive">
-  <div class="hall-label">הארכיון · 05</div>
+  <div class="hall-label">הארכיון · 07</div>
   <h2 class="hall-title">התיק המודלף</h2>
   <p class="hall-sub">
     כתבות, ראיונות, סרטונים וסקירות — כל מה שנכתב ושודר על זלאיט ועבודותיו, מסודר בתיקיות.
@@ -744,6 +968,8 @@ footer p{max-width:640px;margin:0 auto 8px;line-height:1.8}
     <div class="doc"><span class="dyear">2020</span><a href="https://www.youtube.com/watch?v=N6OrOZh7ZFA" target="_blank" rel="noopener">זלאיט מספר על &laquo;הסעודה האחרונה של הדמוקרטיה&raquo;</a><span class="dout">TLVTIMES / YouTube</span><span class="dtag">▶ וידאו</span></div>
     <div class="doc"><span class="dyear">2020</span><a href="https://www.youtube.com/watch?v=yGpGsSGHtNM" target="_blank" rel="noopener">פסל &laquo;גיבור ישראל&raquo; של האמן איתי זלאיט</a><span class="dout">YouTube</span><span class="dtag">▶ וידאו</span></div>
     <div class="doc"><span class="dyear">2020</span><a href="https://www.youtube.com/watch?v=GCr-DbNuiAk" target="_blank" rel="noopener">כתבת כאן 11 על &laquo;גיבור ישראל&raquo;</a><span class="dout">כאן 11 / YouTube</span><span class="dtag">▶ וידאו</span></div>
+    <div class="doc"><span class="dyear">2020</span><a href="https://www.youtube.com/watch?v=DGPjHro-zcA" target="_blank" rel="noopener">מנוף מוביל את &laquo;גיבור ישראל&raquo; מירושלים לכיכר רבין</a><span class="dout">LiriTV / YouTube</span><span class="dtag">▶ וידאו</span></div>
+    <div class="doc"><span class="dyear">—</span><a href="https://www.youtube.com/watch?v=ALSoM_KYpMo" target="_blank" rel="noopener">מה קורה כשאמן חילוני פוגש אמנית מתנחלת? — שיחת עומק</a><span class="dout">רגע של חוכמה / YouTube</span><span class="dtag">▶ וידאו</span></div>
   </div>
 
   <div class="folder">
@@ -761,7 +987,7 @@ footer p{max-width:640px;margin:0 auto 8px;line-height:1.8}
 </section>
 <!-- ============ MANIFESTO ============ -->
 <section id="manifesto" class="manifesto">
-  <div class="hall-label">המניפסט · 06</div>
+  <div class="hall-label">המניפסט · 08</div>
   <h2 class="hall-title">מי זה איתי זלאיט</h2>
   <p>
     נולד בבני ברק ב־1979. בגיל תשע כבר הציג באגף הנוער של מוזיאון ישראל. שירת כלוחם
@@ -870,6 +1096,36 @@ footer p{max-width:640px;margin:0 auto 8px;line-height:1.8}
     el.addEventListener('pointerup',function(){dragEl=null});
     el.addEventListener('pointercancel',function(){dragEl=null});
   });
+  // ===== filmstrip: vertical scroll -> horizontal movement (RTL) =====
+  var fsOuter=document.getElementById('filmstrip');
+  var fsTrack=document.getElementById('fstrack');
+  var fsCounter=document.getElementById('fscounter');
+  var fsTicking=false;
+  function fsUpdate(){
+    fsTicking=false;
+    if(!fsOuter||!fsTrack)return;
+    var r=fsOuter.getBoundingClientRect();
+    var vh=window.innerHeight;
+    var total=r.height-vh;
+    if(total<=0)return;
+    var p=Math.min(1,Math.max(0,-r.top/total));
+    var overflow=fsTrack.scrollWidth-fsTrack.parentElement.clientWidth;
+    if(overflow>0){
+      fsTrack.style.transform='translateX('+(p*overflow)+'px)'; /* RTL: positive reveals left side */
+    }
+    if(fsCounter){
+      var frames=fsTrack.querySelectorAll('.frame').length;
+      var idx=Math.min(frames,Math.max(1,Math.round(p*(frames-1))+1));
+      fsCounter.textContent=String(idx).padStart(2,'0')+' / '+String(frames).padStart(2,'0');
+    }
+  }
+  function fsOnScroll(){
+    if(!fsTicking){fsTicking=true;requestAnimationFrame(fsUpdate)}
+  }
+  window.addEventListener('scroll',fsOnScroll,{passive:true});
+  window.addEventListener('resize',fsOnScroll);
+  fsUpdate();
+
   // reset dragged positions when returning to regime
   btn.addEventListener('click',function(){
     if(body.getAttribute('data-mode')==='regime'){
