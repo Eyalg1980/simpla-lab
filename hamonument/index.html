@@ -15,8 +15,8 @@
   --paper:#ece3cf;
   --blood:#a11d1d;
   --blood-deep:#701313;
-  --gold:#c9a227;
-  --gold-soft:#e0c869;
+  --gold:#f5c518;
+  --gold-soft:#ffdf5c;
   --bone:#e8e0cf;
   --smoke:#1a1714;
   --stamp:#b3261e;
@@ -450,6 +450,21 @@ body[data-mode="dada"] .vwork .vcap{font-family:'Amatic SC';font-weight:700;font
 /* utility */
 .center{text-align:center}
 .dim{opacity:.65}
+
+/* regime gold glow — צהוב שזורח */
+body[data-mode="regime"] .brand,
+body[data-mode="regime"] .stars,
+body[data-mode="regime"] .hall-label,
+body[data-mode="regime"] .hero-kicker,
+body[data-mode="regime"] .fs-counter,
+body[data-mode="regime"] .tl-year,
+body[data-mode="regime"] .work .wyear,
+body[data-mode="regime"] footer .fbrand{
+  text-shadow:0 0 14px rgba(245,197,24,.55), 0 0 34px rgba(245,197,24,.25);
+}
+body[data-mode="regime"] .lever::after{box-shadow:0 0 10px rgba(245,197,24,.9), 0 0 22px rgba(245,197,24,.5)}
+body[data-mode="regime"] .monument{box-shadow:0 0 34px rgba(245,197,24,.28), 0 0 90px rgba(245,197,24,.12)}
+body[data-mode="regime"] .modeswitch .lbl.on{text-shadow:0 0 12px rgba(245,197,24,.8)}
 
 /* ============ DESKTOP POLISH ============ */
 @media (min-width:1400px){
@@ -1030,6 +1045,9 @@ body[data-mode="dada"] .vwork .vcap{font-family:'Amatic SC';font-weight:700;font
     תמונות: ויקישיתוף (רישיון חופשי) — יתר העבודות מיוצגות טיפוגרפית מטעמי זכויות יוצרים.
   </p>
   <p class="dim">נבנה ברוח הדאדא · 2026 · ★ סֵדֶר הוא רק כָּאוֹס שעוד לא לחצו לו על המתג ★</p>
+  <p style="margin-top:26px;font-family:'Frank Ruhl Libre',serif;font-size:.95rem">
+    נעשה באהבה על ידי <b>אייל גרשון</b> · בהוקרה על פעילותו של האמן <b>איתי זלאיט</b>
+  </p>
 </footer>
 
 <!-- ============ TICKER ============ -->
@@ -1066,11 +1084,9 @@ body[data-mode="dada"] .vwork .vcap{font-family:'Amatic SC';font-weight:700;font
     body.setAttribute('data-mode',m);
     lblR.classList.toggle('on',m==='regime');
     lblD.classList.toggle('on',m==='dada');
-    try{localStorage.setItem(KEY,m)}catch(e){}
   }
-  var saved=null;
-  try{saved=localStorage.getItem(KEY)}catch(e){}
-  if(saved==='dada'||saved==='regime') setMode(saved);
+  /* default is always REGIME on load — the dada switch is a per-visit act */
+  setMode('regime');
 
   btn.addEventListener('click',function(){
     setMode(body.getAttribute('data-mode')==='regime'?'dada':'regime');
