@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>המונומנט — איתי זלאיט</title>
+<meta name="description" content="אתר-מיצב על עבודותיו של האמן הפוליטי איתי זלאיט — מקינג ביבי ועד פסל יוני נתניהו באנטבה">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&family=Secular+One&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;500;700;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============ CORE VARS ============ */
+:root{
+  --ink:#0c0a09;
+  --paper:#ece3cf;
+  --blood:#a11d1d;
+  --blood-deep:#701313;
+  --gold:#c9a227;
+  --gold-soft:#e0c869;
+  --bone:#e8e0cf;
+  --smoke:#1a1714;
+  --stamp:#b3261e;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Heebo',sans-serif;
+  background:var(--smoke);
+  color:var(--bone);
+  overflow-x:hidden;
+  transition:background 0.8s ease;
+  padding-bottom:44px; /* room for the fixed ticker */
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--blood);color:var(--bone)}
+
+/* ============ REGIME MODE (default) ============ */
+body[data-mode="regime"]{
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(201,162,39,.08), transparent 60%),
+    var(--smoke);
+}
+
+/* ============ DADA MODE ============ */
+body[data-mode="dada"]{
+  background:
+    repeating-linear-gradient(37deg, transparent 0 90px, rgba(0,0,0,.05) 90px 92px),
+    repeating-linear-gradient(-15deg, transparent 0 140px, rgba(161,29,29,.04) 140px 143px),
+    var(--paper);
+  color:var(--ink);
+}
+body[data-mode="dada"] ::selection{background:var(--ink);color:var(--paper)}
+
+/* ============ TOP BAR ============ */
+.topbar{
+  position:fixed;top:0;right:0;left:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:10px 18px;
+  background:rgba(12,10,9,.92);
+  border-bottom:2px solid var(--gold);
+  backdrop-filter:blur(6px);
+  transition:all .6s ease;
+}
+body[data-mode="dada"] .topbar{
+  background:rgba(236,227,207,.94);
+  border-bottom:3px dashed var(--ink);
+  transform:rotate(-0.4deg);
+}
+.brand{
+  font-family:'Karantina',cursive;font-weight:700;
+  font-size:1.9rem;letter-spacing:.04em;color:var(--gold);
+  line-height:1;white-space:nowrap;
+}
+body[data-mode="dada"] .brand{color:var(--blood);transform:rotate(1.5deg)}
+.navlinks{display:flex;gap:16px;font-size:.85rem;font-weight:500;flex-wrap:wrap}
+.navlinks a{text-decoration:none;opacity:.85;padding:4px 2px;border-bottom:2px solid transparent}
+.navlinks a:hover{border-bottom-color:var(--gold);opacity:1}
+body[data-mode="dada"] .navlinks a:hover{border-bottom-color:var(--blood)}
+body[data-mode="dada"] .navlinks a:nth-child(odd){transform:rotate(-2deg)}
+body[data-mode="dada"] .navlinks a:nth-child(even){transform:rotate(2deg)}
+
+/* the switch */
+.modeswitch{
+  display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;
+  font-family:'Secular One',sans-serif;font-size:.8rem;
+  background:none;border:none;color:inherit;
+}
+.modeswitch .lbl{opacity:.55;transition:.3s}
+.modeswitch .lbl.on{opacity:1;color:var(--gold)}
+body[data-mode="dada"] .modeswitch .lbl.on{color:var(--blood)}
+.lever{
+  width:58px;height:26px;border:2px solid currentColor;border-radius:20px;
+  position:relative;flex:0 0 auto;
+}
+.lever::after{
+  content:"";position:absolute;top:2px;right:3px;width:18px;height:18px;
+  background:var(--gold);border-radius:50%;transition:all .45s cubic-bezier(.6,-0.4,.4,1.4);
+}
+body[data-mode="dada"] .lever{border-style:dashed;border-radius:4px}
+body[data-mode="dada"] .lever::after{right:33px;background:var(--blood);border-radius:2px;transform:rotate(45deg)}
+
+/* ============ TICKER ============ */
+.ticker{
+  position:fixed;bottom:0;right:0;left:0;z-index:900;
+  background:var(--blood-deep);color:var(--bone);
+  overflow:hidden;white-space:nowrap;
+  border-top:2px solid var(--gold);
+  font-size:.85rem;padding:6px 0;
+}
+body[data-mode="dada"] .ticker{
+  background:var(--ink);color:var(--paper);
+  border-top:3px dashed var(--paper);
+  font-family:'Amatic SC',cursive;font-size:1.25rem;font-weight:700;
+}
+.ticker-track{display:inline-block;padding-right:100%;animation:tick 70s linear infinite}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(100%)}}
+.ticker b{color:var(--gold-soft)}
+body[data-mode="dada"] .ticker b{color:#ff6b5e}
+
+/* ============ SECTIONS ============ */
+section{padding:90px 6vw;position:relative;max-width:1200px;margin:0 auto}
+.hall-label{
+  font-family:'Secular One',sans-serif;
+  color:var(--gold);font-size:.95rem;letter-spacing:.35em;
+  text-transform:uppercase;margin-bottom:14px;
+}
+body[data-mode="dada"] .hall-label{color:var(--blood);letter-spacing:.15em;transform:rotate(-1deg);display:inline-block}
+h2.hall-title{
+  font-family:'Karantina',cursive;font-weight:700;
+  font-size:clamp(3rem,8vw,6rem);line-height:.95;
+  color:var(--bone);margin-bottom:30px;
+}
+body[data-mode="dada"] h2.hall-title{color:var(--ink)}
+.hall-sub{
+  font-family:'Frank Ruhl Libre',serif;font-size:1.15rem;line-height:1.9;
+  max-width:720px;opacity:.92;
+}
+
+/* gold rules — regime ornament */
+.rule{display:flex;align-items:center;gap:14px;margin:26px 0}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:var(--gold);opacity:.5}
+.rule span{font-family:'Secular One';color:var(--gold);font-size:1.1rem}
+body[data-mode="dada"] .rule::before,body[data-mode="dada"] .rule::after{background:var(--ink);height:2px;opacity:.8}
+body[data-mode="dada"] .rule span{color:var(--blood);transform:rotate(8deg)}
+
+/* ============ HERO ============ */
+.hero{
+  min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:120px 5vw 80px;position:relative;max-width:none;
+}
+.hero-kicker{
+  font-family:'Secular One';letter-spacing:.5em;font-size:.85rem;color:var(--gold);
+  margin-bottom:18px;
+}
+.hero h1{
+  font-family:'Karantina',cursive;font-weight:700;
+  font-size:clamp(4.2rem,14vw,11rem);line-height:.88;color:var(--bone);
+}
+.hero h1 .l{display:inline-block;transition:transform .7s ease, color .7s ease}
+body[data-mode="dada"] .hero h1 .l:nth-child(3n){transform:rotate(7deg) translateY(6px);color:var(--blood)}
+body[data-mode="dada"] .hero h1 .l:nth-child(3n+1){transform:rotate(-6deg) translateY(-5px)}
+body[data-mode="dada"] .hero h1 .l:nth-child(5n){font-family:'Amatic SC';font-weight:700}
+body[data-mode="dada"] .hero h1{color:var(--ink)}
+.hero-tag{
+  margin-top:22px;font-family:'Frank Ruhl Libre',serif;font-size:clamp(1rem,2.4vw,1.4rem);
+  max-width:640px;line-height:1.8;opacity:.9;
+}
+.hero-scroll{
+  position:absolute;bottom:60px;font-size:.8rem;letter-spacing:.3em;opacity:.6;
+  animation:bob 2.2s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* laurel stars */
+.stars{font-size:1.4rem;color:var(--gold);letter-spacing:.6em;margin:16px 0}
+body[data-mode="dada"] .stars{color:var(--blood)}
+body[data-mode="dada"] .stars::after{content:" ✂ ✂ ✂";letter-spacing:.2em}
+
+/* ============ MONUMENT FRAME ============ */
+.monument{
+  margin:40px auto 0;max-width:860px;position:relative;
+  border:14px solid var(--gold);outline:2px solid var(--gold);outline-offset:8px;
+  background:#000;
+  transition:all .7s ease;
+}
+body[data-mode="dada"] .monument{
+  border:6px solid var(--ink);outline:3px dashed var(--blood);outline-offset:14px;
+  transform:rotate(-1.2deg);
+  box-shadow:18px 18px 0 rgba(0,0,0,.25);
+}
+.monument img{width:100%;height:auto}
+.monument .plaque{
+  background:var(--gold);color:#221a02;text-align:center;
+  font-family:'Secular One';padding:12px 10px;font-size:1rem;letter-spacing:.12em;
+}
+body[data-mode="dada"] .monument .plaque{
+  background:var(--ink);color:var(--paper);font-family:'Amatic SC';font-size:1.5rem;
+}
+.monument .credit{position:absolute;bottom:54px;left:8px;font-size:.62rem;background:rgba(0,0,0,.55);color:#cfc7b4;padding:3px 7px;direction:ltr}
+.monument.imgfail::before{
+  content:"יוני נתניהו · ברונזה · אנטבה";
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  aspect-ratio:3/4;font-family:'Karantina';font-weight:700;font-size:3rem;color:var(--gold);
+  background:repeating-linear-gradient(45deg, rgba(201,162,39,.07) 0 14px, transparent 14px 28px),#0a0805;
+  padding:30px;line-height:1;
+}
+.monument.imgfail .credit{display:none}
+
+/* stamps */
+.stamp{
+  position:absolute;z-index:5;
+  font-family:'Secular One';font-size:1rem;color:var(--stamp);
+  border:3px solid var(--stamp);padding:6px 16px;border-radius:6px;
+  transform:rotate(-14deg);opacity:0;transition:opacity .5s ease;
+  background:rgba(236,227,207,.85);pointer-events:none;
+  letter-spacing:.15em;white-space:nowrap;
+}
+body[data-mode="dada"] .stamp{opacity:.95}
+
+/* ============ TWO WALLS (interpretations) ============ */
+.walls{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:44px}
+@media(max-width:860px){.walls{grid-template-columns:1fr}}
+.wall{
+  padding:34px 28px;position:relative;transition:all .7s ease;
+  border:1px solid rgba(201,162,39,.45);
+  background:rgba(0,0,0,.25);
+}
+.wall h3{
+  font-family:'Karantina';font-weight:700;font-size:2.4rem;margin-bottom:6px;line-height:1;
+}
+.wall .wsub{font-size:.85rem;letter-spacing:.2em;color:var(--gold);font-family:'Secular One';margin-bottom:20px}
+.wall p, .wall li{font-family:'Frank Ruhl Libre',serif;line-height:1.85;font-size:1rem;margin-bottom:14px}
+.wall ul{padding-right:18px}
+.wall-hero{border-top:6px solid var(--gold)}
+.wall-crit{border-top:6px solid var(--blood)}
+body[data-mode="regime"] .wall-crit{opacity:.55;filter:grayscale(.5)}
+body[data-mode="regime"] .wall-crit:hover{opacity:1;filter:none}
+body[data-mode="dada"] .wall{background:rgba(255,255,255,.5);border:2px dashed var(--ink)}
+body[data-mode="dada"] .wall-hero{opacity:.6;transform:rotate(.8deg)}
+body[data-mode="dada"] .wall-hero:hover{opacity:1}
+body[data-mode="dada"] .wall-crit{transform:rotate(-1deg)}
+body[data-mode="dada"] .wall .wsub{color:var(--blood)}
+.qmark{
+  font-family:'Frank Ruhl Libre',serif;font-style:italic;font-size:1.05rem;
+  border-right:3px solid var(--gold);padding-right:14px;margin:18px 0;opacity:.95;line-height:1.8;
+}
+body[data-mode="dada"] .qmark{border-right-color:var(--blood);border-right-style:dashed}
+.qsrc{display:block;font-size:.75rem;font-family:'Heebo';opacity:.65;margin-top:6px;font-style:normal}
+
+/* ============ TIMELINE (Yoni story) ============ */
+.timeline{margin-top:40px;position:relative;padding-right:26px;border-right:2px solid var(--gold)}
+body[data-mode="dada"] .timeline{border-right:3px dashed var(--ink)}
+.tl-item{margin-bottom:36px;position:relative}
+.tl-item::before{
+  content:"";position:absolute;right:-34px;top:8px;width:14px;height:14px;
+  background:var(--gold);border-radius:50%;
+}
+body[data-mode="dada"] .tl-item::before{background:var(--blood);border-radius:0;transform:rotate(45deg)}
+.tl-year{font-family:'Karantina';font-weight:700;font-size:1.9rem;color:var(--gold);line-height:1}
+body[data-mode="dada"] .tl-year{color:var(--blood)}
+.tl-item h4{font-family:'Secular One';font-size:1.15rem;margin:4px 0 8px}
+.tl-item p{font-family:'Frank Ruhl Libre',serif;line-height:1.85;font-size:.98rem;max-width:700px;opacity:.92}
+body[data-mode="dada"] .tl-item:nth-child(odd){transform:rotate(-.6deg)}
+body[data-mode="dada"] .tl-item:nth-child(even){transform:rotate(.6deg)}
+
+/* ============ GALLERY ============ */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px;margin-top:44px}
+.work{
+  background:rgba(0,0,0,.35);border:1px solid rgba(201,162,39,.4);
+  position:relative;transition:transform .6s ease, box-shadow .6s ease;
+  display:flex;flex-direction:column;
+}
+.work:hover{transform:translateY(-6px)}
+body[data-mode="dada"] .work{
+  background:#fffdf5;border:2px solid var(--ink);
+  box-shadow:10px 10px 0 rgba(0,0,0,.18);
+}
+body[data-mode="dada"] .work:nth-child(3n){transform:rotate(-1.6deg)}
+body[data-mode="dada"] .work:nth-child(3n+1){transform:rotate(1.3deg)}
+body[data-mode="dada"] .work:nth-child(3n+2){transform:rotate(-.7deg)}
+body[data-mode="dada"] .work:hover{transform:rotate(0) scale(1.02);z-index:5}
+.work .wimg{aspect-ratio:4/3;overflow:hidden;background:#111;position:relative}
+.work .wimg img{width:100%;height:100%;object-fit:cover;filter:sepia(.25) contrast(1.05)}
+body[data-mode="dada"] .work .wimg img{filter:grayscale(.7) contrast(1.2)}
+.work .placard{
+  aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;text-align:center;
+  background:
+    repeating-linear-gradient(45deg, rgba(201,162,39,.06) 0 12px, transparent 12px 24px),
+    #14100c;
+  font-family:'Karantina';font-weight:700;font-size:2.6rem;color:var(--gold);
+  padding:20px;line-height:1;
+}
+body[data-mode="dada"] .work .placard{background:repeating-linear-gradient(45deg, rgba(161,29,29,.06) 0 12px, transparent 12px 24px),#f4ecd9;color:var(--ink)}
+.work .wbody{padding:20px 20px 24px;flex:1;display:flex;flex-direction:column}
+.work .wyear{font-family:'Karantina';font-weight:700;font-size:1.7rem;color:var(--gold);line-height:1}
+body[data-mode="dada"] .work .wyear{color:var(--blood)}
+.work h4{font-family:'Secular One';font-size:1.25rem;margin:4px 0 4px}
+body[data-mode="dada"] .work h4{color:var(--ink)}
+.work .wloc{font-size:.78rem;letter-spacing:.1em;opacity:.7;margin-bottom:10px}
+.work p{font-family:'Frank Ruhl Libre',serif;font-size:.92rem;line-height:1.75;opacity:.9;flex:1}
+body[data-mode="dada"] .work p{color:#1d1a15}
+.fate{
+  align-self:flex-start;margin-top:14px;
+  font-family:'Secular One';font-size:.8rem;color:var(--stamp);
+  border:2px solid var(--stamp);padding:3px 12px;border-radius:4px;
+  transform:rotate(-4deg);letter-spacing:.1em;
+}
+.fate.ok{color:#3f7d3f;border-color:#3f7d3f}
+body[data-mode="regime"] .fate{color:var(--gold);border-color:var(--gold);transform:none}
+body[data-mode="regime"] .fate.ok{color:var(--gold);border-color:var(--gold)}
+.work .wlink{font-size:.78rem;margin-top:10px;opacity:.75}
+
+/* ============ ARCHIVE ============ */
+.folder{
+  margin-top:40px;border:1px solid rgba(201,162,39,.4);background:rgba(0,0,0,.3);
+  padding:30px;position:relative;
+}
+body[data-mode="dada"] .folder{background:#fbf6e7;border:2px dashed var(--ink);transform:rotate(-.5deg)}
+.folder h3{
+  font-family:'Secular One';font-size:1.15rem;color:var(--gold);
+  letter-spacing:.2em;margin-bottom:6px;
+}
+body[data-mode="dada"] .folder h3{color:var(--blood)}
+.folder .fnote{font-size:.8rem;opacity:.6;margin-bottom:18px}
+.doc{
+  display:flex;gap:14px;align-items:baseline;padding:12px 4px;
+  border-bottom:1px dotted rgba(201,162,39,.35);
+  font-size:.95rem;flex-wrap:wrap;
+}
+body[data-mode="dada"] .doc{border-bottom:1px dotted rgba(12,10,9,.4)}
+.doc:last-child{border-bottom:none}
+.doc .dyear{font-family:'Karantina';font-weight:700;font-size:1.3rem;color:var(--gold);flex:0 0 52px;line-height:1}
+body[data-mode="dada"] .doc .dyear{color:var(--blood)}
+.doc a{font-family:'Frank Ruhl Libre',serif;font-weight:500;text-decoration:none;border-bottom:1px solid transparent}
+.doc a:hover{border-bottom-color:currentColor}
+.doc .dout{font-size:.75rem;opacity:.6}
+.doc .dtag{font-size:.68rem;border:1px solid currentColor;border-radius:10px;padding:1px 8px;opacity:.7}
+body[data-mode="dada"] .doc:nth-child(4n){transform:rotate(-.4deg)}
+body[data-mode="dada"] .doc:nth-child(4n+2){transform:rotate(.4deg)}
+
+/* ============ MANIFESTO ============ */
+.manifesto p{font-family:'Frank Ruhl Libre',serif;font-size:1.08rem;line-height:2;max-width:760px;margin-bottom:20px}
+.bigq{
+  font-family:'Karantina';font-weight:700;font-size:clamp(2.4rem,6vw,4.2rem);
+  line-height:1;color:var(--gold);margin:40px 0 20px;max-width:900px;
+}
+body[data-mode="dada"] .bigq{color:var(--blood);transform:rotate(-1deg)}
+.quotes-band{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px;margin-top:36px}
+.qcard{
+  border:1px solid rgba(201,162,39,.4);padding:22px;font-family:'Frank Ruhl Libre',serif;
+  font-size:1rem;line-height:1.8;background:rgba(0,0,0,.25);position:relative;
+}
+body[data-mode="dada"] .qcard{background:#fffdf5;border:2px solid var(--ink);box-shadow:7px 7px 0 rgba(0,0,0,.15)}
+body[data-mode="dada"] .qcard:nth-child(odd){transform:rotate(-1.2deg)}
+body[data-mode="dada"] .qcard:nth-child(even){transform:rotate(1deg)}
+.qcard::before{content:"„";font-size:3rem;font-family:'Frank Ruhl Libre';color:var(--gold);line-height:0;display:block;margin-bottom:14px}
+body[data-mode="dada"] .qcard::before{color:var(--blood)}
+.qcard .qs{display:block;margin-top:10px;font-size:.75rem;font-family:'Heebo';opacity:.6}
+
+/* ============ FOOTER ============ */
+footer{
+  padding:70px 6vw 90px;text-align:center;border-top:2px solid var(--gold);
+  margin-top:60px;font-size:.85rem;opacity:.85;
+}
+body[data-mode="dada"] footer{border-top:3px dashed var(--ink)}
+footer .fbrand{font-family:'Karantina';font-weight:700;font-size:2.2rem;color:var(--gold);margin-bottom:10px}
+body[data-mode="dada"] footer .fbrand{color:var(--blood)}
+footer p{max-width:640px;margin:0 auto 8px;line-height:1.8}
+
+/* utility */
+.center{text-align:center}
+.dim{opacity:.65}
+@media (max-width:640px){
+  .navlinks{display:none}
+  section{padding:70px 5vw}
+}
+</style>
+</head>
+<body data-mode="regime">
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <div class="brand">המונומנט</div>
+  <nav class="navlinks">
+    <a href="#hall">האולם הראשי</a>
+    <a href="#story">הסיפור</a>
+    <a href="#walls">הפרשנויות</a>
+    <a href="#gallery">הגלריה</a>
+    <a href="#archive">הארכיון</a>
+    <a href="#manifesto">המניפסט</a>
+  </nav>
+  <button class="modeswitch" id="modeswitch" aria-label="החלפת מצב תצוגה">
+    <span class="lbl lbl-regime on">מִשְׁטָר</span>
+    <span class="lever" aria-hidden="true"></span>
+    <span class="lbl lbl-dada">דָּאדָא</span>
+  </button>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-kicker">אתר־מיצב · איתי זלאיט · אמנות פוליטית ישראלית</div>
+  <h1 id="herotitle">המונומנט</h1>
+  <div class="stars">★ ★ ★ ★ ★</div>
+  <p class="hero-tag">
+    האמן שהציב את &laquo;קינג ביבי&raquo; המוזהב בכיכר רבין כאזהרה מפני פולחן אישיות —
+    הוא האיש שיצק עכשיו אנדרטת ברונזה ממלכתית ליוני נתניהו באנטבה.
+    האתר הזה מציג את שתי הפנים. משכו בידית למעלה כדי לקרוע את המסך.
+  </p>
+  <div class="hero-scroll">▼ גללו אל האולם ▼</div>
+</section>
+
+<!-- ============ HALL: THE ENTEBBE STATUE ============ -->
+<section id="hall">
+  <div class="hall-label">האולם הראשי · 01</div>
+  <h2 class="hall-title">הפסל האחרון: יוני נתניהו, אנטבה</h2>
+  <p class="hall-sub">
+    ב־1 באוגוסט 2026, במלאת חמישים שנה למבצע אנטבה, נחשף בטרמינל הישן של נמל התעופה
+    הבינלאומי באוגנדה פסל ברונזה של סא&quot;ל יוני נתניהו — בדיוק בנקודה שבה נפל.
+    הפסל מציג אותו בתנועה, נשק ביד, ברגעיו האחרונים.
+  </p>
+
+  <div class="monument" id="monument">
+    <span class="stamp" style="top:18px;right:14px">ללא צנזורה</span>
+    <span class="stamp" style="bottom:90px;left:18px;transform:rotate(9deg)">מוצג № 10</span>
+    <img
+      src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20statue%20of%20Jonathan%20Netanyahu%20at%20Entebbe%20International%20Airport%20in%20Uganda%3B%20sculptor%20Itay%20Zalait%20(6).jpg?width=1200"
+      alt="פסל יוני נתניהו בנמל התעופה אנטבה, אוגנדה. פַּסָּל: איתי זלאיט"
+      loading="eager"
+      onerror="this.closest('.monument').classList.add('imgfail'); this.remove();">
+    <div class="credit">Photo: Wikimedia Commons, free license</div>
+    <div class="plaque">סא&quot;ל יונתן &laquo;יוני&raquo; נתניהו · 1946–1976 · נפל כאן · פַּסָּל: איתי זלאיט · ברונזה, 2026</div>
+  </div>
+
+  <div class="rule"><span>✦</span></div>
+
+  <div class="walls" style="margin-top:10px">
+    <div class="wall wall-hero">
+      <h3>העובדות</h3>
+      <div class="wsub">מה ידוע על הפסל</div>
+      <ul>
+        <li>הוזמן על ידי גנרל מוהוזי קאינרוגאבה, מפקד צבא אוגנדה ובנו של הנשיא מוסבני, שהכריז על הקמתו בפברואר 2026 — ובפוסט שנמחק כתב כי &laquo;ישו הופיע בפניי בחלומות במשך ארבע שנים והורה לי להקים אנדרטה ליוני נתניהו&raquo;.</li>
+        <li>זלאיט עבד על הפסל כחצי שנה, נסע לאוגנדה לחקור את האתר, והתייעץ עם יוצאי סיירת מטכ&quot;ל והיסטוריונים — &laquo;כדי לקבל כל זווית אפשרית&raquo; על דמותו של יוני.</li>
+        <li>זלאיט עצמו החל את שירותו הצבאי בסיירת מטכ&quot;ל — היחידה שעליה פיקד יוני נתניהו.</li>
+        <li>בטקס החשיפה הוזכרו גם ארבעת החטופים שנרצחו: ז&#39;אן־ז&#39;אק מימוני, פסקו כהן, אידה בורוכוביץ&#39; ודורה בלוך.</li>
+      </ul>
+      <div class="qmark">
+        &laquo;אין הרבה אנדרטאות שמוקמות במקום המדויק שבו נפל האדם. זה מצמרר.&raquo;
+        <span class="qsrc">— איתי זלאיט, The Jewish Chronicle / JNS, אוגוסט 2026</span>
+      </div>
+    </div>
+    <div class="wall wall-crit">
+      <h3>המתח</h3>
+      <div class="wsub">למה זה מסעיר</div>
+      <p>
+        זהו היפוך כמעט דאדאיסטי בפני עצמו: האמן שהפך לסמל המחאה האנטי־נתניהואית —
+        &laquo;קינג ביבי&raquo;, &laquo;הסעודה האחרונה&raquo;, &laquo;גיבור ישראל&raquo; —
+        יוצר אנדרטה ממלכתית לאחיו של ראש הממשלה, בהזמנת גנרל אפריקאי השואף לרשת את אביו.
+      </p>
+      <p>
+        &laquo;ישראל היום&raquo; מסגרה זאת בכותרת: &laquo;מ&#39;קינג ביבי&#39; ועד אנטבה&raquo;.
+        ההסבר הרך: זלאיט אינו מנציח את נתניהו — הוא בוגר היחידה שמצדיע למפקד שנפל.
+        ההסבר החד: זו בדיוק העמימות המכוונת שהיא חתימת היד שלו — עבודה שכל צד קורא בה
+        את מה שהוא רוצה לראות.
+      </p>
+      <div class="qmark">
+        &laquo;רק הזמן יגיד אם זו הייתה פרובוקציה או נבואה.&raquo;
+        <span class="qsrc">— זלאיט על &laquo;קינג ביבי&raquo;, מעריב 2017. והנה, הזמן אמר משהו.</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ THE YONI STORY ============ -->
+<section id="story">
+  <div class="hall-label">אולם הזיכרון · 02</div>
+  <h2 class="hall-title">הסיפור המלא: יוני נתניהו</h2>
+  <p class="hall-sub">
+    האיש שמאחורי הברונזה: קצין, פילוסוף־למחצה, כותב מכתבים — והדמות שסביבה נבנה
+    אחד ממפעלי ההנצחה הפוליטיים המשפיעים בתולדות ישראל.
+  </p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">1946</div>
+      <h4>נולד בניו יורק</h4>
+      <p>יונתן &laquo;יוני&raquo; נתניהו נולד ב־13 במרץ 1946 בניו יורק, בכורם של ההיסטוריון בן־ציון נתניהו וצילה. אחיו הצעירים: בנימין (&laquo;ביבי&raquo;) ועידו. הילדות נעה בין ירושלים לארה&quot;ב; את התיכון סיים בפנסילבניה.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1964</div>
+      <h4>צנחנים, מלחמת ששת הימים</h4>
+      <p>התגייס לצנחנים והפך למפקד פלוגה. ב־1967 לחם באום כתף שבסיני וברמת הגולן, נפצע במרפקו בעת חילוץ חייל מאחורי הקווים וזכה לציון לשבח.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1967</div>
+      <h4>הרווארד — ובחזרה</h4>
+      <p>למד פילוסופיה ומתמטיקה בהרווארד (רשימת הדיקן), עבר לאוניברסיטה העברית — ועזב הכול כדי לחזור למדים: &laquo;בזמן הזה עליי להגן על ארצי. הרווארד היא מותרות שאיני יכול להרשות לעצמי&raquo;.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1972–73</div>
+      <h4>סיירת מטכ&quot;ל: ארגז 3, אביב נעורים, יום כיפור</h4>
+      <p>בסיירת מטכ&quot;ל השתתף במבצע &laquo;ארגז 3&raquo; (חטיפת קצינים סורים) ובמבצע &laquo;אביב נעורים&raquo; בביירות. במלחמת יום הכיפורים פיקד על כוח הסיירת בגולן, הוביל את חילוץ יוסי בן־חנן הפצוע משטח סורי — וקיבל את עיטור המופת.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1975</div>
+      <h4>מפקד סיירת מטכ&quot;ל</h4>
+      <p>ביוני 1975, לאחר תקופת פיקוד על חטיבת &laquo;ברק&raquo; המשוריינת בגולן, מונה למפקד סיירת מטכ&quot;ל. בן 29.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">27.6.1976</div>
+      <h4>חטיפת אייר פראנס 139</h4>
+      <p>מטוס אייר פראנס בדרך מתל אביב לפריז נחטף אחרי עצירת ביניים באתונה בידי שני גרמנים מ&laquo;התאים המהפכניים&raquo; ושני פלסטינים מהחזית העממית, בפקודת ואדיע חדאד. אחרי עצירה בבנגזי נחת המטוס באנטבה שבאוגנדה — שם קיבל אותם הרודן אידי אמין בזרועות פתוחות.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">29.6.1976</div>
+      <h4>הסלקציה</h4>
+      <p>החוטפים הפרידו את הישראלים והיהודים משאר הנוסעים — הד שקשה היה שלא לשמוע. ניצול שואה הראה לחוטף הגרמני וילפריד בזה את מספרו המקועקע; בזה השיב: &laquo;אני לא נאצי! אני אידיאליסט&raquo;. כמאה בני ערובה נותרו, ואיתם צוות אייר פראנס בראשות הקברניט מישל באקוס, שסירב לנטוש את נוסעיו.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">4.7.1976</div>
+      <h4>53 דקות באנטבה</h4>
+      <p>ארבעה מטוסי הרקולס טסו בגובה 30 מטר מעל ים סוף, נחתו באנטבה בחסות החשכה, ובראש השיירה — מרצדס שחורה שהתחזתה לשיירת אמין. הפשיטה כולה ארכה 53 דקות: כל שבעת החוטפים חוסלו, 102 מתוך 106 בני הערובה חולצו. יוני נתניהו נורה בחזה מחוץ לטרמינל ומת בדרך למטוס הפינוי — ההרוג הצבאי היחיד. בן 30 במותו.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1976</div>
+      <h4>המחיר</h4>
+      <p>שלושה בני ערובה נהרגו בהתקלות: ז&#39;אן־ז&#39;אק מימוני (19), פסקו כהן (52) ואידה בורוכוביץ&#39; (56). דורה בלוך (74), שאושפזה בקמפלה, נגררה ממיטתה ונרצחה בפקודת אידי אמין. החייל סורין הרשקו שותק לכל חייו. המבצע — &laquo;כדור הרעם&raquo; — נקרא מחדש: מבצע יונתן.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1980</div>
+      <h4>המכתבים — והולדת המיתוס</h4>
+      <p>&laquo;המכתבים של יוני נתניהו&raquo; ראו אור בעריכת אחיו וזכו לשבחים עולמיים (הרמן ווק: &laquo;אחד המסמכים הגדולים של זמננו&raquo;). בנימין נתניהו הקים את &laquo;מכון יונתן&raquo; לחקר הטרור — קרש הקפיצה לקריירה הציבורית שלו. &laquo;אין יום שאני לא חושב עליו&raquo;, אמר לימים.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2026</div>
+      <h4>הברונזה באנטבה</h4>
+      <p>חמישים שנה אחרי, אוגנדה מציבה פסל ברונזה בנקודת נפילתו — מעשה ידי איתי זלאיט, אמן המחאה הישראלי, בוגר היחידה שעליה פיקד יוני.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE WALLS: MYTH VS CRITIQUE ============ -->
+<section id="walls">
+  <div class="hall-label">אולם המראות · 03</div>
+  <h2 class="hall-title">גיבור, מיתוס, שאלה</h2>
+  <p class="hall-sub">
+    כל אנדרטה היא טענה. מול פסל הברונזה עומדות שתי גרסאות של יוני נתניהו —
+    והוויכוח ביניהן הוא בעצמו חלק מההיסטוריה הפוליטית של ישראל.
+  </p>
+
+  <div class="walls">
+    <div class="wall wall-hero">
+      <h3>קיר ההרואיזציה</h3>
+      <div class="wsub">הגרסה הרשמית</div>
+      <ul>
+        <li>שמעון פרס בהספד: &laquo;אחד מבניה הטובים ביותר של ישראל, מלוחמיה האמיצים ביותר, ממפקדיה המבטיחים ביותר&raquo;.</li>
+        <li>המכתבים חשפו דמות נדירה — לוחם־פילוסוף שכתב בגיל 17: &laquo;הצרה עם הנוער כאן היא שחייהם דלים בתוכן&raquo;.</li>
+        <li>עיטור המופת על חילוץ בן־חנן ביום כיפור; פיקוד על היחידה המובחרת בצה&quot;ל בגיל 29.</li>
+        <li>2006: 15 יוצאי סיירת מטכ&quot;ל יצאו בפומבי נגד &laquo;זיוף ההיסטוריה&raquo; והגנו על שמו; בספר העדויות &laquo;אנטבה מסווג&raquo; (2021) הגנו רוב הלוחמים על החלטתו לירות בזקיף האוגנדי.</li>
+      </ul>
+    </div>
+    <div class="wall wall-crit">
+      <h3>קיר הביקורת</h3>
+      <div class="wsub">הגרסה החתרנית</div>
+      <ul>
+        <li>מוקי בצר, סגנו, טען במשך שנים כי הוא — ולא יוני — תכנן את המבצע, וכי הירי המוקדם של יוני בזקיף כמעט הכשיל הכול. יוצאי היחידה הפריכו; הוויכוח מעולם לא שכך.</li>
+        <li>ההיסטוריון סול דיוויד (&laquo;מבצע כדור הרעם&raquo;, 2015): יוני &laquo;לא היה דמות מרכזית במבצע&raquo; — הפשיטה כללה &laquo;טעויות פטאליות, כמעט־אסון והרבה מזל&raquo;.</li>
+        <li>&laquo;הארץ&raquo; פרסם לאורך השנים סדרת תחקירים על &laquo;טיפוח מיתוס יוני&raquo; בידי המשפחה — ועל האופן שבו הפך הזיכרון הפרטי למנוע פוליטי.</li>
+        <li>שני האחים, בנימין ועידו, התווכחו בפומבי בשאלה מי אשם בחילופי האש המוקדמים שבהם נפל יוני.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rule"><span>✦ ✦ ✦</span></div>
+  <p class="hall-sub center" style="margin:0 auto">
+    הפסל באנטבה לא מכריע בוויכוח. הוא מקפיא רגע אחד — אדם רץ קדימה, שניות לפני הסוף —
+    ומשאיר לצופה להחליט איזו כתובת לחרוט מתחתיו.
+  </p>
+</section>
+<!-- ============ GALLERY ============ -->
+<section id="gallery">
+  <div class="hall-label">הגלריה · 04</div>
+  <h2 class="hall-title">כל העבודות</h2>
+  <p class="hall-sub">
+    עשור של מיצבי חוצות — רובם הוצבו בחשאי, ללא היתר, לפנות בוקר. רובם פונו, נוסרו,
+    הופלו או נעצרו בתוך שעות. זה חלק מהיצירה.
+  </p>
+
+  <div class="gallery-grid">
+
+    <article class="work">
+      <div class="placard">חרושת<br>התלמים</div>
+      <div class="wbody">
+        <div class="wyear">2015</div>
+        <h4>חרושת התלמים</h4>
+        <div class="wloc">תערוכת יחיד · גלריה</div>
+        <p>חמש־עשרה &laquo;הכלאות אובייקטים&raquo; — צעצועים מפורקים ומורכבים מחדש. עיסוק בחופש, בצרכנות ובמיכון של התודעה. כאן נולדה השפה: העטיפה המלוטשת שמסתירה וירוס.</p>
+        <span class="fate ok">הוצגה</span>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="placard" style="color:var(--gold-soft)">קינג<br>ביבי</div>
+      <div class="wbody">
+        <div class="wyear">2016</div>
+        <h4>קינג ביבי</h4>
+        <div class="wloc">כיכר רבין, תל אביב · 6.12.2016</div>
+        <p>פסל מוזהב של בנימין נתניהו בגובה 4.5 מטר, שהוצב בחשאי לפנות בוקר מול העירייה. העולם קרא אותו כאזהרה מפולחן אישיות בנוסח פסלי רודנים; זלאיט קרא אותו כמבחן לגבולות חופש הביטוי. עובר אורח הפיל אותו אחרי שש שעות. &laquo;כשבעטו בפסל — חייכתי&raquo;.</p>
+        <span class="fate">הופל</span>
+        <div class="wlink dim">רפליקת ברונזה נמכרה ב־2018 לאספן אמריקאי</div>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="placard">דגל<br>נוטה</div>
+      <div class="wbody">
+        <div class="wyear">2018</div>
+        <h4>דגל</h4>
+        <div class="wloc">כיכר רבין, תל אביב · 5.3.2018</div>
+        <p>תורן נטוי ועליו דגל ישראל רגע לפני נפילה, מוקף עמודים וחבל אדום כמו מוצג מוזיאלי. &laquo;דגל זקוף מסמן מצב תקין של מדינה. הדגל הזה נטוי — זו ישראל 2018&raquo;. מירי רגב: &laquo;פרובוקציה פוליטית זולה&raquo;.</p>
+        <span class="fate">פונה</span>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="placard">בלב<br>האומה</div>
+      <div class="wbody">
+        <div class="wyear">2018</div>
+        <h4>בלב האומה</h4>
+        <div class="wloc">כיכר הבימה, תל אביב · 8.11.2018</div>
+        <p>דמות בדמות שרת התרבות מירי רגב בשמלה לבנה, ניצבת מול מראה בגובה שלושה מטרים. &laquo;מראה מראה שעל הקיר&raquo; — עבודה דו־משמעית במכוון: השמאל קרא בה לעג, רגב עצמה אימצה אותה בהתרגשות וקיבלה את הפסל לידיה. הוכחה חיה לשיטת העמימות של זלאיט.</p>
+        <span class="fate ok">נמסר לרגב</span>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="placard">הסעודה<br>האחרונה</div>
+      <div class="wbody">
+        <div class="wyear">2020</div>
+        <h4>הסעודה האחרונה</h4>
+        <div class="wloc">כיכר רבין, תל אביב · 29.7.2020</div>
+        <p>שולחן באורך עשרה מטרים עמוס שפע, ובמרכזו בובת נתניהו בגודל טבעי, לבדה מול שנים־עשר כיסאות ריקים, אוכלת פרוסה מעוגת דגל ישראל. הומאז&#39; לדה וינצ&#39;י בשיא מחאות בלפור: &laquo;הוא כבר בשלב הקינוח — הדקות האחרונות שבהן אפשר עוד להציל את הדמוקרטיה&raquo;. רגב: &laquo;הסתה&raquo;; נתניהו: &laquo;איום צליבה&raquo;.</p>
+        <span class="fate">פורק</span>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="wimg">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hero%20of%20Israel%20-%20sculpture%20of%20Itay%20Zalait.jpg?width=800"
+             alt="גיבור ישראל — פסל של איתי זלאיט" loading="lazy"
+             onerror="this.parentElement.outerHTML='&lt;div class=&quot;placard&quot;&gt;גיבור&lt;br&gt;ישראל&lt;/div&gt;'">
+      </div>
+      <div class="wbody">
+        <div class="wyear">2020–21</div>
+        <h4>גיבור ישראל</h4>
+        <div class="wloc">כיכר פריז ירושלים ← כיכר רבין ← רמת השרון</div>
+        <p>פסל ברונזה של מפגין ממוסך כורע עם דגל ישראל — שישה טון, 5.5 מטר — על פי צילומו האיקוני של עודד בלילטי מהפגנות בלפור. עיריית ירושלים הסירה אותו ב־3 לפנות בוקר וזלאיט עוכב כשסירב לרדת ממנו; חולדאי אירח אותו בכיכר רבין; במרץ 2021 נוסר ופונה שוב בירושלים. &laquo;כשהם מנסרים את הפסל, הם מנסרים את התקווה&raquo;.</p>
+        <span class="fate">נוסר ופונה</span>
+        <div class="wlink dim">מומן בקמפיין מימון המונים ציבורי</div>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="placard">לַשָּׁוְא</div>
+      <div class="wbody">
+        <div class="wyear">2023</div>
+        <h4>לשווא</h4>
+        <div class="wloc">מול הקריה, תל אביב · המחאה נגד המהפכה המשפטית</div>
+        <p>יותר ממאה משפחות שכולות שסירבו לקבל את אות הזיכרון ממשרד הביטחון מסרו לזלאיט את המדליות — והוא בנה מהן את המילה &laquo;לשווא&raquo;. &laquo;יש דברים שאי אפשר להגיד במילים — כן אפשר לומר דרך סמלים&raquo;.</p>
+        <span class="fate">מיצב מחאה</span>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="placard">עוף<br>החול</div>
+      <div class="wbody">
+        <div class="wyear">2024–25</div>
+        <h4>אנדרטאות חרבות ברזל</h4>
+        <div class="wloc">שוהם, פארק הדרים ועוד</div>
+        <p>אחרי ה־7 באוקטובר עבר זלאיט לצד השני של ההנצחה: &laquo;עוף החול&raquo; מברונזה על סלע בגן הגבורה בשוהם, &laquo;עץ החיים&raquo; לזכר לוחמי גולני, &laquo;גלים&raquo; — פסל בטון עם גלשן שמזמין ישיבה. אנדרטאות שמדגישות חיים והתחדשות, בהזמנת רשויות מקומיות.</p>
+        <span class="fate ok">הוצבו</span>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="wimg">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20statue%20of%20Jonathan%20Netanyahu%20at%20Entebbe%20International%20Airport%20in%20Uganda%3B%20sculptor%20Itay%20Zalait%20(1).jpg?width=800"
+             alt="פסל יוני נתניהו באנטבה" loading="lazy"
+             onerror="this.parentElement.outerHTML='&lt;div class=&quot;placard&quot;&gt;אנטבה&lt;br&gt;2026&lt;/div&gt;'">
+      </div>
+      <div class="wbody">
+        <div class="wyear">2026</div>
+        <h4>פסל יוני נתניהו</h4>
+        <div class="wloc">הטרמינל הישן, נמל התעופה אנטבה, אוגנדה · 1.8.2026</div>
+        <p>ברונזה בתנועה, בנקודת הנפילה המדויקת, במלאת חמישים שנה למבצע. ההזמנה: גנרל מוהוזי קאינרוגאבה. העבודה: חצי שנה, מחקר עם יוצאי סיירת מטכ&quot;ל. הפעם — לא בחשאי, לא לפנות בוקר, ועם טקס ממלכתי.</p>
+        <span class="fate ok">הוצב</span>
+        <div class="wlink dim">העבודה הראשונה שלו שאיש לא פינה</div>
+      </div>
+    </article>
+
+  </div>
+</section>
+<!-- ============ ARCHIVE ============ -->
+<section id="archive">
+  <div class="hall-label">הארכיון · 05</div>
+  <h2 class="hall-title">התיק המודלף</h2>
+  <p class="hall-sub">
+    כתבות, ראיונות, סרטונים וסקירות — כל מה שנכתב ושודר על זלאיט ועבודותיו, מסודר בתיקיות.
+  </p>
+
+  <div class="folder">
+    <h3>תיקייה א&#39; — פסל אנטבה 2026</h3>
+    <div class="fnote">סיווג: גלוי · עודכן אוגוסט 2026</div>
+    <div class="doc"><span class="dyear">2026</span><a href="https://www.mako.co.il/news-world/2026_q3/Article-7407ba69fc2bf91026.htm" target="_blank" rel="noopener">פרסום ראשון: האומן מאחורי הפסל שהציבה אוגנדה באנטבה</a><span class="dout">N12 / mako</span><span class="dtag">חשיפה</span></div>
+    <div class="doc"><span class="dyear">2026</span><a href="https://www.israelhayom.co.il/news/world-news/other/article/21103553" target="_blank" rel="noopener">מ&laquo;קינג ביבי&raquo; ועד אנטבה: איתי זלאיט יצר את פסלו של יוני נתניהו באוגנדה</a><span class="dout">ישראל היום</span><span class="dtag">כתבה</span></div>
+    <div class="doc"><span class="dyear">2026</span><a href="https://www.timesofisrael.com/statue-of-yoni-netanyahu-unveiled-at-ugandas-entebbe-airport-50-years-after-raid/" target="_blank" rel="noopener">Statue of Yoni Netanyahu unveiled at Uganda&#39;s Entebbe Airport</a><span class="dout">Times of Israel</span><span class="dtag">EN</span></div>
+    <div class="doc"><span class="dyear">2026</span><a href="https://www.jns.org/news/israel-news/uganda-inaugurates-bronze-statue-of-yonatan-netanyahu" target="_blank" rel="noopener">Uganda inaugurates bronze statue of Yonatan Netanyahu — ציטוטי זלאיט על תהליך העבודה</a><span class="dout">JNS</span><span class="dtag">EN</span></div>
+    <div class="doc"><span class="dyear">2026</span><a href="https://www.thejc.com/news/world/uganda-entebbe-airport-statue-yonatan-netanyahu-w3dyms10" target="_blank" rel="noopener">Uganda unveils memorial statue of Yonatan Netanyahu — &laquo;זה מצמרר&raquo;</a><span class="dout">The Jewish Chronicle</span><span class="dtag">EN</span></div>
+    <div class="doc"><span class="dyear">2026</span><a href="https://abcnews.com/International/wireStory/ugandas-military-unveils-statue-netanyahus-brother-died-1976-135319708" target="_blank" rel="noopener">Uganda&#39;s military unveils statue of Netanyahu&#39;s brother</a><span class="dout">AP / ABC News</span><span class="dtag">EN</span></div>
+    <div class="doc"><span class="dyear">2026</span><a href="https://www.ynetnews.com/article/syijlloo11e" target="_blank" rel="noopener">הפוסט שנמחק: &laquo;ישו הורה לי בחלומות להקים אנדרטה ליוני נתניהו&raquo;</a><span class="dout">Ynetnews</span><span class="dtag">רקע</span></div>
+  </div>
+
+  <div class="folder">
+    <h3>תיקייה ב&#39; — כתבות וראיונות</h3>
+    <div class="fnote">2015–2023 · העיתונות על המיצבים</div>
+    <div class="doc"><span class="dyear">2016</span><a href="https://news.walla.co.il/item/3019828" target="_blank" rel="noopener">במרכז כיכר רבין: פסל מוזהב של נתניהו הוצב בחשאי</a><span class="dout">וואלה</span><span class="dtag">קינג ביבי</span></div>
+    <div class="doc"><span class="dyear">2016</span><a href="https://www.maariv.co.il/culture/theater-art/article-566092" target="_blank" rel="noopener">&laquo;לא יכולתי להתעלם מהשינויים שמאיימים על חופש הביטוי&raquo;</a><span class="dout">מעריב</span><span class="dtag">ראיון</span></div>
+    <div class="doc"><span class="dyear">2016</span><a href="https://chaitarbut.wordpress.com/2016/12/18/%D7%90%D7%99%D7%AA%D7%99-%D7%96%D7%9C%D7%90%D7%99%D7%98-%D7%90%D7%95%D7%93%D7%95%D7%AA-%D7%A0%D7%99%D7%A6%D7%95%D7%A5-%D7%A9%D7%9C-%D7%90%D7%A9-%D7%91%D7%90%D7%9E%D7%A0%D7%95%D7%AA-%D7%97%D7%95/" target="_blank" rel="noopener">&laquo;אני לא יצור פוליטי. אני אמן&raquo; — ראיון עומק</a><span class="dout">חי תרבות</span><span class="dtag">ראיון</span></div>
+    <div class="doc"><span class="dyear">2017</span><a href="https://www.maariv.co.il/culture/theater-art/article-573954" target="_blank" rel="noopener">פרובוקציה או נבואה? יוצר פסל הזהב מרגיש שחזה את הנולד</a><span class="dout">מעריב</span><span class="dtag">ראיון</span></div>
+    <div class="doc"><span class="dyear">2018</span><a href="https://www.ynet.co.il/articles/0,7340,L-5145324,00.html" target="_blank" rel="noopener">מיצג פוליטי בכיכר רבין: דגל ישראל נוטה ליפול</a><span class="dout">ynet</span><span class="dtag">דגל</span></div>
+    <div class="doc"><span class="dyear">2018</span><a href="https://www.maariv.co.il/culture/theater-art/article-636021" target="_blank" rel="noopener">&laquo;עוד לא עיכלנו את עומק העיוות והשחיתות&raquo;</a><span class="dout">מעריב</span><span class="dtag">ראיון</span></div>
+    <div class="doc"><span class="dyear">2018</span><a href="https://www.ynet.co.il/articles/0,7340,L-5392384,00.html" target="_blank" rel="noopener">&laquo;בלב האומה&raquo;: פסל של השרה רגב הוצב בכיכר הבימה</a><span class="dout">ynet</span><span class="dtag">בלב האומה</span></div>
+    <div class="doc"><span class="dyear">2020</span><a href="https://www.calcalist.co.il/local/articles/0,7340,L-3842355,00.html" target="_blank" rel="noopener">מיצב בת&quot;א: נתניהו אוכל פרוסה מעוגת דגל ישראל</a><span class="dout">כלכליסט</span><span class="dtag">הסעודה</span></div>
+    <div class="doc"><span class="dyear">2020</span><a href="https://www.haaretz.co.il/gallery/art/1.9029067" target="_blank" rel="noopener">מיצב &laquo;הסעודה האחרונה&raquo; הוצב בכיכר רבין. רגב: הסתה</a><span class="dout">הארץ</span><span class="dtag">הסעודה</span></div>
+    <div class="doc"><span class="dyear">2020</span><a href="https://timeout.co.il/%D7%94%D7%A1%D7%A2%D7%95%D7%93%D7%94-%D7%94%D7%90%D7%97%D7%A8%D7%95%D7%A0%D7%94-%D7%90%D7%99%D7%AA%D7%99-%D7%96%D7%9C%D7%90%D7%99%D7%98/" target="_blank" rel="noopener">&laquo;אנשים חושבים שפה זה לא יקרה&raquo; — ראיון על הסעודה האחרונה</a><span class="dout">טיים אאוט</span><span class="dtag">ראיון</span></div>
+    <div class="doc"><span class="dyear">2020</span><a href="https://www.timesofisrael.com/jerusalem-removes-statue-based-on-iconic-image-of-anti-netanyahu-protestor/" target="_blank" rel="noopener">ירושלים מסירה את &laquo;גיבור ישראל&raquo; באישון לילה</a><span class="dout">Times of Israel</span><span class="dtag">EN</span></div>
+    <div class="doc"><span class="dyear">2021</span><a href="https://www.ynet.co.il/article/59018430" target="_blank" rel="noopener">פונה פסל המחאה שהוצב ליד בלפור: &laquo;ניסרו את התקווה&raquo;</a><span class="dout">ynet</span><span class="dtag">גיבור ישראל</span></div>
+    <div class="doc"><span class="dyear">2023</span><a href="https://www.ynet.co.il/entertainment/article/s1vnayo72" target="_blank" rel="noopener">מיצג ממדליות של משפחות שכולות: &laquo;לשווא&raquo;</a><span class="dout">ynet</span><span class="dtag">לשווא</span></div>
+  </div>
+
+  <div class="folder">
+    <h3>תיקייה ג&#39; — וידאו</h3>
+    <div class="fnote">שידורים וכתבות מצולמות</div>
+    <div class="doc"><span class="dyear">2016</span><a href="https://www.nytimes.com/video/world/middleeast/100000004811207/king-bibi-netanyahu-statue-divides-tel-aviv.html" target="_blank" rel="noopener">King Bibi: Netanyahu Statue Divides Tel Aviv</a><span class="dout">NYT Video</span><span class="dtag">▶ וידאו</span></div>
+    <div class="doc"><span class="dyear">2016</span><a href="https://www.youtube.com/watch?v=LEesmHvrZp4" target="_blank" rel="noopener">Gold Netanyahu statue debuts in Rabin Square</a><span class="dout">YouTube</span><span class="dtag">▶ וידאו</span></div>
+    <div class="doc"><span class="dyear">2020</span><a href="https://www.youtube.com/watch?v=N6OrOZh7ZFA" target="_blank" rel="noopener">זלאיט מספר על &laquo;הסעודה האחרונה של הדמוקרטיה&raquo;</a><span class="dout">TLVTIMES / YouTube</span><span class="dtag">▶ וידאו</span></div>
+    <div class="doc"><span class="dyear">2020</span><a href="https://www.youtube.com/watch?v=yGpGsSGHtNM" target="_blank" rel="noopener">פסל &laquo;גיבור ישראל&raquo; של האמן איתי זלאיט</a><span class="dout">YouTube</span><span class="dtag">▶ וידאו</span></div>
+    <div class="doc"><span class="dyear">2020</span><a href="https://www.youtube.com/watch?v=GCr-DbNuiAk" target="_blank" rel="noopener">כתבת כאן 11 על &laquo;גיבור ישראל&raquo;</a><span class="dout">כאן 11 / YouTube</span><span class="dtag">▶ וידאו</span></div>
+  </div>
+
+  <div class="folder">
+    <h3>תיקייה ד&#39; — עומק ורקע</h3>
+    <div class="fnote">פרופילים, ביקורת אמנות, והוויכוח על המיתוס</div>
+    <div class="doc"><span class="dyear">—</span><a href="https://www.itayzalait.art/" target="_blank" rel="noopener">האתר הרשמי של איתי זלאיט — כל העבודות</a><span class="dout">itayzalait.art</span><span class="dtag">רשמי</span></div>
+    <div class="doc"><span class="dyear">—</span><a href="https://he.wikipedia.org/wiki/%D7%90%D7%99%D7%AA%D7%99_%D7%96%D7%9C%D7%90%D7%99%D7%98" target="_blank" rel="noopener">איתי זלאיט — הערך בוויקיפדיה</a><span class="dout">ויקיפדיה</span><span class="dtag">ערך</span></div>
+    <div class="doc"><span class="dyear">—</span><a href="https://www.so-art.net/post/itay_zalait" target="_blank" rel="noopener">&laquo;בשם האותנטיות&raquo; — ניתוח שיטת העמימות המכוונת</a><span class="dout">so-art</span><span class="dtag">ביקורת</span></div>
+    <div class="doc"><span class="dyear">2020</span><a href="https://www.haaretz.com/israel-news/2020-07-31/ty-article-magazine/.premium/bibis-last-supper-is-the-most-talked-about-artwork-in-israel-meet-its-creator/0000017f-e79e-d97e-a37f-f7ff6c990000" target="_blank" rel="noopener">Bibi&#39;s &laquo;Last Supper&raquo; — פרופיל עומק</a><span class="dout">Haaretz EN</span><span class="dtag">פרופיל</span></div>
+    <div class="doc"><span class="dyear">2015</span><a href="https://www.haaretz.com/israel-news/culture/2018-03-27/ty-article-magazine/.premium/yoni-netanyahus-mistake-nearly-led-to-disaster/0000017f-e053-df7c-a5ff-e27b60ec0000" target="_blank" rel="noopener">סול דיוויד: &laquo;הטעות של יוני נתניהו כמעט הובילה לאסון&raquo;</a><span class="dout">Haaretz EN</span><span class="dtag">מיתוס</span></div>
+    <div class="doc"><span class="dyear">2021</span><a href="https://www.timesofisrael.com/entebbe-in-person-a-new-oral-history-challenges-official-account-of-1976-rescue/" target="_blank" rel="noopener">&laquo;אנטבה מסווג&raquo; — עדויות הלוחמים מול הגרסה הרשמית</a><span class="dout">Times of Israel</span><span class="dtag">מיתוס</span></div>
+    <div class="doc"><span class="dyear">2006</span><a href="https://www.ynetnews.com/articles/0,7340,L-3384084,00.html" target="_blank" rel="noopener">יוצאי סיירת מטכ&quot;ל נגד גרסת מוקי בצר</a><span class="dout">Ynetnews</span><span class="dtag">מיתוס</span></div>
+    <div class="doc"><span class="dyear">—</span><a href="https://www.yoni.org.il/en/biogr.php?p=2" target="_blank" rel="noopener">האתר להנצחת יוני נתניהו — ביוגרפיה ומכתבים</a><span class="dout">yoni.org.il</span><span class="dtag">הנצחה</span></div>
+  </div>
+</section>
+<!-- ============ MANIFESTO ============ -->
+<section id="manifesto" class="manifesto">
+  <div class="hall-label">המניפסט · 06</div>
+  <h2 class="hall-title">מי זה איתי זלאיט</h2>
+  <p>
+    נולד בבני ברק ב־1979. בגיל תשע כבר הציג באגף הנוער של מוזיאון ישראל. שירת כלוחם
+    בסיירת מטכ&quot;ל וכמדריך בבית הספר ללוחמה בטרור. תואר בפסיכולוגיה מהאוניברסיטה הפתוחה,
+    תואר באמנות ממכללת בית ברל. חי ברמת גן, נשוי ואב לשניים.
+  </p>
+  <p>
+    העבודות שלו מתחלקות לשניים: פיסול וציור בסטודיו — ומיצבי לילה שמוצבים בלי היתר
+    ומכריחים מדינה שלמה להתווכח עד הצהריים. את &laquo;קינג ביבי&raquo; מימן לבד. את
+    &laquo;גיבור ישראל&raquo; מימן הציבור. את פסל אנטבה הזמינה ממשלה זרה. הוא מציג
+    במוזיאון ינקו־דאדא — הבית הישראלי של התנועה שהאתר הזה לובש את בגדיה.
+  </p>
+  <div class="bigq">מה קורה כשאמן מחאה בונה אנדרטה?</div>
+  <p>
+    דאדא נולד ב־1916 כתשובה למכונת המלחמה ולפולחן הגיבורים שלה: אם ההיגיון הוביל לשוחות,
+    אמרו הדאדאיסטים, ננסה את האנטי־היגיון. זלאיט עובד בדיוק על הקו הזה — הוא משתמש בשפה
+    של המשטר (זהב, ברונזה, מונומנט, כן הצבה) כדי לפרק אותה מבפנים. ולפעמים, כמו באנטבה,
+    הוא משתמש בה ברצינות גמורה. איפה עובר הגבול? זו בדיוק השאלה שהאתר הזה משאיר פתוחה —
+    והמתג שבראש העמוד הוא הדרך שלכם לענות עליה.
+  </p>
+
+  <div class="quotes-band">
+    <div class="qcard">אני לא יצור פוליטי. אני אמן.<span class="qs">— חי תרבות, 2016</span></div>
+    <div class="qcard">כאמן אני חוקר את נושא הבחירה והחופש כל הזמן.<span class="qs">— חי תרבות, 2016</span></div>
+    <div class="qcard">כשבעטו בפסל — אני חייכתי.<span class="qs">— על הפלת &laquo;קינג ביבי&raquo;</span></div>
+    <div class="qcard">כשסוגרים את הדלת — תמיד אפשר להיכנס דרך החלון.<span class="qs">— חי תרבות, 2016</span></div>
+    <div class="qcard">כשהם מנסרים את הפסל, הם מנסרים את התקווה.<span class="qs">— ynet, מרץ 2021</span></div>
+    <div class="qcard">יש דברים שאי אפשר להגיד במילים — כן אפשר לומר דרך סמלים.<span class="qs">— ynet, 2023</span></div>
+    <div class="qcard">אנשים חושבים שאובדן הדמוקרטיה זה משהו שלא יקרה פה.<span class="qs">— טיים אאוט, 2020</span></div>
+    <div class="qcard">אין הרבה אנדרטאות שמוקמות במקום המדויק שבו נפל האדם. זה מצמרר.<span class="qs">— על פסל אנטבה, 2026</span></div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="fbrand">המונומנט</div>
+  <p>
+    אתר־מיצב על עבודותיו של איתי זלאיט. אינו אתר רשמי של האמן.
+    הטקסטים מבוססים על דיווחי עיתונות וראיונות המקושרים בארכיון;
+    תמונות: ויקישיתוף (רישיון חופשי) — יתר העבודות מיוצגות טיפוגרפית מטעמי זכויות יוצרים.
+  </p>
+  <p class="dim">נבנה ברוח הדאדא · 2026 · ★ סֵדֶר הוא רק כָּאוֹס שעוד לא לחצו לו על המתג ★</p>
+</footer>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <b>★ המונומנט ★</b> &nbsp;·&nbsp; &laquo;אני לא יצור פוליטי. אני אמן&raquo; &nbsp;·&nbsp;
+    קינג ביבי — הופל אחרי שש שעות &nbsp;·&nbsp; הסעודה האחרונה — &laquo;הוא כבר בשלב הקינוח&raquo; &nbsp;·&nbsp;
+    גיבור ישראל — נוסר באישון לילה &nbsp;·&nbsp; לשווא — מאה משפחות, מאה מדליות &nbsp;·&nbsp;
+    אנטבה 2026 — הפסל הראשון שאיש לא פינה &nbsp;·&nbsp; <b>דאדא אינו מת. דאדא רק החליף כתובת</b> &nbsp;·&nbsp;
+    &laquo;רק הזמן יגיד אם זו פרובוקציה או נבואה&raquo; &nbsp;·&nbsp; 53 דקות באנטבה. 50 שנה של ויכוח &nbsp;·&nbsp;
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY='monument-mode';
+  var body=document.body;
+  var btn=document.getElementById('modeswitch');
+  var lblR=btn.querySelector('.lbl-regime');
+  var lblD=btn.querySelector('.lbl-dada');
+
+  // split hero title into letters for dada scatter
+  var h=document.getElementById('herotitle');
+  var txt=h.textContent;
+  h.textContent='';
+  for(var i=0;i<txt.length;i++){
+    var s=document.createElement('span');
+    s.className='l';
+    s.textContent=txt[i];
+    h.appendChild(s);
+  }
+
+  function setMode(m){
+    body.setAttribute('data-mode',m);
+    lblR.classList.toggle('on',m==='regime');
+    lblD.classList.toggle('on',m==='dada');
+    try{localStorage.setItem(KEY,m)}catch(e){}
+  }
+  var saved=null;
+  try{saved=localStorage.getItem(KEY)}catch(e){}
+  if(saved==='dada'||saved==='regime') setMode(saved);
+
+  btn.addEventListener('click',function(){
+    setMode(body.getAttribute('data-mode')==='regime'?'dada':'regime');
+  });
+
+  // dada: gallery cards get a tiny extra shake on hover via JS-free CSS; here add drag in dada mode
+  var dragEl=null,sx=0,sy=0,ox=0,oy=0;
+  document.querySelectorAll('.work,.qcard').forEach(function(el){
+    el.addEventListener('pointerdown',function(e){
+      if(body.getAttribute('data-mode')!=='dada')return;
+      if(e.target.closest('a'))return;
+      dragEl=el;sx=e.clientX;sy=e.clientY;
+      var m=/translate\((-?\d+\.?\d*)px,\s*(-?\d+\.?\d*)px\)/.exec(el.style.transform||'');
+      ox=m?parseFloat(m[1]):0;oy=m?parseFloat(m[2]):0;
+      el.setPointerCapture(e.pointerId);
+    });
+    el.addEventListener('pointermove',function(e){
+      if(dragEl!==el)return;
+      var dx=e.clientX-sx,dy=e.clientY-sy;
+      el.style.transform='translate('+(ox+dx)+'px,'+(oy+dy)+'px) rotate('+((dx+dy)/40)+'deg)';
+      el.style.zIndex=50;
+    });
+    el.addEventListener('pointerup',function(){dragEl=null});
+    el.addEventListener('pointercancel',function(){dragEl=null});
+  });
+  // reset dragged positions when returning to regime
+  btn.addEventListener('click',function(){
+    if(body.getAttribute('data-mode')==='regime'){
+      document.querySelectorAll('.work,.qcard').forEach(function(el){
+        el.style.transform='';el.style.zIndex='';
+      });
+    }
+  });
+})();
+</script>
+</body>
+</html>
