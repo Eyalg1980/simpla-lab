@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>המטבח | בית הספר לפרומפטים</title>
+<meta name="description" content="אתר חוויתי שמלמד הנדסת פרומפטים דרך עולם מטבח קליי: המתכון, המרכיבים, הטעימה והתיקון, עם סיר שמתבשל בגלילה ובונה מתכונים חי.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF1E0;
+  --bg2:#F3E2C8;
+  --ink:#4A2E1E;
+  --card:#FFFFFF;
+  --tomato:#D94F3D;
+  --tomato-deep:#B93B2B;
+  --mustard:#F2B705;
+  --teal:#1E8E8E;
+  --teal-deep:#15716F;
+  --text:#3A2A1E;
+  --muted:#8A7462;
+  --ok:#3E9B6B;
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Rubik',sans-serif;line-height:1.25}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+.dots{position:relative}
+.dots::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(circle,rgba(217,79,61,.12) 1.2px,transparent 1.7px);background-size:16px 16px}
+
+/* ===== Top bar + oven thermometer ===== */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(251,241,224,.93);backdrop-filter:blur(8px);border-bottom:2.5px solid var(--ink)}
+.topbar-in{display:flex;align-items:center;gap:12px;padding:10px 16px;max-width:1100px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:9px;font-family:'Rubik';font-weight:900;font-size:1.1rem;white-space:nowrap;color:var(--ink)}
+.logo .badge-dot{width:34px;height:34px;border-radius:50%;background:var(--tomato);display:grid;place-items:center;border:2.5px solid var(--ink);box-shadow:2.5px 2.5px 0 rgba(74,46,30,.35)}
+.logo .badge-dot svg{width:19px;height:19px;fill:none;stroke:#FBF1E0;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.nav-chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;flex:1}
+.nav-chips::-webkit-scrollbar{display:none}
+.nav-chips a{white-space:nowrap;text-decoration:none;font-size:.85rem;font-weight:500;padding:6px 13px;
+  border:1.5px solid rgba(74,46,30,.3);border-radius:999px;color:var(--text);transition:.2s}
+.nav-chips a:hover,.nav-chips a.active{background:var(--tomato);border-color:var(--tomato);color:#fff;font-weight:700}
+.progress-track{height:6px;background:var(--bg2);position:relative}
+.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--teal),var(--mustard),var(--tomato));transition:width .15s}
+.progress-label{font-size:.72rem;color:var(--muted);text-align:center;padding:2px 0 4px;letter-spacing:.03em}
+
+/* ===== Cooking hero ===== */
+.cook-wrap{position:relative;height:280vh}
+.cook-sticky{position:sticky;top:58px;height:calc(100svh - 58px);overflow:hidden}
+.cook-stage{position:relative;width:100%;height:100%;--potx:50%;--poty:66%}
+.cook-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cook-bg.desk{display:none}
+.sprite{position:absolute;width:20%;max-width:130px;left:var(--potx);top:0;transform:translate(-50%,-120%);
+  will-change:transform,opacity;pointer-events:none;filter:drop-shadow(0 6px 10px rgba(74,46,30,.35))}
+#sp-dish{width:34%;max-width:230px;z-index:3}
+#sp-steam{width:30%;max-width:200px;opacity:0;z-index:2}
+.cook-hint{position:absolute;top:14px;right:0;left:0;text-align:center;pointer-events:none;transition:opacity .4s;z-index:4}
+.cook-hint span{display:inline-flex;align-items:center;gap:7px;background:rgba(74,46,30,.85);color:#FBF1E0;
+  font-size:.8rem;padding:6px 16px;border-radius:999px}
+.cook-hint svg{width:.95em;height:.95em;fill:none;stroke:var(--mustard);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cook-hint.hide{opacity:0}
+.hero-copy{position:absolute;bottom:0;right:0;left:0;z-index:5;text-align:center;padding:80px 18px 24px;
+  background:linear-gradient(0deg,rgba(74,46,30,.92) 40%,rgba(74,46,30,.55) 72%,transparent);color:#FBF1E0}
+.case-stamp{display:inline-block;font-family:'Rubik';font-weight:900;color:var(--mustard);border:3px solid var(--mustard);
+  border-radius:8px;padding:3px 14px;font-size:.82rem;transform:rotate(-3deg);letter-spacing:.08em;margin-bottom:12px}
+.hero-copy h1{font-size:clamp(2.2rem,7.5vw,4rem);font-weight:900;color:#fff}
+.hero-copy h1 .hl{color:var(--mustard)}
+.hero-copy .sub{color:rgba(251,241,224,.85);font-size:1rem;margin-top:10px}
+.hero-copy .sub b{color:#fff}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.btn{font-family:'Rubik';font-weight:700;text-decoration:none;border-radius:12px;padding:12px 26px;
+  border:3px solid var(--ink);cursor:pointer;font-size:1rem;transition:.15s;display:inline-flex;align-items:center;gap:8px}
+.btn svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.btn-primary{background:var(--tomato);color:#fff;box-shadow:5px 5px 0 rgba(74,46,30,.4)}
+.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 rgba(74,46,30,.4)}
+.btn-ghost{background:transparent;color:#FBF1E0;border-color:rgba(251,241,224,.5);box-shadow:none}
+.btn-ghost:hover{border-color:var(--mustard);color:var(--mustard)}
+.hero-facts{display:none;justify-content:center;gap:26px;flex-wrap:wrap;margin-top:20px}
+.fact{text-align:center}
+.fact b{display:block;font-family:'Rubik';font-size:1.4rem;color:var(--mustard)}
+.fact span{font-size:.78rem;color:rgba(251,241,224,.75)}
+
+/* ===== Sections ===== */
+section{padding:52px 0;position:relative}
+.sec-head{text-align:center;margin-bottom:34px}
+.sec-kicker{display:inline-block;background:var(--ink);color:var(--mustard);font-family:'Rubik';font-weight:700;
+  font-size:.8rem;padding:5px 16px;border-radius:999px;letter-spacing:.08em;margin-bottom:12px}
+.sec-head h2{font-size:clamp(1.7rem,5vw,2.5rem);font-weight:900;color:var(--ink)}
+.sec-head p{color:var(--muted);max-width:620px;margin:10px auto 0;font-size:.98rem}
+.sec-banner{max-width:760px;margin:0 auto 28px;border:3px solid var(--ink);border-radius:var(--radius);overflow:hidden;box-shadow:6px 6px 0 rgba(74,46,30,.3)}
+.sec-banner img{width:100%;aspect-ratio:16/9;object-fit:cover}
+
+/* ===== Chapters ===== */
+.chapter{margin-bottom:64px;position:relative}
+.chapter-tag{display:inline-flex;align-items:center;gap:8px;background:var(--mustard);color:var(--ink);
+  font-family:'Rubik';font-weight:900;font-size:.85rem;padding:6px 16px;border:2.5px solid var(--ink);
+  border-radius:8px;transform:rotate(-2deg);box-shadow:3px 3px 0 rgba(74,46,30,.35);position:relative;
+  margin-bottom:-16px;margin-right:14px;z-index:2;letter-spacing:.04em}
+.chapter-tag::after{content:"";font-family:'Rubik';font-weight:700;font-size:.72rem;color:var(--ok)}
+.chapter.cooked .chapter-tag::after{content:"✔ מוכן"}
+.panel{background:var(--card);color:var(--text);border:3px solid var(--ink);border-radius:var(--radius);
+  box-shadow:7px 7px 0 rgba(74,46,30,.3);overflow:hidden}
+.panel-img{position:relative;border-bottom:3px solid var(--ink)}
+.panel-img img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.panel-body{padding:22px 20px 26px}
+.panel-body h3{font-size:clamp(1.35rem,4.5vw,1.8rem);font-weight:900;margin-bottom:4px;color:var(--ink)}
+.panel-body .chapter-sub{color:var(--tomato-deep);font-family:'Rubik';font-weight:700;font-size:.95rem;margin-bottom:14px}
+.story{background:var(--bg);border-radius:10px;border:2px dashed var(--tomato);padding:14px 16px;font-size:.95rem;margin-bottom:18px}
+.story::before{content:"🍲 מיומן המטבח";display:block;font-family:'Rubik';font-weight:700;color:var(--tomato-deep);font-size:.78rem;margin-bottom:6px;letter-spacing:.05em}
+.panel-body p{margin-bottom:12px;font-size:.97rem}
+.panel-body ul{margin:0 18px 14px 0;display:grid;gap:7px}
+.panel-body li{font-size:.95rem}
+.panel-body li b{color:var(--tomato-deep)}
+.translate-box{background:var(--bg);border:2px dashed var(--teal-deep);border-radius:10px;padding:14px 16px;margin-top:16px}
+.translate-box h4{font-size:.85rem;font-family:'Rubik';color:var(--teal-deep);letter-spacing:.05em;margin-bottom:6px}
+.translate-box table,.translate-box tbody{display:block;width:100%;font-size:.88rem}
+.translate-box tr{display:grid;grid-template-columns:1fr auto;column-gap:10px;row-gap:3px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(74,46,30,.14)}
+.translate-box tr:last-child{border-bottom:none;padding-bottom:2px}
+.translate-box td{display:block;padding:0;border:none}
+.translate-box td:first-child{grid-column:1;grid-row:1;font-weight:700;color:var(--ink);line-height:1.4}
+.translate-box td.term{grid-column:2;grid-row:1;justify-self:end;direction:ltr;font-family:'Rubik';font-weight:700;
+  font-size:.72rem;color:#FBF1E0;background:var(--ink);padding:3px 11px;border-radius:999px;white-space:nowrap}
+.translate-box td:last-child{grid-column:1 / -1;color:#7A6656;font-size:.84rem;line-height:1.5}
+
+/* ===== Exercises ===== */
+.exercise{background:var(--ink);color:#FBF1E0;border:3px solid var(--ink);border-radius:var(--radius);
+  box-shadow:6px 6px 0 rgba(74,46,30,.3);padding:20px 18px;margin-bottom:26px}
+.exercise .ex-tag{display:inline-block;background:var(--tomato);color:#fff;font-family:'Rubik';font-weight:700;
+  font-size:.75rem;padding:4px 12px;border-radius:999px;margin-bottom:10px;letter-spacing:.05em}
+.exercise h3{color:#fff;font-size:1.25rem;font-weight:900;margin-bottom:6px}
+.exercise .ex-goal{color:#D9C4A8;font-size:.88rem;margin-bottom:16px}
+.exercise .ex-goal b{color:var(--mustard)}
+.opt-card{background:var(--card);color:var(--text);border:2.5px solid rgba(74,46,30,.3);border-radius:10px;
+  padding:12px 14px;margin-bottom:10px;cursor:pointer;transition:.15s;font-size:.92rem}
+.opt-card:hover{transform:translateY(-2px)}
+.opt-card.correct{border-color:var(--ok);background:#E8F4EC;box-shadow:0 0 0 2px var(--ok)}
+.opt-card.wrong{border-color:var(--tomato);background:#FBE7E3;box-shadow:0 0 0 2px var(--tomato)}
+.opt-card .who{font-family:'Rubik';font-weight:700;font-size:.78rem;color:var(--teal-deep);display:block;margin-bottom:3px}
+.ex-feedback{display:none;border-radius:10px;padding:12px 14px;font-size:.9rem;margin-top:12px}
+.ex-feedback.show{display:block}
+.ex-feedback.good{background:rgba(62,155,107,.2);border:2px solid var(--ok);color:#D7EEDF}
+.ex-feedback.bad{background:rgba(217,79,61,.2);border:2px solid var(--tomato);color:#F6D6CF}
+.ex-controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.chip-btn{font-family:'Rubik';font-weight:700;font-size:.85rem;padding:8px 16px;border-radius:999px;cursor:pointer;
+  border:2px solid rgba(251,241,224,.4);background:transparent;color:#FBF1E0;transition:.15s}
+.chip-btn:hover{border-color:var(--mustard);color:var(--mustard)}
+.chip-btn.active{background:var(--mustard);border-color:var(--mustard);color:var(--ink)}
+
+/* before/after slider */
+.ba-wrap{position:relative;border-radius:12px;overflow:hidden;border:2.5px solid rgba(74,46,30,.3);background:var(--card);direction:ltr}
+.ba-layer{padding:16px;color:var(--text);direction:rtl}
+.ba-top{position:absolute;inset:0;background:var(--card);overflow:hidden}
+.ba-divider{position:absolute;top:0;bottom:0;width:4px;background:var(--tomato);z-index:3;pointer-events:none}
+.ba-divider::after{content:"⇔";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34px;height:34px;
+  background:var(--tomato);color:#fff;border-radius:50%;display:grid;place-items:center;font-size:1rem}
+.ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:4}
+.ba-label{display:inline-block;font-family:'Rubik';font-weight:900;font-size:.72rem;padding:2px 10px;border-radius:999px;margin-bottom:8px}
+.ba-label.weak{background:#FBE7E3;color:var(--tomato-deep)}
+.ba-label.rich{background:#E2F1F1;color:var(--teal-deep)}
+.ba-q{font-size:.8rem;color:var(--muted);margin-bottom:6px}
+.ba-out{font-size:.85rem;background:var(--bg);border-radius:8px;padding:10px 12px}
+.ba-note{font-size:.82rem;color:#D9C4A8;margin-top:10px}
+
+/* recipe builder */
+.rb-grid{display:grid;gap:14px}
+.rb-cat h4{font-family:'Rubik';font-size:.85rem;color:var(--mustard);margin-bottom:8px}
+.rb-chips{display:flex;gap:8px;flex-wrap:wrap}
+.rb-chip{background:var(--card);color:var(--text);border:2px solid rgba(74,46,30,.3);border-radius:999px;
+  padding:7px 14px;font-size:.85rem;cursor:pointer;transition:.15s;user-select:none}
+.rb-chip:hover{transform:translateY(-2px)}
+.rb-chip.on{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:700}
+.rb-meter{display:flex;align-items:center;gap:10px;margin:16px 0 6px}
+.rb-meter .rm-bar{flex:1;height:12px;background:rgba(251,241,224,.2);border-radius:999px;overflow:hidden}
+.rb-meter .rm-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--tomato),var(--mustard),var(--ok));transition:.3s}
+.rb-meter b{font-family:'Rubik';color:var(--mustard);font-size:.85rem;min-width:110px}
+.rb-card{background:#FFF9EE;color:var(--text);border:2.5px solid var(--ink);border-radius:12px;padding:16px;margin-top:10px;position:relative}
+.rb-card::before{content:"📜 כרטיס המתכון";display:block;font-family:'Rubik';font-weight:900;font-size:.8rem;color:var(--tomato-deep);margin-bottom:8px}
+.rb-card .rb-line{font-size:.9rem;padding:4px 0;border-bottom:1px dashed rgba(74,46,30,.2)}
+.rb-card .rb-line:last-child{border-bottom:none}
+.rb-card .rb-empty{color:var(--muted);font-size:.88rem}
+.rb-copy{margin-top:12px;font-family:'Rubik';font-weight:700;font-size:.9rem;background:var(--teal);color:#fff;
+  border:2.5px solid var(--ink);border-radius:10px;padding:10px 20px;cursor:pointer;box-shadow:3px 3px 0 rgba(74,46,30,.3)}
+.rb-copy:hover{transform:translate(-1px,-1px)}
+
+/* ===== Glossary ===== */
+.gloss-search{width:100%;padding:12px 18px;border-radius:999px;border:2.5px solid var(--ink);
+  background:var(--card);color:var(--text);font-family:'Heebo';font-size:.95rem;margin-bottom:14px;outline:none}
+.gloss-cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.gloss-cats .chip-btn{border-color:rgba(74,46,30,.35);color:var(--text)}
+.gloss-cats .chip-btn.active{background:var(--tomato);border-color:var(--tomato);color:#fff}
+.gloss-grid{display:grid;gap:12px}
+@media(min-width:700px){.gloss-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.gloss-grid{grid-template-columns:repeat(3,1fr)}}
+.gloss-card{background:var(--card);color:var(--text);border:2.5px solid var(--ink);border-radius:12px;padding:14px 16px;box-shadow:4px 4px 0 rgba(74,46,30,.25)}
+.gloss-card .g-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
+.gloss-card h4{font-size:1rem;font-weight:900;color:var(--ink)}
+.gloss-card .g-en{font-family:'Rubik';font-size:.72rem;color:var(--muted);direction:ltr}
+.gloss-card .g-noir{font-size:.82rem;background:var(--bg);border-radius:8px;padding:7px 10px;margin-bottom:8px}
+.gloss-card .g-noir b{color:var(--tomato-deep);font-size:.72rem;font-family:'Rubik';display:block}
+.gloss-card .g-def{font-size:.85rem;color:#6B584A}
+.gloss-empty{color:var(--muted);text-align:center;padding:20px;display:none}
+
+/* ===== Checklist ===== */
+.check-progress{background:var(--card);border:2.5px solid var(--ink);border-radius:12px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.check-progress .cp-bar{flex:1;height:12px;background:var(--bg2);border-radius:999px;border:1.5px solid rgba(74,46,30,.3);overflow:hidden}
+.check-progress .cp-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--mustard),var(--ok));transition:.3s}
+.check-progress b{font-family:'Rubik';color:var(--tomato-deep);min-width:52px;text-align:left;direction:ltr}
+.check-group{background:var(--card);color:var(--text);border:3px solid var(--ink);border-radius:12px;margin-bottom:16px;overflow:hidden;box-shadow:5px 5px 0 rgba(74,46,30,.25)}
+.check-group h4{background:var(--ink);color:#FBF1E0;padding:10px 16px;font-size:.95rem;display:flex;align-items:center;gap:8px}
+.check-group h4 span{color:var(--mustard)}
+.check-items{padding:8px 10px}
+.check-item{display:flex;gap:10px;align-items:flex-start;padding:9px 8px;border-radius:8px;cursor:pointer;transition:.15s;font-size:.9rem}
+.check-item:hover{background:var(--bg)}
+.check-item input{margin-top:5px;accent-color:var(--tomato-deep);width:16px;height:16px;flex-shrink:0}
+.check-item.done label{text-decoration:line-through;opacity:.55}
+.check-item label{cursor:pointer}
+
+/* ===== Certificate ===== */
+.certificate{background:var(--card);color:var(--text);border:3px solid var(--ink);border-radius:var(--radius);
+  box-shadow:8px 8px 0 rgba(74,46,30,.3);padding:30px 22px;text-align:center;position:relative;overflow:hidden}
+.certificate::before{content:"";position:absolute;inset:10px;border:2px dashed var(--tomato);border-radius:10px;pointer-events:none}
+.certificate .medal{font-size:2.6rem}
+.certificate h3{font-size:1.6rem;font-weight:900;margin:8px 0 4px;color:var(--ink)}
+.certificate p{font-size:.92rem;color:var(--muted);max-width:520px;margin:0 auto 8px}
+.cert-stamp{display:inline-block;margin-top:14px;font-family:'Rubik';font-weight:900;color:var(--tomato-deep);
+  border:3px solid var(--tomato-deep);border-radius:8px;padding:4px 18px;transform:rotate(-4deg);font-size:1rem;letter-spacing:.12em}
+
+footer{border-top:2.5px solid var(--ink);padding:30px 0 40px;text-align:center;color:var(--muted);font-size:.85rem}
+footer b{color:var(--tomato-deep);font-family:'Rubik'}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease}
+.reveal.on{opacity:1;transform:none}
+
+/* ===== Desktop ===== */
+@media(min-width:1024px){
+  .wrap{max-width:1240px}
+  .cook-sticky{display:flex;flex-direction:column;align-items:center}
+  .cook-stage{max-width:1180px;height:auto;aspect-ratio:16/9;margin-top:14px;border:3px solid var(--ink);
+    border-radius:var(--radius);overflow:hidden;box-shadow:8px 8px 0 rgba(74,46,30,.3);--poty:68%}
+  .cook-bg.mob{display:none}
+  .cook-bg.desk{display:block}
+  .hero-copy{position:static;background:none;color:var(--ink);padding:18px;max-width:820px}
+  .hero-copy h1{color:var(--ink)}
+  .hero-copy h1 .hl{color:var(--tomato)}
+  .hero-copy .sub{color:var(--muted)}
+  .hero-copy .sub b{color:var(--ink)}
+  .btn-ghost{color:var(--ink);border-color:rgba(74,46,30,.4)}
+  .hero-facts{display:flex}
+  .fact b{color:var(--tomato-deep)}
+  .fact span{color:var(--muted)}
+  .case-stamp{color:var(--tomato-deep);border-color:var(--tomato-deep)}
+  .chapters-flow{position:relative;padding-right:36px}
+  .chapters-flow::before{content:"";position:absolute;top:6px;bottom:6px;right:12px;width:2px;
+    background:repeating-linear-gradient(180deg,var(--tomato) 0 7px,transparent 7px 14px);opacity:.5}
+  .chapter .panel{display:grid;grid-template-columns:1fr 1.2fr;overflow:visible;align-items:start}
+  .chapter .panel>.panel-img{position:sticky;top:106px;margin:24px;border:3px solid var(--ink);border-radius:12px;
+    overflow:hidden;box-shadow:6px 6px 0 rgba(74,46,30,.25);transform:rotate(-1deg)}
+  .chapter .panel>.panel-img img{aspect-ratio:4/3;object-fit:cover}
+  .chapter .panel-body{padding:30px 30px 34px}
+  .chapters-flow .chapter:nth-child(even) .panel>.panel-img{order:2;transform:rotate(1deg)}
+  #exercises .exercise{max-width:880px;margin-inline:auto;margin-bottom:28px}
+  .sec-banner{max-width:880px}
+  .check-progress{max-width:900px;margin:0 auto 24px}
+  #checkGroups{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+  .check-group{margin-bottom:0}
+  .certificate{padding:46px 30px;max-width:820px;margin-inline:auto}
+  .rb-grid{grid-template-columns:1fr 1fr;align-items:start}
+  .rb-side{position:sticky;top:106px}
+}
+</style>
+</head>
+<body>
+<!-- BODY -->
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="logo">
+      <span class="badge-dot"><svg viewBox="0 0 24 24"><path d="M4 10h16l-1.5 9.5a2 2 0 0 1-2 1.5h-9a2 2 0 0 1-2-1.5Z"/><path d="M7 10V8.5a5 5 0 0 1 10 0V10"/></svg></span>
+      המטבח
+    </div>
+    <nav class="nav-chips">
+      <a href="#chapters">הקורס</a>
+      <a href="#exercises">סדנת הבישול</a>
+      <a href="#glossary">מדף התבלינים</a>
+      <a href="#checklist">לפני ההגשה</a>
+    </nav>
+  </div>
+  <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+  <div class="progress-label" id="progressLabel">התנור כבוי</div>
+</header>
+
+<!-- ===== Cooking hero ===== -->
+<div class="cook-wrap" id="cookWrap">
+  <div class="cook-sticky">
+    <div class="cook-stage" id="cookStage">
+      <img class="cook-bg mob" src="img/bg-v.webp" alt="">
+      <img class="cook-bg desk" src="img/bg-h.webp" alt="">
+      <img class="sprite" id="sp-tomato" src="img/sp-tomato.webp" alt="">
+      <img class="sprite" id="sp-herbs" src="img/sp-herbs.webp" alt="">
+      <img class="sprite" id="sp-spice" src="img/sp-spice.webp" alt="">
+      <img class="sprite" id="sp-scroll" src="img/sp-scroll.webp" alt="">
+      <img class="sprite" id="sp-steam" src="img/sp-steam.webp" alt="">
+      <img class="sprite" id="sp-dish" src="img/sp-dish.webp" alt="">
+      <div class="cook-hint" id="cookHint"><span><svg viewBox="0 0 24 24"><path d="M12 4v13M6.5 11.5 12 17l5.5-5.5"/></svg> גללו כדי לבשל את הפרומפט</span></div>
+    </div>
+    <div class="hero-copy">
+      <div class="case-stamp">בית הספר לפרומפטים | מודול 1</div>
+      <h1>ה<span class="hl">מטבח</span></h1>
+      <p class="sub">ברוכים הבאים למטבח של <b>השף המדויק</b>. המודל הוא טבח מוכשר להפליא שמבצע בדיוק את מה שכתוב במתכון, לא את מה שהתכוונתם אליו. פרומפט טוב הוא מתכון טוב: מרכיבים, מידות, והוראות הגשה. בואו נלמד לכתוב כאלה.</p>
+      <div class="cta-row">
+        <a href="#chapters" class="btn btn-primary">פתחו את המתכון <svg viewBox="0 0 24 24"><path d="M4 10h16l-1.5 9.5a2 2 0 0 1-2 1.5h-9a2 2 0 0 1-2-1.5Z"/><path d="M7 10V8.5a5 5 0 0 1 10 0V10"/></svg></a>
+        <a href="#exercises" class="btn btn-ghost">לבונה המתכונים</a>
+      </div>
+      <div class="hero-facts">
+        <div class="fact"><b>10</b><span>פרקי בישול</span></div>
+        <div class="fact"><b>5</b><span>תרגילי סדנה</span></div>
+        <div class="fact"><b>24</b><span>תבלינים במדף</span></div>
+        <div class="fact"><b>1</b><span>בונה מתכונים חי</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHAPTERS ===== -->
+<section id="chapters">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">הקורס נפתח</div>
+      <h2>10 פרקים לכתיבת פרומפטים מדויקים</h2>
+      <p>כל פרק נפתח ביומן המטבח, ממשיך בהסבר מקצועי, ונסגר בתרגום בין שפת המטבח לשפה הטכנית.</p>
+    </div>
+
+    <div class="chapters-flow">
+
+    <!-- Chapter 1 -->
+    <div class="chapter reveal" id="ch1">
+      <div class="chapter-tag">פרק 1</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="8" alt="שני טבחים, מתכון אחד"></div>
+        <div class="panel-body">
+          <h3>הטבח שמבצע בדיוק מה שכתוב</h3>
+          <div class="chapter-sub">למה פרומפט הוא מתכון, ולמה זה משנה הכול</div>
+          <div class="story">ביום הראשון שלי במטבח נתתי לשני טבחים את אותו פתק: "תכינו משהו טעים מעגבניות". אחד הגיש מרק מים אדומים, השני הגיש שקשוקה מעולה. הפתק לא היה מתכון. הוא היה הימור.</div>
+          <p>מודל שפה הוא הטבח המוכשר בעולם: הוא מכיר כל טכניקה וכל מטבח. אבל יש לו תכונה אחת שחייבים להפנים: <b>הוא מבצע את מה שכתוב, לא את מה שהתכוונתם</b>. כשהתוצאה מאכזבת, כמעט תמיד הבעיה היא לא בטבח אלא במתכון: הוראה כללית מדי, בלי הקשר, בלי הגדרה של איך אמורה להיראות המנה המוגשת.</p>
+          <p>ההבדל בין "תכתוב לי משהו על המוצר" לבין מתכון מלא (מי אתה, למי זה מיועד, מה בדיוק צריך, באיזה מבנה ובאיזה טון) הוא ההבדל בין מרק מים לשקשוקה. נסו בעצמכם:</p>
+
+          <div class="exercise" style="margin-top:20px;margin-bottom:0">
+            <span class="ex-tag">תרגיל סדנה מס' 1</span>
+            <h3>טעימת לפני / אחרי</h3>
+            <p class="ex-goal">אותה בקשה, שני מתכונים. גררו את הידית ימינה ושמאלה והשוו את שתי המנות.</p>
+            <div class="ba-wrap" id="baWrap">
+              <div class="ba-layer ba-bottom">
+                <span class="ba-label rich">המתכון העשיר</span>
+                <div class="ba-q">"אתה כותב שיווקי לחברת תוכנה. קהל היעד: מנהלי HR בארגונים בינוניים. כתוב פוסט לינקדאין על מערכת החופשות שלנו, עד 80 מילים, שמתחיל בכאב מוכר, מסיים בשאלה לקהל, בלי באזוורדס"</div>
+                <div class="ba-out">"עוד בקשת חופשה שהלכה לאיבוד במייל? מנהלי HR מכירים את זה: קיץ מגיע, והשולחן מוצף... [פוסט ממוקד, בטון אנושי, עם שאלה שמזמינה תגובות]"</div>
+              </div>
+              <div class="ba-top" id="baTop">
+                <div class="ba-layer">
+                  <span class="ba-label weak">המתכון הרזה</span>
+                  <div class="ba-q">"תכתוב פוסט לינקדאין על המערכת שלנו"</div>
+                  <div class="ba-out">"אנחנו שמחים להציג את המערכת החדשנית והמובילה שלנו! פתרון פורץ דרך שייקח את הארגון שלכם לשלב הבא..." [גנרי, נפוח, יכול להתאים לכל מוצר בעולם]</div>
+                </div>
+              </div>
+              <div class="ba-divider" id="baDivider"></div>
+              <input type="range" class="ba-range" id="baRange" min="0" max="100" value="50">
+            </div>
+            <p class="ba-note">שני הפלטים נכתבו על ידי אותו מודל. ההבדל היחיד: המתכון.</p>
+          </div>
+
+          <div class="translate-box">
+            <h4>🧂 תרגום מהמטבח</h4>
+            <table>
+              <tr><td>הטבח המוכשר</td><td class="term">LLM</td><td>מבצע מדויק של מה שנכתב, לא של הכוונה</td></tr>
+              <tr><td>המתכון</td><td class="term">Prompt</td><td>כל מה שהמודל מקבל: הוראות, הקשר, בקשה</td></tr>
+              <tr><td>מרק המים</td><td class="term">Generic Output</td><td>תוצאה גנרית שנולדת ממתכון רזה</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 2 -->
+    <div class="chapter reveal" id="ch2">
+      <div class="chapter-tag">פרק 2</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="9" alt="חמשת מדפי המזווה"></div>
+        <div class="panel-body">
+          <h3>חמשת מדפי המזווה</h3>
+          <div class="chapter-sub">המרכיבים של כל פרומפט טוב</div>
+          <div class="story">במזווה של המטבח חמישה מדפים, ולכל מנה רצינית לוקחים משהו מכל אחד. טבחים צעירים מדלגים על מדפים. טבחים טובים יודעים בדיוק מה חסר כשמנה יוצאת תפלה.</div>
+          <ul>
+            <li><b>מדף התפקיד (Role):</b> מי הטבח היום? "אתה יועץ פנסיוני", "אתה עורך לשוני קפדן". תפקיד ממקד את הידע ואת הטון.</li>
+            <li><b>מדף ההקשר (Context):</b> חומרי הגלם: מי אנחנו, מי הקהל, מה קרה עד עכשיו, אילו נתונים רלוונטיים. בלי הקשר הטבח ממציא.</li>
+            <li><b>מדף המשימה (Task):</b> מה בדיוק להכין: פועל ברור, תוצר ברור, גבולות ברורים. "נתח", "נסח", "השווה", לא "תעזור לי עם".</li>
+            <li><b>מדף ההגשה (Format):</b> איך המנה מוגשת: אורך, מבנה, טבלה או פסקאות, שפה. מה שלא תגדירו, יוחלט בשבילכם.</li>
+            <li><b>מדף הטון (Tone):</b> התיבול: רשמי או חברי, נלהב או מאופק, עברית פשוטה או מקצועית.</li>
+          </ul>
+          <p>לא כל מנה צריכה את כל המדפים בכמות מלאה. אבל כשמשהו יוצא לא טוב, עברו על החמישה ותמצאו את החסר. בסדנת הבישול מחכה לכם בונה מתכונים שעובד בדיוק לפי המדפים האלה.</p>
+          <div class="translate-box">
+            <h4>🧂 תרגום מהמטבח</h4>
+            <table>
+              <tr><td>מדף התפקיד</td><td class="term">Role / Persona</td><td>הגדרת הזהות והמומחיות של המודל</td></tr>
+              <tr><td>מדף ההקשר</td><td class="term">Context</td><td>הרקע והנתונים שהמשימה נשענת עליהם</td></tr>
+              <tr><td>מדף המשימה</td><td class="term">Task</td><td>ההוראה המדויקת: פועל + תוצר + גבולות</td></tr>
+              <tr><td>מדף ההגשה</td><td class="term">Output Format</td><td>מבנה, אורך וצורת התוצר</td></tr>
+              <tr><td>מדף הטון</td><td class="term">Tone</td><td>סגנון הכתיבה והרגש של התוצר</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 3 -->
+    <div class="chapter reveal" id="ch3">
+      <div class="chapter-tag">פרק 3</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="10" alt="חומרי גלם טריים מול קמולים"></div>
+        <div class="panel-body">
+          <h3>חומרי גלם טריים</h3>
+          <div class="chapter-sub">הקשר: המרכיב שקובע יותר מכל ניסוח</div>
+          <div class="story">טבח חדש התלונן שהמנות שלו תפלות למרות שהוא מבצע כל טכניקה בספר. הצצתי בקערה שלו: ירקות קמולים מהשבוע שעבר. הטכניקה הייתה מושלמת. חומרי הגלם היו הבעיה.</div>
+          <p>הנטייה הטבעית היא ללטש ניסוחים. אבל ברוב המקרים, מה שחסר לתוצאה טובה הוא לא מילים יפות אלא <b>מידע</b>: הנתונים, הדוגמאות והרקע שהמודל צריך כדי לענות עליכם ולא על שאלה כללית.</p>
+          <ul>
+            <li><b>הדביקו את החומר עצמו:</b> את הטקסט לעריכה, את נתוני הטבלה, את המייל שאליו עונים. אל תתארו אותו מרחוק.</li>
+            <li><b>ספרו מי אתם ומי הקהל:</b> "חברת ביטוח, הקהל סוכנים בני 50+" משנה כל משפט בתוצר.</li>
+            <li><b>הגדירו מה כבר נוסה:</b> "ניסינו X וזה לא עבד כי Y" חוסך סיבוב שלם.</li>
+            <li><b>וסננו רעש:</b> הקשר לא רלוונטי הוא ירק רקוב בקערה: הוא מושך את המנה לכיוון הלא נכון. רלוונטיות מנצחת כמות.</li>
+          </ul>
+          <div class="translate-box">
+            <h4>🧂 תרגום מהמטבח</h4>
+            <table>
+              <tr><td>חומרי גלם טריים</td><td class="term">Relevant Context</td><td>מידע עדכני וספציפי למשימה</td></tr>
+              <tr><td>ירקות קמולים</td><td class="term">Noise</td><td>מידע מיותר שמסיט את התוצאה</td></tr>
+              <tr><td>גודל הקערה</td><td class="term">Context Window</td><td>כמה חומר אפשר להכניס למתכון אחד</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 4 -->
+    <div class="chapter reveal" id="ch4">
+      <div class="chapter-tag">פרק 4</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="11" alt="מידות ומשקלים מדויקים"></div>
+        <div class="panel-body">
+          <h3>מידות ומשקלים</h3>
+          <div class="chapter-sub">ספציפיות: ההבדל בין בקשה למשאלה</div>
+          <div class="story">"קצת מלח" של סבתא עובד כי סבתא טעמה את המרק הזה אלף פעמים. הטבח שלנו פוגש את המרק שלכם בפעם הראשונה. תנו לו כפית, לא "קצת".</div>
+          <p>הוראה מעורפלת מזמינה ניחוש. הוראה מדויקת מייצרת בדיוק את מה שרציתם:</p>
+          <ul>
+            <li><b>כמויות:</b> "עד 120 מילים", "3 אפשרויות", "5 סעיפים", לא "קצר" או "כמה רעיונות".</li>
+            <li><b>גבולות:</b> מה כן ומה לא: "בלי סופרלטיבים", "אל תציע הנחות מחיר", "רק מהמסמך המצורף".</li>
+            <li><b>קריטריון הצלחה:</b> "שמנהל עסוק יבין את השורה התחתונה ב-10 שניות". כשהמודל יודע מהי הצלחה, הוא מכוון אליה.</li>
+            <li><b>שלבים לתהליך מורכב:</b> "קודם סכם, אז זהה סיכונים, ורק אז המלץ". סדר פעולות במתכון מונע ערבוב.</li>
+          </ul>
+          <div class="translate-box">
+            <h4>🧂 תרגום מהמטבח</h4>
+            <table>
+              <tr><td>כפית ולא "קצת"</td><td class="term">Specificity</td><td>כמויות, גבולות והגדרות מדויקות</td></tr>
+              <tr><td>מה לא שמים במנה</td><td class="term">Constraints</td><td>הגבלות מפורשות על התוצר</td></tr>
+              <tr><td>שלבי ההכנה</td><td class="term">Step-by-step</td><td>פירוק משימה מורכבת לסדר פעולות</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 5 -->
+    <div class="chapter reveal" id="ch5">
+      <div class="chapter-tag">פרק 5</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="12" alt="מנות לדוגמה לפני הבישול"></div>
+        <div class="panel-body">
+          <h3>מנה לדוגמה</h3>
+          <div class="chapter-sub">דוגמאות: הדרך הקצרה ביותר לתוצאה מדויקת</div>
+          <div class="story">כשאני רוצה שטבח חדש יגיש בדיוק בסגנון הבית, אני לא מרצה לו חצי שעה על פילוסופיית ההגשה. אני מראה לו שלוש צלחות מוכנות ואומר: ככה.</div>
+          <p>דוגמה אחת טובה שווה עשר שורות של הסברים. זו הטכניקה עם יחס העלות-תועלת הטוב ביותר בכל הנדסת הפרומפטים:</p>
+          <ul>
+            <li><b>דוגמת תוצר:</b> "הנה כותרת בסגנון שאני אוהב: '...'. כתוב 5 באותו סגנון". המודל מחלץ את הסגנון לבד.</li>
+            <li><b>דוגמת מבנה:</b> הדביקו שורה אחת ממולאת מהטבלה שאתם רוצים, והשאר יתיישר אליה.</li>
+            <li><b>דוגמה שלילית:</b> "ככה לא: '...'" חדה לפעמים יותר מכל הסבר על מה כן.</li>
+            <li><b>שתיים-שלוש דוגמאות מגוונות</b> עדיפות על חמש דומות: הן מלמדות את הטווח, לא רק נקודה אחת.</li>
+          </ul>
+          <div class="translate-box">
+            <h4>🧂 תרגום מהמטבח</h4>
+            <table>
+              <tr><td>בלי צלחות לדוגמה</td><td class="term">Zero-shot</td><td>בקשה בלי דוגמאות, רק הוראות</td></tr>
+              <tr><td>שלוש צלחות על הדלפק</td><td class="term">Few-shot</td><td>צירוף דוגמאות תוצר לפרומפט</td></tr>
+              <tr><td>"ככה לא מגישים"</td><td class="term">Negative Example</td><td>דוגמה למה להימנע ממנו</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 6 -->
+    <div class="chapter reveal" id="ch6">
+      <div class="chapter-tag">פרק 6</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="13" alt="טעימה ותיקון"></div>
+        <div class="panel-body">
+          <h3>טועמים ומתקנים</h3>
+          <div class="chapter-sub">איטרציה: אף מנה טובה לא יוצאת בניסיון ראשון</div>
+          <div class="story">ההבדל בין טבח בינוני לשף הוא לא שהשף מצליח מהניסיון הראשון. זה שהשף טועם אחרי כל תוספת, יודע לזהות מה חסר, ומתקן דבר אחד בכל פעם.</div>
+          <p>פרומפט ראשון הוא טיוטה, לא כישלון. העבודה האמיתית היא לולאת הטעימה:</p>
+          <ul>
+            <li><b>טעמו וזהו:</b> מה בדיוק לא טוב? ארוך מדי? גנרי? פספס את הקהל? אבחנה מדויקת לפני תיקון.</li>
+            <li><b>תקנו דבר אחד:</b> שינוי אחד בכל סיבוב מלמד אתכם מה באמת השפיע. חמישה שינויים ביחד הם ניחוש חדש.</li>
+            <li><b>תקנו במתכון, לא בצלחת:</b> אפשר לבקש "קצר יותר" בצ'אט, אבל אם תמיד צריך לקצר, ההוראה שייכת לפרומפט עצמו.</li>
+            <li><b>בקשו מהטבח לטעום:</b> "לפני שאתה מגיש, בדוק שעמדת בכל הדרישות ותקן אם לא". ביקורת עצמית בתוך המתכון.</li>
+            <li><b>ושמרו את הגרסה המנצחת:</b> מתכון שעבד פעמיים שווה לשמור. עליו, בפרק 8.</li>
+          </ul>
+          <div class="translate-box">
+            <h4>🧂 תרגום מהמטבח</h4>
+            <table>
+              <tr><td>לולאת הטעימה</td><td class="term">Iteration</td><td>שיפור הפרומפט סיבוב אחרי סיבוב</td></tr>
+              <tr><td>תיקון בכפית</td><td class="term">Single-variable Change</td><td>שינוי אחד בכל גרסה כדי לדעת מה עבד</td></tr>
+              <tr><td>הטבח טועם לפני הגשה</td><td class="term">Self-check</td><td>הוראה למודל לבדוק את עצמו מול הדרישות</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 7 -->
+    <div class="chapter reveal" id="ch7">
+      <div class="chapter-tag">פרק 7</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="14" alt="לוח כללי הבית של המסעדה"></div>
+        <div class="panel-body">
+          <h3>כללי הבית של המסעדה</h3>
+          <div class="chapter-sub">פרומפט מערכת: המתכון שחל על כל המנות</div>
+          <div class="story">בכל מסעדה רצינית תלוי לוח: ככה אנחנו מתבלים, ככה אנחנו מגישים, את זה אצלנו לא עושים לעולם. הלוח לא נכתב מחדש לכל מנה. הוא פשוט תמיד שם.</div>
+          <p>כשאתם מוצאים את עצמכם כותבים את אותן הוראות בכל פרומפט ("כתוב בעברית פשוטה", "בלי סופרלטיבים", "הקהל שלנו הוא X"), הגיע הזמן להעלות אותן ללוח: <b>פרומפט מערכת</b>, ההנחיה הקבועה שחלה על כל שיחה.</p>
+          <ul>
+            <li><b>מה שם:</b> זהות ("אתה העוזר של חברת..."), קהל, שפה וטון, כללי ברזל ("לעולם אל תמציא נתונים"), פורמטים מועדפים.</li>
+            <li><b>מה לא שם:</b> פרטי משימה ספציפית. הלוח קובע איך מבשלים, המתכון קובע מה מבשלים היום.</li>
+            <li><b>איפה פוגשים את זה:</b> הוראות קבועות של GPT מותאם או פרויקט, הנחיית המערכת של בוט ארגוני, ה"אישיות" של כל עוזר AI שתקימו בקורס.</li>
+          </ul>
+          <div class="translate-box">
+            <h4>🧂 תרגום מהמטבח</h4>
+            <table>
+              <tr><td>לוח כללי הבית</td><td class="term">System Prompt</td><td>הנחיה קבועה שחלה על כל שיחה</td></tr>
+              <tr><td>המנה של היום</td><td class="term">User Prompt</td><td>הבקשה הספציפית בתוך השיחה</td></tr>
+              <tr><td>סגנון הבית</td><td class="term">Persona</td><td>זהות וטון עקביים לאורך זמן</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 8 -->
+    <div class="chapter reveal" id="ch8">
+      <div class="chapter-tag">פרק 8</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="15" alt="ספר המתכונים של הארגון"></div>
+        <div class="panel-body">
+          <h3>ספר המתכונים של הארגון</h3>
+          <div class="chapter-sub">תבניות, ספריות פרומפטים ושיתוף ידע</div>
+          <div class="story">מסעדה לא בנויה על זיכרון של טבח אחד. היא בנויה על ספר מתכונים: כל מנה שהצליחה נכתבת, מתויקת, וכל טבח חדש מבשל מהיום הראשון כמו ותיק.</div>
+          <p>הרווח הארגוני האמיתי מתחיל כשפרומפטים טובים מפסיקים להיות קניין פרטי:</p>
+          <ul>
+            <li><b>תבניות עם חורים:</b> מתכון מנוסח היטב עם משתנים: "כתוב מייל ללקוח על [נושא] בטון [X]". ממלאים את החורים, מקבלים איכות אחידה.</li>
+            <li><b>ספריית מתכונים:</b> מקום אחד (דף, מסמך, כלי) שבו שמורים הפרומפטים המנצחים של הצוות, עם שם ברור ומתי להשתמש.</li>
+            <li><b>גרסאות:</b> "מתכון המייל ללקוח v3" מנצח את "הפרומפט ההוא מהוואטסאפ". כשמשפרים, מעדכנים את הספר.</li>
+            <li><b>בעלים לכל מתכון:</b> מישהו אחראי שהמתכון עדיין עובד כשהמודל, המוצר או הקהל משתנים.</li>
+          </ul>
+          <div class="translate-box">
+            <h4>🧂 תרגום מהמטבח</h4>
+            <table>
+              <tr><td>מתכון עם חורים</td><td class="term">Prompt Template</td><td>פרומפט קבוע עם משתנים למילוי</td></tr>
+              <tr><td>ספר המתכונים</td><td class="term">Prompt Library</td><td>מאגר הפרומפטים המאושרים של הצוות</td></tr>
+              <tr><td>מהדורה שלישית</td><td class="term">Versioning</td><td>ניהול גרסאות ושיפורים לאורך זמן</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 9 -->
+    <div class="chapter reveal" id="ch9">
+      <div class="chapter-tag">פרק 9</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="16" alt="המנה השרופה"></div>
+        <div class="panel-body">
+          <h3>המנות השרופות</h3>
+          <div class="chapter-sub">חמש הטעויות שחוזרות בכל מטבח</div>
+          <div class="story">על הקיר במטבח תלויה פינת "המנות השרופות של החודש". לא כדי להעליב. כדי שכל טבח יזהה את הריח עוד לפני שהעשן מגיע.</div>
+          <ul>
+            <li><b>המשאלה:</b> "תעזור לי עם המצגת" איננה משימה. מה בדיוק? לבנות מבנה? לקצר? לחדד מסרים?</li>
+            <li><b>הטבח כקורא מחשבות:</b> לצפות שהמודל יידע מי הקהל ומה המטרה בלי שסיפרתם. הוא לא נכח בישיבה.</li>
+            <li><b>הכול בסיר אחד:</b> לנתח, לכתוב, לתרגם ולעצב בהוראה אחת. משימות נפרדות מקבלות סיבובים נפרדים.</li>
+            <li><b>בלי צורת הגשה:</b> לא הגדרתם אורך ומבנה? קיבלתם חיבור של שמונה פסקאות. פעמיים ביום.</li>
+            <li><b>ויתור אחרי ניסיון אחד:</b> "ניסיתי וזה יצא גרוע" הוא שלב א' של כל מנה טובה שנוצרה אי פעם. הטעות היא לעצור שם.</li>
+          </ul>
+
+          <div class="exercise" style="margin-top:20px;margin-bottom:0">
+            <span class="ex-tag">תרגיל סדנה מס' 2</span>
+            <h3>למה המנה נשרפה?</h3>
+            <p class="ex-goal">מנהלת כתבה: <b>"תכין לי סיכום של הפגישה"</b> וצירפה תמלול של שעה. קיבלה 3 עמודים צפופים שאף אחד לא קרא. מה התיקון בעל ההשפעה הגדולה ביותר?</p>
+            <div class="opt-card" data-ex="burnt" data-correct="false"><span class="who">תיקון א'</span>להוסיף "אתה עוזר מקצועי ומנוסה" בתחילת הפרומפט.</div>
+            <div class="opt-card" data-ex="burnt" data-correct="true"><span class="who">תיקון ב'</span>להגדיר הגשה: "עד 10 שורות: 3 החלטות, 3 משימות עם אחראים, ונקודה אחת פתוחה. למי שלא נכח בפגישה".</div>
+            <div class="opt-card" data-ex="burnt" data-correct="false"><span class="who">תיקון ג'</span>לעבור למודל חזק יותר שמסכם טוב יותר.</div>
+            <div class="ex-feedback" id="fb-burnt"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 10 -->
+    <div class="chapter reveal" id="ch10">
+      <div class="chapter-tag">פרק 10</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="17" alt="קבלת כובע השף"></div>
+        <div class="panel-body">
+          <h3>כובע השף</h3>
+          <div class="chapter-sub">סיכום: העקרונות שנשארים איתכם</div>
+          <div class="story">בסוף ההכשרה כל טבח מקבל את הכובע, ומשפט אחד מהשף הראשי: "מהיום, כשמנה לא מצליחה, אל תאשים את הטבח. פתח את המתכון".</div>
+          <ul>
+            <li><b>פרומפט הוא מתכון:</b> המודל מבצע את הכתוב, לא את הכוונה. איכות התוצר נקבעת אצלכם.</li>
+            <li><b>חמשת המדפים:</b> תפקיד, הקשר, משימה, הגשה, טון. כשמשהו חסר בתוצר, אחד המדפים ריק.</li>
+            <li><b>הקשר לפני ניסוח:</b> חומרי גלם טריים משפיעים יותר מכל מילה יפה.</li>
+            <li><b>ספציפיות ודוגמאות:</b> כפית ולא "קצת", וצלחת לדוגמה במקום הרצאה.</li>
+            <li><b>איטרציה היא השיטה:</b> טעמו, אבחנו, תקנו דבר אחד, ושמרו את מה שעבד.</li>
+            <li><b>מהאישי לארגוני:</b> כללי בית קבועים, תבניות עם חורים, וספר מתכונים משותף.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="certificate reveal" style="margin-top:22px">
+        <div class="medal">👨‍🍳</div>
+        <h3>תעודת שף פרומפטים</h3>
+        <p>סיימתם את עשרת פרקי המטבח. אתם יודעים ממה בנוי מתכון טוב, איך מטעימים ומתקנים, ואיך הופכים מתכונים אישיים לספר של ארגון שלם.</p>
+        <p>נשאר רק לבשל: בונה המתכונים בסדנה מחכה, וצ'ק-ליסט ההגשה ילווה כל פרומפט אמיתי שתכתבו מחר.</p>
+        <div class="cert-stamp">בתיאבון</div>
+      </div>
+    </div>
+
+    </div><!-- /chapters-flow -->
+  </div>
+</section>
+
+<!-- ===== EXERCISES: workshop ===== -->
+<section id="exercises" class="dots" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">סדנת הבישול</div>
+      <h2>בונה המתכונים החי</h2>
+      <p>המזווה פתוח: בחרו מרכיב מכל מדף, וכרטיס המתכון יכתוב את הפרומפט בזמן אמת. בסוף מעתיקים ומריצים בכל צ'אט.</p>
+    </div>
+    <div class="sec-banner reveal"><img data-img="18" alt="סדנת הבישול"></div>
+
+    <div class="exercise reveal">
+      <span class="ex-tag">תרגיל סדנה מס' 3 | הכלי המרכזי</span>
+      <h3>הרכיבו מתכון, קבלו פרומפט</h3>
+      <p class="ex-goal">תרחיש לדוגמה: אתם צריכים תוצר כתוב לעבודה. בחרו מרכיב אחד מכל מדף וראו איך מתכון שלם נבנה. <b>מד העושר</b> יגיד לכם אילו מדפים עוד ריקים.</p>
+      <div class="rb-grid">
+        <div>
+          <div class="rb-cat"><h4>🧑‍🍳 מדף התפקיד</h4><div class="rb-chips" data-cat="role"></div></div>
+          <div class="rb-cat" style="margin-top:14px"><h4>🥕 מדף ההקשר</h4><div class="rb-chips" data-cat="context"></div></div>
+          <div class="rb-cat" style="margin-top:14px"><h4>🔪 מדף המשימה</h4><div class="rb-chips" data-cat="task"></div></div>
+          <div class="rb-cat" style="margin-top:14px"><h4>🍽️ מדף ההגשה</h4><div class="rb-chips" data-cat="format"></div></div>
+          <div class="rb-cat" style="margin-top:14px"><h4>🧂 מדף הטון</h4><div class="rb-chips" data-cat="tone"></div></div>
+        </div>
+        <div class="rb-side">
+          <div class="rb-meter"><b id="rbScore">המזווה ריק</b><div class="rm-bar"><div class="rm-fill" id="rbFill"></div></div></div>
+          <div class="rb-card" id="rbCard"><div class="rb-empty">בחרו מרכיבים מהמדפים והמתכון ייכתב כאן...</div></div>
+          <button class="rb-copy" id="rbCopy">📋 העתיקו את המתכון</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GLOSSARY ===== -->
+<section id="glossary">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">מדף התבלינים</div>
+      <h2>24 מושגים, בשתי שפות</h2>
+      <p>כל מושג מתורגם פעמיים: פעם לשפת המטבח ופעם להגדרה הטכנית המדויקת.</p>
+    </div>
+    <div class="sec-banner reveal"><img data-img="19" alt="ספריית התבלינים"></div>
+    <div class="reveal">
+      <input type="text" class="gloss-search" id="glossSearch" placeholder="🔍 חפשו מושג: few-shot, טון, תבנית...">
+      <div class="gloss-cats" id="glossCats">
+        <button class="chip-btn active" data-cat="all">הכול</button>
+        <button class="chip-btn" data-cat="base">יסודות</button>
+        <button class="chip-btn" data-cat="craft">הטכניקה</button>
+        <button class="chip-btn" data-cat="org">המסעדה</button>
+      </div>
+      <div class="gloss-grid" id="glossGrid"></div>
+      <div class="gloss-empty" id="glossEmpty">אין תבלין כזה במדף. נסו חיפוש אחר.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHECKLIST ===== -->
+<section id="checklist" class="dots" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">לפני ההגשה</div>
+      <h2>20 בדיקות לפני שמגישים פרומפט</h2>
+      <p>סמנו את מה שכבר בדקתם. הרשימה נשמרת רק בזמן הביקור הנוכחי.</p>
+    </div>
+    <div class="reveal">
+      <div class="check-progress">
+        <span style="font-size:.85rem;color:var(--muted)">מוכנות המנה</span>
+        <div class="cp-bar"><div class="cp-fill" id="cpFill"></div></div>
+        <b id="cpCount">0/20</b>
+      </div>
+      <div id="checkGroups"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>המטבח</b> | בית הספר לפרומפטים</p>
+    <p>חלק מסדרת אתרי הקונספט. <a href="../concept-worlds/" style="color:var(--teal-deep)">מפת העולמות ←</a></p>
+  </div>
+</footer>
+
+<script>
+/* ===== Chapter images ===== */
+const IMAGES={8:'8.webp',9:'9.webp',10:'10.webp',11:'11.webp',12:'12.webp',13:'13.webp',14:'14.webp',15:'15.webp',16:'16.webp',17:'17.webp',18:'18.webp',19:'19.webp'};
+document.querySelectorAll('img[data-img]').forEach(im=>{const k=im.dataset.img;if(IMAGES[k])im.src='img/'+IMAGES[k]});
+
+/* ===== Oven thermometer progress ===== */
+const pBar=document.getElementById('progressBar');
+const pLabel=document.getElementById('progressLabel');
+function updProgress(){
+  const h=document.documentElement;
+  const pct=Math.min(100,Math.round(h.scrollTop/(h.scrollHeight-h.clientHeight)*100));
+  pBar.style.width=pct+'%';
+  const temp=Math.round(pct*2.2);
+  pLabel.textContent=pct<=2?'התנור כבוי':pct>=98?'המנה מוכנה! בתיאבון':'התנור התחמם ל-'+temp+' מעלות';
+  document.querySelectorAll('.chapter').forEach(ch=>{
+    const r=ch.getBoundingClientRect();
+    if(r.bottom<innerHeight*0.4)ch.classList.add('cooked');
+  });
+}
+addEventListener('scroll',updProgress,{passive:true});updProgress();
+
+/* ===== Cooking hero ===== */
+(function(){
+  const wrap=document.getElementById('cookWrap');
+  const hint=document.getElementById('cookHint');
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const S={
+    tomato:{el:document.getElementById('sp-tomato'),win:[0.04,0.26],dx:-6,rot:-190},
+    herbs:{el:document.getElementById('sp-herbs'),win:[0.22,0.44],dx:7,rot:160},
+    spice:{el:document.getElementById('sp-spice'),win:[0.4,0.6],dx:-9,rot:120},
+    scroll:{el:document.getElementById('sp-scroll'),win:[0.56,0.76],dx:5,rot:-140}
+  };
+  const steam=document.getElementById('sp-steam');
+  const dish=document.getElementById('sp-dish');
+  const POTY=60;
+  if(reduced){
+    Object.values(S).forEach(s=>s.el.style.display='none');
+    steam.style.display='none';
+    dish.style.cssText='top:'+(POTY-16)+'%;opacity:1;transform:translate(-50%,-50%)';
+    return;
+  }
+  function upd(){
+    const r=wrap.getBoundingClientRect();
+    const total=r.height-innerHeight;
+    const p=Math.min(1,Math.max(0,-r.top/total));
+    hint.classList.toggle('hide',p>0.05);
+    for(const k in S){
+      const s=S[k];
+      const t=Math.min(1,Math.max(0,(p-s.win[0])/(s.win[1]-s.win[0])));
+      const y=-28+t*(POTY+4-(-28));
+      const fade=t>=1?Math.max(0,1-(p-s.win[1])/0.04):1;
+      s.el.style.top=y+'%';
+      s.el.style.left='calc(50% + '+s.dx+'%)';
+      s.el.style.opacity=p<s.win[0]?0:fade;
+      s.el.style.transform='translate(-50%,-50%) rotate('+(s.rot*t)+'deg)';
+    }
+    const st=Math.min(1,Math.max(0,(p-0.42)/0.3));
+    steam.style.top=(POTY-24-st*10)+'%';
+    steam.style.left='50%';
+    steam.style.opacity=st*(p>0.86?Math.max(0,1-(p-0.86)/0.08):1)*0.95;
+    steam.style.transform='translate(-50%,-50%) scale('+(0.6+st*0.8)+')';
+    const dt=Math.min(1,Math.max(0,(p-0.8)/0.18));
+    dish.style.top=(POTY-4-dt*20)+'%';
+    dish.style.left='50%';
+    dish.style.opacity=dt;
+    dish.style.transform='translate(-50%,-50%) scale('+(0.6+dt*0.45)+') rotate('+((1-dt)*-8)+'deg)';
+  }
+  addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true});
+  addEventListener('resize',upd);
+  upd();
+})();
+
+/* ===== Reveal + nav ===== */
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const navLinks=[...document.querySelectorAll('.nav-chips a')];
+const secObs=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}
+}),{rootMargin:'-30% 0px -60% 0px'});
+['chapters','exercises','glossary','checklist'].forEach(id=>{const el=document.getElementById(id);if(el)secObs.observe(el)});
+
+/* ===== Before/after slider ===== */
+(function(){
+  const top=document.getElementById('baTop');
+  const div=document.getElementById('baDivider');
+  const range=document.getElementById('baRange');
+  const wrapEl=document.getElementById('baWrap');
+  const bottom=wrapEl.querySelector('.ba-bottom');
+  function size(){wrapEl.style.height=Math.max(bottom.offsetHeight,top.querySelector('.ba-layer').offsetHeight)+'px'}
+  function upd(){
+    const v=+range.value;
+    top.style.clipPath='inset(0 '+(100-v)+'% 0 0)';
+    div.style.left='calc('+v+'% - 2px)';
+  }
+  range.addEventListener('input',upd);
+  addEventListener('resize',size);
+  setTimeout(()=>{size();upd()},300);
+  setTimeout(size,1200);
+})();
+
+/* ===== Choice exercise ===== */
+const EX_TEXT={
+  burnt:{
+    good:'🎯 בדיוק. המודל סיכם "נכון" את מה שביקשו: סיכום. הבעיה הייתה שאף אחד לא הגדיר איך נראית מנה מוגשת. ברגע שיש מבנה, אורך וקהל, אותו מודל בדיוק מגיש תוצר שקוראים בעשר שניות. הגשה לפני עוצמה.',
+    bad:'🤔 זה לא יזיק, אבל זו לא הבעיה כאן. המודל כבר יודע לסכם מצוין. מה שחסר לו הוא הגדרה של איך נראית ההגשה: מבנה, אורך, ולמי זה מיועד.'
+  }
+};
+document.querySelectorAll('.opt-card').forEach(card=>{
+  card.addEventListener('click',()=>{
+    const ex=card.dataset.ex;
+    const fb=document.getElementById('fb-'+ex);
+    const ok=card.dataset.correct==='true';
+    document.querySelectorAll('.opt-card[data-ex="'+ex+'"]').forEach(c=>c.classList.remove('correct','wrong'));
+    card.classList.add(ok?'correct':'wrong');
+    if(ok)document.querySelectorAll('.opt-card[data-ex="'+ex+'"][data-correct="true"]').forEach(c=>c.classList.add('correct'));
+    fb.className='ex-feedback show '+(ok?'good':'bad');
+    fb.textContent=ok?EX_TEXT[ex].good:EX_TEXT[ex].bad;
+  });
+});
+
+/* ===== Recipe builder ===== */
+const RB={
+  role:{label:'תפקיד',opts:[
+    ['יועץ שיווק','אתה יועץ שיווק מנוסה שמתמחה בכתיבה לקהלים עסקיים.'],
+    ['אנליסט נתונים','אתה אנליסט נתונים שמסביר מספרים בשפה פשוטה.'],
+    ['עורך לשוני','אתה עורך לשוני קפדן שמלטש טקסטים בלי לשנות את הכוונה.']
+  ]},
+  context:{label:'הקשר',opts:[
+    ['סטארטאפ למשימות','רקע: החברה שלנו מוכרת תוכנה לניהול משימות לעסקים קטנים. הקהל: בעלי עסקים עמוסים שאין להם זמן.'],
+    ['HR ארגוני','רקע: אני מנהלת משאבי אנוש בארגון של 200 עובדים. הקהל: כלל העובדים, מגוון גילאים ותפקידים.'],
+    ['שירות לקוחות','רקע: אנחנו צוות שירות. הפנייה מגיעה מלקוח מתוסכל שממתין כבר יומיים לתשובה.']
+  ]},
+  task:{label:'משימה',opts:[
+    ['פוסט לינקדאין','המשימה: כתוב פוסט לינקדאין שמציג תובנה מרכזית אחת, נפתח בכאב מוכר ונסגר בשאלה לקהל.'],
+    ['מייל עדכון','המשימה: נסח מייל עדכון קצר וברור, עם שורת נושא מדויקת ושורת פעולה אחת בסוף.'],
+    ['סיכום לנקודות','המשימה: סכם את הטקסט שאדביק לחמש נקודות עיקריות, מהחשובה ביותר לפחות חשובה.']
+  ]},
+  format:{label:'הגשה',opts:[
+    ['קצר ונקי','פורמט: עד 100 מילים, פסקאות של שורה-שתיים, בלי אימוג\'ים ובלי סופרלטיבים.'],
+    ['רשימה ממוספרת','פורמט: רשימה ממוספרת, כותרת קצרה ומודגשת לכל סעיף, משפט הסבר אחד מתחתיה.'],
+    ['טבלה','פורמט: טבלה עם שלוש עמודות: נושא, סטטוס, הצעד הבא.']
+  ]},
+  tone:{label:'טון',opts:[
+    ['חם ואנושי','טון: חם ואנושי, עברית פשוטה ויומיומית, כמו קולגה שאכפת לו.'],
+    ['מקצועי ומדויק','טון: מקצועי, ענייני ומדויק. בלי קלישאות שיווקיות.'],
+    ['קליל עם חיוך','טון: קליל ואופטימי עם הומור עדין, בלי להתלוצץ על חשבון הבהירות.']
+  ]}
+};
+const rbState={};
+const ORDER=['role','context','task','format','tone'];
+document.querySelectorAll('.rb-chips').forEach(box=>{
+  const cat=box.dataset.cat;
+  RB[cat].opts.forEach((o,i)=>{
+    const c=document.createElement('span');
+    c.className='rb-chip';
+    c.textContent=o[0];
+    c.addEventListener('click',()=>{
+      const was=rbState[cat]===i;
+      box.querySelectorAll('.rb-chip').forEach(x=>x.classList.remove('on'));
+      if(was){delete rbState[cat];}
+      else{rbState[cat]=i;c.classList.add('on');}
+      renderRB();
+    });
+    box.appendChild(c);
+  });
+});
+const RB_MSGS=['המזווה ריק','המנה עוד דלה','מתחיל להריח טוב','כמעט שם...','חסר מדף אחד!','מתכון של שף! 🔥'];
+function renderRB(){
+  const card=document.getElementById('rbCard');
+  const n=ORDER.filter(c=>rbState[c]!==undefined).length;
+  document.getElementById('rbFill').style.width=(n/5*100)+'%';
+  document.getElementById('rbScore').textContent=RB_MSGS[n];
+  if(!n){card.innerHTML='<div class="rb-empty">בחרו מרכיבים מהמדפים והמתכון ייכתב כאן...</div>';return;}
+  card.innerHTML=ORDER.filter(c=>rbState[c]!==undefined)
+    .map(c=>'<div class="rb-line">'+RB[c].opts[rbState[c]][1]+'</div>').join('');
+}
+document.getElementById('rbCopy').addEventListener('click',function(){
+  const txt=ORDER.filter(c=>rbState[c]!==undefined).map(c=>RB[c].opts[rbState[c]][1]).join('\n');
+  if(!txt){this.textContent='קודם בחרו מרכיבים 🙂';setTimeout(()=>this.textContent='📋 העתיקו את המתכון',1600);return;}
+  navigator.clipboard.writeText(txt).then(()=>{
+    this.textContent='✔ המתכון הועתק! הדביקו בכל צ\'אט';
+    setTimeout(()=>this.textContent='📋 העתיקו את המתכון',2200);
+  });
+});
+renderRB();
+</script>
+
+<script>
+/* ===== Glossary ===== */
+const TERMS=[
+  {he:'פרומפט',en:'Prompt',cat:'base',noir:'המתכון: כל מה שהטבח מקבל לפני שהוא ניגש לסיר.',def:'הקלט המלא שנשלח למודל: הוראות, הקשר והבקשה.'},
+  {he:'מודל שפה',en:'LLM',cat:'base',noir:'הטבח המוכשר בעולם, שמבצע בדיוק מה שכתוב.',def:'מודל שמבין ומייצר שפה; איכות התוצר תלויה באיכות ההנחיה.'},
+  {he:'פרומפט מערכת',en:'System Prompt',cat:'base',noir:'לוח כללי הבית: חל על כל המנות, לא נכתב מחדש בכל פעם.',def:'הנחיה קבועה שמגדירה זהות, כללים וסגנון לכל השיחות.'},
+  {he:'הקשר',en:'Context',cat:'base',noir:'חומרי הגלם: מה שיש בקערה כשמתחילים לבשל.',def:'המידע והרקע שמצורפים לבקשה ומעגנים אותה במציאות שלכם.'},
+  {he:'חלון הקשר',en:'Context Window',cat:'base',noir:'גודל הקערה: כמה חומר נכנס למתכון אחד.',def:'כמות הטקסט המקסימלית שהמודל מעבד בבת אחת.'},
+  {he:'טוקן',en:'Token',cat:'base',noir:'הגרגיר: יחידת המידה הקטנה של כל מרכיב.',def:'יחידת הטקסט הבסיסית שהמודל סופר ומעבד.'},
+  {he:'תפקיד',en:'Role / Persona',cat:'base',noir:'איזה כובע הטבח חובש היום: קונדיטור או אופה לחם.',def:'הגדרת זהות ומומחיות שממקדת ידע, סגנון ושיקול דעת.'},
+  {he:'הזיה',en:'Hallucination',cat:'base',noir:'מנה מאולתרת: כשחסר מרכיב, הטבח ממציא אחד ומגיש בביטחון.',def:'תוכן שגוי שהמודל מייצר כשחסר לו מידע אמיתי.'},
+  {he:'ספציפיות',en:'Specificity',cat:'craft',noir:'כפית ולא "קצת": מידות מדויקות לכל מרכיב.',def:'כמויות, גבולות והגדרות מדויקות בהוראה.'},
+  {he:'אילוצים',en:'Constraints',cat:'craft',noir:'מה לא שמים במנה: בלי בוטנים, בלי סופרלטיבים.',def:'הגבלות מפורשות על מה שאסור שיופיע בתוצר.'},
+  {he:'פורמט פלט',en:'Output Format',cat:'craft',noir:'הוראות ההגשה: צלחת עמוקה או שטוחה, כמה מנות.',def:'הגדרת מבנה, אורך וצורת התוצר המבוקש.'},
+  {he:'דוגמאות',en:'Few-shot',cat:'craft',noir:'שלוש צלחות מוכנות על הדלפק: "ככה".',def:'צירוף דוגמאות תוצר כדי שהמודל יחלץ את הדפוס.'},
+  {he:'בלי דוגמאות',en:'Zero-shot',cat:'craft',noir:'בישול מהוראות בלבד, בלי צלחת לדוגמה.',def:'בקשה שנשענת על הוראות בלבד, בלי דוגמאות.'},
+  {he:'דוגמה שלילית',en:'Negative Example',cat:'craft',noir:'"ככה לא מגישים אצלנו": צלחת שמראה מה לא.',def:'דוגמה למה שיש להימנע ממנו, לחידוד הכיוון.'},
+  {he:'חשיבה בשלבים',en:'Chain of Thought',cat:'craft',noir:'מתכון עם שלבים: קודם לקצוץ, אז לטגן, אז לתבל.',def:'הנחיה לפרק בעיה לשלבים לפני התשובה הסופית.'},
+  {he:'איטרציה',en:'Iteration',cat:'craft',noir:'לולאת הטעימה: טועמים, מאבחנים, מתקנים כפית אחת.',def:'שיפור הפרומפט בסבבים על סמך התוצאות.'},
+  {he:'ביקורת עצמית',en:'Self-check',cat:'craft',noir:'הטבח טועם לפני שהמנה יוצאת מהמטבח.',def:'הוראה למודל לבדוק את תוצרו מול הדרישות ולתקן.'},
+  {he:'מפרידים',en:'Delimiters',cat:'craft',noir:'קערות נפרדות למרכיבים: שלא יתערבב החומר עם ההוראות.',def:'סימון גבולות ברור בין הוראות לתוכן מצורף.'},
+  {he:'תבנית',en:'Prompt Template',cat:'org',noir:'מתכון עם חורים: ממלאים את החסר ומבשלים.',def:'פרומפט קבוע עם משתנים למילוי לשימוש חוזר.'},
+  {he:'ספריית פרומפטים',en:'Prompt Library',cat:'org',noir:'ספר המתכונים של המסעדה: כל המנות המנצחות במקום אחד.',def:'מאגר מנוהל של הפרומפטים המאושרים של הצוות.'},
+  {he:'ניהול גרסאות',en:'Versioning',cat:'org',noir:'מהדורה שלישית של המתכון, עם הערות מהמטבח.',def:'תיעוד שינויים ושיפורים בפרומפט לאורך זמן.'},
+  {he:'הנחיה מותאמת',en:'Custom Instructions',cat:'org',noir:'ההעדפות הקבועות שלכם, תלויות מעל התחנה האישית.',def:'הגדרות קבועות ברמת המשתמש שחלות על כל שיחה.'},
+  {he:'מטא-פרומפט',en:'Meta-prompt',cat:'org',noir:'לבקש מהשף לכתוב את המתכון: "נסח לי פרומפט ל...".',def:'שימוש במודל כדי לנסח או לשפר פרומפטים.'},
+  {he:'הערכת תוצרים',en:'Evaluation',cat:'org',noir:'ביקורת המסעדה: טועמים לפי קריטריונים, לא לפי מצב רוח.',def:'בדיקה שיטתית של איכות תוצרי הפרומפט לאורך זמן.'}
+];
+const glossGrid=document.getElementById('glossGrid');
+const glossEmpty=document.getElementById('glossEmpty');
+let activeCat='all';
+function renderGloss(){
+  const q=document.getElementById('glossSearch').value.trim().toLowerCase();
+  glossGrid.innerHTML='';
+  let n=0;
+  TERMS.forEach(t=>{
+    if(activeCat!=='all'&&t.cat!==activeCat)return;
+    const hay=(t.he+' '+t.en+' '+t.noir+' '+t.def).toLowerCase();
+    if(q&&!hay.includes(q))return;
+    n++;
+    const d=document.createElement('div');
+    d.className='gloss-card';
+    d.innerHTML='<div class="g-head"><h4>'+t.he+'</h4><span class="g-en">'+t.en+'</span></div>'
+      +'<div class="g-noir"><b>בשפת המטבח</b>'+t.noir+'</div>'
+      +'<div class="g-def">'+t.def+'</div>';
+    glossGrid.appendChild(d);
+  });
+  glossEmpty.style.display=n?'none':'block';
+}
+document.getElementById('glossSearch').addEventListener('input',renderGloss);
+document.querySelectorAll('#glossCats .chip-btn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#glossCats .chip-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    activeCat=b.dataset.cat;
+    renderGloss();
+  });
+});
+renderGloss();
+
+/* ===== Checklist ===== */
+const CHECK_GROUPS=[
+  {title:'המרכיבים',icon:'🥕',items:[
+    'המשימה מנוסחת כפועל ברור עם תוצר מוגדר, לא "תעזור לי עם"',
+    'צירפתי את החומר עצמו: הטקסט, הנתונים, המייל, לא תיאור שלו',
+    'סיפרתי מי אני, מי הקהל ומה מטרת התוצר',
+    'הגדרתי תפקיד למודל כשזה משנה את התוצאה',
+    'ניקיתי הקשר לא רלוונטי שעלול להסיט את המנה'
+  ]},
+  {title:'המידות',icon:'🥄',items:[
+    'יש הגדרת אורך במספרים: מילים, סעיפים, אפשרויות',
+    'יש הגדרת מבנה: פסקאות, רשימה, טבלה',
+    'כתבתי מה לא לכלול: אילוצים וקווים אדומים',
+    'למשימה מורכבת: פירקתי לשלבים בסדר ברור',
+    'הגדרתי קריטריון הצלחה: איך נדע שהמנה מוצלחת'
+  ]},
+  {title:'הטעימה',icon:'🍴',items:[
+    'צירפתי דוגמה אחת לפחות לסגנון או למבנה הרצוי',
+    'ביקשתי מהמודל לבדוק את עצמו מול הדרישות לפני הגשה',
+    'קראתי את התוצר באמת, לא רק העפתי מבט',
+    'אבחנתי מה בדיוק חסר לפני שתיקנתי',
+    'תיקנתי דבר אחד בכל סיבוב, ולא ויתרתי אחרי ניסיון אחד'
+  ]},
+  {title:'ספר המתכונים',icon:'📖',items:[
+    'הוראה שחזרה פעמיים עברה לפרומפט הקבוע או לפרומפט המערכת',
+    'מתכון מוצלח נשמר עם שם ברור ומתי להשתמש בו',
+    'הפכתי מתכון חוזר לתבנית עם חורים למילוי',
+    'שיתפתי את הצוות במתכון שעבד',
+    'קבעתי בעלים שמעדכן את המתכון כשמשהו משתנה'
+  ]}
+];
+const checkGroups=document.getElementById('checkGroups');
+let checkTotal=0;
+CHECK_GROUPS.forEach((g,gi)=>{
+  const box=document.createElement('div');
+  box.className='check-group';
+  let items='';
+  g.items.forEach((it,ii)=>{
+    checkTotal++;
+    const id='chk-'+gi+'-'+ii;
+    items+='<div class="check-item"><input type="checkbox" id="'+id+'"><label for="'+id+'">'+it+'</label></div>';
+  });
+  box.innerHTML='<h4><span>'+g.icon+'</span>'+g.title+'</h4><div class="check-items">'+items+'</div>';
+  checkGroups.appendChild(box);
+});
+function updCheck(){
+  const done=document.querySelectorAll('#checkGroups input:checked').length;
+  document.getElementById('cpCount').textContent=done+'/'+checkTotal;
+  document.getElementById('cpFill').style.width=(done/checkTotal*100)+'%';
+}
+checkGroups.addEventListener('change',e=>{
+  if(e.target.matches('input[type="checkbox"]')){
+    e.target.closest('.check-item').classList.toggle('done',e.target.checked);
+    updCheck();
+  }
+});
+updCheck();
+</script>
+<!-- /BODY -->
+</body>
+</html>
