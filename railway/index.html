@@ -85,8 +85,8 @@ a{color:inherit}
 .station .lamp{position:absolute;top:-34px;right:8px;width:14px;height:14px;border-radius:50%;background:#8B8069;border:2.5px solid var(--ink);transition:.3s}
 .station.lit .lamp{background:var(--brass-hi);box-shadow:0 0 14px rgba(217,166,60,.9)}
 .train{position:absolute;bottom:calc(19.5% + 8px);right:8%;width:min(74vw,430px);z-index:3;will-change:transform}
-.train svg{width:100%;display:block}
-.steam{position:absolute;bottom:96%;left:76%;width:26px;height:26px;pointer-events:none}
+.train svg{width:100%;display:block;transform:scaleX(-1)}
+.steam{position:absolute;bottom:96%;left:auto;right:76%;width:26px;height:26px;pointer-events:none}
 .steam span{position:absolute;bottom:0;left:0;width:22px;height:22px;border-radius:50%;background:rgba(255,248,230,.85);opacity:0;animation:puff 2.1s linear infinite}
 .steam span:nth-child(2){animation-delay:.7s;left:6px}
 .steam span:nth-child(3){animation-delay:1.4s;left:-6px}
