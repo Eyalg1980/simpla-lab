@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>תיק RAG | לשכת חקירות הידע</title>
+<meta name="description" content="אתר חוויתי שמלמד מיישמי AI בארגונים את כל עולם ה-RAG דרך סיפור בלשי: קונספט, מבנה, רמות, יישומים, הטמעה ובדיקות.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0D1626;
+  --night2:#14213A;
+  --ink:#16243A;
+  --paper:#F6EDDA;
+  --paper2:#EFE3C8;
+  --orange:#F98A2B;
+  --orange-deep:#E0641E;
+  --red:#D8452E;
+  --cream-text:#F2E9D5;
+  --muted:#9FB0CC;
+  --ok:#3E9B6B;
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Heebo',sans-serif;
+  background:var(--night);
+  color:var(--cream-text);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Rubik',sans-serif;line-height:1.25}
+img{max-width:100%;display:block}
+a{color:inherit}
+.halftone{position:relative}
+.halftone::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.14;
+  background-image:radial-gradient(circle,#F98A2B 1px,transparent 1.6px);
+  background-size:14px 14px;
+}
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+
+/* ===== Top bar ===== */
+.topbar{
+  position:sticky;top:0;z-index:50;background:rgba(13,22,38,.92);
+  backdrop-filter:blur(8px);border-bottom:2px solid var(--ink);
+}
+.topbar-in{display:flex;align-items:center;gap:12px;padding:10px 16px;max-width:1100px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:9px;font-family:'Rubik';font-weight:900;font-size:1.15rem;white-space:nowrap}
+.logo .badge-dot{width:34px;height:34px;border-radius:50%;background:var(--orange);display:grid;place-items:center;border:2.5px solid var(--ink);box-shadow:2.5px 2.5px 0 rgba(0,0,0,.5)}
+.logo .badge-dot svg{width:19px;height:19px}
+.nav-chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;flex:1}
+.nav-chips::-webkit-scrollbar{display:none}
+.nav-chips a{
+  white-space:nowrap;text-decoration:none;font-size:.85rem;font-weight:500;
+  padding:6px 13px;border:1.5px solid rgba(246,237,218,.28);border-radius:999px;color:var(--cream-text);
+  transition:.2s;
+}
+.nav-chips a:hover,.nav-chips a.active{background:var(--orange);border-color:var(--orange);color:var(--night);font-weight:700}
+.progress-track{height:5px;background:var(--night2)}
+.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--orange),var(--red));transition:width .15s}
+.progress-label{font-size:.72rem;color:var(--muted);text-align:center;padding:2px 0 4px;letter-spacing:.03em}
+
+/* ===== Hero ===== */
+.hero{padding:34px 0 62px;position:relative}
+.hero-panel{
+  background:var(--night2);border:3px solid var(--ink);border-radius:var(--radius);
+  box-shadow:8px 8px 0 rgba(0,0,0,.45);overflow:hidden;position:relative;
+}
+.hero-img{position:relative}
+.hero-img img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--night2) 0%,transparent 45%)}
+.hero-body{padding:22px 22px 30px;text-align:center;position:relative}
+.case-stamp{
+  display:inline-block;font-family:'Rubik';font-weight:900;color:var(--red);
+  border:3px solid var(--red);border-radius:8px;padding:3px 14px;font-size:.85rem;
+  transform:rotate(-3deg);letter-spacing:.1em;background:rgba(216,69,46,.08);margin-bottom:14px;
+}
+.hero h1{font-size:clamp(2.6rem,8vw,4.6rem);font-weight:900;color:var(--paper)}
+.hero h1 .rag{color:var(--orange)}
+.hero .sub{max-width:640px;margin:12px auto 6px;color:var(--muted);font-size:1.05rem}
+.hero .sub b{color:var(--cream-text)}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.btn{
+  font-family:'Rubik';font-weight:700;text-decoration:none;border-radius:12px;
+  padding:12px 26px;border:3px solid var(--ink);cursor:pointer;font-size:1rem;transition:.15s;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary{background:var(--orange);color:var(--night);box-shadow:5px 5px 0 rgba(0,0,0,.5)}
+.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 rgba(0,0,0,.5)}
+.btn-ghost{background:transparent;color:var(--cream-text);border-color:rgba(246,237,218,.35);box-shadow:none}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
+.hero-facts{display:flex;justify-content:center;gap:26px;flex-wrap:wrap;margin-top:26px}
+.fact{text-align:center}
+.fact b{display:block;font-family:'Rubik';font-size:1.5rem;color:var(--orange)}
+.fact span{font-size:.8rem;color:var(--muted)}
+
+/* ===== Section headers ===== */
+section{padding:52px 0;position:relative}
+.sec-head{text-align:center;margin-bottom:34px}
+.sec-kicker{
+  display:inline-block;background:var(--ink);color:var(--orange);font-family:'Rubik';font-weight:700;
+  font-size:.8rem;padding:5px 16px;border-radius:999px;letter-spacing:.08em;margin-bottom:12px;border:1.5px solid rgba(249,138,43,.4);
+}
+.sec-head h2{font-size:clamp(1.7rem,5vw,2.5rem);font-weight:900;color:var(--paper)}
+.sec-head p{color:var(--muted);max-width:620px;margin:10px auto 0;font-size:.98rem}
+
+/* ===== Chapter panels ===== */
+.chapter{margin-bottom:64px;position:relative}
+.chapter-tag{
+  display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:var(--night);
+  font-family:'Rubik';font-weight:900;font-size:.85rem;padding:6px 16px;border:2.5px solid var(--ink);
+  border-radius:8px;transform:rotate(-2deg);box-shadow:3px 3px 0 rgba(0,0,0,.45);
+  position:relative;margin-bottom:-16px;margin-right:14px;z-index:2;letter-spacing:.04em;
+}
+.chapter-tag::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--night2);border:2px solid var(--ink)}
+.panel{
+  background:var(--paper);color:var(--ink);border:3px solid var(--ink);border-radius:var(--radius);
+  box-shadow:7px 7px 0 rgba(0,0,0,.45);overflow:hidden;
+}
+.panel-img{position:relative;border-bottom:3px solid var(--ink)}
+.panel-img img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.tape{position:absolute;width:86px;height:26px;background:rgba(246,237,218,.75);border:1.5px dashed rgba(22,36,58,.35);top:-10px}
+.tape.r{right:22px;transform:rotate(-6deg)}
+.tape.l{left:22px;transform:rotate(5deg)}
+.panel-body{padding:22px 20px 26px}
+.panel-body h3{font-size:clamp(1.35rem,4.5vw,1.8rem);font-weight:900;margin-bottom:4px}
+.panel-body .chapter-sub{color:var(--orange-deep);font-family:'Rubik';font-weight:700;font-size:.95rem;margin-bottom:14px}
+.story{
+  background:var(--night2);color:var(--cream-text);border-radius:10px;border:2px solid var(--ink);
+  padding:14px 16px;font-size:.95rem;margin-bottom:18px;position:relative;
+}
+.story::before{content:"🕵️ מיומן החקירה";display:block;font-family:'Rubik';font-weight:700;color:var(--orange);font-size:.78rem;margin-bottom:6px;letter-spacing:.05em}
+.panel-body p{margin-bottom:12px;font-size:.97rem}
+.panel-body ul{margin:0 18px 14px 0;display:grid;gap:7px}
+.panel-body li{font-size:.95rem}
+.panel-body li b{color:var(--orange-deep)}
+.translate-box{
+  background:var(--paper2);border:2px dashed var(--orange-deep);border-radius:10px;padding:14px 16px;margin-top:16px;
+}
+.translate-box h4{font-size:.85rem;font-family:'Rubik';color:var(--orange-deep);letter-spacing:.05em;margin-bottom:10px}
+.translate-box table{width:100%;border-collapse:collapse;font-size:.88rem}
+.translate-box td{padding:6px 4px;border-bottom:1px solid rgba(22,36,58,.14);vertical-align:top}
+.translate-box td:first-child{font-weight:700;white-space:nowrap;color:var(--ink)}
+.translate-box td:last-child{color:#41527078}
+.translate-box td.term{color:#31456e;direction:ltr;text-align:left;font-family:'Rubik';font-weight:500;white-space:nowrap}
+.translate-box tr:last-child td{border-bottom:none}
+
+/* red string timeline on desktop */
+.chapters-flow{position:relative}
+
+/* ===== Diagrams ===== */
+.diagram{display:grid;gap:10px;margin:18px 0}
+.diagram-title{font-family:'Rubik';font-weight:700;font-size:.85rem;color:var(--orange-deep);letter-spacing:.05em}
+.flow{display:grid;gap:8px}
+.flow-step{
+  background:#fff;border:2.5px solid var(--ink);border-radius:10px;padding:10px 14px;position:relative;
+  box-shadow:3px 3px 0 rgba(22,36,58,.2);display:flex;gap:10px;align-items:flex-start;
+}
+.flow-step .num{
+  min-width:26px;height:26px;border-radius:50%;background:var(--orange);border:2px solid var(--ink);
+  display:grid;place-items:center;font-family:'Rubik';font-weight:900;font-size:.8rem;color:var(--night);margin-top:2px;
+}
+.flow-step div b{display:block;font-size:.92rem}
+.flow-step div span{font-size:.82rem;color:#415270}
+.flow-connector{width:2px;height:14px;background:repeating-linear-gradient(180deg,var(--red) 0 4px,transparent 4px 8px);margin-right:26px}
+.two-col{display:grid;gap:16px}
+@media(min-width:800px){.two-col{grid-template-columns:1fr 1fr}}
+
+/* ===== Levels cards ===== */
+.levels{display:grid;gap:14px;margin-top:16px}
+@media(min-width:800px){.levels{grid-template-columns:repeat(3,1fr)}}
+.level-card{background:#fff;border:2.5px solid var(--ink);border-radius:12px;padding:16px;box-shadow:4px 4px 0 rgba(22,36,58,.18);position:relative}
+.level-card .rank{font-size:1.6rem}
+.level-card h4{font-size:1.05rem;font-weight:900;margin:6px 0 2px}
+.level-card .en{font-family:'Rubik';font-size:.75rem;color:#6B7A99;direction:ltr;text-align:right;display:block;margin-bottom:8px}
+.level-card ul{margin:0 16px 0 0;display:grid;gap:5px}
+.level-card li{font-size:.85rem}
+.level-card .fit{margin-top:10px;font-size:.8rem;background:var(--paper2);border-radius:8px;padding:7px 10px}
+.level-card .fit b{color:var(--orange-deep)}
+
+/* ===== Case gallery ===== */
+.cases{display:grid;gap:14px}
+@media(min-width:700px){.cases{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.cases{grid-template-columns:repeat(3,1fr)}}
+.case-card{
+  background:var(--paper);color:var(--ink);border:3px solid var(--ink);border-radius:12px;overflow:hidden;
+  box-shadow:5px 5px 0 rgba(0,0,0,.4);display:flex;flex-direction:column;
+}
+.case-card .case-top{background:var(--ink);color:var(--paper);padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
+.case-card .case-top b{font-family:'Rubik';font-size:.95rem}
+.case-card .case-top span{font-size:.7rem;color:var(--orange);font-family:'Rubik';font-weight:700;letter-spacing:.06em}
+.case-card .case-body{padding:14px 16px;display:grid;gap:8px;font-size:.88rem;flex:1}
+.case-card .case-body div b{color:var(--orange-deep);font-size:.8rem;display:block;font-family:'Rubik'}
+.case-card .solved{
+  align-self:flex-start;margin:0 16px 14px;font-family:'Rubik';font-weight:900;color:var(--ok);
+  border:2.5px solid var(--ok);border-radius:6px;padding:1px 10px;font-size:.75rem;transform:rotate(-2deg);
+}
+
+/* ===== Exercises ===== */
+.exercise{
+  background:var(--night2);border:3px solid var(--ink);border-radius:var(--radius);
+  box-shadow:6px 6px 0 rgba(0,0,0,.45);padding:20px 18px;margin-bottom:26px;
+}
+.exercise .ex-tag{
+  display:inline-block;background:var(--red);color:#fff;font-family:'Rubik';font-weight:700;font-size:.75rem;
+  padding:4px 12px;border-radius:999px;margin-bottom:10px;letter-spacing:.05em;
+}
+.exercise h3{color:var(--paper);font-size:1.25rem;font-weight:900;margin-bottom:6px}
+.exercise .ex-goal{color:var(--muted);font-size:.88rem;margin-bottom:16px}
+.opt-card{
+  background:var(--paper);color:var(--ink);border:2.5px solid var(--ink);border-radius:10px;
+  padding:12px 14px;margin-bottom:10px;cursor:pointer;transition:.15s;font-size:.92rem;position:relative;
+}
+.opt-card:hover{transform:translateY(-2px)}
+.opt-card.correct{border-color:var(--ok);background:#E8F4EC;box-shadow:0 0 0 2px var(--ok)}
+.opt-card.wrong{border-color:var(--red);background:#F9E5E1;box-shadow:0 0 0 2px var(--red)}
+.opt-card .who{font-family:'Rubik';font-weight:700;font-size:.78rem;color:var(--orange-deep);display:block;margin-bottom:3px}
+.ex-feedback{display:none;border-radius:10px;padding:12px 14px;font-size:.9rem;margin-top:12px}
+.ex-feedback.show{display:block}
+.ex-feedback.good{background:rgba(62,155,107,.15);border:2px solid var(--ok);color:#CBE8D6}
+.ex-feedback.bad{background:rgba(216,69,46,.15);border:2px solid var(--red);color:#F3CFC7}
+.ex-controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.chip-btn{
+  font-family:'Rubik';font-weight:700;font-size:.85rem;padding:8px 16px;border-radius:999px;cursor:pointer;
+  border:2px solid rgba(246,237,218,.35);background:transparent;color:var(--cream-text);transition:.15s;
+}
+.chip-btn:hover{border-color:var(--orange);color:var(--orange)}
+.chip-btn.active{background:var(--orange);border-color:var(--orange);color:var(--night)}
+.chunk-view{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chunk{
+  background:var(--paper);color:var(--ink);border:2px solid var(--ink);border-radius:8px;
+  padding:8px 10px;font-size:.8rem;max-width:100%;animation:pop .25s ease;
+}
+.chunk small{display:block;font-family:'Rubik';font-weight:700;color:var(--orange-deep);font-size:.68rem;margin-bottom:2px}
+@keyframes pop{from{transform:scale(.92);opacity:0}to{transform:scale(1);opacity:1}}
+.chunk-note{font-size:.82rem;color:var(--muted);margin-top:10px}
+.pipe-pool{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.pipe-item{
+  background:var(--paper);color:var(--ink);border:2.5px solid var(--ink);border-radius:10px;
+  padding:9px 13px;font-size:.85rem;font-weight:500;cursor:pointer;transition:.15s;position:relative;user-select:none;
+}
+.pipe-item:hover{transform:translateY(-2px)}
+.pipe-item.picked{opacity:.45;pointer-events:none}
+.pipe-item .order-badge{
+  position:absolute;top:-9px;left:-9px;width:22px;height:22px;border-radius:50%;background:var(--orange);
+  border:2px solid var(--ink);color:var(--night);font-family:'Rubik';font-weight:900;font-size:.72rem;
+  display:none;place-items:center;
+}
+.pipe-item.picked .order-badge{display:grid}
+.pipe-slots{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-height:44px;border:2px dashed rgba(246,237,218,.3);border-radius:10px;padding:8px}
+.pipe-slot-chip{background:var(--orange);color:var(--night);border:2px solid var(--ink);border-radius:8px;padding:5px 10px;font-size:.78rem;font-weight:700;font-family:'Rubik';animation:pop .2s}
+.pipe-slot-empty{color:var(--muted);font-size:.82rem;padding:0 6px}
+
+/* ===== Glossary ===== */
+.gloss-search{
+  width:100%;padding:12px 18px;border-radius:999px;border:2.5px solid var(--ink);
+  background:var(--paper);color:var(--ink);font-family:'Heebo';font-size:.95rem;margin-bottom:14px;outline:none;
+}
+.gloss-cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.gloss-grid{display:grid;gap:12px}
+@media(min-width:700px){.gloss-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.gloss-grid{grid-template-columns:repeat(3,1fr)}}
+.gloss-card{background:var(--paper);color:var(--ink);border:2.5px solid var(--ink);border-radius:12px;padding:14px 16px;box-shadow:4px 4px 0 rgba(0,0,0,.35)}
+.gloss-card .g-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
+.gloss-card h4{font-size:1rem;font-weight:900}
+.gloss-card .g-en{font-family:'Rubik';font-size:.72rem;color:#6B7A99;direction:ltr}
+.gloss-card .g-noir{font-size:.82rem;background:var(--paper2);border-radius:8px;padding:7px 10px;margin-bottom:8px}
+.gloss-card .g-noir b{color:var(--orange-deep);font-size:.72rem;font-family:'Rubik';display:block}
+.gloss-card .g-def{font-size:.85rem;color:#33415E}
+.gloss-empty{color:var(--muted);text-align:center;padding:20px;display:none}
+
+/* ===== Checklist ===== */
+.check-progress{
+  background:var(--night2);border:2.5px solid var(--ink);border-radius:12px;padding:14px 18px;margin-bottom:20px;
+  display:flex;align-items:center;gap:14px;
+}
+.check-progress .cp-bar{flex:1;height:12px;background:var(--night);border-radius:999px;border:1.5px solid var(--ink);overflow:hidden}
+.check-progress .cp-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--orange),var(--ok));transition:.3s}
+.check-progress b{font-family:'Rubik';color:var(--orange);min-width:52px;text-align:left;direction:ltr}
+.check-group{background:var(--paper);color:var(--ink);border:3px solid var(--ink);border-radius:12px;margin-bottom:16px;overflow:hidden;box-shadow:5px 5px 0 rgba(0,0,0,.4)}
+.check-group h4{background:var(--ink);color:var(--paper);padding:10px 16px;font-size:.95rem;display:flex;align-items:center;gap:8px}
+.check-group h4 span{color:var(--orange)}
+.check-items{padding:8px 10px}
+.check-item{display:flex;gap:10px;align-items:flex-start;padding:9px 8px;border-radius:8px;cursor:pointer;transition:.15s;font-size:.9rem}
+.check-item:hover{background:var(--paper2)}
+.check-item input{margin-top:5px;accent-color:var(--orange-deep);width:16px;height:16px;flex-shrink:0}
+.check-item.done label{text-decoration:line-through;opacity:.55}
+.check-item label{cursor:pointer}
+
+/* ===== Summary / certificate ===== */
+.certificate{
+  background:var(--paper);color:var(--ink);border:3px solid var(--ink);border-radius:var(--radius);
+  box-shadow:8px 8px 0 rgba(0,0,0,.45);padding:30px 22px;text-align:center;position:relative;overflow:hidden;
+}
+.certificate::before{
+  content:"";position:absolute;inset:10px;border:2px dashed var(--orange-deep);border-radius:10px;pointer-events:none;
+}
+.certificate .medal{font-size:2.6rem}
+.certificate h3{font-size:1.6rem;font-weight:900;margin:8px 0 4px}
+.certificate p{font-size:.92rem;color:#41527090;max-width:520px;margin:0 auto 8px}
+.cert-stamp{
+  display:inline-block;margin-top:14px;font-family:'Rubik';font-weight:900;color:var(--red);
+  border:3px solid var(--red);border-radius:8px;padding:4px 18px;transform:rotate(-4deg);font-size:1rem;letter-spacing:.12em;
+}
+
+/* ===== Footer ===== */
+footer{border-top:2px solid var(--ink);padding:30px 0 40px;text-align:center;color:var(--muted);font-size:.85rem}
+footer b{color:var(--orange);font-family:'Rubik'}
+
+/* ===== Section banner ===== */
+.sec-banner{max-width:760px;margin:0 auto 28px;border:3px solid var(--ink);border-radius:var(--radius);overflow:hidden;box-shadow:6px 6px 0 rgba(0,0,0,.45)}
+.sec-banner img{width:100%;aspect-ratio:16/9;object-fit:cover}
+
+/* ===== Reveal on scroll ===== */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease}
+.reveal.on{opacity:1;transform:none}
+
+@media(min-width:900px){
+  .panel.split{display:grid;grid-template-columns:1fr 1fr}
+  .panel.split .panel-img{border-bottom:none;border-left:3px solid var(--ink)}
+  .panel.split .panel-img img{height:100%;aspect-ratio:auto;min-height:100%}
+  .panel.split.flip .panel-img{order:2;border-left:none;border-right:3px solid var(--ink)}
+}
+</style>
+</head>
+<body>
+<!-- BODY -->
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="logo">
+      <span class="badge-dot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0D1626" stroke-width="2.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/></svg>
+      </span>
+      תיק RAG
+    </div>
+    <nav class="nav-chips">
+      <a href="#chapters">החקירה</a>
+      <a href="#exercises">חדר החקירות</a>
+      <a href="#glossary">מילון הבלש</a>
+      <a href="#checklist">צ'ק-ליסט</a>
+    </nav>
+  </div>
+  <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+  <div class="progress-label" id="progressLabel">החקירה טרם נפתחה</div>
+</header>
+
+<!-- ===== HERO ===== -->
+<div class="hero halftone">
+  <div class="wrap">
+    <div class="hero-panel">
+      <div class="hero-img"><img data-img="0" alt="הבלש בכניסה ללשכת חקירות הידע"></div>
+      <div class="hero-body">
+        <div class="case-stamp">תיק מס' RAG-042 | סודי ביותר</div>
+        <h1>תיק <span class="rag">RAG</span></h1>
+        <p class="sub">ברוכים הבאים ל<b>לשכת חקירות הידע</b>. בעיר הזאת יש עדים שמספרים סיפורים בביטחון מלא, גם כשהם ממציאים. התפקיד שלכם: להפוך לבלשים שלא מנחשים אף פעם, אלא <b>שולפים ראיות לפני כל תשובה</b>. זה בדיוק מה ש-RAG עושה לארגון שלכם.</p>
+        <div class="cta-row">
+          <a href="#chapters" class="btn btn-primary">פתחו את התיק 🔍</a>
+          <a href="#glossary" class="btn btn-ghost">מילון הבלש</a>
+        </div>
+        <div class="hero-facts">
+          <div class="fact"><b>10</b><span>פרקי חקירה</span></div>
+          <div class="fact"><b>5</b><span>תרגילים אינטראקטיביים</span></div>
+          <div class="fact"><b>24</b><span>מושגים במילון</span></div>
+          <div class="fact"><b>6</b><span>תיקים מהשטח</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHAPTERS ===== -->
+<section id="chapters">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">החקירה נפתחת</div>
+      <h2>10 פרקים לפענוח מלא של RAG</h2>
+      <p>כל פרק נפתח ביומן החקירה של הבלש, ממשיך בהסבר מקצועי, ונסגר בתרגום מדויק בין שפת החקירה לשפה הטכנית.</p>
+    </div>
+
+    <div class="chapters-flow">
+
+    <!-- Chapter 1 -->
+    <div class="chapter reveal" id="ch1">
+      <div class="chapter-tag">פרק 1</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="1" alt="העד הרובוטי מספר סיפור מוגזם"><span class="tape r"></span></div>
+        <div class="panel-body">
+          <h3>המקרה הראשון: העד שיודע הכול</h3>
+          <div class="chapter-sub">מה זה RAG ולמה הוא קיים</div>
+          <div class="story">הגעתי ללשכה בבוקר הראשון ופגשתי את העד המבטיח בעיר: הוא עונה על הכול, מיד, בביטחון מוחלט. הבעיה התגלתה מהר: כששאלתי אותו על נוהל פנימי של הלקוח, הוא המציא תשובה יפהפייה. ומשכנעת. ושגויה לחלוטין.</div>
+          <p>מודל שפה גדול (LLM) הוא עד מרשים: הוא למד מכמויות אדירות של טקסט כללי מהאינטרנט. אבל יש לו שתי מגבלות קריטיות: <b>הידע שלו קפוא בזמן</b> (הוא לא מכיר שום דבר שקרה אחרי האימון), ו<b>אין לו מושג מה קורה אצלכם בארגון</b>: נהלים, מוצרים, חוזים, מחירים, לקוחות. כשהוא לא יודע, הוא לא שותק. הוא מנחש בביטחון. לזה קוראים הזיה (Hallucination).</p>
+          <p><b>RAG (Retrieval Augmented Generation)</b> הוא שיטת העבודה של בלש אמיתי: לפני שעונים, ניגשים לארכיון, שולפים את המסמכים הרלוונטיים, מצרפים אותם לשאלה, ורק אז מנסחים תשובה שמבוססת על הראיות, כולל ציון המקור. המודל מפסיק להיות עד מנחש והופך לבלש שמדבר רק על סמך ראיות.</p>
+          <ul>
+            <li><b>Retrieval (שליפה):</b> איתור קטעי המידע הרלוונטיים ביותר מתוך מאגר הידע שלכם.</li>
+            <li><b>Augmented (העשרה):</b> הזרקת הקטעים שנמצאו אל תוך הפרומפט, כהקשר לצד השאלה.</li>
+            <li><b>Generation (חיבור התשובה):</b> המודל מנסח תשובה שנשענת על ההקשר שקיבל, עם הפניה למקורות.</li>
+          </ul>
+          <div class="translate-box">
+            <h4>🗂️ תרגום מהשטח: שפת החקירה מול השפה הטכנית</h4>
+            <table>
+              <tr><td>העד שיודע הכול</td><td class="term">LLM</td><td>מודל שפה מאומן על ידע כללי</td></tr>
+              <tr><td>עדות שקר בביטחון</td><td class="term">Hallucination</td><td>תשובה מומצאת שנשמעת אמינה</td></tr>
+              <tr><td>הארכיון של הלשכה</td><td class="term">Knowledge Base</td><td>מאגר הידע הארגוני שלכם</td></tr>
+              <tr><td>שליפת ראיות לפני עדות</td><td class="term">RAG</td><td>שליפת מידע רלוונטי והצמדתו לפרומפט</td></tr>
+            </table>
+          </div>
+
+          <!-- Inline exercise: spot the false testimony -->
+          <div class="exercise" style="margin-top:20px;margin-bottom:0">
+            <span class="ex-tag">תרגיל שטח מס' 1</span>
+            <h3>זהו את עדות השקר</h3>
+            <p class="ex-goal">שאלנו צ'אטבוט ארגוני בלי RAG: "כמה ימי חופשה מגיעים לעובד חדש אצלנו?". לחצו על התשובה שמריחה כמו הזיה.</p>
+            <div class="opt-card" data-ex="halluc" data-correct="false"><span class="who">תשובה א'</span>"אין לי גישה למדיניות החופשות של הארגון שלכם. כדי לענות במדויק אצטרך את נוהל החופשות או חיבור למאגר הידע הפנימי."</div>
+            <div class="opt-card" data-ex="halluc" data-correct="true"><span class="who">תשובה ב'</span>"לפי סעיף 4.2 במדיניות החברה, עובד חדש זכאי ל-18 ימי חופשה, והם מוכפלים לאחר שנתיים."</div>
+            <div class="opt-card" data-ex="halluc" data-correct="false"><span class="who">תשובה ג'</span>"על פי חוק חופשה שנתית בישראל, המינימום לעובד חדש הוא 12 ימי עסקים בשנה. את המדיניות הפנימית שלכם כדאי לבדוק מול HR."</div>
+            <div class="ex-feedback" id="fb-halluc"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 2 -->
+    <div class="chapter reveal" id="ch2">
+      <div class="chapter-tag">פרק 2</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="2" alt="הבלש שוקל מתי לפתוח תיק"><span class="tape l"></span></div>
+        <div class="panel-body">
+          <h3>מתי פותחים תיק</h3>
+          <div class="chapter-sub">הצורך ב-RAG, מתי משתמשים ומתי לא</div>
+          <div class="story">לא כל תלונה מצדיקה חקירה. חלק מהשאלות העד עונה עליהן מצוין לבד, ובחלק מהמקרים בכלל צריך לשלוח אותו לקורס הסבה. בלש טוב יודע קודם כול מתי לפתוח תיק.</div>
+          <p><b>פותחים תיק RAG כאשר:</b></p>
+          <ul>
+            <li><b>הידע פרטי:</b> התשובות נמצאות במסמכים פנימיים שהמודל מעולם לא ראה: נהלים, חוזים, מפרטים, שיחות לקוח.</li>
+            <li><b>הידע משתנה:</b> מחירונים, מדיניות, גרסאות מוצר. אימון מחדש על כל עדכון יקר ואיטי, החלפת מסמך בארכיון היא עניין של דקות.</li>
+            <li><b>חייבים מקורות:</b> רגולציה, משפט, רפואה, פיננסים: תשובה בלי אסמכתא לא שווה כלום.</li>
+            <li><b>המאגר גדול מדי לפרומפט:</b> אלפי מסמכים לא נכנסים לחלון ההקשר. חייבים מנגנון שבוחר מה רלוונטי.</li>
+            <li><b>רוצים לצמצם הזיות:</b> עיגון התשובה במסמכים אמיתיים מוריד דרמטית את אחוז ההמצאות.</li>
+          </ul>
+          <p><b>לא פותחים תיק כאשר:</b></p>
+          <ul>
+            <li><b>ידע כללי:</b> "כתוב לי מייל מנומס", "סכם את הטקסט הזה". המודל מצוין בזה לבד.</li>
+            <li><b>הידע קטן ויציב:</b> אם כל המידע נכנס בנוחות בפרומפט אחד (למשל דף מדיניות אחד), פשוט מדביקים אותו. RAG יהיה תותח נגד זבוב.</li>
+            <li><b>הבעיה היא סגנון, לא ידע:</b> רוצים שהמודל ידבר בטון מסוים או יחזיר פורמט קבוע? זה תפקיד ל-Fine-tuning או לפרומפט מערכת, לא ל-RAG.</li>
+          </ul>
+          <div class="translate-box">
+            <h4>🗂️ כלל האצבע של הלשכה</h4>
+            <table>
+              <tr><td>הבעיה: העד לא מכיר את התיק</td><td class="term">RAG</td><td>מוסיפים ידע חיצוני בזמן השאלה</td></tr>
+              <tr><td>הבעיה: העד מדבר בסגנון לא מתאים</td><td class="term">Fine-tuning</td><td>מלמדים התנהגות, טון ופורמט</td></tr>
+              <tr><td>הבעיה: ההנחיה לא ברורה</td><td class="term">Prompting</td><td>מנסחים הוראות טובות יותר</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 3 -->
+    <div class="chapter reveal" id="ch3">
+      <div class="chapter-tag">פרק 3</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="3" alt="שלוש דרגות של בלשים"><span class="tape r"></span></div>
+        <div class="panel-body">
+          <h3>דרגות הבלש</h3>
+          <div class="chapter-sub">שלוש רמות של RAG, מהבסיסי ועד הסוכן העצמאי</div>
+          <div class="story">בלשכה לא כולם באותה דרגה. השוטר המקוף שולף את התיק הראשון שנראה קשור. הבלש החוקר מצליב מקורות ומסנן רעשים. והמפקח-על? הוא מנהל צוות שלם שיודע להחליט לבד איפה בכלל לחפש.</div>
+          <div class="levels">
+            <div class="level-card">
+              <div class="rank">👮</div>
+              <h4>השוטר המקוף</h4>
+              <span class="en">Naive RAG</span>
+              <ul>
+                <li>חיתוך המסמכים לקטעים והטמעתם במאגר וקטורי</li>
+                <li>שליפת הקטעים הדומים ביותר לשאלה (Top-K)</li>
+                <li>הצמדתם לפרומפט וקבלת תשובה</li>
+              </ul>
+              <div class="fit"><b>מתאים ל:</b> פיילוט ראשון, מאגר קטן ונקי, שאלות ישירות. פשוט להקמה, מוגבל בדיוק.</div>
+            </div>
+            <div class="level-card">
+              <div class="rank">🕵️</div>
+              <h4>הבלש החוקר</h4>
+              <span class="en">Advanced RAG</span>
+              <ul>
+                <li>שכתוב והרחבת השאלה לפני החיפוש (Query Rewriting)</li>
+                <li>חיפוש היברידי: סמנטי + מילות מפתח</li>
+                <li>סינון לפי מטא-דאטה (מחלקה, תאריך, גרסה)</li>
+                <li>דירוג מחדש של התוצאות (Reranking) לפני התשובה</li>
+              </ul>
+              <div class="fit"><b>מתאים ל:</b> מערכות פרודקשן אמיתיות. רוב הארגונים צריכים להיות פה.</div>
+            </div>
+            <div class="level-card">
+              <div class="rank">🎖️</div>
+              <h4>המפקח-על</h4>
+              <span class="en">Agentic RAG</span>
+              <ul>
+                <li>סוכן שמחליט בעצמו אם ואיפה לחפש</li>
+                <li>מפרק שאלה מורכבת לתתי-חקירות</li>
+                <li>משלב כמה מקורות: מסמכים, מסדי נתונים, API</li>
+                <li>בודק את עצמו וחוזר לחפש אם התשובה חלשה</li>
+              </ul>
+              <div class="fit"><b>מתאים ל:</b> שאלות מורכבות מרובות-שלבים ותהליכים אוטונומיים. עוצמתי, יקר ומורכב לתפעול.</div>
+            </div>
+          </div>
+          <div class="translate-box" style="margin-top:18px">
+            <h4>🗂️ עיקרון הקידום בלשכה</h4>
+            <table>
+              <tr><td>מתחילים כשוטר מקוף</td><td class="term">Start simple</td><td>פיילוט Naive שמוכיח ערך מהר</td></tr>
+              <tr><td>מתקדמים לפי הצורך</td><td class="term">Iterate</td><td>מוסיפים Reranking וסינון כשהדיוק לא מספיק</td></tr>
+              <tr><td>מגייסים מפקח רק כשצריך</td><td class="term">Agentic last</td><td>מורכבות סוכנים רק כשיש הצדקה עסקית</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 4 -->
+    <div class="chapter reveal" id="ch4">
+      <div class="chapter-tag">פרק 4</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="4" alt="לוח הראיות של הלשכה"><span class="tape l"></span></div>
+        <div class="panel-body">
+          <h3>לוח הראיות: המבנה של RAG</h3>
+          <div class="chapter-sub">שני תהליכים, חוט אדום אחד</div>
+          <div class="story">מתחתי שני חוטים על הלוח. החוט הראשון עובד בלילה, כשאף אחד לא שואל כלום: מסדרים את הארכיון. החוט השני נמתח בכל פעם שנכנסת שאלה: מהדלת ועד התשובה החתומה.</div>
+          <p>כל מערכת RAG בנויה משני תהליכים נפרדים. הראשון רץ מראש ומכין את הארכיון, השני רץ בזמן אמת על כל שאלה.</p>
+          <div class="two-col">
+            <div class="diagram">
+              <div class="diagram-title">🌙 תהליך א': סידור הארכיון (Ingestion, רץ מראש)</div>
+              <div class="flow">
+                <div class="flow-step"><span class="num">1</span><div><b>איסוף המסמכים</b><span>נהלים, מדריכים, חוזים, שיחות, דפי מוצר</span></div></div>
+                <div class="flow-connector"></div>
+                <div class="flow-step"><span class="num">2</span><div><b>ניקוי והכנה</b><span>הסרת כפילויות, גרסאות ישנות ורעש</span></div></div>
+                <div class="flow-connector"></div>
+                <div class="flow-step"><span class="num">3</span><div><b>חיתוך לקטעים (Chunking)</b><span>פיסות ידע בגודל נכון, עם חפיפה ושמירת הקשר</span></div></div>
+                <div class="flow-connector"></div>
+                <div class="flow-step"><span class="num">4</span><div><b>טביעת אצבע סמנטית (Embedding)</b><span>כל קטע הופך לווקטור שמייצג את המשמעות שלו</span></div></div>
+                <div class="flow-connector"></div>
+                <div class="flow-step"><span class="num">5</span><div><b>תיוק בארכיון (Vector DB)</b><span>אחסון הווקטורים לצד מטא-דאטה: מקור, תאריך, הרשאות</span></div></div>
+              </div>
+            </div>
+            <div class="diagram">
+              <div class="diagram-title">🔍 תהליך ב': החקירה (Query, רץ על כל שאלה)</div>
+              <div class="flow">
+                <div class="flow-step"><span class="num">1</span><div><b>שאלה נכנסת</b><span>"מה תנאי הביטול בחוזה עם ספק X?"</span></div></div>
+                <div class="flow-connector"></div>
+                <div class="flow-step"><span class="num">2</span><div><b>הצפנת השאלה לווקטור</b><span>אותה טביעת אצבע סמנטית, הפעם על השאלה</span></div></div>
+                <div class="flow-connector"></div>
+                <div class="flow-step"><span class="num">3</span><div><b>שליפת הראיות (Retrieval)</b><span>איתור הקטעים הקרובים ביותר במשמעות, Top-K</span></div></div>
+                <div class="flow-connector"></div>
+                <div class="flow-step"><span class="num">4</span><div><b>דירוג וסינון (Reranking)</b><span>רק הראיות החזקות באמת עולות לתיק</span></div></div>
+                <div class="flow-connector"></div>
+                <div class="flow-step"><span class="num">5</span><div><b>חיבור התשובה (Generation)</b><span>המודל עונה רק על סמך הראיות, עם ציון מקורות</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="translate-box">
+            <h4>🗂️ תרגום מהשטח</h4>
+            <table>
+              <tr><td>גזירי עיתונים על הלוח</td><td class="term">Chunks</td><td>קטעי טקסט חתוכים בגודל אחיד</td></tr>
+              <tr><td>טביעת אצבע</td><td class="term">Embedding</td><td>וקטור מספרי שמייצג משמעות</td></tr>
+              <tr><td>ארון התיוק</td><td class="term">Vector DB</td><td>מסד נתונים לחיפוש לפי דמיון</td></tr>
+              <tr><td>תווית על כל ראיה</td><td class="term">Metadata</td><td>מקור, תאריך, מחלקה, הרשאות</td></tr>
+              <tr><td>שליפת התיק הנכון</td><td class="term">Retrieval</td><td>חיפוש סמנטי של הקטעים הרלוונטיים</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 5 -->
+    <div class="chapter reveal" id="ch5">
+      <div class="chapter-tag">פרק 5</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="5" alt="הבלש עוקב אחרי עקבות זוהרות בארכיון"><span class="tape r"></span></div>
+        <div class="panel-body">
+          <h3>שחזור חקירה: שאלה אחת, מהדלת ועד החתימה</h3>
+          <div class="chapter-sub">דוגמה מלאה של RAG בפעולה</div>
+          <div class="story">בשעה 09:14 נכנסה שאלה ללשכה. עקבתי אחריה צעד-צעד ורשמתי הכול ביומן. ככה נראית חקירה אחת שלמה, בלי קיצורי דרך.</div>
+          <div class="diagram">
+            <div class="diagram-title">📋 יומן חקירה: "כמה ימי חופשה נשארו זכות לעובד אחרי שלוש שנים?"</div>
+            <div class="flow">
+              <div class="flow-step"><span class="num">1</span><div><b>השאלה מתקבלת</b><span>עובדת כותבת בצ'אט הפנימי: "אני פה שלוש שנים, כמה ימי חופשה מגיעים לי?"</span></div></div>
+              <div class="flow-connector"></div>
+              <div class="flow-step"><span class="num">2</span><div><b>השאלה הופכת לווקטור</b><span>מודל ההטמעה מתרגם את השאלה לרשימת מספרים שמייצגת את המשמעות: ותק, זכאות, חופשה</span></div></div>
+              <div class="flow-connector"></div>
+              <div class="flow-step"><span class="num">3</span><div><b>חיפוש בארכיון</b><span>מתוך 4,800 קטעים במאגר, נשלפים 5 הקרובים ביותר. הראשון: סעיף 4.2 מנוהל חופשות, גרסת 2026</span></div></div>
+              <div class="flow-connector"></div>
+              <div class="flow-step"><span class="num">4</span><div><b>סינון ודירוג</b><span>קטע מגרסת 2023 נפסל (מטא-דאטה: לא בתוקף). נשארים 3 קטעים חזקים</span></div></div>
+              <div class="flow-connector"></div>
+              <div class="flow-step"><span class="num">5</span><div><b>הרכבת הפרומפט</b><span>"ענה אך ורק על סמך הקטעים הבאים. אם התשובה לא נמצאת בהם, אמור שאינך יודע" + 3 הקטעים + השאלה</span></div></div>
+              <div class="flow-connector"></div>
+              <div class="flow-step"><span class="num">6</span><div><b>התשובה נחתמת</b><span>"לפי נוהל החופשות סעיף 4.2 (עודכן ינואר 2026): לאחר שלוש שנות ותק הזכאות היא 21 ימי חופשה בשנה. מקור: נוהל חופשות, עמ' 3"</span></div></div>
+            </div>
+          </div>
+          <p style="margin-top:6px">שימו לב לשלושה דברים: התשובה <b>מצטטת מקור מדויק</b>, המערכת <b>פסלה גרסה ישנה</b> בזכות מטא-דאטה, והפרומפט <b>מרשה למודל לומר "אני לא יודע"</b>. שלושת אלה הם ההבדל בין צעצוע להטמעה ארגונית.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 6 -->
+    <div class="chapter reveal" id="ch6">
+      <div class="chapter-tag">פרק 6</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="6" alt="ארכיון התיקים הסגורים"><span class="tape l"></span></div>
+        <div class="panel-body">
+          <h3>ארכיון התיקים הסגורים</h3>
+          <div class="chapter-sub">יישומי RAG אמיתיים בארגונים</div>
+          <div class="story">בקומה השנייה של הלשכה יש קיר שלם של תיקים סגורים. כל תיק התחיל באותה תלונה: "אנשים לא מוצאים תשובות". וכולם נסגרו באותה שיטה. הנה שישה מהמפורסמים שבהם.</div>
+        </div>
+      </div>
+      <div class="cases" style="margin-top:18px">
+        <div class="case-card reveal">
+          <div class="case-top"><b>תיק HR-107</b><span>משאבי אנוש</span></div>
+          <div class="case-body">
+            <div><b>התלונה</b>צוות HR טובע במאות שאלות חוזרות: חופשות, החזרים, הטבות, קליטה.</div>
+            <div><b>הפתרון</b>בוט פנימי מעל נהלי החברה, מדריך העובד והסכמי השכר, עם הפניה לסעיף המדויק.</div>
+            <div><b>ראיה מרכזית</b>מטא-דאטה של גרסאות מבטיח שעונים תמיד מהנוהל בתוקף.</div>
+          </div>
+          <span class="solved">התיק נסגר</span>
+        </div>
+        <div class="case-card reveal">
+          <div class="case-top"><b>תיק SUP-284</b><span>שירות לקוחות</span></div>
+          <div class="case-body">
+            <div><b>התלונה</b>נציגים מחפשים תשובות ב-6 מערכות שונות בזמן שהלקוח ממתין על הקו.</div>
+            <div><b>הפתרון</b>עוזר לנציג ששולף ממאגרי ידע, תקלות מוכרות והיסטוריית טיקטים, ומנסח תשובה מוכנה.</div>
+            <div><b>ראיה מרכזית</b>זמן טיפול ממוצע ירד, ותשובות חדשות מוזנות חזרה למאגר.</div>
+          </div>
+          <span class="solved">התיק נסגר</span>
+        </div>
+        <div class="case-card reveal">
+          <div class="case-top"><b>תיק LEG-051</b><span>משפטי</span></div>
+          <div class="case-body">
+            <div><b>התלונה</b>איתור סעיפים בחוזים ישנים לוקח ליועצים שעות של קריאה ידנית.</div>
+            <div><b>הפתרון</b>חיפוש סמנטי על מאגר החוזים: "אילו חוזים כוללים סעיף יציאה תוך 30 יום?" ותשובה עם ציטוטים.</div>
+            <div><b>ראיה מרכזית</b>כל תשובה חייבת ציטוט מדויק. בלי מקור, אין תשובה.</div>
+          </div>
+          <span class="solved">התיק נסגר</span>
+        </div>
+        <div class="case-card reveal">
+          <div class="case-top"><b>תיק IT-330</b><span>מערכות מידע</span></div>
+          <div class="case-body">
+            <div><b>התלונה</b>ה-Helpdesk קורס מפניות שחוזרות על עצמן: סיסמאות, VPN, הרשאות, מדפסות.</div>
+            <div><b>הפתרון</b>בוט תמיכה מעל מאגר הפתרונות והמדריכים, שפותר לבד את הפניות הפשוטות ומנתב את המורכבות.</div>
+            <div><b>ראיה מרכזית</b>שאלות שנשארו בלי תשובה טובה מסומנות אוטומטית כחורים במאגר הידע.</div>
+          </div>
+          <span class="solved">התיק נסגר</span>
+        </div>
+        <div class="case-card reveal">
+          <div class="case-top"><b>תיק FIN-412</b><span>כספים ורגולציה</span></div>
+          <div class="case-body">
+            <div><b>התלונה</b>שאלות על נהלי רכש, תקציב ורגולציה מתגלגלות ימים בין מיילים.</div>
+            <div><b>הפתרון</b>עוזר שעונה מתוך נהלי הכספים והוראות הרגולטור, עם הרשאות גישה לפי תפקיד.</div>
+            <div><b>ראיה מרכזית</b>שכבת הרשאות: כל שואל רואה רק תשובות מהמסמכים שהוא מורשה לראות.</div>
+          </div>
+          <span class="solved">התיק נסגר</span>
+        </div>
+        <div class="case-card reveal">
+          <div class="case-top"><b>תיק SLS-598</b><span>מכירות</span></div>
+          <div class="case-body">
+            <div><b>התלונה</b>אנשי מכירות מאלתרים תשובות על פיצ'רים, מחירים ותנאים, וטועים.</div>
+            <div><b>הפתרון</b>עוזר הצעות מחיר ששולף מדפי מוצר, מחירונים עדכניים ותשובות RFP קודמות.</div>
+            <div><b>ראיה מרכזית</b>סנכרון יומי מול המחירון: הארכיון תמיד מעודכן, גם כשהמחירים משתנים.</div>
+          </div>
+          <span class="solved">התיק נסגר</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 7 -->
+    <div class="chapter reveal" id="ch7">
+      <div class="chapter-tag">פרק 7</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="7" alt="מדריך נוהל החקירה על השולחן"><span class="tape r"></span></div>
+        <div class="panel-body">
+          <h3>נוהל חקירה תקין</h3>
+          <div class="chapter-sub">דרך העבודה הנכונה עם RAG</div>
+          <div class="story">בלשים גרועים נכשלים תמיד באותם מקומות: ארכיון מוזנח, ראיות חתוכות באמצע, ותשובות בלי חתימה. תליתי את הנוהל על הקיר, ליד המכונה של הקפה, שאף אחד לא יפספס.</div>
+          <ul>
+            <li><b>הארכיון קודם לכול:</b> איכות התשובות היא בדיוק איכות המסמכים. מסמכים כפולים, סותרים או לא מעודכנים יהרסו גם את המערכת המתוחכמת ביותר. אצרו את המקורות לפני שנוגעים בטכנולוגיה.</li>
+            <li><b>חתכו ראיות בקווי התפר:</b> Chunking חכם חותך לפי מבנה המסמך: כותרות, סעיפים, פסקאות, עם חפיפה קטנה בין קטעים. ראיה שנחתכה באמצע משפט היא ראיה פסולה.</li>
+            <li><b>תייגו כל ראיה:</b> מקור, תאריך, גרסה, מחלקה, הרשאות. מטא-דאטה עשיר הוא ההבדל בין חיפוש עיוור לחיפוש ממוקד.</li>
+            <li><b>חייבו חתימה על כל תשובה:</b> ציטוט מקור הוא לא קישוט. הוא מאפשר למשתמש לוודא, ולכם לאתר תקלות.</li>
+            <li><b>הרשו לומר "אני לא יודע":</b> הנחו את המודל במפורש לענות רק מתוך ההקשר שנשלף. תשובה חסרה עדיפה על תשובה מומצאת.</li>
+            <li><b>כבדו הרשאות:</b> המערכת חייבת לשלוף רק ממסמכים שהשואל מורשה לראות. דליפת שכר דרך בוט תמים היא דרך מהירה לסגור את הפרויקט.</li>
+            <li><b>שמרו על ארכיון חי:</b> סנכרון אוטומטי מול מקורות האמת. ארכיון שלא מתעדכן הופך תוך חודשים למכונת תשובות שגויות.</li>
+            <li><b>האזינו לשאלות שנכשלו:</b> כל שאלה בלי תשובה טובה היא רמז לחור במאגר הידע או לכשל בשליפה. זה לוח החקירות האמיתי שלכם.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 8 -->
+    <div class="chapter reveal" id="ch8">
+      <div class="chapter-tag">פרק 8</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="8" alt="הקמת לשכת חקירות חדשה"><span class="tape l"></span></div>
+        <div class="panel-body">
+          <h3>הקמת הלשכה</h3>
+          <div class="chapter-sub">יצירת RAG בארגון והטמעה נכונה</div>
+          <div class="story">אי אפשר לפתוח לשכת חקירות בכל העיר ביום אחד. בוחרים שכונה אחת עם הרבה תלונות, פותרים שם תיקים בקצב, בונים מוניטין, ורק אז מתרחבים.</div>
+          <div class="diagram">
+            <div class="diagram-title">🏗️ שישה שלבים להקמה</div>
+            <div class="flow">
+              <div class="flow-step"><span class="num">1</span><div><b>בחירת מקרה שימוש ממוקד</b><span>תחום אחד עם כאב אמיתי ומדיד: שאלות HR, תמיכה, נהלים. לא "בוט לכל הארגון"</span></div></div>
+              <div class="flow-connector"></div>
+              <div class="flow-step"><span class="num">2</span><div><b>איסוף ואצירת הידע</b><span>מיפוי מקורות האמת, ניקוי כפילויות וגרסאות, החלטה מי הבעלים של כל מסמך</span></div></div>
+              <div class="flow-connector"></div>
+              <div class="flow-step"><span class="num">3</span><div><b>בחירת הכלים</b><span>פלטפורמה מנוהלת לפיילוט מהיר, או פיתוח עם Framework ומאגר וקטורי כשצריך שליטה מלאה</span></div></div>
+              <div class="flow-connector"></div>
+              <div class="flow-step"><span class="num">4</span><div><b>פיילוט עם משתמשים אמיתיים</b><span>קבוצה קטנה, שאלות אמיתיות, מדידה מסודרת של דיוק ושביעות רצון</span></div></div>
+              <div class="flow-connector"></div>
+              <div class="flow-step"><span class="num">5</span><div><b>הטמעה הדרגתית</b><span>הרחבה למחלקות נוספות, הדרכה קצרה למשתמשים, ערוץ משוב זמין ומתויק</span></div></div>
+              <div class="flow-connector"></div>
+              <div class="flow-step"><span class="num">6</span><div><b>תפעול שוטף</b><span>סנכרון ידע אוטומטי, ניטור שאלות כושלות, בעלים קבוע למערכת. RAG הוא מוצר חי, לא פרויקט חד-פעמי</span></div></div>
+            </div>
+          </div>
+          <div class="translate-box">
+            <h4>🗂️ מי בצוות ההקמה</h4>
+            <table>
+              <tr><td>מפקד הלשכה</td><td class="term">Product Owner</td><td>מגדיר הצלחה, מתעדף, אחראי על התוצאה</td></tr>
+              <tr><td>אחראי הארכיון</td><td class="term">Knowledge Owner</td><td>בעלים של איכות ועדכניות המסמכים</td></tr>
+              <tr><td>מהנדס הלשכה</td><td class="term">AI Engineer</td><td>בונה את הפייפליין, השליפה וההערכה</td></tr>
+              <tr><td>קצין הביטחון</td><td class="term">Security and IT</td><td>הרשאות, פרטיות, חיבור למערכות</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 9 -->
+    <div class="chapter reveal" id="ch9">
+      <div class="chapter-tag">פרק 9</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="9" alt="הבלש מציג ראיות בבית המשפט"><span class="tape r"></span></div>
+        <div class="panel-body">
+          <h3>המשפט: בודקים את התיק</h3>
+          <div class="chapter-sub">איך מודדים ובודקים מערכת RAG</div>
+          <div class="story">כל תיק שאני סוגר עולה לבית המשפט. השופטת לא מתרשמת מסיפורים יפים. היא שואלת רק ארבע שאלות, תמיד באותו סדר. תיק שלא עובר את ארבעתן, חוזר לחקירה.</div>
+          <p>מערכת RAG בודקים בשתי קומות נפרדות: קומת <b>השליפה</b> (האם הבאנו את הראיות הנכונות?) וקומת <b>התשובה</b> (האם ניסחנו אותן נכון?). כשל בקומה הראשונה לא ניתן לתיקון בשנייה.</p>
+          <ul>
+            <li><b>איכות השליפה (Retrieval):</b> האם הקטעים הרלוונטיים בכלל נשלפו (Recall), וכמה מהנשלף באמת רלוונטי (Precision)?</li>
+            <li><b>נאמנות למקורות (Groundedness):</b> האם כל טענה בתשובה נשענת על הקטעים שנשלפו, או שהמודל הוסיף מעצמו?</li>
+            <li><b>רלוונטיות התשובה (Relevance):</b> האם באמת ענינו על מה שנשאל, ולא על שאלה דומה?</li>
+            <li><b>דיוק הציטוטים (Citations):</b> האם המקורות המצוינים באמת אומרים את מה שמיוחס להם?</li>
+            <li><b>ביצועים ועלות:</b> זמן תגובה ועלות לשאלה. תשובה מושלמת אחרי 40 שניות היא תיק אבוד.</li>
+          </ul>
+          <p><b>איך בודקים בפועל:</b> בונים מאגר בוחן (Golden Set) של 50 עד 200 שאלות אמיתיות עם תשובות ומקורות מאושרים. מריצים אותו על כל שינוי במערכת: החלפת מודל, שינוי chunking, מסמכים חדשים. משלבים שיפוט אוטומטי (מודל ששופט מודל) עם ביקורת אנושית מדגמית, ומוסיפים שאלות עוינות: מידע שלא קיים במאגר, שאלות מחוץ לתחום, ניסיונות חילוץ מידע רגיש.</p>
+
+          <!-- Inline exercise: cross examination -->
+          <div class="exercise" style="margin-top:20px;margin-bottom:0">
+            <span class="ex-tag">תרגיל שטח מס' 2</span>
+            <h3>החקירה הנגדית</h3>
+            <p class="ex-goal">הבוט ענה: "לפי סעיף 7 בנוהל הרכש, כל הזמנה מעל 5,000 ש"ח דורשת אישור סמנכ"ל". בדיקה העלתה שסעיף 7 עוסק בכלל בהחזרי נסיעות. איזו בדיקה נכשלה כאן?</p>
+            <div class="opt-card" data-ex="metric" data-correct="false"><span class="who">אפשרות א'</span>רלוונטיות התשובה (Relevance): הבוט לא ענה על השאלה שנשאלה.</div>
+            <div class="opt-card" data-ex="metric" data-correct="true"><span class="who">אפשרות ב'</span>דיוק הציטוט ונאמנות למקור (Groundedness): התשובה מייחסת למקור דבר שלא כתוב בו.</div>
+            <div class="opt-card" data-ex="metric" data-correct="false"><span class="who">אפשרות ג'</span>ביצועים (Latency): המערכת ענתה לאט מדי.</div>
+            <div class="ex-feedback" id="fb-metric"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 10 -->
+    <div class="chapter reveal" id="ch10">
+      <div class="chapter-tag">פרק 10</div>
+      <div class="panel">
+        <div class="panel-img"><img data-img="10" alt="התיק נסגר בזריחה"><span class="tape l"></span></div>
+        <div class="panel-body">
+          <h3>סגירת התיק</h3>
+          <div class="chapter-sub">סיכום החקירה</div>
+          <div class="story">השמש עולה על העיר. התיק חתום, הקפה קר, והלוח מלא חוטים אדומים שכולם מובילים לאותה מסקנה. לפני שיוצאים הביתה, שווה לקרוא אותה עוד פעם אחת.</div>
+          <ul>
+            <li><b>RAG הוא שיטת עבודה, לא קסם:</b> שולפים ראיות רלוונטיות מהידע שלכם ומחייבים את המודל לענות רק על סמכן.</li>
+            <li><b>פותחים תיק רק כשצריך:</b> ידע פרטי, משתנה, גדול או רגיש. לסגנון ופורמט יש כלים אחרים.</li>
+            <li><b>מתקדמים בדרגות:</b> מתחילים פשוט, משדרגים לשליפה היברידית ודירוג מחדש, ומגייסים סוכנים רק כשיש הצדקה.</li>
+            <li><b>הארכיון הוא הלב:</b> איכות המסמכים, החיתוך והתיוג קובעת את התקרה של כל המערכת.</li>
+            <li><b>תשובה בלי מקור היא לא תשובה:</b> ציטוטים, הרשאות והיכולת לומר "אני לא יודע" הם תנאי סף ארגוני.</li>
+            <li><b>בודקים כמו בבית משפט:</b> מאגר בוחן קבוע, מדדים לשליפה ולתשובה, וביקורת על כל שינוי.</li>
+            <li><b>RAG הוא מוצר חי:</b> בעלים קבוע, סנכרון ידע, ניטור שאלות כושלות ושיפור מתמיד.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="certificate reveal" style="margin-top:22px">
+        <div class="medal">🎖️</div>
+        <h3>תעודת בלש ידע מוסמך</h3>
+        <p>סיימתם את כל עשרת פרקי החקירה של תיק RAG. אתם יודעים מתי לפתוח תיק, איך בנויה הלשכה, איך מנהלים חקירה נקייה ואיך מגינים על התיק בבית המשפט.</p>
+        <p>נשארו לכם רק שני דברים: לתרגל בחדר החקירות, ולקחת את הצ'ק-ליסט לתיק הראשון שלכם בארגון.</p>
+        <div class="cert-stamp">התיק נסגר</div>
+      </div>
+    </div>
+
+    </div><!-- /chapters-flow -->
+  </div>
+</section>
+
+<!-- ===== EXERCISES ===== -->
+<section id="exercises" class="halftone" style="background:var(--night2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">חדר החקירות</div>
+      <h2>תרגילים אינטראקטיביים</h2>
+      <p>שלושה תרגילי שטח שממחישים את הרגעים הקריטיים של כל מערכת RAG: החיתוך, השליפה והסדר הנכון.</p>
+    </div>
+    <div class="sec-banner reveal"><img data-img="11" alt="חדר החקירות"></div>
+
+    <!-- Exercise: chunking simulator -->
+    <div class="exercise reveal">
+      <span class="ex-tag">תרגיל שטח מס' 3</span>
+      <h3>מכונת הגזירה: סימולטור Chunking</h3>
+      <p class="ex-goal">לפניכם קטע מנוהל חופשות. בחרו שיטת חיתוך וראו איך היא משנה את הראיות שייכנסו לארכיון. שימו לב מה קורה למשמעות בכל שיטה.</p>
+      <div class="ex-controls">
+        <button class="chip-btn" data-chunk="fixed">גודל קבוע</button>
+        <button class="chip-btn" data-chunk="sentence">לפי משפטים</button>
+        <button class="chip-btn active" data-chunk="section">לפי סעיפים + חפיפה</button>
+      </div>
+      <div class="chunk-view" id="chunkView"></div>
+      <p class="chunk-note" id="chunkNote"></p>
+    </div>
+
+    <!-- Exercise: retrieval lineup -->
+    <div class="exercise reveal">
+      <span class="ex-tag">תרגיל שטח מס' 4</span>
+      <h3>מסדר זיהוי: מי הראיה הנכונה?</h3>
+      <p class="ex-goal">השאלה שנכנסה ללשכה: <b style="color:var(--orange)">"האם אפשר לעבוד מהבית ביום שבו יש חניכה לעובד חדש?"</b><br>ארבעה קטעים התייצבו למסדר. לחצו על הקטע שחיפוש סמנטי טוב אמור לשלוף ראשון.</p>
+      <div class="opt-card" data-ex="lineup" data-correct="false"><span class="who">חשוד 1 | מתוך נוהל רכב חברה</span>"עובד המקבל רכב חברה יחתום על נספח שימוש. יש להחזיר את הרכב בסיום ההעסקה."</div>
+      <div class="opt-card" data-ex="lineup" data-correct="true"><span class="who">חשוד 2 | מתוך נוהל עבודה היברידית</span>"ביום שבו מתקיימת קליטת עובד חדש בצוות, על החונך המלווה להיות נוכח פיזית במשרד, גם אם זהו יום העבודה מהבית הקבוע שלו."</div>
+      <div class="opt-card" data-ex="lineup" data-correct="false"><span class="who">חשוד 3 | מתוך מדריך קליטה</span>"ביום הראשון יקבל העובד החדש מחשב, תג כניסה והזמנות לפגישות ההיכרות עם הצוות."</div>
+      <div class="opt-card" data-ex="lineup" data-correct="false"><span class="who">חשוד 4 | מתוך נוהל עבודה היברידית</span>"עובדים זכאים לשני ימי עבודה מהבית בשבוע, בתיאום מראש עם המנהל הישיר."</div>
+      <div class="ex-feedback" id="fb-lineup"></div>
+    </div>
+
+    <!-- Exercise: pipeline builder -->
+    <div class="exercise reveal">
+      <span class="ex-tag">תרגיל שטח מס' 5</span>
+      <h3>הרכיבו את החקירה</h3>
+      <p class="ex-goal">שאלה נכנסה ללשכה. לחצו על השלבים לפי הסדר הנכון של חקירת RAG, מהרגע שהשאלה נכנסת ועד התשובה החתומה.</p>
+      <div class="pipe-pool" id="pipePool"></div>
+      <div class="pipe-slots" id="pipeSlots"><span class="pipe-slot-empty">הסדר שבחרתם יופיע כאן</span></div>
+      <div class="ex-controls">
+        <button class="chip-btn" id="pipeCheck">בדקו את הסדר</button>
+        <button class="chip-btn" id="pipeReset">איפוס</button>
+      </div>
+      <div class="ex-feedback" id="fb-pipe"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GLOSSARY ===== -->
+<section id="glossary">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">מילון הבלש</div>
+      <h2>24 מושגים, בשתי שפות</h2>
+      <p>כל מושג מתורגם פעמיים: פעם לשפת הלשכה ופעם להגדרה הטכנית המדויקת.</p>
+    </div>
+    <div class="sec-banner reveal"><img data-img="12" alt="ארון הקטלוגים של מילון הבלש"></div>
+    <div class="reveal">
+      <input type="text" class="gloss-search" id="glossSearch" placeholder="🔍 חפשו מושג: chunking, embedding, ציטוט...">
+      <div class="gloss-cats" id="glossCats">
+        <button class="chip-btn active" data-cat="all">הכול</button>
+        <button class="chip-btn" data-cat="base">יסודות</button>
+        <button class="chip-btn" data-cat="archive">הארכיון</button>
+        <button class="chip-btn" data-cat="query">החקירה</button>
+        <button class="chip-btn" data-cat="qa">בית המשפט</button>
+      </div>
+      <div class="gloss-grid" id="glossGrid"></div>
+      <div class="gloss-empty" id="glossEmpty">אין ראיות התואמות לחיפוש. נסו מונח אחר.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHECKLIST ===== -->
+<section id="checklist" class="halftone" style="background:var(--night2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">הצ'ק-ליסט של הלשכה</div>
+      <h2>20 בדיקות לפני ותוך כדי הטמעה</h2>
+      <p>סמנו את מה שכבר סגור אצלכם. הרשימה נשמרת רק בזמן הביקור הנוכחי.</p>
+    </div>
+    <div class="reveal">
+      <div class="check-progress">
+        <span style="font-size:.85rem;color:var(--muted)">מוכנות התיק</span>
+        <div class="cp-bar"><div class="cp-fill" id="cpFill"></div></div>
+        <b id="cpCount">0/20</b>
+      </div>
+      <div id="checkGroups"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>תיק RAG</b> | לשכת חקירות הידע</p>
+    <p>אתר לימודי חוויתי למיישמי AI בארגונים. כל הדמויות בדיוניות, כל העקרונות אמיתיים.</p>
+  </div>
+</footer>
+
+<script>
+/* ===== Images ===== */
+const IMG_BASE = 'https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/';
+const IMAGES = {
+  0: IMG_BASE + 'hf_20260808_052611_568cd12d-47a8-485f-97c8-26e4ae3cbbff.png',
+  1: IMG_BASE + 'hf_20260808_052611_a06c9cee-45fd-4e39-8f1b-0c61f8ce8184.png',
+  2: IMG_BASE + 'hf_20260808_052611_4324acb0-e27a-4946-8c9c-06244b4882fc.png',
+  3: IMG_BASE + 'hf_20260808_052611_93906c0c-0df9-4e23-af9e-d6d43f3c2287.png',
+  4: IMG_BASE + 'hf_20260808_052611_bd27fea4-f6f1-4701-ab13-29e21f5f278f.png',
+  5: IMG_BASE + 'hf_20260808_052611_09330918-3b0b-4437-b6d6-dffffb3f7498.png',
+  6: IMG_BASE + 'hf_20260808_052611_9898a20f-bee2-471d-bfa8-e081893c81e4.png',
+  7: IMG_BASE + 'hf_20260808_052611_2626bb2a-cbae-4158-972c-92d554fd2392.png',
+  8: IMG_BASE + 'hf_20260808_052611_eb49f071-ac73-4489-a324-e16d426783ec.png',
+  9: IMG_BASE + 'hf_20260808_052611_d371fb3a-b8d7-4dbd-828d-f3c3c90835bb.png',
+  10: IMG_BASE + 'hf_20260808_052611_a33a292b-3740-40dd-9428-e114fe8c0c26.png',
+  11: IMG_BASE + 'hf_20260808_052611_89aa7845-b20d-46b6-bd38-134f77b4cbd4.png',
+  12: IMG_BASE + 'hf_20260808_052619_e24f0c70-fabd-49a9-a35f-db30913e6b6e.png'
+};
+
+document.querySelectorAll('img[data-img]').forEach(im=>{
+  const k = im.dataset.img;
+  if(IMAGES[k]) im.src = IMAGES[k];
+});
+
+/* ===== Scroll progress ===== */
+const pBar = document.getElementById('progressBar');
+const pLabel = document.getElementById('progressLabel');
+function updProgress(){
+  const h = document.documentElement;
+  const pct = Math.min(100, Math.round(h.scrollTop / (h.scrollHeight - h.clientHeight) * 100));
+  pBar.style.width = pct + '%';
+  pLabel.textContent = pct <= 2 ? 'החקירה טרם נפתחה' : pct >= 98 ? 'התיק נסגר! כל הכבוד, הבלש' : 'החקירה פוענחה ב-' + pct + '%';
+}
+addEventListener('scroll', updProgress, {passive:true}); updProgress();
+
+/* ===== Reveal on scroll ===== */
+const obs = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target);} }), {threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* ===== Nav active ===== */
+const navLinks = [...document.querySelectorAll('.nav-chips a')];
+const secObs = new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){
+    navLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+  }
+}), {rootMargin:'-30% 0px -60% 0px'});
+['chapters','exercises','glossary','checklist'].forEach(id=>{const el=document.getElementById(id); if(el) secObs.observe(el);});
+
+/* ===== Choice exercises (halluc / metric / lineup) ===== */
+const EX_TEXT = {
+  halluc: {
+    good: '🎯 בדיוק. תשובה ב' + '׳' + ' מצטטת "סעיף 4.2" ומספרים מדויקים שאין לבוט שום דרך לדעת: אין לו גישה לנוהל. ככה נראית הזיה: ספציפית, בטוחה בעצמה ומומצאת. תשובות א' + '׳' + ' ו-ג' + '׳' + ' מודות בחוסר הידיעה או נשענות על ידע כללי אמיתי.',
+    bad: '🤔 דווקא התשובה הזאת בסדר: היא לא ממציאה עובדות על הארגון. חפשו את התשובה שמצטטת בביטחון מסמך פנימי שהבוט לא יכול להכיר.'
+  },
+  metric: {
+    good: '🎯 נכון. זהו כשל נאמנות וציטוט: התשובה נשמעת רלוונטית ומהירה, אבל מייחסת למקור תוכן שלא קיים בו. בדיקת Groundedness משווה כל טענה בתשובה מול הקטעים שנשלפו בפועל.',
+    bad: '🤔 לא זה הכשל. התשובה דווקא ענתה לשאלה ומהר. הבעיה היא ביחס בין התשובה למקור שהיא מצטטת.'
+  },
+  lineup: {
+    good: '🎯 שליפה מדויקת. חשוד 2 הוא היחיד שמחבר את שני המושגים שבשאלה: עבודה מהבית וגם חניכת עובד חדש. חיפוש סמנטי טוב מזהה קרבת משמעות, לא רק מילים משותפות. שימו לב שחשודים 3 ו-4 חולקים מילים עם השאלה אבל עונים רק על חצי ממנה.',
+    bad: '🤔 הקטע הזה חולק אולי מילים עם השאלה, אבל לא עונה על הצירוף המדויק: עבודה מהבית ביום חניכה. חפשו את הקטע שמכסה את שני חלקי השאלה יחד.'
+  }
+};
+document.querySelectorAll('.opt-card').forEach(card=>{
+  card.addEventListener('click', ()=>{
+    const ex = card.dataset.ex;
+    const fb = document.getElementById('fb-' + ex);
+    const correct = card.dataset.correct === 'true';
+    document.querySelectorAll('.opt-card[data-ex="' + ex + '"]').forEach(c=>c.classList.remove('correct','wrong'));
+    card.classList.add(correct ? 'correct' : 'wrong');
+    if(correct){
+      document.querySelectorAll('.opt-card[data-ex="' + ex + '"][data-correct="true"]').forEach(c=>c.classList.add('correct'));
+    }
+    fb.className = 'ex-feedback show ' + (correct ? 'good' : 'bad');
+    fb.textContent = correct ? EX_TEXT[ex].good : EX_TEXT[ex].bad;
+  });
+});
+
+/* ===== Chunking simulator ===== */
+const CHUNK_DATA = {
+  fixed: {
+    note: '⚠️ חיתוך לפי מספר תווים קבוע הוא הפשוט ביותר, אבל שימו לב: הראיה השנייה נחתכה באמצע משפט, והמשמעות של "מוכפלים" התנתקה מההקשר שלה.',
+    chunks: [
+      ['קטע 1', 'סעיף 4: חופשה שנתית. 4.1: עובד חדש זכאי ל-12 ימי חופשה בשנה. 4.2: לאחר שנתיים ה'],
+      ['קטע 2', 'ימים מוכפלים בהתאם לוותק. 4.3: יתרת חופשה ניתנת להעברה עד 6 ימים לשנה העוקבת. סעיף 5: ימי מח'],
+      ['קטע 3', 'לה. 5.1: עובד יעדכן את המנהל הישיר עד השעה 9:00 בבוקר.']
+    ]
+  },
+  sentence: {
+    note: '🙂 חיתוך לפי משפטים שומר על שלמות כל משפט, אבל מפזר סעיף אחד על פני כמה ראיות קטנות מדי, בלי ההקשר של הכותרת "חופשה שנתית".',
+    chunks: [
+      ['קטע 1', 'סעיף 4: חופשה שנתית.'],
+      ['קטע 2', '4.1: עובד חדש זכאי ל-12 ימי חופשה בשנה.'],
+      ['קטע 3', '4.2: לאחר שנתיים הימים מוכפלים בהתאם לוותק.'],
+      ['קטע 4', '4.3: יתרת חופשה ניתנת להעברה עד 6 ימים לשנה העוקבת.'],
+      ['קטע 5', 'סעיף 5: ימי מחלה.'],
+      ['קטע 6', '5.1: עובד יעדכן את המנהל הישיר עד השעה 9:00 בבוקר.']
+    ]
+  },
+  section: {
+    note: '🎯 חיתוך לפי מבנה המסמך שומר כל סעיף שלם עם הכותרת שלו, והחפיפה הקטנה בסוף מחברת את ההקשר בין קטעים. ככה נראית ראיה קבילה.',
+    chunks: [
+      ['קטע 1 | סעיף 4', 'סעיף 4: חופשה שנתית. 4.1: עובד חדש זכאי ל-12 ימי חופשה בשנה. 4.2: לאחר שנתיים הימים מוכפלים בהתאם לוותק. 4.3: יתרת חופשה ניתנת להעברה עד 6 ימים לשנה העוקבת.'],
+      ['קטע 2 | סעיף 5 (עם חפיפה)', '(המשך מסעיף 4: יתרת חופשה ניתנת להעברה...) סעיף 5: ימי מחלה. 5.1: עובד יעדכן את המנהל הישיר עד השעה 9:00 בבוקר.']
+    ]
+  }
+};
+const chunkView = document.getElementById('chunkView');
+const chunkNote = document.getElementById('chunkNote');
+function renderChunks(mode){
+  chunkView.innerHTML = '';
+  CHUNK_DATA[mode].chunks.forEach(([t, txt])=>{
+    const d = document.createElement('div');
+    d.className = 'chunk';
+    d.innerHTML = '<small>' + t + '</small>' + txt;
+    chunkView.appendChild(d);
+  });
+  chunkNote.textContent = CHUNK_DATA[mode].note;
+}
+document.querySelectorAll('[data-chunk]').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    document.querySelectorAll('[data-chunk]').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    renderChunks(b.dataset.chunk);
+  });
+});
+renderChunks('section');
+
+/* ===== Pipeline builder ===== */
+const PIPE_STEPS = [
+  {id:0, label:'📥 שאלה נכנסת ללשכה'},
+  {id:1, label:'🔢 הצפנת השאלה לווקטור'},
+  {id:2, label:'🗄️ חיפוש בארכיון הווקטורי'},
+  {id:3, label:'⚖️ דירוג וסינון הראיות'},
+  {id:4, label:'📝 הרכבת פרומפט עם ההקשר'},
+  {id:5, label:'✍️ ניסוח תשובה עם מקורות'}
+];
+const pipePool = document.getElementById('pipePool');
+const pipeSlots = document.getElementById('pipeSlots');
+const fbPipe = document.getElementById('fb-pipe');
+let pipePicked = [];
+function renderPipe(){
+  pipePool.innerHTML = '';
+  const shuffled = [3,0,5,2,4,1].map(i=>PIPE_STEPS[i]);
+  shuffled.forEach(s=>{
+    const d = document.createElement('div');
+    d.className = 'pipe-item';
+    d.innerHTML = s.label + '<span class="order-badge"></span>';
+    d.addEventListener('click', ()=>{
+      if(d.classList.contains('picked')) return;
+      pipePicked.push(s.id);
+      d.classList.add('picked');
+      d.querySelector('.order-badge').textContent = pipePicked.length;
+      renderSlots();
+    });
+    pipePool.appendChild(d);
+  });
+  renderSlots();
+}
+function renderSlots(){
+  pipeSlots.innerHTML = '';
+  if(!pipePicked.length){
+    pipeSlots.innerHTML = '<span class="pipe-slot-empty">הסדר שבחרתם יופיע כאן</span>';
+    return;
+  }
+  pipePicked.forEach(id=>{
+    const c = document.createElement('span');
+    c.className = 'pipe-slot-chip';
+    c.textContent = PIPE_STEPS[id].label;
+    pipeSlots.appendChild(c);
+  });
+}
+document.getElementById('pipeCheck').addEventListener('click', ()=>{
+  if(pipePicked.length < 6){
+    fbPipe.className = 'ex-feedback show bad';
+    fbPipe.textContent = '🕵️ החקירה עוד לא הושלמה: נשארו שלבים בבריכה. בחרו את כל ששת השלבים.';
+    return;
+  }
+  const ok = pipePicked.every((id,i)=>id === i);
+  fbPipe.className = 'ex-feedback show ' + (ok ? 'good' : 'bad');
+  fbPipe.textContent = ok
+    ? '🎯 סדר מושלם! שאלה, הצפנה, חיפוש, דירוג, פרומפט, תשובה. עכשיו אתם יודעים לקרוא כל דיאגרמת RAG בעולם.'
+    : '🤔 משהו בסדר החקירה השתבש. רמז: אי אפשר לחפש בארכיון לפני שהשאלה הפכה לווקטור, ואי אפשר לנסח תשובה לפני שהראיות בתיק. נסו איפוס.';
+});
+document.getElementById('pipeReset').addEventListener('click', ()=>{
+  pipePicked = [];
+  fbPipe.className = 'ex-feedback';
+  renderPipe();
+});
+renderPipe();
+</script>
+
+<script>
+/* ===== Glossary ===== */
+const TERMS = [
+  {he:'שליפה מוגברת ידע', en:'RAG', cat:'base', noir:'שיטת העבודה של הלשכה: קודם ראיות, אחר כך מסקנות.', def:'Retrieval Augmented Generation: שליפת מידע רלוונטי ממאגר ידע והזרקתו לפרומפט כדי שהמודל יענה על בסיסו.'},
+  {he:'מודל שפה גדול', en:'LLM', cat:'base', noir:'העד שיודע הכול: מבריק, רהוט, אבל מנותק מהארכיון שלכם.', def:'מודל שאומן על כמויות עצומות של טקסט ומייצר שפה. הידע שלו קפוא למועד האימון.'},
+  {he:'הזיה', en:'Hallucination', cat:'base', noir:'עדות שקר בביטחון מלא: ספציפית, משכנעת ומומצאת.', def:'תשובה שגויה או מומצאת שהמודל מציג כעובדה, לרוב כשאין לו מידע אמיתי.'},
+  {he:'פרומפט', en:'Prompt', cat:'base', noir:'תדרוך העד לפני העדות: ההוראות, ההקשר והשאלה.', def:'הקלט המלא שנשלח למודל: הנחיות מערכת, הקשר שנשלף והשאלה עצמה.'},
+  {he:'חלון הקשר', en:'Context Window', cat:'base', noir:'שולחן החקירה: כמה ראיות אפשר לפרוש עליו בבת אחת.', def:'כמות הטקסט המקסימלית שהמודל יכול לקבל ולעבד בפנייה אחת.'},
+  {he:'כוונון עדין', en:'Fine-tuning', cat:'base', noir:'קורס הסבה לעד: מלמד סגנון והתנהגות, לא עובדות חדשות.', def:'אימון המשך של מודל על דוגמאות ייעודיות, מתאים לסגנון ופורמט יותר מאשר להקניית ידע משתנה.'},
+  {he:'מאגר ידע', en:'Knowledge Base', cat:'archive', noir:'הארכיון של הלשכה: כל מה שהארגון יודע, מתויק במקום אחד.', def:'אוסף המסמכים והמקורות הארגוניים שמהם המערכת שולפת תשובות.'},
+  {he:'קליטת ידע', en:'Ingestion', cat:'archive', noir:'משמרת הלילה: איסוף, ניקוי ותיוק הראיות לפני שנכנסות לארכיון.', def:'תהליך הכנת המסמכים: איסוף, ניקוי, חיתוך, הטמעה ואחסון במאגר.'},
+  {he:'חיתוך לקטעים', en:'Chunking', cat:'archive', noir:'גזירת העיתונים: כל ראיה נחתכת לגזיר בגודל נכון, בלי לחתוך באמצע משפט.', def:'פיצול מסמכים לקטעים בגודל אחיד, רצוי לפי מבנה המסמך, כיחידות השליפה של המערכת.'},
+  {he:'חפיפת קטעים', en:'Chunk Overlap', cat:'archive', noir:'שוליים משותפים בין גזירים, שלא יאבד החוט המקשר.', def:'חזרה קטנה של סוף קטע בתחילת הקטע הבא, לשמירת רצף והקשר.'},
+  {he:'הטמעה וקטורית', en:'Embedding', cat:'archive', noir:'טביעת האצבע של כל ראיה: מספרים שמייצגים משמעות.', def:'המרת טקסט לווקטור מספרי כך שטקסטים דומים במשמעות מקבלים וקטורים קרובים.'},
+  {he:'מאגר וקטורי', en:'Vector DB', cat:'archive', noir:'ארון התיוק החכם: מוצא ראיות לפי דמיון, לא רק לפי שם.', def:'מסד נתונים שמאחסן וקטורים ומאפשר חיפוש מהיר לפי קרבה סמנטית.'},
+  {he:'מטא-דאטה', en:'Metadata', cat:'archive', noir:'התווית שעל כל ראיה: מקור, תאריך, גרסה, מי מורשה לראות.', def:'נתונים נלווים לכל קטע שמאפשרים סינון, עדכניות ואכיפת הרשאות.'},
+  {he:'שליפה', en:'Retrieval', cat:'query', noir:'שליפת התיקים הרלוונטיים מהארכיון ברגע שנכנסת שאלה.', def:'איתור הקטעים הרלוונטיים ביותר לשאלה מתוך המאגר, לרוב לפי דמיון וקטורי.'},
+  {he:'חיפוש סמנטי', en:'Semantic Search', cat:'query', noir:'בלש שמבין כוונות: מוצא "ימי מחלה" גם כששואלים "לא מרגיש טוב".', def:'חיפוש לפי משמעות ולא לפי התאמת מילים מדויקת, באמצעות השוואת וקטורים.'},
+  {he:'חיפוש היברידי', en:'Hybrid Search', cat:'query', noir:'שני בלשים במקום אחד: אחד מבין משמעות, השני לא מפספס מילת מפתח.', def:'שילוב חיפוש סמנטי עם חיפוש מילות מפתח קלאסי, חזק במיוחד לשמות ומספרי דגם.'},
+  {he:'ראש הרשימה', en:'Top-K', cat:'query', noir:'כמה חשודים מעלים למסדר: 3? 5? 10?', def:'מספר הקטעים שנשלפים מהמאגר עבור כל שאלה לפני ההרכבה לפרומפט.'},
+  {he:'דירוג מחדש', en:'Reranking', cat:'query', noir:'החוקר הבכיר עובר על החשודים ומסדר אותם מחדש לפי חוזק הראיות.', def:'מודל ייעודי שמדרג מחדש את הקטעים שנשלפו לפי רלוונטיות אמיתית לשאלה.'},
+  {he:'שכתוב שאילתה', en:'Query Rewriting', cat:'query', noir:'ניסוח מחדש של התלונה לפני שיוצאים לשטח, שהחיפוש יקלע.', def:'שיפור או פיצול השאלה המקורית לפני החיפוש כדי להעלות את איכות השליפה.'},
+  {he:'RAG סוכני', en:'Agentic RAG', cat:'query', noir:'המפקח-על: מחליט לבד איפה לחפש, מפצל חקירות ובודק את עצמו.', def:'ארכיטקטורה שבה סוכן AI מתכנן את החיפוש, משלב מקורות ומריץ צעדים מרובים לפי הצורך.'},
+  {he:'ציטוט מקור', en:'Citation', cat:'qa', noir:'החתימה על העדות: איזה מסמך, איזה עמוד, איזה סעיף.', def:'הפניה מדויקת למקור שעליו מבוססת התשובה, לצורך אימות ואמון.'},
+  {he:'נאמנות למקור', en:'Groundedness', cat:'qa', noir:'החקירה הנגדית: האם כל משפט בעדות באמת נשען על ראיה בתיק?', def:'מדד לכך שכל טענה בתשובה נתמכת בקטעים שנשלפו, ולא הומצאה.'},
+  {he:'כיסוי ודיוק', en:'Recall / Precision', cat:'qa', noir:'האם אספנו את כל הראיות הרלוונטיות, וכמה מהשלל באמת שווה משהו.', def:'Recall: כמה מהקטעים הרלוונטיים אכן נשלפו. Precision: כמה מהנשלף אכן רלוונטי.'},
+  {he:'מאגר בוחן', en:'Golden Set', cat:'qa', noir:'תרגיל הכשירות של הלשכה: אוסף תיקים פתורים שכל שינוי נבחן מולו.', def:'אוסף קבוע של שאלות עם תשובות ומקורות מאושרים, להרצת בדיקות על כל שינוי במערכת.'}
+];
+const glossGrid = document.getElementById('glossGrid');
+const glossEmpty = document.getElementById('glossEmpty');
+const CAT_NAMES = {base:'יסודות', archive:'הארכיון', query:'החקירה', qa:'בית המשפט'};
+let activeCat = 'all';
+function renderGloss(){
+  const q = document.getElementById('glossSearch').value.trim().toLowerCase();
+  glossGrid.innerHTML = '';
+  let n = 0;
+  TERMS.forEach(t=>{
+    if(activeCat !== 'all' && t.cat !== activeCat) return;
+    const hay = (t.he + ' ' + t.en + ' ' + t.noir + ' ' + t.def).toLowerCase();
+    if(q && !hay.includes(q)) return;
+    n++;
+    const d = document.createElement('div');
+    d.className = 'gloss-card';
+    d.innerHTML = '<div class="g-head"><h4>' + t.he + '</h4><span class="g-en">' + t.en + '</span></div>'
+      + '<div class="g-noir"><b>בשפת הלשכה</b>' + t.noir + '</div>'
+      + '<div class="g-def">' + t.def + '</div>';
+    glossGrid.appendChild(d);
+  });
+  glossEmpty.style.display = n ? 'none' : 'block';
+}
+document.getElementById('glossSearch').addEventListener('input', renderGloss);
+document.querySelectorAll('#glossCats .chip-btn').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    document.querySelectorAll('#glossCats .chip-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    activeCat = b.dataset.cat;
+    renderGloss();
+  });
+});
+renderGloss();
+
+/* ===== Checklist ===== */
+const CHECK_GROUPS = [
+  {title:'לפני שפותחים תיק', icon:'🔎', items:[
+    'הגדרנו מקרה שימוש אחד ממוקד עם כאב אמיתי ומדיד',
+    'וידאנו שהבעיה היא ידע (ולא סגנון או פורמט) ושהמידע לא נכנס בפרומפט בודד',
+    'מיפינו את מקורות האמת: איפה באמת נמצאות התשובות',
+    'יש בעלים מוגדר לידע: מי אחראי שהמסמכים נכונים ומעודכנים',
+    'הגדרנו מדדי הצלחה: אחוז תשובות נכונות, זמן חיפוש שנחסך, שביעות רצון'
+  ]},
+  {title:'בזמן ההקמה', icon:'🏗️', items:[
+    'ניקינו את המאגר: בלי כפילויות, טיוטות וגרסאות שפג תוקפן',
+    'בחרנו אסטרטגיית חיתוך שמכבדת את מבנה המסמכים, עם חפיפה',
+    'כל קטע מתויג במטא-דאטה: מקור, תאריך, גרסה, הרשאות',
+    'הפרומפט מחייב תשובה מההקשר בלבד ומתיר לומר "אני לא יודע"',
+    'כל תשובה כוללת ציטוט מקור שניתן ללחוץ עליו ולוודא'
+  ]},
+  {title:'לפני עלייה לאוויר', icon:'⚖️', items:[
+    'בנינו מאגר בוחן של שאלות אמיתיות עם תשובות מאושרות',
+    'בדקנו שליפה ותשובות בנפרד: Recall, Precision, נאמנות למקור',
+    'הרצנו שאלות עוינות: מידע חסר, שאלות מחוץ לתחום, ניסיונות חילוץ',
+    'וידאנו שהרשאות נאכפות: כל משתמש רואה רק את מה שמותר לו',
+    'מדדנו זמן תגובה ועלות לשאלה בעומס מציאותי'
+  ]},
+  {title:'תפעול שוטף', icon:'🔄', items:[
+    'סנכרון אוטומטי מול מקורות האמת פועל ונבדק',
+    'ניטור רציף: שאלות בלי תשובה טובה מסומנות ונאספות',
+    'ערוץ משוב פשוט למשתמשים, ומישהו שבאמת קורא אותו',
+    'מאגר הבוחן רץ מחדש על כל שינוי: מודל, חיתוך, מסמכים',
+    'יש בעלים קבוע למערכת עם זמן מוקצה לתחזוקה'
+  ]}
+];
+const checkGroups = document.getElementById('checkGroups');
+let checkTotal = 0;
+CHECK_GROUPS.forEach((g, gi)=>{
+  const box = document.createElement('div');
+  box.className = 'check-group';
+  let items = '';
+  g.items.forEach((it, ii)=>{
+    checkTotal++;
+    const id = 'chk-' + gi + '-' + ii;
+    items += '<div class="check-item"><input type="checkbox" id="' + id + '"><label for="' + id + '">' + it + '</label></div>';
+  });
+  box.innerHTML = '<h4><span>' + g.icon + '</span>' + g.title + '</h4><div class="check-items">' + items + '</div>';
+  checkGroups.appendChild(box);
+});
+function updCheck(){
+  const done = document.querySelectorAll('#checkGroups input:checked').length;
+  document.getElementById('cpCount').textContent = done + '/' + checkTotal;
+  document.getElementById('cpFill').style.width = (done / checkTotal * 100) + '%';
+}
+checkGroups.addEventListener('change', e=>{
+  if(e.target.matches('input[type="checkbox"]')){
+    e.target.closest('.check-item').classList.toggle('done', e.target.checked);
+    updCheck();
+  }
+});
+updCheck();
+</script>
+<!-- /BODY -->
+</body>
+</html>
