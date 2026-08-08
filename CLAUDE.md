@@ -42,6 +42,10 @@ All the live apps (Daily Board, Post Brainstorm, Daily Director) and this lab in
 - `app/data/classes.json` is the single source of truth for the taxonomy, the demo kids and the classes. `app/data/classes.js` is a **generated mirror** of it (`window.APP_DATA`) so the screens run without `fetch` under `file://`. Edit the JSON, then regenerate the JS. Never edit `classes.js` by hand.
 - The case-study images in `hachug-sheli/content/shots/` are generated from the live screens by `hachug-sheli/scripts/make-shots.js` (`node scripts/make-shots.js` from inside `hachug-sheli/`). Re-run it after any UI change instead of hand-editing a PNG.
 
+## Moving Higgsfield images into the repo (verified 8.8.2026)
+
+The Cowork sandbox proxy blocks the Higgsfield CDN (cloudfront), but the **Higgsfield sandbox (`sandbox_exec`) has open egress to both the CDN and github.com**. So never relay images through context/subagents again — run the whole pipeline inside `sandbox_exec`: sparse-clone the repo (`--depth 1 --filter=blob:none --sparse`), `curl` each CDN URL from the project's `imgfetch.txt`, convert with ImageMagick (`-resize '1600>' -quality 82` to webp into `<project>/img/N.webp`), one commit, push with the usual Basic-auth `http.extraHeader`. 33 images took ~45s. Use `background:true` + polling, and delete the auth file from the sandbox when done. Each new-world page maps images via its `IMAGES` object and `imgfetch.txt` holds `N URL` lines — keep that convention.
+
 ## Burning Hebrew captions into a film (learned 1.8.2026, the hard way)
 
 The edit runs inside the Higgsfield sandbox (`sandbox_exec`), because the Cowork sandbox proxy blocks the Higgsfield CDN and the clips cannot be downloaded here.
