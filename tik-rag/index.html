@@ -141,13 +141,14 @@ section{padding:52px 0;position:relative}
 .translate-box{
   background:var(--paper2);border:2px dashed var(--orange-deep);border-radius:10px;padding:14px 16px;margin-top:16px;
 }
-.translate-box h4{font-size:.85rem;font-family:'Rubik';color:var(--orange-deep);letter-spacing:.05em;margin-bottom:10px}
-.translate-box table{width:100%;border-collapse:collapse;font-size:.88rem}
-.translate-box td{padding:6px 4px;border-bottom:1px solid rgba(22,36,58,.14);vertical-align:top}
-.translate-box td:first-child{font-weight:700;white-space:nowrap;color:var(--ink)}
-.translate-box td:last-child{color:#41527078}
-.translate-box td.term{color:#31456e;direction:ltr;text-align:left;font-family:'Rubik';font-weight:500;white-space:nowrap}
-.translate-box tr:last-child td{border-bottom:none}
+.translate-box h4{font-size:.85rem;font-family:'Rubik';color:var(--orange-deep);letter-spacing:.05em;margin-bottom:6px}
+.translate-box table,.translate-box tbody{display:block;width:100%;font-size:.88rem}
+.translate-box tr{display:grid;grid-template-columns:1fr auto;column-gap:10px;row-gap:3px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(22,36,58,.14)}
+.translate-box tr:last-child{border-bottom:none;padding-bottom:2px}
+.translate-box td{display:block;padding:0;border:none}
+.translate-box td:first-child{grid-column:1;grid-row:1;font-weight:700;color:var(--ink);line-height:1.4}
+.translate-box td.term{grid-column:2;grid-row:1;justify-self:end;direction:ltr;font-family:'Rubik';font-weight:700;font-size:.72rem;color:var(--paper);background:var(--ink);padding:3px 11px;border-radius:999px;white-space:nowrap}
+.translate-box td:last-child{grid-column:1 / -1;color:#5A6A8A;font-size:.84rem;line-height:1.5}
 
 /* red string timeline on desktop */
 .chapters-flow{position:relative}
@@ -301,7 +302,7 @@ section{padding:52px 0;position:relative}
 }
 .certificate .medal{font-size:2.6rem}
 .certificate h3{font-size:1.6rem;font-weight:900;margin:8px 0 4px}
-.certificate p{font-size:.92rem;color:#41527090;max-width:520px;margin:0 auto 8px}
+.certificate p{font-size:.92rem;color:#5A6A8A;max-width:520px;margin:0 auto 8px}
 .cert-stamp{
   display:inline-block;margin-top:14px;font-family:'Rubik';font-weight:900;color:var(--red);
   border:3px solid var(--red);border-radius:8px;padding:4px 18px;transform:rotate(-4deg);font-size:1rem;letter-spacing:.12em;
