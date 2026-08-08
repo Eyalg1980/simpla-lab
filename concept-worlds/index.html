@@ -75,6 +75,8 @@ details.fold summary .hintword{font-weight:400;font-size:.78rem;color:rgba(255,2
 .badge.live{background:#E7F3EC;color:var(--ok)}
 .badge.exp{background:#FDEBEE;color:var(--red)}
 .badge.pool{background:#EFEFEF;color:var(--soft)}
+a.plink{display:inline-block;font-family:'Rubik';font-weight:700;font-size:.7rem;color:#fff;background:var(--red);text-decoration:none;padding:2px 10px;margin-inline-start:8px;vertical-align:2px}
+a.plink:hover{background:var(--navy)}
 
 /* ===== Experiment card ===== */
 .exp-card{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--red);padding:18px 20px}
@@ -159,12 +161,12 @@ footer b{color:#fff;font-family:'Rubik'}
 <section style="padding-bottom:14px">
   <div class="wrap">
     <details class="fold reveal">
-      <summary>סדר הבנייה של הסדרה <span class="hintword">2 באוויר, 4 בתור, 4 במאגר</span><span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+      <summary>סדר הבנייה של הסדרה <span class="hintword">3 באוויר, 3 בתור, 4 במאגר</span><span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
       <div class="plan">
-        <div class="plan-item done"><span class="pn">✓</span><div><b>תיק RAG | הבלש<span class="badge live">חי</span></b><span>האב-טיפוס של הסדרה: 10 פרקי חקירה, 5 תרגילים, מילון, צ'ק-ליסט ודסקטופ מלא</span></div></div>
-        <div class="plan-item done"><span class="pn">✓</span><div><b>צוות המשימה | סוכני AI<span class="badge live">חי</span><span class="badge exp">ניסוי הסקראבינג הצליח</span></b><span>10 שלבי תדריך, 5 אימונים, והירו הראשון בסדרה עם וידאו שמגיב לגלילה</span></div></div>
-        <div class="plan-item next"><span class="pn">3</span><div><b>המטבח | הנדסת פרומפטים</b><span>הבא בתור: מודול הפתיחה של הקורס, עולם קליי חם ומשחקי</span></div></div>
-        <div class="plan-item"><span class="pn">4</span><div><b>המרכזייה | API ו-Webhooks</b><span>העולם שמסביר את שפת החיבורים של כל האוטומציות</span></div></div>
+        <div class="plan-item done"><span class="pn">✓</span><div><b>תיק RAG | הבלש<span class="badge live">חי</span><a class="plink" href="../tik-rag/">פתחו ←</a></b><span>האב-טיפוס של הסדרה: 10 פרקי חקירה, 5 תרגילים, מילון, צ'ק-ליסט ודסקטופ מלא</span></div></div>
+        <div class="plan-item done"><span class="pn">✓</span><div><b>צוות המשימה | סוכני AI<span class="badge live">חי</span><span class="badge exp">ניסוי הסקראבינג הצליח</span><a class="plink" href="../mission-team/">פתחו ←</a></b><span>10 שלבי תדריך, 5 אימונים, והירו הראשון בסדרה עם וידאו שמגיב לגלילה</span></div></div>
+        <div class="plan-item done"><span class="pn">✓</span><div><b>המטבח | הנדסת פרומפטים<span class="badge live">חי</span><span class="badge exp">סיר שמתבשל בגלילה + בונה מתכונים חי</span><a class="plink" href="../kitchen/">פתחו ←</a></b><span>מודול הפתיחה של הקורס: 10 פרקים, בונה מתכונים, סליידר לפני/אחרי ומד חום תנור</span></div></div>
+        <div class="plan-item next"><span class="pn">4</span><div><b>המרכזייה | API ו-Webhooks</b><span>העולם שמסביר את שפת החיבורים של כל האוטומציות</span></div></div>
         <div class="plan-item"><span class="pn">5</span><div><b>מכרה הזהב | דאטה וידע ארגוני</b><span>התשתית של כל השאר: כרייה, ניפוי וזיקוק של הידע</span></div></div>
         <div class="plan-item"><span class="pn">6</span><div><b>המושבה | הטמעת AI בארגון</b><span>סוגר את המסע: מהכלים אל האנשים והתרבות</span></div></div>
         <div class="plan-item"><span class="pn">•</span><div><b>מאגר: הרכבת, האדריכל, משמר הכספת, הגוף<span class="badge pool">בהמתנה</span></b><span>אוטומציות, Vibe Coding, אבטחה והתרגיל המתגלגל: מוכנים עם עולם ושפה, ייכנסו לתור לפי הצורך</span></div></div>
@@ -212,7 +214,7 @@ footer b{color:#fff;font-family:'Rubik'}
     <div class="worlds">
 
       <div class="world reveal" style="--wc:#D94F3D">
-        <div class="cover"><img data-img="1" alt="המטבח"><span class="st next">הבא בתור לבנייה</span><span class="mod">מודול 1</span></div>
+        <div class="cover"><img data-img="1" alt="המטבח"><span class="st live">חי באוויר</span><span class="mod">מודול 1</span></div>
         <div class="body">
           <span class="topic">Prompt Engineering | הנדסת פרומפטים</span>
           <h3>👨‍🍳 המטבח</h3>
@@ -222,20 +224,21 @@ footer b{color:#fff;font-family:'Rubik'}
           <div class="meta-line"><b>אופי האתר</b>חם, משחקי ותיאבוני: אתר שמריח כמו סדנת בישול, עם הרבה ידיים בבצק.</div>
           <div class="meta-line"><b>התרגיל המרכזי</b>"תקנו את המתכון": מקבלים פרומפט גרוע ותוצאה גרועה, ומשפרים בשלוש טעימות עד מנה מדויקת.</div>
           <div class="style-block">Colorful claymation pop-art, soft plasticine textures, playful stop-motion look, saturated red yellow and teal palette, warm cozy lighting, no text</div>
+          <a class="visit" href="../kitchen/">פתחו את המתכון ←</a>
         </div>
       </div>
 
-      <div class="world reveal" style="--wc:#B8860B">
+      <div class="world reveal" style="--wc:#F2A900">
         <div class="cover"><img data-img="6" alt="מכרה הזהב"><span class="st queue">בתור הבנייה: 5</span><span class="mod">מודול 2</span></div>
         <div class="body">
           <span class="topic">Data and Knowledge | דאטה וידע ארגוני</span>
           <h3>⛏️ מכרה הזהב</h3>
           <div class="meta-line"><b>המטאפורה</b>הידע הארגוני הוא עפרת זהב במעמקים: כרייה, ניפוי, זיקוק ואחסון בכספת. דאטה מלוכלך הוא עפרה שמרעילה את הכול.</div>
-          <div class="meta-line"><b>השפה הגרפית</b>ספר הרפתקאות: אור פנסים דרמטי במנהרות כהות.</div>
-          <div class="meta-line"><b>הצבעוניות</b><span class="sw-row"><span class="sw" style="background:#B8860B"></span><span class="sw" style="background:#5C4022"></span><span class="sw" style="background:#2A1E14"></span><span class="sw-names">זהב, חום אדמה, חשכת מנהרה</span></span></div>
-          <div class="meta-line"><b>אופי האתר</b>הרפתקני ומסתורי: תחושת חפירה וגילוי, כל סעיף הוא עוד מטר לתוך ההר.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>מנגה יפנית פופ-ארטית: קווי דיו נועזים, נקודות סקרינטון, קווי מהירות ופרצופים אקספרסיביים. הרפתקת שונן של ציידי דאטה.</div>
+          <div class="meta-line"><b>הצבעוניות</b><span class="sw-row"><span class="sw" style="background:#F2A900"></span><span class="sw" style="background:#2E6FE3"></span><span class="sw" style="background:#F24E8A"></span><span class="sw-names">זהב בוהק, כחול חשמלי, ורוד פופ</span></span></div>
+          <div class="meta-line"><b>אופי האתר</b>אנרגטי ודרמטי: פרקים כמו פרקי מנגה, גילויים עם קווי מהירות, וכל תובנה היא אוצר שנחשף.</div>
           <div class="meta-line"><b>התרגיל המרכזי</b>"ניפוי העפרה": ממיינים ערימת דאטה אמיתית: כפילויות, גרסאות ישנות ורעש, ומחליטים מה ראוי להיכנס לכספת.</div>
-          <div class="style-block">Storybook adventure style, warm lantern light in dark tunnels, deep brown amber and gold palette, dramatic glow, no text</div>
+          <div class="style-block">Japanese manga pop-art, bold ink lines, screentone dot shading, dynamic speed lines, vivid gold electric blue and hot pink palette, energetic shonen adventure style, no text</div>
         </div>
       </div>
 

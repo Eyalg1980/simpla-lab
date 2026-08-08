@@ -760,7 +760,7 @@ addEventListener('scroll',updProgress,{passive:true});updProgress();
   };
   const steam=document.getElementById('sp-steam');
   const dish=document.getElementById('sp-dish');
-  const POTY=60;
+  const POTY=66;
   if(reduced){
     Object.values(S).forEach(s=>s.el.style.display='none');
     steam.style.display='none';
@@ -783,12 +783,12 @@ addEventListener('scroll',updProgress,{passive:true});updProgress();
       s.el.style.transform='translate(-50%,-50%) rotate('+(s.rot*t)+'deg)';
     }
     const st=Math.min(1,Math.max(0,(p-0.42)/0.3));
-    steam.style.top=(POTY-24-st*10)+'%';
+    steam.style.top=(POTY-15-st*8)+'%';
     steam.style.left='50%';
     steam.style.opacity=st*(p>0.86?Math.max(0,1-(p-0.86)/0.08):1)*0.95;
-    steam.style.transform='translate(-50%,-50%) scale('+(0.6+st*0.8)+')';
+    steam.style.transform='translate(-50%,-50%) scale('+(0.5+st*0.6)+')';
     const dt=Math.min(1,Math.max(0,(p-0.8)/0.18));
-    dish.style.top=(POTY-4-dt*20)+'%';
+    dish.style.top=(POTY-2-dt*16)+'%';
     dish.style.left='50%';
     dish.style.opacity=dt;
     dish.style.transform='translate(-50%,-50%) scale('+(0.6+dt*0.45)+') rotate('+((1-dt)*-8)+'deg)';
