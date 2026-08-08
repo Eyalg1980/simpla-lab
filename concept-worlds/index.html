@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>מפת העולמות | סדרת אתרי הקונספט</title>
-<meta name="description" content="האטלס של סדרת אתרי הקונספט למיישמי AI בארגונים: כל נושא, העולם שלו, השפה הגרפית שלו ותוכנית העבודה.">
+<meta name="description" content="האטלס של סדרת אתרי הקונספט למיישמי AI בארגונים: כל מודול בקורס, העולם שלו, הצבעוניות, האופי, התרגיל המרכזי, והתרגיל המתגלגל שמחבר את הכול לגוף אחד.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@ header.top{padding:14px 0;border-bottom:2px solid var(--ink);background:rgba(11,
 .hero .stamp{display:inline-block;font-family:'Rubik';font-weight:900;color:var(--gold);border:3px solid var(--gold);
   border-radius:8px;padding:3px 16px;font-size:.82rem;transform:rotate(-2deg);letter-spacing:.1em;margin-bottom:16px}
 .hero h1{font-size:clamp(2.2rem,7vw,3.6rem);font-weight:900;color:#fff}
-.hero p{color:var(--muted);max-width:640px;margin:14px auto 0;font-size:1rem}
+.hero p{color:var(--muted);max-width:680px;margin:14px auto 0;font-size:1rem}
 .hero p b{color:var(--text)}
 
 section{padding:40px 0}
@@ -40,7 +40,7 @@ section{padding:40px 0}
   font-size:.78rem;padding:5px 16px;border-radius:999px;letter-spacing:.08em;margin-bottom:12px;border:1.5px solid rgba(232,184,75,.35)}
 .sec-h{text-align:center;margin-bottom:26px}
 .sec-h h2{font-size:clamp(1.5rem,5vw,2.2rem);font-weight:900;color:#fff}
-.sec-h p{color:var(--muted);max-width:600px;margin:8px auto 0;font-size:.95rem}
+.sec-h p{color:var(--muted);max-width:640px;margin:8px auto 0;font-size:.95rem}
 
 /* ===== Work plan ===== */
 .plan{max-width:760px;margin:0 auto;display:grid;gap:10px}
@@ -65,6 +65,19 @@ section{padding:40px 0}
 .exp-card p{font-size:.92rem;color:var(--text);margin-bottom:8px}
 .exp-card p:last-child{margin-bottom:0}
 .exp-card b{color:#fff}
+.exp-card a{color:var(--gold)}
+
+/* ===== Rolling project: the body ===== */
+.organs{max-width:860px;margin:20px auto 0;display:grid;gap:8px}
+.organ{display:grid;grid-template-columns:auto 1fr;gap:12px;background:var(--night2);border:2px solid var(--ink);
+  border-radius:10px;padding:11px 14px;align-items:start}
+.organ .o-ico{font-size:1.5rem;margin-top:2px}
+.organ b{font-family:'Rubik';font-size:.94rem;color:#fff}
+.organ .o-mod{display:inline-block;font-size:.66rem;font-family:'Rubik';font-weight:700;color:var(--gold);
+  border:1px solid rgba(232,184,75,.4);border-radius:999px;padding:1px 9px;margin-inline-start:7px;vertical-align:2px}
+.organ .o-desc{display:block;font-size:.83rem;color:var(--muted)}
+.tracks-note{max-width:860px;margin:14px auto 0;text-align:center;font-size:.88rem;color:var(--muted)}
+.tracks-note b{color:var(--text)}
 
 /* ===== World cards ===== */
 .worlds{display:grid;gap:22px}
@@ -78,11 +91,17 @@ section{padding:40px 0}
 .world .cover .st.next{background:var(--gold);color:var(--night)}
 .world .cover .st.queue{background:#F4EEE2;color:var(--ink)}
 .world .cover .st.pool{background:#93A3BD;color:var(--night)}
+.world .cover .st.body{background:#7A1F2B;color:#F4EEE2}
+.world .cover .mod{position:absolute;top:12px;left:12px;font-family:'Rubik';font-weight:700;font-size:.68rem;
+  background:rgba(11,18,32,.88);color:#EFE9DC;border:1.5px solid rgba(232,184,75,.55);padding:4px 11px;border-radius:999px}
 .world .body{padding:16px 18px 20px;border-top:6px solid var(--wc,#E8B84B)}
 .world .body .topic{font-family:'Rubik';font-weight:700;font-size:.78rem;color:var(--wc,#8a6);letter-spacing:.03em}
 .world .body h3{font-size:1.35rem;font-weight:900;margin:2px 0 8px}
 .world .body .meta-line{font-size:.9rem;margin-bottom:8px}
 .world .body .meta-line b{font-family:'Rubik';font-size:.76rem;color:#5A6A8A;display:block}
+.sw-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:2px}
+.sw{width:20px;height:20px;border-radius:6px;border:2px solid var(--ink);display:inline-block}
+.sw-row .sw-names{font-size:.78rem;color:#5A6A8A}
 .world .style-block{background:#101827;color:#CFE0F5;border-radius:10px;padding:10px 12px;direction:ltr;text-align:left;
   font-family:monospace;font-size:.72rem;line-height:1.6;margin-top:10px;border:2px solid var(--ink)}
 .world .style-block::before{content:"STYLE BLOCK";display:block;font-family:'Rubik';font-weight:700;font-size:.62rem;
@@ -100,6 +119,7 @@ footer b{color:var(--gold);font-family:'Rubik'}
 @media(min-width:1024px){
   .worlds{grid-template-columns:1fr 1fr;align-items:start}
   .hero{padding:56px 0 26px}
+  .organs{grid-template-columns:1fr 1fr;max-width:1000px}
 }
 </style>
 </head>
@@ -116,8 +136,8 @@ footer b{color:var(--gold);font-family:'Rubik'}
 <div class="hero">
   <div class="wrap">
     <div class="stamp">אטלס הסדרה</div>
-    <h1>תשעה עולמות, תשעה נושאים</h1>
-    <p>סדרת אתרי קונספט למיישמי AI בארגונים. כל נושא בסילבוס מקבל <b>עולם סיפורי משלו</b>: מטאפורה שנושאת את כל החומר, שפה גרפית עקבית, תרגילים אינטראקטיביים ומילון מושגים. זה הדף שבו כולם נפגשים.</p>
+    <h1>עשרה עולמות, קורס אחד</h1>
+    <p>סדרת אתרי קונספט לקורס <b>מיישם AI ואוטומציה</b>. כל מודול בקורס מקבל עולם סיפורי משלו: מטאפורה, שפה גרפית, צבעוניות, אופי ותרגיל מרכזי. ומעל כולם, <b>התרגיל המתגלגל</b>: הגוף שאליו כל מודול משתיל איבר חדש. העולמות מסודרים כאן לפי סדר הלימוד.</p>
   </div>
 </div>
 
@@ -127,130 +147,195 @@ footer b{color:var(--gold);font-family:'Rubik'}
     <div class="plan reveal">
       <div class="plan-item done"><span class="pn">✓</span><div><b>תיק RAG | הבלש<span class="badge live">חי</span></b><span>האב-טיפוס של הסדרה: 10 פרקי חקירה, 5 תרגילים, מילון, צ'ק-ליסט ודסקטופ מלא</span></div></div>
       <div class="plan-item done"><span class="pn">✓</span><div><b>צוות המשימה | סוכני AI<span class="badge live">חי</span><span class="badge exp">ניסוי הסקראבינג הצליח</span></b><span>10 שלבי תדריך, 5 אימונים, והירו הראשון בסדרה עם וידאו שמגיב לגלילה</span></div></div>
-      <div class="plan-item"><span class="pn">2</span><div><b>המטבח | הנדסת פרומפטים</b><span>שיעור מוקדם בקורס, עולם קליי חם ומשחקי</span></div></div>
-      <div class="plan-item"><span class="pn">3</span><div><b>המרכזייה | API ו-Webhooks</b><span>העולם שמסביר את שפת החיבורים של כל האוטומציות</span></div></div>
-      <div class="plan-item"><span class="pn">4</span><div><b>מכרה הזהב | דאטה וידע ארגוני</b><span>התשתית של כל השאר: כרייה, ניפוי וזיקוק של הידע</span></div></div>
-      <div class="plan-item"><span class="pn">5</span><div><b>המושבה | הטמעת AI בארגון</b><span>סוגר את המסע: מהכלים אל האנשים והתרבות</span></div></div>
-      <div class="plan-item pool"><span class="pn">•</span><div><b>מאגר: הרכבת, האדריכל, משמר הכספת<span class="badge pool">בהמתנה</span></b><span>אוטומציות n8n, Vibe Coding ואבטחה: מוכנים עם עולם ושפה, ייכנסו לתור לפי הצורך</span></div></div>
+      <div class="plan-item next"><span class="pn">3</span><div><b>המטבח | הנדסת פרומפטים</b><span>הבא בתור: מודול הפתיחה של הקורס, עולם קליי חם ומשחקי</span></div></div>
+      <div class="plan-item"><span class="pn">4</span><div><b>המרכזייה | API ו-Webhooks</b><span>העולם שמסביר את שפת החיבורים של כל האוטומציות</span></div></div>
+      <div class="plan-item"><span class="pn">5</span><div><b>מכרה הזהב | דאטה וידע ארגוני</b><span>התשתית של כל השאר: כרייה, ניפוי וזיקוק של הידע</span></div></div>
+      <div class="plan-item"><span class="pn">6</span><div><b>המושבה | הטמעת AI בארגון</b><span>סוגר את המסע: מהכלים אל האנשים והתרבות</span></div></div>
+      <div class="plan-item pool"><span class="pn">•</span><div><b>מאגר: הרכבת, האדריכל, משמר הכספת, הגוף<span class="badge pool">בהמתנה</span></b><span>אוטומציות, Vibe Coding, אבטחה והתרגיל המתגלגל: מוכנים עם עולם ושפה, ייכנסו לתור לפי הצורך</span></div></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="sec-h reveal"><span class="sec-kicker">הניסוי הבא</span><h2>הירו עם וידאו-סקראבינג</h2></div>
+    <div class="sec-h reveal"><span class="sec-kicker">הניסוי הצליח</span><h2>הירו עם וידאו-סקראבינג</h2></div>
     <div class="exp-card reveal">
-      <h3>🎬 מה הולך לקרות בצוות המשימה</h3>
-      <p><b>הרעיון:</b> במקום תמונת הירו סטטית, סרטון לופ קצר (4-6 שניות) שנוצר בהיגספילד ומגיב לגלילה: הגלילה היא הטיימליין. גוללים קדימה, הסצנה מתקדמת. עוצרים, היא קופאת.</p>
-      <p><b>למה דווקא סוכני AI:</b> העולם הזה נותן סצנה עם התקדמות טבעית שמושלמת לסקראבינג: תיק משימה שנפתח על השולחן, הכלים נפרשים מהמזוודה, הצוות מתייצב. לגלול = לתדרך את המשימה.</p>
-      <p><b>איך טכנית:</b> הסרטון מפורק לרצף פריימים דחוסים, ו-canvas מצייר את הפריים המתאים לעומק הגלילה. חלק, עובד גם במובייל, בלי תלות בנגן וידאו.</p>
+      <h3>🎬 רץ עכשיו בצוות המשימה</h3>
+      <p><b>הרעיון:</b> במקום תמונת הירו סטטית, סרטון קצר שנוצר בהיגספילד ומגיב לגלילה: הגלילה היא הטיימליין. גוללים קדימה, המזוודה נפתחת והגאדג'טים נחשפים. עוצרים, הסצנה קופאת.</p>
+      <p><b>איך טכנית:</b> וידאו 5 שניות מפורק ל-62 פריימים דחוסים, ו-canvas מצייר את הפריים המתאים לעומק הגלילה. חלק, עובד גם במובייל, בלי תלות בנגן וידאו.</p>
+      <p><a href="../mission-team/">לחוויה עצמה: צוות המשימה ←</a></p>
     </div>
   </div>
 </section>
 
+<!-- ===== Rolling project: the body ===== -->
+<section id="rolling">
+  <div class="wrap">
+    <div class="sec-h reveal">
+      <span class="sec-kicker">התרגיל המתגלגל</span>
+      <h2>🫀 הגוף: מערכת אחת שנבנית כל הקורס</h2>
+      <p>לאורך הקורס כל סטודנט בונה מערכת אמיתית אחת בשלושה מסלולים לבחירה. הקונספט: המערכת היא גוף אדם. כל מודול לא רק מלמד נושא, הוא משתיל בגוף איבר חדש, והמערכת קמה לחיים בהדרגה.</p>
+    </div>
+    <div class="organs reveal">
+      <div class="organ"><span class="o-ico">🧠</span><div><b>המוח<span class="o-mod">מודול 1 | פרומפטים ומודלים</span></b><span class="o-desc">המערכת לומדת לחשוב: מנסחים את ההנחיות שיפעילו כל חלק בגוף, ובוחרים את המודל הנכון לכל תפקיד.</span></div></div>
+      <div class="organ"><span class="o-ico">🦴</span><div><b>השלד<span class="o-mod">מודול 2 | דאטה וידע</span></b><span class="o-desc">מבנה הנתונים של הפרויקט: ישויות, טבלאות ושדות. מה שמחזיק את כל הגוף זקוף, גם כשלא רואים אותו.</span></div></div>
+      <div class="organ"><span class="o-ico">💭</span><div><b>הזיכרון<span class="o-mod">מודול 3 | RAG</span></b><span class="o-desc">המערכת נזכרת: מאגר הידע של הפרויקט נהיה בר-שליפה, ותשובות מתחילות להגיע עם מקורות.</span></div></div>
+      <div class="organ"><span class="o-ico">🫀</span><div><b>מחזור הדם<span class="o-mod">מודול 4 | API וחיבורים</span></b><span class="o-desc">החמצן מתחיל לזרום: נתונים עוברים בין האיברים ואל מערכות חיצוניות דרך עורקי ה-API וה-Webhooks.</span></div></div>
+      <div class="organ"><span class="o-ico">⚡</span><div><b>מערכת העצבים<span class="o-mod">מודול 5 | אוטומציות n8n</span></b><span class="o-desc">רפלקסים: גירוי נקלט, תגובה יוצאת, בלי לחשוב פעמיים. הטפסים, ההתראות והעדכונים רצים לבד.</span></div></div>
+      <div class="organ"><span class="o-ico">🖐️</span><div><b>הידיים<span class="o-mod">מודול 6 | סוכני AI</span></b><span class="o-desc">הגוף פועל בעולם: משימות רב-שלביות שדורשות שיקול דעת עוברות לסוכנים עם כלים וגבולות.</span></div></div>
+      <div class="organ"><span class="o-ico">🧫</span><div><b>תאי הגזע<span class="o-mod">מודול 7 | Vibe Coding</span></b><span class="o-desc">הגוף מצמיח איברים שלא היו בתוכנית: מסכים ויכולות חדשות שנבנים בשיחה, בלי קוד ידני.</span></div></div>
+      <div class="organ"><span class="o-ico">🛡️</span><div><b>מערכת החיסון<span class="o-mod">מודול 8 | אבטחה</span></b><span class="o-desc">הגוף לומד לזהות גורם זר: הרשאות, גבולות סמכות והגנה מהזרקות פקודות.</span></div></div>
+      <div class="organ"><span class="o-ico">🫁</span><div><b>הלב והנשימה<span class="o-mod">מודול 9 | הטמעה ארגונית</span></b><span class="o-desc">מה שמחייה את הגוף לאורך זמן: האנשים, התרבות והשגרה שגורמים למערכת לנשום בארגון אמיתי.</span></div></div>
+    </div>
+    <p class="tracks-note reveal"><b>שלושת המסלולים, אנטומיה אחת:</b> ניהול לקוחות ולידים (CRM), פורטל לקוחות וזימון תורים, ומלאי, רכש ומשימות. שלושה גופים שונים, אותם איברים בדיוק. בסוף כל מודול שואלים את אותה שאלה: האיבר החדש הושתל, והגוף עדיין חי?</p>
+  </div>
+</section>
+
+<!-- ===== Worlds atlas, in course order ===== -->
 <section>
   <div class="wrap">
-    <div class="sec-h reveal"><span class="sec-kicker">האטלס</span><h2>העולמות והשפה הגרפית</h2><p>כל כרטיס: השער שנוצר בהיגספילד, המטאפורה, השפה הגרפית ובלוק הסטייל שילווה את כל התמונות של אותו עולם.</p></div>
+    <div class="sec-h reveal"><span class="sec-kicker">האטלס</span><h2>העולמות, לפי סדר הלימוד</h2><p>כל כרטיס: תגית המודול, השער מהיגספילד, המטאפורה, השפה הגרפית, הצבעוניות, אופי האתר והתרגיל המרכזי שלו.</p></div>
     <div class="worlds">
 
+      <div class="world reveal" style="--wc:#D94F3D">
+        <div class="cover"><img data-img="1" alt="המטבח"><span class="st next">הבא בתור לבנייה</span><span class="mod">מודול 1</span></div>
+        <div class="body">
+          <span class="topic">Prompt Engineering | הנדסת פרומפטים</span>
+          <h3>👨‍🍳 המטבח</h3>
+          <div class="meta-line"><b>המטאפורה</b>השף המדויק: פרומפט הוא מתכון, ההקשר הוא חומרי הגלם, איטרציה היא טעימה ותיקון, ופרומפט מערכת הוא סטנדרט המסעדה.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>קליי פופ-ארט: דמויות פלסטלינה, טקסטורות רכות, תאורה ביתית חמה.</div>
+          <div class="meta-line"><b>הצבעוניות</b><span class="sw-row"><span class="sw" style="background:#D94F3D"></span><span class="sw" style="background:#F2B705"></span><span class="sw" style="background:#1E8E8E"></span><span class="sw-names">אדום עגבנייה, צהוב חרדל, טורקיז מטבח</span></span></div>
+          <div class="meta-line"><b>אופי האתר</b>חם, משחקי ותיאבוני: אתר שמריח כמו סדנת בישול, עם הרבה ידיים בבצק.</div>
+          <div class="meta-line"><b>התרגיל המרכזי</b>"תקנו את המתכון": מקבלים פרומפט גרוע ותוצאה גרועה, ומשפרים בשלוש טעימות עד מנה מדויקת.</div>
+          <div class="style-block">Colorful claymation pop-art, soft plasticine textures, playful stop-motion look, saturated red yellow and teal palette, warm cozy lighting, no text</div>
+        </div>
+      </div>
+
+      <div class="world reveal" style="--wc:#B8860B">
+        <div class="cover"><img data-img="6" alt="מכרה הזהב"><span class="st queue">בתור הבנייה: 5</span><span class="mod">מודול 2</span></div>
+        <div class="body">
+          <span class="topic">Data and Knowledge | דאטה וידע ארגוני</span>
+          <h3>⛏️ מכרה הזהב</h3>
+          <div class="meta-line"><b>המטאפורה</b>הידע הארגוני הוא עפרת זהב במעמקים: כרייה, ניפוי, זיקוק ואחסון בכספת. דאטה מלוכלך הוא עפרה שמרעילה את הכול.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>ספר הרפתקאות: אור פנסים דרמטי במנהרות כהות.</div>
+          <div class="meta-line"><b>הצבעוניות</b><span class="sw-row"><span class="sw" style="background:#B8860B"></span><span class="sw" style="background:#5C4022"></span><span class="sw" style="background:#2A1E14"></span><span class="sw-names">זהב, חום אדמה, חשכת מנהרה</span></span></div>
+          <div class="meta-line"><b>אופי האתר</b>הרפתקני ומסתורי: תחושת חפירה וגילוי, כל סעיף הוא עוד מטר לתוך ההר.</div>
+          <div class="meta-line"><b>התרגיל המרכזי</b>"ניפוי העפרה": ממיינים ערימת דאטה אמיתית: כפילויות, גרסאות ישנות ורעש, ומחליטים מה ראוי להיכנס לכספת.</div>
+          <div class="style-block">Storybook adventure style, warm lantern light in dark tunnels, deep brown amber and gold palette, dramatic glow, no text</div>
+        </div>
+      </div>
+
       <div class="world reveal" style="--wc:#F98A2B">
-        <div class="cover"><img src="../tik-rag/img/0.webp" alt="תיק RAG"><span class="st live">חי באוויר</span></div>
+        <div class="cover"><img src="../tik-rag/img/0.webp" alt="תיק RAG"><span class="st live">חי באוויר</span><span class="mod">מודול 3</span></div>
         <div class="body">
           <span class="topic">RAG | שליפה מוגברת ידע</span>
           <h3>🕵️ תיק RAG | הבלש</h3>
           <div class="meta-line"><b>המטאפורה</b>לשכת חקירות הידע: העד שיודע הכול הוא ה-LLM, הבלש לא מנחש אלא שולף ראיות מהארכיון לפני כל תשובה.</div>
-          <div class="meta-line"><b>השפה הגרפית</b>נואר קליל בסגנון קומיקס: קווי דיו נקיים, הצללת נקודות, כחול חצות מול כתום חם, טקסטורת נייר קרם.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>נואר קליל בסגנון קומיקס: קווי דיו נקיים, הצללת נקודות, טקסטורת נייר קרם.</div>
+          <div class="meta-line"><b>הצבעוניות</b><span class="sw-row"><span class="sw" style="background:#0D1626"></span><span class="sw" style="background:#F98A2B"></span><span class="sw" style="background:#F6EDDA"></span><span class="sw-names">כחול חצות, כתום חם, קרם נייר</span></span></div>
+          <div class="meta-line"><b>אופי האתר</b>נואר קליל: מתח, זכוכית מגדלת, וסיפוק של תיק שנסגר. חקירה שנעים ללכת בה לאיבוד.</div>
+          <div class="meta-line"><b>התרגיל המרכזי</b>"מסדר זיהוי": ארבעה קטעים מתייצבים מול שאלה, ובוחרים איזו ראיה חיפוש סמנטי טוב ישלוף ראשונה.</div>
           <div class="style-block">Light-hearted noir comic book illustration, bold clean ink outlines, halftone dot shading, deep midnight blue and warm orange two-tone palette, cream paper texture, no text</div>
           <a class="visit" href="../tik-rag/">פתחו את התיק ←</a>
         </div>
       </div>
 
+      <div class="world reveal" style="--wc:#C98A2B">
+        <div class="cover"><img data-img="4" alt="המרכזייה"><span class="st queue">בתור הבנייה: 4</span><span class="mod">מודול 4</span></div>
+        <div class="body">
+          <span class="topic">API and Webhooks</span>
+          <h3>☎️ המרכזייה</h3>
+          <div class="meta-line"><b>המטאפורה</b>מרכזיית טלפונים של שנות ה-50: מספר קווי הוא endpoint, אסימון הוא מפתח, הטלפנית מחברת את הקריאה, ו-webhook הוא "אנחנו נחזור אליך".</div>
+          <div class="meta-line"><b>השפה הגרפית</b>איור פרסומות אמצע המאה: נורות התראה, טקסטורת הדפסה.</div>
+          <div class="meta-line"><b>הצבעוניות</b><span class="sw-row"><span class="sw" style="background:#C98A2B"></span><span class="sw" style="background:#4A6B8A"></span><span class="sw" style="background:#F4E9D0"></span><span class="sw-names">ענבר חם, כחול מאובק, קרם משרדי</span></span></div>
+          <div class="meta-line"><b>אופי האתר</b>רטרו-משרדי מסודר וקליל: נימוס של טלפנית, דיוק של לוח חיבורים, צלצולים קטנים של הצלחה.</div>
+          <div class="meta-line"><b>התרגיל המרכזי</b>"חברו את השיחה": מרכיבים קריאת API שלמה: כתובת, מפתח, גוף בקשה, ורואים בזמן אמת מה חוזר מהצד השני.</div>
+          <div class="style-block">Mid-century advertising illustration, 1950s telephone exchange world, warm amber and dusty blue palette, halftone texture, no text</div>
+        </div>
+      </div>
+
+      <div class="world reveal" style="--wc:#4E7A5A">
+        <div class="cover"><img data-img="3" alt="הרכבת"><span class="st pool">במאגר</span><span class="mod">מודול 5</span></div>
+        <div class="body">
+          <span class="topic">n8n Automations | אוטומציות</span>
+          <h3>🚂 הרכבת</h3>
+          <div class="meta-line"><b>המטאפורה</b>רשת מסילות: טריגר הוא קטר שיוצא לדרך, כל תחנה היא צומת, תנאים הם מסלולים מתפצלים, וקרון שנתקע הוא דיבאג.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>מפות רכבת וינטג' ואיזומטריה, אור ערב חם.</div>
+          <div class="meta-line"><b>הצבעוניות</b><span class="sw-row"><span class="sw" style="background:#4E7A5A"></span><span class="sw" style="background:#B08D3E"></span><span class="sw" style="background:#EFE6D2"></span><span class="sw-names">ירוק קטר, פליז, קרם מפה</span></span></div>
+          <div class="meta-line"><b>אופי האתר</b>קצבי ומסודר: הכול נוסע לפי לוח זמנים, שריקות יציאה, ותחושת מכונה משומנת.</div>
+          <div class="meta-line"><b>התרגיל המרכזי</b>"סדרו את המסילה": בונים פלואו מלא מקטר-טריגר ועד תחנה סופית, כולל פיצול תנאי אחד, וצופים בקרון עובר.</div>
+          <div class="style-block">Vintage isometric railway world, retro travel poster texture, muted green brass and cream palette, warm evening light, no text</div>
+        </div>
+      </div>
+
       <div class="world reveal" style="--wc:#1E8E8E">
-        <div class="cover"><img data-img="2" alt="צוות המשימה"><span class="st live">חי באוויר</span></div>
+        <div class="cover"><img data-img="2" alt="צוות המשימה"><span class="st live">חי באוויר</span><span class="mod">מודול 6</span></div>
         <div class="body">
           <span class="topic">AI Agents | סוכני AI</span>
           <h3>🎯 צוות המשימה</h3>
           <div class="meta-line"><b>המטאפורה</b>עולם ריגול רטרו: הסוכן מקבל משימה, בוחר כלים מהמזוודה, מפעיל צוות מומחים ומדווח למפקדה. Multi-agent = תדרוך צוות.</div>
-          <div class="meta-line"><b>השפה הגרפית</b>פוסטרים של סרטי ריגול משנות ה-60: צורות שטוחות, קומפוזיציות אלכסוניות, טורקיז, אדום עמוק וקרם.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>פוסטרים של סרטי ריגול משנות ה-60: צורות שטוחות, קומפוזיציות אלכסוניות.</div>
+          <div class="meta-line"><b>הצבעוניות</b><span class="sw-row"><span class="sw" style="background:#1FA396"></span><span class="sw" style="background:#C13A2E"></span><span class="sw" style="background:#F2EAD6"></span><span class="sw-names">טורקיז מבצעי, אדום אזעקה, קרם תיקייה</span></span></div>
+          <div class="meta-line"><b>אופי האתר</b>קולנועי ומותח: תדריך לפני מבצע, מזוודה שנפתחת עם הגלילה, וחותמות "מסווג" בכל פינה.</div>
+          <div class="meta-line"><b>התרגיל המרכזי</b>"ציידו את הסוכן": בוחרים בדיוק שלושה כלים למשימה, ולומדים בדרך הקשה למה כל כלי מיותר הוא דלת פתוחה.</div>
           <div class="style-block">1960s spy movie poster illustration, bold flat shapes, halftone print texture, dramatic diagonal composition, teal deep red and cream palette, retro espionage cool, no text</div>
           <a class="visit" href="../mission-team/">קבלו את התדריך ←</a>
         </div>
       </div>
 
-      <div class="world reveal" style="--wc:#D94F3D">
-        <div class="cover"><img data-img="1" alt="המטבח"><span class="st queue">בתור: 2</span></div>
-        <div class="body">
-          <span class="topic">Prompt Engineering | הנדסת פרומפטים</span>
-          <h3>👨‍🍳 המטבח</h3>
-          <div class="meta-line"><b>המטאפורה</b>השף המדויק: פרומפט הוא מתכון, ההקשר הוא חומרי הגלם, איטרציה היא טעימה ותיקון, ופרומפט מערכת הוא סטנדרט המסעדה.</div>
-          <div class="meta-line"><b>השפה הגרפית</b>קליי פופ-ארט: דמויות פלסטלינה, טקסטורות רכות, אדום צהוב וטורקיז רוויים, תאורה ביתית חמה.</div>
-          <div class="style-block">Colorful claymation pop-art, soft plasticine textures, playful stop-motion look, saturated red yellow and teal palette, warm cozy lighting, no text</div>
-        </div>
-      </div>
-
-      <div class="world reveal" style="--wc:#C98A2B">
-        <div class="cover"><img data-img="4" alt="המרכזייה"><span class="st queue">בתור: 3</span></div>
-        <div class="body">
-          <span class="topic">API and Webhooks</span>
-          <h3>☎️ המרכזייה</h3>
-          <div class="meta-line"><b>המטאפורה</b>מרכזיית טלפונים של שנות ה-50: מספר קווי הוא endpoint, אסימון הוא מפתח, הטלפנית מחברת את הקריאה, ו-webhook הוא "אנחנו נחזור אליך".</div>
-          <div class="meta-line"><b>השפה הגרפית</b>איור פרסומות אמצע המאה: ענבר חם מול כחול מאובק, נורות התראה, טקסטורת הדפסה.</div>
-          <div class="style-block">Mid-century advertising illustration, 1950s telephone exchange world, warm amber and dusty blue palette, halftone texture, no text</div>
-        </div>
-      </div>
-
-      <div class="world reveal" style="--wc:#B8860B">
-        <div class="cover"><img data-img="6" alt="מכרה הזהב"><span class="st queue">בתור: 4</span></div>
-        <div class="body">
-          <span class="topic">Data and Knowledge | דאטה וידע ארגוני</span>
-          <h3>⛏️ מכרה הזהב</h3>
-          <div class="meta-line"><b>המטאפורה</b>הידע הארגוני הוא עפרת זהב במעמקים: כרייה, ניפוי, זיקוק ואחסון בכספת. דאטה מלוכלך הוא עפרה באיכות נמוכה שמרעילה את הכול.</div>
-          <div class="meta-line"><b>השפה הגרפית</b>ספר הרפתקאות: אור פנסים דרמטי במנהרות כהות, חום עמוק, ענבר וזהב.</div>
-          <div class="style-block">Storybook adventure style, warm lantern light in dark tunnels, deep brown amber and gold palette, dramatic glow, no text</div>
-        </div>
-      </div>
-
-      <div class="world reveal" style="--wc:#E0641E">
-        <div class="cover"><img data-img="8" alt="המושבה"><span class="st queue">בתור: 5</span></div>
-        <div class="body">
-          <span class="topic">AI Adoption | הטמעת AI בארגון</span>
-          <h3>🚀 המושבה</h3>
-          <div class="meta-line"><b>המטאפורה</b>מקימים מושבה על כוכב חדש: חלוצים הם ה-Early Adopters, האטמוספרה היא התרבות הארגונית, ותחנת האימון היא ההדרכה.</div>
-          <div class="meta-line"><b>השפה הגרפית</b>רטרו-פוטוריזם של נאס"א שנות ה-70: פוסטרים עם גרעין, כתום חם, נייבי עמוק וקרם.</div>
-          <div class="style-block">1970s NASA retro-futurism poster, film grain texture, warm orange deep navy and cream palette, heroic optimistic mood, no text</div>
-        </div>
-      </div>
-
-      <div class="world reveal" style="--wc:#4E7A5A">
-        <div class="cover"><img data-img="3" alt="הרכבת"><span class="st pool">מאגר</span></div>
-        <div class="body">
-          <span class="topic">n8n Automations | אוטומציות</span>
-          <h3>🚂 הרכבת</h3>
-          <div class="meta-line"><b>המטאפורה</b>רשת מסילות: טריגר הוא קטר שיוצא לדרך, כל תחנה היא צומת, תנאים הם מסלולים מתפצלים, וקרון שנתקע הוא דיבאג.</div>
-          <div class="meta-line"><b>השפה הגרפית</b>מפות רכבת וינטג' ואיזומטריה: ירוק מעומעם, פליז וקרם, אור ערב חם.</div>
-          <div class="style-block">Vintage isometric railway world, retro travel poster texture, muted green brass and cream palette, warm evening light, no text</div>
-        </div>
-      </div>
-
       <div class="world reveal" style="--wc:#2E5E9E">
-        <div class="cover"><img data-img="5" alt="האדריכל"><span class="st pool">מאגר</span></div>
+        <div class="cover"><img data-img="5" alt="האדריכל"><span class="st pool">במאגר</span><span class="mod">מודול 7</span></div>
         <div class="body">
           <span class="topic">Vibe Coding</span>
           <h3>📐 האדריכל</h3>
           <div class="meta-line"><b>המטאפורה</b>מתארים חדר במילים והוא נבנה מול העיניים: השרטוט הוא הפרומפט, היסודות הם מבנה הפרויקט, וביקורת הבנייה היא הבדיקות.</div>
-          <div class="meta-line"><b>השפה הגרפית</b>עולם בלופרינט: כחול שרטוטים עמוק, קווים טכניים לבנים, הדגשות כתומות חמות.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>עולם בלופרינט: קווים טכניים לבנים על כחול, מבנים שקמים מהנייר.</div>
+          <div class="meta-line"><b>הצבעוניות</b><span class="sw-row"><span class="sw" style="background:#2E5E9E"></span><span class="sw" style="background:#FFFFFF"></span><span class="sw" style="background:#E0641E"></span><span class="sw-names">כחול בלופרינט, קו לבן, כתום דגש</span></span></div>
+          <div class="meta-line"><b>אופי האתר</b>יצירתי ופתוח: אתר שמרגיש כמו שולחן שרטוט חי, שבו כל תיאור טוב הופך למבנה עומד.</div>
+          <div class="meta-line"><b>התרגיל המרכזי</b>"מהתיאור לשרטוט": מנסחים בריף של מסך אחד, משווים לתוצאה שנבנתה, ומלטשים את הבריף עד שהבניין תואם לחזון.</div>
           <div class="style-block">Blueprint world illustration, deep blueprint blue with white technical linework and warm orange highlights, glowing wireframes rising from paper, no text</div>
         </div>
       </div>
 
       <div class="world reveal" style="--wc:#6E4E9E">
-        <div class="cover"><img data-img="7" alt="משמר הכספת"><span class="st pool">מאגר</span></div>
+        <div class="cover"><img data-img="7" alt="משמר הכספת"><span class="st pool">במאגר</span><span class="mod">מודול 8</span></div>
         <div class="body">
           <span class="topic">Security and Governance | אבטחה</span>
           <h3>🏰 משמר הכספת</h3>
           <div class="meta-line"><b>המטאפורה</b>טירה עם שערים, שומרים והרשאות: Prompt Injection הוא מתחזה בשער, ודליפת מידע היא מנהרה מתחת לחומה.</div>
-          <div class="meta-line"><b>השפה הגרפית</b>אבירים פוגשים סייבר: אור לפידים מול ניאון ציאן, סגול מלכותי, פלדה וזהב.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>אבירים פוגשים סייבר: אור לפידים מול ניאון ציאן, אבן חקוקה במעגלים מודפסים.</div>
+          <div class="meta-line"><b>הצבעוניות</b><span class="sw-row"><span class="sw" style="background:#6E4E9E"></span><span class="sw" style="background:#8A8FA3"></span><span class="sw" style="background:#D9A441"></span><span class="sw-names">סגול מלכותי, פלדה, זהב כספת</span></span></div>
+          <div class="meta-line"><b>אופי האתר</b>דרמטי וחד: משחק הגנה על החומות, שבו כל פרק הוא עוד שער שנסגר בפני התוקף.</div>
+          <div class="meta-line"><b>התרגיל המרכזי</b>"עצרו את המתחזה": מקבלים שלוש דמויות בשער עם בקשות, ומזהים מי מהן היא הזרקת פקודות בתחפושת.</div>
           <div class="style-block">Medieval-meets-cyber comic illustration, torchlight mixed with neon cyan, royal purple steel and gold palette, circuit-engraved stone, no text</div>
+        </div>
+      </div>
+
+      <div class="world reveal" style="--wc:#E0641E">
+        <div class="cover"><img data-img="8" alt="המושבה"><span class="st queue">בתור הבנייה: 6</span><span class="mod">מודול 9</span></div>
+        <div class="body">
+          <span class="topic">AI Adoption | הטמעת AI בארגון</span>
+          <h3>🚀 המושבה</h3>
+          <div class="meta-line"><b>המטאפורה</b>מקימים מושבה על כוכב חדש: חלוצים הם ה-Early Adopters, האטמוספרה היא התרבות הארגונית, ותחנת האימון היא ההדרכה.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>רטרו-פוטוריזם של נאס"א שנות ה-70: פוסטרים עם גרעין.</div>
+          <div class="meta-line"><b>הצבעוניות</b><span class="sw-row"><span class="sw" style="background:#E0641E"></span><span class="sw" style="background:#142A4A"></span><span class="sw" style="background:#F2E5C9"></span><span class="sw-names">כתום שקיעה, נייבי חלל, קרם פוסטר</span></span></div>
+          <div class="meta-line"><b>אופי האתר</b>אופטימי וחלוצי: מבט קדימה, דגלים ננעצים, ותחושה שכל צעד קטן הוא היסטוריה.</div>
+          <div class="meta-line"><b>התרגיל המרכזי</b>"תוכנית הקליטה": מתכננים נחיתה בארגון: מי החלוצים, מה הפיילוט, איך מרחיבים, ומה עושים עם המתנגדים.</div>
+          <div class="style-block">1970s NASA retro-futurism poster, film grain texture, warm orange deep navy and cream palette, heroic optimistic mood, no text</div>
+        </div>
+      </div>
+
+      <div class="world reveal" style="--wc:#7A1F2B">
+        <div class="cover"><img data-img="9" alt="הגוף: התרגיל המתגלגל"><span class="st body">התרגיל המתגלגל</span><span class="mod">חוצה-קורס</span></div>
+        <div class="body">
+          <span class="topic">The Rolling Project | הפרויקט המתגלגל</span>
+          <h3>🫀 הגוף</h3>
+          <div class="meta-line"><b>המטאפורה</b>המערכת שכל סטודנט בונה היא גוף אדם שנבנה איבר-איבר: שלד הדאטה, מוח הפרומפטים, דם ה-API, עצבי האוטומציות, ידי הסוכנים, חיסון האבטחה. בכל מודול משתילים איבר ובודקים שהגוף חי.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>איור אנטומי וינטג' בסגנון מחברות דה-וינצ'י: דיו על קלף, שרטוטים מדעיים.</div>
+          <div class="meta-line"><b>הצבעוניות</b><span class="sw-row"><span class="sw" style="background:#7A1F2B"></span><span class="sw" style="background:#3E5C76"></span><span class="sw" style="background:#E8D5B5"></span><span class="sw-names">בורדו אנטומי, כחול דיו, קלף עתיק</span></span></div>
+          <div class="meta-line"><b>אופי האתר</b>מוזיאוני ומעורר יראה: תיאטרון אנטומי שבו רואים מערכת שלמה קמה לחיים, מודול אחרי מודול.</div>
+          <div class="meta-line"><b>התרגיל המרכזי</b>"השתלת האיבר": בסוף כל מודול משתילים את היכולת החדשה בגוף הפרויקט, ועוברים בדיקת חיים: הכול עדיין נושם יחד?</div>
+          <div class="style-block">Vintage anatomical illustration, da Vinci notebook style, fine ink linework on aged sepia parchment, deep burgundy and muted ink blue accents, renaissance scientific mood, no text</div>
         </div>
       </div>
 
@@ -261,7 +346,7 @@ footer b{color:var(--gold);font-family:'Rubik'}
 <footer>
   <div class="wrap">
     <p><b>מפת העולמות</b> | סדרת אתרי הקונספט של Simpla</p>
-    <p>עולם אחד לכל נושא. אותה קפדנות, סיפור אחר.</p>
+    <p>עולם אחד לכל מודול, גוף אחד לכל הקורס.</p>
   </div>
 </footer>
 
@@ -275,7 +360,8 @@ const IMAGES = {
   5: IMG_BASE + '5.webp',
   6: IMG_BASE + '6.webp',
   7: IMG_BASE + '7.webp',
-  8: IMG_BASE + '8.webp'
+  8: IMG_BASE + '8.webp',
+  9: IMG_BASE + '9.webp'
 };
 document.querySelectorAll('img[data-img]').forEach(im=>{const k=im.dataset.img;if(IMAGES[k])im.src=IMAGES[k]});
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}}),{threshold:.06});
