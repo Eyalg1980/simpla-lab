@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>המושבה | אקדמיית ההטמעה</title>
+<meta name="description" content="אתר חוויתי שמלמד הטמעת AI בארגון דרך מסע להקמת מושבה על עולם חדש: ספירה לאחור בגלילה, שיגור, ולוח בקרה שבודק אם אתם מוכנים.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0D1A33;
+  --bg2:#152647;
+  --ink:#091126;
+  --card:#FBF3E0;
+  --orange:#F4731F;
+  --orange-hi:#FFA24D;
+  --amber:#F2B33D;
+  --blue:#6FA8FF;
+  --cream:#FFF3DC;
+  --text:#EAF0FF;
+  --muted:#93A5C9;
+  --dtext:#1D2A47;
+  --dmuted:#5D6C8E;
+  --ok:#2FB673;
+  --red:#E5484D;
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Rubik',sans-serif;line-height:1.25}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+.tone{position:relative}
+.tone::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.12;
+  background-image:radial-gradient(circle,#FFA24D 1px,transparent 1.5px);background-size:15px 15px}
+
+/* ===== Top bar + progress ===== */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(13,26,51,.93);backdrop-filter:blur(8px);border-bottom:2.5px solid var(--ink)}
+.topbar-in{display:flex;align-items:center;gap:12px;padding:10px 16px;max-width:1100px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:9px;font-family:'Rubik';font-weight:900;font-size:1.1rem;white-space:nowrap}
+.logo .badge-dot{width:34px;height:34px;border-radius:50%;background:var(--orange);display:grid;place-items:center;border:2.5px solid var(--ink);box-shadow:2.5px 2.5px 0 rgba(0,0,0,.5)}
+.logo .badge-dot svg{width:19px;height:19px;fill:none;stroke:#0D1A33;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.nav-chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;flex:1}
+.nav-chips::-webkit-scrollbar{display:none}
+.nav-chips a{white-space:nowrap;text-decoration:none;font-size:.85rem;font-weight:500;padding:6px 13px;
+  border:1.5px solid rgba(234,240,255,.28);border-radius:999px;color:var(--text);transition:.2s}
+.nav-chips a:hover,.nav-chips a.active{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:700}
+.progress-track{height:6px;background:var(--bg2)}
+.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--blue),var(--orange-hi),var(--amber));transition:width .15s}
+.progress-label{font-size:.72rem;color:var(--muted);text-align:center;padding:2px 0 4px;letter-spacing:.03em}
+
+/* ===== Launch hero ===== */
+.launch-wrap{position:relative;height:280vh}
+.launch-sticky{position:sticky;top:58px;height:calc(100svh - 58px);overflow:hidden}
+.launch-stage{position:relative;width:100%;height:100%;overflow:hidden;background:linear-gradient(180deg,#060D1F 0%,#0D1A33 55%,#1B2C52 100%)}
+.stars{position:absolute;inset:-10% 0 0;background-image:
+  radial-gradient(1.5px 1.5px at 12% 18%,#fff,transparent),
+  radial-gradient(1px 1px at 34% 8%,#CFE0FF,transparent),
+  radial-gradient(1.5px 1.5px at 58% 24%,#fff,transparent),
+  radial-gradient(1px 1px at 76% 12%,#FFD9AE,transparent),
+  radial-gradient(1.5px 1.5px at 88% 30%,#fff,transparent),
+  radial-gradient(1px 1px at 22% 38%,#CFE0FF,transparent),
+  radial-gradient(1.5px 1.5px at 66% 42%,#fff,transparent),
+  radial-gradient(1px 1px at 44% 30%,#FFD9AE,transparent);
+  will-change:transform}
+.planet{position:absolute;top:7%;left:9%;width:74px;height:74px;border-radius:50%;
+  background:radial-gradient(circle at 32% 30%,#FFB870,#F4731F 55%,#A33F0C);box-shadow:0 0 34px rgba(244,115,31,.45)}
+.horizon-glow{position:absolute;bottom:0;left:0;right:0;height:46%;opacity:.25;pointer-events:none;
+  background:linear-gradient(0deg,rgba(244,115,31,.55),transparent 75%);transition:opacity .2s}
+.pad{position:absolute;bottom:0;left:0;right:0;height:58%}
+.ground{position:absolute;bottom:0;left:0;right:0;height:44px;background:#091126;border-top:3px solid #1B2C52}
+.ground::before{content:"";position:absolute;top:8px;left:8%;right:8%;height:4px;background:repeating-linear-gradient(90deg,#F2B33D 0 22px,transparent 22px 44px);opacity:.5}
+.gantry{position:absolute;bottom:44px;left:calc(50% + 34px);width:34px;top:6%;
+  background:repeating-linear-gradient(180deg,#26385F 0 14px,#101E3C 14px 17px);border:2.5px solid var(--ink);border-bottom:none}
+.g-arm{position:absolute;top:26%;right:100%;width:44px;height:11px;background:#26385F;border:2.5px solid var(--ink);
+  transform-origin:100% 50%;transition:transform .1s linear}
+.rocket{position:absolute;bottom:44px;left:50%;width:92px;margin-left:-46px;will-change:transform}
+.rocket svg{width:100%;display:block}
+.flame{position:absolute;top:88%;left:50%;width:34px;margin-left:-17px;height:74px;opacity:0;transform-origin:50% 0;
+  background:linear-gradient(180deg,#FFF3DC 0%,#FFA24D 34%,#F4731F 62%,transparent 96%);
+  border-radius:50% 50% 50% 50%/12% 12% 88% 88%;filter:blur(1px)}
+.smoke{position:absolute;bottom:30px;left:0;right:0;height:90px;pointer-events:none}
+.puff{position:absolute;bottom:0;width:64px;height:64px;border-radius:50%;background:radial-gradient(circle,#D9DEEA 0%,#9AA6BE 60%,transparent 72%);
+  opacity:0;transform:scale(.3);will-change:transform,opacity}
+.puff.p1{left:26%}.puff.p2{left:41%}.puff.p3{left:55%}.puff.p4{left:68%}
+.tminus{position:absolute;top:10%;right:0;left:0;text-align:center;pointer-events:none;z-index:3}
+.tminus b{font-family:'Rubik';font-weight:900;font-size:clamp(3rem,13vw,6rem);color:#fff;direction:ltr;display:block;
+  text-shadow:0 0 26px rgba(244,115,31,.55);letter-spacing:.04em}
+.tminus span{display:block;font-size:.85rem;color:var(--muted);margin-top:2px}
+.orbit-stamp{position:absolute;top:38%;right:0;left:0;text-align:center;opacity:0;transform:scale(.7);transition:opacity .4s,transform .4s;pointer-events:none;z-index:4}
+.orbit-stamp span{display:inline-block;font-family:'Rubik';font-weight:900;font-size:clamp(1.2rem,4.5vw,2rem);color:var(--orange-hi);
+  border:4px solid var(--orange-hi);border-radius:12px;padding:8px 26px;letter-spacing:.06em;background:rgba(6,13,31,.85);
+  box-shadow:0 0 34px rgba(244,115,31,.55)}
+.orbit-stamp.show{opacity:1;transform:scale(1) rotate(-3deg)}
+.launch-hint{position:absolute;top:14px;right:0;left:0;text-align:center;pointer-events:none;transition:opacity .4s;z-index:4}
+.launch-hint span{display:inline-flex;align-items:center;gap:7px;background:rgba(13,26,51,.85);border:1.5px solid var(--orange);color:var(--cream);
+  font-size:.8rem;padding:6px 16px;border-radius:999px}
+.launch-hint svg{width:.95em;height:.95em;fill:none;stroke:var(--orange-hi);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.launch-hint.hide{opacity:0}
+.hero-copy{position:absolute;bottom:0;right:0;left:0;z-index:5;text-align:center;padding:70px 18px 24px;
+  background:linear-gradient(0deg,rgba(6,13,31,.96) 42%,rgba(6,13,31,.65) 72%,transparent)}
+.case-stamp{display:inline-block;font-family:'Rubik';font-weight:900;color:var(--amber);border:3px solid var(--amber);
+  border-radius:8px;padding:3px 14px;font-size:.82rem;transform:rotate(-3deg);letter-spacing:.08em;margin-bottom:12px}
+.hero-copy h1{font-size:clamp(2.2rem,7.5vw,4rem);font-weight:900;color:#fff}
+.hero-copy h1 .hl{color:var(--orange-hi)}
+.hero-copy .sub{color:var(--muted);font-size:1rem;margin-top:10px}
+.hero-copy .sub b{color:var(--cream)}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.btn{font-family:'Rubik';font-weight:700;text-decoration:none;border-radius:12px;padding:12px 26px;
+  border:3px solid var(--ink);cursor:pointer;font-size:1rem;transition:.15s;display:inline-flex;align-items:center;gap:8px}
+.btn svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:5px 5px 0 rgba(0,0,0,.5)}
+.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 rgba(0,0,0,.5)}
+.btn-ghost{background:transparent;color:var(--cream);border-color:rgba(255,243,220,.4);box-shadow:none}
+.btn-ghost:hover{border-color:var(--orange-hi);color:var(--orange-hi)}
+.hero-facts{display:none;justify-content:center;gap:26px;flex-wrap:wrap;margin-top:20px}
+.fact{text-align:center}
+.fact b{display:block;font-family:'Rubik';font-size:1.4rem;color:var(--orange-hi)}
+.fact span{font-size:.78rem;color:var(--muted)}
+
+/* ===== Sections ===== */
+section{padding:52px 0;position:relative}
+.sec-head{text-align:center;margin-bottom:34px}
+.sec-kicker{display:inline-block;background:var(--ink);color:var(--orange-hi);font-family:'Rubik';font-weight:700;
+  font-size:.8rem;padding:5px 16px;border-radius:999px;letter-spacing:.08em;margin-bottom:12px;border:1.5px solid rgba(244,115,31,.4)}
+.sec-head h2{font-size:clamp(1.7rem,5vw,2.5rem);font-weight:900;color:#fff}
+.sec-head p{color:var(--muted);max-width:620px;margin:10px auto 0;font-size:.98rem}
+.sec-banner{max-width:760px;margin:0 auto 28px;border:3px solid var(--ink);border-radius:var(--radius);overflow:hidden;box-shadow:6px 6px 0 rgba(0,0,0,.5)}
+.sec-banner img{width:100%;aspect-ratio:16/9;object-fit:cover}
+
+/* ===== Chapters ===== */
+.chapter{margin-bottom:64px;position:relative}
+.chapter-tag{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;
+  font-family:'Rubik';font-weight:900;font-size:.85rem;padding:6px 16px;border:2.5px solid var(--ink);
+  border-radius:8px;transform:rotate(-2deg);box-shadow:3px 3px 0 rgba(0,0,0,.5);position:relative;
+  margin-bottom:-16px;margin-right:14px;z-index:2;letter-spacing:.04em}
+.panel{background:var(--card);color:var(--dtext);border:3px solid var(--ink);border-radius:var(--radius);
+  box-shadow:7px 7px 0 rgba(0,0,0,.5);overflow:hidden}
+.panel-img{position:relative;border-bottom:3px solid var(--ink)}
+.panel-img img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.panel-body{padding:22px 20px 26px}
+.panel-body h3{font-size:clamp(1.35rem,4.5vw,1.8rem);font-weight:900;margin-bottom:4px;color:var(--ink)}
+.panel-body .chapter-sub{color:#B75410;font-family:'Rubik';font-weight:700;font-size:.95rem;margin-bottom:14px}
+.story{background:#F1E5CB;border-radius:10px;border:2px dashed var(--orange);padding:14px 16px;font-size:.95rem;margin-bottom:18px}
+.story::before{content:"🚀 מיומן המפקדת";display:block;font-family:'Rubik';font-weight:700;color:#B75410;font-size:.78rem;margin-bottom:6px;letter-spacing:.05em}
+.panel-body p{margin-bottom:12px;font-size:.97rem}
+.panel-body ul{margin:0 18px 14px 0;display:grid;gap:7px}
+.panel-body li{font-size:.95rem}
+.panel-body li b{color:#B75410}
+.table-slip{border:2px solid rgba(9,17,38,.25);border-radius:10px;overflow:hidden;margin:12px 0;font-size:.8rem}
+.table-slip .tr{display:grid;grid-template-columns:1fr 1.4fr 1fr;border-bottom:1px solid rgba(9,17,38,.15)}
+.table-slip .tr:last-child{border-bottom:none}
+.table-slip .tr>div{padding:6px 10px;border-inline-start:1px solid rgba(9,17,38,.12)}
+.table-slip .tr>div:first-child{border-inline-start:none}
+.table-slip .tr.head{background:var(--ink);color:var(--cream);font-family:'Rubik';font-weight:700}
+.table-slip .tr.bad{background:#FDE8EC;color:var(--ink)}
+.table-slip .tr.goodr{background:#E6F6EE;color:var(--ink)}
+.translate-box{background:#F1E5CB;border:2px dashed var(--blue);border-radius:10px;padding:14px 16px;margin-top:16px}
+.translate-box h4{font-size:.85rem;font-family:'Rubik';color:#2A5CB8;letter-spacing:.05em;margin-bottom:6px}
+.translate-box table,.translate-box tbody{display:block;width:100%;font-size:.88rem}
+.translate-box tr{display:grid;grid-template-columns:1fr auto;column-gap:10px;row-gap:3px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(9,17,38,.14)}
+.translate-box tr:last-child{border-bottom:none;padding-bottom:2px}
+.translate-box td{display:block;padding:0;border:none}
+.translate-box td:first-child{grid-column:1;grid-row:1;font-weight:700;color:var(--ink);line-height:1.4}
+.translate-box td.term{grid-column:2;grid-row:1;justify-self:end;direction:ltr;font-family:'Rubik';font-weight:700;
+  font-size:.72rem;color:var(--cream);background:var(--ink);padding:3px 11px;border-radius:999px;white-space:nowrap}
+.translate-box td:last-child{grid-column:1 / -1;color:var(--dmuted);font-size:.84rem;line-height:1.5}
+
+/* ===== Exercises ===== */
+.exercise{background:var(--bg2);border:3px solid var(--ink);border-radius:var(--radius);
+  box-shadow:6px 6px 0 rgba(0,0,0,.5);padding:20px 18px;margin-bottom:26px}
+.exercise .ex-tag{display:inline-block;background:var(--orange);color:#fff;font-family:'Rubik';font-weight:700;
+  font-size:.75rem;padding:4px 12px;border-radius:999px;margin-bottom:10px;letter-spacing:.05em}
+.exercise h3{color:#fff;font-size:1.25rem;font-weight:900;margin-bottom:6px}
+.exercise .ex-goal{color:var(--muted);font-size:.88rem;margin-bottom:16px}
+.exercise .ex-goal b{color:var(--orange-hi)}
+.opt-card{background:var(--card);color:var(--dtext);border:2.5px solid rgba(9,17,38,.3);border-radius:10px;
+  padding:12px 14px;margin-bottom:10px;cursor:pointer;transition:.15s;font-size:.92rem}
+.opt-card:hover{transform:translateY(-2px)}
+.opt-card.correct{border-color:var(--ok);background:#E6F6EE;box-shadow:0 0 0 2px var(--ok)}
+.opt-card.wrong{border-color:var(--red);background:#FDE8EC;box-shadow:0 0 0 2px var(--red)}
+.opt-card .who{font-family:'Rubik';font-weight:700;font-size:.78rem;color:#2A5CB8;display:block;margin-bottom:3px}
+.ex-feedback{display:none;border-radius:10px;padding:12px 14px;font-size:.9rem;margin-top:12px}
+.ex-feedback.show{display:block}
+.ex-feedback.good{background:rgba(47,182,115,.15);border:2px solid var(--ok);color:#C9EEDC}
+.ex-feedback.bad{background:rgba(229,72,77,.15);border:2px solid var(--red);color:#F8CDD1}
+.ex-controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.chip-btn{font-family:'Rubik';font-weight:700;font-size:.85rem;padding:8px 16px;border-radius:999px;cursor:pointer;
+  border:2px solid rgba(234,240,255,.35);background:transparent;color:var(--text);transition:.15s}
+.chip-btn:hover{border-color:var(--orange-hi);color:var(--orange-hi)}
+.chip-btn.active{background:var(--orange-hi);border-color:var(--orange-hi);color:var(--ink)}
+
+/* mission board */
+.lamp-board{background:#0A1428;border:3px solid var(--ink);border-radius:14px;padding:16px 14px;margin-bottom:16px;
+  box-shadow:inset 0 0 30px rgba(0,0,0,.55)}
+.lamp-row{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:10px}
+.lamp{aspect-ratio:1;border-radius:50%;background:#1B2C52;border:2.5px solid #26385F;position:relative;transition:.3s;
+  box-shadow:inset 0 3px 6px rgba(0,0,0,.6)}
+.lamp.green{background:var(--ok);border-color:#1E7A4D;box-shadow:0 0 16px rgba(47,182,115,.7)}
+.lamp.amber{background:var(--amber);border-color:#B07E1D;box-shadow:0 0 16px rgba(242,179,61,.7)}
+.lamp.red{background:var(--red);border-color:#9E2D31;box-shadow:0 0 16px rgba(229,72,77,.7)}
+.lamp-caps{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.lamp-caps span{font-size:.58rem;color:var(--muted);text-align:center;line-height:1.3}
+.mc-q{background:var(--card);color:var(--dtext);border:3px solid var(--ink);border-radius:12px;padding:14px 16px;
+  box-shadow:5px 5px 0 rgba(0,0,0,.4);animation:slideIn .3s ease}
+@keyframes slideIn{from{transform:translateX(-40px);opacity:0}to{transform:none;opacity:1}}
+.mc-q .mc-kind{font-family:'Rubik';font-weight:700;font-size:.75rem;color:#B75410;margin-bottom:6px}
+.mc-q h4{font-size:1.02rem;color:var(--ink);margin-bottom:10px}
+.mc-verdict{margin-top:10px;font-size:.88rem;border-radius:10px;padding:10px 12px;display:none}
+.mc-verdict.show{display:block}
+.mc-verdict.good{background:rgba(47,182,115,.12);border:2px solid var(--ok);color:#14532D}
+.mc-verdict.mid{background:rgba(242,179,61,.14);border:2px solid var(--amber);color:#6B4A0E}
+.mc-verdict.bad{background:rgba(229,72,77,.1);border:2px solid var(--red);color:#7A2226}
+.mc-score{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-family:'Rubik';font-weight:700;font-size:.85rem;color:var(--muted)}
+.mc-score b{color:var(--orange-hi)}
+.mc-done{text-align:center;padding:18px;display:none}
+.mc-done.show{display:block}
+.mc-done .medal{font-size:2.2rem}
+.mc-done h4{color:#fff;font-size:1.2rem;margin-top:4px}
+.mc-done p{color:var(--cream);font-size:.95rem;margin-top:6px}
+
+/* ===== Glossary ===== */
+.gloss-search{width:100%;padding:12px 18px;border-radius:999px;border:2.5px solid var(--ink);
+  background:var(--card);color:var(--dtext);font-family:'Heebo';font-size:.95rem;margin-bottom:14px;outline:none}
+.gloss-cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.gloss-grid{display:grid;gap:12px}
+@media(min-width:700px){.gloss-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.gloss-grid{grid-template-columns:repeat(3,1fr)}}
+.gloss-card{background:var(--card);color:var(--dtext);border:2.5px solid var(--ink);border-radius:12px;padding:14px 16px;box-shadow:4px 4px 0 rgba(0,0,0,.45)}
+.gloss-card .g-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
+.gloss-card h4{font-size:1rem;font-weight:900;color:var(--ink)}
+.gloss-card .g-en{font-family:'Rubik';font-size:.72rem;color:var(--dmuted);direction:ltr}
+.gloss-card .g-noir{font-size:.82rem;background:#F1E5CB;border-radius:8px;padding:7px 10px;margin-bottom:8px}
+.gloss-card .g-noir b{color:#B75410;font-size:.72rem;font-family:'Rubik';display:block}
+.gloss-card .g-def{font-size:.85rem;color:#3C4A6B}
+.gloss-empty{color:var(--muted);text-align:center;padding:20px;display:none}
+
+/* ===== Checklist ===== */
+.check-progress{background:var(--bg2);border:2.5px solid var(--ink);border-radius:12px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.check-progress .cp-bar{flex:1;height:12px;background:var(--bg);border-radius:999px;border:1.5px solid var(--ink);overflow:hidden}
+.check-progress .cp-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--orange),var(--ok));transition:.3s}
+.check-progress b{font-family:'Rubik';color:var(--orange-hi);min-width:52px;text-align:left;direction:ltr}
+.check-group{background:var(--card);color:var(--dtext);border:3px solid var(--ink);border-radius:12px;margin-bottom:16px;overflow:hidden;box-shadow:5px 5px 0 rgba(0,0,0,.45)}
+.check-group h4{background:var(--ink);color:var(--cream);padding:10px 16px;font-size:.95rem;display:flex;align-items:center;gap:8px}
+.check-group h4 span{color:var(--orange-hi)}
+.check-items{padding:8px 10px}
+.check-item{display:flex;gap:10px;align-items:flex-start;padding:9px 8px;border-radius:8px;cursor:pointer;transition:.15s;font-size:.9rem}
+.check-item:hover{background:#F1E5CB}
+.check-item input{margin-top:5px;accent-color:#B75410;width:16px;height:16px;flex-shrink:0}
+.check-item.done label{text-decoration:line-through;opacity:.55}
+.check-item label{cursor:pointer}
+
+/* ===== Certificate ===== */
+.certificate{background:var(--card);color:var(--dtext);border:3px solid var(--ink);border-radius:var(--radius);
+  box-shadow:8px 8px 0 rgba(0,0,0,.5);padding:30px 22px;text-align:center;position:relative;overflow:hidden;margin-top:20px}
+.certificate::before{content:"";position:absolute;inset:10px;border:2px dashed var(--orange);border-radius:10px;pointer-events:none}
+.certificate .medal{font-size:2.6rem}
+.certificate h3{font-size:1.6rem;font-weight:900;margin:8px 0 4px;color:var(--ink)}
+.certificate p{font-size:.92rem;color:var(--dmuted);max-width:520px;margin:0 auto 8px}
+.cert-stamp{display:inline-block;margin-top:14px;font-family:'Rubik';font-weight:900;color:#B75410;
+  border:3px solid #B75410;border-radius:8px;padding:4px 18px;transform:rotate(-4deg);font-size:1rem;letter-spacing:.12em}
+
+footer{border-top:2.5px solid var(--ink);padding:30px 0 40px;text-align:center;color:var(--muted);font-size:.85rem}
+footer b{color:var(--orange-hi);font-family:'Rubik'}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease}
+.reveal.on{opacity:1;transform:none}
+
+/* ===== Desktop ===== */
+@media(min-width:1024px){
+  .wrap{max-width:1240px}
+  .launch-sticky{display:flex;flex-direction:column;align-items:center;background:var(--bg)}
+  .launch-stage{max-width:1180px;height:auto;aspect-ratio:16/8;margin-top:14px;border:3px solid var(--ink);
+    border-radius:var(--radius);box-shadow:8px 8px 0 rgba(0,0,0,.5)}
+  .tminus{top:auto;bottom:16%;left:7%;right:auto;text-align:left}
+  .tminus b{font-size:4.6rem}
+  .rocket{width:112px;margin-left:-56px}
+  .gantry{left:calc(50% + 40px);width:38px}
+  .hero-copy{position:static;background:none;padding:18px;max-width:820px}
+  .hero-facts{display:flex}
+  .chapters-flow{position:relative;padding-right:36px}
+  .chapters-flow::before{content:"";position:absolute;top:6px;bottom:6px;right:12px;width:2px;
+    background:repeating-linear-gradient(180deg,var(--orange) 0 7px,transparent 7px 14px);opacity:.5}
+  .chapter .panel{display:grid;grid-template-columns:1fr 1.2fr;overflow:visible;align-items:start}
+  .chapter .panel>.panel-img{position:sticky;top:106px;margin:24px;border:3px solid var(--ink);border-radius:12px;
+    overflow:hidden;box-shadow:6px 6px 0 rgba(0,0,0,.45);transform:rotate(-1deg)}
+  .chapter .panel>.panel-img img{aspect-ratio:4/3;object-fit:cover}
+  .chapter .panel-body{padding:30px 30px 34px}
+  .chapters-flow .chapter:nth-child(even) .panel>.panel-img{order:2;transform:rotate(1deg)}
+  #exercises .exercise{max-width:880px;margin-inline:auto;margin-bottom:28px}
+  .sec-banner{max-width:880px}
+  .check-progress{max-width:900px;margin:0 auto 24px}
+  #checkGroups{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+  .check-group{margin-bottom:0}
+  .certificate{padding:46px 30px;max-width:820px;margin-inline:auto}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="logo">
+      <span class="badge-dot"><svg viewBox="0 0 24 24"><path d="M12 2c3 2.5 4.5 6 4.5 9.5L14 14h-4l-2.5-2.5C7.5 8 9 4.5 12 2Z"/><circle cx="12" cy="8.5" r="1.6"/><path d="M9.5 14 7 18l3-1M14.5 14 17 18l-3-1M12 15v4"/></svg></span>
+      המושבה
+    </div>
+    <nav class="nav-chips">
+      <a href="#chapters">המסע</a>
+      <a href="#exercises">מרכז הבקרה</a>
+      <a href="#glossary">מילון המסע</a>
+      <a href="#checklist">רשימת השיגור</a>
+    </nav>
+  </div>
+  <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+  <div class="progress-label" id="progressLabel">על כן השיגור</div>
+</header>
+
+<!-- ===== Launch hero ===== -->
+<div class="launch-wrap" id="launchWrap">
+  <div class="launch-sticky">
+    <div class="launch-stage" id="launchStage">
+      <div class="stars" id="stars"></div>
+      <div class="planet"></div>
+      <div class="horizon-glow" id="horizonGlow"></div>
+      <div class="pad">
+        <div class="gantry"><div class="g-arm" id="gArm"></div></div>
+        <div class="rocket" id="rocket">
+          <svg viewBox="0 0 92 190">
+            <path d="M46 4C60 26 66 48 66 78v58H26V78C26 48 32 26 46 4Z" fill="#FBF3E0" stroke="#091126" stroke-width="3"/>
+            <path d="M46 4C60 26 64 40 65 56H27C28 40 32 26 46 4Z" fill="#F4731F" stroke="#091126" stroke-width="3"/>
+            <circle cx="46" cy="82" r="11" fill="#6FA8FF" stroke="#091126" stroke-width="3"/>
+            <path d="M26 100 8 136v22l18-14Z" fill="#F4731F" stroke="#091126" stroke-width="3"/>
+            <path d="M66 100l18 36v22l-18-14Z" fill="#F4731F" stroke="#091126" stroke-width="3"/>
+            <path d="M26 136h40l6 22H20Z" fill="#26385F" stroke="#091126" stroke-width="3"/>
+            <rect x="30" y="108" width="32" height="6" rx="3" fill="#F2B33D" stroke="#091126" stroke-width="2"/>
+          </svg>
+          <div class="flame" id="flame"></div>
+        </div>
+        <div class="smoke">
+          <span class="puff p1" id="pf1"></span><span class="puff p2" id="pf2"></span>
+          <span class="puff p3" id="pf3"></span><span class="puff p4" id="pf4"></span>
+        </div>
+        <div class="ground"></div>
+      </div>
+      <div class="tminus"><b id="tminusNum">T-10</b><span id="phaseLabel">בדיקות אחרונות</span></div>
+      <div class="orbit-stamp" id="orbitStamp"><span>יצאתם למסלול ✦</span></div>
+      <div class="launch-hint" id="launchHint"><span><svg viewBox="0 0 24 24"><path d="M12 4v13M6.5 11.5 12 17l5.5-5.5"/></svg> גללו להתחלת הספירה לאחור</span></div>
+    </div>
+    <div class="hero-copy">
+      <div class="case-stamp">אקדמיית ההטמעה | מודול 9</div>
+      <h1>המושבה<span class="hl">.</span></h1>
+      <p class="sub">להטמיע AI בארגון זה לא לקנות רקטה. זה <b>ליישב עולם חדש</b>: לבחור צוות חלוץ, להקים תשתיות, לבנות תרבות, ולהרחיב את המושבה מעגל אחרי מעגל. במסע הזה לומדים איך עושים את זה בלי להתרסק.</p>
+      <div class="cta-row">
+        <a href="#chapters" class="btn btn-primary">התחילו את הספירה <svg viewBox="0 0 24 24"><path d="M12 2c3 2.5 4.5 6 4.5 9.5L14 14h-4l-2.5-2.5C7.5 8 9 4.5 12 2Z"/><path d="M12 15v4"/></svg></a>
+        <a href="#exercises" class="btn btn-ghost">למרכז הבקרה</a>
+      </div>
+      <div class="hero-facts">
+        <div class="fact"><b>10</b><span>שלבי מסע</span></div>
+        <div class="fact"><b>6</b><span>החלטות מפקד</span></div>
+        <div class="fact"><b>24</b><span>מונחי מסע</span></div>
+        <div class="fact"><b>20</b><span>בדיקות שיגור</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Chapters ===== -->
+<section id="chapters" class="tone">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">יומן המסע</span>
+      <h2>10 שלבים אל המושבה</h2>
+      <p>כל שלב נפתח ביומן המפקדת, ממשיך בהסבר מקצועי, ומתרגם בין שפת החלל לשפת הארגון.</p>
+    </div>
+    <div class="sec-banner reveal"><img data-img="12" alt="הרקטה ממריאה"></div>
+    <div class="chapters-flow">
+
+      <div class="chapter reveal">
+        <span class="chapter-tag">שלב 1</span>
+        <div class="panel">
+          <div class="panel-img"><img data-img="1" alt="רקטה על כן השיגור עם עולם חדש באופק"></div>
+          <div class="panel-body">
+            <h3>העולם החדש</h3>
+            <div class="chapter-sub">למה הטמעת AI היא מסע התיישבות, לא קניית מוצר</div>
+            <div class="story">ביום שקיבלתי את הפיקוד חשבתי שהמשימה שלי היא להטיס רקטה. טעיתי. הרקטה היא החלק הקל. המשימה האמיתית היא שאנשים ירצו לרדת ממנה ולבנות בית בעולם החדש.</div>
+            <p>ארגונים רבים "מטמיעים AI" כך: קונים רישיונות, שולחים מייל, ומחכים לקסם. אחרי חצי שנה מגלים שכמעט אף אחד לא משתמש. הטכנולוגיה עבדה מצוין. ההטמעה נכשלה.</p>
+            <p>הנוסחה פשוטה ואכזרית: <b>הצלחה = טכנולוגיה × אימוץ</b>. אם האימוץ הוא אפס, לא משנה כמה הטכנולוגיה מרשימה, התוצאה אפס.</p>
+            <ul>
+              <li><b>הכלי הוא 20% מהסיפור.</b> 80% הם אנשים, הרגלים ותרבות.</li>
+              <li><b>הטמעה היא פרויקט שינוי,</b> לא פרויקט טכנולוגי. מנהלים אותה כמו מסע, לא כמו רכישה.</li>
+              <li><b>מתחילים בקטן וגדלים.</b> אף מושבה לא נבנתה ביום אחד, וגם לא בבת אחת.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="chapter reveal">
+        <span class="chapter-tag">שלב 2</span>
+        <div class="panel">
+          <div class="panel-img"><img data-img="2" alt="סריקת הכוכב ממסלול"></div>
+          <div class="panel-body">
+            <h3>סריקת הכוכב</h3>
+            <div class="chapter-sub">מיפוי הזדמנויות: איפה AI באמת יעזור לארגון</div>
+            <div class="story">לפני שנוחתים, מקיפים את הכוכב. סימנו שלושה אתרי נחיתה אפשריים. שניים נראו מרהיבים אבל מסוכנים. השלישי היה משעמם, שטוח, ומושלם. בחרנו בו.</div>
+            <p>לא מתחילים מ"איפה אפשר לדחוף AI", מתחילים מ"איפה כואב". סורקים את הארגון ומחפשים סימני חיים של בזבוז:</p>
+            <ul>
+              <li><b>משימות ידניות חוזרות:</b> אותו מייל, אותו דוח, אותו סיכום, כל שבוע מחדש.</li>
+              <li><b>קופי-פייסט בין מערכות:</b> בן אדם שמעתיק נתונים ממסך למסך.</li>
+              <li><b>ידע כלוא אצל אדם אחד:</b> "רק דנה יודעת איך עונים ללקוח הזה".</li>
+              <li><b>צוואר בקבוק קבוע:</b> תהליך שכולם מחכים בו לאותו גורם מאשר.</li>
+            </ul>
+            <div class="table-slip">
+              <div class="tr head"><div>האזור</div><div>הסימן שראינו</div><div>ההזדמנות</div></div>
+              <div class="tr"><div>שירות לקוחות</div><div>80% מהפניות הן 10 שאלות חוזרות</div><div>טיוטת מענה אוטומטית</div></div>
+              <div class="tr"><div>מכירות</div><div>הצעת מחיר לוקחת יום שלם</div><div>טיוטה תוך שעה</div></div>
+              <div class="tr"><div>תפעול</div><div>סיכומי פגישות לא נכתבים בכלל</div><div>סיכום אוטומטי לכל פגישה</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chapter reveal">
+        <span class="chapter-tag">שלב 3</span>
+        <div class="panel">
+          <div class="panel-img"><img data-img="3" alt="צוות החלוץ צועד אל הרקטה"></div>
+          <div class="panel-body">
+            <h3>צוות החלוץ</h3>
+            <div class="chapter-sub">מי עולה לרקטה הראשונה, ולמה זו ההחלטה הכי חשובה</div>
+            <div class="story">לא בחרתי את החזקים ביותר ולא את הבכירים ביותר. בחרתי את אלה שהעיניים שלהם נדלקו כשסיפרתי על הכוכב. סקרנות היא הדלק היחיד שלא נגמר בדרך.</div>
+            <p>את המושבה לא מקימים כל העובדים בבת אחת. מקימים אותה חלוצים: קבוצה קטנה שתנסה, תיכשל, תלמד, ותחזור עם סיפורים. איך בוחרים אותם?</p>
+            <ul>
+              <li><b>סקרנים, לא בהכרח טכנולוגיים.</b> החלוץ הטוב הוא זה שכבר ניסה לבד, לא זה שחיכה להדרכה.</li>
+              <li><b>מכל המחלקות, לא רק IT.</b> מושבה של מהנדסים בלבד לא שורדת חורף ראשון.</li>
+              <li><b>עם רשות להיכשל.</b> חלוץ שמפחד מטעויות לא מגלה שום דבר חדש.</li>
+            </ul>
+            <p>התפקידים במשימה: <b>מפקד/ת המשימה</b> עם סמכות אמיתית להחליט, <b>אלופי AI</b> שהם החלוצים בשטח בכל מחלקה, <b>נציג אבטחה</b> שמלווה מהיום הראשון (לא מגלה בדיעבד), ו<b>ספונסר מההנהלה</b> שמסיר מכשולים ומממן דלק.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="chapter reveal">
+        <span class="chapter-tag">שלב 4</span>
+        <div class="panel">
+          <div class="panel-img"><img data-img="4" alt="הנחיתה הראשונה על הכוכב"></div>
+          <div class="panel-body">
+            <h3>הנחיתה הראשונה</h3>
+            <div class="chapter-sub">הפיילוט: ניצחון אחד קטן ומדיד בתוך 30 יום</div>
+            <div class="story">הנחיתה הראשונה לא הקימה עיר. היא תקעה דגל אחד קטן באדמה, ושידרה הביתה תמונה אחת ברורה: אפשר לחיות כאן. התמונה הזאת שווה יותר מאלף מצגות.</div>
+            <p>הפיילוט הוא הנחיתה הראשונה שלכם. מטרתו אחת: לייצר סיפור הצלחה פנימי, קטן ואמיתי, שאי אפשר להתווכח איתו. הכללים לבחירת פיילוט טוב:</p>
+            <ul>
+              <li><b>כאב אמיתי:</b> תהליך שכולם מכירים וכולם סובלים ממנו.</li>
+              <li><b>תוצאה מדידה:</b> אפשר להגיד "היה 45 דקות, עכשיו 12" בלי פרשנות.</li>
+              <li><b>סיכון נמוך:</b> אם נכשל, אף לקוח לא נפגע ואף אחד לא מפוטר.</li>
+              <li><b>מהיר:</b> תוצאות בתוך 30 יום. פיילוט של חצי שנה הוא לא פיילוט, הוא פרויקט.</li>
+            </ul>
+            <p>דוגמאות קלאסיות: טיוטות מענה לפניות חוזרות, סיכומי פגישות אוטומטיים, טיוטת הצעות מחיר, תרגום ותקצור מסמכים.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="chapter reveal">
+        <span class="chapter-tag">שלב 5</span>
+        <div class="panel">
+          <div class="panel-img"><img data-img="5" alt="תחנת האנרגיה של המושבה"></div>
+          <div class="panel-body">
+            <h3>תחנת האנרגיה</h3>
+            <div class="chapter-sub">התשתית שכל המושבה תעמוד עליה</div>
+            <div class="story">אפשר לבנות בתים יפים, אבל בלי תחנת אנרגיה, צינורות מים ומחסן חמצן, המושבה קופאת בלילה הראשון. את התשתית בונים לפני שהיא חסרה.</div>
+            <p>כאן כל המודולים הקודמים של הקורס מתחברים למערכת אחת:</p>
+            <ul>
+              <li><b>דאטה נקי (מכרה הזהב):</b> בלי שלד נתונים מסודר, כל כלי AI עובד על בוץ.</li>
+              <li><b>חיבורים בין מערכות (המרכזייה):</b> API ו-Webhooks הם צינורות החמצן בין הכלים.</li>
+              <li><b>אוטומציות (הרכבת):</b> המסילות שמריצות תהליכים בלי יד אדם.</li>
+              <li><b>אבטחה והרשאות (משמר הכספת):</b> מי ניגש למה, ומה אסור שיצא החוצה.</li>
+            </ul>
+            <div class="translate-box">
+              <h4>💫 תרגום מהמסלול</h4>
+              <table><tbody>
+                <tr><td>סביבת עבודה ארגונית</td><td class="term">Workspace</td><td>חשבון ארגוני מנוהל במקום חשבונות פרטיים מפוזרים</td></tr>
+                <tr><td>כניסה אחודה</td><td class="term">SSO</td><td>התחברות אחת מאובטחת לכל הכלים, ושליטה מרכזית במי בפנים</td></tr>
+                <tr><td>חדר ניסויים</td><td class="term">Sandbox</td><td>מרחב בטוח לנסות בו דברים בלי לגעת בנתוני אמת</td></tr>
+                <tr><td>ניהול הרשאות</td><td class="term">Permissions</td><td>כל חלוץ מקבל גישה למה שהוא צריך, ולא לגרם אחד יותר</td></tr>
+              </tbody></table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chapter reveal">
+        <span class="chapter-tag">שלב 6</span>
+        <div class="panel">
+          <div class="panel-img"><img data-img="6" alt="התכנסות בכיפת התרבות"></div>
+          <div class="panel-body">
+            <h3>כיפת התרבות</h3>
+            <div class="chapter-sub">התנגדויות, פחדים, ואיך בונים אמון</div>
+            <div class="story">בכיפה המרכזית יש כלל: כל פחד שנאמר בקול זוכה לכבוד. הקולוניסטים שהכי התנגדו לנחיתה הם היום אלה שמלמדים את החדשים איך לחיות כאן. לא כי שכנעו אותם. כי הקשיבו להם.</div>
+            <p>ההתנגדות היא לא באג בהטמעה, היא חלק מההטמעה. הפחדים אמיתיים: "ה-AI יחליף אותי", "אי אפשר לסמוך על התוצאות", "אין לי זמן ללמוד עוד כלי". מה עובד:</p>
+            <ul>
+              <li><b>שקיפות מלאה:</b> מה מטמיעים, למה, ומה זה אומר לגבי כל תפקיד. חלל ריק מתמלא בשמועות.</li>
+              <li><b>מעצים, לא מחליף:</b> ה-AI לוקח את החלק המשעמם של העבודה, והמומחיות האנושית נהיית שווה יותר, לא פחות.</li>
+              <li><b>הכשרה בשעות העבודה:</b> למידה היא חלק מהמשימה, לא שיעורי בית.</li>
+              <li><b>שגרת שיתוף:</b> פורום שבועי קצר של "מה ניסיתי השבוע", כולל הכישלונות.</li>
+            </ul>
+            <p><b>תרגיל קצר:</b> עובדת ותיקה אומרת: "עשרים שנה אני כותבת את הדוחות האלה. עכשיו רובוט יעשה את זה במקומי?" מה עונים?</p>
+            <div class="opt-card" data-q="resist" data-ok="0">"ככה זה, העולם מתקדם. כדאי להתרגל."</div>
+            <div class="opt-card" data-q="resist" data-ok="1">"הידע שלך הוא בדיוק מה שחסר ל-AI. בואי תהיי זו שמלמדת אותו לכתוב כמוך, ובודקת שהוא לא טועה."</div>
+            <div class="opt-card" data-q="resist" data-ok="0">"את צודקת, נוותר על AI בדוחות שלך."</div>
+            <div class="ex-feedback" id="fb-resist"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chapter reveal">
+        <span class="chapter-tag">שלב 7</span>
+        <div class="panel">
+          <div class="panel-img"><img data-img="7" alt="בקרת מדדי החמצן"></div>
+          <div class="panel-body">
+            <h3>מדדי החמצן</h3>
+            <div class="chapter-sub">מדידה: איך יודעים שהמושבה באמת נושמת</div>
+            <div class="story">במושבה לא שואלים "איך ההרגשה". מסתכלים על המחוגים: לחץ חמצן, טמפרטורה, מלאי מים. הרגשה זה נחמד. מחוגים מצילים חיים.</div>
+            <p>בלי מדידה, ההטמעה חיה על תחושות בטן, ותחושות בטן מתות ראשונות בכל קיצוץ תקציב. הכלל: <b>מודדים לפני, מודדים אחרי, משווים.</b></p>
+            <ul>
+              <li><b>קו הבסיס (Baseline):</b> לפני שמפעילים כלי, מתעדים כמה זמן ועלות לוקח התהליך היום.</li>
+              <li><b>מדדים קשים:</b> זמן למשימה, עלות, כמות שגיאות, זמן תגובה ללקוח.</li>
+              <li><b>מדדים רכים:</b> שביעות רצון העובדים, אחוז משתמשים פעילים, כמה שימושים בשבוע.</li>
+            </ul>
+            <div class="table-slip">
+              <div class="tr head"><div>התהליך</div><div>לפני ההטמעה</div><div>אחרי 60 יום</div></div>
+              <div class="tr goodr"><div>מענה לפנייה חוזרת</div><div>45 דקות</div><div>12 דקות</div></div>
+              <div class="tr goodr"><div>טיוטת הצעת מחיר</div><div>יום עבודה</div><div>שעה וחצי</div></div>
+              <div class="tr goodr"><div>סיכום פגישה</div><div>לא נכתב</div><div>100% מהפגישות</div></div>
+            </div>
+            <p>המספרים האלה הם החמצן של ההטמעה: הם משכנעים את ההנהלה, מרגיעים את הספקנים, ומראים לחלוצים שהמאמץ שווה.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="chapter reveal">
+        <span class="chapter-tag">שלב 8</span>
+        <div class="panel">
+          <div class="panel-img"><img data-img="8" alt="המושבה מתרחבת בכיפות חדשות"></div>
+          <div class="panel-body">
+            <h3>הרחבת המושבה</h3>
+            <div class="chapter-sub">סקיילינג: מפיילוט מוצלח לארגון שלם, מעגל אחרי מעגל</div>
+            <div class="story">כשהגיעה הרקטה השנייה עם מאה קולוניסטים חדשים, לא בנינו להם עיר חדשה. חיברנו את הכיפות שלהם לתשתית שכבר עבדה, ולכל עשרה חדשים הצמדנו חלוץ ותיק.</div>
+            <p>פיילוט מוצלח הוא לא הסוף, הוא ההוכחה שאפשר להתחיל. מרחיבים במעגלים: <b>צוות חלוץ ← מחלקה ← אגף ← ארגון</b>. לכל מעגל חדש נכנסים רק כשהקודם יציב. מה חייב להיות מוכן לפני כל הרחבה:</p>
+            <ul>
+              <li><b>ספריית פרומפטים ארגונית:</b> הפרומפטים המנצחים של החלוצים, מסודרים ונגישים לכולם.</li>
+              <li><b>נהלים כתובים:</b> איך משתמשים, מה מותר, למי פונים כשנתקעים.</li>
+              <li><b>מסלול קליטה (Onboarding):</b> כל עובד חדש במעגל מקבל הדרכה וחונך ותיק.</li>
+              <li><b>שעת AI שבועית:</b> זמן מוגן ללמידה ושיתוף, גם כשהלוז בוער.</li>
+            </ul>
+            <p>הטעות הנפוצה: להרחיב מהר מדי כי "הפיילוט הצליח". מושבה שמכפילה את עצמה לפני שיש מספיק חמצן, חונקת את כולם.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="chapter reveal">
+        <span class="chapter-tag">שלב 9</span>
+        <div class="panel">
+          <div class="panel-img"><img data-img="9" alt="מועצת המושבה מתכנסת"></div>
+          <div class="panel-body">
+            <h3>מועצת המושבה</h3>
+            <div class="chapter-sub">ממשל: מדיניות, בעלות, והתמודדות עם עולם שמשתנה כל רבעון</div>
+            <div class="story">המועצה מתכנסת פעם בחודש. לא כדי לאשר כל צעד, אלא כדי לוודא שיש מפה אחת, חוקים ברורים, ושאף אחד לא בונה כיפה פרטית מחוץ לחומה בלי שנדע.</div>
+            <p>כשאין ממשל, נוצר <b>Shadow AI</b>: עובדים משתמשים בכלים פרטיים, מדביקים נתוני לקוחות בצ'אטים חינמיים, ואף אחד לא יודע מה יוצא החוצה. הפתרון הוא לא איסור, הוא מסגרת:</p>
+            <ul>
+              <li><b>מדיניות שימוש כתובה:</b> אילו כלים מאושרים, מה מותר להזין ומה אסור (נתונים אישיים ורגישים בראש הרשימה).</li>
+              <li><b>בעלות ברורה:</b> מי מחליט על כלים חדשים, מי מנהל רישיונות, מי עונה לשאלות.</li>
+              <li><b>ועדת AI:</b> נציגים מהמחלקות, אבטחה והנהלה, שנפגשים פעם בחודש ומעדכנים את המפה.</li>
+              <li><b>מעקב שוטף:</b> עולם הכלים משתנה כל רבעון. מה שנבחר בינואר נבחן שוב באפריל.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="chapter reveal">
+        <span class="chapter-tag">שלב 10</span>
+        <div class="panel">
+          <div class="panel-img"><img data-img="10" alt="עיר פורחת על הכוכב"></div>
+          <div class="panel-body">
+            <h3>עיר על הכוכב</h3>
+            <div class="chapter-sub">סיכום המסע: מהרקטה הראשונה לתרבות שלומדת לבד</div>
+            <div class="story">היום נחתה הרקטה העשרים. אף אחד כבר לא יוצא לצלם אותה. ילדי המושבה חושבים שזה תמיד היה ככה. זה הסימן שניצחנו: הבלתי אפשרי נהיה שגרה.</div>
+            <p>ההטמעה מצליחה באמת כשהיא מפסיקה להיות "פרויקט" והופכת לתרבות: עובדים שמנסים כלי חדש בלי לחכות לאישור, משתפים פרומפט מנצח בפורום, ושואלים "אפשר לעשות את זה חכם יותר?" לפני כל משימה חוזרת. המסע במבט אחד:</p>
+            <ul>
+              <li><b>1-2:</b> מבינים שזה מסע של אנשים, וסורקים איפה כואב.</li>
+              <li><b>3-4:</b> בוחרים צוות חלוץ ונוחתים נחיתה קטנה ומדידה.</li>
+              <li><b>5-6:</b> בונים תשתית, ובונים אמון מול הפחדים.</li>
+              <li><b>7-8:</b> מודדים חמצן, ומרחיבים מעגל אחרי מעגל.</li>
+              <li><b>9-10:</b> מקימים ממשל, והופכים את הכול לתרבות.</li>
+            </ul>
+            <div class="certificate">
+              <div class="medal">🎖️</div>
+              <h3>תעודת מפקד/ת מושבה</h3>
+              <p>השלמתם את כל עשרת שלבי המסע: מיפוי, צוות חלוץ, פיילוט, תשתית, תרבות, מדידה, הרחבה וממשל. אתם מוכנים להוביל הטמעת AI אמיתית בארגון.</p>
+              <span class="cert-stamp">אושר לשיגור</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Exercises ===== -->
+<section id="exercises">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">מרכז הבקרה</span>
+      <h2>אימוני שיגור</h2>
+      <p>כאן מקבלים החלטות של מפקדים. כל בחירה מדליקה נורה בלוח, ובסוף מקבלים דוח מוכנות לשיגור.</p>
+    </div>
+    <div class="sec-banner reveal"><img data-img="11" alt="חדר הבקרה של המשימה"></div>
+
+    <div class="exercise reveal" id="missionBoard">
+      <span class="ex-tag">תרגיל שיגור מס' 1 | הכלי המרכזי</span>
+      <h3>לוח המוכנות</h3>
+      <p class="ex-goal">שש החלטות הטמעה עומדות לפניכם. כל החלטה מדליקה נורה בלוח הבקרה: <b>ירוק</b> החלטה מצוינת, <b>ענבר</b> מסוכן אבל שריד, <b>אדום</b> עוצרים את הספירה.</p>
+      <div class="lamp-board">
+        <div class="lamp-row" id="lampRow">
+          <div class="lamp"></div><div class="lamp"></div><div class="lamp"></div>
+          <div class="lamp"></div><div class="lamp"></div><div class="lamp"></div>
+        </div>
+        <div class="lamp-caps">
+          <span>צוות</span><span>פיילוט</span><span>מדידה</span><span>שקיפות</span><span>הרחבה</span><span>בעלות</span>
+        </div>
+      </div>
+      <div id="mcBox"></div>
+      <div class="mc-score"><span>החלטה <b id="mcIdx">1</b> מתוך 6</span><span>נורות ירוקות: <b id="mcScore">0</b></span></div>
+      <div class="mc-done" id="mcDone">
+        <div class="medal">🛰️</div>
+        <h4 id="mcDoneTitle"></h4>
+        <p id="mcDoneMsg"></p>
+        <div class="ex-controls" style="justify-content:center"><button class="chip-btn" id="mcReset">ספירה חדשה</button></div>
+      </div>
+    </div>
+
+    <div class="exercise reveal">
+      <span class="ex-tag">תרגיל שיגור מס' 2</span>
+      <h3>בחרו את הפיילוט</h3>
+      <p class="ex-goal">ארבעה מועמדים לנחיתה הראשונה. רק אחד עומד בכל ארבעת הכללים: <b>כאב אמיתי, מדיד, סיכון נמוך, מהיר</b>. איזה?</p>
+      <div class="opt-card" data-q="pilot" data-ok="0"><span class="who">מועמד א'</span>החלפת כל מערכת ה-CRM במערכת חדשה מבוססת AI תוך שנה</div>
+      <div class="opt-card" data-q="pilot" data-ok="0"><span class="who">מועמד ב'</span>צ'אטבוט שעונה ללקוחות ישירות בלי בקרה אנושית, כבר מחר</div>
+      <div class="opt-card" data-q="pilot" data-ok="1"><span class="who">מועמד ג'</span>טיוטות מענה לפניות חוזרות: נציג מאשר כל טיוטה, מודדים זמן מענה לפני ואחרי, חודש ניסיון</div>
+      <div class="opt-card" data-q="pilot" data-ok="0"><span class="who">מועמד ד'</span>"שיפור כללי של התרבות הארגונית בעזרת AI", בלי מדד מוגדר</div>
+      <div class="ex-feedback" id="fb-pilot"></div>
+    </div>
+
+    <div class="exercise reveal">
+      <span class="ex-tag">תרגיל שיגור מס' 3</span>
+      <h3>סימולטור ההתנגדות</h3>
+      <p class="ex-goal">שלוש דמויות מהמושבה, שלוש התנגדויות. בחרו את התגובה שבונה אמון במקום לשבור אותו.</p>
+      <div id="resistSim"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== Glossary ===== -->
+<section id="glossary" class="tone">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">מילון המסע</span>
+      <h2>24 מונחים לכיס של מפקד</h2>
+      <p>כל מונח בשלוש שכבות: השם הרשמי, מה זה בשפת המושבה, וההגדרה המקצועית.</p>
+    </div>
+    <input type="text" class="gloss-search" id="glossSearch" placeholder="חפשו מונח: פיילוט, אלוף AI, ממשל...">
+    <div class="gloss-cats" id="glossCats"></div>
+    <div class="gloss-grid" id="glossGrid"></div>
+    <p class="gloss-empty" id="glossEmpty">לא נמצא מונח כזה במפות שלנו. נסו חיפוש אחר.</p>
+  </div>
+</section>
+
+<!-- ===== Checklist ===== -->
+<section id="checklist">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">רשימת השיגור</span>
+      <h2>20 בדיקות לפני ההמראה</h2>
+      <p>כמו לפני כל שיגור: עוברים סעיף סעיף. ירוק בכולם? יש אישור להמריא.</p>
+    </div>
+    <div class="check-progress reveal"><div class="cp-bar"><div class="cp-fill" id="cpFill"></div></div><b id="cpCount">0/20</b></div>
+    <div id="checkGroups"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>המושבה</b> | אתר קונספט לימודי מסדרת עולמות הקורס "מיישם AI ואוטומציה"</p>
+    <p style="margin-top:6px">מודול 9: הטמעת AI בארגון. נבנה באהבה, בסגנון נאס"א רטרו.</p>
+  </div>
+</footer>
+
+<script>
+/* ===== Images ===== */
+const IMAGES={1:'1.webp',2:'2.webp',3:'3.webp',4:'4.webp',5:'5.webp',6:'6.webp',7:'7.webp',8:'8.webp',9:'9.webp',10:'10.webp',11:'11.webp',12:'12.webp'};
+document.querySelectorAll('img[data-img]').forEach(im=>{const k=im.dataset.img;if(IMAGES[k])im.src='img/'+IMAGES[k]});
+
+/* ===== Progress ===== */
+const pBar=document.getElementById('progressBar');
+const pLabel=document.getElementById('progressLabel');
+function updProgress(){
+  const h=document.documentElement;
+  const pct=Math.min(100,Math.round(h.scrollTop/(h.scrollHeight-h.clientHeight)*100));
+  pBar.style.width=pct+'%';
+  pLabel.textContent=pct<3?'על כן השיגור':pct>=99?'הגעתם למושבה, ברוכים הבאים':'עברתם '+pct+'% מהמסע אל המושבה';
+}
+
+/* ===== Launch hero ===== */
+const wrap=document.getElementById('launchWrap');
+const rocket=document.getElementById('rocket');
+const flame=document.getElementById('flame');
+const gArm=document.getElementById('gArm');
+const stars=document.getElementById('stars');
+const glow=document.getElementById('horizonGlow');
+const tnum=document.getElementById('tminusNum');
+const phase=document.getElementById('phaseLabel');
+const stamp=document.getElementById('orbitStamp');
+const hint=document.getElementById('launchHint');
+const puffs=[document.getElementById('pf1'),document.getElementById('pf2'),document.getElementById('pf3'),document.getElementById('pf4')];
+const heroCopy=document.querySelector('.hero-copy');
+const mobileQ=matchMedia('(max-width:1023px)');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function updLaunch(){
+  const r=wrap.getBoundingClientRect();
+  const total=wrap.offsetHeight-innerHeight;
+  const p=Math.min(1,Math.max(0,-r.top/(total||1)));
+  hint.classList.toggle('hide',p>0.03);
+  /* on mobile the copy overlays the pad: fade it out once the countdown starts */
+  if(mobileQ.matches){
+    heroCopy.style.opacity=Math.max(0,1-p*5);
+    heroCopy.style.pointerEvents=p>0.12?'none':'auto';
+  }else{
+    heroCopy.style.opacity='';heroCopy.style.pointerEvents='';
+  }
+  /* countdown */
+  const t=Math.max(0,10-Math.floor(p*12.5));
+  if(p>=0.8){tnum.textContent='המראה!';tnum.style.direction='rtl'}
+  else{tnum.textContent='T-'+t;tnum.style.direction='ltr'}
+  phase.textContent=p<0.25?'בדיקות אחרונות':p<0.55?'תדלוק הושלם, מערכות תקינות':p<0.8?'הצתה!':'צוברים גובה';
+  /* gantry arm swings away */
+  const armP=Math.min(1,Math.max(0,(p-0.5)/0.2));
+  gArm.style.transform='rotate('+(armP*75)+'deg)';
+  /* flame + shake + liftoff */
+  const ignite=Math.min(1,Math.max(0,(p-0.55)/0.25));
+  flame.style.opacity=ignite;
+  flame.style.transform='scaleY('+(0.25+ignite*0.9)+') scaleX('+(0.6+ignite*0.4)+')';
+  let ty=0,tx=0;
+  if(!reduced&&p>0.55&&p<0.8)tx=Math.sin(p*260)*2.2;
+  if(p>0.8){const lp=(p-0.8)/0.2;ty=-Math.pow(lp,1.6)*(innerHeight*0.95)}
+  rocket.style.transform='translate('+tx+'px,'+ty+'px)';
+  /* smoke */
+  const sm=Math.min(1,Math.max(0,(p-0.72)/0.18));
+  puffs.forEach((pf,i)=>{
+    pf.style.opacity=sm*0.85;
+    pf.style.transform='scale('+(0.3+sm*(1.1+i*0.25))+') translateY('+(-sm*10)+'px)';
+  });
+  /* atmosphere */
+  glow.style.opacity=0.2+p*0.55;
+  stars.style.transform='translateY('+(p*46)+'px)';
+  stamp.classList.toggle('show',p>0.88);
+}
+
+/* ===== Reveal on scroll ===== */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ===== Nav active ===== */
+const navLinks=document.querySelectorAll('.nav-chips a');
+const secIds=['chapters','exercises','glossary','checklist'];
+function updNav(){
+  let cur='';
+  secIds.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<innerHeight*0.4)cur=id});
+  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+}
+addEventListener('scroll',()=>{updProgress();updLaunch();updNav()},{passive:true});
+updProgress();updLaunch();updNav();
+
+/* ===== Simple quizzes (opt-cards with data-q) ===== */
+const FB={
+  resist:{good:'בדיוק. ההתנגדות שלה היא נכס: עשרים שנות מומחיות הן מה שהופך אותה לבודקת ולמאמנת הכי טובה של ה-AI. נתתם לה תפקיד חדש וחשוב יותר, לא לקחתם ממנה את הישן.',
+          bad:'זו תשובה שמייצרת אויב או בורחת מהשינוי. הידע שלה הוא הנכס: הזמינו אותה ללמד את ה-AI לכתוב כמוה ולבדוק אותו. כך היא עולה במעמד, לא יורדת.'},
+  pilot:{good:'מועמד ג\' הוא פיילוט מושלם: כאב יומיומי אמיתי, מדד ברור (זמן מענה), בקרה אנושית ששומרת על סיכון נמוך, ותוצאות בתוך חודש.',
+         bad:'זה מועמד מסוכן: או גדול מדי, או בלי בקרה, או בלי מדד. פיילוט טוב הוא קטן, מדיד, בסיכון נמוך ומהיר. חפשו את המועמד שעומד בכל הארבעה.'}
+};
+document.querySelectorAll('.opt-card[data-q]').forEach(card=>{
+  card.addEventListener('click',()=>{
+    const q=card.dataset.q;
+    const cards=document.querySelectorAll('.opt-card[data-q="'+q+'"]');
+    if([...cards].some(c=>c.classList.contains('correct')||c.classList.contains('wrong')))return;
+    const ok=card.dataset.ok==='1';
+    card.classList.add(ok?'correct':'wrong');
+    if(!ok)[...cards].find(c=>c.dataset.ok==='1').classList.add('correct');
+    const fb=document.getElementById('fb-'+q);
+    fb.textContent=ok?FB[q].good:FB[q].bad;
+    fb.className='ex-feedback show '+(ok?'good':'bad');
+  });
+});
+
+/* ===== Mission board ===== */
+const MC=[
+ {kind:'החלטה 1: צוות החלוץ',q:'איך מרכיבים את הצוות הראשון?',opts:[
+   {t:'מתנדבים סקרנים מכל המחלקות, עם ספונסר מההנהלה',v:'green',w:'הרכב מנצח: סקרנות, ייצוג רוחבי וגב ניהולי. כך נראה צוות חלוץ.'},
+   {t:'כל מחלקת ה-IT, הם הכי טכנולוגיים',v:'amber',w:'שריד אבל מסוכן: בלי אנשי השטח מהמחלקות, הפיילוט יפתור בעיות של IT ולא של הארגון.'},
+   {t:'מי שהכי פנוי כרגע בלוז',v:'red',w:'עצרו את הספירה: "הכי פנוי" הוא כמעט אף פעם לא "הכי סקרן". צוות אדיש מקבר את ההטמעה בשקט.'}]},
+ {kind:'החלטה 2: הפיילוט',q:'מה משגרים ראשון?',opts:[
+   {t:'תהליך אחד כואב ומדיד, עם בקרה אנושית, לחודש',v:'green',w:'בדיוק לפי הספר: קטן, מדיד, בטוח ומהיר. זה מייצר את סיפור ההצלחה הראשון.'},
+   {t:'שלושה תהליכים במקביל, שיהיה רושם',v:'amber',w:'אפשרי אבל מסוכן: הקשב מתפזר, וכשמשהו נתקע קשה לדעת מה. עדיף ניצחון אחד נקי.'},
+   {t:'להחליף מערכת ליבה שלמה כבר בהתחלה',v:'red',w:'עצרו את הספירה: סיכון עצום בלי שום הוכחה מוקדמת. ככה נשרפים תקציב ואמון ביחד.'}]},
+ {kind:'החלטה 3: מדידה',q:'איך נדע שהפיילוט הצליח?',opts:[
+   {t:'מודדים קו בסיס לפני, ומשווים זמן ואיכות אחרי',v:'green',w:'מחוגים במקום תחושות: לפני מול אחרי הוא הטיעון שאף מנהל כספים לא מתווכח איתו.'},
+   {t:'נשאל את הצוות איך היה בסוף החודש',v:'amber',w:'פידבק חשוב, אבל לבד הוא רק תחושה. בלי קו בסיס מספרי אין לכם סיפור הצלחה מוכח.'},
+   {t:'לא מודדים, העיקר שמתקדמים',v:'red',w:'עצרו את הספירה: מה שלא נמדד נעלם בקיצוץ התקציב הראשון.'}]},
+ {kind:'החלטה 4: שקיפות',q:'מה מספרים לשאר העובדים?',opts:[
+   {t:'הכול: מה מנסים, למה, ומה זה אומר לכל תפקיד, כולל פורום שאלות פתוח',v:'green',w:'שקיפות היא כיפת החמצן של האמון. חלל ריק מתמלא בשמועות, אז לא משאירים חלל ריק.'},
+   {t:'נספר רק כשיהיו תוצאות טובות',v:'amber',w:'מסוכן: עד אז השמועות כבר יספרו סיפור אחר, בדרך כלל מפחיד יותר מהאמת.'},
+   {t:'כלום. זה עניין של ההנהלה בלבד',v:'red',w:'עצרו את הספירה: סודיות סביב AI היא הדרך המהירה ביותר לייצר חרדה והתנגדות גורפת.'}]},
+ {kind:'החלטה 5: קצב ההרחבה',q:'הפיילוט הצליח. איך ממשיכים?',opts:[
+   {t:'מעגל אחד קדימה: מחלקה אחת, עם ספריית פרומפטים, נהלים וחונכים',v:'green',w:'הרחבה במעגלים עם תשתית מוכנה. כל מעגל חדש נשען על יציבות הקודם.'},
+   {t:'פורסים לכל הארגון בבת אחת, לנצל את המומנטום',v:'amber',w:'המומנטום אמיתי אבל התשתית לא מוכנה למאה משתמשים חדשים. הרחבה מהירה מדי חונקת את התמיכה.'},
+   {t:'נשארים בפיילוט עוד שנה, ליתר ביטחון',v:'red',w:'עצרו את הספירה: פיילוט נצחי הוא קבורה איטית. בלי הרחבה, ההצלחה מתאדה והחלוצים מתייאשים.'}]},
+ {kind:'החלטה 6: בעלות וממשל',q:'מי מחזיק במפתחות המושבה?',opts:[
+   {t:'ועדת AI חודשית: נציגי מחלקות, אבטחה והנהלה, עם מדיניות שימוש כתובה',v:'green',w:'ממשל בריא: בעלות ברורה, מדיניות כתובה, ועדכון שוטף מול עולם שמשתנה כל רבעון.'},
+   {t:'המנכ"ל יחליט לבד על הכול',v:'amber',w:'ריכוזיות עוזרת בהתחלה אבל לא סקיילבילית: בלי נציגי שטח, ההחלטות מתנתקות מהמציאות.'},
+   {t:'אף אחד. כל עובד יסתדר עם הכלים שלו',v:'red',w:'עצרו את הספירה: זה מתכון ל-Shadow AI, נתונים רגישים בכלים פרטיים ואפס בקרה.'}]}
+];
+let mcI=0,mcG=0,mcAnswered=false;
+const mcBox=document.getElementById('mcBox');
+const lamps=document.querySelectorAll('#lampRow .lamp');
+function mcRender(){
+  if(mcI>=MC.length){
+    const done=document.getElementById('mcDone');
+    done.classList.add('show');
+    mcBox.innerHTML='';
+    const title=document.getElementById('mcDoneTitle');
+    const msg=document.getElementById('mcDoneMsg');
+    if(mcG>=5){title.textContent='יש אישור לשיגור';msg.textContent=mcG+' נורות ירוקות מתוך 6. לוח הבקרה שלכם זוהר: ההטמעה הזאת בידיים של מפקדים אמיתיים.'}
+    else if(mcG>=3){title.textContent='שיגור בסיכון';msg.textContent=mcG+' נורות ירוקות מתוך 6. אפשר להמריא, אבל כמה מערכות מהבהבות. עברו שוב על ההחלטות הכתומות והאדומות.'}
+    else{title.textContent='עצרו את הספירה';msg.textContent='רק '+mcG+' נורות ירוקות. מושבה לא ממריאה ככה. נסו ספירה חדשה וחשבו כמו מפקדים: אנשים קודם, טכנולוגיה אחר כך.'}
+    return;
+  }
+  mcAnswered=false;
+  const m=MC[mcI];
+  document.getElementById('mcIdx').textContent=mcI+1;
+  mcBox.innerHTML='<div class="mc-q"><div class="mc-kind">'+m.kind+'</div><h4>'+m.q+'</h4>'
+    +m.opts.map((o,i)=>'<div class="opt-card" data-i="'+i+'">'+o.t+'</div>').join('')
+    +'<div class="mc-verdict" id="mcVerdict"></div>'
+    +'<div class="ex-controls" id="mcNextBox" style="display:none"><button class="chip-btn" id="mcNext">ההחלטה הבאה</button></div></div>';
+  mcBox.querySelectorAll('.opt-card').forEach(c=>{
+    c.addEventListener('click',()=>{
+      if(mcAnswered)return;
+      mcAnswered=true;
+      const o=m.opts[+c.dataset.i];
+      c.classList.add(o.v==='green'?'correct':'wrong');
+      lamps[mcI].className='lamp '+o.v;
+      if(o.v==='green'){mcG++;document.getElementById('mcScore').textContent=mcG}
+      const v=document.getElementById('mcVerdict');
+      v.className='mc-verdict show '+(o.v==='green'?'good':o.v==='amber'?'mid':'bad');
+      v.textContent=o.w;
+      document.getElementById('mcNextBox').style.display='flex';
+      document.getElementById('mcNext').addEventListener('click',()=>{mcI++;mcRender();});
+    });
+  });
+}
+document.getElementById('mcReset').addEventListener('click',()=>{
+  mcI=0;mcG=0;
+  document.getElementById('mcScore').textContent='0';
+  document.getElementById('mcDone').classList.remove('show');
+  lamps.forEach(l=>l.className='lamp');
+  mcRender();
+});
+mcRender();
+
+/* ===== Resistance simulator ===== */
+const RESIST=[
+ {who:'רון, איש מכירות ותיק',say:'"אני סוגר עסקאות בטלפון עשרים שנה. עכשיו איזה צ\'אט יגיד לי מה לכתוב ללקוח?"',opts:[
+   {t:'להראות לו שה-AI מכין לו טיוטה, והוא זה שמחליט, מתקן וסוגר. הניסיון שלו הוא הפילטר.',ok:true,w:'נכון. ה-AI מוצג כעוזר אישי שחוסך לו הקלדה, והמומחיות שלו נשארת ההחלטה הסופית.'},
+   {t:'לחייב אותו להשתמש, עם דוח שימוש שבועי למנהל',ok:false,w:'כפייה מייצרת שימוש למראית עין והתנגדות אמיתית מתחת לפני השטח.'},
+   {t:'לוותר לו, שימשיך כרגיל בלי הכלים',ok:false,w:'ויתור משאיר אותו מאחור ומשדר לכולם שאפשר פשוט לחכות שזה יעבור.'}]},
+ {who:'מיכל, מנהלת כספים',say:'"אין תקציב להרפתקאות. תוכיחו לי שזה שווה כסף לפני שאני מאשרת רישיונות."',opts:[
+   {t:'להציג את מדדי הפיילוט: קו בסיס מול תוצאה, בשעות עבודה ובכסף',ok:true,w:'בדיוק. מיכל לא מתנגדת, היא מבקשת מחוגים. זה תפקידם של מדדי החמצן משלב 7.'},
+   {t:'להסביר שכל העולם עובר ל-AI ואי אפשר להישאר מאחור',ok:false,w:'טיעון אופנה לא עובד על אנשי כספים. הם רוצים מספרים, לא טרנדים.'},
+   {t:'לעקוף אותה ולבקש תקציב ישירות מהמנכ"ל',ok:false,w:'עקיפה קונה רישיונות ומפסידה בעלת ברית קריטית לכל המסע.'}]},
+ {who:'יוסי, נציג שירות צעיר',say:'"אני כבר משתמש בצ\'אט חינמי מהבית, מדביק לשם את פניות הלקוחות. עובד מעולה!"',opts:[
+   {t:'להודות על היוזמה, ולהעביר אותו לכלי הארגוני המאושר עם הסבר למה נתוני לקוחות לא יוצאים החוצה',ok:true,w:'נכון: יוסי הוא חלוץ טבעי שצריך תיעול, לא עונש. הסקרנות נשארת, הנתונים נשארים בבית.'},
+   {t:'לנזוף בו מול הצוות כדי שכולם ילמדו',ok:false,w:'הנזיפה תלמד את כולם דבר אחד: להסתיר. ה-Shadow AI ימשיך, רק בשקט.'},
+   {t:'להתעלם, העיקר שהלקוחות מרוצים',ok:false,w:'התעלמות מנתוני לקוחות בכלי פרטי היא סיכון אבטחה שמחכה להתפוצץ.'}]}
+];
+const simBox=document.getElementById('resistSim');
+simBox.innerHTML=RESIST.map((s,si)=>
+ '<div class="mc-q" style="margin-bottom:14px"><div class="mc-kind">'+s.who+'</div><h4>'+s.say+'</h4>'
+ +s.opts.map((o,oi)=>'<div class="opt-card" data-s="'+si+'" data-o="'+oi+'">'+o.t+'</div>').join('')
+ +'<div class="mc-verdict" id="rsV'+si+'"></div></div>').join('');
+simBox.querySelectorAll('.opt-card').forEach(c=>{
+  c.addEventListener('click',()=>{
+    const si=+c.dataset.s,oi=+c.dataset.o;
+    const cards=simBox.querySelectorAll('.opt-card[data-s="'+si+'"]');
+    if([...cards].some(x=>x.classList.contains('correct')||x.classList.contains('wrong')))return;
+    const o=RESIST[si].opts[oi];
+    c.classList.add(o.ok?'correct':'wrong');
+    if(!o.ok)[...cards].find(x=>RESIST[si].opts[+x.dataset.o].ok).classList.add('correct');
+    const v=document.getElementById('rsV'+si);
+    v.className='mc-verdict show '+(o.ok?'good':'bad');
+    v.textContent=o.w;
+  });
+});
+
+/* ===== Glossary ===== */
+const TERMS=[
+ {he:'הטמעת AI',en:'AI Adoption',cat:'journey',space:'הקמת המושבה: מהרקטה הראשונה ועד עיר חיה.',def:'התהליך המלא של הכנסת כלי AI לשימוש אמיתי ורחב בארגון: אנשים, תהליכים ותרבות, לא רק התקנה.'},
+ {he:'פיילוט',en:'Pilot',cat:'journey',space:'הנחיתה הראשונה: דגל אחד קטן באדמה.',def:'ניסוי קטן, מדיד ותחום בזמן שבודק כלי או תהליך אחד לפני הרחבה.'},
+ {he:'ניצחון מהיר',en:'Quick Win',cat:'journey',space:'התמונה הראשונה ששודרה הביתה מהכוכב.',def:'הצלחה קטנה ומוחשית בשלב מוקדם, שמייצרת אמון ומומנטום להמשך.'},
+ {he:'מקרה שימוש',en:'Use Case',cat:'journey',space:'אתר נחיתה מסומן על המפה.',def:'תרחיש עסקי מוגדר שבו כלי AI פותר בעיה ספציפית, למשל טיוטת מענה לפניות.'},
+ {he:'מפת דרכים',en:'Roadmap',cat:'journey',space:'תוכנית המסע: אילו רקטות, לאן, ובאיזה סדר.',def:'תוכנית מדורגת של שלבי ההטמעה: פיילוט, הרחבות, ותאריכי יעד.'},
+ {he:'הרחבה מדורגת',en:'Rollout',cat:'journey',space:'עוד כיפה, עוד שכונה, מעגל אחרי מעגל.',def:'הרחבת השימוש בכלי לקבוצות נוספות בשלבים מבוקרים, ולא בבת אחת.'},
+ {he:'ניהול שינוי',en:'Change Management',cat:'people',space:'אמנות ההתיישבות: לגרום לאנשים לרצות לגור בעולם החדש.',def:'הדיסציפלינה של הובלת אנשים דרך שינוי ארגוני: תקשורת, הכשרה וטיפול בהתנגדויות.'},
+ {he:'אלוף AI',en:'AI Champion',cat:'people',space:'החלוץ שכבר בנה בקתה ומלמד אחרים.',def:'עובד נלהב ומיומן שמוביל את השימוש במחלקה שלו ומשמש כתובת לעמיתים.'},
+ {he:'ספונסר',en:'Executive Sponsor',cat:'people',space:'מרכז השיגור בכדור הארץ שמממן את הדלק.',def:'מנהל בכיר שנותן להטמעה גב, תקציב וסמכות להסרת מכשולים.'},
+ {he:'צוות חלוץ',en:'Pioneer Team',cat:'people',space:'הנוסעים ברקטה הראשונה.',def:'קבוצה קטנה ומגוונת שמובילה את הפיילוט ולומדת לפני כולם.'},
+ {he:'התנגדות לשינוי',en:'Resistance',cat:'people',space:'הפחד מהעולם החדש. טבעי כמו כוח משיכה.',def:'תגובה אנושית צפויה לשינוי. מטפלים בה בהקשבה ושקיפות, לא בכפייה.'},
+ {he:'מאמצים מוקדמים',en:'Early Adopters',cat:'people',space:'אלה שמתנדבים לרקטה לפני שראו תמונות מהכוכב.',def:'האנשים שמאמצים טכנולוגיה חדשה ראשונים ומשפיעים על כל השאר.'},
+ {he:'הכשרה והעצמה',en:'Enablement',cat:'people',space:'אימוני האסטרונאוטים: אף אחד לא עולה לחלל בלי הכנה.',def:'הדרכות, חומרים וזמן מוגן שמקנים לעובדים ביטחון ומיומנות בכלים.'},
+ {he:'שגרת שיתוף',en:'Sharing Ritual',cat:'people',space:'מדורת המושבה: כל ערב מספרים מה גילינו היום.',def:'פורום קבוע שבו עובדים משתפים ניסויים, הצלחות וכישלונות עם הכלים.'},
+ {he:'תרבות לומדת',en:'Learning Culture',cat:'people',space:'מושבה שבה כל ילד שואל "למה" וכל מבוגר מנסה "אולי".',def:'סביבה ארגונית שמעודדת ניסוי, טעייה ולמידה מתמדת, התנאי לקיימות ההטמעה.'},
+ {he:'קו בסיס',en:'Baseline',cat:'ops',space:'מדידת החמצן לפני שסוגרים את הכיפה.',def:'מדידת המצב הקיים לפני השינוי, כדי שיהיה למה להשוות אחריו.'},
+ {he:'מדד הצלחה',en:'KPI',cat:'ops',space:'המחוגים על לוח הבקרה.',def:'מדד כמותי מוסכם שלפיו שופטים את הצלחת ההטמעה, כמו זמן למשימה.'},
+ {he:'החזר השקעה',en:'ROI',cat:'ops',space:'כמה זהב הביאה כל רקטה ששוגרה.',def:'היחס בין הערך שההטמעה מייצרת לבין עלותה, בכסף או בשעות עבודה.'},
+ {he:'שיעור אימוץ',en:'Adoption Rate',cat:'ops',space:'כמה קולוניסטים באמת גרים במושבה, לא רק רשומים.',def:'אחוז העובדים שמשתמשים בכלי בפועל ובקביעות, מתוך אלה שקיבלו גישה.'},
+ {he:'ספריית פרומפטים',en:'Prompt Library',cat:'ops',space:'ספר המתכונים של המושבה, פתוח לכולם.',def:'אוסף מסודר של הפרומפטים המוצלחים של הארגון, לשימוש חוזר ולמידה.'},
+ {he:'מדיניות שימוש',en:'AI Policy',cat:'ops',space:'חוקי המושבה: מה מותר מחוץ לכיפה ומה אסור.',def:'מסמך שמגדיר אילו כלים מאושרים, מה מותר להזין אליהם ומה אסור.'},
+ {he:'ועדת AI',en:'AI Committee',cat:'ops',space:'מועצת המושבה שמתכנסת סביב השולחן העגול.',def:'גוף קבוע עם נציגי מחלקות, אבטחה והנהלה, שמנהל את המדיניות והכלים.'},
+ {he:'AI בצללים',en:'Shadow AI',cat:'ops',space:'בקתות פיראטיות שנבנות מחוץ לחומה, בלי חמצן מפוקח.',def:'שימוש בכלי AI פרטיים ולא מאושרים, בדרך כלל כשאין חלופה ארגונית נוחה.'},
+ {he:'ממשל AI',en:'AI Governance',cat:'ops',space:'החוקה, המועצה והמשמר של המושבה ביחד.',def:'המסגרת הכוללת של מדיניות, בעלות, בקרה ועדכון שוטף לשימוש ב-AI בארגון.'}
+];
+const CATS=[{id:'all',label:'הכול'},{id:'journey',label:'המסע'},{id:'people',label:'אנשים ותרבות'},{id:'ops',label:'מדידה וממשל'}];
+let activeCat='all';
+const glossGrid=document.getElementById('glossGrid');
+const glossCats=document.getElementById('glossCats');
+const glossSearch=document.getElementById('glossSearch');
+const glossEmpty=document.getElementById('glossEmpty');
+glossCats.innerHTML=CATS.map(c=>'<button class="chip-btn'+(c.id==='all'?' active':'')+'" data-cat="'+c.id+'">'+c.label+'</button>').join('');
+glossCats.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+  activeCat=b.dataset.cat;
+  glossCats.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));
+  renderGloss();
+}));
+glossSearch.addEventListener('input',renderGloss);
+function renderGloss(){
+  const q=glossSearch.value.trim().toLowerCase();
+  const list=TERMS.filter(t=>(activeCat==='all'||t.cat===activeCat)&&(!q||t.he.toLowerCase().includes(q)||t.en.toLowerCase().includes(q)||t.def.toLowerCase().includes(q)));
+  glossGrid.innerHTML=list.map(t=>'<div class="gloss-card"><div class="g-head"><h4>'+t.he+'</h4><span class="g-en">'+t.en+'</span></div>'
+    +'<div class="g-noir"><b>בשפת המושבה</b>'+t.space+'</div><div class="g-def">'+t.def+'</div></div>').join('');
+  glossEmpty.style.display=list.length?'none':'block';
+}
+renderGloss();
+
+/* ===== Checklist ===== */
+const CHECK_GROUPS=[
+ {title:'סריקה ומיפוי',items:[
+  'מיפינו לפחות 5 תהליכים כואבים וחוזרים בארגון',
+  'דירגנו כל הזדמנות לפי כאב, מדידות וסיכון',
+  'בחרנו מקרה שימוש אחד ראשון, קטן ומדיד',
+  'תיעדנו קו בסיס: כמה זמן ועלות התהליך לוקח היום',
+  'הגדרנו מה ייחשב הצלחה, במספרים'
+ ]},
+ {title:'צוות ופיילוט',items:[
+  'גייסנו צוות חלוץ מתנדב ממחלקות שונות',
+  'יש לנו ספונסר מההנהלה עם תקציב וסמכות',
+  'נציג אבטחה מלווה את המסע מהיום הראשון',
+  'הפיילוט תחום בזמן: תוצאות בתוך 30 יום',
+  'לכל כלי בפיילוט יש בקרה אנושית על התוצרים'
+ ]},
+ {title:'תרבות והכשרה',items:[
+  'סיפרנו לכל הארגון מה מנסים ולמה, לפני שהתחלנו',
+  'קיימנו מפגש פתוח לשאלות ופחדים',
+  'ההכשרות מתקיימות בשעות העבודה, לא אחריהן',
+  'יש שגרת שיתוף שבועית של ניסויים והצלחות',
+  'כל התנגדות מקבלת שיחה אישית, לא נזיפה'
+ ]},
+ {title:'מדידה, הרחבה וממשל',items:[
+  'השווינו את מדדי הפיילוט לקו הבסיס ופרסמנו את התוצאות',
+  'בנינו ספריית פרומפטים ארגונית נגישה',
+  'כתבנו מדיניות שימוש: כלים מאושרים ומה אסור להזין',
+  'הקמנו ועדת AI שנפגשת בקביעות',
+  'תכננו את מעגל ההרחבה הבא רק אחרי שהנוכחי יציב'
+ ]}
+];
+const cg=document.getElementById('checkGroups');
+cg.innerHTML=CHECK_GROUPS.map((g,gi)=>'<div class="check-group reveal"><h4><span>◆</span>'+g.title+'</h4><div class="check-items">'
+  +g.items.map((it,ii)=>'<div class="check-item"><input type="checkbox" id="ck'+gi+'_'+ii+'"><label for="ck'+gi+'_'+ii+'">'+it+'</label></div>').join('')
+  +'</div></div>').join('');
+cg.querySelectorAll('.check-group').forEach(el=>io.observe(el));
+const boxes=cg.querySelectorAll('input');
+function updCheck(){
+  const done=[...boxes].filter(b=>b.checked).length;
+  document.getElementById('cpFill').style.width=(done/boxes.length*100)+'%';
+  document.getElementById('cpCount').textContent=done+'/'+boxes.length;
+  boxes.forEach(b=>b.closest('.check-item').classList.toggle('done',b.checked));
+}
+boxes.forEach(b=>b.addEventListener('change',updCheck));
+</script>
+</body>
+</html>
