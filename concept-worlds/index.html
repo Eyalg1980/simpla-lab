@@ -265,16 +265,16 @@ footer b{color:var(--gold);font-family:'Rubik'}
 </footer>
 
 <script>
-const IMG_BASE = 'https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/';
+const IMG_BASE = 'img/';
 const IMAGES = {
-  1: IMG_BASE + 'hf_20260808_071200_6b54283d-c93f-4246-bb80-2a6f4f85ad1c.png',
-  2: IMG_BASE + 'hf_20260808_071200_a24124b5-e522-47bd-af03-cbf03710391c.png',
-  3: IMG_BASE + 'hf_20260808_071200_8a98bbe2-2267-4343-8ce7-64659b76de24.png',
-  4: IMG_BASE + 'hf_20260808_071200_cff58ecd-b0e5-4fd0-b1ee-edd7eaa062e5.png',
-  5: IMG_BASE + 'hf_20260808_071200_0a4b24a9-43bf-4623-880d-7b970cc75232.png',
-  6: IMG_BASE + 'hf_20260808_071200_5405c002-92bc-49a9-a1ff-61db8cd23a50.png',
-  7: IMG_BASE + 'hf_20260808_071200_b1fb804a-8672-4353-b1b6-cbefa5b31f35.png',
-  8: IMG_BASE + 'hf_20260808_071200_3776f66c-0fe7-4d2b-b516-d087d0b51c03.png'
+  1: IMG_BASE + '1.webp',
+  2: IMG_BASE + '2.webp',
+  3: IMG_BASE + '3.webp',
+  4: IMG_BASE + '4.webp',
+  5: IMG_BASE + '5.webp',
+  6: IMG_BASE + '6.webp',
+  7: IMG_BASE + '7.webp',
+  8: IMG_BASE + '8.webp'
 };
 document.querySelectorAll('img[data-img]').forEach(im=>{const k=im.dataset.img;if(IMAGES[k])im.src=IMAGES[k]});
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}}),{threshold:.06});
