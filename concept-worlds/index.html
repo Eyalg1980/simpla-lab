@@ -4,122 +4,137 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>מפת העולמות | סדרת אתרי הקונספט</title>
-<meta name="description" content="האטלס של סדרת אתרי הקונספט למיישמי AI בארגונים: כל מודול בקורס, העולם שלו, הצבעוניות, האופי, התרגיל המרכזי, והתרגיל המתגלגל שמחבר את הכול לגוף אחד.">
+<meta name="description" content="האטלס של סדרת אתרי הקונספט לקורס מיישם AI ואוטומציה: כל מודול, העולם שלו, הצבעוניות, האופי, התרגיל המרכזי, והתרגיל המתגלגל שמחבר את הכול לגוף אחד.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --night:#0B1220;--night2:#121C30;--ink:#131E33;--paper:#F4EEE2;
-  --gold:#E8B84B;--muted:#93A3BD;--text:#EFE9DC;--ok:#3E9B6B;--radius:14px;
+  --red:#E4002B;
+  --navy:#1B2D6B;
+  --char:#232323;
+  --char2:#2E2E2E;
+  --paper:#FFFFFF;
+  --bg:#F6F5F2;
+  --ink:#1B1B1B;
+  --soft:#6A6A6A;
+  --line:#E3E1DC;
+  --ok:#1E7B4F;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Heebo',sans-serif;background:var(--night);color:var(--text);line-height:1.7;overflow-x:hidden}
-h1,h2,h3,h4{font-family:'Rubik',sans-serif;line-height:1.25}
+body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Rubik',sans-serif;line-height:1.22}
 img{max-width:100%;display:block}
+
 .wrap{max-width:1180px;margin:0 auto;padding:0 18px}
 
-header.top{padding:14px 0;border-bottom:2px solid var(--ink);background:rgba(11,18,32,.92);position:sticky;top:0;z-index:30;backdrop-filter:blur(8px)}
-.top-in{display:flex;align-items:center;gap:10px;max-width:1180px;margin:0 auto;padding:0 18px}
-.top-in .dot{width:32px;height:32px;border-radius:50%;background:var(--gold);border:2.5px solid var(--ink);display:grid;place-items:center;box-shadow:2px 2px 0 rgba(0,0,0,.5)}
-.top-in .dot svg{width:17px;height:17px}
-.top-in b{font-family:'Rubik';font-size:1.05rem}
-.top-in a{margin-inline-start:auto;color:var(--muted);font-size:.82rem;text-decoration:none}
-.top-in a:hover{color:var(--gold)}
+/* ===== Top bar: navy band ===== */
+header.top{background:var(--navy);color:#fff;position:sticky;top:0;z-index:30}
+.top-in{display:flex;align-items:center;gap:10px;max-width:1180px;margin:0 auto;padding:12px 18px}
+.top-in .mark{width:30px;height:30px;background:var(--red);display:grid;place-items:center}
+.top-in .mark svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round}
+.top-in b{font-family:'Rubik';font-size:1rem;font-weight:700}
+.top-in a{margin-inline-start:auto;color:rgba(255,255,255,.75);font-size:.8rem;text-decoration:none}
+.top-in a:hover{color:#fff}
 
-.hero{padding:44px 0 20px;text-align:center}
-.hero .stamp{display:inline-block;font-family:'Rubik';font-weight:900;color:var(--gold);border:3px solid var(--gold);
-  border-radius:8px;padding:3px 16px;font-size:.82rem;transform:rotate(-2deg);letter-spacing:.1em;margin-bottom:16px}
-.hero h1{font-size:clamp(2.2rem,7vw,3.6rem);font-weight:900;color:#fff}
-.hero p{color:var(--muted);max-width:680px;margin:14px auto 0;font-size:1rem}
-.hero p b{color:var(--text)}
+/* ===== Hero: charcoal band ===== */
+.hero{background:var(--char);color:#fff;padding:42px 0 40px;border-bottom:4px solid var(--red)}
+.hero .kick{display:inline-block;background:var(--red);color:#fff;font-family:'Rubik';font-weight:700;
+  font-size:.75rem;padding:5px 14px;letter-spacing:.08em;margin-bottom:14px}
+.hero h1{font-size:clamp(2rem,6.5vw,3.2rem);font-weight:900}
+.hero p{color:rgba(255,255,255,.72);max-width:680px;margin:12px 0 0;font-size:.98rem}
+.hero p b{color:#fff}
 
-section{padding:40px 0}
-.sec-kicker{display:inline-block;background:var(--night2);color:var(--gold);font-family:'Rubik';font-weight:700;
-  font-size:.78rem;padding:5px 16px;border-radius:999px;letter-spacing:.08em;margin-bottom:12px;border:1.5px solid rgba(232,184,75,.35)}
-.sec-h{text-align:center;margin-bottom:26px}
-.sec-h h2{font-size:clamp(1.5rem,5vw,2.2rem);font-weight:900;color:#fff}
-.sec-h p{color:var(--muted);max-width:640px;margin:8px auto 0;font-size:.95rem}
+section{padding:36px 0}
+.sec-head{margin-bottom:22px}
+.sec-tag{display:inline-block;background:var(--navy);color:#fff;font-family:'Rubik';font-weight:700;
+  font-size:.72rem;padding:4px 12px;letter-spacing:.08em;margin-bottom:10px}
+.sec-head h2{font-size:clamp(1.4rem,4.5vw,1.9rem);font-weight:800;color:var(--navy)}
+.sec-head p{color:var(--soft);max-width:660px;margin:6px 0 0;font-size:.92rem}
 
-/* ===== Work plan ===== */
-.plan{max-width:760px;margin:0 auto;display:grid;gap:10px}
-.plan-item{display:flex;gap:12px;align-items:flex-start;background:var(--night2);border:2.5px solid var(--ink);
-  border-radius:12px;padding:13px 16px;box-shadow:4px 4px 0 rgba(0,0,0,.4)}
-.plan-item .pn{min-width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
-  font-family:'Rubik';font-weight:900;font-size:.85rem;border:2.5px solid var(--ink);background:var(--gold);color:var(--night);margin-top:2px}
-.plan-item div b{display:block;font-family:'Rubik';font-size:.98rem;color:#fff}
-.plan-item div span{font-size:.84rem;color:var(--muted)}
-.plan-item.done{opacity:.85}
-.plan-item.done .pn{background:var(--ok);color:#fff}
-.plan-item.next{border-color:var(--gold);box-shadow:4px 4px 0 rgba(232,184,75,.25)}
-.plan-item.pool .pn{background:var(--night);color:var(--muted)}
-.badge{display:inline-block;font-family:'Rubik';font-weight:700;font-size:.68rem;border-radius:999px;padding:2px 10px;margin-inline-start:6px;vertical-align:2px}
-.badge.live{background:rgba(62,155,107,.18);color:#7BD3A4;border:1.5px solid #3E9B6B}
-.badge.exp{background:rgba(232,184,75,.15);color:var(--gold);border:1.5px solid var(--gold)}
-.badge.pool{background:rgba(147,163,189,.12);color:var(--muted);border:1.5px solid rgba(147,163,189,.4)}
+/* ===== Collapsed build order ===== */
+details.fold{background:var(--paper);border:1px solid var(--line);margin-bottom:0}
+details.fold summary{list-style:none;cursor:pointer;background:var(--char);color:#fff;padding:13px 18px;
+  display:flex;align-items:center;gap:10px;font-family:'Rubik';font-weight:700;font-size:.95rem}
+details.fold summary::-webkit-details-marker{display:none}
+details.fold summary .chev{margin-inline-start:auto;width:19px;height:19px;transition:transform .25s}
+details.fold[open] summary .chev{transform:rotate(180deg)}
+details.fold summary .chev svg{width:100%;height:100%;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+details.fold summary .hintword{font-weight:400;font-size:.78rem;color:rgba(255,255,255,.6)}
+.plan{padding:14px 16px;display:grid;gap:8px}
+.plan-item{display:flex;gap:12px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);padding:11px 14px}
+.plan-item .pn{min-width:26px;height:26px;display:grid;place-items:center;font-family:'Rubik';font-weight:800;
+  font-size:.8rem;background:var(--navy);color:#fff;margin-top:2px}
+.plan-item div b{display:block;font-family:'Rubik';font-size:.94rem;color:var(--ink)}
+.plan-item div span{font-size:.83rem;color:var(--soft)}
+.plan-item.done .pn{background:var(--ok)}
+.plan-item.next{border-color:var(--red);border-width:1.5px}
+.plan-item.next .pn{background:var(--red)}
+.badge{display:inline-block;font-family:'Rubik';font-weight:700;font-size:.66rem;padding:2px 9px;margin-inline-start:6px;vertical-align:2px}
+.badge.live{background:#E7F3EC;color:var(--ok)}
+.badge.exp{background:#FDEBEE;color:var(--red)}
+.badge.pool{background:#EFEFEF;color:var(--soft)}
 
-/* ===== Experiment note ===== */
-.exp-card{max-width:760px;margin:0 auto;background:var(--night2);border:2.5px dashed var(--gold);border-radius:var(--radius);padding:20px 20px}
-.exp-card h3{color:var(--gold);font-size:1.15rem;margin-bottom:8px}
-.exp-card p{font-size:.92rem;color:var(--text);margin-bottom:8px}
+/* ===== Experiment card ===== */
+.exp-card{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--red);padding:18px 20px}
+.exp-card h3{color:var(--navy);font-size:1.1rem;margin-bottom:8px}
+.exp-card p{font-size:.9rem;margin-bottom:7px}
 .exp-card p:last-child{margin-bottom:0}
-.exp-card b{color:#fff}
-.exp-card a{color:var(--gold)}
+.exp-card b{color:var(--ink)}
+.exp-card a{color:var(--red);font-weight:700;text-decoration:none}
 
-/* ===== Rolling project: the body ===== */
-.organs{max-width:860px;margin:20px auto 0;display:grid;gap:8px}
-.organ{display:grid;grid-template-columns:auto 1fr;gap:12px;background:var(--night2);border:2px solid var(--ink);
-  border-radius:10px;padding:11px 14px;align-items:start}
-.organ .o-ico{font-size:1.5rem;margin-top:2px}
-.organ b{font-family:'Rubik';font-size:.94rem;color:#fff}
-.organ .o-mod{display:inline-block;font-size:.66rem;font-family:'Rubik';font-weight:700;color:var(--gold);
-  border:1px solid rgba(232,184,75,.4);border-radius:999px;padding:1px 9px;margin-inline-start:7px;vertical-align:2px}
-.organ .o-desc{display:block;font-size:.83rem;color:var(--muted)}
-.tracks-note{max-width:860px;margin:14px auto 0;text-align:center;font-size:.88rem;color:var(--muted)}
-.tracks-note b{color:var(--text)}
+/* ===== Rolling project ===== */
+#rolling{background:var(--paper);border-block:1px solid var(--line)}
+.organs{display:grid;gap:8px;margin-top:18px}
+.organ{display:grid;grid-template-columns:auto 1fr;gap:12px;background:var(--bg);border:1px solid var(--line);padding:11px 14px;align-items:start}
+.organ .o-ico{font-size:1.4rem;margin-top:1px}
+.organ b{font-family:'Rubik';font-size:.92rem;color:var(--navy)}
+.organ .o-mod{display:inline-block;font-size:.64rem;font-family:'Rubik';font-weight:700;color:var(--red);
+  border:1px solid var(--red);padding:1px 8px;margin-inline-start:7px;vertical-align:2px}
+.organ .o-desc{display:block;font-size:.82rem;color:var(--soft)}
+.tracks-note{margin-top:14px;font-size:.88rem;color:var(--soft)}
+.tracks-note b{color:var(--navy)}
 
 /* ===== World cards ===== */
-.worlds{display:grid;gap:22px}
-.world{background:var(--paper);color:var(--ink);border:3px solid var(--ink);border-radius:var(--radius);
-  overflow:hidden;box-shadow:7px 7px 0 rgba(0,0,0,.45);position:relative}
-.world .cover{position:relative;border-bottom:3px solid var(--ink)}
+.worlds{display:grid;gap:18px}
+.world{background:var(--paper);border:1px solid var(--line);position:relative}
+.world .cover{position:relative;border-bottom:4px solid var(--wc,var(--navy))}
 .world .cover img{width:100%;aspect-ratio:16/9;object-fit:cover}
-.world .cover .st{position:absolute;top:12px;right:12px;font-family:'Rubik';font-weight:900;font-size:.72rem;
-  padding:4px 12px;border-radius:8px;border:2px solid var(--ink);transform:rotate(-2deg);box-shadow:2px 2px 0 rgba(0,0,0,.4)}
-.world .cover .st.live{background:#3E9B6B;color:#fff}
-.world .cover .st.next{background:var(--gold);color:var(--night)}
-.world .cover .st.queue{background:#F4EEE2;color:var(--ink)}
-.world .cover .st.pool{background:#93A3BD;color:var(--night)}
-.world .cover .st.body{background:#7A1F2B;color:#F4EEE2}
-.world .cover .mod{position:absolute;top:12px;left:12px;font-family:'Rubik';font-weight:700;font-size:.68rem;
-  background:rgba(11,18,32,.88);color:#EFE9DC;border:1.5px solid rgba(232,184,75,.55);padding:4px 11px;border-radius:999px}
-.world .body{padding:16px 18px 20px;border-top:6px solid var(--wc,#E8B84B)}
-.world .body .topic{font-family:'Rubik';font-weight:700;font-size:.78rem;color:var(--wc,#8a6);letter-spacing:.03em}
-.world .body h3{font-size:1.35rem;font-weight:900;margin:2px 0 8px}
-.world .body .meta-line{font-size:.9rem;margin-bottom:8px}
-.world .body .meta-line b{font-family:'Rubik';font-size:.76rem;color:#5A6A8A;display:block}
+.world .cover .st{position:absolute;top:10px;right:10px;font-family:'Rubik';font-weight:800;font-size:.68rem;padding:4px 11px}
+.world .cover .st.live{background:var(--ok);color:#fff}
+.world .cover .st.next{background:var(--red);color:#fff}
+.world .cover .st.queue{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.world .cover .st.pool{background:#8C8C8C;color:#fff}
+.world .cover .st.body{background:#7A1F2B;color:#fff}
+.world .cover .mod{position:absolute;top:10px;left:10px;font-family:'Rubik';font-weight:700;font-size:.66rem;
+  background:var(--char);color:#fff;padding:4px 10px}
+.world .body{padding:15px 17px 18px}
+.world .body .topic{font-family:'Rubik';font-weight:700;font-size:.74rem;color:var(--wc,var(--navy));letter-spacing:.03em}
+.world .body h3{font-size:1.25rem;font-weight:800;margin:2px 0 8px;color:var(--ink)}
+.world .body .meta-line{font-size:.88rem;margin-bottom:7px}
+.world .body .meta-line b{font-family:'Rubik';font-size:.72rem;color:var(--soft);display:block;letter-spacing:.02em}
 .sw-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:2px}
-.sw{width:20px;height:20px;border-radius:6px;border:2px solid var(--ink);display:inline-block}
-.sw-row .sw-names{font-size:.78rem;color:#5A6A8A}
-.world .style-block{background:#101827;color:#CFE0F5;border-radius:10px;padding:10px 12px;direction:ltr;text-align:left;
-  font-family:monospace;font-size:.72rem;line-height:1.6;margin-top:10px;border:2px solid var(--ink)}
-.world .style-block::before{content:"STYLE BLOCK";display:block;font-family:'Rubik';font-weight:700;font-size:.62rem;
-  color:var(--gold);letter-spacing:.12em;margin-bottom:4px}
-.world a.visit{display:inline-block;margin-top:12px;font-family:'Rubik';font-weight:700;font-size:.85rem;
-  background:var(--ink);color:var(--paper);text-decoration:none;padding:8px 18px;border-radius:10px}
-.world a.visit:hover{background:var(--wc);color:var(--night)}
+.sw{width:19px;height:19px;border:1px solid rgba(0,0,0,.2);display:inline-block}
+.sw-row .sw-names{font-size:.76rem;color:var(--soft)}
+.world .style-block{background:var(--char);color:#DFE6F2;padding:10px 12px;direction:ltr;text-align:left;
+  font-family:monospace;font-size:.7rem;line-height:1.6;margin-top:10px}
+.world .style-block::before{content:"STYLE BLOCK";display:block;font-family:'Rubik';font-weight:700;font-size:.6rem;
+  color:var(--red);letter-spacing:.12em;margin-bottom:4px}
+.world a.visit{display:inline-block;margin-top:12px;font-family:'Rubik';font-weight:700;font-size:.84rem;
+  background:var(--red);color:#fff;text-decoration:none;padding:9px 20px}
+.world a.visit:hover{background:var(--navy)}
 
-footer{border-top:2px solid var(--ink);padding:28px 0 40px;text-align:center;color:var(--muted);font-size:.85rem}
-footer b{color:var(--gold);font-family:'Rubik'}
+footer{background:var(--char);color:rgba(255,255,255,.7);padding:24px 0 30px;text-align:center;font-size:.84rem;margin-top:20px}
+footer b{color:#fff;font-family:'Rubik'}
 
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .45s,transform .45s}
 .reveal.on{opacity:1;transform:none}
 
 @media(min-width:1024px){
   .worlds{grid-template-columns:1fr 1fr;align-items:start}
-  .hero{padding:56px 0 26px}
-  .organs{grid-template-columns:1fr 1fr;max-width:1000px}
+  .organs{grid-template-columns:1fr 1fr 1fr}
+  .hero{padding:54px 0 50px}
 }
 </style>
 </head>
@@ -127,7 +142,7 @@ footer b{color:var(--gold);font-family:'Rubik'}
 
 <header class="top">
   <div class="top-in">
-    <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#0B1220" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17M3.5 12h17"/></svg></span>
+    <span class="mark"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17M3.5 12h17"/></svg></span>
     <b>מפת העולמות</b>
     <a href="https://eyalg1980.github.io/simpla-lab/">Simpla Lab ←</a>
   </div>
@@ -135,35 +150,34 @@ footer b{color:var(--gold);font-family:'Rubik'}
 
 <div class="hero">
   <div class="wrap">
-    <div class="stamp">אטלס הסדרה</div>
+    <span class="kick">מיישם AI ואוטומציה | אטלס הסדרה</span>
     <h1>עשרה עולמות, קורס אחד</h1>
-    <p>סדרת אתרי קונספט לקורס <b>מיישם AI ואוטומציה</b>. כל מודול בקורס מקבל עולם סיפורי משלו: מטאפורה, שפה גרפית, צבעוניות, אופי ותרגיל מרכזי. ומעל כולם, <b>התרגיל המתגלגל</b>: הגוף שאליו כל מודול משתיל איבר חדש. העולמות מסודרים כאן לפי סדר הלימוד.</p>
+    <p>כל מודול בקורס מקבל עולם סיפורי משלו: מטאפורה, שפה גרפית, צבעוניות, אופי ותרגיל מרכזי. ומעל כולם, <b>התרגיל המתגלגל</b>: הגוף שאליו כל מודול משתיל איבר חדש. העולמות מסודרים לפי סדר הלימוד.</p>
   </div>
 </div>
 
-<section>
+<section style="padding-bottom:14px">
   <div class="wrap">
-    <div class="sec-h reveal"><span class="sec-kicker">תוכנית העבודה</span><h2>סדר הבנייה</h2></div>
-    <div class="plan reveal">
-      <div class="plan-item done"><span class="pn">✓</span><div><b>תיק RAG | הבלש<span class="badge live">חי</span></b><span>האב-טיפוס של הסדרה: 10 פרקי חקירה, 5 תרגילים, מילון, צ'ק-ליסט ודסקטופ מלא</span></div></div>
-      <div class="plan-item done"><span class="pn">✓</span><div><b>צוות המשימה | סוכני AI<span class="badge live">חי</span><span class="badge exp">ניסוי הסקראבינג הצליח</span></b><span>10 שלבי תדריך, 5 אימונים, והירו הראשון בסדרה עם וידאו שמגיב לגלילה</span></div></div>
-      <div class="plan-item next"><span class="pn">3</span><div><b>המטבח | הנדסת פרומפטים</b><span>הבא בתור: מודול הפתיחה של הקורס, עולם קליי חם ומשחקי</span></div></div>
-      <div class="plan-item"><span class="pn">4</span><div><b>המרכזייה | API ו-Webhooks</b><span>העולם שמסביר את שפת החיבורים של כל האוטומציות</span></div></div>
-      <div class="plan-item"><span class="pn">5</span><div><b>מכרה הזהב | דאטה וידע ארגוני</b><span>התשתית של כל השאר: כרייה, ניפוי וזיקוק של הידע</span></div></div>
-      <div class="plan-item"><span class="pn">6</span><div><b>המושבה | הטמעת AI בארגון</b><span>סוגר את המסע: מהכלים אל האנשים והתרבות</span></div></div>
-      <div class="plan-item pool"><span class="pn">•</span><div><b>מאגר: הרכבת, האדריכל, משמר הכספת, הגוף<span class="badge pool">בהמתנה</span></b><span>אוטומציות, Vibe Coding, אבטחה והתרגיל המתגלגל: מוכנים עם עולם ושפה, ייכנסו לתור לפי הצורך</span></div></div>
-    </div>
+    <details class="fold reveal">
+      <summary>סדר הבנייה של הסדרה <span class="hintword">2 באוויר, 4 בתור, 4 במאגר</span><span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+      <div class="plan">
+        <div class="plan-item done"><span class="pn">✓</span><div><b>תיק RAG | הבלש<span class="badge live">חי</span></b><span>האב-טיפוס של הסדרה: 10 פרקי חקירה, 5 תרגילים, מילון, צ'ק-ליסט ודסקטופ מלא</span></div></div>
+        <div class="plan-item done"><span class="pn">✓</span><div><b>צוות המשימה | סוכני AI<span class="badge live">חי</span><span class="badge exp">ניסוי הסקראבינג הצליח</span></b><span>10 שלבי תדריך, 5 אימונים, והירו הראשון בסדרה עם וידאו שמגיב לגלילה</span></div></div>
+        <div class="plan-item next"><span class="pn">3</span><div><b>המטבח | הנדסת פרומפטים</b><span>הבא בתור: מודול הפתיחה של הקורס, עולם קליי חם ומשחקי</span></div></div>
+        <div class="plan-item"><span class="pn">4</span><div><b>המרכזייה | API ו-Webhooks</b><span>העולם שמסביר את שפת החיבורים של כל האוטומציות</span></div></div>
+        <div class="plan-item"><span class="pn">5</span><div><b>מכרה הזהב | דאטה וידע ארגוני</b><span>התשתית של כל השאר: כרייה, ניפוי וזיקוק של הידע</span></div></div>
+        <div class="plan-item"><span class="pn">6</span><div><b>המושבה | הטמעת AI בארגון</b><span>סוגר את המסע: מהכלים אל האנשים והתרבות</span></div></div>
+        <div class="plan-item"><span class="pn">•</span><div><b>מאגר: הרכבת, האדריכל, משמר הכספת, הגוף<span class="badge pool">בהמתנה</span></b><span>אוטומציות, Vibe Coding, אבטחה והתרגיל המתגלגל: מוכנים עם עולם ושפה, ייכנסו לתור לפי הצורך</span></div></div>
+      </div>
+    </details>
   </div>
 </section>
 
-<section>
+<section style="padding-top:14px">
   <div class="wrap">
-    <div class="sec-h reveal"><span class="sec-kicker">הניסוי הצליח</span><h2>הירו עם וידאו-סקראבינג</h2></div>
     <div class="exp-card reveal">
-      <h3>🎬 רץ עכשיו בצוות המשימה</h3>
-      <p><b>הרעיון:</b> במקום תמונת הירו סטטית, סרטון קצר שנוצר בהיגספילד ומגיב לגלילה: הגלילה היא הטיימליין. גוללים קדימה, המזוודה נפתחת והגאדג'טים נחשפים. עוצרים, הסצנה קופאת.</p>
-      <p><b>איך טכנית:</b> וידאו 5 שניות מפורק ל-62 פריימים דחוסים, ו-canvas מצייר את הפריים המתאים לעומק הגלילה. חלק, עובד גם במובייל, בלי תלות בנגן וידאו.</p>
-      <p><a href="../mission-team/">לחוויה עצמה: צוות המשימה ←</a></p>
+      <h3>🎬 ניסוי הווידאו-סקראבינג: הצליח ורץ בצוות המשימה</h3>
+      <p><b>הרעיון:</b> הירו שהוא סרטון היגספילד המגיב לגלילה: הגלילה היא הטיימליין. גוללים והמזוודה נפתחת, עוצרים והסצנה קופאת. טכנית: הווידאו מפורק לפריימים דחוסים ו-canvas מצייר את הפריים לפי עומק הגלילה. <a href="../mission-team/">לחוויה עצמה ←</a></p>
     </div>
   </div>
 </section>
@@ -171,8 +185,8 @@ footer b{color:var(--gold);font-family:'Rubik'}
 <!-- ===== Rolling project: the body ===== -->
 <section id="rolling">
   <div class="wrap">
-    <div class="sec-h reveal">
-      <span class="sec-kicker">התרגיל המתגלגל</span>
+    <div class="sec-head reveal">
+      <span class="sec-tag">התרגיל המתגלגל</span>
       <h2>🫀 הגוף: מערכת אחת שנבנית כל הקורס</h2>
       <p>לאורך הקורס כל סטודנט בונה מערכת אמיתית אחת בשלושה מסלולים לבחירה. הקונספט: המערכת היא גוף אדם. כל מודול לא רק מלמד נושא, הוא משתיל בגוף איבר חדש, והמערכת קמה לחיים בהדרגה.</p>
     </div>
@@ -194,7 +208,7 @@ footer b{color:var(--gold);font-family:'Rubik'}
 <!-- ===== Worlds atlas, in course order ===== -->
 <section>
   <div class="wrap">
-    <div class="sec-h reveal"><span class="sec-kicker">האטלס</span><h2>העולמות, לפי סדר הלימוד</h2><p>כל כרטיס: תגית המודול, השער מהיגספילד, המטאפורה, השפה הגרפית, הצבעוניות, אופי האתר והתרגיל המרכזי שלו.</p></div>
+    <div class="sec-head reveal"><span class="sec-tag">האטלס</span><h2>העולמות, לפי סדר הלימוד</h2><p>כל כרטיס: תגית המודול, השער מהיגספילד, המטאפורה, השפה הגרפית, הצבעוניות, אופי האתר והתרגיל המרכזי שלו.</p></div>
     <div class="worlds">
 
       <div class="world reveal" style="--wc:#D94F3D">
@@ -345,7 +359,7 @@ footer b{color:var(--gold);font-family:'Rubik'}
 
 <footer>
   <div class="wrap">
-    <p><b>מפת העולמות</b> | סדרת אתרי הקונספט של Simpla</p>
+    <p><b>מפת העולמות</b> | סדרת אתרי הקונספט</p>
     <p>עולם אחד לכל מודול, גוף אחד לכל הקורס.</p>
   </div>
 </footer>
