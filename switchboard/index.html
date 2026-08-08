@@ -772,8 +772,8 @@ addEventListener('scroll',updProgress,{passive:true});updProgress();
     core.setAttribute('d',d);
     tip.setAttribute('cx',tx);tip.setAttribute('cy',ty);
     lamps.forEach((l,i)=>l.classList.toggle('on',t>=(i+1)/(N+1)));
-    jackRes.classList.toggle('lit',t>0.93);
-    stamp.classList.toggle('show',t>0.93);
+    jackRes.classList.toggle('lit',t>0.88);
+    stamp.classList.toggle('show',t>0.88);
     hint.classList.toggle('hide',t>0.05);
   }
   if(reduced){draw(1);return;}
