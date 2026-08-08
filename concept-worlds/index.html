@@ -7,7 +7,7 @@
 <meta name="description" content="האטלס של סדרת אתרי הקונספט לקורס מיישם AI ואוטומציה: כל מודול, העולם שלו, הצבעוניות, האופי, התרגיל המרכזי, והתרגיל המתגלגל שמחבר את הכול לגוף אחד.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&family=Heebo:wght@300;400;500;700&family=Frank+Ruhl+Libre:wght@700;900&family=Secular+One&family=Assistant:wght@400;600&family=Varela+Round&family=Suez+One&family=Alef:wght@400;700&family=Karantina:wght@700&family=Miriam+Libre:wght@400;700&family=IBM+Plex+Sans+Hebrew:wght@400;500&family=David+Libre:wght@400;700&family=Amatic+SC:wght@700&family=Noto+Sans+Hebrew:wght@400;500&family=Noto+Serif+Hebrew:wght@900&family=Tinos:ital,wght@0,400;1,400&family=Bellefair&family=Solitreo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&family=Heebo:wght@300;400;500;700&family=Frank+Ruhl+Libre:wght@700;900&family=Secular+One&family=Assistant:wght@400;600&family=Varela+Round&family=Suez+One&family=Alef:wght@400;700&family=Karantina:wght@700&family=Miriam+Libre:wght@400;700&family=IBM+Plex+Sans+Hebrew:wght@400;500&family=David+Libre:wght@400;700&family=Amatic+SC:wght@700&family=Noto+Sans+Hebrew:wdth,wght@62.5,900;100,400;100,500&family=Noto+Serif+Hebrew:wght@900&family=Tinos:ital,wght@0,400;1,400&family=Bellefair&family=Solitreo&display=swap" rel="stylesheet">
 <style>
 :root{
   --red:#E4002B;
@@ -120,7 +120,11 @@ a.plink:hover{background:var(--navy)}
 .sw{width:19px;height:19px;border:1px solid rgba(0,0,0,.2);display:inline-block}
 .sw-row .sw-names{font-size:.76rem;color:var(--soft)}
 .dna{border:1.5px solid #D8D8D8;border-top:3px solid var(--wc,#E4002B);padding:10px 12px;margin-top:12px;font-size:.8rem;background:#FAFAFA}
-.dna .dna-t{font-family:'Rubik';font-weight:700;font-size:.7rem;letter-spacing:.1em;color:var(--navy);margin-bottom:8px}
+.dna .dna-t{font-family:'Rubik';font-weight:700;font-size:.7rem;letter-spacing:.1em;color:var(--navy);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:8px;user-select:none}
+.dna .dna-t::-webkit-details-marker{display:none}
+.dna .dna-chev{display:inline-flex;transition:transform .25s;color:var(--wc,#E4002B)}
+.dna[open] .dna-chev{transform:rotate(180deg)}
+.dna[open] .dna-t{margin-bottom:8px}
 .dna-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px;padding:5px 0;border-bottom:1px dashed #E2E2E2}
 .dna-row:last-child{border-bottom:none}
 .dna-row b{font-family:'Rubik';font-weight:700;font-size:.7rem;color:#777;min-width:74px}
@@ -235,12 +239,12 @@ footer b{color:#fff;font-family:'Rubik'}
           <div class="meta-line"><b>אופי האתר</b>חם, משחקי ותיאבוני: אתר שמריח כמו סדנת בישול, עם הרבה ידיים בבצק.</div>
           <div class="meta-line"><b>התרגיל המרכזי</b>"תקנו את המתכון": מקבלים פרומפט גרוע ותוצאה גרועה, ומשפרים בשלוש טעימות עד מנה מדויקת.</div>
           <div class="style-block">Colorful claymation pop-art, soft plasticine textures, playful stop-motion look, saturated red yellow and teal palette, warm cozy lighting, no text</div>
-          <div class="dna"><div class="dna-t">DNA עיצובי</div>
+          <details class="dna"><summary class="dna-t">DNA עיצובי<span class="dna-chev"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
 <div class="dna-row"><b>פונט כותרות</b><span class="dna-sample" style="font-family:'Varela Round'">מתכון מנצח יוצא מהתנור</span><span class="dna-name">Varela Round</span></div>
 <div class="dna-row"><b>פונט גוף</b><span class="dna-sample" style="font-family:'Assistant';font-size:.9rem">קוראים מתכון רגוע ונעים בגובה שורה אוורירי</span><span class="dna-name">Assistant</span></div>
 <div class="dna-row"><b>פינות</b><span>קופסאות 24px, כפתורים גליל מלא (999)</span></div>
 <div class="dna-row"><b>צפיפות</b><span>משוחרר ואוורירי (גובה שורה 1.85), סימטרי</span></div>
-<div class="dna-row"><b>תמונות</b><span>פינות עגולות רכות, רוויה חמימה קלה</span></div></div>
+<div class="dna-row"><b>תמונות</b><span>פינות עגולות רכות, רוויה חמימה קלה</span></div></details>
           <a class="visit" href="../kitchen/">פתחו את המתכון ←</a>
         </div>
       </div>
@@ -256,12 +260,12 @@ footer b{color:#fff;font-family:'Rubik'}
           <div class="meta-line"><b>אופי האתר</b>אנרגטי ודרמטי: פרקים כמו פרקי מנגה, גילויים עם קווי מהירות, וכל תובנה היא אוצר שנחשף.</div>
           <div class="meta-line"><b>התרגיל המרכזי</b>"ניפוי העפרה": ממיינים ערימת דאטה אמיתית: כפילויות, גרסאות ישנות ורעש, ומחליטים מה ראוי להיכנס לכספת.</div>
           <div class="style-block">Japanese manga pop-art, bold ink lines, screentone dot shading, dynamic speed lines, vivid gold electric blue and hot pink palette, energetic shonen adventure style, no text</div>
-          <div class="dna"><div class="dna-t">DNA עיצובי</div>
+          <details class="dna"><summary class="dna-t">DNA עיצובי<span class="dna-chev"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
 <div class="dna-row"><b>פונט כותרות</b><span class="dna-sample" style="font-family:'Karantina';font-weight:700;font-size:1.3rem">העורק נחשף במעמקים!</span><span class="dna-name">Karantina</span></div>
 <div class="dna-row"><b>פונט גוף</b><span class="dna-sample" style="font-family:'Rubik';font-size:.9rem">טקסט דחוס ואנרגטי כמו בועת מנגה</span><span class="dna-name">Rubik</span></div>
 <div class="dna-row"><b>פינות</b><span>קופסאות וכפתורים 6px, כמעט חדות</span></div>
 <div class="dna-row"><b>צפיפות</b><span>צפוף והדוק (1.55), א-סימטרי עם הטיות חזקות, כותרות ענק</span></div>
-<div class="dna-row"><b>תמונות</b><span>קונטרסט ורוויה מוגברים, מסגרת דיו עבה</span></div></div>
+<div class="dna-row"><b>תמונות</b><span>קונטרסט ורוויה מוגברים, מסגרת דיו עבה</span></div></details>
           <a class="visit" href="../goldmine/">רדו למכרה ←</a>
         </div>
       </div>
@@ -277,12 +281,12 @@ footer b{color:#fff;font-family:'Rubik'}
           <div class="meta-line"><b>אופי האתר</b>נואר קליל: מתח, זכוכית מגדלת, וסיפוק של תיק שנסגר. חקירה שנעים ללכת בה לאיבוד.</div>
           <div class="meta-line"><b>התרגיל המרכזי</b>"מסדר זיהוי": ארבעה קטעים מתייצבים מול שאלה, ובוחרים איזו ראיה חיפוש סמנטי טוב ישלוף ראשונה.</div>
           <div class="style-block">Light-hearted noir comic book illustration, bold clean ink outlines, halftone dot shading, deep midnight blue and warm orange two-tone palette, cream paper texture, no text</div>
-          <div class="dna"><div class="dna-t">DNA עיצובי</div>
-<div class="dna-row"><b>פונט כותרות</b><span class="dna-sample" style="font-family:'Frank Ruhl Libre';font-weight:900">התיק נפתח בחצות</span><span class="dna-name">Frank Ruhl Libre</span></div>
+          <details class="dna"><summary class="dna-t">DNA עיצובי<span class="dna-chev"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+<div class="dna-row"><b>פונט כותרות</b><span class="dna-sample" style="font-family:'Noto Sans Hebrew';font-stretch:62.5%;font-weight:900;font-size:1.2rem">התיק נפתח בחצות</span><span class="dna-name">Noto Sans Hebrew Cond 900</span></div>
 <div class="dna-row"><b>פונט גוף</b><span class="dna-sample" style="font-family:'Heebo';font-size:.9rem">שורות דוח מודפסות במכונת כתיבה שקטה</span><span class="dna-name">Heebo</span></div>
 <div class="dna-row"><b>פינות</b><span>קופסאות וכפתורים 4px, חיתוך עיתונאי</span></div>
 <div class="dna-row"><b>צפיפות</b><span>הדוק (1.6), א-סימטרי: חותמות נוטות ובאנר מוטה קלות</span></div>
-<div class="dna-row"><b>תמונות</b><span>ספיה 25% וקונטרסט, כמו תצלומי ראיות</span></div></div>
+<div class="dna-row"><b>תמונות</b><span>ספיה 25% וקונטרסט, כמו תצלומי ראיות</span></div></details>
           <a class="visit" href="../tik-rag/">פתחו את התיק ←</a>
         </div>
       </div>
@@ -298,12 +302,12 @@ footer b{color:#fff;font-family:'Rubik'}
           <div class="meta-line"><b>אופי האתר</b>רטרו-משרדי מסודר וקליל: נימוס של טלפנית, דיוק של לוח חיבורים, צלצולים קטנים של הצלחה.</div>
           <div class="meta-line"><b>התרגיל המרכזי</b>"חברו את השיחה": מרכיבים קריאת API שלמה: כתובת, מפתח, גוף בקשה, ורואים בזמן אמת מה חוזר מהצד השני.</div>
           <div class="style-block">Mid-century advertising illustration, 1950s telephone exchange world, warm amber and dusty blue palette, halftone texture, no text</div>
-          <div class="dna"><div class="dna-t">DNA עיצובי</div>
+          <details class="dna"><summary class="dna-t">DNA עיצובי<span class="dna-chev"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
 <div class="dna-row"><b>פונט כותרות</b><span class="dna-sample" style="font-family:'Suez One'">הקו מחובר, דברו</span><span class="dna-name">Suez One</span></div>
 <div class="dna-row"><b>פונט גוף</b><span class="dna-sample" style="font-family:'Alef';font-size:.9rem">מדריך מרכזנית קריא בגופן חם ועגלגל</span><span class="dna-name">Alef</span></div>
 <div class="dna-row"><b>פינות</b><span>קופסאות וכפתורים 12px, מעוגל מיד-סנצ'ורי</span></div>
 <div class="dna-row"><b>צפיפות</b><span>בינוני ומאוזן (1.7), סימטרי ומסודר</span></div>
-<div class="dna-row"><b>תמונות</b><span>ספיה 20%, חום נחושת של פרסומות שנות ה-50</span></div></div>
+<div class="dna-row"><b>תמונות</b><span>ספיה 20%, חום נחושת של פרסומות שנות ה-50</span></div></details>
           <a class="visit" href="../switchboard/">חברו את השיחה ←</a>
         </div>
       </div>
@@ -319,12 +323,12 @@ footer b{color:#fff;font-family:'Rubik'}
           <div class="meta-line"><b>אופי האתר</b>קצבי ומסודר: הכול נוסע לפי לוח זמנים, שריקות יציאה, ותחושת מכונה משומנת.</div>
           <div class="meta-line"><b>התרגיל המרכזי</b>"סדרו את המסילה": בונים פלואו מלא מקטר-טריגר ועד תחנה סופית, כולל פיצול תנאי אחד, וצופים בקרון עובר.</div>
           <div class="style-block">Vintage isometric railway world, retro travel poster texture, muted green brass and cream palette, warm evening light, no text</div>
-          <div class="dna"><div class="dna-t">DNA עיצובי</div>
+          <details class="dna"><summary class="dna-t">DNA עיצובי<span class="dna-chev"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
 <div class="dna-row"><b>פונט כותרות</b><span class="dna-sample" style="font-family:'David Libre';font-weight:700">הרכבת יוצאת בזמן</span><span class="dna-name">David Libre</span></div>
 <div class="dna-row"><b>פונט גוף</b><span class="dna-sample" style="font-family:'Heebo';font-size:.9rem">לוח זמנים צלול שנקרא ממרחק של רציף</span><span class="dna-name">Heebo</span></div>
 <div class="dna-row"><b>פינות</b><span>קופסאות וכפתורים 10px, כרטיס נסיעה</span></div>
 <div class="dna-row"><b>צפיפות</b><span>מסודר ומדויק (1.7), סימטרי כמו לוח רכבות</span></div>
-<div class="dna-row"><b>תמונות</b><span>ספיה 22%, גלויית נסיעות וינטג'</span></div></div>
+<div class="dna-row"><b>תמונות</b><span>ספיה 22%, גלויית נסיעות וינטג'</span></div></details>
           <a class="visit" href="../railway/">עלו לרכבת ←</a>
         </div>
       </div>
@@ -340,12 +344,12 @@ footer b{color:#fff;font-family:'Rubik'}
           <div class="meta-line"><b>אופי האתר</b>קולנועי ומותח: תדריך לפני מבצע, מזוודה שנפתחת עם הגלילה, וחותמות "מסווג" בכל פינה.</div>
           <div class="meta-line"><b>התרגיל המרכזי</b>"ציידו את הסוכן": בוחרים בדיוק שלושה כלים למשימה, ולומדים בדרך הקשה למה כל כלי מיותר הוא דלת פתוחה.</div>
           <div class="style-block">1960s spy movie poster illustration, bold flat shapes, halftone print texture, dramatic diagonal composition, teal deep red and cream palette, retro espionage cool, no text</div>
-          <div class="dna"><div class="dna-t">DNA עיצובי</div>
+          <details class="dna"><summary class="dna-t">DNA עיצובי<span class="dna-chev"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
 <div class="dna-row"><b>פונט כותרות</b><span class="dna-sample" style="font-family:'Secular One'">המשימה יוצאת לפועל</span><span class="dna-name">Secular One</span></div>
 <div class="dna-row"><b>פונט גוף</b><span class="dna-sample" style="font-family:'Assistant';font-size:.9rem">תדריך קצר וחד, בלי מילה מיותרת</span><span class="dna-name">Assistant</span></div>
 <div class="dna-row"><b>פינות</b><span>קופסאות וכפתורים 2px, חיתוך פוסטר חד</span></div>
 <div class="dna-row"><b>צפיפות</b><span>הדוק (1.6), אלכסוני וא-סימטרי</span></div>
-<div class="dna-row"><b>תמונות</b><span>רוויה וקונטרסט מוגברים, הדפס פוסטר שטוח</span></div></div>
+<div class="dna-row"><b>תמונות</b><span>רוויה וקונטרסט מוגברים, הדפס פוסטר שטוח</span></div></details>
           <a class="visit" href="../mission-team/">קבלו את התדריך ←</a>
         </div>
       </div>
@@ -361,12 +365,12 @@ footer b{color:#fff;font-family:'Rubik'}
           <div class="meta-line"><b>אופי האתר</b>יצירתי ופתוח: אתר שמרגיש כמו שולחן שרטוט חי, שבו כל תיאור טוב הופך למבנה עומד.</div>
           <div class="meta-line"><b>התרגיל המרכזי</b>"מהתיאור לשרטוט": מנסחים בריף של מסך אחד, משווים לתוצאה שנבנתה, ומלטשים את הבריף עד שהבניין תואם לחזון.</div>
           <div class="style-block">Blueprint world illustration, deep blueprint blue with white technical linework and warm orange highlights, glowing wireframes rising from paper, no text</div>
-          <div class="dna"><div class="dna-t">DNA עיצובי</div>
+          <details class="dna"><summary class="dna-t">DNA עיצובי<span class="dna-chev"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
 <div class="dna-row"><b>פונט כותרות</b><span class="dna-sample" style="font-family:'Amatic SC';font-weight:700;font-size:1.35rem">הבניין קם מהנייר</span><span class="dna-name">Amatic SC</span></div>
 <div class="dna-row"><b>פונט גוף</b><span class="dna-sample" style="font-family:'Noto Sans Hebrew';font-size:.9rem">הערות שוליים מדויקות של שולחן שרטוט</span><span class="dna-name">Noto Sans Hebrew</span></div>
 <div class="dna-row"><b>פינות</b><span>0px, חיתוך שרטוט טכני, מסגרות מקווקוות</span></div>
 <div class="dna-row"><b>צפיפות</b><span>אוורירי (1.75), סימטרי עם חותמות מוטות, רשת בלופרינט ברקע</span></div>
-<div class="dna-row"><b>תמונות</b><span>כחול בלופרינט עם קווים לבנים זוהרים, מסגרת מקווקווית פנימית</span></div></div>
+<div class="dna-row"><b>תמונות</b><span>כחול בלופרינט עם קווים לבנים זוהרים, מסגרת מקווקווית פנימית</span></div></details>
           <a class="visit" href="../architect/">פתחו את הסטודיו ←</a>
         </div>
       </div>
@@ -382,12 +386,12 @@ footer b{color:#fff;font-family:'Rubik'}
           <div class="meta-line"><b>אופי האתר</b>דרמטי וחד: משחק הגנה על החומות, שבו כל פרק הוא עוד שער שנסגר בפני התוקף.</div>
           <div class="meta-line"><b>התרגיל המרכזי</b>"עצרו את המתחזה": מקבלים שלוש דמויות בשער עם בקשות, ומזהים מי מהן היא הזרקת פקודות בתחפושת.</div>
           <div class="style-block">Medieval-meets-cyber comic illustration, torchlight mixed with neon cyan, royal purple steel and gold palette, circuit-engraved stone, no text</div>
-          <div class="dna"><div class="dna-t">DNA עיצובי</div>
+          <details class="dna"><summary class="dna-t">DNA עיצובי<span class="dna-chev"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
 <div class="dna-row"><b>פונט כותרות</b><span class="dna-sample" style="font-family:'Noto Serif Hebrew';font-weight:900">השערים נסגרים בחצות</span><span class="dna-name">Noto Serif Hebrew</span></div>
 <div class="dna-row"><b>פונט גוף</b><span class="dna-sample" style="font-family:'Tinos';font-size:.9rem">מגילות משמר כתובות בסריף של כתב יד עתיק</span><span class="dna-name">Tinos</span></div>
 <div class="dna-row"><b>פינות</b><span>קופסאות וכפתורים 8px, אבן מסותתת</span></div>
 <div class="dna-row"><b>צפיפות</b><span>דרמטי והדוק (1.65), סימטרי עם חותמות מוטות, יומנים בכתב נטוי</span></div>
-<div class="dna-row"><b>תמונות</b><span>קונטרסט ורוויה מוגברים: אור לפידים מול ניאון ציאן, מסגרות זהב</span></div></div>
+<div class="dna-row"><b>תמונות</b><span>קונטרסט ורוויה מוגברים: אור לפידים מול ניאון ציאן, מסגרות זהב</span></div></details>
           <a class="visit" href="../vault/">פתחו את המבצר ←</a>
         </div>
       </div>
@@ -403,12 +407,12 @@ footer b{color:#fff;font-family:'Rubik'}
           <div class="meta-line"><b>אופי האתר</b>אופטימי וחלוצי: מבט קדימה, דגלים ננעצים, ותחושה שכל צעד קטן הוא היסטוריה.</div>
           <div class="meta-line"><b>התרגיל המרכזי</b>"תוכנית הקליטה": מתכננים נחיתה בארגון: מי החלוצים, מה הפיילוט, איך מרחיבים, ומה עושים עם המתנגדים.</div>
           <div class="style-block">1970s NASA retro-futurism poster, film grain texture, warm orange deep navy and cream palette, heroic optimistic mood, no text</div>
-          <div class="dna"><div class="dna-t">DNA עיצובי</div>
+          <details class="dna"><summary class="dna-t">DNA עיצובי<span class="dna-chev"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
 <div class="dna-row"><b>פונט כותרות</b><span class="dna-sample" style="font-family:'Miriam Libre';font-weight:700">יש אישור לשיגור</span><span class="dna-name">Miriam Libre</span></div>
 <div class="dna-row"><b>פונט גוף</b><span class="dna-sample" style="font-family:'IBM Plex Sans Hebrew';font-size:.9rem">נהלי סוכנות חלל כתובים בדיוק טכני</span><span class="dna-name">IBM Plex Sans Hebrew</span></div>
 <div class="dna-row"><b>פינות</b><span>קופסאות וכפתורים 14px, גיאומטריה מעוגלת</span></div>
 <div class="dna-row"><b>צפיפות</b><span>מרווח ונינוח (1.8), סימטרי, ריווח אותיות רחב בכותרות</span></div>
-<div class="dna-row"><b>תמונות</b><span>ספיה 15% וגרעיניות עדינה, פילם שנות ה-70</span></div></div>
+<div class="dna-row"><b>תמונות</b><span>ספיה 15% וגרעיניות עדינה, פילם שנות ה-70</span></div></details>
           <a class="visit" href="../colony/">עלו לרקטה ←</a>
         </div>
       </div>
@@ -424,12 +428,12 @@ footer b{color:#fff;font-family:'Rubik'}
           <div class="meta-line"><b>אופי האתר</b>מוזיאוני ומעורר יראה: תיאטרון אנטומי שבו רואים מערכת שלמה קמה לחיים, מודול אחרי מודול.</div>
           <div class="meta-line"><b>התרגיל המרכזי</b>"השתלת האיבר": בסוף כל מודול משתילים את היכולת החדשה בגוף הפרויקט, ועוברים בדיקת חיים: הכול עדיין נושם יחד?</div>
           <div class="style-block">Vintage anatomical illustration, da Vinci notebook style, fine ink linework on aged sepia parchment, deep burgundy and muted ink blue accents, renaissance scientific mood, no text</div>
-          <div class="dna"><div class="dna-t">DNA עיצובי</div>
+          <details class="dna"><summary class="dna-t">DNA עיצובי<span class="dna-chev"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
 <div class="dna-row"><b>פונט כותרות</b><span class="dna-sample" style="font-family:'Bellefair';font-size:1.25rem">הגוף מקבל את נשימתו הראשונה</span><span class="dna-name">Bellefair</span></div>
 <div class="dna-row"><b>פונט גוף</b><span class="dna-sample" style="font-family:'Frank Ruhl Libre';font-size:.9rem">כתב עיון רנסנסי על קלף מיושן</span><span class="dna-name">Frank Ruhl Libre</span></div>
 <div class="dna-row"><b>פינות</b><span>2px עם מסגרות כפולות, כמו לוח חרוט</span></div>
 <div class="dna-row"><b>צפיפות</b><span>מוזיאוני ומרווח (1.8), סימטרי, תאורת קלף רדיאלית</span></div>
-<div class="dna-row"><b>תמונות</b><span>ספיה עדינה, דיו על קלף, מסגרת כפולה בורדו</span></div></div>
+<div class="dna-row"><b>תמונות</b><span>ספיה עדינה, דיו על קלף, מסגרת כפולה בורדו</span></div></details>
           <a class="visit" href="../body/">פתחו את התיאטרון האנטומי ←</a>
         </div>
       </div>

@@ -59,14 +59,13 @@ a{color:inherit}
 .sprite{position:absolute;width:20%;max-width:130px;left:var(--potx);top:0;transform:translate(-50%,-120%);
   will-change:transform,opacity;pointer-events:none;filter:drop-shadow(0 6px 10px rgba(74,46,30,.35))}
 #sp-dish{width:34%;max-width:230px;z-index:3}
-#sp-steam{width:30%;max-width:200px;opacity:0;z-index:2}
 .cook-hint{position:absolute;top:14px;right:0;left:0;text-align:center;pointer-events:none;transition:opacity .4s;z-index:4}
 .cook-hint span{display:inline-flex;align-items:center;gap:7px;background:rgba(74,46,30,.85);color:#FBF1E0;
   font-size:.8rem;padding:6px 16px;border-radius:999px}
 .cook-hint svg{width:.95em;height:.95em;fill:none;stroke:var(--mustard);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .cook-hint.hide{opacity:0}
 .hero-copy{position:absolute;bottom:0;right:0;left:0;z-index:5;text-align:center;padding:80px 18px 24px;
-  background:linear-gradient(0deg,rgba(74,46,30,.92) 40%,rgba(74,46,30,.55) 72%,transparent);color:#FBF1E0}
+  background:linear-gradient(0deg,rgba(74,46,30,.78) 40%,rgba(74,46,30,.38) 72%,transparent);color:#FBF1E0}
 .case-stamp{display:inline-block;font-family:'Varela Round';font-weight:900;color:var(--mustard);border:3px solid var(--mustard);
   border-radius:8px;padding:3px 14px;font-size:.82rem;transform:rotate(-3deg);letter-spacing:.08em;margin-bottom:12px}
 .hero-copy h1{font-size:clamp(2.2rem,7.5vw,4rem);font-weight:900;color:#fff}
@@ -310,7 +309,6 @@ body{line-height:1.85}
       <img class="sprite" id="sp-herbs" src="img/sp-herbs.webp" alt="">
       <img class="sprite" id="sp-spice" src="img/sp-spice.webp" alt="">
       <img class="sprite" id="sp-scroll" src="img/sp-scroll.webp" alt="">
-      <img class="sprite" id="sp-steam" src="img/sp-steam.webp" alt="">
       <img class="sprite" id="sp-dish" src="img/sp-dish.webp" alt="">
       <div class="cook-hint" id="cookHint"><span><svg viewBox="0 0 24 24"><path d="M12 4v13M6.5 11.5 12 17l5.5-5.5"/></svg> גללו כדי לבשל את הפרומפט</span></div>
     </div>
@@ -764,12 +762,10 @@ addEventListener('scroll',updProgress,{passive:true});updProgress();
     spice:{el:document.getElementById('sp-spice'),win:[0.4,0.6],dx:-9,rot:120},
     scroll:{el:document.getElementById('sp-scroll'),win:[0.56,0.76],dx:5,rot:-140}
   };
-  const steam=document.getElementById('sp-steam');
   const dish=document.getElementById('sp-dish');
   const POTY=66;
   if(reduced){
     Object.values(S).forEach(s=>s.el.style.display='none');
-    steam.style.display='none';
     dish.style.cssText='top:'+(POTY-16)+'%;opacity:1;transform:translate(-50%,-50%)';
     return;
   }
@@ -788,11 +784,6 @@ addEventListener('scroll',updProgress,{passive:true});updProgress();
       s.el.style.opacity=p<s.win[0]?0:fade;
       s.el.style.transform='translate(-50%,-50%) rotate('+(s.rot*t)+'deg)';
     }
-    const st=Math.min(1,Math.max(0,(p-0.42)/0.3));
-    steam.style.top=(POTY-15-st*8)+'%';
-    steam.style.left='50%';
-    steam.style.opacity=st*(p>0.86?Math.max(0,1-(p-0.86)/0.08):1)*0.95;
-    steam.style.transform='translate(-50%,-50%) scale('+(0.5+st*0.6)+')';
     const dt=Math.min(1,Math.max(0,(p-0.8)/0.18));
     dish.style.top=(POTY-2-dt*16)+'%';
     dish.style.left='50%';
@@ -808,8 +799,20 @@ addEventListener('scroll',updProgress,{passive:true});updProgress();
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}}),{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 const navLinks=[...document.querySelectorAll('.nav-chips a')];
+/* auto-scroll the nav so the active chip stays visible */
+function revealChip(){
+  const a=navLinks.find(x=>x.classList.contains('active'));
+  if(!a)return;
+  const c=a.closest('.nav-chips')||a.parentElement;
+  if(!c||c.scrollWidth<=c.clientWidth)return;
+  const ar=a.getBoundingClientRect(),cr=c.getBoundingClientRect();
+  if(ar.left<cr.left+8||ar.right>cr.right-8){
+    c.scrollBy({left:(ar.left+ar.width/2)-(cr.left+cr.width/2),behavior:'smooth'});
+  }
+}
+
 const secObs=new IntersectionObserver(es=>es.forEach(e=>{
-  if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}
+  if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));revealChip()}
 }),{rootMargin:'-30% 0px -60% 0px'});
 ['chapters','exercises','glossary','checklist'].forEach(id=>{const el=document.getElementById(id);if(el)secObs.observe(el)});
 

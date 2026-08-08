@@ -779,8 +779,20 @@ addEventListener('scroll',updProgress,{passive:true});updProgress();
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}}),{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 const navLinks=[...document.querySelectorAll('.nav-chips a')];
+/* auto-scroll the nav so the active chip stays visible */
+function revealChip(){
+  const a=navLinks.find(x=>x.classList.contains('active'));
+  if(!a)return;
+  const c=a.closest('.nav-chips')||a.parentElement;
+  if(!c||c.scrollWidth<=c.clientWidth)return;
+  const ar=a.getBoundingClientRect(),cr=c.getBoundingClientRect();
+  if(ar.left<cr.left+8||ar.right>cr.right-8){
+    c.scrollBy({left:(ar.left+ar.width/2)-(cr.left+cr.width/2),behavior:'smooth'});
+  }
+}
+
 const secObs=new IntersectionObserver(es=>es.forEach(e=>{
-  if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}
+  if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));revealChip()}
 }),{rootMargin:'-30% 0px -60% 0px'});
 ['chapters','exercises','glossary','checklist'].forEach(id=>{const el=document.getElementById(id);if(el)secObs.observe(el)});
 

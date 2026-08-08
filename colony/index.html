@@ -780,11 +780,23 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 /* ===== Nav active ===== */
 const navLinks=document.querySelectorAll('.nav-chips a');
+/* auto-scroll the nav so the active chip stays visible */
+function revealChip(){
+  const a=[...navLinks].find(x=>x.classList.contains('active'));
+  if(!a)return;
+  const c=a.closest('.nav-chips')||a.parentElement;
+  if(!c||c.scrollWidth<=c.clientWidth)return;
+  const ar=a.getBoundingClientRect(),cr=c.getBoundingClientRect();
+  if(ar.left<cr.left+8||ar.right>cr.right-8){
+    c.scrollBy({left:(ar.left+ar.width/2)-(cr.left+cr.width/2),behavior:'smooth'});
+  }
+}
+
 const secIds=['chapters','exercises','glossary','checklist'];
 function updNav(){
   let cur='';
   secIds.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<innerHeight*0.4)cur=id});
-  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));revealChip();
 }
 addEventListener('scroll',()=>{updProgress();updLaunch();updNav()},{passive:true});
 updProgress();updLaunch();updNav();
