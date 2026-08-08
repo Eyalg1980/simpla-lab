@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מפת העולמות | סדרת אתרי הקונספט</title>
+<meta name="description" content="האטלס של סדרת אתרי הקונספט למיישמי AI בארגונים: כל נושא, העולם שלו, השפה הגרפית שלו ותוכנית העבודה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0B1220;--night2:#121C30;--ink:#131E33;--paper:#F4EEE2;
+  --gold:#E8B84B;--muted:#93A3BD;--text:#EFE9DC;--ok:#3E9B6B;--radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:var(--night);color:var(--text);line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Rubik',sans-serif;line-height:1.25}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+
+header.top{padding:14px 0;border-bottom:2px solid var(--ink);background:rgba(11,18,32,.92);position:sticky;top:0;z-index:30;backdrop-filter:blur(8px)}
+.top-in{display:flex;align-items:center;gap:10px;max-width:1180px;margin:0 auto;padding:0 18px}
+.top-in .dot{width:32px;height:32px;border-radius:50%;background:var(--gold);border:2.5px solid var(--ink);display:grid;place-items:center;box-shadow:2px 2px 0 rgba(0,0,0,.5)}
+.top-in .dot svg{width:17px;height:17px}
+.top-in b{font-family:'Rubik';font-size:1.05rem}
+.top-in a{margin-inline-start:auto;color:var(--muted);font-size:.82rem;text-decoration:none}
+.top-in a:hover{color:var(--gold)}
+
+.hero{padding:44px 0 20px;text-align:center}
+.hero .stamp{display:inline-block;font-family:'Rubik';font-weight:900;color:var(--gold);border:3px solid var(--gold);
+  border-radius:8px;padding:3px 16px;font-size:.82rem;transform:rotate(-2deg);letter-spacing:.1em;margin-bottom:16px}
+.hero h1{font-size:clamp(2.2rem,7vw,3.6rem);font-weight:900;color:#fff}
+.hero p{color:var(--muted);max-width:640px;margin:14px auto 0;font-size:1rem}
+.hero p b{color:var(--text)}
+
+section{padding:40px 0}
+.sec-kicker{display:inline-block;background:var(--night2);color:var(--gold);font-family:'Rubik';font-weight:700;
+  font-size:.78rem;padding:5px 16px;border-radius:999px;letter-spacing:.08em;margin-bottom:12px;border:1.5px solid rgba(232,184,75,.35)}
+.sec-h{text-align:center;margin-bottom:26px}
+.sec-h h2{font-size:clamp(1.5rem,5vw,2.2rem);font-weight:900;color:#fff}
+.sec-h p{color:var(--muted);max-width:600px;margin:8px auto 0;font-size:.95rem}
+
+/* ===== Work plan ===== */
+.plan{max-width:760px;margin:0 auto;display:grid;gap:10px}
+.plan-item{display:flex;gap:12px;align-items:flex-start;background:var(--night2);border:2.5px solid var(--ink);
+  border-radius:12px;padding:13px 16px;box-shadow:4px 4px 0 rgba(0,0,0,.4)}
+.plan-item .pn{min-width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+  font-family:'Rubik';font-weight:900;font-size:.85rem;border:2.5px solid var(--ink);background:var(--gold);color:var(--night);margin-top:2px}
+.plan-item div b{display:block;font-family:'Rubik';font-size:.98rem;color:#fff}
+.plan-item div span{font-size:.84rem;color:var(--muted)}
+.plan-item.done{opacity:.85}
+.plan-item.done .pn{background:var(--ok);color:#fff}
+.plan-item.next{border-color:var(--gold);box-shadow:4px 4px 0 rgba(232,184,75,.25)}
+.plan-item.pool .pn{background:var(--night);color:var(--muted)}
+.badge{display:inline-block;font-family:'Rubik';font-weight:700;font-size:.68rem;border-radius:999px;padding:2px 10px;margin-inline-start:6px;vertical-align:2px}
+.badge.live{background:rgba(62,155,107,.18);color:#7BD3A4;border:1.5px solid #3E9B6B}
+.badge.exp{background:rgba(232,184,75,.15);color:var(--gold);border:1.5px solid var(--gold)}
+.badge.pool{background:rgba(147,163,189,.12);color:var(--muted);border:1.5px solid rgba(147,163,189,.4)}
+
+/* ===== Experiment note ===== */
+.exp-card{max-width:760px;margin:0 auto;background:var(--night2);border:2.5px dashed var(--gold);border-radius:var(--radius);padding:20px 20px}
+.exp-card h3{color:var(--gold);font-size:1.15rem;margin-bottom:8px}
+.exp-card p{font-size:.92rem;color:var(--text);margin-bottom:8px}
+.exp-card p:last-child{margin-bottom:0}
+.exp-card b{color:#fff}
+
+/* ===== World cards ===== */
+.worlds{display:grid;gap:22px}
+.world{background:var(--paper);color:var(--ink);border:3px solid var(--ink);border-radius:var(--radius);
+  overflow:hidden;box-shadow:7px 7px 0 rgba(0,0,0,.45);position:relative}
+.world .cover{position:relative;border-bottom:3px solid var(--ink)}
+.world .cover img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.world .cover .st{position:absolute;top:12px;right:12px;font-family:'Rubik';font-weight:900;font-size:.72rem;
+  padding:4px 12px;border-radius:8px;border:2px solid var(--ink);transform:rotate(-2deg);box-shadow:2px 2px 0 rgba(0,0,0,.4)}
+.world .cover .st.live{background:#3E9B6B;color:#fff}
+.world .cover .st.next{background:var(--gold);color:var(--night)}
+.world .cover .st.queue{background:#F4EEE2;color:var(--ink)}
+.world .cover .st.pool{background:#93A3BD;color:var(--night)}
+.world .body{padding:16px 18px 20px;border-top:6px solid var(--wc,#E8B84B)}
+.world .body .topic{font-family:'Rubik';font-weight:700;font-size:.78rem;color:var(--wc,#8a6);letter-spacing:.03em}
+.world .body h3{font-size:1.35rem;font-weight:900;margin:2px 0 8px}
+.world .body .meta-line{font-size:.9rem;margin-bottom:8px}
+.world .body .meta-line b{font-family:'Rubik';font-size:.76rem;color:#5A6A8A;display:block}
+.world .style-block{background:#101827;color:#CFE0F5;border-radius:10px;padding:10px 12px;direction:ltr;text-align:left;
+  font-family:monospace;font-size:.72rem;line-height:1.6;margin-top:10px;border:2px solid var(--ink)}
+.world .style-block::before{content:"STYLE BLOCK";display:block;font-family:'Rubik';font-weight:700;font-size:.62rem;
+  color:var(--gold);letter-spacing:.12em;margin-bottom:4px}
+.world a.visit{display:inline-block;margin-top:12px;font-family:'Rubik';font-weight:700;font-size:.85rem;
+  background:var(--ink);color:var(--paper);text-decoration:none;padding:8px 18px;border-radius:10px}
+.world a.visit:hover{background:var(--wc);color:var(--night)}
+
+footer{border-top:2px solid var(--ink);padding:28px 0 40px;text-align:center;color:var(--muted);font-size:.85rem}
+footer b{color:var(--gold);font-family:'Rubik'}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s}
+.reveal.on{opacity:1;transform:none}
+
+@media(min-width:1024px){
+  .worlds{grid-template-columns:1fr 1fr;align-items:start}
+  .hero{padding:56px 0 26px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#0B1220" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17M3.5 12h17"/></svg></span>
+    <b>מפת העולמות</b>
+    <a href="https://eyalg1980.github.io/simpla-lab/">Simpla Lab ←</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="stamp">אטלס הסדרה</div>
+    <h1>תשעה עולמות, תשעה נושאים</h1>
+    <p>סדרת אתרי קונספט למיישמי AI בארגונים. כל נושא בסילבוס מקבל <b>עולם סיפורי משלו</b>: מטאפורה שנושאת את כל החומר, שפה גרפית עקבית, תרגילים אינטראקטיביים ומילון מושגים. זה הדף שבו כולם נפגשים.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-h reveal"><span class="sec-kicker">תוכנית העבודה</span><h2>סדר הבנייה</h2></div>
+    <div class="plan reveal">
+      <div class="plan-item done"><span class="pn">✓</span><div><b>תיק RAG | הבלש<span class="badge live">חי</span></b><span>האב-טיפוס של הסדרה: 10 פרקי חקירה, 5 תרגילים, מילון, צ'ק-ליסט ודסקטופ מלא</span></div></div>
+      <div class="plan-item next"><span class="pn">1</span><div><b>צוות המשימה | סוכני AI<span class="badge exp">ניסוי וידאו-סקראבינג</span></b><span>הבא בתור, וגם שדה הניסוי: הירו עם סרטון לופ שמתקדם עם הגלילה</span></div></div>
+      <div class="plan-item"><span class="pn">2</span><div><b>המטבח | הנדסת פרומפטים</b><span>שיעור מוקדם בקורס, עולם קליי חם ומשחקי</span></div></div>
+      <div class="plan-item"><span class="pn">3</span><div><b>המרכזייה | API ו-Webhooks</b><span>העולם שמסביר את שפת החיבורים של כל האוטומציות</span></div></div>
+      <div class="plan-item"><span class="pn">4</span><div><b>מכרה הזהב | דאטה וידע ארגוני</b><span>התשתית של כל השאר: כרייה, ניפוי וזיקוק של הידע</span></div></div>
+      <div class="plan-item"><span class="pn">5</span><div><b>המושבה | הטמעת AI בארגון</b><span>סוגר את המסע: מהכלים אל האנשים והתרבות</span></div></div>
+      <div class="plan-item pool"><span class="pn">•</span><div><b>מאגר: הרכבת, האדריכל, משמר הכספת<span class="badge pool">בהמתנה</span></b><span>אוטומציות n8n, Vibe Coding ואבטחה: מוכנים עם עולם ושפה, ייכנסו לתור לפי הצורך</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-h reveal"><span class="sec-kicker">הניסוי הבא</span><h2>הירו עם וידאו-סקראבינג</h2></div>
+    <div class="exp-card reveal">
+      <h3>🎬 מה הולך לקרות בצוות המשימה</h3>
+      <p><b>הרעיון:</b> במקום תמונת הירו סטטית, סרטון לופ קצר (4-6 שניות) שנוצר בהיגספילד ומגיב לגלילה: הגלילה היא הטיימליין. גוללים קדימה, הסצנה מתקדמת. עוצרים, היא קופאת.</p>
+      <p><b>למה דווקא סוכני AI:</b> העולם הזה נותן סצנה עם התקדמות טבעית שמושלמת לסקראבינג: תיק משימה שנפתח על השולחן, הכלים נפרשים מהמזוודה, הצוות מתייצב. לגלול = לתדרך את המשימה.</p>
+      <p><b>איך טכנית:</b> הסרטון מפורק לרצף פריימים דחוסים, ו-canvas מצייר את הפריים המתאים לעומק הגלילה. חלק, עובד גם במובייל, בלי תלות בנגן וידאו.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-h reveal"><span class="sec-kicker">האטלס</span><h2>העולמות והשפה הגרפית</h2><p>כל כרטיס: השער שנוצר בהיגספילד, המטאפורה, השפה הגרפית ובלוק הסטייל שילווה את כל התמונות של אותו עולם.</p></div>
+    <div class="worlds">
+
+      <div class="world reveal" style="--wc:#F98A2B">
+        <div class="cover"><img src="../tik-rag/img/0.webp" alt="תיק RAG"><span class="st live">חי באוויר</span></div>
+        <div class="body">
+          <span class="topic">RAG | שליפה מוגברת ידע</span>
+          <h3>🕵️ תיק RAG | הבלש</h3>
+          <div class="meta-line"><b>המטאפורה</b>לשכת חקירות הידע: העד שיודע הכול הוא ה-LLM, הבלש לא מנחש אלא שולף ראיות מהארכיון לפני כל תשובה.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>נואר קליל בסגנון קומיקס: קווי דיו נקיים, הצללת נקודות, כחול חצות מול כתום חם, טקסטורת נייר קרם.</div>
+          <div class="style-block">Light-hearted noir comic book illustration, bold clean ink outlines, halftone dot shading, deep midnight blue and warm orange two-tone palette, cream paper texture, no text</div>
+          <a class="visit" href="../tik-rag/">פתחו את התיק ←</a>
+        </div>
+      </div>
+
+      <div class="world reveal" style="--wc:#1E8E8E">
+        <div class="cover"><img data-img="2" alt="צוות המשימה"><span class="st next">הבא בתור + ניסוי</span></div>
+        <div class="body">
+          <span class="topic">AI Agents | סוכני AI</span>
+          <h3>🎯 צוות המשימה</h3>
+          <div class="meta-line"><b>המטאפורה</b>עולם ריגול רטרו: הסוכן מקבל משימה, בוחר כלים מהמזוודה, מפעיל צוות מומחים ומדווח למפקדה. Multi-agent = תדרוך צוות.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>פוסטרים של סרטי ריגול משנות ה-60: צורות שטוחות, קומפוזיציות אלכסוניות, טורקיז, אדום עמוק וקרם.</div>
+          <div class="style-block">1960s spy movie poster illustration, bold flat shapes, halftone print texture, dramatic diagonal composition, teal deep red and cream palette, retro espionage cool, no text</div>
+        </div>
+      </div>
+
+      <div class="world reveal" style="--wc:#D94F3D">
+        <div class="cover"><img data-img="1" alt="המטבח"><span class="st queue">בתור: 2</span></div>
+        <div class="body">
+          <span class="topic">Prompt Engineering | הנדסת פרומפטים</span>
+          <h3>👨‍🍳 המטבח</h3>
+          <div class="meta-line"><b>המטאפורה</b>השף המדויק: פרומפט הוא מתכון, ההקשר הוא חומרי הגלם, איטרציה היא טעימה ותיקון, ופרומפט מערכת הוא סטנדרט המסעדה.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>קליי פופ-ארט: דמויות פלסטלינה, טקסטורות רכות, אדום צהוב וטורקיז רוויים, תאורה ביתית חמה.</div>
+          <div class="style-block">Colorful claymation pop-art, soft plasticine textures, playful stop-motion look, saturated red yellow and teal palette, warm cozy lighting, no text</div>
+        </div>
+      </div>
+
+      <div class="world reveal" style="--wc:#C98A2B">
+        <div class="cover"><img data-img="4" alt="המרכזייה"><span class="st queue">בתור: 3</span></div>
+        <div class="body">
+          <span class="topic">API and Webhooks</span>
+          <h3>☎️ המרכזייה</h3>
+          <div class="meta-line"><b>המטאפורה</b>מרכזיית טלפונים של שנות ה-50: מספר קווי הוא endpoint, אסימון הוא מפתח, הטלפנית מחברת את הקריאה, ו-webhook הוא "אנחנו נחזור אליך".</div>
+          <div class="meta-line"><b>השפה הגרפית</b>איור פרסומות אמצע המאה: ענבר חם מול כחול מאובק, נורות התראה, טקסטורת הדפסה.</div>
+          <div class="style-block">Mid-century advertising illustration, 1950s telephone exchange world, warm amber and dusty blue palette, halftone texture, no text</div>
+        </div>
+      </div>
+
+      <div class="world reveal" style="--wc:#B8860B">
+        <div class="cover"><img data-img="6" alt="מכרה הזהב"><span class="st queue">בתור: 4</span></div>
+        <div class="body">
+          <span class="topic">Data and Knowledge | דאטה וידע ארגוני</span>
+          <h3>⛏️ מכרה הזהב</h3>
+          <div class="meta-line"><b>המטאפורה</b>הידע הארגוני הוא עפרת זהב במעמקים: כרייה, ניפוי, זיקוק ואחסון בכספת. דאטה מלוכלך הוא עפרה באיכות נמוכה שמרעילה את הכול.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>ספר הרפתקאות: אור פנסים דרמטי במנהרות כהות, חום עמוק, ענבר וזהב.</div>
+          <div class="style-block">Storybook adventure style, warm lantern light in dark tunnels, deep brown amber and gold palette, dramatic glow, no text</div>
+        </div>
+      </div>
+
+      <div class="world reveal" style="--wc:#E0641E">
+        <div class="cover"><img data-img="8" alt="המושבה"><span class="st queue">בתור: 5</span></div>
+        <div class="body">
+          <span class="topic">AI Adoption | הטמעת AI בארגון</span>
+          <h3>🚀 המושבה</h3>
+          <div class="meta-line"><b>המטאפורה</b>מקימים מושבה על כוכב חדש: חלוצים הם ה-Early Adopters, האטמוספרה היא התרבות הארגונית, ותחנת האימון היא ההדרכה.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>רטרו-פוטוריזם של נאס"א שנות ה-70: פוסטרים עם גרעין, כתום חם, נייבי עמוק וקרם.</div>
+          <div class="style-block">1970s NASA retro-futurism poster, film grain texture, warm orange deep navy and cream palette, heroic optimistic mood, no text</div>
+        </div>
+      </div>
+
+      <div class="world reveal" style="--wc:#4E7A5A">
+        <div class="cover"><img data-img="3" alt="הרכבת"><span class="st pool">מאגר</span></div>
+        <div class="body">
+          <span class="topic">n8n Automations | אוטומציות</span>
+          <h3>🚂 הרכבת</h3>
+          <div class="meta-line"><b>המטאפורה</b>רשת מסילות: טריגר הוא קטר שיוצא לדרך, כל תחנה היא צומת, תנאים הם מסלולים מתפצלים, וקרון שנתקע הוא דיבאג.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>מפות רכבת וינטג' ואיזומטריה: ירוק מעומעם, פליז וקרם, אור ערב חם.</div>
+          <div class="style-block">Vintage isometric railway world, retro travel poster texture, muted green brass and cream palette, warm evening light, no text</div>
+        </div>
+      </div>
+
+      <div class="world reveal" style="--wc:#2E5E9E">
+        <div class="cover"><img data-img="5" alt="האדריכל"><span class="st pool">מאגר</span></div>
+        <div class="body">
+          <span class="topic">Vibe Coding</span>
+          <h3>📐 האדריכל</h3>
+          <div class="meta-line"><b>המטאפורה</b>מתארים חדר במילים והוא נבנה מול העיניים: השרטוט הוא הפרומפט, היסודות הם מבנה הפרויקט, וביקורת הבנייה היא הבדיקות.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>עולם בלופרינט: כחול שרטוטים עמוק, קווים טכניים לבנים, הדגשות כתומות חמות.</div>
+          <div class="style-block">Blueprint world illustration, deep blueprint blue with white technical linework and warm orange highlights, glowing wireframes rising from paper, no text</div>
+        </div>
+      </div>
+
+      <div class="world reveal" style="--wc:#6E4E9E">
+        <div class="cover"><img data-img="7" alt="משמר הכספת"><span class="st pool">מאגר</span></div>
+        <div class="body">
+          <span class="topic">Security and Governance | אבטחה</span>
+          <h3>🏰 משמר הכספת</h3>
+          <div class="meta-line"><b>המטאפורה</b>טירה עם שערים, שומרים והרשאות: Prompt Injection הוא מתחזה בשער, ודליפת מידע היא מנהרה מתחת לחומה.</div>
+          <div class="meta-line"><b>השפה הגרפית</b>אבירים פוגשים סייבר: אור לפידים מול ניאון ציאן, סגול מלכותי, פלדה וזהב.</div>
+          <div class="style-block">Medieval-meets-cyber comic illustration, torchlight mixed with neon cyan, royal purple steel and gold palette, circuit-engraved stone, no text</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>מפת העולמות</b> | סדרת אתרי הקונספט של Simpla</p>
+    <p>עולם אחד לכל נושא. אותה קפדנות, סיפור אחר.</p>
+  </div>
+</footer>
+
+<script>
+const IMG_BASE = 'https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/';
+const IMAGES = {
+  1: IMG_BASE + 'hf_20260808_071200_6b54283d-c93f-4246-bb80-2a6f4f85ad1c.png',
+  2: IMG_BASE + 'hf_20260808_071200_a24124b5-e522-47bd-af03-cbf03710391c.png',
+  3: IMG_BASE + 'hf_20260808_071200_8a98bbe2-2267-4343-8ce7-64659b76de24.png',
+  4: IMG_BASE + 'hf_20260808_071200_cff58ecd-b0e5-4fd0-b1ee-edd7eaa062e5.png',
+  5: IMG_BASE + 'hf_20260808_071200_0a4b24a9-43bf-4623-880d-7b970cc75232.png',
+  6: IMG_BASE + 'hf_20260808_071200_5405c002-92bc-49a9-a1ff-61db8cd23a50.png',
+  7: IMG_BASE + 'hf_20260808_071200_b1fb804a-8672-4353-b1b6-cbefa5b31f35.png',
+  8: IMG_BASE + 'hf_20260808_071200_3776f66c-0fe7-4d2b-b516-d087d0b51c03.png'
+};
+document.querySelectorAll('img[data-img]').forEach(im=>{const k=im.dataset.img;if(IMAGES[k])im.src=IMAGES[k]});
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}}),{threshold:.06});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
