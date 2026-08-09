@@ -59,7 +59,7 @@ a{color:inherit}
 .an-stage::before{content:"";position:absolute;inset:14px;border:1.5px solid rgba(46,58,72,.4);pointer-events:none;z-index:2}
 .an-stage::after{content:"";position:absolute;inset:20px;border:1px solid rgba(122,31,43,.3);pointer-events:none;z-index:2}
 .an-frame{position:absolute;inset:0;z-index:1}
-.an-frame canvas,.an-frame img.fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.an-frame canvas,.an-frame img.fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .an-frame img.fallback{display:none}
 .an-frame.no-scrub canvas{display:none}
 .an-frame.no-scrub img.fallback{display:block}
@@ -293,22 +293,22 @@ footer b{color:var(--burg);font-family:'Bellefair'}
       <div class="an-hint" id="anHint"><span><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg> גללו כדי להשתיל את האיברים</span></div>
       <div class="an-frame" id="anFrame">
         <canvas id="anCanvas"></canvas>
-        <img class="fallback" src="img/hero-f0-sq.webp" alt="לוח אנטומיה: הגוף שאיבריו נדלקים">
+        <img class="fallback" src="img/hero-f0.webp" alt="לוח אנטומיה: הגוף שאיבריו נדלקים">
       </div>
       <div class="alive-stamp" id="aliveStamp"><span>הגוף חי</span></div>
-      <div class="hero-copy">
-        <span class="case-stamp">לוח אנטומיה 00 | הפרויקט המתגלגל</span>
-        <h1>קורס שלם, <span class="hl">גוף אחד.</span></h1>
-        <p class="sub">המערכת שאתם בונים לאורך הקורס היא לא תיקיית תרגילים, היא <b>גוף חי שנבנה איבר-איבר</b>: מוח הפרומפטים, שלד הדאטה, דם ה-API, עצבי האוטומציות. בכל מודול משתילים איבר, ובודקים שהכול עדיין נושם יחד.</p>
-        <div class="cta-row">
-          <a href="#chapters" class="btn btn-primary"><svg viewBox="0 0 24 24"><path d="M12 21C7 17 3 13.5 3 9.5 3 6.5 5.5 4 8.5 4c1.8 0 3 .9 3.5 1.8C12.5 4.9 13.7 4 15.5 4 18.5 4 21 6.5 21 9.5c0 4-4 7.5-9 11.5z"/></svg> אל שולחן האנטומיה</a>
-          <a href="#atlas" class="btn btn-ghost">לאטלס האיברים</a>
-        </div>
-        <div class="hero-facts">
-          <div class="fact"><b>9</b><span>איברים מושתלים</span></div>
-          <div class="fact"><b>9</b><span>עולמות לימוד מקושרים</span></div>
-          <div class="fact"><b>18</b><span>בדיקות חיים ביומן</span></div>
-        </div>
+    </div>
+    <div class="hero-copy">
+      <span class="case-stamp">לוח אנטומיה 00 | הפרויקט המתגלגל</span>
+      <h1>קורס שלם, <span class="hl">גוף אחד.</span></h1>
+      <p class="sub">המערכת שאתם בונים לאורך הקורס היא לא תיקיית תרגילים, היא <b>גוף חי שנבנה איבר-איבר</b>: מוח הפרומפטים, שלד הדאטה, דם ה-API, עצבי האוטומציות. בכל מודול משתילים איבר, ובודקים שהכול עדיין נושם יחד.</p>
+      <div class="cta-row">
+        <a href="#chapters" class="btn btn-primary"><svg viewBox="0 0 24 24"><path d="M12 21C7 17 3 13.5 3 9.5 3 6.5 5.5 4 8.5 4c1.8 0 3 .9 3.5 1.8C12.5 4.9 13.7 4 15.5 4 18.5 4 21 6.5 21 9.5c0 4-4 7.5-9 11.5z"/></svg> אל שולחן האנטומיה</a>
+        <a href="#atlas" class="btn btn-ghost">לאטלס האיברים</a>
+      </div>
+      <div class="hero-facts">
+        <div class="fact"><b>9</b><span>איברים מושתלים</span></div>
+        <div class="fact"><b>9</b><span>עולמות לימוד מקושרים</span></div>
+        <div class="fact"><b>18</b><span>בדיקות חיים ביומן</span></div>
       </div>
     </div>
   </div>
@@ -675,9 +675,12 @@ const heroCopy=document.querySelector('.hero-copy');
 let heroTick=function(){};
 (function(){
   const FRAME_COUNT=62;
-  const SEQ='img/seq/';
+  const VERT=window.matchMedia('(max-width:1023px)').matches;
+  const SEQ=VERT?'img/seqv/':'img/seq/';
   const frameBox=document.getElementById('anFrame');
   const canvas=document.getElementById('anCanvas');
+  const fb=frameBox.querySelector('img.fallback');
+  if(fb&&VERT)fb.src='img/hero-f0v.webp';
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function prog(){
     const r=anWrap.getBoundingClientRect();
