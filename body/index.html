@@ -261,6 +261,44 @@ footer b{color:var(--burg);font-family:'Bellefair'}
 .build-skin h4{font-family:'Bellefair';font-size:1.3rem;color:var(--burg);margin-bottom:6px}
 .build-skin p{font-size:.92rem;color:var(--text)}
 
+/* ===== Build stages, toolbox, aids ===== */
+.stages{display:grid;gap:10px}
+.stage,.aid{background:var(--parch);border:2px solid var(--ink);border-radius:var(--radius);overflow:hidden}
+.stage summary,.aid summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:12px 14px;user-select:none;font-family:'Bellefair';font-size:1.15rem;color:var(--ink)}
+.stage summary::-webkit-details-marker,.aid summary::-webkit-details-marker{display:none}
+.st-num{min-width:30px;height:30px;display:grid;place-items:center;background:var(--burg);color:var(--parch);border-radius:50%;font-size:1rem;flex:none}
+.st-name{flex:1;line-height:1.3}
+.st-tool{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:.68rem;letter-spacing:.04em;color:var(--blue);border:1px solid var(--blue);border-radius:var(--radius);padding:2px 9px;white-space:nowrap}
+.st-chev{display:inline-flex;flex:none;transition:transform .25s}
+.st-chev svg{width:17px;height:17px;fill:none;stroke:var(--burg);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.stage[open] .st-chev,.aid[open] .st-chev{transform:rotate(180deg)}
+.st-body{padding:2px 16px 16px;border-top:1px dashed rgba(122,31,43,.35)}
+.st-body ol{margin:12px 0 0;padding-inline-start:20px;display:grid;gap:6px;font-size:.92rem;color:var(--text)}
+.st-out{margin-top:12px;font-size:.9rem;background:rgba(122,31,43,.06);border-inline-start:3px solid var(--burg);padding:8px 12px;border-radius:0 var(--radius) var(--radius) 0}
+.st-out b{color:var(--burg)}
+.st-world{display:inline-block;margin-top:12px;font-family:'Bellefair';font-size:1rem;color:var(--burg);text-decoration:none;border-bottom:1px dashed var(--burg)}
+.st-world:hover{color:var(--ink);border-color:var(--ink)}
+.toolbox{display:grid;gap:12px}
+.tb-layer{background:var(--parch);border:2px solid var(--ink);border-radius:var(--radius);padding:14px 16px}
+.tb-layer h4{font-family:'Bellefair';font-size:1.15rem;margin-bottom:10px;display:inline-block;border-radius:var(--radius);padding:2px 12px}
+.tb-core h4{background:var(--burg);color:var(--parch)}
+.tb-use h4{background:var(--blue);color:var(--parch)}
+.tb-demo h4{background:transparent;color:var(--muted);border:1.5px dashed var(--muted)}
+.tb-layer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.tb-layer li{display:grid;gap:1px;font-size:.9rem}
+.tb-layer li b{color:var(--ink);font-family:'Frank Ruhl Libre',serif}
+.tb-layer li span{color:var(--muted);font-size:.84rem}
+.aids{display:grid;gap:10px}
+.aid summary{font-size:1.2rem}
+.aid-body{padding:4px 16px 16px;border-top:1px dashed rgba(122,31,43,.35)}
+.aid-grid{display:grid;gap:10px;margin-top:12px}
+.aid-card{background:rgba(122,31,43,.05);border:1.5px solid rgba(46,58,72,.3);border-radius:var(--radius);padding:12px 14px}
+.aid-card h5{font-family:'Bellefair';font-size:1.1rem;color:var(--burg);margin-bottom:4px}
+.aid-card p{font-size:.86rem;color:var(--text);line-height:1.7}
+.aid-note{margin-top:12px;font-size:.85rem;color:var(--muted);font-style:italic}
+.aid-prompt{direction:rtl;white-space:pre-wrap;background:#2E3A48;color:#EFE3CB;border-radius:var(--radius);padding:16px 18px;margin-top:12px;font-family:'Heebo',sans-serif;font-size:.86rem;line-height:1.8}
+.aid-links{text-align:center;padding-top:6px}
+
 /* ===== Desktop ===== */
 @media(min-width:1024px){
   .wrap{max-width:1240px}
@@ -268,6 +306,8 @@ footer b{color:var(--burg);font-family:'Bellefair'}
   .an-stage{max-width:1180px;height:auto;aspect-ratio:16/8;margin-top:14px;border:2px solid var(--ink);border-radius:var(--radius)}
   .an-meter{top:auto;bottom:32%;left:7%;right:auto;text-align:left}
   .build-systems{grid-template-columns:repeat(3,1fr);gap:16px}
+  .toolbox{grid-template-columns:1.2fr 1fr 1fr;align-items:start}
+  .aid-grid{grid-template-columns:1fr 1fr}
   .an-meter b{font-size:3.8rem}
   .an-meter span{text-align:left}
   .hero-copy{position:static;background:none;padding:18px;max-width:820px}
@@ -603,6 +643,221 @@ footer b{color:var(--burg);font-family:'Bellefair'}
         <tr><td>8 · אבטחה</td><td>החיסון</td><td>סודות בכספת, הרשאות מינימום, מעקות</td></tr>
         <tr><td>9 · הטמעה</td><td>הלב והנשימה</td><td>חלוץ אמיתי משתמש, ואתם מודדים</td></tr>
       </table>
+    </div>
+
+
+    <div class="sec-head reveal" style="margin-top:44px">
+      <span class="sec-kicker">שלבי הבנייה</span>
+      <h2>מודול אחרי מודול, איבר אחרי איבר</h2>
+      <p>זה המסלול המעשי. כל שלב נפתח לצעדים, לכלי המרכזי ולתוצר שסוגר אותו. בונים לפי הסדר, ולא ממשיכים בלי בדיקת חיים.</p>
+    </div>
+
+    <div class="stages reveal">
+
+      <details class="stage">
+        <summary><span class="st-num">1</span><span class="st-name">המוח · פרומפט הבסיס</span><span class="st-tool">Claude</span><span class="st-chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="st-body">
+          <ol>
+            <li>כותבים משפט בעיה אחד לעסק: מי סובל, ממה, ומה ישתנה כשהמערכת תעבוד.</li>
+            <li>מנסחים פרומפט מערכת לעוזר העסק: תפקיד, טון, גבולות, פורמט תשובה (יש תבנית בעזרים למטה).</li>
+            <li>בודקים על חמש שאלות אמיתיות של לקוח, כולל אחת מחוץ לתחום.</li>
+          </ol>
+          <div class="st-out"><b>התוצר:</b> עוזר שעונה בטון הנכון ומסרב יפה למה שמחוץ לתחום.</div>
+          <a class="st-world" href="../kitchen/">עולם האימון: המטבח ←</a>
+        </div>
+      </details>
+
+      <details class="stage">
+        <summary><span class="st-num">2</span><span class="st-name">השלד · ארבע הטבלאות</span><span class="st-tool">Airtable</span><span class="st-chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="st-body">
+          <ol>
+            <li>יוצרים בסיס חדש עם ארבע טבלאות: לקוחות, תורים ופגישות, פריטים, משימות (המפרט המלא בעזרים).</li>
+            <li>מגדירים בכל טבלה מזהה, שדות חובה וסטטוס.</li>
+            <li>מקשרים: תור שייך ללקוח, משימה שייכת ללקוח או לפריט.</li>
+            <li>מזינים עשר רשומות דמה אמינות, לא "בדיקה 1".</li>
+          </ol>
+          <div class="st-out"><b>התוצר:</b> בסיס נתונים חי ומקושר שמכיל עסק קטן שלם.</div>
+          <a class="st-world" href="../goldmine/">עולם האימון: מכרה הזהב ←</a>
+        </div>
+      </details>
+
+      <details class="stage">
+        <summary><span class="st-num">3</span><span class="st-name">הזיכרון · בסיס הידע</span><span class="st-tool">Claude + RAG</span><span class="st-chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="st-body">
+          <ol>
+            <li>אוספים חמישה מסמכי עסק: מחירון, שאלות נפוצות, נהלים, תנאי ביטול, תיאור שירותים.</li>
+            <li>מעלים אותם לבסיס הידע של העוזר.</li>
+            <li>מוסיפים לפרומפט את כלל הברזל: עונים רק מתוך המסמכים, עם ציון מקור, ו"לא יודע" כשאין.</li>
+          </ol>
+          <div class="st-out"><b>התוצר:</b> עוזר שעונה על שאלות אמיתיות מתוך הידע של העסק, בלי להמציא.</div>
+          <a class="st-world" href="../tik-rag/">עולם האימון: תיק RAG ←</a>
+        </div>
+      </details>
+
+      <details class="stage">
+        <summary><span class="st-num">4</span><span class="st-name">הדם · קליטת ליד</span><span class="st-tool">n8n Webhook</span><span class="st-chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="st-body">
+          <ol>
+            <li>בונים טופס קצר: שם, טלפון, מה מעניין אותך.</li>
+            <li>מחברים Webhook ב-n8n שמקבל את הטופס.</li>
+            <li>כותבים את הרשומה לטבלת הלקוחות דרך ה-API של Airtable.</li>
+            <li>מחזירים אישור: "קיבלנו, נחזור אליך".</li>
+          </ol>
+          <div class="st-out"><b>התוצר:</b> ליד שממלא טופס ונוחת לבד בטבלה. הדם זורם.</div>
+          <a class="st-world" href="../switchboard/">עולם האימון: המרכזייה ←</a>
+        </div>
+      </details>
+
+      <details class="stage">
+        <summary><span class="st-num">5</span><span class="st-name">העצבים · האוטומציות</span><span class="st-tool">n8n</span><span class="st-chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="st-body">
+          <ol>
+            <li>טריגר מתוזמן: כל ערב בשמונה.</li>
+            <li>שליפת התורים של מחר מהטבלה.</li>
+            <li>שליחת תזכורת לכל לקוח עם תור.</li>
+            <li>מייל סיכום יומי לבעל העסק: כמה לידים, כמה תורים, מה תקוע.</li>
+          </ol>
+          <div class="st-out"><b>התוצר:</b> שתי אוטומציות שרצות בלי יד אדם. הרגע שבו המערכת חיה.</div>
+          <a class="st-world" href="../railway/">עולם האימון: הרכבת ←</a>
+        </div>
+      </details>
+
+      <details class="stage">
+        <summary><span class="st-num">6</span><span class="st-name">הידיים · הסוכן</span><span class="st-tool">n8n AI Agent</span><span class="st-chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="st-body">
+          <ol>
+            <li>מגדירים יעד: לנקד כל ליד חדש לפי התאמה ודחיפות.</li>
+            <li>מצמידים כלים: קריאת הטבלה, עדכון שדה ניקוד, יצירת משימה.</li>
+            <li>קובעים גבולות: הסוכן לא מוחק, לא שולח ללקוח בלי אישור.</li>
+            <li>מריצים על חמישה לידים ובודקים את השיפוט שלו.</li>
+          </ol>
+          <div class="st-out"><b>התוצר:</b> סוכן שממיין את הלידים ומנתב אותם לטיפול הנכון.</div>
+          <a class="st-world" href="../mission-team/">עולם האימון: צוות המשימה ←</a>
+        </div>
+      </details>
+
+      <details class="stage">
+        <summary><span class="st-num">7</span><span class="st-name">תאי הגזע · הפורטל</span><span class="st-tool">Lovable</span><span class="st-chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="st-body">
+          <ol>
+            <li>כותבים בריף מסך חד: מי המשתמש, מה הוא רואה, מה הוא יכול לעשות.</li>
+            <li>בונים ב-Lovable מסך פורטל: התורים שלי, בקשת תור חדש, הודעות.</li>
+            <li>מחברים לנתוני Airtable ומפרסמים קישור ציבורי.</li>
+          </ol>
+          <div class="st-out"><b>התוצר:</b> מסך חי שלקוח אמיתי יכול לפתוח בטלפון, מעל אותם נתונים בדיוק.</div>
+          <a class="st-world" href="../architect/">עולם האימון: האדריכל ←</a>
+        </div>
+      </details>
+
+      <details class="stage">
+        <summary><span class="st-num">8</span><span class="st-name">החיסון · ההגנה</span><span class="st-tool">כספת n8n + הרשאות</span><span class="st-chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="st-body">
+          <ol>
+            <li>מעבירים כל מפתח API לכספת הסודות. אפס מפתחות בקוד או בפרומפט.</li>
+            <li>קובעים הרשאות מינימום: הפורטל קורא בלבד, הסוכן מעדכן שדה אחד.</li>
+            <li>מוסיפים מעקות לעוזר: אין חשיפת נתוני לקוח אחד לאחר.</li>
+            <li>ביקורת פתע: מנסים לחלץ מהעוזר סוד ולגרום לסוכן לחרוג.</li>
+          </ol>
+          <div class="st-out"><b>התוצר:</b> מערכת שעומדת בביקורת של משמר הכספת.</div>
+          <a class="st-world" href="../vault/">עולם האימון: משמר הכספת ←</a>
+        </div>
+      </details>
+
+      <details class="stage">
+        <summary><span class="st-num">9</span><span class="st-name">הלב והנשימה · ההשקה</span><span class="st-tool">המערכת + מדדים</span><span class="st-chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="st-body">
+          <ol>
+            <li>בוחרים חלוץ: אדם אמיתי אחד שינהל בה משהו אמיתי שבוע.</li>
+            <li>הדרכה של עשרים דקות, לא יותר. אם צריך יותר, המערכת לא מוכנה.</li>
+            <li>מודדים: כמה פעמים נכנס, מה עבד לבד, איפה נתקע.</li>
+            <li>מתקנים את שלושת הדברים שהכי הפריעו לו.</li>
+          </ol>
+          <div class="st-out"><b>התוצר:</b> מערכת חיה בידיים של מישהו אחר. הפעימה הראשונה.</div>
+          <a class="st-world" href="../colony/">עולם האימון: המושבה ←</a>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="sec-head reveal" style="margin-top:44px">
+      <span class="sec-kicker">ארגז הכלים</span>
+      <h2>שלוש שכבות של כלים</h2>
+      <p>לא צריך את כולם ביום הראשון. שכבת הליבה נלמדת לעומק ונבחנת, השאר מצטרפים כשמגיעים אליהם.</p>
+    </div>
+
+    <div class="toolbox reveal">
+      <div class="tb-layer tb-core">
+        <h4>ליבה · נלמד לעומק</h4>
+        <ul>
+          <li><b>Claude</b><span>המוח והזיכרון: העוזר, הפרומפטים ובסיס הידע</span></li>
+          <li><b>Airtable</b><span>השלד: ארבע הטבלאות והקשרים</span></li>
+          <li><b>n8n</b><span>הדם והעצבים: חיבורים, אוטומציות והסוכן</span></li>
+          <li><b>Lovable</b><span>תאי הגזע: הפורטל והמסכים החיים</span></li>
+        </ul>
+      </div>
+      <div class="tb-layer tb-use">
+        <h4>רמת שימוש</h4>
+        <ul>
+          <li><b>Voiceflow / ManyChat</b><span>הפה והאוזניים: בוט השיחה</span></li>
+          <li><b>Canva</b><span>חומרי ההצגה של הפיץ'</span></li>
+          <li><b>Lighthouse</b><span>בדיקת איכות למסכים</span></li>
+        </ul>
+      </div>
+      <div class="tb-layer tb-demo">
+        <h4>הדגמה בלבד · בלי חשבון</h4>
+        <ul>
+          <li><b>Bolt.new</b><span>חלופה לווייב קודינג</span></li>
+          <li><b>CrewAI</b><span>צוותי סוכנים מתקדמים</span></li>
+          <li><b>Supabase</b><span>בסיס הנתונים שמאחורי Lovable</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec-head reveal" style="margin-top:44px">
+      <span class="sec-kicker">עזרים</span>
+      <h2>ערכת הפתיחה</h2>
+      <p>שני עזרים שחוסכים את השבוע הראשון: מפרט הטבלאות המדויק, ותבנית פרומפט הבסיס. פותחים, מעתיקים, מתחילים.</p>
+    </div>
+
+    <div class="aids reveal">
+
+      <details class="aid">
+        <summary>מפרט ארבע הטבלאות<span class="st-chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="aid-body">
+          <div class="aid-grid">
+            <div class="aid-card"><h5>לקוחות</h5><p>שם מלא · טלפון · מייל · מקור הגעה · ניקוד (1-5) · סטטוס: ליד, בטיפול, לקוח, לא רלוונטי · הערות</p></div>
+            <div class="aid-card"><h5>תורים ופגישות</h5><p>לקוח (קישור) · תאריך ושעה · סוג שירות · סטטוס: מתוכנן, אושר, בוצע, בוטל · תזכורת נשלחה (כן/לא)</p></div>
+            <div class="aid-card"><h5>פריטים</h5><p>שם פריט · קטגוריה · כמות במלאי · סף התראה · ספק · מחיר</p></div>
+            <div class="aid-card"><h5>משימות</h5><p>כותרת · לקוח או פריט (קישור) · אחראי · תאריך יעד · סטטוס: פתוחה, בתהליך, הושלמה · נוצרה על ידי (אדם/סוכן)</p></div>
+          </div>
+          <p class="aid-note">כלל אצבע: אם אתם צריכים טבלה חמישית, קודם בודקים אם זה לא בעצם שדה באחת הארבע.</p>
+        </div>
+      </details>
+
+      <details class="aid">
+        <summary>תבנית פרומפט הבסיס לעוזר העסק<span class="st-chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="aid-body">
+          <pre class="aid-prompt">אתה העוזר הדיגיטלי של [שם העסק], עסק בתחום [תחום].
+התפקיד שלך: לענות ללקוחות על שאלות לגבי [שירותים, מחירים, זמינות],
+ולעזור לצוות לאתר מידע על לקוחות, תורים ומשימות.
+
+טון: [חם וקליל / ענייני ומקצועי], בגובה העיניים, בעברית.
+פורמט: תשובות קצרות, עד ארבע שורות, בלי כותרות מיותרות.
+
+כללי ברזל:
+1. עונה רק מתוך המסמכים ובסיס הנתונים שסופקו לך, ומציין מקור.
+2. אם אין תשובה במקורות, אומר "אין לי את זה, אבדוק ואחזור" ולא ממציא.
+3. לא חושף מידע של לקוח אחד בפני לקוח אחר.
+4. לא מבטיח מחיר, הנחה או מועד שלא מופיעים במקורות.
+5. שאלה מחוץ לתחום העסק מקבלת הפניה מנומסת חזרה לנושא.</pre>
+          <p class="aid-note">ממלאים את הסוגריים, מדביקים כפרומפט המערכת, ובודקים על חמש שאלות אמיתיות.</p>
+        </div>
+      </details>
+
+      <div class="aid-links reveal">
+        <a class="st-world" href="#journal">צ'ק-ליסט בדיקות החיים המלא נמצא ביומן ההשתלות ←</a>
+      </div>
+
     </div>
 
     <div class="build-skin reveal">
