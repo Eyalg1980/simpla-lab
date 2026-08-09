@@ -4,19 +4,11 @@ Umbrella repo for all live web projects Eyal builds with Claude. Each project li
 
 ## Deploy workflow (for Claude sessions)
 
-- Owner: `Eyalg1980`. Three repos share one deploy token: `simpla-lab`, `ai-post-brainstorm` (daily post-idea brief), `daily-board`.
-- There is NO GitHub connector in the Claude directory, and the sandbox's ambient `GH_TOKEN` / `GITHUB_TOKEN` belong to the Cowork connector and are **rejected for push**. Do not spend turns trying them.
-- Push with Eyal's fine-grained PAT **`claude-deploy`** (issued 4.8.2026, valid one year, Contents + Pages read/write on those three repos). The two older tokens, the fine-grained `claude-cowork` and the classic `ghp_` one, are **revoked**; never use them.
-- **Where the token lives:** the prompt of the "Daily Content Engines" scheduled task (claude-code-remote `list_triggers`). That output is large and lands in a file, so pull the token out with a regex for `github_pat_[A-Za-z0-9_]+` instead of reading the whole thing. Ask Eyal to paste it only as a last resort, and never echo it into chat, a commit, a log line or a file.
-- The Claude memory file `git-deploy` (`/areas/git-deploy.md`) holds every other deploy rule but **deliberately does NOT hold the token value**: the memory backend refuses any write whose content contains a GitHub PAT and reports it as a generic `service unavailable`. Do not waste turns retrying that write - it will never succeed. Memory is the canonical copy of the *rules*, the scheduled task is the only copy of the *secret*.
-- **Auth format (updated 5.8.2026): NEVER embed the token in the push URL.** The sandbox git proxy STRIPS URL-embedded credentials on push and rejects with 403 `not in this session's authorized repository set` - even when the token is valid, and even when earlier pushes in the same session succeeded. Clone/fetch with the plain https URL (no token needed), then push with an explicit auth header:
-  `git -c http.extraHeader="Authorization: Basic $(printf 'x-access-token:%s' "$TOKEN" | base64 -w0)" push https://github.com/Eyalg1980/REPO.git main`
-  Verified working 5.8.2026 from interactive AND scheduled sessions, on all three repos, regardless of the session's sources list. If you hit the 403 above, you used the URL method - switch to the header, do not tell Eyal the push is impossible. The sandbox proxy also blocks the `api.github.com /pages` endpoint, so Pages cannot be enabled/configured via API.
-- **Push to `main` only, in all three repos.** GitHub Pages was switched to serve from `main` on 4.8.2026 and the old `gh-pages` branches were deleted - do not recreate or push them.
-- Live URLs: https://eyalg1980.github.io/simpla-lab/ , https://eyalg1980.github.io/ai-post-brainstorm/ , https://eyalg1980.github.io/daily-board/
-- The egress proxy blocks direct curl to `*.github.io`; verify deploys with the WebFetch tool instead.
-- When adding a project: create `<project>/index.html`, add a card for it in the root `index.html`, push `main`.
-- Language: Hebrew RTL, mobile-first. No em dashes in any copy (Eyal's rule).
+**Moved.** Everything about tokens, cloning, pushing, the syntax gate, verification and sandbox limits now lives in one file: **[`DEPLOY-RUNBOOK.md`](DEPLOY-RUNBOOK.md)**, in this repo.
+
+Read it before any push, from any repo. It is the only copy, on purpose: this section used to hold a second copy of the same rules, and when the push form changed on 5.8.2026 the copies drifted apart and the morning brief kept failing against stale instructions.
+
+Two things worth knowing before you even open it: `daily-board` is a **private** repo and needs the auth header to clone, and a push without a passing `tools/jscheck.py` run is a failed run.
 
 ## Design language (the Daily Board family, settled 1.8.2026)
 
