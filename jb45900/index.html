@@ -57,7 +57,13 @@ ul{margin:8px 0;padding-right:20px}
 li{margin:5px 0;font-size:14px}
 .score{font-weight:700;color:var(--yellow)}
 .rank{font-weight:700;color:var(--coral);font-size:15px}
-a{color:var(--blue)}
+a{color:var(--infoc)}
+a.lnk{color:inherit;text-decoration:none;border-bottom:1.5px dashed var(--coral)}
+a.lnk:hover{color:var(--coral)}
+a.lnk::after{content:" \2197";font-size:.82em;color:var(--coral);border:0}
+.srcs{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.srcs a{display:inline-block;border:1.5px dashed var(--line);color:var(--muted);border-radius:20px;padding:5px 14px;font-size:12.5px;text-decoration:none}
+.srcs a:hover{border-color:var(--coral);color:var(--coral)}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:16px 0}
 .box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
 .box h4{margin:0 0 8px;font-size:15px;font-weight:600}
@@ -74,7 +80,7 @@ footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--line);color:v
     <div>
       <h1>קורס 45900 · סטטוס תוכן ומרקטינג</h1>
       <div class="sub">AI Product Design &amp; UX/UI · ג'ון ברייס · מסלול ערב</div>
-      <div class="stamp">עודכן 9 באוגוסט 2026 · מבוסס על תיקיות 00-תכנון ושיווק-ומכירות</div>
+      <div class="stamp">עודכן 9 באוגוסט 2026 · v2 עם קישורים · מבוסס על תיקיות 00-תכנון ושיווק-ומכירות</div>
     </div>
     <button id="themeBtn" type="button">מצב בהיר</button>
   </div>
@@ -112,35 +118,35 @@ footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--line);color:v
 <table>
 <tr><th>המצגת</th><th>מצב</th><th>איפה היא יושבת</th><th>החומר שכבר קיים</th><th>מה נשאר</th></tr>
 <tr>
-  <td><b>מצגת הסקילים</b></td>
+  <td><b><a class="lnk" target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/11u4mvGtnR_ozUbgOtk1hQWzYwRIYfj_klWlRPkBKFq8/edit#slide=id.p15">מצגת הסקילים</a></b></td>
   <td><span class="pill warn">משקף 13</span></td>
   <td>מפגש 3, יום הסקילים</td>
   <td>מסמך ההחלפה v2 מ-6/8: בדיוק מה מחליפים בשקפים 13, 17, 19, 20 ותיקון ב-27, עם נוסח ההפעלה ופרומפט הביקורת לכל אחד</td>
   <td>להדביק את חמש ההחלפות. החומר כתוב מילה במילה, זו עבודת העתקה ולא כתיבה</td>
 </tr>
 <tr>
-  <td><b>הפרויקט המתגלגל</b></td>
+  <td><b><a class="lnk" target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1V-qK30iwmIn92XqToDE0rP0SQEHvXKTELxQD9Xh3AyQ/edit#slide=id.p13">הפרויקט המתגלגל</a></b></td>
   <td><span class="pill warn">משקף 16</span></td>
   <td>המפגש הבא, מפת המסלול מקצה לקצה</td>
   <td>שני מסמכים: הגרסה המלאה לפי שלבים (72K) והגרסה המקוצרת לכיתה</td>
   <td>להשלים מ-16 והלאה, ולסגור כמה מהמפגש הולך למפה וכמה ליום הסקילים בפועל</td>
 </tr>
 <tr>
-  <td><b>ריספונסיב</b></td>
+  <td><b><a class="lnk" target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1V-qK30iwmIn92XqToDE0rP0SQEHvXKTELxQD9Xh3AyQ/edit#slide=id.p13">ריספונסיב</a></b></td>
   <td><span class="pill bad">ממתינה</span></td>
   <td>נגיעה בתוך מפגש 6 (Build Day 1)</td>
   <td>אין חומר ייעודי</td>
-  <td>הקישור שנתת מצביע על מצגת הפרויקט המתגלגל ולא על מצגת נפרדת. צריך להחליט: שקפים בתוך מפגש 6 או דק עצמאי</td>
+  <td>הקישור מצביע על אותו קובץ של מצגת הפרויקט המתגלגל ולא על מצגת נפרדת. צריך להחליט: שקפים בתוך מפגש 6 או דק עצמאי</td>
 </tr>
 <tr>
-  <td><b>מיקרו קופי</b></td>
+  <td><b><a class="lnk" target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1TNl4AiwqEQDk0sqPztgpcxzLQS_v3pFmEUcVfBS1Q_M/edit#slide=id.p1">מיקרו קופי</a></b></td>
   <td><span class="pill bad">ממתינה</span></td>
   <td>נלמד כבר במפגש 1 (UX Writing)</td>
   <td>גמת ה-UX Writing הקיימת מהחלק הראשון של הקורס</td>
   <td>אם זו חזרה מכוונת, לבנות אותה כרובד על הפרויקט האישי ולא כתיאוריה מחדש</td>
 </tr>
 <tr>
-  <td><b>Figma Weave</b></td>
+  <td><b><a class="lnk" target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1EVCiPFtKG9aB9EfQJ7WjTYFQ35aaoCrgmmYxXpHmImc/edit#slide=id.g3e2373c1aeb_0_82">Figma Weave</a></b></td>
   <td><span class="pill mut">גיבוי</span></td>
   <td>לא משובץ במתווה</td>
   <td>מצגת קיימת</td>
@@ -166,8 +172,8 @@ footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--line);color:v
 <h3>מה חסר</h3>
 <table>
 <tr><th>הפריט</th><th>מצב</th><th>מה יש להישען עליו</th></tr>
-<tr><td><b>מצגת מכירות שמראה את התרגיל המתגלגל</b></td><td><span class="pill bad">התוכן המעודכן לא אותר</span></td><td>הגרסה הישנה בגוגל סלייד, וכל התוכן העדכני קיים בשני מסמכים: התהליך והפרומפטים (10 שלבים) והתמצית לפגישת השיווק. אפשר לבנות מחדש מהם בלי לחפש עוד</td></tr>
-<tr><td><b>מצגת הוובינר / זום ההצצה</b></td><td><span class="pill bad">לא נבנתה</span></td><td>תוכנית הזום מפרטת את שמונת הבלוקים לפי דקות. חסרה רק ההלבשה הוויזואלית והתוכן בפועל</td></tr>
+<tr><td><b><a class="lnk" target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/131mHKSwcZPCc29QUwu2cN0S-kZC_lXA9ucprT2bkLsU/edit#slide=id.g3cb1222cda6_0_1054">מצגת מכירות שמראה את התרגיל המתגלגל</a></b></td><td><span class="pill bad">התוכן המעודכן לא אותר</span></td><td>הקישור מוביל לגרסה הישנה. כל התוכן העדכני קיים בשני מסמכים: התהליך והפרומפטים (10 שלבים) והתמצית לפגישת השיווק. אפשר לבנות מחדש מהם בלי לחפש עוד</td></tr>
+<tr><td><b><a class="lnk" target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1EZJX6VUbAxr_52_v1oIti1yBtsMcdjWSVBcUYGB3Pcs/edit#slide=id.p1">מצגת הוובינר / זום ההצצה</a></b></td><td><span class="pill bad">לא נבנתה</span></td><td>תוכנית הזום מפרטת את שמונת הבלוקים לפי דקות. חסרה רק ההלבשה הוויזואלית והתוכן בפועל</td></tr>
 <tr><td><b>פרויקט ההדגמה באוויר</b></td><td><span class="pill warn">בנוי, לא מפורסם</span></td><td>שני קובצי zip מוכנים לדיפלוי בתיקיית דוגמה-החוג-שלי. בלי דיפלוי, הקישור למוצר החי בקייס שבור, וזה בדיוק הנכס שנמכר</td></tr>
 <tr><td><b>שם הקורס הסופי</b></td><td><span class="pill warn">שתי החלטות סותרות</span></td><td>מסמך העבודה ממליץ AI Product Builder, וסיכום הפגישה מאשר UX &amp; Vibe Coding. צריך להכריע לפני שבונים דק כלשהו, כי השם נמצא בכל שקף</td></tr>
 </table>
@@ -191,12 +197,12 @@ footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--line);color:v
 
 <table>
 <tr><th>דירוג</th><th>האתר</th><th>מדגים תהליך מלא</th><th>כאב מוכר</th><th>עומק מוצרי</th><th>וואו ויזואלי</th><th>מוכנות</th><th>חיבור למיצוב</th><th>סה"כ</th></tr>
-<tr><td class="rank">1</td><td><b>החוג שלי</b><br><span style="color:var(--muted);font-size:12px">אתר פורטפוליו + קייס</span></td><td>5</td><td>5</td><td>4</td><td>3</td><td>4</td><td>5</td><td class="score">26</td></tr>
-<tr><td class="rank">2</td><td><b>הארכיטקט</b><br><span style="color:var(--muted);font-size:12px">Vibe Coding</span></td><td>1</td><td>4</td><td>3</td><td>5</td><td>4</td><td>5</td><td class="score">22</td></tr>
-<tr><td class="rank">3</td><td><b>המטבח</b><br><span style="color:var(--muted);font-size:12px">הנדסת פרומפטים</span></td><td>1</td><td>4</td><td>3</td><td>5</td><td>4</td><td>4</td><td class="score">21</td></tr>
-<tr><td class="rank">4</td><td><b>החוג שלי, האפליקציה</b><br><span style="color:var(--muted);font-size:12px">מסכי המוצר</span></td><td>3</td><td>5</td><td>4</td><td>2</td><td>2</td><td>4</td><td class="score">20</td></tr>
-<tr><td class="rank">5</td><td><b>המרכזייה</b><br><span style="color:var(--muted);font-size:12px">API ו-Webhooks</span></td><td>1</td><td>3</td><td>3</td><td>5</td><td>4</td><td>3</td><td class="score">19</td></tr>
-<tr><td class="rank">6</td><td><b>Daily Board</b><br><span style="color:var(--muted);font-size:12px">כלי אישי</span></td><td>2</td><td>2</td><td>4</td><td>2</td><td>3</td><td>2</td><td class="score">15</td></tr>
+<tr><td class="rank">1</td><td><b><a class="lnk" target="_blank" rel="noopener" href="https://eyalg1980.github.io/simpla-lab/hachug-sheli/">החוג שלי</a></b><br><span style="color:var(--muted);font-size:12px">אתר פורטפוליו + קייס</span></td><td>5</td><td>5</td><td>4</td><td>3</td><td>4</td><td>5</td><td class="score">26</td></tr>
+<tr><td class="rank">2</td><td><b><a class="lnk" target="_blank" rel="noopener" href="https://eyalg1980.github.io/simpla-lab/architect/">הארכיטקט</a></b><br><span style="color:var(--muted);font-size:12px">Vibe Coding</span></td><td>1</td><td>4</td><td>3</td><td>5</td><td>4</td><td>5</td><td class="score">22</td></tr>
+<tr><td class="rank">3</td><td><b><a class="lnk" target="_blank" rel="noopener" href="https://eyalg1980.github.io/simpla-lab/kitchen/">המטבח</a></b><br><span style="color:var(--muted);font-size:12px">הנדסת פרומפטים</span></td><td>1</td><td>4</td><td>3</td><td>5</td><td>4</td><td>4</td><td class="score">21</td></tr>
+<tr><td class="rank">4</td><td><b><a class="lnk" target="_blank" rel="noopener" href="https://eyalg1980.github.io/simpla-lab/hachug-sheli/app/screens/home.html">החוג שלי, האפליקציה</a></b><br><span style="color:var(--muted);font-size:12px">מסכי המוצר</span></td><td>3</td><td>5</td><td>4</td><td>2</td><td>2</td><td>4</td><td class="score">20</td></tr>
+<tr><td class="rank">5</td><td><b><a class="lnk" target="_blank" rel="noopener" href="https://eyalg1980.github.io/simpla-lab/switchboard/">המרכזייה</a></b><br><span style="color:var(--muted);font-size:12px">API ו-Webhooks</span></td><td>1</td><td>3</td><td>3</td><td>5</td><td>4</td><td>3</td><td class="score">19</td></tr>
+<tr><td class="rank">6</td><td><b><a class="lnk" target="_blank" rel="noopener" href="https://eyalg1980.github.io/daily-board/">Daily Board</a></b><br><span style="color:var(--muted);font-size:12px">כלי אישי</span></td><td>2</td><td>2</td><td>4</td><td>2</td><td>3</td><td>2</td><td class="score">15</td></tr>
 </table>
 
 <div class="note g"><b>ההמלצה, ולמה היא מפוצלת:</b> שלושת עולמות המושגים (הארכיטקט, המטבח, המרכזייה) הם האתרים היפים ביותר בסט, אבל אף אחד מהם לא יכול לשמש כתרגיל הדוגמה. אין להם שכבת מחקר, אין פרסונות ואין מסע, ולכן הם מדגימים את התוצאה בלי להדגים את השיטה, וזה בדיוק ההפך ממה שהקורס מוכר. החוג שלי הוא היחיד עם השרשרת המלאה. ההצעה: <b>החוג שלי כתרגיל הדוגמה הרשמי</b>, ו<b>הארכיטקט כשקף היכולת</b> בסוף, בנוסח "וזה נבנה באותה שיטה, בשבוע".</div>
@@ -205,7 +211,7 @@ footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--line);color:v
 <table>
 <tr><th>האתר</th><th>מה חסר לו כדי לשמש כתרגיל דוגמה</th><th>מאמץ</th></tr>
 <tr>
-  <td><b>החוג שלי</b></td>
+  <td><b><a class="lnk" target="_blank" rel="noopener" href="https://eyalg1980.github.io/simpla-lab/hachug-sheli/">החוג שלי</a></b></td>
   <td>
     <ul>
       <li>דיפלוי בפועל: שני קובצי ה-zip מחכים, והקישור למוצר החי בקייס שבור עד שזה קורה</li>
@@ -217,7 +223,7 @@ footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--line);color:v
   <td><span class="pill ok">3-4 שעות</span></td>
 </tr>
 <tr>
-  <td><b>החוג שלי, האפליקציה</b></td>
+  <td><b><a class="lnk" target="_blank" rel="noopener" href="https://eyalg1980.github.io/simpla-lab/hachug-sheli/app/screens/home.html">החוג שלי, האפליקציה</a></b></td>
   <td>
     <ul>
       <li>מיקרוקופי: "הבית שלכם בשחור" ונוסחים דומים קוראים כטיוטה. סיבוב עריכה אחד</li>
@@ -228,7 +234,7 @@ footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--line);color:v
   <td><span class="pill warn">2-3 שעות</span></td>
 </tr>
 <tr>
-  <td><b>הארכיטקט</b></td>
+  <td><b><a class="lnk" target="_blank" rel="noopener" href="https://eyalg1980.github.io/simpla-lab/architect/">הארכיטקט</a></b></td>
   <td>
     <ul>
       <li>תמונות: חלק גדול מה-img ריקים או מצביעים לנתיבים שלא נטענים</li>
@@ -240,7 +246,7 @@ footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--line);color:v
   <td><span class="pill warn">2 שעות</span></td>
 </tr>
 <tr>
-  <td><b>המטבח</b></td>
+  <td><b><a class="lnk" target="_blank" rel="noopener" href="https://eyalg1980.github.io/simpla-lab/kitchen/">המטבח</a></b></td>
   <td>
     <ul>
       <li>אותה בעיית תמונות חסרות (bg-v.webp, sp-tomato.webp ואחרים)</li>
@@ -251,7 +257,7 @@ footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--line);color:v
   <td><span class="pill warn">2 שעות</span></td>
 </tr>
 <tr>
-  <td><b>המרכזייה</b></td>
+  <td><b><a class="lnk" target="_blank" rel="noopener" href="https://eyalg1980.github.io/simpla-lab/switchboard/">המרכזייה</a></b></td>
   <td>
     <ul>
       <li>אותה בעיית תמונות, ומסנני המילון מחזירים "אין מנוי כזה"</li>
@@ -261,7 +267,7 @@ footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--line);color:v
   <td><span class="pill mut">להעביר ל-53500</span></td>
 </tr>
 <tr>
-  <td><b>Daily Board</b></td>
+  <td><b><a class="lnk" target="_blank" rel="noopener" href="https://eyalg1980.github.io/daily-board/">Daily Board</a></b></td>
   <td>
     <ul>
       <li>לא מתאים כתרגיל דוגמה: כלי אישי, מונים ריקים, ותוכן שלך ולא של פרסונה</li>
@@ -275,13 +281,29 @@ footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--line);color:v
 <h2><span class="n">05</span>סדר העבודה שאני מציע</h2>
 <table>
 <tr><th>#</th><th>מה</th><th>למה עכשיו</th></tr>
-<tr><td>1</td><td>לדפלס את החוג שלי ולעדכן את הקישור בקייס</td><td>חצי שעה, ופותח גם את המרקטינג וגם את מפגש 8</td></tr>
-<tr><td>2</td><td>להשלים את מצגת הסקילים משקף 13</td><td>המפגש הבא. החומר כתוב מילה במילה במסמך ההחלפה v2</td></tr>
-<tr><td>3</td><td>להשלים את מצגת הפרויקט המתגלגל משקף 16</td><td>אותו מפגש, וזו המפה שהכיתה צריכה כדי לדעת איפה כל אחד נמצא</td></tr>
+<tr><td>1</td><td>לדפלס את <a class="lnk" target="_blank" rel="noopener" href="https://eyalg1980.github.io/simpla-lab/hachug-sheli/">החוג שלי</a> ולעדכן את הקישור בקייס</td><td>חצי שעה, ופותח גם את המרקטינג וגם את מפגש 8</td></tr>
+<tr><td>2</td><td>להשלים את <a class="lnk" target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/11u4mvGtnR_ozUbgOtk1hQWzYwRIYfj_klWlRPkBKFq8/edit#slide=id.p15">מצגת הסקילים</a> משקף 13</td><td>המפגש הבא. החומר כתוב מילה במילה במסמך ההחלפה v2</td></tr>
+<tr><td>3</td><td>להשלים את <a class="lnk" target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1V-qK30iwmIn92XqToDE0rP0SQEHvXKTELxQD9Xh3AyQ/edit#slide=id.p13">מצגת הפרויקט המתגלגל</a> משקף 16</td><td>אותו מפגש, וזו המפה שהכיתה צריכה כדי לדעת איפה כל אחד נמצא</td></tr>
 <tr><td>4</td><td>להעביר את מסמך התהליך והפרומפטים לצוות</td><td>הדדליין שנקבע בפגישה הוא 10/8</td></tr>
 <tr><td>5</td><td>להכריע בשם הקורס</td><td>חוסם את שני הדקים השיווקיים ואת דף הקורס</td></tr>
 <tr><td>6</td><td>לבנות את הגמה של מפגש 9</td><td>הפער הגדול היחיד בחומרי ההוראה, ויש עוד זמן</td></tr>
 </table>
+
+<h3>כל הקישורים במקום אחד</h3>
+<div class="srcs">
+<a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/11u4mvGtnR_ozUbgOtk1hQWzYwRIYfj_klWlRPkBKFq8/edit#slide=id.p15">מצגת הסקילים</a>
+<a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1V-qK30iwmIn92XqToDE0rP0SQEHvXKTELxQD9Xh3AyQ/edit#slide=id.p13">הפרויקט המתגלגל</a>
+<a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1TNl4AiwqEQDk0sqPztgpcxzLQS_v3pFmEUcVfBS1Q_M/edit#slide=id.p1">מיקרו קופי</a>
+<a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1EVCiPFtKG9aB9EfQJ7WjTYFQ35aaoCrgmmYxXpHmImc/edit#slide=id.g3e2373c1aeb_0_82">Figma Weave</a>
+<a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/131mHKSwcZPCc29QUwu2cN0S-kZC_lXA9ucprT2bkLsU/edit#slide=id.g3cb1222cda6_0_1054">מצגת מכירות (גרסה ישנה)</a>
+<a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1EZJX6VUbAxr_52_v1oIti1yBtsMcdjWSVBcUYGB3Pcs/edit#slide=id.p1">מצגת הוובינר</a>
+<a target="_blank" rel="noopener" href="https://eyalg1980.github.io/simpla-lab/hachug-sheli/">החוג שלי</a>
+<a target="_blank" rel="noopener" href="https://eyalg1980.github.io/simpla-lab/hachug-sheli/app/screens/home.html">החוג שלי · אפליקציה</a>
+<a target="_blank" rel="noopener" href="https://eyalg1980.github.io/simpla-lab/architect/">הארכיטקט</a>
+<a target="_blank" rel="noopener" href="https://eyalg1980.github.io/simpla-lab/kitchen/">המטבח</a>
+<a target="_blank" rel="noopener" href="https://eyalg1980.github.io/simpla-lab/switchboard/">המרכזייה</a>
+<a target="_blank" rel="noopener" href="https://eyalg1980.github.io/daily-board/">Daily Board</a>
+</div>
 
 <footer>
   נבנה מתוך: תכנון-12-מפגשים-אחרונים/00-תכנון (מפרט V3.1, סטטוס ומשימות, תכנון השיעורים מבט על, מפת שילוב הדוגמאות, מתכונת ערב v2) ותיקיית שיווק-ומכירות. הדירוג מבוסס על סריקה חיה של ששת האתרים ב-9.8.2026.
