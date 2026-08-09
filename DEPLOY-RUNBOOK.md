@@ -109,11 +109,17 @@ The trap it exists to catch: a single quote inside a single-quoted JS string. He
 ## 6. Verify the push actually landed
 
 ```bash
+# public repos
 git fetch origin main
+# daily-board is private, the fetch needs the header too
+git -c http.extraHeader="$AUTH" fetch origin main
+
 git log origin/main..main    # must be empty
 ```
 
-`git fetch origin main` first is not optional: after pushing by explicit URL rather than through the `origin` remote, the local `origin/main` tracking ref stays stale and `git log origin/main..main` falsely reports unpushed commits.
+The fetch first is not optional: after pushing by explicit URL rather than through the `origin` remote, the local `origin/main` tracking ref stays stale and `git log origin/main..main` falsely reports unpushed commits.
+
+On `daily-board` a bare `git fetch origin main` fails with `could not read Username`, exactly like a bare clone does, because the repo is private. If you see that error **after a push that printed a new commit range, the push succeeded** and only the verification failed. Re-run the fetch with the header before concluding anything.
 
 Do **not** verify by fetching the live site:
 
@@ -160,4 +166,5 @@ Do not spend turns rediscovering these:
 
 ## Changelog of this runbook
 
+- **9.8.2026** amended same day: private-repo `git fetch` also needs the auth header, added to section 6 after hitting it live.
 - **9.8.2026** created, by extracting the deploy section out of `CLAUDE.md` so there is exactly one copy. Added: `daily-board` is private and needs the auth header to clone (previously documented everywhere as "plain URL, no token needed", which is false for that repo); the `jscheck.py` syntax gate; STEP 0 as a general rule rather than one task's habit.
