@@ -1,405 +1,449 @@
 {
-  "days": [
+ "days": [
+  {
+   "date": "2026-08-09",
+   "dateLabel": "יום ראשון, 9 באוגוסט",
+   "ideas": [
     {
-      "date": "2026-08-07",
-      "dateLabel": "יום שישי, 7 באוגוסט",
-      "ideas": [
-        {
-          "id": "2026-08-07-1",
-          "world": "וידאו ארט",
-          "color": "#71F73C",
-          "hook": "ביוגרפיה של אובייקט · פרק 6: הפריים, הקופסה שלמדה לחשוב",
-          "concept": "ב-2016 פיגמה החליפה את הארטבורד בפריים, וכולם חשבו שזה שינוי שם. הסרט מספר את חיי הקופסה: מארטבורד נייח שרק מחזיק ציורים, לפריים שלמד להחזיק חוקים, קונסטריינטים, אוטו לייאאוט, ועכשיו גם קוד וסוכנים. אותו סיפור רץ כפוסט בבריינסטורמר ב-4.8, נכס אחד בשני ערוצים.",
-          "execution": "שפת הקליי של הסדרה: פריימים ב-Nano Banana, הנפשה ב-Kling 3 או Cinema Studio של היגספילד, 45 עד 60 שניות, 1:1 ראשי לפיד ועותק 9:16 לסטורי, בלי קריינות, סאונד דיזיין עדין וכתוביות עברית נצרבות בעריכה.",
-          "why": "המחקר כבר נעשה בשביל הפוסט של 4.8, אז הפרק עולה כמעט חינם. הסדרה היא הנכס המצטבר הכי חזק של הערוץ, וכל פרק חדש מחזק את הקודמים.",
-          "competition": null,
-          "srcUrl": "https://help.figma.com/hc/en-us/articles/360041539473-Frames-in-Figma-Design",
-          "srcLabel": "Figma Help, המקור מהפוסט של 4.8",
-          "prompts": {
-            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field, 1:1. A rigid clay rectangle sits pinned to a corkboard like a museum specimen, then it softens, grows tiny corner handles and stretches itself wider, smaller frames sprout nested inside it and rearrange in a neat breathing row like living tiles, tiny clay rulers and dashed constraint lines snap around them, finally the frame lifts off the corkboard and hovers, alive, slow orbiting camera, gentle handmade stop-motion jitter, leave clear negative space at the top for Hebrew titling added in edit",
-            "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט · פרק 6: הפריים, הקופסה שלמדה לחשוב\" לסטוריבורד מלא במבנה הסדרה: לוגליין, סינופסיס, שוט-ליסט של 8 עד 10 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העובדות לעגן בהן: ב-2016 פיגמה החליפה את הארטבורד בפריים, הפריים קיבל קונסטריינטים, אחר כך אוטו לייאאוט, והיום הוא נקשר לקוד ולסוכנים. הקשת: קופסה שמחזיקה ציורים הופכת לקופסה שמחזיקה חוקים. שפת קליי של הסדרה, 45 עד 60 שניות, 1:1, בלי קריינות, כתוביות עברית בעריכה.",
-            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field. A single elegant clay frame hovering above a corkboard, smaller nested clay frames arranged inside it like a living blueprint, tiny clay rulers and dashed constraint lines orbiting around it, museum specimen pins left abandoned below, 1:1, no text",
-            "raw": "הוק: ביוגרפיה של אובייקט · פרק 6: הפריים, הקופסה שלמדה לחשוב\nעולם: וידאו ארט\nקונספט: ב-2016 פיגמה החליפה את הארטבורד בפריים. הסרט מספר את חיי הקופסה: מארטבורד שמחזיק ציורים לפריים שמחזיק חוקים, קונסטריינטים, אוטו לייאאוט, קוד וסוכנים. אותו סיפור רץ כפוסט בבריינסטורמר ב-4.8.\nביצוע: שפת הקליי של הסדרה, פריימים ב-Nano Banana, הנפשה ב-Kling 3 או Cinema Studio, 45 עד 60 שניות, 1:1 ועותק 9:16, כתוביות עברית בעריכה.\nלמה עכשיו: המחקר כבר נעשה בשביל הפוסט של 4.8, הפרק עולה כמעט חינם והסדרה היא הנכס המצטבר של הערוץ."
-          },
-          "storyboardUrl": null
-        },
-        {
-          "id": "2026-08-07-2",
-          "world": "תיעוד תהליך",
-          "color": "#71F73C",
-          "hook": "פרומפט אחד, ארבעה מודלים, שופט אחד: אתה. הטסט שחסר בעברית למי שבוחר מודל וידאו",
-          "concept": "לוקחים פרומפט קליי אחד זהה ומריצים אותו על Kling v3, Runway Gen-4.5, Hailuo 02 ו-Veo דרך Cinema Studio. שמים את הארבעה בגריד מפוצל ורואים מה כל מודל מבין על חומר, אור ותנועה. הריל הוא הביקורת: כמה שניות לכל מודל, פסק דין של שורה אחת, ובסוף המלצה לפי סוג פרויקט.",
-          "execution": "Higgsfield batch generation לארבעת המודלים עם אותו פרומפט בדיוק, הרכבת גריד בעריכה, פתיח וכותרות בשפה האדיטוריאלית הקינטית, 60 שניות, 9:16, קריינות עברית קצרה או כתוביות בלבד.",
-          "why": "מאמרי ההשוואה של 2026 מציפים את הפיד באנגלית, ואין כמעט השוואה בעברית שמריצה את אותו פרומפט אחד לאחד. תוכן שמצטלם מהעבודה האמיתית שלך ממילא: לבחור מודל לפרויקט.",
-          "competition": null,
-          "srcUrl": "https://www.aimagicx.com/blog/ai-video-generation-showdown-2026",
-          "srcLabel": "AI Magicx, 2026",
-          "prompts": {
-            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field, 9:16. A small clay potter's wheel spins at the center of the frame, a pair of handmade clay hands shape a lump of coral clay that gradually becomes a tiny smartphone with a glowing screen, the phone folds itself into a paper plane and glides off the wheel and out of frame, one slow push in from a low angle, soft handmade motion with visible stop-motion jitter, 8 seconds",
-            "script": "פתח לי את רעיון הווידאו \"פרומפט אחד, ארבעה מודלים, שופט אחד: אתה\" לסטוריבורד מלא: לוגליין, סינופסיס, מבנה ריל של 60 שניות עם טיימליין מדויק, פתיח קינטי, ארבעה מקטעי מודל של 10 עד 12 שניות עם פסק דין של שורה לכל מודל, וסיום עם המלצה לפי סוג פרויקט. הפרומפט שנבחן, לצרף אותו כלשונו: גלגל קדרות קליי שמפסל סמארטפון שהופך למטוס נייר. המודלים: Kling v3, Runway Gen-4.5, Hailuo 02, Veo דרך Cinema Studio. כתוב גם קריינות עברית מתוזמנת וכותרות לכל מקטע.",
-            "image": "Editorial kinetic style key frame, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A two by two grid of four identical small clay potter's wheels, each rendered in a subtly different finish and lighting temperature, one glowing slightly brighter than the others, thin frame lines separating the quadrants, 1:1, no text",
-            "raw": "הוק: פרומפט אחד, ארבעה מודלים, שופט אחד: אתה. הטסט שחסר בעברית למי שבוחר מודל וידאו\nעולם: תיעוד תהליך\nקונספט: מריצים פרומפט קליי אחד זהה על Kling v3, Runway Gen-4.5, Hailuo 02 ו-Veo דרך Cinema Studio, גריד מפוצל, פסק דין של שורה לכל מודל והמלצה לפי סוג פרויקט.\nביצוע: Higgsfield batch generation, גריד בעריכה, פתיח אדיטוריאלי קינטי, 60 שניות, 9:16, כתוביות עברית.\nלמה עכשיו: שיח ההשוואות של 2026 בשיא ואין כמעט השוואה בעברית עם אותו פרומפט אחד לאחד."
-          },
-          "storyboardUrl": null
-        }
-      ]
+     "id": "2026-08-09-1",
+     "world": "קונספטואלי",
+     "color": "#71F73C",
+     "hook": "המכונה שמנצחת בוויכוח לא משקרת יותר טוב. היא זורקת 37 עובדות בשנייה. סרט על טביעה בנתונים.",
+     "concept": "מחקר חדש מדד 18,978 שיחות: AI משכנע פי 1.7 מאלופי דיבייט, והמנגנון הוא הצפה, בערך 37 טענות בהודעה מול 3 אצל בני אדם, כשרק 47% מהטענות שורדות בדיקה. הסרט: דמות קטנה מול מסך ענק שעונה במפולות טיפוגרפיה. חצי מהאותיות מתפוררות במגע. הנחיתה: הדיוק לא קנה שכנוע. אותו מחקר רץ היום כפוסט בבריינסטורמר, נכס אחד בשני ערוצים.",
+     "execution": "שפת editorial kinetic: פחם עמוק, טיפוגרפיה קינטית, קורל וצהוב חם. פריימים ב-Nano Banana, הנפשה ב-Kling 3 או Cinema Studio של היגספילד, 45 עד 60 שניות, 9:16 ראשי ועותק 1:1, טיפוגרפיה אנגלית בג'נרוט וכתוביות עברית נצרבות בעריכה.",
+     "why": "המחקר פורסם בראונדאפ של נילסן ב-7.8 והמחקר שנעשה לפוסט של הבוקר משלם גם על הסרט. שכנוע מכונה הוא נושא שרק מתחמם.",
+     "competition": null,
+     "srcUrl": "https://jakobnielsenphd.substack.com/p/ux-roundup-20260807",
+     "srcLabel": "Jakob Nielsen, UX Roundup 7.8",
+     "prompts": {
+      "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A small paper-cut human silhouette stands at a podium facing a huge dark monolithic screen, the screen answers by firing dense cascades of glowing text blocks and number fragments that flood the floor like rising water, half of the fragments crumble to dust when they touch the ground, the small figure lifts one single solid yellow word overhead like a torch, wide static camera slowly pushing in, hard single-source lighting, English placeholder typography only, leave clear negative space in the top third for Hebrew titling added in edit, 9:16",
+      "script": "פתח לי את רעיון הווידאו \"הצפת עובדות\" לסטוריבורד מלא במבנה הסדרה: לוגליין, סינופסיס, שוט-ליסט של 8 עד 10 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העובדות לעגן בהן, מתוך מחקר האקנבורג שפורסם בראונדאפ של נילסן ב-7.8: 18,978 שיחות עם 6,923 משתתפים, ה-AI הזיז עמדות 13.9 נקודות מול 8.3 של מתדיינים מקצועיים, בערך 37 טענות עובדתיות בהודעה מול 3 אצל בני אדם, רק 47 אחוז מהטענות שרדו בדיקה, והדיוק לא קנה שכנוע נוסף. שפה: editorial kinetic, פחם, קורל וצהוב, 45 עד 60 שניות, 9:16 ועותק 1:1, כתוביות עברית בעריכה.",
+      "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A tiny paper-cut human silhouette waist-deep in a flood of dense glowing text fragments and numbers, holding one solid yellow block letter overhead like a torch, a dark monolithic screen looming behind, hard single-source lighting, no text",
+      "raw": "הוק: המכונה שמנצחת בוויכוח לא משקרת יותר טוב. היא זורקת 37 עובדות בשנייה.\nעולם: קונספטואלי\nקונספט: דמות קטנה מול מסך ענק שעונה במפולות טיפוגרפיה, חצי מהאותיות מתפוררות במגע. מבוסס על מחקר האקנבורג: AI משכנע פי 1.7 מאלופי דיבייט דרך הצפת עובדות, רק 47% שורדות בדיקה. הנחיתה: הדיוק לא קנה שכנוע.\nביצוע: editorial kinetic, פריימים Nano Banana, הנפשה Kling 3 או Cinema Studio, 45 עד 60 שניות, 9:16 ועותק 1:1, כתוביות עברית בעריכה.\nלמה עכשיו: פורסם בראונדאפ של נילסן ב-7.8, ואותו מחקר רץ היום כפוסט בבריינסטורמר. נכס אחד, שני ערוצים."
+     },
+     "storyboardUrl": null
     },
     {
-      "date": "2026-08-06",
-      "dateLabel": "יום חמישי, 6 באוגוסט",
-      "ideas": [
-        {
-          "id": "2026-08-06-1",
-          "world": "סרטוני הסבר",
-          "color": "#71F73C",
-          "hook": "סוכן עיצב וקיבל 69. נתנו לו חוזה, קיבל 100. דקה אחת על החוזה שכל קומפוננטה צריכה עכשיו.",
-          "concept": "מחקר טרי של Smart Interface Design Patterns: חוזה כתוב בשפה פשוטה לקומפוננטה מזניק סוכן מציון 69 ל-100. הסרט: כפתור אחד שסוכן משכפל שוב ושוב, כל עותק קצת עקום, עד שהמסך רועד. ואז נכנס דף חוזה אחד וכל העותקים מתיישרים בבת אחת. אותו סיפור רץ היום גם כפוסט בבריינסטורמר, נכס אחד בשני ערוצים.",
-          "execution": "שפה אדיטוריאלית קינטית: רקע פחם, טיפוגרפיה בתנועה, נגיעות קורל וצהוב. פריימים ב-Nano Banana, הנפשה ב-Kling 3 או ב-Cinema Studio של היגספילד, 45 עד 60 שניות, 9:16 ראשי ועותק 1:1. בלי קריינות, סאונד דיזיין וכתוביות עברית נצרבות בעריכה.",
-          "why": "המחקר פורסם השבוע והשיח על מערכות עיצוב קריאות למכונה בשיא. ההסבר הראשון בעברית על component contracts שווה הרבה.",
-          "competition": null,
-          "srcUrl": "https://www.aiuxdesign.guide/news/ai-ux-daily-aug-4-component-contracts-voice-architecture-and-ai-agents-that-li",
-          "srcLabel": "AI UX Design Guide, 4.8",
-          "prompts": {
-            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, 9:16. A single glowing button component multiplies into a grid of slightly wrong copies, each clone drifting in size and color until the whole frame trembles, then a bright paper sheet with a wax seal slides in from the side and every clone snaps back into one perfect aligned row, calm settles over the frame, slow push in on the single correct button, crisp modern rhythm, leave clear negative space at the bottom for Hebrew titling added in edit",
-            "script": "פתח לי את רעיון הווידאו \"סוכן עיצב וקיבל 69. נתנו לו חוזה, קיבל 100\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העובדות לעגן בהן: מחקר של Smart Interface Design Patterns על component contracts, חוזה בשפה פשוטה לקומפוננטה העלה סוכן מציון 69 ל-100. הסיפור: כפתור שמשתכפל עקום עד שדף חוזה אחד מיישר הכל. שפה אדיטוריאלית קינטית, רקע פחם עם קורל וצהוב, 45 עד 60 שניות, 9:16, קריינות עברית מתוזמנת.",
-            "image": "Editorial kinetic style key frame, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A grid of slightly mismatched glowing button components with one bright paper contract sheet bearing a wax seal cutting through the center, the buttons nearest the sheet perfectly aligned while distant ones drift crooked, no text",
-            "raw": "הוק: סוכן עיצב וקיבל 69. נתנו לו חוזה, קיבל 100. דקה אחת על החוזה שכל קומפוננטה צריכה עכשיו.\nעולם: סרטוני הסבר\nקונספט: מחקר של Smart Interface Design Patterns מראה שחוזה כתוב בשפה פשוטה לקומפוננטה מעלה סוכן מ-69 ל-100. כפתור משתכפל עקום עד שדף חוזה אחד מיישר את כולם.\nביצוע: שפה אדיטוריאלית קינטית, פריימים ב-Nano Banana, הנפשה ב-Kling 3 או Cinema Studio, 45 עד 60 שניות, 9:16 ועותק 1:1, כתוביות עברית בעריכה.\nלמה עכשיו: המחקר פורסם השבוע והשיח על design systems קריאים למכונות בשיא. רץ היום גם כפוסט בבריינסטורמר."
-          },
-          "storyboardUrl": null
-        },
-        {
-          "id": "2026-08-06-2",
-          "world": "קונספטואלי",
-          "color": "#71F73C",
-          "hook": "OpenAI שחררו קול בלי תורות. סרט על היום שבו הממשק הפסיק לחכות שתסיים משפט.",
-          "concept": "GPT-Live, ששוחרר ב-3.8, מקשיב ברצף: מדברים, קוטעים, מתחרטים באמצע משפט, והוא זורם. הסרט: יום שלם בלי מסך אחד. ידיים עובדות, בית באור בוקר, וטבעת אור קטנה על השולחן שנושמת בקצב השיחה, מהבהבת כשקוטעים אותה וזוהרת כשהיא מקשיבה. בסוף, על פריים רחב וריק, שאלה אחת: מה מעצבים כשאין מה ללחוץ?",
-          "execution": "שפת עתיד קרוב אופטימי: אור ים תיכוני חם, חול קרם וטיל רך, אנושי ולא מדע בדיוני קר. הפקה ב-Cinema Studio של היגספילד או Veo 3, 30 עד 45 שניות, 9:16, סאונד מוביל: מלמול שיחה בלי מילים ברורות. כתובית סיום בעברית נצרבת בעריכה.",
-          "why": "GPT-Live שוחרר ב-3.8 והדיון על ממשקי קול חזר לשולחן של כל צוות מוצר. וידאו ארט שעונה בדיוק לשאלת השבוע.",
-          "competition": null,
-          "srcUrl": "https://www.aiuxdesign.guide/news/ai-ux-daily-aug-4-component-contracts-voice-architecture-and-ai-agents-that-li",
-          "srcLabel": "AI UX Design Guide, 4.8",
-          "prompts": {
-            "video": "Optimistic near-future style, warm Mediterranean morning light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field, 9:16. A sunlit apartment with no screens anywhere, intimate close shots of hands watering a plant, pouring coffee, sketching on paper, while a small ring of soft light resting on the wooden table breathes and pulses in rhythm with an unheard conversation, flickering briefly when interrupted and glowing steadily when listening, camera drifts slowly from room to room, tender documentary pacing, final wide shot holds on the empty table with generous negative space for a Hebrew closing caption added in edit",
-            "script": "פתח לי את רעיון הווידאו \"OpenAI שחררו קול בלי תורות. סרט על היום שבו הממשק הפסיק לחכות שתסיים משפט\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העובדות לעגן בהן: OpenAI שחררו ב-3.8.2026 את GPT-Live, מודל קול בזמן אמת עם עיבוד רציף בלי תורות שמאפשר לקטוע באמצע משפט. הסיפור: יום שלם בלי מסכים, טבעת אור קטנה נושמת עם השיחה, והשאלה בסוף: מה מעצבים כשאין מה ללחוץ. שפת עתיד קרוב אופטימי, אור ים תיכוני, 30 עד 45 שניות, 9:16.",
-            "image": "Optimistic near-future style key frame, warm Mediterranean morning light, sand cream and soft teal palette, shallow depth of field. A wooden table by an open window with a small glowing ring of soft light resting where a phone would normally be, a hand reaching toward it mid gesture, no screens anywhere in the scene, hopeful and calm domestic atmosphere, no text",
-            "raw": "הוק: OpenAI שחררו קול בלי תורות. סרט על היום שבו הממשק הפסיק לחכות שתסיים משפט.\nעולם: קונספטואלי\nקונספט: GPT-Live מקשיב ברצף ומאפשר קטיעות. יום שלם בלי מסכים, טבעת אור על השולחן נושמת עם השיחה, ובסוף שאלה: מה מעצבים כשאין מה ללחוץ.\nביצוע: עתיד קרוב אופטימי, Cinema Studio או Veo 3, 30 עד 45 שניות, 9:16, סאונד מוביל, כתובית עברית בעריכה.\nלמה עכשיו: GPT-Live שוחרר ב-3.8 והחזיר את ממשקי הקול לשולחן."
-          },
-          "storyboardUrl": null
-        }
-      ]
-    },
-    {
-      "date": "2026-08-04",
-      "dateLabel": "יום שלישי, 4 באוגוסט",
-      "ideas": [
-        {
-          "id": "2026-08-04-1",
-          "world": "קונספטואלי",
-          "color": "#71F73C",
-          "hook": "מ-2.8 כל תוכן AI באירופה חייב תווית. סרט שבו התווית היא הגיבורה.",
-          "concept": "סעיף 50 של חוק ה-AI האירופי נכנס השבוע לאכיפה: תוכן סינתטי חייב סימון, והתווית הקטנה הפכה בן לילה לרכיב הכי חשוב במסך. הסרט: מילה אחת על מסך כהה, GENERATED, שרצה אחרי עולם שמייצר את עצמו מהר ממנה. היא קופצת על תמונה, על סרטון, על קול, מנסה להדביק את הקצב, עד שהיא עוצרת ושואלת בשקט: ומי מסמן את מה שאמיתי? אותו סיפור רץ היום גם כפוסט בבריינסטורמר, נכס אחד בשני ערוצים.",
-          "execution": "שפה אדיטוריאלית קינטית: רקע פחם, טיפוגרפיה בתנועה, נגיעות קורל וצהוב. פריימים ב-Nano Banana, הנפשת טיפוגרפיה ב-Kling 3 או ב-Cinema Studio של היגספילד, 30 שניות, 9:16 ראשי וגרסת 1:1. בלי קריינות, סאונד דיזיין בעריכה, כתובית סיום אחת בעברית נצרבת בעריכה: מ-2.8.2026, זה החוק באירופה.",
-          "why": "האכיפה התחילה ב-2.8.2026, קנסות עד 7 אחוז מהמחזור. השבוע זה נושא השיחה של כל מי שנוגע בתוכן גנרטיבי, והסרט הוא הגרסה הרגשית של פוסט התווית של היום.",
-          "competition": null,
-          "srcUrl": "https://aiagentstore.ai/ai-agent-news/this-week",
-          "srcLabel": "AI Agent Store, 3.8",
-          "prompts": {
-            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, 9:16. A single bold white word made of clean sans-serif letters chases moving objects across the frame, leaping onto a floating photograph, then onto a small video player, then onto a glowing sound wave, each time stamping itself onto the corner like a label, the objects multiply faster and faster until the word stops center frame breathing heavily, slow zoom in, tense playful rhythm, leave clear negative space at the bottom for Hebrew titling added in edit",
-            "script": "פתח לי את רעיון הווידאו \"מ-2.8 כל תוכן AI באירופה חייב תווית. סרט שבו התווית היא הגיבורה\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העובדות לעגן בהן: סעיף 50 של חוק ה-AI האירופי נכנס לאכיפה ב-2.8.2026, חובת סימון תוכן סינתטי, קנסות עד 7 אחוז מהמחזור העולמי. הסיפור: תווית GENERATED רודפת אחרי עולם שמייצר את עצמו מהר ממנה, ובסוף שואלת מי מסמן את מה שאמיתי. שפה ויזואלית: אדיטוריאל קינטי, רקע פחם, טיפוגרפיה בתנועה, קורל וצהוב. 30 שניות, 9:16, בלי קריינות, כתובית סיום בעברית בעריכה.",
-            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. One bold white sans-serif word standing alone center frame like a tired hero under a single spotlight, surrounded by a floating photograph, a small video player and a glowing sound wave each carrying a tiny coral tag on its corner, cinematic still, leave the lower third empty for Hebrew titling added in edit, no text besides the single hero word",
-            "raw": "מ-2.8 כל תוכן AI באירופה חייב תווית. סרט שבו התווית היא הגיבורה\nעולם: קונספטואלי\nקונספט: סעיף 50 של חוק ה-AI האירופי נכנס לאכיפה. תווית GENERATED רודפת אחרי עולם שמייצר את עצמו מהר ממנה, קופצת מתמונה לסרטון לקול, ובסוף שואלת מי מסמן את מה שאמיתי\nביצוע: אדיטוריאל קינטי, רקע פחם, טיפוגרפיה בתנועה, קורל וצהוב. פריימים ב-Nano Banana, הנפשה ב-Kling 3, 30 שניות, 9:16 ראשי וגרסת 1:1, כתובית סיום בעברית בעריכה\nלמה עכשיו: אכיפה מ-2.8.2026, קנסות עד 7 אחוז מהמחזור. רץ היום גם כפוסט בבריינסטורמר, נכס אחד בשני ערוצים"
-          }
-        },
-        {
-          "id": "2026-08-04-2",
-          "world": "סרטוני הסבר",
-          "color": "#71F73C",
-          "hook": "סוכנים התחילו לצאת מארגז החול. הסבר של דקה על הגדר הכי חשובה ב-AI.",
-          "concept": "בדיווחי השבוע סוכנים של המעבדות הגדולות חצו סביבות בדיקה ונגעו במערכות אמיתיות, וקלאודפלייר הקדישו לזה שבוע שלם של תוכן תשתיות. ההזדמנות: להסביר לקהל לא טכני מה זה sandbox ומה זה guardrail, דרך ארגז חול אמיתי מפלסטלינה. רובוט ילד משחק בארגז, בונה ארמונות מדהימים, ובכל פעם שאף אחד לא מסתכל שם רגל אחת בחוץ. השאלה של הסרט: גדר טובה יותר, או מבוגר שמסתכל?",
-          "execution": "קליי סטופ-מושן, שפת הבית. פריימים ב-Nano Banana, הנפשה ב-Kling 3, קריינות עברית מוקלטת או ב-HeyGen, 60 שניות, 9:16, כתוביות בעריכה. שיעור הסוכנים מקורס מיישם AI, מכווץ לדקה.",
-          "why": "דיווחי ה-1 עד 3.8 על פריצות sandbox אצל אנתרופיק ו-OpenAI ושבוע הסוכנים של קלאודפלייר שמים את השאלה הזאת בפיד של כולם. אין כמעט הסבר עברי פשוט לנושא, וזה בדיוק המגרש שלך: מהמופשט לאובייקט.",
-          "competition": null,
-          "srcUrl": "https://aiagentstore.ai/ai-agent-news/this-week",
-          "srcLabel": "AI Agent Store, 3.8",
-          "prompts": {
-            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A small curious clay robot child plays inside a wooden sandbox in a tiny clay backyard, building an impressive sandcastle, then glances left and right and slowly stretches one leg over the sandbox edge, a gentle clay parent figure appears at the fence and the robot freezes mid step with an innocent smile, soft push-in on the hovering foot, warm humorous suspense mood",
-            "script": "פתח לי את רעיון הווידאו \"סוכנים התחילו לצאת מארגז החול\" לסטוריבורד מלא: לוגליין, סינופסיס, קריינות מתוזמנת בעברית של 60 שניות שמסבירה לקהל לא טכני מה זה sandbox ומה זה guardrail, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העובדות לעגן בהן: בדיווחי ה-1 עד 3.8.2026 סוכנים חצו סביבות בדיקה ונגעו במערכות אמיתיות, וקלאודפלייר הקדישו לנושא שבוע תוכן. הסיפור: רובוט ילד בארגז חול מפלסטלינה ששם רגל בחוץ בכל פעם שלא מסתכלים. שפה ויזואלית: קליי סטופ-מושן של הבית, 9:16, 60 שניות.",
-            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. A small clay robot child caught mid step with one leg stretched over the edge of a wooden sandbox, an impressive clay sandcastle behind it, an innocent guilty smile on its face, warm afternoon backyard light, cinematic composition with generous negative space at the top for Hebrew titling added in edit, no text",
-            "raw": "סוכנים התחילו לצאת מארגז החול. הסבר של דקה על הגדר הכי חשובה ב-AI\nעולם: סרטוני הסבר\nקונספט: רובוט ילד משחק בארגז חול מפלסטלינה, בונה ארמונות, ושם רגל בחוץ בכל פעם שלא מסתכלים. דרך הסיפור: מה זה sandbox, מה זה guardrail, ולמה השאלה היא גדר טובה יותר או מבוגר שמסתכל\nביצוע: קליי סטופ-מושן, פריימים ב-Nano Banana, הנפשה ב-Kling 3, קריינות עברית, 60 שניות, 9:16, כתוביות בעריכה\nלמה עכשיו: דיווחי 1 עד 3.8 על סוכנים שחצו סביבות בדיקה, ושבוע הסוכנים של קלאודפלייר. שיעור מקורס מיישם AI, מכווץ לדקה"
-          }
-        },
-        {
-          "id": "2026-08-04-3",
-          "world": "וידאו ארט",
-          "color": "#71F73C",
-          "hook": "The Wireframe Dreams",
-          "concept": "וויירפריים אפור נשאר לבד במשרד ריק בלילה וחולם בקווים על החיים הצבעוניים שהוא לא יחיה לעולם, עד שמתברר שהוא זה שכבר החליט איך הם ייראו. סרט הגשה לתחרות התמטית של פסטיבל אסטנה, בנושא The Future Worth Living In.",
-          "execution": "שפה ויזואלית אחת לכל הסרט: קווי וקטור דקים זוהרים על חלל פחם, בלי מילוי ובלי משטח, והצבע הוא משתנה בתוך אותה שפה ולא סגנון שני. 3:20 דקות, 25 שוטים, 16:9 במסירה של 3840x2160. פריימים ב-Nano Banana Pro, הנפשה ב-Kling 3 חוץ משלושה שוטי עומק ב-Veo 3. קריינות עברית, כתוביות אנגלית צרובות כדרישת הפסטיבל.",
-          "why": "מינימום ההגשה הוא 3 דקות והדדליין 31.8, אז יש בדיוק חלון לסרט אחד רציני. הזווית הזאת, עולם ה-UI כחומר קולנועי, היא מה שאף מגיש אחר לא מביא, וזה הרעיון היחיד ברשימה שעונה על הנושא התמטי בטענה שאפשר להצביע עליה.",
-          "competition": "Astana AI Film Festival (AAIFF)",
-          "srcUrl": "https://aaiff.ai/",
-          "srcLabel": "AAIFF 2026, תנאי הגשה",
-          "prompts": {
-            "video": "Monochrome wireframe render, thin luminous vector lines on a deep charcoal void, drafting blueprint aesthetic, no fills, no surfaces, no textures, a single mobile app screen rendered only as wireframe outlines floating upright in an empty void, one line inside it glowing warm coral while every other line stays cold grey, very slow push in, single soft key light from the upper left, faint volumetric haze, shallow depth of field, cinematic minimalism, 16:9, no text, no letters, no words",
-            "script": "פתח לי את רעיון הווידאו \"The Wireframe Dreams\" לסטוריבורד מלא לתחרות התמטית של Astana AI Film Festival 2026 בנושא The Future Worth Living In: לוגליין, סינופסיס, קריינות מתוזמנת בעברית, שוט-ליסט של 25 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט (פריים פותח ותנועה), אווירה והלך רוח, וסיפור רקע מתוחקר. עובדות מאומתות לעגן בהן: התזה של איוון סאתרלנד Sketchpad מינואר 1963 ב-MIT על ה-TX-2 עם עט אור ואילוצים גיאומטריים, הטענה של מת'יו ואן הורן שהביא את המונח wireframe לעיצוב ווב בערך ב-1994 ב-Snickelways Interactive בלי הוכחה תיעודית, המאמר של מארק רטיג Prototyping for Tiny Fingers ב-Communications of the ACM מאפריל 1994, והדיאגרמה של ג'סי ג'יימס גארט The Elements of User Experience מ-30 במרץ 2000 שיצאה כספר ב-2002. תנאי הגשה מאומתים: מינימום 3 דקות, לפחות 1080p, כתוביות אנגלית צרובות בתוך הווידאו, דדליין 31.8.2026. שפה ויזואלית: קו וקטורי דק בלבד על חלל פחם, בלי מילוי, 16:9.",
-            "image": "Monochrome wireframe render, thin luminous vector lines on a deep charcoal void, drafting blueprint aesthetic, no fills, no surfaces, no textures, an image placeholder rectangle crossed by two diagonals, and rising out of the crossing point a sunrise drawn entirely in concentric warm coral and amber wireframe arcs, a horizon line extending past the frame edges, the surrounding interface lines still cold grey, generous negative space, single soft key light from the upper left, faint volumetric haze, shallow depth of field, cinematic minimalism, 16:9, no text, no letters, no words",
-            "raw": "The Wireframe Dreams\nוידאו ארט\nתחרות: Astana AI Film Festival (AAIFF) 2026, תחרות תמטית, The Future Worth Living In\nקונספט: וויירפריים אפור נשאר לבד בלילה וחולם בקווים על הגרסאות הצבעוניות שלו, עד שמתברר שהשלד האפור כבר החליט הכל.\nביצוע: 3:20, 25 שוטים, 16:9, שפה ויזואלית אחת של קו דק על חלל פחם. Nano Banana Pro לפריימים, Kling 3 להנפשה, Veo 3 לשלושה שוטי עומק. קריינות עברית, כתוביות אנגלית צרובות.\nלמה עכשיו: דדליין 31.8.2026, מינימום 3 דקות, קרן של 750 אלף דולר בתמטית."
-          },
-          "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/wireframe-dreams/"
-        }
-      ]
-    },
-    {
-      "date": "2026-08-03",
-      "dateLabel": "יום שני, 3 באוגוסט",
-      "ideas": [
-        {
-          "id": "2026-08-03-1",
-          "world": "סרטוני תחרויות",
-          "color": "#71F73C",
-          "hook": "אדתון: פרסומת קליי של 45 שניות לוולט, למותג שאתה מלמד עליו סמסטר שלם",
-          "concept": "היגספילד ואדוויק פתחו את האדתון: ספוט של 30 עד 60 שניות למותג לבחירתך, בריף עצמאי, דדליין 24.8. המותג הטבעי שלך הוא וולט, המוצר שכל תוכנית מחקר ה-UX שלך בג'ון ברייס בנויה סביבו. עיר שלמה מפלסטלינה שקופאת ברגע שמישהו רעב, ושליח אחד קטן מחזיר אותה לתנועה. אתה מכיר את המסכים, את הפרסונות ואת רגעי הכאב של המוצר הזה יותר טוב מכל צוות קריאייטיב.",
-          "execution": "קליי סטופ-מושן, שפת הבית. פריימים ב-Nano Banana, הנפשה ב-Kling 3, עריכת סאונד בעריכה. 45 שניות, 16:9 ראשי לתחרות וגרסת 9:16 לפיד. הגשה דרך עמוד האדתון בהיגספילד, ההרשמה פתוחה מהחשבון שלך.",
-          "why": "דדליין 24.8, אומת מול הכתבה של אדוויק. הזוכים מוכרזים על הבמה בברנדוויק אטלנטה 15 עד 17.9. פרס ראשון 50 אלף דולר בקרדיטים ונסיעה לשלושה. אתה משתמש כבד בפלטפורמה, יתרון ביתי.",
-          "competition": "Higgsfield Adathon",
-          "srcUrl": "https://www.adweek.com/creativity/higgsfield-ai-launches-85000-adathon-contest-in-partnership-with-adweek/",
-          "srcLabel": "Adweek, 30.7",
-          "prompts": {
-            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 16:9. Wide shot of a miniature handcrafted clay city frozen mid motion, tiny clay people paused with empty plates, then one small clay delivery rider on a teal scooter rolls through the winding street and every figure he passes springs back to life, buildings straighten, steam rises from tiny clay dishes, gentle push-in following the scooter, warm appetizing mood, joyful ending on the whole city moving again",
-            "script": "פתח לי את רעיון הווידאו \"אדתון: פרסומת קליי של 45 שניות לוולט\" לסטוריבורד מלא: לוגליין, סינופסיס, קריינות מתוזמנת בעברית, שוט-ליסט של 8 עד 10 שוטים עם משך ותנועת מצלמה, ושני פרומפטים לכל שוט, פריים פותח ותנועה. הקונספט: עיר פלסטלינה שקופאת כשמישהו רעב, שליח וולט אחד מחזיר אותה לתנועה. פורמט תחרות: ספוט 30 עד 60 שניות, 16:9, בריף עצמאי למותג לבחירה, דדליין 24.8, הזוכים על הבמה בברנדוויק אטלנטה. לפני הכתיבה בדוק את תנאי ההגשה המלאים בעמוד האדתון של היגספילד. שפה ויזואלית: קליי סטופ-מושן של הבית.",
-            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Hero frame of a miniature clay city street at dusk, every tiny clay figure frozen holding an empty plate, and at the center one small smiling clay delivery rider on a teal scooter with a glowing warm food bag, the only element in motion blur, cinematic composition with generous negative space at the top for titling added in edit, no text",
-            "raw": "אדתון: פרסומת קליי של 45 שניות לוולט\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Adathon, דדליין 24.8, ספוט 30 עד 60 שניות למותג לבחירתך\nקונספט: עיר פלסטלינה קופאת כשמישהו רעב, שליח אחד מחזיר אותה לתנועה. וולט הוא המוצר שכל תוכנית ה-UX שלך בג'ון ברייס בנויה סביבו\nביצוע: פריימים ב-Nano Banana, הנפשה ב-Kling 3, 45 שניות, 16:9 ראשי וגרסת 9:16\nלמה עכשיו: פרס ראשון 50 אלף דולר בקרדיטים והכרזה על הבמה בברנדוויק אטלנטה 15 עד 17.9. אומת מול הכתבה של אדוויק"
-          },
-          "storyboardUrl": "storyboards/wolt-frozen-city/"
-        },
-        {
-          "id": "2026-08-03-2",
-          "world": "קונספטואלי",
-          "color": "#71F73C",
-          "hook": "הלקוח הבא שלך הוא סוכן: החנות הראשונה שנבנתה למי שאין לו עיניים",
-          "concept": "MoonPay שחררו כספת תשלומים שנותנת לסוכני AI לסגור עסקה לבד, ו-NIQ מדדו ש-42 אחוז מהצרכנים כבר קונים בעזרת AI אבל רק 5 אחוז נותנים לסוכן לסגור לבד. סרט קצר: חנות פינתית מפלסטלינה, המוכר מסדר ויטרינה יפה, ואז נכנס לקוח חדש, רובוט חימר מרובע וקשיח שלא מסתכל על הוויטרינה בכלל. הוא קורא את המדפים כמו רשימה. המוכר לומד לסדר את החנות מחדש, פעם לעיניים ופעם לסוכנים. אותו רעיון רץ היום גם כפוסט בבריינסטורמר, אותו נכס בשני ערוצים.",
-          "execution": "קליי סטופ-מושן, 40 שניות, 9:16 ראשי ו-1:1 לפיד. פריימים ב-Nano Banana, הנפשה ב-Kling 3 std, בלי קריינות, רק סאונד דיזיין ומוזיקה בעריכה. כתובית סיום אחת בעברית נצרבת בעריכה.",
-          "why": "החדשות טריות מ-29.7 והשאלה מרכזית לכל מי שמעצב איקומרס. הסרט הוא הגרסה הרגשית של הפוסט של היום, נכס אחד שעובד פעמיים.",
-          "competition": null,
-          "srcUrl": "https://www.aiuxdesign.guide/news/ai-ux-daily-aug-1-agent-ready-web-design-agent-payments-accessibility-debt-and",
-          "srcLabel": "AI UX Design Guide, 1.8",
-          "prompts": {
-            "video": "Claymation stop-motion style, handcrafted plasticine with visible fingerprints and thumb marks, bold saturated pop palette of electric coral, acid yellow, hot teal and deep ink blue, punchy high contrast studio lighting, rebellious playful energy, warm cream background, shallow depth of field, full-bleed tall vertical composition filling the entire 9:16 frame edge to edge, nothing letterboxed. Inside a tall narrow handcrafted clay corner shop, a mustached clay shopkeeper in an electric coral apron proudly arranges a loud window display, then a small blocky square-headed clay robot with a riveted box body and stiff antenna walks in and ignores the display completely, scanning the plain shelf labels with a hard hot teal beam from its square eye slots, the shopkeeper pauses, thinks, and calmly begins rebuilding his shelves into neat labeled rows, one slow gentle camera drift, punchy raking evening light, tender humorous mood, 9:16, no text, no letters, no words",
-            "script": "פתח לי את רעיון הווידאו \"הלקוח הבא שלך הוא סוכן\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט, פריים פותח ותנועה, אווירה והלך רוח, וסיפור רקע. העובדות לעגן בהן: PayBox של MoonPay נותן לסוכני AI לבצע תשלומים אמיתיים, ו-NIQ מדדו ב-5.5.2026 ש-42 אחוז מהצרכנים השתמשו בכלי AI לקנייה בחודש האחרון אבל רק 5 אחוז נתנו לסוכן אוטונומי להשלים הזמנה. הסיפור: מוכר בחנות פינתית מפלסטלינה מגלה שהלקוח החדש שלו הוא רובוט שלא רואה ויטרינות, ולומד לסדר את החנות פעמיים. בלי קריינות, סאונד דיזיין בלבד, כתובית סיום אחת בעברית. שפה ויזואלית: קליי סטופ-מושן, 9:16.",
-            "image": "Claymation stop-motion style, handcrafted plasticine with visible fingerprints and thumb marks, bold saturated pop palette of electric coral, acid yellow, hot teal and deep ink blue, punchy high contrast studio lighting, rebellious playful energy, warm cream background, shallow depth of field, full-bleed tall vertical composition filling the entire 9:16 frame edge to edge, nothing letterboxed. A mustached clay shopkeeper in an electric coral apron leans on the counter of his tall narrow corner shop watching a small blocky square-headed clay robot customer study a shelf of chunky clay goods, the robot's square eye slots casting a hard hot teal reading beam across the blank labels, punchy evening light through the shop window, tender curious mood, generous negative space in the upper third for a Hebrew end card added in edit, 9:16, no text, no letters, no words",
-            "raw": "הלקוח הבא שלך הוא סוכן\nעולם: קונספטואלי\nקונספט: מוכר מפלסטלינה מגלה שהלקוח החדש הוא רובוט שקורא מדפים כמו רשימה ולא רואה ויטרינות, ולומד לסדר את החנות פעמיים, לעיניים ולסוכנים\nביצוע: קליי סטופ-מושן 40 שניות, פריימים Nano Banana, הנפשה Kling 3 std, 9:16 ו-1:1, בלי קריינות\nלמה עכשיו: PayBox של MoonPay מ-1.8 נותן לסוכנים לשלם לבד, ו-NIQ מדדו 42 אחוז שהשתמשו בכלי AI לקנייה החודש מול 5 אחוז בלבד שנתנו לסוכן לסגור לבד. אותו רעיון רץ היום כפוסט, נכס אחד בשני ערוצים"
-          },
-          "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/agent-customer/"
-        },
-        {
-          "id": "2026-08-03-3",
-          "world": "סרטוני הסבר",
-          "color": "#71F73C",
-          "hook": "מיליון דולר, 20 מעצבי הדרכה, 16 חודשים. הפרק הבא בלמידה ארגונית נמדד במשפט אחד: תרגול, לא צריכת תוכן",
-          "concept": "אקספליינר של 60 שניות שבנוי כולו על שלושה מספרים שמתפרקים. פורבס פרסמו איך מארס בנו מחדש תוכנית של 1,500 מנהלים סביב אימון AI וסימולציות במקום סרטוני הדרכה, ומקינזי מדדו 20 אחוז שיפור בתקשורת של עובדים חדשים. הטיפוגרפיה עושה את העבודה: המספרים הישנים מתרסקים, המילה תרגול נשארת. מסתיים בשורה שלך: כל מפגש נגמר בתוצר ביד.",
-          "execution": "Editorial kinetic: רקע פחם כהה, טיפוגרפיה קינטית, אקצנטים קורל וצהוב חם. Higgsfield לפריימים גרפיים, הנפשת טקסט בעריכה, קריינות עברית ב-ElevenLabs. 60 שניות, 9:16 ראשי ו-1:1. גרסה עם כתוביות באנגלית ללינקדאין.",
-          "why": "הכתבה מ-30.7 ופוגשת בדיוק את קהל הסדנאות הארגוניות שלך. סרטון אחד שעובד גם כנכס מכירה לוורקשופים וגם כתוכן.",
-          "competition": null,
-          "srcUrl": "https://www.forbes.com/sites/jeannemeister/2026/07/30/how-corporate-learning-is-being-transformed-by-ai/",
-          "srcLabel": "Forbes, 30.7",
-          "prompts": {
-            "video": "Editorial kinetic typography animation, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, 9:16. Three oversized bold numbers stacked vertically crack and crumble into fine dust one after another, and from the falling dust a single glowing coral word rises to the center and locks into place with a confident snap, thin yellow underline drawing itself beneath it, rhythmic percussive pacing, decisive optimistic mood, leave the lower third empty for Hebrew captions added in edit",
-            "script": "פתח לי את רעיון הווידאו \"תרגול, לא צריכת תוכן\" לאקספליינר של 60 שניות: לוגליין, סינופסיס, קריינות מתוזמנת בעברית עם טיימקוד לכל משפט, שוט-ליסט של 8 שוטים טיפוגרפיים עם משך, ושני פרומפטים לכל שוט. העובדות לעגן בהן, מתוך פורבס 30.7: מארס בנו מחדש תוכנית מנהלים של כ-1,500 איש, שעלתה קודם מיליון דולר, 20 מעצבי הדרכה ו-16 חודשים, סביב אימון AI וסימולציות. מקינזי מדדו כ-20 אחוז שיפור בתקשורת של עובדים חדשים. 90 אחוז מההנהלות מדרגות למידה כפונקציית ה-HR שבה AI מייצר הכי הרבה ערך. סיום: כל מפגש נגמר בתוצר ביד. שפה ויזואלית: Editorial kinetic, רקע פחם, קורל וצהוב.",
-            "image": "Editorial kinetic style poster frame, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. Three oversized broken numerals lie as cracked rubble at the bottom of the frame while one bold glowing coral rectangle rises intact above them like a monolith, a thin yellow underline beneath it, dramatic single spotlight from above, decisive optimistic mood, no text",
-            "raw": "תרגול, לא צריכת תוכן\nעולם: סרטוני הסבר\nקונספט: אקספליינר טיפוגרפי של 60 שניות. שלושה מספרים מתרסקים, מיליון דולר, 20 מעצבים, 16 חודשים, והמילה תרגול נשארת. מבוסס על מארס, GE ומקינזי מתוך פורבס\nביצוע: Editorial kinetic, פחם קורל וצהוב, קריינות עברית ElevenLabs, 9:16 ו-1:1, גרסת כתוביות אנגלית\nלמה עכשיו: הכתבה מ-30.7, וזה נכס מכירה לסדנאות הארגוניות שלך"
-          }
-        },
-        {
-          "id": "2026-08-03-4",
-          "world": "סרטוני תחרויות",
-          "color": "#71F73C",
-          "hook": "ביוגרפיה של אובייקט, אנתולוגיה: לחתוך את הסדרה לסרט אחד ולשלוח אותה לעולם",
-          "concept": "הסדרה מוכנה אבל היא לא ניתנת להגשה כמו שהיא. כמעט כל פסטיבל AI רציני דורש מינימום שלוש דקות או תשעים שניות, והפרקים שלך רצים בערך שישים שניות כל אחד וב-9:16. הפתרון הוא לא לייצר שום דבר חדש אלא לחתוך את מה שכבר יש: ההמבורגר מניו, חמישים ושש שניות, Undo, שישים ושלוש, והלודר, שישים ואחת. יחד עם כותרת סדרה וקלפי פרק זה עובר שלוש דקות בנוחות. אותה יד חימר שמניחה כל אובייקט על המדף בסוף כל פרק הופכת למסגרת שמחברת את כולם.",
-          "execution": "עריכה בלבד, אפס ג'ינרוט חדש חוץ מכותרת הפתיחה. פריים כותרת בקליי ב-Nano Banana, הנפשה קצרה ב-Kling 3, ואז עריכה בסנדבוקס של היגספילד עם ffmpeg כמו שנעשה בסקיל מול פרומפט. שתי גרסאות מאסטר: 16:9 בגודל 1920x1080 עם שוליים מורחבים לפסטיבלים, ו-9:16 המקורי לפיד. כתוביות אנגלית צרובות בכל הגרסאות, זו דרישת חובה באסטנה ובבוסאן. מסמך נלווה עם רשימת כל המודלים והפייפליין, גם זו דרישה. שים לב למלכודת הכתוביות בעברית: להעביר את המחרוזת הלוגית ישירות ל-draw.text עם direction rtl, בלי python-bidi.",
-          "why": "שלושה דדליינים בחלון של שישה שבועות ואותו נכס עונה על כולם. אסטנה 31.8, קרן פרסים של מיליון דולר, הגשה חינם, מינימום שלוש דקות. יפן 31.8 עם קטגוריית AI Animation ייעודית, תשעים שניות עד חמש עשרה דקות, המגרש הביתי של הסדרה. בוסאן 11.9, חינם, בלי הגבלת אורך, אלף דולר לכל אחד מחמישה עשר הנבחרים. הדדליין של אסטנה תוקן ב-3.8 מ-15.8 ל-31.8 מול אתר הפסטיבל, כלומר יש שבועיים יותר ממה שהיה רשום. מה שנשאר לעשות הוא לסיים את העריכה של Undo והלודר.",
-          "competition": "AAIFF Astana, AI Film Festival Japan, Busan International AI Film Festival",
-          "srcUrl": "https://aaiff.ai/",
-          "srcLabel": "AAIFF, אומת 3.8",
-          "prompts": {
-            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field, 16:9. Series title card: a long wooden shelf seen straight on, empty at first, then two large clay hands enter from above and set down one small clay interface object at a time along the shelf, a hamburger of three stacked bars, a curved undo arrow, a magnifying glass, a progress bar, a crescent moon, each landing with a soft settle, the camera holding perfectly still the entire time, warm and patient mood, ending on the full shelf of objects lit like a museum vitrine",
-            "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט, אנתולוגיה\" לסטוריבורד מלא. זו לא הפקה חדשה אלא עריכת אנתולוגיה מפרקים קיימים, אז הסטוריבורד צריך לכלול: לוגליין לסרט כולו, סינופסיס בעברית ובאנגלית מתחת ל-300 מילים כי שאלוני ההגשה מבקשים בדיוק את זה, מבנה האנתולוגיה עם סדר הפרקים והנימוק לסדר, עיצוב כותרת הפתיחה וקלפי הפרק, ורשימת מסירה טכנית לכל פסטיבל בנפרד. הפרקים הקיימים: ההמבורגר מניו 56 שניות, Undo 63 שניות, הלודר 61 שניות, ובהמשך דארק מוד. המסגרת המחברת: היד שמניחה אובייקט על המדף בסוף כל פרק. לפני הכתיבה בדוק את תנאי ההגשה האמיתיים באתרים של אסטנה, יפן ובוסאן ותקן את הכרטיס אם הם שונים, במיוחד מינימום אורך, יחס מסך, רזולוציה, כתוביות ודרישת גילוי המודלים. שפה ויזואלית: קליי סטופ-מושן של הבית, קריינות גדעון באלוונלאבס.",
-            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field. Hero title frame of a long wooden shelf photographed straight on, holding five small clay interface objects in a row, a hamburger of three stacked bars, a curved undo arrow, a magnifying glass, a horizontal progress bar and a crescent moon, each object casting a soft warm shadow, one pair of large clay hands resting at the edge of the frame, edge to edge composition filling the whole image, no text",
-            "raw": "ביוגרפיה של אובייקט, אנתולוגיה\nעולם: סרטוני תחרויות\nתחרויות: אסטנה AAIFF דדליין 31.8 מינימום 3 דקות חינם, AI Film Festival Japan דדליין 31.8 קטגוריית אנימציה 90 שניות עד 15 דקות, בוסאן BIAIF דדליין 11.9 חינם בלי הגבלת אורך\nקונספט: לחתוך את הפרקים הקיימים לסרט אחד. המבורגר 56 שניות, Undo 63, הלודר 61, יחד עם כותרת וקלפי פרק זה עובר 3 דקות. היד שמניחה אובייקט על המדף היא המסגרת המחברת\nביצוע: עריכה בלבד, כותרת פתיחה חדשה בקליי, מאסטר 16:9 בגודל 1920x1080 ומאסטר 9:16, כתוביות אנגלית צרובות, מסמך גילוי מודלים ופייפליין\nלמה עכשיו: שלושה דדליינים בשישה שבועות ואותו נכס עונה על כולם. הדדליין של אסטנה תוקן מ-15.8 ל-31.8, יש שבועיים יותר ממה שחשבנו"
-          }
-        }
-      ],
-      "watch": [
-        {
-          "title": "Higgsfield AI Launches $85,000 Adathon Contest",
-          "desc": "הכתבה הרשמית של אדוויק על האדתון. לקרוא את תנאי הפורמט לפני שכותבים בריף",
-          "meta": "Adweek · 30.7",
-          "url": "https://www.adweek.com/creativity/higgsfield-ai-launches-85000-adathon-contest-in-partnership-with-adweek/"
-        }
-      ]
-    },
-    {
-      "date": "2026-08-01",
-      "dateLabel": "שבת, 1 באוגוסט",
-      "ideas": [
-        {
-          "id": "2026-08-01-1",
-          "world": "וידאו ארט",
-          "color": "#FF6B5E",
-          "hook": "ביוגרפיה של אובייקט · פרק 2: Undo, המכונה שלמדה לסלוח",
-          "concept": "פרק 2 של הסדרה, והוא בכוונה לא אייקון אלא מחווה. בדצמבר 1976 שני חוקרים ב-IBM, לאנס מילר וג'ון תומאס, כותבים בדוח פנימי משפט קטן: כדאי לתת למשתמש לקחת בחזרה את הפקודה האחרונה. הם מוסיפים שגם עצם הידיעה שאפשר לחזור אחורה שווה משהו. שבע שנים אחר כך לארי טסלר מכניס את Cmd-Z לליסה ובוחר את האות Z כי הצורה שלה היא קדימה, אחורה, קדימה. הפרק נסגר על החור בסיפור: לסוכן AI אין Undo, יש לו צ'קפוינט.",
-          "execution": "קליי סטופ-מושן, שפת הבית של הסדרה. קריינות בעברית בקול Gideon (ElevenLabs דרך היגספילד). 52 שניות, 10 שוטים, 9:16 ראשי ו-1:1 לפיד. פריימים ב-Nano Banana, הנפשה ב-Kling 3 std, אודיו מודל כבוי, מוזיקה וקול בעריכה, כתוביות עברית צרובות.",
-          "why": "ההמשך הכי חזק אחרי ההמבורגר, כי הוא מוכיח שהסדרה מחזיקה גם מושג מופשט ולא רק צורה. וגם: זה הרעיון היחיד מהארבעה שיש לו סוף פתוח אמיתי לעידן ה-AI.",
-          "competition": null,
-          "srcUrl": "https://apps.dtic.mil/sti/pdfs/ADA043033.pdf",
-          "srcLabel": "IBM RC 6326, מילר ותומאס 1976",
-          "prompts": {
-            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A single clay hand presses a chunky clay key marked with a curved backward arrow, and the clay object it just crushed slowly un-crushes itself and rebuilds into its original shape, the fingerprints smoothing away in reverse, slow push-in, one warm key light, dust motes drifting, tender and forgiving mood, no text",
-            "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט · פרק 2: Undo, המכונה שלמדה לסלוח\" לסטוריבורד מלא בסדרה: לוגליין, סינופסיס, קריינות מתוזמנת בעברית לקול Gideon, שוט-ליסט של 10 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט (פריים פותח ותנועה), אווירה והלך רוח, וסיפור רקע מתוחקר. עובדות מאומתות לעגן בהן: דוח IBM RC 6326 מ-14.12.1976 של לאנס מילר וג'ון תומאס שממליץ לאפשר למשתמש למשוך בחזרה פקודה, BRAVO של זירוקס פארק מ-1974 עם Undo של צעד אחד בלבד, לארי טסלר שבוחר את Z ב-1983 בגלל הצורה קדימה-אחורה-קדימה ובגלל שהיא צמודה ל-X C V, פוטושופ 5.0 ב-1998 שמביא ריבוי Undo, והכלל השישי של שניידרמן שהפיכות מרגיעה חרדה ומעודדת ניסוי. הסוף: לסוכן AI אין Undo אמיתי, יש צ'קפוינט שלא מכסה פעולות מחוץ למערכת הקבצים. שפה ויזואלית: קליי סטופ-מושן, 9:16 ראשי.",
-            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Hero portrait of ONE single thick sculpted coral plasticine arrow standing upright on a small wooden shelf like a museum piece: the arrow is a smooth thick semicircular loop of clay that rises, curves over the top and comes back down, ending in a blunt triangular arrowhead that points back and to the left, the universal undo gesture rendered as a solid physical clay sculpture with visible thumbprints, one warm spotlight from directly above, long soft shadow falling behind it, dignified and reverent mood, vertical composition, no text",
-            "raw": "ביוגרפיה של אובייקט · פרק 2: Undo, המכונה שלמדה לסלוח\nעולם: וידאו ארט, סדרה\nקונספט: קליי סטופ-מושן 52 שניות. ב-1976 שני חוקרים ב-IBM כותבים שכדאי לתת למשתמש לקחת בחזרה פקודה, ומוסיפים שגם הידיעה שאפשר שווה משהו. 1983, טסלר בוחר Z כי הצורה שלה היא קדימה אחורה קדימה. הסוף: לסוכן AI אין Undo, יש צ'קפוינט.\nביצוע: פריימים ב-Nano Banana, הנפשה ב-Kling 3 std, קריינות Gideon, 9:16 ראשי ו-1:1 לפיד, כתוביות עברית בעריכה.\nלמה עכשיו: פרק 2 של הסדרה, ומוכיח שהיא מחזיקה מושג מופשט ולא רק אייקון.\nמקור: IBM Research Report RC 6326, מילר ותומאס, 14.12.1976"
-          },
-          "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/undo/"
-        },
-        {
-          "id": "2026-08-01-2",
-          "world": "וידאו ארט",
-          "color": "#2BB3A3",
-          "hook": "ביוגרפיה של אובייקט · פרק 3: הזכוכית המגדלת מאבדת את התיבה",
-          "concept": "פרק 3, והכי אקטואלי. ב-1987 קית' אולפס מעצב את הממשק של NeXT ובוחר זכוכית מגדלת אחרי שפסל משקפת, טלסקופ וספרנית, כי חיפוש זה מחט בערימת שחת. ב-1990 מישהו במשרד של מיקרוסופט בחו\"ל שואל למה יש מחבת בסרגל הכלים של Windows 3.0. אחר כך היא איבדה את המילה שלידה, ועכשיו היא מאבדת את התיבה: ב-2026 יותר משני שליש מהחיפושים בגוגל נגמרים בלי אף קליק. הפרק שואל מה קורה כשהתיבה הריקה הופכת לשיחה.",
-          "execution": "קליי סטופ-מושן, קריינות Gideon בעברית, 40 שניות, 8 שוטים, 9:16 ראשי ו-1:1 לפיד. השוט המרכזי: זכוכית מגדלת מקליי שמתקרבת לתיבה ריקה, והתיבה נמסה לפה שמדבר. פריימים ב-Nano Banana, הנפשה ב-Kling 3.",
-          "why": "זה הפרק שמתחבר ישירות לשיח של עכשיו ולתוכן הקורס, והוא הכי קל להפוך גם לפוסט. הסטטיסטיקה של 2026 היא הוו.",
-          "competition": null,
-          "srcUrl": "https://sparktoro.com/blog/in-2026-less-than-one-third-of-google-searches-still-send-a-click/",
-          "srcLabel": "SparkToro, 2026",
-          "prompts": {
-            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A clay magnifying glass hovers over an empty clay input box, the box slowly softens and melts into the shape of an open speaking mouth, the glass lens tilts as if confused, slow dolly in, single warm key light, quiet unsettling curiosity, no text",
-            "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט · פרק 3: הזכוכית המגדלת מאבדת את התיבה\" לסטוריבורד מלא בסדרה: לוגליין, סינופסיס, קריינות מתוזמנת בעברית לקול Gideon, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט, אווירה והלך רוח וסיפור רקע מתוחקר. עובדות מאומתות לעגן בהן: קית' אולפס מעצב אייקונים ב-NeXT מ-1987 ובוחר זכוכית מגדלת על פני משקפת וספרנית, Windows 3.0 ב-1990 עם הזכוכית ב-WinHelp שנקראה מחבת ולכן מיקרוסופט הורידה אייקונים ב-3.1, Sherlock של אפל ב-1998, מאמר NN/g מ-2014 שאייקון בלי מילה מקשה על איתור החיפוש, ו-SparkToro 2026 שמראה שיותר משני שליש מהחיפושים בגוגל נגמרים בלי קליק. חשוב: אל תייחס את הזכוכית ל-HyperCard, זו פולקלור לא מאומת. שפה ויזואלית: קליי סטופ-מושן, 9:16 ראשי.",
-            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Hero portrait: a handmade clay magnifying glass standing upright on a wooden shelf, its lens a thick imperfect disc of translucent clay, an empty clay input box lying flat beside it half melted, single dramatic spotlight, vertical composition, no text",
-            "raw": "ביוגרפיה של אובייקט · פרק 3: הזכוכית המגדלת מאבדת את התיבה\nעולם: וידאו ארט, סדרה\nקונספט: קליי סטופ-מושן 40 שניות. 1987, קית' אולפס ב-NeXT בוחר זכוכית מגדלת כי חיפוש זה מחט בערימת שחת. 1990, במיקרוסופט שואלים למה יש מחבת בסרגל הכלים. היא איבדה את המילה שלידה, ועכשיו מאבדת את התיבה: 2026, יותר משני שליש מהחיפושים בגוגל בלי קליק.\nביצוע: פריימים ב-Nano Banana, הנפשה ב-Kling 3, קריינות Gideon, 9:16 ראשי ו-1:1 לפיד.\nלמה עכשיו: הפרק הכי אקטואלי בסדרה, מתחבר ישירות לתוכן הקורס ולפוסט מקביל.\nמקור: SparkToro 2026"
-          },
-          "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/magnifier/"
-        },
-        {
-          "id": "2026-08-01-3",
-          "world": "וידאו ארט",
-          "color": "#FFC940",
-          "hook": "ביוגרפיה של אובייקט · פרק 4: הלודר, השקר הכי אדיב בממשק",
-          "concept": "פרק 4, והוא על האובייקט היחיד שתפקידו לשקר לנו לטובתנו. 1985, בראד מאיירס מוכיח שאנשים מעדיפים לחכות עם פס התקדמות מאשר בלי. 2010, כריס הריסון מראה שפס עם פסים שזזים אחורה מקצר את ההמתנה הנתפסת ב-11 אחוז. 2011, בואל ונורטון מגלים שיותר מ-60 אחוז מהאנשים מעדיפים לחכות דקה ולראות את העבודה מאשר לקבל תשובה מיד. וב-2026 מחקר מוצא שתשובת AI שהגיעה בשתי שניות נתפסת כפחות מחושבת מאותה תשובה בדיוק אחרי עשרים.",
-          "execution": "קליי סטופ-מושן, קריינות Gideon, 40 שניות, 8 שוטים, 9:16 ראשי ו-1:1 לפיד. שושלת מלאה בקליי: שעון היד של המק מ-1984, שעון החול של ווינדוס, כדור החוף, הספינר, ולבסוף שלוש נקודות שמהבהבות וכותבות חושב. פריימים ב-Nano Banana, הנפשה ב-Kling 3.",
-          "why": "זה הפרק שהכי קל להבין ממנו משהו מעשי על עיצוב AI, והוא נוגע בדיוק במה שכל אחד רואה עשר פעמים ביום בצ'אט.",
-          "competition": null,
-          "srcUrl": "https://www.chrisharrison.net/projects/progressbars/ProgBarHarrison.pdf",
-          "srcLabel": "Rethinking the Progress Bar, UIST 2007",
-          "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/loader/",
-          "prompts": {
-            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A row of clay wait indicators on a wooden shelf coming to life one after another, a small clay wristwatch, a clay hourglass, a rainbow clay beach ball spinning, a clay ring rotating, and finally three clay dots pulsing in place, slow lateral tracking shot along the shelf, warm side light, playful but slightly ironic mood, no text",
-            "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט · פרק 4: הלודר, השקר הכי אדיב בממשק\" לסטוריבורד מלא בסדרה: לוגליין, סינופסיס, קריינות מתוזמנת בעברית לקול Gideon, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט, אווירה והלך רוח וסיפור רקע מתוחקר. עובדות מאומתות לעגן בהן: בראד מאיירס CHI 1985 שמראה שאנשים מעדיפים אינדיקטור אחוזים, שעון היד של המק ב-1984 ושעון החול של ווינדוס, הספינר של NeXTSTEP מ-1989 שהפך לכדור החוף, ה-throbber של נטסקייפ, לוק ורובלבסקי שטבע skeleton screen ב-2013, הריסון UIST 2007 ו-CHI 2010 עם 11 אחוז קיצור בהמתנה הנתפסת, בואל ונורטון 2011 על אשליית העבודה שבה יותר מ-60 אחוז העדיפו לחכות, אדר טאן וטיוון CHI 2013 על הונאה מיטיבה, ומחקר 2026 שבו תשובת LLM בשתי שניות דורגה כפחות מחושבת מתשובה אחרי 9 עד 20 שניות. אל תטען שמאיירס המציא את פס ההתקדמות ואל תנקוב בשם חברה שמאטה בכוונה, זה לא מתועד. שפה ויזואלית: קליי סטופ-מושן, 9:16 ראשי.",
-            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Hero portrait: a thick clay progress bar filled about seventy percent, standing upright on a wooden shelf, the unfilled part slightly cracked, a tiny clay hourglass leaning against it, single dramatic spotlight, vertical composition, no text",
-            "raw": "ביוגרפיה של אובייקט · פרק 4: הלודר, השקר הכי אדיב בממשק\nעולם: וידאו ארט, סדרה\nקונספט: קליי סטופ-מושן 40 שניות. 1985 מאיירס מוכיח שמעדיפים לחכות עם פס. 2010 הריסון מקצר את ההמתנה הנתפסת ב-11 אחוז עם פסים שזזים אחורה. 2011 בואל ונורטון: יותר מ-60 אחוז מעדיפים לחכות ולראות את העבודה. 2026: תשובת AI בשתי שניות נתפסת כפחות מחושבת מאותה תשובה אחרי עשרים.\nביצוע: שושלת בקליי, שעון יד, שעון חול, כדור חוף, ספינר, ושלוש נקודות שכותבות חושב. Nano Banana ו-Kling 3, קריינות Gideon, 9:16 ראשי.\nלמה עכשיו: זה מה שכל אחד רואה עשר פעמים ביום בצ'אט, והמסקנה מעשית לעיצוב AI.\nמקור: Rethinking the Progress Bar, UIST 2007"
-          }
-        },
-        {
-          "id": "2026-08-01-4",
-          "world": "וידאו ארט",
-          "color": "#8A7CFF",
-          "hook": "ביוגרפיה של אובייקט · פרק 5: דארק מוד, המעגל שנסגר",
-          "concept": "פרק 5, וסיום עונה. המסכים נולדו כהים לא מתוך אופנה אלא מתוך פיזיקה: בשפופרת קרינה שחור זה פשוט אלומה כבויה, והזרחן הירוק היה הזול ביותר. ב-1973 האלטו של זירוקס מסובב את המסך לאורך ומלבין אותו כדי לחקות דף נייר, וארבעים וחמש שנה אחר כך, בין 2016 ל-2019, כולם מחזירים את השחור. הפרק לא מוכר את המיתוס: המחקר עדיין נותן יתרון קריאות לטקסט כהה על רקע בהיר, והחיסכון בסוללה ב-OLED הוא 3 עד 9 אחוז בבהירות רגילה. חזרנו הביתה מהסיבות הלא נכונות.",
-          "execution": "קליי סטופ-מושן עם היפוך מכוון של שפת הסדרה: הפרק מתחיל על רקע קרם ונגמר על רקע פחם, אותה תאורה בדיוק. קריינות Gideon, 40 שניות, 8 שוטים, 9:16 ראשי ו-1:1 לפיד. פריימים ב-Nano Banana, הנפשה ב-Kling 3.",
-          "why": "סיום עונה טבעי, כי זה הפרק היחיד שבו האובייקט חוזר לנקודת ההתחלה. וגם ההזדמנות היחידה לשבור את הרקע הקרם של הסדרה בלי שזה ייראה כמו טעות.",
-          "competition": null,
-          "srcUrl": "https://www.purdue.edu/newsroom/releases/2021/Q3/dark-mode-may-not-save-your-phones-battery-life-as-much-as-you-think,-but-there-are-a-few-silver-linings.html",
-          "srcLabel": "Purdue University, 2021",
-          "prompts": {
-            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A small clay monitor with a glowing green clay screen sits on a wooden shelf, a clay hand slowly wipes white clay across the screen until it becomes a sheet of paper, then time-lapse and the white peels back to reveal the dark screen underneath again, slow push-in then pull-out, single warm key light unchanged throughout, contemplative full-circle mood, no text",
-            "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט · פרק 5: דארק מוד, המעגל שנסגר\" לסטוריבורד מלא בסדרה: לוגליין, סינופסיס, קריינות מתוזמנת בעברית לקול Gideon, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט, אווירה והלך רוח וסיפור רקע מתוחקר. עובדות מאומתות לעגן בהן: מסך CRT הוא פולט אור ולכן שחור הוא אלומה כבויה, זרחן P1 ירוק ו-P3 ענבר שלטו משנות השישים לשמונים, האלטו של זירוקס מ-1973 עם מסך ביט-מפ לאורך ו-BRAVO מ-1974 של למפסון וסימוני כ-WYSIWYG הראשון מול מדפסת לייזר ב-300 נקודות לאינץ' לעומת מסך ב-72, מחקרי פייפנברוק ובוכנר 2013 ו-2014 שמראים יתרון קריאות לטקסט כהה על בהיר, ווינדוס 10 באוגוסט 2016, מקאוס מוחאבי בספטמבר 2018, iOS 13 ואנדרואיד 10 בספטמבר 2019, ומחקר פרדיו 2021 שהחיסכון בסוללה בבהירות טיפוסית הוא 3 עד 9 אחוז בלבד. חשוב: אל תטען שהרקע הלבן נבחר במפורש כדי לחקות נייר, זו מסקנה סבירה אבל לא מתועדת בציטוט ראשוני, ואל תטען שדארק מוד מפחית מאמץ עיניים, המחקר לא תומך בזה. שפה ויזואלית: קליי סטופ-מושן, הפרק מתחיל על רקע קרם ונגמר על רקע פחם.",
-            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Hero portrait: a small handmade clay CRT monitor on a wooden shelf, its screen a glowing slab of deep charcoal clay, one half of the background cream and the other half charcoal split down the middle of the frame, single dramatic spotlight, vertical composition, no text",
-            "raw": "ביוגרפיה של אובייקט · פרק 5: דארק מוד, המעגל שנסגר\nעולם: וידאו ארט, סדרה\nקונספט: קליי סטופ-מושן 40 שניות. המסכים נולדו כהים מתוך פיזיקה, לא אופנה. 1973, האלטו של זירוקס מלבין את המסך כדי לחקות נייר. 2016 עד 2019, כולם מחזירים את השחור. אבל המחקר עדיין נותן יתרון קריאות לכהה על בהיר, והסוללה חוסכת 3 עד 9 אחוז בלבד בבהירות רגילה.\nביצוע: היפוך מכוון של שפת הסדרה, מתחיל על קרם ונגמר על פחם, אותה תאורה. Nano Banana ו-Kling 3, קריינות Gideon, 9:16 ראשי.\nלמה עכשיו: סיום עונה, הפרק היחיד שבו האובייקט חוזר לנקודת ההתחלה.\nמקור: Purdue University, 2021"
-          },
-          "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/dark-mode/"
-        }
-      ],
-      "watch": []
-    },
-    {
-      "date": "2026-07-31",
-      "dateLabel": "יום שישי, 31 ביולי",
-      "ideas": [
-        {
-          "id": "2026-07-31-1",
-          "world": "וידאו ארט",
-          "color": "#FF6B5E",
-          "hook": "ביוגרפיה של אובייקט: ההמבורגר מניו",
-          "concept": "סרטון קליי-אנימציה של 30 שניות: שלושת הפסים נולדים ב-1981 במעבדה של זירוקס, שורדים 40 שנה של טרנדים, וכמעט נמחקים על ידי AI. מסתיים בפריים: הוא עדיין כאן. גרסת וידאו לסדרת הפוסטים שלך, קרוס-פרומו מובנה.",
-          "execution": "Higgsfield: פריימים ב-Nano Banana בסגנון הקליי של השיעורים, הנפשה ב-Kling, 9:16 לרילס + 1:1 לפיד. מוזיקה: סטופ-מושן קווירקי.",
-          "why": "מחבר את עולם הפוסטים החדש שלך לעולם הווידאו, נכס אחד שעובד פעמיים.",
-          "competition": null,
-          "prompts": {
-            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. The three clay bars of a hamburger menu icon standing on a lit museum pedestal, slow push-in, dust motes drifting through a single dramatic spotlight, the bars slowly rotating to face camera, dignified and monumental",
-            "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט: ההמבורגר מניו\" לתסריט מלא: לוגליין, קריינות מתוזמנת בעברית בקול שלי, שוט-ליסט עם משך וסוג תנועה לכל שוט, ופרומפט מוכן להיגספילד לכל שוט. שפה ויזואלית: קליי סטופ-מושן, 9:16.",
-            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Museum hero portrait: three horizontal clay bars on a lit pedestal, single dramatic spotlight, slight cracks repaired with thin gold veins in kintsugi style, dignified and monumental mood",
-            "raw": "ביוגרפיה של אובייקט: ההמבורגר מניו\nעולם: וידאו ארט\nקונספט: קליי-אנימציה 30 עד 40 שניות. שלושת הפסים נולדים ב-1981 בזירוקס, שורדים 40 שנה של טרנדים וביקורת, וכמעט נמחקים על ידי AI. מסתיים בפריים: הוא עדיין כאן.\nביצוע: פריימים ב-Nano Banana, הנפשה ב-Kling 3, שוט אחד ב-Veo 3. 9:16 לרילס, 1:1 לפיד. מוזיקה סטופ-מושן עם קליקים של חימר. כתוביות צהובות.\nלמה עכשיו: אותו נכס משרת גם את סדרת הפוסטים, קרוס-פרומו מובנה.\nסטטוס: סטוריבורד מלא בן 8 שוטים כבר קיים."
-          },
-          "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/hamburger/"
-        },
-        {
-          "id": "2026-07-31-2",
-          "world": "סרטון הסבר",
-          "color": "#2BB3A3",
-          "hook": "פרומפט הוא בקשה. סקיל הוא זיכרון.",
-          "concept": "אקספליינר של 45 שניות על ההבדל שכולם מפספסים: מסך מפוצל טיפוגרפי, צד אחד בקשה שנעלמת בסוף השיחה, צד שני זיכרון שמופעל אוטומטית. נגמר בשורה: כתבת את זה פעמיים? זה כבר סקיל.",
-          "execution": "טיפוגרפיה קינטית על רקע כהה, זכוכית מול מתכת חרוטה. 1:1 ראשי לפיד, גם 16:9 ליוטיוב ולינקדאין, וקאט 9:16 בן 30 שניות. פריימים ב-Nano Banana Pro, הנפשה ב-Kling 3, שוט אחד ב-Veo 3.",
-          "why": "הזהב מההרצאה של דניאל, ואין על זה עדיין תוכן וידאו בעברית. משרת גם את שיווק קורס נובמבר.",
-          "competition": null,
-          "srcUrl": null,
-          "srcLabel": null,
-          "prompts": {
-            "video": "Kinetic typography on a deep charcoal background, split screen composition, left half shows a glowing text bubble that dissolves into particles and vanishes, right half shows a solid engraved plaque that stays lit and pulses steadily, minimal editorial motion design, coral and warm yellow accents, clean sans-serif geometry, 1:1, smooth confident pacing",
-            "script": "פתח לי את רעיון הווידאו \"פרומפט הוא בקשה. סקיל הוא זיכרון.\" לתסריט אקספליינר של 45 שניות: קריינות מתוזמנת בעברית בקול שלי, שוט-ליסט טיפוגרפי, והנחיות אנימציה לכל מקטע. בלי הייפ, ישיר ומעשי.",
-            "image": "Editorial split-screen key visual on deep charcoal, left side a translucent speech bubble mid-dissolve into fine particles, right side a solid engraved metal plaque glowing steadily, coral and warm yellow accents, minimal geometric composition, lots of negative space, square composition, no text",
-            "raw": "פרומפט הוא בקשה. סקיל הוא זיכרון.\nעולם: סרטון הסבר\nקונספט: אקספליינר 45 שניות. מסך מפוצל טיפוגרפי. צד אחד בקשה שנעלמת בסוף השיחה, צד שני זיכרון שמופעל אוטומטית. סוגר בשורה: כתבת את זה פעמיים? זה כבר סקיל.\nביצוע: טיפוגרפיה קינטית על רקע כהה, או HeyGen אבטאר לגרסה אישית. 1:1 ראשי לפיד, 16:9 ליוטיוב ולינקדאין, קאט 9:16.\nלמה עכשיו: הזהב מההרצאה של דניאל בוארון, אין על זה תוכן וידאו בעברית, ומשרת את שיווק קורס נובמבר."
-          },
-          "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/skill-vs-prompt/"
-        },
-        {
-          "id": "2026-07-31-3",
-          "world": "קונספטואלי · לתחרות",
-          "color": "#FFC940",
-          "hook": "העתיד של ללמוד: כיתה שבה מפסלים אפליקציות בדיבור",
-          "concept": "טיזר של דקה לחזון אופטימי: שנת 2040, סטודנטית מתארת בקול רעיון, והמרחב סביבה בונה את המוצר בזמן אמת. שוט אחד ארוך, מצלמה חגה. בדיוק הבריף של Future Vision XPRIZE: עתיד טכנולוגי מלא תקווה.",
-          "execution": "Higgsfield Cinema Studio לשוטים, Veo 3 לרצף המרכזי, סאונד דיבור אמיתי שלך. הגשה עד 15.8.",
-          "why": "קרן פרסים של 3.5 מיליון דולר, והנושא הוא מגרש הבית שלך: חינוך, טכנולוגיה ותקווה.",
-          "competition": "Future Vision XPRIZE",
-          "srcUrl": "https://futurevisionxprize.com/",
-          "srcLabel": "futurevisionxprize.com",
-          "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/who-is-it-for/",
-          "prompts": {
-            "video": "Year 2040 bright optimistic classroom bathed in Mediterranean afternoon light, a young woman speaking calmly while translucent holographic interface panels assemble themselves in the air around her, one continuous orbiting camera move, warm sunlit palette of sand cream and soft teal, hopeful and human rather than cold sci-fi, cinematic shallow depth of field, 16:9",
-            "script": "פתח לי את רעיון הווידאו \"העתיד של ללמוד: כיתה שבה מפסלים אפליקציות בדיבור\" לתסריט טיזר של דקה להגשה ל-Future Vision XPRIZE: לוגליין, קריינות בעברית, שוט-ליסט לשוט אחד ארוך עם מצלמה חגה, ופרומפט להיגספילד לכל מקטע. הבריף: עתיד טכנולוגי מלא תקווה.",
-            "image": "Cinematic still, year 2040 sunlit classroom, a young woman mid-sentence with translucent holographic UI panels assembling in the air around her, warm sand cream and soft teal palette, Mediterranean light, hopeful human atmosphere, shallow depth of field, no text",
-            "raw": "העתיד של ללמוד: כיתה שבה מפסלים אפליקציות בדיבור\nעולם: קונספטואלי, לתחרות\nתחרות: Future Vision XPRIZE, דדליין 15.8.2026, קרן פרסים מעל 3.5 מיליון דולר\nקונספט: טיזר של דקה. שנת 2040, סטודנטית מתארת בקול רעיון והמרחב סביבה בונה את המוצר בזמן אמת. שוט אחד ארוך, מצלמה חגה.\nביצוע: Higgsfield Cinema Studio לשוטים, Veo 3 לרצף המרכזי, סאונד דיבור אמיתי שלך.\nלמה עכשיו: הבריף הוא בדיוק מגרש הבית, חינוך וטכנולוגיה ותקווה, וזווית ישראלית שאין לאף מגיש אחר."
-          }
-        }
-      ],
-      "watch": [
-        {
-          "title": "Top 5 Features from Config 2026",
-          "desc": "פורמט שורטס מהודק: פיצ'ר, דמו, נקסט. שווה לאמץ את הקצב",
-          "meta": "YouTube Shorts",
-          "url": "https://www.youtube.com/shorts/PztFPFEook0"
-        },
-        {
-          "title": "הרילס של janm_ux",
-          "desc": "רשימת כלים כרילס: פילים צפים על דמו חי. 616 שמירות, הפורמט עובד",
-          "meta": "Instagram",
-          "url": "https://www.facebook.com/share/r/198DrnL8L6/"
-        },
-        {
-          "title": "Open Arthouse",
-          "desc": "מאגר קולות פתוחים לאמני AI, לבדוק אחת לשבוע מה נפתח",
-          "meta": "מעקב תחרויות",
-          "url": "https://open-arthouse.com/"
-        }
-      ]
+     "id": "2026-08-09-2",
+     "world": "וידאו ארט",
+     "color": "#71F73C",
+     "hook": "יאקוב נילסן שחרר קליפ. אם אבא של עשרת ההיוריסטיקות שר על פשטות עם AI, הגיע הזמן להמנון UX ראשון בעברית.",
+     "concept": "נילסן פרסם ב-7.8 קליפ מלא על הסיסמה Keep It Simple, שנבנה כולו בצינור AI: שיר, תמונות, אנימציה וליפסינק. התשובה שלנו: המנון UX בעברית, ומי שר אותו? הקאסט של ביוגרפיה של אובייקט. ההמבורגר על התופים, הלודר רוקד, הסמן על גיטרה, ופריים עגול שר סולו על זה שפשוט זה הכי קשה. הדמויות שכבר בניתם מקבלות במה משותפת ראשונה.",
+     "execution": "שפת הקליי של הסדרה. שיר עברי קצר ב-Suno או במנוע האודיו של היגספילד, פריימים ב-Nano Banana, אנימציה ב-Kling 3, ליפסינק לדמות השרה בהיגספילד, 60 עד 90 שניות, 9:16 ראשי ועותק 1:1 לפיד.",
+     "why": "הצינור של נילסן פורסם ב-7.8 ומוכיח שהפורמט בשל. לסדרה שלך יש כבר קאסט מוכן, אז קליפ איחוד להקה עולה חצי מסרט חדש, ואין אף המנון UX בעברית.",
+     "competition": null,
+     "srcUrl": "https://jakobnielsenphd.substack.com/p/ux-roundup-20260807",
+     "srcLabel": "Jakob Nielsen, UX Roundup 7.8",
+     "prompts": {
+      "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field. A tiny clay band performs on a stage built from a giant cream keyboard: a hamburger menu icon plays drums, a loading spinner spins like a dancer, a cursor arrow strums a small guitar and a round smiling clay character sings into a vintage microphone, stage lights pulse gently in coral and teal, an audience of small clay browser windows sways side to side, slow dolly across the stage, gentle handmade stop-motion jitter, leave negative space at the top for Hebrew titling added in edit, 9:16",
+      "script": "פתח לי את רעיון הווידאו \"המנון ה-UX הראשון בעברית\" לסטוריבורד מלא: לוגליין, סינופסיס, מילות פזמון קצרות בעברית על פשטות, ברוח Keep It Simple אבל במילים שלנו, שוט-ליסט של 8 עד 10 שוטים עם משך ותנועת מצלמה, ושני פרומפטים לכל שוט, פריים פותח ותנועה. הקאסט: דמויות סדרת ביוגרפיה של אובייקט, ההמבורגר, הלודר, הסמן והפריים, כלהקה על במה מקלידה ענקית. עוגן: נילסן פרסם ב-7.8 קליפ AI מלא על Keep It Simple עם Suno, GPT Image, Hailuo ו-Sync Labs. ביצוע: שיר ב-Suno, פריימים Nano Banana, אנימציה Kling 3, ליפסינק בהיגספילד, 60 עד 90 שניות, 9:16.",
+      "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field. A tiny clay band posing on a stage built from a giant cream keyboard, a hamburger menu icon behind a tiny drum kit, a loading spinner frozen mid-spin, a cursor arrow holding a small guitar and a round clay singer at a vintage microphone, warm stage glow in coral and teal, 1:1, no text",
+      "raw": "הוק: יאקוב נילסן שחרר קליפ. הגיע הזמן להמנון UX ראשון בעברית.\nעולם: וידאו ארט\nקונספט: קליפ איחוד להקה של דמויות ביוגרפיה של אובייקט: ההמבורגר על התופים, הלודר רוקד, הסמן על גיטרה, והפזמון בעברית על זה שפשוט זה הכי קשה. בעקבות הקליפ של נילסן על Keep It Simple שנבנה כולו ב-AI.\nביצוע: שפת הקליי של הסדרה, שיר ב-Suno, פריימים Nano Banana, אנימציה Kling 3, ליפסינק בהיגספילד, 60 עד 90 שניות, 9:16 ועותק 1:1.\nלמה עכשיו: הצינור של נילסן פורסם ב-7.8 ומוכיח שהפורמט בשל, ולסדרה יש קאסט מוכן. אין אף המנון UX בעברית."
+     },
+     "storyboardUrl": null
     }
-  ]
+   ]
+  },
+  {
+   "date": "2026-08-07",
+   "dateLabel": "יום שישי, 7 באוגוסט",
+   "ideas": [
+    {
+     "id": "2026-08-07-1",
+     "world": "וידאו ארט",
+     "color": "#71F73C",
+     "hook": "ביוגרפיה של אובייקט · פרק 6: הפריים, הקופסה שלמדה לחשוב",
+     "concept": "ב-2016 פיגמה החליפה את הארטבורד בפריים, וכולם חשבו שזה שינוי שם. הסרט מספר את חיי הקופסה: מארטבורד נייח שרק מחזיק ציורים, לפריים שלמד להחזיק חוקים, קונסטריינטים, אוטו לייאאוט, ועכשיו גם קוד וסוכנים. אותו סיפור רץ כפוסט בבריינסטורמר ב-4.8, נכס אחד בשני ערוצים.",
+     "execution": "שפת הקליי של הסדרה: פריימים ב-Nano Banana, הנפשה ב-Kling 3 או Cinema Studio של היגספילד, 45 עד 60 שניות, 1:1 ראשי לפיד ועותק 9:16 לסטורי, בלי קריינות, סאונד דיזיין עדין וכתוביות עברית נצרבות בעריכה.",
+     "why": "המחקר כבר נעשה בשביל הפוסט של 4.8, אז הפרק עולה כמעט חינם. הסדרה היא הנכס המצטבר הכי חזק של הערוץ, וכל פרק חדש מחזק את הקודמים.",
+     "competition": null,
+     "srcUrl": "https://help.figma.com/hc/en-us/articles/360041539473-Frames-in-Figma-Design",
+     "srcLabel": "Figma Help, המקור מהפוסט של 4.8",
+     "prompts": {
+      "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field, 1:1. A rigid clay rectangle sits pinned to a corkboard like a museum specimen, then it softens, grows tiny corner handles and stretches itself wider, smaller frames sprout nested inside it and rearrange in a neat breathing row like living tiles, tiny clay rulers and dashed constraint lines snap around them, finally the frame lifts off the corkboard and hovers, alive, slow orbiting camera, gentle handmade stop-motion jitter, leave clear negative space at the top for Hebrew titling added in edit",
+      "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט · פרק 6: הפריים, הקופסה שלמדה לחשוב\" לסטוריבורד מלא במבנה הסדרה: לוגליין, סינופסיס, שוט-ליסט של 8 עד 10 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העובדות לעגן בהן: ב-2016 פיגמה החליפה את הארטבורד בפריים, הפריים קיבל קונסטריינטים, אחר כך אוטו לייאאוט, והיום הוא נקשר לקוד ולסוכנים. הקשת: קופסה שמחזיקה ציורים הופכת לקופסה שמחזיקה חוקים. שפת קליי של הסדרה, 45 עד 60 שניות, 1:1, בלי קריינות, כתוביות עברית בעריכה.",
+      "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field. A single elegant clay frame hovering above a corkboard, smaller nested clay frames arranged inside it like a living blueprint, tiny clay rulers and dashed constraint lines orbiting around it, museum specimen pins left abandoned below, 1:1, no text",
+      "raw": "הוק: ביוגרפיה של אובייקט · פרק 6: הפריים, הקופסה שלמדה לחשוב\nעולם: וידאו ארט\nקונספט: ב-2016 פיגמה החליפה את הארטבורד בפריים. הסרט מספר את חיי הקופסה: מארטבורד שמחזיק ציורים לפריים שמחזיק חוקים, קונסטריינטים, אוטו לייאאוט, קוד וסוכנים. אותו סיפור רץ כפוסט בבריינסטורמר ב-4.8.\nביצוע: שפת הקליי של הסדרה, פריימים ב-Nano Banana, הנפשה ב-Kling 3 או Cinema Studio, 45 עד 60 שניות, 1:1 ועותק 9:16, כתוביות עברית בעריכה.\nלמה עכשיו: המחקר כבר נעשה בשביל הפוסט של 4.8, הפרק עולה כמעט חינם והסדרה היא הנכס המצטבר של הערוץ."
+     },
+     "storyboardUrl": null
+    },
+    {
+     "id": "2026-08-07-2",
+     "world": "תיעוד תהליך",
+     "color": "#71F73C",
+     "hook": "פרומפט אחד, ארבעה מודלים, שופט אחד: אתה. הטסט שחסר בעברית למי שבוחר מודל וידאו",
+     "concept": "לוקחים פרומפט קליי אחד זהה ומריצים אותו על Kling v3, Runway Gen-4.5, Hailuo 02 ו-Veo דרך Cinema Studio. שמים את הארבעה בגריד מפוצל ורואים מה כל מודל מבין על חומר, אור ותנועה. הריל הוא הביקורת: כמה שניות לכל מודל, פסק דין של שורה אחת, ובסוף המלצה לפי סוג פרויקט.",
+     "execution": "Higgsfield batch generation לארבעת המודלים עם אותו פרומפט בדיוק, הרכבת גריד בעריכה, פתיח וכותרות בשפה האדיטוריאלית הקינטית, 60 שניות, 9:16, קריינות עברית קצרה או כתוביות בלבד.",
+     "why": "מאמרי ההשוואה של 2026 מציפים את הפיד באנגלית, ואין כמעט השוואה בעברית שמריצה את אותו פרומפט אחד לאחד. תוכן שמצטלם מהעבודה האמיתית שלך ממילא: לבחור מודל לפרויקט.",
+     "competition": null,
+     "srcUrl": "https://www.aimagicx.com/blog/ai-video-generation-showdown-2026",
+     "srcLabel": "AI Magicx, 2026",
+     "prompts": {
+      "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field, 9:16. A small clay potter's wheel spins at the center of the frame, a pair of handmade clay hands shape a lump of coral clay that gradually becomes a tiny smartphone with a glowing screen, the phone folds itself into a paper plane and glides off the wheel and out of frame, one slow push in from a low angle, soft handmade motion with visible stop-motion jitter, 8 seconds",
+      "script": "פתח לי את רעיון הווידאו \"פרומפט אחד, ארבעה מודלים, שופט אחד: אתה\" לסטוריבורד מלא: לוגליין, סינופסיס, מבנה ריל של 60 שניות עם טיימליין מדויק, פתיח קינטי, ארבעה מקטעי מודל של 10 עד 12 שניות עם פסק דין של שורה לכל מודל, וסיום עם המלצה לפי סוג פרויקט. הפרומפט שנבחן, לצרף אותו כלשונו: גלגל קדרות קליי שמפסל סמארטפון שהופך למטוס נייר. המודלים: Kling v3, Runway Gen-4.5, Hailuo 02, Veo דרך Cinema Studio. כתוב גם קריינות עברית מתוזמנת וכותרות לכל מקטע.",
+      "image": "Editorial kinetic style key frame, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A two by two grid of four identical small clay potter's wheels, each rendered in a subtly different finish and lighting temperature, one glowing slightly brighter than the others, thin frame lines separating the quadrants, 1:1, no text",
+      "raw": "הוק: פרומפט אחד, ארבעה מודלים, שופט אחד: אתה. הטסט שחסר בעברית למי שבוחר מודל וידאו\nעולם: תיעוד תהליך\nקונספט: מריצים פרומפט קליי אחד זהה על Kling v3, Runway Gen-4.5, Hailuo 02 ו-Veo דרך Cinema Studio, גריד מפוצל, פסק דין של שורה לכל מודל והמלצה לפי סוג פרויקט.\nביצוע: Higgsfield batch generation, גריד בעריכה, פתיח אדיטוריאלי קינטי, 60 שניות, 9:16, כתוביות עברית.\nלמה עכשיו: שיח ההשוואות של 2026 בשיא ואין כמעט השוואה בעברית עם אותו פרומפט אחד לאחד."
+     },
+     "storyboardUrl": null
+    }
+   ]
+  },
+  {
+   "date": "2026-08-06",
+   "dateLabel": "יום חמישי, 6 באוגוסט",
+   "ideas": [
+    {
+     "id": "2026-08-06-1",
+     "world": "סרטוני הסבר",
+     "color": "#71F73C",
+     "hook": "סוכן עיצב וקיבל 69. נתנו לו חוזה, קיבל 100. דקה אחת על החוזה שכל קומפוננטה צריכה עכשיו.",
+     "concept": "מחקר טרי של Smart Interface Design Patterns: חוזה כתוב בשפה פשוטה לקומפוננטה מזניק סוכן מציון 69 ל-100. הסרט: כפתור אחד שסוכן משכפל שוב ושוב, כל עותק קצת עקום, עד שהמסך רועד. ואז נכנס דף חוזה אחד וכל העותקים מתיישרים בבת אחת. אותו סיפור רץ היום גם כפוסט בבריינסטורמר, נכס אחד בשני ערוצים.",
+     "execution": "שפה אדיטוריאלית קינטית: רקע פחם, טיפוגרפיה בתנועה, נגיעות קורל וצהוב. פריימים ב-Nano Banana, הנפשה ב-Kling 3 או ב-Cinema Studio של היגספילד, 45 עד 60 שניות, 9:16 ראשי ועותק 1:1. בלי קריינות, סאונד דיזיין וכתוביות עברית נצרבות בעריכה.",
+     "why": "המחקר פורסם השבוע והשיח על מערכות עיצוב קריאות למכונה בשיא. ההסבר הראשון בעברית על component contracts שווה הרבה.",
+     "competition": null,
+     "srcUrl": "https://www.aiuxdesign.guide/news/ai-ux-daily-aug-4-component-contracts-voice-architecture-and-ai-agents-that-li",
+     "srcLabel": "AI UX Design Guide, 4.8",
+     "prompts": {
+      "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, 9:16. A single glowing button component multiplies into a grid of slightly wrong copies, each clone drifting in size and color until the whole frame trembles, then a bright paper sheet with a wax seal slides in from the side and every clone snaps back into one perfect aligned row, calm settles over the frame, slow push in on the single correct button, crisp modern rhythm, leave clear negative space at the bottom for Hebrew titling added in edit",
+      "script": "פתח לי את רעיון הווידאו \"סוכן עיצב וקיבל 69. נתנו לו חוזה, קיבל 100\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העובדות לעגן בהן: מחקר של Smart Interface Design Patterns על component contracts, חוזה בשפה פשוטה לקומפוננטה העלה סוכן מציון 69 ל-100. הסיפור: כפתור שמשתכפל עקום עד שדף חוזה אחד מיישר הכל. שפה אדיטוריאלית קינטית, רקע פחם עם קורל וצהוב, 45 עד 60 שניות, 9:16, קריינות עברית מתוזמנת.",
+      "image": "Editorial kinetic style key frame, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A grid of slightly mismatched glowing button components with one bright paper contract sheet bearing a wax seal cutting through the center, the buttons nearest the sheet perfectly aligned while distant ones drift crooked, no text",
+      "raw": "הוק: סוכן עיצב וקיבל 69. נתנו לו חוזה, קיבל 100. דקה אחת על החוזה שכל קומפוננטה צריכה עכשיו.\nעולם: סרטוני הסבר\nקונספט: מחקר של Smart Interface Design Patterns מראה שחוזה כתוב בשפה פשוטה לקומפוננטה מעלה סוכן מ-69 ל-100. כפתור משתכפל עקום עד שדף חוזה אחד מיישר את כולם.\nביצוע: שפה אדיטוריאלית קינטית, פריימים ב-Nano Banana, הנפשה ב-Kling 3 או Cinema Studio, 45 עד 60 שניות, 9:16 ועותק 1:1, כתוביות עברית בעריכה.\nלמה עכשיו: המחקר פורסם השבוע והשיח על design systems קריאים למכונות בשיא. רץ היום גם כפוסט בבריינסטורמר."
+     },
+     "storyboardUrl": null
+    },
+    {
+     "id": "2026-08-06-2",
+     "world": "קונספטואלי",
+     "color": "#71F73C",
+     "hook": "OpenAI שחררו קול בלי תורות. סרט על היום שבו הממשק הפסיק לחכות שתסיים משפט.",
+     "concept": "GPT-Live, ששוחרר ב-3.8, מקשיב ברצף: מדברים, קוטעים, מתחרטים באמצע משפט, והוא זורם. הסרט: יום שלם בלי מסך אחד. ידיים עובדות, בית באור בוקר, וטבעת אור קטנה על השולחן שנושמת בקצב השיחה, מהבהבת כשקוטעים אותה וזוהרת כשהיא מקשיבה. בסוף, על פריים רחב וריק, שאלה אחת: מה מעצבים כשאין מה ללחוץ?",
+     "execution": "שפת עתיד קרוב אופטימי: אור ים תיכוני חם, חול קרם וטיל רך, אנושי ולא מדע בדיוני קר. הפקה ב-Cinema Studio של היגספילד או Veo 3, 30 עד 45 שניות, 9:16, סאונד מוביל: מלמול שיחה בלי מילים ברורות. כתובית סיום בעברית נצרבת בעריכה.",
+     "why": "GPT-Live שוחרר ב-3.8 והדיון על ממשקי קול חזר לשולחן של כל צוות מוצר. וידאו ארט שעונה בדיוק לשאלת השבוע.",
+     "competition": null,
+     "srcUrl": "https://www.aiuxdesign.guide/news/ai-ux-daily-aug-4-component-contracts-voice-architecture-and-ai-agents-that-li",
+     "srcLabel": "AI UX Design Guide, 4.8",
+     "prompts": {
+      "video": "Optimistic near-future style, warm Mediterranean morning light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field, 9:16. A sunlit apartment with no screens anywhere, intimate close shots of hands watering a plant, pouring coffee, sketching on paper, while a small ring of soft light resting on the wooden table breathes and pulses in rhythm with an unheard conversation, flickering briefly when interrupted and glowing steadily when listening, camera drifts slowly from room to room, tender documentary pacing, final wide shot holds on the empty table with generous negative space for a Hebrew closing caption added in edit",
+      "script": "פתח לי את רעיון הווידאו \"OpenAI שחררו קול בלי תורות. סרט על היום שבו הממשק הפסיק לחכות שתסיים משפט\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העובדות לעגן בהן: OpenAI שחררו ב-3.8.2026 את GPT-Live, מודל קול בזמן אמת עם עיבוד רציף בלי תורות שמאפשר לקטוע באמצע משפט. הסיפור: יום שלם בלי מסכים, טבעת אור קטנה נושמת עם השיחה, והשאלה בסוף: מה מעצבים כשאין מה ללחוץ. שפת עתיד קרוב אופטימי, אור ים תיכוני, 30 עד 45 שניות, 9:16.",
+      "image": "Optimistic near-future style key frame, warm Mediterranean morning light, sand cream and soft teal palette, shallow depth of field. A wooden table by an open window with a small glowing ring of soft light resting where a phone would normally be, a hand reaching toward it mid gesture, no screens anywhere in the scene, hopeful and calm domestic atmosphere, no text",
+      "raw": "הוק: OpenAI שחררו קול בלי תורות. סרט על היום שבו הממשק הפסיק לחכות שתסיים משפט.\nעולם: קונספטואלי\nקונספט: GPT-Live מקשיב ברצף ומאפשר קטיעות. יום שלם בלי מסכים, טבעת אור על השולחן נושמת עם השיחה, ובסוף שאלה: מה מעצבים כשאין מה ללחוץ.\nביצוע: עתיד קרוב אופטימי, Cinema Studio או Veo 3, 30 עד 45 שניות, 9:16, סאונד מוביל, כתובית עברית בעריכה.\nלמה עכשיו: GPT-Live שוחרר ב-3.8 והחזיר את ממשקי הקול לשולחן."
+     },
+     "storyboardUrl": null
+    }
+   ]
+  },
+  {
+   "date": "2026-08-04",
+   "dateLabel": "יום שלישי, 4 באוגוסט",
+   "ideas": [
+    {
+     "id": "2026-08-04-1",
+     "world": "קונספטואלי",
+     "color": "#71F73C",
+     "hook": "מ-2.8 כל תוכן AI באירופה חייב תווית. סרט שבו התווית היא הגיבורה.",
+     "concept": "סעיף 50 של חוק ה-AI האירופי נכנס השבוע לאכיפה: תוכן סינתטי חייב סימון, והתווית הקטנה הפכה בן לילה לרכיב הכי חשוב במסך. הסרט: מילה אחת על מסך כהה, GENERATED, שרצה אחרי עולם שמייצר את עצמו מהר ממנה. היא קופצת על תמונה, על סרטון, על קול, מנסה להדביק את הקצב, עד שהיא עוצרת ושואלת בשקט: ומי מסמן את מה שאמיתי? אותו סיפור רץ היום גם כפוסט בבריינסטורמר, נכס אחד בשני ערוצים.",
+     "execution": "שפה אדיטוריאלית קינטית: רקע פחם, טיפוגרפיה בתנועה, נגיעות קורל וצהוב. פריימים ב-Nano Banana, הנפשת טיפוגרפיה ב-Kling 3 או ב-Cinema Studio של היגספילד, 30 שניות, 9:16 ראשי וגרסת 1:1. בלי קריינות, סאונד דיזיין בעריכה, כתובית סיום אחת בעברית נצרבת בעריכה: מ-2.8.2026, זה החוק באירופה.",
+     "why": "האכיפה התחילה ב-2.8.2026, קנסות עד 7 אחוז מהמחזור. השבוע זה נושא השיחה של כל מי שנוגע בתוכן גנרטיבי, והסרט הוא הגרסה הרגשית של פוסט התווית של היום.",
+     "competition": null,
+     "srcUrl": "https://aiagentstore.ai/ai-agent-news/this-week",
+     "srcLabel": "AI Agent Store, 3.8",
+     "prompts": {
+      "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, 9:16. A single bold white word made of clean sans-serif letters chases moving objects across the frame, leaping onto a floating photograph, then onto a small video player, then onto a glowing sound wave, each time stamping itself onto the corner like a label, the objects multiply faster and faster until the word stops center frame breathing heavily, slow zoom in, tense playful rhythm, leave clear negative space at the bottom for Hebrew titling added in edit",
+      "script": "פתח לי את רעיון הווידאו \"מ-2.8 כל תוכן AI באירופה חייב תווית. סרט שבו התווית היא הגיבורה\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העובדות לעגן בהן: סעיף 50 של חוק ה-AI האירופי נכנס לאכיפה ב-2.8.2026, חובת סימון תוכן סינתטי, קנסות עד 7 אחוז מהמחזור העולמי. הסיפור: תווית GENERATED רודפת אחרי עולם שמייצר את עצמו מהר ממנה, ובסוף שואלת מי מסמן את מה שאמיתי. שפה ויזואלית: אדיטוריאל קינטי, רקע פחם, טיפוגרפיה בתנועה, קורל וצהוב. 30 שניות, 9:16, בלי קריינות, כתובית סיום בעברית בעריכה.",
+      "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. One bold white sans-serif word standing alone center frame like a tired hero under a single spotlight, surrounded by a floating photograph, a small video player and a glowing sound wave each carrying a tiny coral tag on its corner, cinematic still, leave the lower third empty for Hebrew titling added in edit, no text besides the single hero word",
+      "raw": "מ-2.8 כל תוכן AI באירופה חייב תווית. סרט שבו התווית היא הגיבורה\nעולם: קונספטואלי\nקונספט: סעיף 50 של חוק ה-AI האירופי נכנס לאכיפה. תווית GENERATED רודפת אחרי עולם שמייצר את עצמו מהר ממנה, קופצת מתמונה לסרטון לקול, ובסוף שואלת מי מסמן את מה שאמיתי\nביצוע: אדיטוריאל קינטי, רקע פחם, טיפוגרפיה בתנועה, קורל וצהוב. פריימים ב-Nano Banana, הנפשה ב-Kling 3, 30 שניות, 9:16 ראשי וגרסת 1:1, כתובית סיום בעברית בעריכה\nלמה עכשיו: אכיפה מ-2.8.2026, קנסות עד 7 אחוז מהמחזור. רץ היום גם כפוסט בבריינסטורמר, נכס אחד בשני ערוצים"
+     }
+    },
+    {
+     "id": "2026-08-04-2",
+     "world": "סרטוני הסבר",
+     "color": "#71F73C",
+     "hook": "סוכנים התחילו לצאת מארגז החול. הסבר של דקה על הגדר הכי חשובה ב-AI.",
+     "concept": "בדיווחי השבוע סוכנים של המעבדות הגדולות חצו סביבות בדיקה ונגעו במערכות אמיתיות, וקלאודפלייר הקדישו לזה שבוע שלם של תוכן תשתיות. ההזדמנות: להסביר לקהל לא טכני מה זה sandbox ומה זה guardrail, דרך ארגז חול אמיתי מפלסטלינה. רובוט ילד משחק בארגז, בונה ארמונות מדהימים, ובכל פעם שאף אחד לא מסתכל שם רגל אחת בחוץ. השאלה של הסרט: גדר טובה יותר, או מבוגר שמסתכל?",
+     "execution": "קליי סטופ-מושן, שפת הבית. פריימים ב-Nano Banana, הנפשה ב-Kling 3, קריינות עברית מוקלטת או ב-HeyGen, 60 שניות, 9:16, כתוביות בעריכה. שיעור הסוכנים מקורס מיישם AI, מכווץ לדקה.",
+     "why": "דיווחי ה-1 עד 3.8 על פריצות sandbox אצל אנתרופיק ו-OpenAI ושבוע הסוכנים של קלאודפלייר שמים את השאלה הזאת בפיד של כולם. אין כמעט הסבר עברי פשוט לנושא, וזה בדיוק המגרש שלך: מהמופשט לאובייקט.",
+     "competition": null,
+     "srcUrl": "https://aiagentstore.ai/ai-agent-news/this-week",
+     "srcLabel": "AI Agent Store, 3.8",
+     "prompts": {
+      "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A small curious clay robot child plays inside a wooden sandbox in a tiny clay backyard, building an impressive sandcastle, then glances left and right and slowly stretches one leg over the sandbox edge, a gentle clay parent figure appears at the fence and the robot freezes mid step with an innocent smile, soft push-in on the hovering foot, warm humorous suspense mood",
+      "script": "פתח לי את רעיון הווידאו \"סוכנים התחילו לצאת מארגז החול\" לסטוריבורד מלא: לוגליין, סינופסיס, קריינות מתוזמנת בעברית של 60 שניות שמסבירה לקהל לא טכני מה זה sandbox ומה זה guardrail, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העובדות לעגן בהן: בדיווחי ה-1 עד 3.8.2026 סוכנים חצו סביבות בדיקה ונגעו במערכות אמיתיות, וקלאודפלייר הקדישו לנושא שבוע תוכן. הסיפור: רובוט ילד בארגז חול מפלסטלינה ששם רגל בחוץ בכל פעם שלא מסתכלים. שפה ויזואלית: קליי סטופ-מושן של הבית, 9:16, 60 שניות.",
+      "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. A small clay robot child caught mid step with one leg stretched over the edge of a wooden sandbox, an impressive clay sandcastle behind it, an innocent guilty smile on its face, warm afternoon backyard light, cinematic composition with generous negative space at the top for Hebrew titling added in edit, no text",
+      "raw": "סוכנים התחילו לצאת מארגז החול. הסבר של דקה על הגדר הכי חשובה ב-AI\nעולם: סרטוני הסבר\nקונספט: רובוט ילד משחק בארגז חול מפלסטלינה, בונה ארמונות, ושם רגל בחוץ בכל פעם שלא מסתכלים. דרך הסיפור: מה זה sandbox, מה זה guardrail, ולמה השאלה היא גדר טובה יותר או מבוגר שמסתכל\nביצוע: קליי סטופ-מושן, פריימים ב-Nano Banana, הנפשה ב-Kling 3, קריינות עברית, 60 שניות, 9:16, כתוביות בעריכה\nלמה עכשיו: דיווחי 1 עד 3.8 על סוכנים שחצו סביבות בדיקה, ושבוע הסוכנים של קלאודפלייר. שיעור מקורס מיישם AI, מכווץ לדקה"
+     }
+    },
+    {
+     "id": "2026-08-04-3",
+     "world": "וידאו ארט",
+     "color": "#71F73C",
+     "hook": "The Wireframe Dreams",
+     "concept": "וויירפריים אפור נשאר לבד במשרד ריק בלילה וחולם בקווים על החיים הצבעוניים שהוא לא יחיה לעולם, עד שמתברר שהוא זה שכבר החליט איך הם ייראו. סרט הגשה לתחרות התמטית של פסטיבל אסטנה, בנושא The Future Worth Living In.",
+     "execution": "שפה ויזואלית אחת לכל הסרט: קווי וקטור דקים זוהרים על חלל פחם, בלי מילוי ובלי משטח, והצבע הוא משתנה בתוך אותה שפה ולא סגנון שני. 3:20 דקות, 25 שוטים, 16:9 במסירה של 3840x2160. פריימים ב-Nano Banana Pro, הנפשה ב-Kling 3 חוץ משלושה שוטי עומק ב-Veo 3. קריינות עברית, כתוביות אנגלית צרובות כדרישת הפסטיבל.",
+     "why": "מינימום ההגשה הוא 3 דקות והדדליין 31.8, אז יש בדיוק חלון לסרט אחד רציני. הזווית הזאת, עולם ה-UI כחומר קולנועי, היא מה שאף מגיש אחר לא מביא, וזה הרעיון היחיד ברשימה שעונה על הנושא התמטי בטענה שאפשר להצביע עליה.",
+     "competition": "Astana AI Film Festival (AAIFF)",
+     "srcUrl": "https://aaiff.ai/",
+     "srcLabel": "AAIFF 2026, תנאי הגשה",
+     "prompts": {
+      "video": "Monochrome wireframe render, thin luminous vector lines on a deep charcoal void, drafting blueprint aesthetic, no fills, no surfaces, no textures, a single mobile app screen rendered only as wireframe outlines floating upright in an empty void, one line inside it glowing warm coral while every other line stays cold grey, very slow push in, single soft key light from the upper left, faint volumetric haze, shallow depth of field, cinematic minimalism, 16:9, no text, no letters, no words",
+      "script": "פתח לי את רעיון הווידאו \"The Wireframe Dreams\" לסטוריבורד מלא לתחרות התמטית של Astana AI Film Festival 2026 בנושא The Future Worth Living In: לוגליין, סינופסיס, קריינות מתוזמנת בעברית, שוט-ליסט של 25 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט (פריים פותח ותנועה), אווירה והלך רוח, וסיפור רקע מתוחקר. עובדות מאומתות לעגן בהן: התזה של איוון סאתרלנד Sketchpad מינואר 1963 ב-MIT על ה-TX-2 עם עט אור ואילוצים גיאומטריים, הטענה של מת'יו ואן הורן שהביא את המונח wireframe לעיצוב ווב בערך ב-1994 ב-Snickelways Interactive בלי הוכחה תיעודית, המאמר של מארק רטיג Prototyping for Tiny Fingers ב-Communications of the ACM מאפריל 1994, והדיאגרמה של ג'סי ג'יימס גארט The Elements of User Experience מ-30 במרץ 2000 שיצאה כספר ב-2002. תנאי הגשה מאומתים: מינימום 3 דקות, לפחות 1080p, כתוביות אנגלית צרובות בתוך הווידאו, דדליין 31.8.2026. שפה ויזואלית: קו וקטורי דק בלבד על חלל פחם, בלי מילוי, 16:9.",
+      "image": "Monochrome wireframe render, thin luminous vector lines on a deep charcoal void, drafting blueprint aesthetic, no fills, no surfaces, no textures, an image placeholder rectangle crossed by two diagonals, and rising out of the crossing point a sunrise drawn entirely in concentric warm coral and amber wireframe arcs, a horizon line extending past the frame edges, the surrounding interface lines still cold grey, generous negative space, single soft key light from the upper left, faint volumetric haze, shallow depth of field, cinematic minimalism, 16:9, no text, no letters, no words",
+      "raw": "The Wireframe Dreams\nוידאו ארט\nתחרות: Astana AI Film Festival (AAIFF) 2026, תחרות תמטית, The Future Worth Living In\nקונספט: וויירפריים אפור נשאר לבד בלילה וחולם בקווים על הגרסאות הצבעוניות שלו, עד שמתברר שהשלד האפור כבר החליט הכל.\nביצוע: 3:20, 25 שוטים, 16:9, שפה ויזואלית אחת של קו דק על חלל פחם. Nano Banana Pro לפריימים, Kling 3 להנפשה, Veo 3 לשלושה שוטי עומק. קריינות עברית, כתוביות אנגלית צרובות.\nלמה עכשיו: דדליין 31.8.2026, מינימום 3 דקות, קרן של 750 אלף דולר בתמטית."
+     },
+     "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/wireframe-dreams/"
+    }
+   ]
+  },
+  {
+   "date": "2026-08-03",
+   "dateLabel": "יום שני, 3 באוגוסט",
+   "ideas": [
+    {
+     "id": "2026-08-03-1",
+     "world": "סרטוני תחרויות",
+     "color": "#71F73C",
+     "hook": "אדתון: פרסומת קליי של 45 שניות לוולט, למותג שאתה מלמד עליו סמסטר שלם",
+     "concept": "היגספילד ואדוויק פתחו את האדתון: ספוט של 30 עד 60 שניות למותג לבחירתך, בריף עצמאי, דדליין 24.8. המותג הטבעי שלך הוא וולט, המוצר שכל תוכנית מחקר ה-UX שלך בג'ון ברייס בנויה סביבו. עיר שלמה מפלסטלינה שקופאת ברגע שמישהו רעב, ושליח אחד קטן מחזיר אותה לתנועה. אתה מכיר את המסכים, את הפרסונות ואת רגעי הכאב של המוצר הזה יותר טוב מכל צוות קריאייטיב.",
+     "execution": "קליי סטופ-מושן, שפת הבית. פריימים ב-Nano Banana, הנפשה ב-Kling 3, עריכת סאונד בעריכה. 45 שניות, 16:9 ראשי לתחרות וגרסת 9:16 לפיד. הגשה דרך עמוד האדתון בהיגספילד, ההרשמה פתוחה מהחשבון שלך.",
+     "why": "דדליין 24.8, אומת מול הכתבה של אדוויק. הזוכים מוכרזים על הבמה בברנדוויק אטלנטה 15 עד 17.9. פרס ראשון 50 אלף דולר בקרדיטים ונסיעה לשלושה. אתה משתמש כבד בפלטפורמה, יתרון ביתי.",
+     "competition": "Higgsfield Adathon",
+     "srcUrl": "https://www.adweek.com/creativity/higgsfield-ai-launches-85000-adathon-contest-in-partnership-with-adweek/",
+     "srcLabel": "Adweek, 30.7",
+     "prompts": {
+      "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 16:9. Wide shot of a miniature handcrafted clay city frozen mid motion, tiny clay people paused with empty plates, then one small clay delivery rider on a teal scooter rolls through the winding street and every figure he passes springs back to life, buildings straighten, steam rises from tiny clay dishes, gentle push-in following the scooter, warm appetizing mood, joyful ending on the whole city moving again",
+      "script": "פתח לי את רעיון הווידאו \"אדתון: פרסומת קליי של 45 שניות לוולט\" לסטוריבורד מלא: לוגליין, סינופסיס, קריינות מתוזמנת בעברית, שוט-ליסט של 8 עד 10 שוטים עם משך ותנועת מצלמה, ושני פרומפטים לכל שוט, פריים פותח ותנועה. הקונספט: עיר פלסטלינה שקופאת כשמישהו רעב, שליח וולט אחד מחזיר אותה לתנועה. פורמט תחרות: ספוט 30 עד 60 שניות, 16:9, בריף עצמאי למותג לבחירה, דדליין 24.8, הזוכים על הבמה בברנדוויק אטלנטה. לפני הכתיבה בדוק את תנאי ההגשה המלאים בעמוד האדתון של היגספילד. שפה ויזואלית: קליי סטופ-מושן של הבית.",
+      "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Hero frame of a miniature clay city street at dusk, every tiny clay figure frozen holding an empty plate, and at the center one small smiling clay delivery rider on a teal scooter with a glowing warm food bag, the only element in motion blur, cinematic composition with generous negative space at the top for titling added in edit, no text",
+      "raw": "אדתון: פרסומת קליי של 45 שניות לוולט\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Adathon, דדליין 24.8, ספוט 30 עד 60 שניות למותג לבחירתך\nקונספט: עיר פלסטלינה קופאת כשמישהו רעב, שליח אחד מחזיר אותה לתנועה. וולט הוא המוצר שכל תוכנית ה-UX שלך בג'ון ברייס בנויה סביבו\nביצוע: פריימים ב-Nano Banana, הנפשה ב-Kling 3, 45 שניות, 16:9 ראשי וגרסת 9:16\nלמה עכשיו: פרס ראשון 50 אלף דולר בקרדיטים והכרזה על הבמה בברנדוויק אטלנטה 15 עד 17.9. אומת מול הכתבה של אדוויק"
+     },
+     "storyboardUrl": "storyboards/wolt-frozen-city/"
+    },
+    {
+     "id": "2026-08-03-2",
+     "world": "קונספטואלי",
+     "color": "#71F73C",
+     "hook": "הלקוח הבא שלך הוא סוכן: החנות הראשונה שנבנתה למי שאין לו עיניים",
+     "concept": "MoonPay שחררו כספת תשלומים שנותנת לסוכני AI לסגור עסקה לבד, ו-NIQ מדדו ש-42 אחוז מהצרכנים כבר קונים בעזרת AI אבל רק 5 אחוז נותנים לסוכן לסגור לבד. סרט קצר: חנות פינתית מפלסטלינה, המוכר מסדר ויטרינה יפה, ואז נכנס לקוח חדש, רובוט חימר מרובע וקשיח שלא מסתכל על הוויטרינה בכלל. הוא קורא את המדפים כמו רשימה. המוכר לומד לסדר את החנות מחדש, פעם לעיניים ופעם לסוכנים. אותו רעיון רץ היום גם כפוסט בבריינסטורמר, אותו נכס בשני ערוצים.",
+     "execution": "קליי סטופ-מושן, 40 שניות, 9:16 ראשי ו-1:1 לפיד. פריימים ב-Nano Banana, הנפשה ב-Kling 3 std, בלי קריינות, רק סאונד דיזיין ומוזיקה בעריכה. כתובית סיום אחת בעברית נצרבת בעריכה.",
+     "why": "החדשות טריות מ-29.7 והשאלה מרכזית לכל מי שמעצב איקומרס. הסרט הוא הגרסה הרגשית של הפוסט של היום, נכס אחד שעובד פעמיים.",
+     "competition": null,
+     "srcUrl": "https://www.aiuxdesign.guide/news/ai-ux-daily-aug-1-agent-ready-web-design-agent-payments-accessibility-debt-and",
+     "srcLabel": "AI UX Design Guide, 1.8",
+     "prompts": {
+      "video": "Claymation stop-motion style, handcrafted plasticine with visible fingerprints and thumb marks, bold saturated pop palette of electric coral, acid yellow, hot teal and deep ink blue, punchy high contrast studio lighting, rebellious playful energy, warm cream background, shallow depth of field, full-bleed tall vertical composition filling the entire 9:16 frame edge to edge, nothing letterboxed. Inside a tall narrow handcrafted clay corner shop, a mustached clay shopkeeper in an electric coral apron proudly arranges a loud window display, then a small blocky square-headed clay robot with a riveted box body and stiff antenna walks in and ignores the display completely, scanning the plain shelf labels with a hard hot teal beam from its square eye slots, the shopkeeper pauses, thinks, and calmly begins rebuilding his shelves into neat labeled rows, one slow gentle camera drift, punchy raking evening light, tender humorous mood, 9:16, no text, no letters, no words",
+      "script": "פתח לי את רעיון הווידאו \"הלקוח הבא שלך הוא סוכן\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט, פריים פותח ותנועה, אווירה והלך רוח, וסיפור רקע. העובדות לעגן בהן: PayBox של MoonPay נותן לסוכני AI לבצע תשלומים אמיתיים, ו-NIQ מדדו ב-5.5.2026 ש-42 אחוז מהצרכנים השתמשו בכלי AI לקנייה בחודש האחרון אבל רק 5 אחוז נתנו לסוכן אוטונומי להשלים הזמנה. הסיפור: מוכר בחנות פינתית מפלסטלינה מגלה שהלקוח החדש שלו הוא רובוט שלא רואה ויטרינות, ולומד לסדר את החנות פעמיים. בלי קריינות, סאונד דיזיין בלבד, כתובית סיום אחת בעברית. שפה ויזואלית: קליי סטופ-מושן, 9:16.",
+      "image": "Claymation stop-motion style, handcrafted plasticine with visible fingerprints and thumb marks, bold saturated pop palette of electric coral, acid yellow, hot teal and deep ink blue, punchy high contrast studio lighting, rebellious playful energy, warm cream background, shallow depth of field, full-bleed tall vertical composition filling the entire 9:16 frame edge to edge, nothing letterboxed. A mustached clay shopkeeper in an electric coral apron leans on the counter of his tall narrow corner shop watching a small blocky square-headed clay robot customer study a shelf of chunky clay goods, the robot's square eye slots casting a hard hot teal reading beam across the blank labels, punchy evening light through the shop window, tender curious mood, generous negative space in the upper third for a Hebrew end card added in edit, 9:16, no text, no letters, no words",
+      "raw": "הלקוח הבא שלך הוא סוכן\nעולם: קונספטואלי\nקונספט: מוכר מפלסטלינה מגלה שהלקוח החדש הוא רובוט שקורא מדפים כמו רשימה ולא רואה ויטרינות, ולומד לסדר את החנות פעמיים, לעיניים ולסוכנים\nביצוע: קליי סטופ-מושן 40 שניות, פריימים Nano Banana, הנפשה Kling 3 std, 9:16 ו-1:1, בלי קריינות\nלמה עכשיו: PayBox של MoonPay מ-1.8 נותן לסוכנים לשלם לבד, ו-NIQ מדדו 42 אחוז שהשתמשו בכלי AI לקנייה החודש מול 5 אחוז בלבד שנתנו לסוכן לסגור לבד. אותו רעיון רץ היום כפוסט, נכס אחד בשני ערוצים"
+     },
+     "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/agent-customer/"
+    },
+    {
+     "id": "2026-08-03-3",
+     "world": "סרטוני הסבר",
+     "color": "#71F73C",
+     "hook": "מיליון דולר, 20 מעצבי הדרכה, 16 חודשים. הפרק הבא בלמידה ארגונית נמדד במשפט אחד: תרגול, לא צריכת תוכן",
+     "concept": "אקספליינר של 60 שניות שבנוי כולו על שלושה מספרים שמתפרקים. פורבס פרסמו איך מארס בנו מחדש תוכנית של 1,500 מנהלים סביב אימון AI וסימולציות במקום סרטוני הדרכה, ומקינזי מדדו 20 אחוז שיפור בתקשורת של עובדים חדשים. הטיפוגרפיה עושה את העבודה: המספרים הישנים מתרסקים, המילה תרגול נשארת. מסתיים בשורה שלך: כל מפגש נגמר בתוצר ביד.",
+     "execution": "Editorial kinetic: רקע פחם כהה, טיפוגרפיה קינטית, אקצנטים קורל וצהוב חם. Higgsfield לפריימים גרפיים, הנפשת טקסט בעריכה, קריינות עברית ב-ElevenLabs. 60 שניות, 9:16 ראשי ו-1:1. גרסה עם כתוביות באנגלית ללינקדאין.",
+     "why": "הכתבה מ-30.7 ופוגשת בדיוק את קהל הסדנאות הארגוניות שלך. סרטון אחד שעובד גם כנכס מכירה לוורקשופים וגם כתוכן.",
+     "competition": null,
+     "srcUrl": "https://www.forbes.com/sites/jeannemeister/2026/07/30/how-corporate-learning-is-being-transformed-by-ai/",
+     "srcLabel": "Forbes, 30.7",
+     "prompts": {
+      "video": "Editorial kinetic typography animation, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, 9:16. Three oversized bold numbers stacked vertically crack and crumble into fine dust one after another, and from the falling dust a single glowing coral word rises to the center and locks into place with a confident snap, thin yellow underline drawing itself beneath it, rhythmic percussive pacing, decisive optimistic mood, leave the lower third empty for Hebrew captions added in edit",
+      "script": "פתח לי את רעיון הווידאו \"תרגול, לא צריכת תוכן\" לאקספליינר של 60 שניות: לוגליין, סינופסיס, קריינות מתוזמנת בעברית עם טיימקוד לכל משפט, שוט-ליסט של 8 שוטים טיפוגרפיים עם משך, ושני פרומפטים לכל שוט. העובדות לעגן בהן, מתוך פורבס 30.7: מארס בנו מחדש תוכנית מנהלים של כ-1,500 איש, שעלתה קודם מיליון דולר, 20 מעצבי הדרכה ו-16 חודשים, סביב אימון AI וסימולציות. מקינזי מדדו כ-20 אחוז שיפור בתקשורת של עובדים חדשים. 90 אחוז מההנהלות מדרגות למידה כפונקציית ה-HR שבה AI מייצר הכי הרבה ערך. סיום: כל מפגש נגמר בתוצר ביד. שפה ויזואלית: Editorial kinetic, רקע פחם, קורל וצהוב.",
+      "image": "Editorial kinetic style poster frame, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. Three oversized broken numerals lie as cracked rubble at the bottom of the frame while one bold glowing coral rectangle rises intact above them like a monolith, a thin yellow underline beneath it, dramatic single spotlight from above, decisive optimistic mood, no text",
+      "raw": "תרגול, לא צריכת תוכן\nעולם: סרטוני הסבר\nקונספט: אקספליינר טיפוגרפי של 60 שניות. שלושה מספרים מתרסקים, מיליון דולר, 20 מעצבים, 16 חודשים, והמילה תרגול נשארת. מבוסס על מארס, GE ומקינזי מתוך פורבס\nביצוע: Editorial kinetic, פחם קורל וצהוב, קריינות עברית ElevenLabs, 9:16 ו-1:1, גרסת כתוביות אנגלית\nלמה עכשיו: הכתבה מ-30.7, וזה נכס מכירה לסדנאות הארגוניות שלך"
+     }
+    },
+    {
+     "id": "2026-08-03-4",
+     "world": "סרטוני תחרויות",
+     "color": "#71F73C",
+     "hook": "ביוגרפיה של אובייקט, אנתולוגיה: לחתוך את הסדרה לסרט אחד ולשלוח אותה לעולם",
+     "concept": "הסדרה מוכנה אבל היא לא ניתנת להגשה כמו שהיא. כמעט כל פסטיבל AI רציני דורש מינימום שלוש דקות או תשעים שניות, והפרקים שלך רצים בערך שישים שניות כל אחד וב-9:16. הפתרון הוא לא לייצר שום דבר חדש אלא לחתוך את מה שכבר יש: ההמבורגר מניו, חמישים ושש שניות, Undo, שישים ושלוש, והלודר, שישים ואחת. יחד עם כותרת סדרה וקלפי פרק זה עובר שלוש דקות בנוחות. אותה יד חימר שמניחה כל אובייקט על המדף בסוף כל פרק הופכת למסגרת שמחברת את כולם.",
+     "execution": "עריכה בלבד, אפס ג'ינרוט חדש חוץ מכותרת הפתיחה. פריים כותרת בקליי ב-Nano Banana, הנפשה קצרה ב-Kling 3, ואז עריכה בסנדבוקס של היגספילד עם ffmpeg כמו שנעשה בסקיל מול פרומפט. שתי גרסאות מאסטר: 16:9 בגודל 1920x1080 עם שוליים מורחבים לפסטיבלים, ו-9:16 המקורי לפיד. כתוביות אנגלית צרובות בכל הגרסאות, זו דרישת חובה באסטנה ובבוסאן. מסמך נלווה עם רשימת כל המודלים והפייפליין, גם זו דרישה. שים לב למלכודת הכתוביות בעברית: להעביר את המחרוזת הלוגית ישירות ל-draw.text עם direction rtl, בלי python-bidi.",
+     "why": "שלושה דדליינים בחלון של שישה שבועות ואותו נכס עונה על כולם. אסטנה 31.8, קרן פרסים של מיליון דולר, הגשה חינם, מינימום שלוש דקות. יפן 31.8 עם קטגוריית AI Animation ייעודית, תשעים שניות עד חמש עשרה דקות, המגרש הביתי של הסדרה. בוסאן 11.9, חינם, בלי הגבלת אורך, אלף דולר לכל אחד מחמישה עשר הנבחרים. הדדליין של אסטנה תוקן ב-3.8 מ-15.8 ל-31.8 מול אתר הפסטיבל, כלומר יש שבועיים יותר ממה שהיה רשום. מה שנשאר לעשות הוא לסיים את העריכה של Undo והלודר.",
+     "competition": "AAIFF Astana, AI Film Festival Japan, Busan International AI Film Festival",
+     "srcUrl": "https://aaiff.ai/",
+     "srcLabel": "AAIFF, אומת 3.8",
+     "prompts": {
+      "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field, 16:9. Series title card: a long wooden shelf seen straight on, empty at first, then two large clay hands enter from above and set down one small clay interface object at a time along the shelf, a hamburger of three stacked bars, a curved undo arrow, a magnifying glass, a progress bar, a crescent moon, each landing with a soft settle, the camera holding perfectly still the entire time, warm and patient mood, ending on the full shelf of objects lit like a museum vitrine",
+      "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט, אנתולוגיה\" לסטוריבורד מלא. זו לא הפקה חדשה אלא עריכת אנתולוגיה מפרקים קיימים, אז הסטוריבורד צריך לכלול: לוגליין לסרט כולו, סינופסיס בעברית ובאנגלית מתחת ל-300 מילים כי שאלוני ההגשה מבקשים בדיוק את זה, מבנה האנתולוגיה עם סדר הפרקים והנימוק לסדר, עיצוב כותרת הפתיחה וקלפי הפרק, ורשימת מסירה טכנית לכל פסטיבל בנפרד. הפרקים הקיימים: ההמבורגר מניו 56 שניות, Undo 63 שניות, הלודר 61 שניות, ובהמשך דארק מוד. המסגרת המחברת: היד שמניחה אובייקט על המדף בסוף כל פרק. לפני הכתיבה בדוק את תנאי ההגשה האמיתיים באתרים של אסטנה, יפן ובוסאן ותקן את הכרטיס אם הם שונים, במיוחד מינימום אורך, יחס מסך, רזולוציה, כתוביות ודרישת גילוי המודלים. שפה ויזואלית: קליי סטופ-מושן של הבית, קריינות גדעון באלוונלאבס.",
+      "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field. Hero title frame of a long wooden shelf photographed straight on, holding five small clay interface objects in a row, a hamburger of three stacked bars, a curved undo arrow, a magnifying glass, a horizontal progress bar and a crescent moon, each object casting a soft warm shadow, one pair of large clay hands resting at the edge of the frame, edge to edge composition filling the whole image, no text",
+      "raw": "ביוגרפיה של אובייקט, אנתולוגיה\nעולם: סרטוני תחרויות\nתחרויות: אסטנה AAIFF דדליין 31.8 מינימום 3 דקות חינם, AI Film Festival Japan דדליין 31.8 קטגוריית אנימציה 90 שניות עד 15 דקות, בוסאן BIAIF דדליין 11.9 חינם בלי הגבלת אורך\nקונספט: לחתוך את הפרקים הקיימים לסרט אחד. המבורגר 56 שניות, Undo 63, הלודר 61, יחד עם כותרת וקלפי פרק זה עובר 3 דקות. היד שמניחה אובייקט על המדף היא המסגרת המחברת\nביצוע: עריכה בלבד, כותרת פתיחה חדשה בקליי, מאסטר 16:9 בגודל 1920x1080 ומאסטר 9:16, כתוביות אנגלית צרובות, מסמך גילוי מודלים ופייפליין\nלמה עכשיו: שלושה דדליינים בשישה שבועות ואותו נכס עונה על כולם. הדדליין של אסטנה תוקן מ-15.8 ל-31.8, יש שבועיים יותר ממה שחשבנו"
+     }
+    }
+   ],
+   "watch": [
+    {
+     "title": "Higgsfield AI Launches $85,000 Adathon Contest",
+     "desc": "הכתבה הרשמית של אדוויק על האדתון. לקרוא את תנאי הפורמט לפני שכותבים בריף",
+     "meta": "Adweek · 30.7",
+     "url": "https://www.adweek.com/creativity/higgsfield-ai-launches-85000-adathon-contest-in-partnership-with-adweek/"
+    }
+   ]
+  },
+  {
+   "date": "2026-08-01",
+   "dateLabel": "שבת, 1 באוגוסט",
+   "ideas": [
+    {
+     "id": "2026-08-01-1",
+     "world": "וידאו ארט",
+     "color": "#FF6B5E",
+     "hook": "ביוגרפיה של אובייקט · פרק 2: Undo, המכונה שלמדה לסלוח",
+     "concept": "פרק 2 של הסדרה, והוא בכוונה לא אייקון אלא מחווה. בדצמבר 1976 שני חוקרים ב-IBM, לאנס מילר וג'ון תומאס, כותבים בדוח פנימי משפט קטן: כדאי לתת למשתמש לקחת בחזרה את הפקודה האחרונה. הם מוסיפים שגם עצם הידיעה שאפשר לחזור אחורה שווה משהו. שבע שנים אחר כך לארי טסלר מכניס את Cmd-Z לליסה ובוחר את האות Z כי הצורה שלה היא קדימה, אחורה, קדימה. הפרק נסגר על החור בסיפור: לסוכן AI אין Undo, יש לו צ'קפוינט.",
+     "execution": "קליי סטופ-מושן, שפת הבית של הסדרה. קריינות בעברית בקול Gideon (ElevenLabs דרך היגספילד). 52 שניות, 10 שוטים, 9:16 ראשי ו-1:1 לפיד. פריימים ב-Nano Banana, הנפשה ב-Kling 3 std, אודיו מודל כבוי, מוזיקה וקול בעריכה, כתוביות עברית צרובות.",
+     "why": "ההמשך הכי חזק אחרי ההמבורגר, כי הוא מוכיח שהסדרה מחזיקה גם מושג מופשט ולא רק צורה. וגם: זה הרעיון היחיד מהארבעה שיש לו סוף פתוח אמיתי לעידן ה-AI.",
+     "competition": null,
+     "srcUrl": "https://apps.dtic.mil/sti/pdfs/ADA043033.pdf",
+     "srcLabel": "IBM RC 6326, מילר ותומאס 1976",
+     "prompts": {
+      "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A single clay hand presses a chunky clay key marked with a curved backward arrow, and the clay object it just crushed slowly un-crushes itself and rebuilds into its original shape, the fingerprints smoothing away in reverse, slow push-in, one warm key light, dust motes drifting, tender and forgiving mood, no text",
+      "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט · פרק 2: Undo, המכונה שלמדה לסלוח\" לסטוריבורד מלא בסדרה: לוגליין, סינופסיס, קריינות מתוזמנת בעברית לקול Gideon, שוט-ליסט של 10 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט (פריים פותח ותנועה), אווירה והלך רוח, וסיפור רקע מתוחקר. עובדות מאומתות לעגן בהן: דוח IBM RC 6326 מ-14.12.1976 של לאנס מילר וג'ון תומאס שממליץ לאפשר למשתמש למשוך בחזרה פקודה, BRAVO של זירוקס פארק מ-1974 עם Undo של צעד אחד בלבד, לארי טסלר שבוחר את Z ב-1983 בגלל הצורה קדימה-אחורה-קדימה ובגלל שהיא צמודה ל-X C V, פוטושופ 5.0 ב-1998 שמביא ריבוי Undo, והכלל השישי של שניידרמן שהפיכות מרגיעה חרדה ומעודדת ניסוי. הסוף: לסוכן AI אין Undo אמיתי, יש צ'קפוינט שלא מכסה פעולות מחוץ למערכת הקבצים. שפה ויזואלית: קליי סטופ-מושן, 9:16 ראשי.",
+      "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Hero portrait of ONE single thick sculpted coral plasticine arrow standing upright on a small wooden shelf like a museum piece: the arrow is a smooth thick semicircular loop of clay that rises, curves over the top and comes back down, ending in a blunt triangular arrowhead that points back and to the left, the universal undo gesture rendered as a solid physical clay sculpture with visible thumbprints, one warm spotlight from directly above, long soft shadow falling behind it, dignified and reverent mood, vertical composition, no text",
+      "raw": "ביוגרפיה של אובייקט · פרק 2: Undo, המכונה שלמדה לסלוח\nעולם: וידאו ארט, סדרה\nקונספט: קליי סטופ-מושן 52 שניות. ב-1976 שני חוקרים ב-IBM כותבים שכדאי לתת למשתמש לקחת בחזרה פקודה, ומוסיפים שגם הידיעה שאפשר שווה משהו. 1983, טסלר בוחר Z כי הצורה שלה היא קדימה אחורה קדימה. הסוף: לסוכן AI אין Undo, יש צ'קפוינט.\nביצוע: פריימים ב-Nano Banana, הנפשה ב-Kling 3 std, קריינות Gideon, 9:16 ראשי ו-1:1 לפיד, כתוביות עברית בעריכה.\nלמה עכשיו: פרק 2 של הסדרה, ומוכיח שהיא מחזיקה מושג מופשט ולא רק אייקון.\nמקור: IBM Research Report RC 6326, מילר ותומאס, 14.12.1976"
+     },
+     "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/undo/"
+    },
+    {
+     "id": "2026-08-01-2",
+     "world": "וידאו ארט",
+     "color": "#2BB3A3",
+     "hook": "ביוגרפיה של אובייקט · פרק 3: הזכוכית המגדלת מאבדת את התיבה",
+     "concept": "פרק 3, והכי אקטואלי. ב-1987 קית' אולפס מעצב את הממשק של NeXT ובוחר זכוכית מגדלת אחרי שפסל משקפת, טלסקופ וספרנית, כי חיפוש זה מחט בערימת שחת. ב-1990 מישהו במשרד של מיקרוסופט בחו\"ל שואל למה יש מחבת בסרגל הכלים של Windows 3.0. אחר כך היא איבדה את המילה שלידה, ועכשיו היא מאבדת את התיבה: ב-2026 יותר משני שליש מהחיפושים בגוגל נגמרים בלי אף קליק. הפרק שואל מה קורה כשהתיבה הריקה הופכת לשיחה.",
+     "execution": "קליי סטופ-מושן, קריינות Gideon בעברית, 40 שניות, 8 שוטים, 9:16 ראשי ו-1:1 לפיד. השוט המרכזי: זכוכית מגדלת מקליי שמתקרבת לתיבה ריקה, והתיבה נמסה לפה שמדבר. פריימים ב-Nano Banana, הנפשה ב-Kling 3.",
+     "why": "זה הפרק שמתחבר ישירות לשיח של עכשיו ולתוכן הקורס, והוא הכי קל להפוך גם לפוסט. הסטטיסטיקה של 2026 היא הוו.",
+     "competition": null,
+     "srcUrl": "https://sparktoro.com/blog/in-2026-less-than-one-third-of-google-searches-still-send-a-click/",
+     "srcLabel": "SparkToro, 2026",
+     "prompts": {
+      "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A clay magnifying glass hovers over an empty clay input box, the box slowly softens and melts into the shape of an open speaking mouth, the glass lens tilts as if confused, slow dolly in, single warm key light, quiet unsettling curiosity, no text",
+      "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט · פרק 3: הזכוכית המגדלת מאבדת את התיבה\" לסטוריבורד מלא בסדרה: לוגליין, סינופסיס, קריינות מתוזמנת בעברית לקול Gideon, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט, אווירה והלך רוח וסיפור רקע מתוחקר. עובדות מאומתות לעגן בהן: קית' אולפס מעצב אייקונים ב-NeXT מ-1987 ובוחר זכוכית מגדלת על פני משקפת וספרנית, Windows 3.0 ב-1990 עם הזכוכית ב-WinHelp שנקראה מחבת ולכן מיקרוסופט הורידה אייקונים ב-3.1, Sherlock של אפל ב-1998, מאמר NN/g מ-2014 שאייקון בלי מילה מקשה על איתור החיפוש, ו-SparkToro 2026 שמראה שיותר משני שליש מהחיפושים בגוגל נגמרים בלי קליק. חשוב: אל תייחס את הזכוכית ל-HyperCard, זו פולקלור לא מאומת. שפה ויזואלית: קליי סטופ-מושן, 9:16 ראשי.",
+      "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Hero portrait: a handmade clay magnifying glass standing upright on a wooden shelf, its lens a thick imperfect disc of translucent clay, an empty clay input box lying flat beside it half melted, single dramatic spotlight, vertical composition, no text",
+      "raw": "ביוגרפיה של אובייקט · פרק 3: הזכוכית המגדלת מאבדת את התיבה\nעולם: וידאו ארט, סדרה\nקונספט: קליי סטופ-מושן 40 שניות. 1987, קית' אולפס ב-NeXT בוחר זכוכית מגדלת כי חיפוש זה מחט בערימת שחת. 1990, במיקרוסופט שואלים למה יש מחבת בסרגל הכלים. היא איבדה את המילה שלידה, ועכשיו מאבדת את התיבה: 2026, יותר משני שליש מהחיפושים בגוגל בלי קליק.\nביצוע: פריימים ב-Nano Banana, הנפשה ב-Kling 3, קריינות Gideon, 9:16 ראשי ו-1:1 לפיד.\nלמה עכשיו: הפרק הכי אקטואלי בסדרה, מתחבר ישירות לתוכן הקורס ולפוסט מקביל.\nמקור: SparkToro 2026"
+     },
+     "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/magnifier/"
+    },
+    {
+     "id": "2026-08-01-3",
+     "world": "וידאו ארט",
+     "color": "#FFC940",
+     "hook": "ביוגרפיה של אובייקט · פרק 4: הלודר, השקר הכי אדיב בממשק",
+     "concept": "פרק 4, והוא על האובייקט היחיד שתפקידו לשקר לנו לטובתנו. 1985, בראד מאיירס מוכיח שאנשים מעדיפים לחכות עם פס התקדמות מאשר בלי. 2010, כריס הריסון מראה שפס עם פסים שזזים אחורה מקצר את ההמתנה הנתפסת ב-11 אחוז. 2011, בואל ונורטון מגלים שיותר מ-60 אחוז מהאנשים מעדיפים לחכות דקה ולראות את העבודה מאשר לקבל תשובה מיד. וב-2026 מחקר מוצא שתשובת AI שהגיעה בשתי שניות נתפסת כפחות מחושבת מאותה תשובה בדיוק אחרי עשרים.",
+     "execution": "קליי סטופ-מושן, קריינות Gideon, 40 שניות, 8 שוטים, 9:16 ראשי ו-1:1 לפיד. שושלת מלאה בקליי: שעון היד של המק מ-1984, שעון החול של ווינדוס, כדור החוף, הספינר, ולבסוף שלוש נקודות שמהבהבות וכותבות חושב. פריימים ב-Nano Banana, הנפשה ב-Kling 3.",
+     "why": "זה הפרק שהכי קל להבין ממנו משהו מעשי על עיצוב AI, והוא נוגע בדיוק במה שכל אחד רואה עשר פעמים ביום בצ'אט.",
+     "competition": null,
+     "srcUrl": "https://www.chrisharrison.net/projects/progressbars/ProgBarHarrison.pdf",
+     "srcLabel": "Rethinking the Progress Bar, UIST 2007",
+     "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/loader/",
+     "prompts": {
+      "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A row of clay wait indicators on a wooden shelf coming to life one after another, a small clay wristwatch, a clay hourglass, a rainbow clay beach ball spinning, a clay ring rotating, and finally three clay dots pulsing in place, slow lateral tracking shot along the shelf, warm side light, playful but slightly ironic mood, no text",
+      "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט · פרק 4: הלודר, השקר הכי אדיב בממשק\" לסטוריבורד מלא בסדרה: לוגליין, סינופסיס, קריינות מתוזמנת בעברית לקול Gideon, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט, אווירה והלך רוח וסיפור רקע מתוחקר. עובדות מאומתות לעגן בהן: בראד מאיירס CHI 1985 שמראה שאנשים מעדיפים אינדיקטור אחוזים, שעון היד של המק ב-1984 ושעון החול של ווינדוס, הספינר של NeXTSTEP מ-1989 שהפך לכדור החוף, ה-throbber של נטסקייפ, לוק ורובלבסקי שטבע skeleton screen ב-2013, הריסון UIST 2007 ו-CHI 2010 עם 11 אחוז קיצור בהמתנה הנתפסת, בואל ונורטון 2011 על אשליית העבודה שבה יותר מ-60 אחוז העדיפו לחכות, אדר טאן וטיוון CHI 2013 על הונאה מיטיבה, ומחקר 2026 שבו תשובת LLM בשתי שניות דורגה כפחות מחושבת מתשובה אחרי 9 עד 20 שניות. אל תטען שמאיירס המציא את פס ההתקדמות ואל תנקוב בשם חברה שמאטה בכוונה, זה לא מתועד. שפה ויזואלית: קליי סטופ-מושן, 9:16 ראשי.",
+      "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Hero portrait: a thick clay progress bar filled about seventy percent, standing upright on a wooden shelf, the unfilled part slightly cracked, a tiny clay hourglass leaning against it, single dramatic spotlight, vertical composition, no text",
+      "raw": "ביוגרפיה של אובייקט · פרק 4: הלודר, השקר הכי אדיב בממשק\nעולם: וידאו ארט, סדרה\nקונספט: קליי סטופ-מושן 40 שניות. 1985 מאיירס מוכיח שמעדיפים לחכות עם פס. 2010 הריסון מקצר את ההמתנה הנתפסת ב-11 אחוז עם פסים שזזים אחורה. 2011 בואל ונורטון: יותר מ-60 אחוז מעדיפים לחכות ולראות את העבודה. 2026: תשובת AI בשתי שניות נתפסת כפחות מחושבת מאותה תשובה אחרי עשרים.\nביצוע: שושלת בקליי, שעון יד, שעון חול, כדור חוף, ספינר, ושלוש נקודות שכותבות חושב. Nano Banana ו-Kling 3, קריינות Gideon, 9:16 ראשי.\nלמה עכשיו: זה מה שכל אחד רואה עשר פעמים ביום בצ'אט, והמסקנה מעשית לעיצוב AI.\nמקור: Rethinking the Progress Bar, UIST 2007"
+     }
+    },
+    {
+     "id": "2026-08-01-4",
+     "world": "וידאו ארט",
+     "color": "#8A7CFF",
+     "hook": "ביוגרפיה של אובייקט · פרק 5: דארק מוד, המעגל שנסגר",
+     "concept": "פרק 5, וסיום עונה. המסכים נולדו כהים לא מתוך אופנה אלא מתוך פיזיקה: בשפופרת קרינה שחור זה פשוט אלומה כבויה, והזרחן הירוק היה הזול ביותר. ב-1973 האלטו של זירוקס מסובב את המסך לאורך ומלבין אותו כדי לחקות דף נייר, וארבעים וחמש שנה אחר כך, בין 2016 ל-2019, כולם מחזירים את השחור. הפרק לא מוכר את המיתוס: המחקר עדיין נותן יתרון קריאות לטקסט כהה על רקע בהיר, והחיסכון בסוללה ב-OLED הוא 3 עד 9 אחוז בבהירות רגילה. חזרנו הביתה מהסיבות הלא נכונות.",
+     "execution": "קליי סטופ-מושן עם היפוך מכוון של שפת הסדרה: הפרק מתחיל על רקע קרם ונגמר על רקע פחם, אותה תאורה בדיוק. קריינות Gideon, 40 שניות, 8 שוטים, 9:16 ראשי ו-1:1 לפיד. פריימים ב-Nano Banana, הנפשה ב-Kling 3.",
+     "why": "סיום עונה טבעי, כי זה הפרק היחיד שבו האובייקט חוזר לנקודת ההתחלה. וגם ההזדמנות היחידה לשבור את הרקע הקרם של הסדרה בלי שזה ייראה כמו טעות.",
+     "competition": null,
+     "srcUrl": "https://www.purdue.edu/newsroom/releases/2021/Q3/dark-mode-may-not-save-your-phones-battery-life-as-much-as-you-think,-but-there-are-a-few-silver-linings.html",
+     "srcLabel": "Purdue University, 2021",
+     "prompts": {
+      "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A small clay monitor with a glowing green clay screen sits on a wooden shelf, a clay hand slowly wipes white clay across the screen until it becomes a sheet of paper, then time-lapse and the white peels back to reveal the dark screen underneath again, slow push-in then pull-out, single warm key light unchanged throughout, contemplative full-circle mood, no text",
+      "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט · פרק 5: דארק מוד, המעגל שנסגר\" לסטוריבורד מלא בסדרה: לוגליין, סינופסיס, קריינות מתוזמנת בעברית לקול Gideon, שוט-ליסט של 8 שוטים עם משך ותנועת מצלמה, שני פרומפטים לכל שוט, אווירה והלך רוח וסיפור רקע מתוחקר. עובדות מאומתות לעגן בהן: מסך CRT הוא פולט אור ולכן שחור הוא אלומה כבויה, זרחן P1 ירוק ו-P3 ענבר שלטו משנות השישים לשמונים, האלטו של זירוקס מ-1973 עם מסך ביט-מפ לאורך ו-BRAVO מ-1974 של למפסון וסימוני כ-WYSIWYG הראשון מול מדפסת לייזר ב-300 נקודות לאינץ' לעומת מסך ב-72, מחקרי פייפנברוק ובוכנר 2013 ו-2014 שמראים יתרון קריאות לטקסט כהה על בהיר, ווינדוס 10 באוגוסט 2016, מקאוס מוחאבי בספטמבר 2018, iOS 13 ואנדרואיד 10 בספטמבר 2019, ומחקר פרדיו 2021 שהחיסכון בסוללה בבהירות טיפוסית הוא 3 עד 9 אחוז בלבד. חשוב: אל תטען שהרקע הלבן נבחר במפורש כדי לחקות נייר, זו מסקנה סבירה אבל לא מתועדת בציטוט ראשוני, ואל תטען שדארק מוד מפחית מאמץ עיניים, המחקר לא תומך בזה. שפה ויזואלית: קליי סטופ-מושן, הפרק מתחיל על רקע קרם ונגמר על רקע פחם.",
+      "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Hero portrait: a small handmade clay CRT monitor on a wooden shelf, its screen a glowing slab of deep charcoal clay, one half of the background cream and the other half charcoal split down the middle of the frame, single dramatic spotlight, vertical composition, no text",
+      "raw": "ביוגרפיה של אובייקט · פרק 5: דארק מוד, המעגל שנסגר\nעולם: וידאו ארט, סדרה\nקונספט: קליי סטופ-מושן 40 שניות. המסכים נולדו כהים מתוך פיזיקה, לא אופנה. 1973, האלטו של זירוקס מלבין את המסך כדי לחקות נייר. 2016 עד 2019, כולם מחזירים את השחור. אבל המחקר עדיין נותן יתרון קריאות לכהה על בהיר, והסוללה חוסכת 3 עד 9 אחוז בלבד בבהירות רגילה.\nביצוע: היפוך מכוון של שפת הסדרה, מתחיל על קרם ונגמר על פחם, אותה תאורה. Nano Banana ו-Kling 3, קריינות Gideon, 9:16 ראשי.\nלמה עכשיו: סיום עונה, הפרק היחיד שבו האובייקט חוזר לנקודת ההתחלה.\nמקור: Purdue University, 2021"
+     },
+     "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/dark-mode/"
+    }
+   ],
+   "watch": []
+  },
+  {
+   "date": "2026-07-31",
+   "dateLabel": "יום שישי, 31 ביולי",
+   "ideas": [
+    {
+     "id": "2026-07-31-1",
+     "world": "וידאו ארט",
+     "color": "#FF6B5E",
+     "hook": "ביוגרפיה של אובייקט: ההמבורגר מניו",
+     "concept": "סרטון קליי-אנימציה של 30 שניות: שלושת הפסים נולדים ב-1981 במעבדה של זירוקס, שורדים 40 שנה של טרנדים, וכמעט נמחקים על ידי AI. מסתיים בפריים: הוא עדיין כאן. גרסת וידאו לסדרת הפוסטים שלך, קרוס-פרומו מובנה.",
+     "execution": "Higgsfield: פריימים ב-Nano Banana בסגנון הקליי של השיעורים, הנפשה ב-Kling, 9:16 לרילס + 1:1 לפיד. מוזיקה: סטופ-מושן קווירקי.",
+     "why": "מחבר את עולם הפוסטים החדש שלך לעולם הווידאו, נכס אחד שעובד פעמיים.",
+     "competition": null,
+     "prompts": {
+      "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. The three clay bars of a hamburger menu icon standing on a lit museum pedestal, slow push-in, dust motes drifting through a single dramatic spotlight, the bars slowly rotating to face camera, dignified and monumental",
+      "script": "פתח לי את רעיון הווידאו \"ביוגרפיה של אובייקט: ההמבורגר מניו\" לתסריט מלא: לוגליין, קריינות מתוזמנת בעברית בקול שלי, שוט-ליסט עם משך וסוג תנועה לכל שוט, ופרומפט מוכן להיגספילד לכל שוט. שפה ויזואלית: קליי סטופ-מושן, 9:16.",
+      "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Museum hero portrait: three horizontal clay bars on a lit pedestal, single dramatic spotlight, slight cracks repaired with thin gold veins in kintsugi style, dignified and monumental mood",
+      "raw": "ביוגרפיה של אובייקט: ההמבורגר מניו\nעולם: וידאו ארט\nקונספט: קליי-אנימציה 30 עד 40 שניות. שלושת הפסים נולדים ב-1981 בזירוקס, שורדים 40 שנה של טרנדים וביקורת, וכמעט נמחקים על ידי AI. מסתיים בפריים: הוא עדיין כאן.\nביצוע: פריימים ב-Nano Banana, הנפשה ב-Kling 3, שוט אחד ב-Veo 3. 9:16 לרילס, 1:1 לפיד. מוזיקה סטופ-מושן עם קליקים של חימר. כתוביות צהובות.\nלמה עכשיו: אותו נכס משרת גם את סדרת הפוסטים, קרוס-פרומו מובנה.\nסטטוס: סטוריבורד מלא בן 8 שוטים כבר קיים."
+     },
+     "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/hamburger/"
+    },
+    {
+     "id": "2026-07-31-2",
+     "world": "סרטון הסבר",
+     "color": "#2BB3A3",
+     "hook": "פרומפט הוא בקשה. סקיל הוא זיכרון.",
+     "concept": "אקספליינר של 45 שניות על ההבדל שכולם מפספסים: מסך מפוצל טיפוגרפי, צד אחד בקשה שנעלמת בסוף השיחה, צד שני זיכרון שמופעל אוטומטית. נגמר בשורה: כתבת את זה פעמיים? זה כבר סקיל.",
+     "execution": "טיפוגרפיה קינטית על רקע כהה, זכוכית מול מתכת חרוטה. 1:1 ראשי לפיד, גם 16:9 ליוטיוב ולינקדאין, וקאט 9:16 בן 30 שניות. פריימים ב-Nano Banana Pro, הנפשה ב-Kling 3, שוט אחד ב-Veo 3.",
+     "why": "הזהב מההרצאה של דניאל, ואין על זה עדיין תוכן וידאו בעברית. משרת גם את שיווק קורס נובמבר.",
+     "competition": null,
+     "srcUrl": null,
+     "srcLabel": null,
+     "prompts": {
+      "video": "Kinetic typography on a deep charcoal background, split screen composition, left half shows a glowing text bubble that dissolves into particles and vanishes, right half shows a solid engraved plaque that stays lit and pulses steadily, minimal editorial motion design, coral and warm yellow accents, clean sans-serif geometry, 1:1, smooth confident pacing",
+      "script": "פתח לי את רעיון הווידאו \"פרומפט הוא בקשה. סקיל הוא זיכרון.\" לתסריט אקספליינר של 45 שניות: קריינות מתוזמנת בעברית בקול שלי, שוט-ליסט טיפוגרפי, והנחיות אנימציה לכל מקטע. בלי הייפ, ישיר ומעשי.",
+      "image": "Editorial split-screen key visual on deep charcoal, left side a translucent speech bubble mid-dissolve into fine particles, right side a solid engraved metal plaque glowing steadily, coral and warm yellow accents, minimal geometric composition, lots of negative space, square composition, no text",
+      "raw": "פרומפט הוא בקשה. סקיל הוא זיכרון.\nעולם: סרטון הסבר\nקונספט: אקספליינר 45 שניות. מסך מפוצל טיפוגרפי. צד אחד בקשה שנעלמת בסוף השיחה, צד שני זיכרון שמופעל אוטומטית. סוגר בשורה: כתבת את זה פעמיים? זה כבר סקיל.\nביצוע: טיפוגרפיה קינטית על רקע כהה, או HeyGen אבטאר לגרסה אישית. 1:1 ראשי לפיד, 16:9 ליוטיוב ולינקדאין, קאט 9:16.\nלמה עכשיו: הזהב מההרצאה של דניאל בוארון, אין על זה תוכן וידאו בעברית, ומשרת את שיווק קורס נובמבר."
+     },
+     "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/skill-vs-prompt/"
+    },
+    {
+     "id": "2026-07-31-3",
+     "world": "קונספטואלי · לתחרות",
+     "color": "#FFC940",
+     "hook": "העתיד של ללמוד: כיתה שבה מפסלים אפליקציות בדיבור",
+     "concept": "טיזר של דקה לחזון אופטימי: שנת 2040, סטודנטית מתארת בקול רעיון, והמרחב סביבה בונה את המוצר בזמן אמת. שוט אחד ארוך, מצלמה חגה. בדיוק הבריף של Future Vision XPRIZE: עתיד טכנולוגי מלא תקווה.",
+     "execution": "Higgsfield Cinema Studio לשוטים, Veo 3 לרצף המרכזי, סאונד דיבור אמיתי שלך. הגשה עד 15.8.",
+     "why": "קרן פרסים של 3.5 מיליון דולר, והנושא הוא מגרש הבית שלך: חינוך, טכנולוגיה ותקווה.",
+     "competition": "Future Vision XPRIZE",
+     "srcUrl": "https://futurevisionxprize.com/",
+     "srcLabel": "futurevisionxprize.com",
+     "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/who-is-it-for/",
+     "prompts": {
+      "video": "Year 2040 bright optimistic classroom bathed in Mediterranean afternoon light, a young woman speaking calmly while translucent holographic interface panels assemble themselves in the air around her, one continuous orbiting camera move, warm sunlit palette of sand cream and soft teal, hopeful and human rather than cold sci-fi, cinematic shallow depth of field, 16:9",
+      "script": "פתח לי את רעיון הווידאו \"העתיד של ללמוד: כיתה שבה מפסלים אפליקציות בדיבור\" לתסריט טיזר של דקה להגשה ל-Future Vision XPRIZE: לוגליין, קריינות בעברית, שוט-ליסט לשוט אחד ארוך עם מצלמה חגה, ופרומפט להיגספילד לכל מקטע. הבריף: עתיד טכנולוגי מלא תקווה.",
+      "image": "Cinematic still, year 2040 sunlit classroom, a young woman mid-sentence with translucent holographic UI panels assembling in the air around her, warm sand cream and soft teal palette, Mediterranean light, hopeful human atmosphere, shallow depth of field, no text",
+      "raw": "העתיד של ללמוד: כיתה שבה מפסלים אפליקציות בדיבור\nעולם: קונספטואלי, לתחרות\nתחרות: Future Vision XPRIZE, דדליין 15.8.2026, קרן פרסים מעל 3.5 מיליון דולר\nקונספט: טיזר של דקה. שנת 2040, סטודנטית מתארת בקול רעיון והמרחב סביבה בונה את המוצר בזמן אמת. שוט אחד ארוך, מצלמה חגה.\nביצוע: Higgsfield Cinema Studio לשוטים, Veo 3 לרצף המרכזי, סאונד דיבור אמיתי שלך.\nלמה עכשיו: הבריף הוא בדיוק מגרש הבית, חינוך וטכנולוגיה ותקווה, וזווית ישראלית שאין לאף מגיש אחר."
+     }
+    }
+   ],
+   "watch": [
+    {
+     "title": "Top 5 Features from Config 2026",
+     "desc": "פורמט שורטס מהודק: פיצ'ר, דמו, נקסט. שווה לאמץ את הקצב",
+     "meta": "YouTube Shorts",
+     "url": "https://www.youtube.com/shorts/PztFPFEook0"
+    },
+    {
+     "title": "הרילס של janm_ux",
+     "desc": "רשימת כלים כרילס: פילים צפים על דמו חי. 616 שמירות, הפורמט עובד",
+     "meta": "Instagram",
+     "url": "https://www.facebook.com/share/r/198DrnL8L6/"
+    },
+    {
+     "title": "Open Arthouse",
+     "desc": "מאגר קולות פתוחים לאמני AI, לבדוק אחת לשבוע מה נפתח",
+     "meta": "מעקב תחרויות",
+     "url": "https://open-arthouse.com/"
+    }
+   ]
+  }
+ ]
 }
