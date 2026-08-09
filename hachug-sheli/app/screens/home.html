@@ -55,6 +55,7 @@
 <script src="../scripts/kids.js"></script>
 <script src="../scripts/nav.js"></script>
 <script src="../scripts/appbar.js"></script>
+<script src="../scripts/layout.js"></script>
 <script>
 (function () {
   var D = window.APP_DATA;
@@ -99,7 +100,7 @@
       var c = row.c;
       var note = '';
       if (row.rank === 2) note = '<p class="meta" style="color:var(--color-danger)">לא בטווח הגילאים או מתנגש בלוח</p>';
-      else if (row.rank === 1) note = '<p class="meta" style="color:#B45309">מתאים לחלק מהילדים</p>';
+      else if (row.rank === 1) note = '<p class="meta" style="color:var(--color-warn)">מתאים לחלק מהילדים</p>';
       return '' +
         '<article class="card chug-card is-visible reveal" data-id="' + c.id + '" ' +
                  'style="' + (row.rank === 2 ? 'opacity:.62' : '') + '">' +

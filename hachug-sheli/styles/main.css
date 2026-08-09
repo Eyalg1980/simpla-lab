@@ -227,3 +227,67 @@ html { scroll-padding-top: 88px; }
 /* skip link לוגי ולא פיזי */
 .skip-link { right: auto; inset-inline-start: var(--space-2); }
 main:focus { outline: none; }
+
+/* ============================================================
+   רספונסיביות (9.8.2026)
+   קודם היו באתר כולו שני breakpoints, ואחד מהם היה לרצועת "עליי".
+   ============================================================ */
+
+/* ---------- מובייל ---------- */
+@media (max-width: 720px) {
+  /* הניווט גלש: לוגו וארבעה קישורים הגיעו ל-385 מתוך 390 זמינים */
+  .site-header .container { flex-wrap: wrap; gap: var(--space-1); padding-block: var(--space-1-5); }
+  .site-nav { width: 100%; gap: var(--space-2); font-size: var(--fs-small); }
+  .container { padding-inline: var(--space-2); }
+  .hero { padding-block: var(--space-4) var(--space-4); }
+  .site-footer .container { flex-direction: column; align-items: flex-start; gap: var(--space-1); }
+}
+
+@media (max-width: 620px) {
+  .meta-card { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------- מידה אחידה לטקסט רץ ----------
+   קודם היו שלושה רוחבים שונים בעמוד אחד (1080, 739, 638), ומידה של
+   כ-84 תווים לשורה. שאר האתר כבר עבד ב-62ch עד 66ch. */
+.case-body { max-width: var(--measure); }
+.case-hero .summary { max-width: var(--measure); }
+.case-hero > .container > h1,
+.case-hero .meta-card { max-width: var(--measure); }
+
+/* ---------- תמונות ----------
+   figure מחוץ ל-.case-body קיבל את ברירת המחדל של הדפדפן, margin
+   של 40 פיקסלים מכל צד, ובמובייל זה גזל 80 מתוך 342 זמינים. */
+figure { margin: var(--space-3) 0; }
+figcaption { font-size: var(--fs-small); color: var(--color-muted); margin-top: var(--space-1); line-height: 1.55; }
+
+/* התמונה הרחבה פורצת את מידת השורה במקום להידחס לתוכה */
+.case-body figure.wide,
+.case-hero figure.wide {
+  width: min(1160px, calc(100vw - 2 * var(--space-3)));
+  max-width: none;
+  margin-inline: calc(50% - min(580px, 50vw - var(--space-3)));
+}
+@media (max-width: 720px) {
+  .case-body figure.wide, .case-hero figure.wide { width: auto; margin-inline: 0; }
+}
+
+/* ---------- דסקטופ ---------- */
+@media (min-width: 900px) {
+  /* פרויקט יחיד: הכרטיס עצמו הופך לדו-טורי, ולא הרשת. קודם auto-fit
+     כיווץ את הטורים הריקים והכרטיס נמתח ל-1032 פיקסלים, כך שתמונה
+     בגובה 645 ישבה מעל פסקה קטנה ושתי תגיות. */
+  .projects-grid:has(> :only-child) { grid-template-columns: 1fr; }
+  .projects-grid:has(> :only-child) .project-card { flex-direction: row; align-items: stretch; }
+  .projects-grid:has(> :only-child) .project-card img { width: 54%; aspect-ratio: auto; object-fit: cover; }
+  .projects-grid:has(> :only-child) .project-card .card-body { flex: 1; justify-content: center; padding: var(--space-4); }
+  .projects-grid:has(> :only-child) .project-card h3 { font-size: var(--fs-h3); }
+
+  /* אורך שורה ברצועת "עליי" */
+  .about-strip .container { grid-template-columns: 130px minmax(0, 62ch); justify-content: start; }
+}
+
+/* דפדפן בלי :has מקבל לפחות רוחב מוגבל, כדי שהכרטיס לא יימתח */
+@supports not selector(:has(*)) {
+  @media (min-width: 900px) { .projects-grid { grid-template-columns: repeat(auto-fill, minmax(290px, 380px)); } }
+}

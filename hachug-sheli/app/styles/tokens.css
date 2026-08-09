@@ -2,34 +2,211 @@
    tokens.css - החוג שלי · השפה העיצובית
    נגזר מהפרסונות: דנה ונועם (הורים) צריכים אמון ורוגע (teal),
    הילדים והאנרגיה מקבלים accent חם אחד (amber). נימוקים בקייס.
+
+   כלל אחד: שום ערך צבע, גודל או צל לא נכתב ישירות ב-app.css.
+   כל מה שמופיע כאן קיים גם בבהיר וגם בכהה.
    ============================================================ */
 :root {
-  /* צבע */
+  color-scheme: light;
+
+  /* ---------- צבע: משפחת המותג ---------- */
   --color-primary: #0F766E;          /* teal: אמון, רוגע, "אפשר לסמוך" */
   --color-primary-dark: #0B5A54;
   --color-primary-soft: #E6F4F2;
-  --color-accent: #F59E0B;           /* amber: אנרגיית ילדים, נקודות וואו בלבד */
+  --color-primary-ink: #0B5A54;      /* טקסט המותג על רקע soft */
+
+  /* טקסט שיושב על גבי המותג. נגזר ידנית בעבר כ-#C9E7E3 ו-#9FCFC9,
+     ושניהם נפלו מתחת ל-4.5:1. הערכים כאן נמדדו מול #0F766E. */
+  --color-on-primary: #FFFFFF;
+  --color-on-primary-dim: #DFF0ED;   /* 5.10:1 על teal */
+  --color-on-primary-faint: #C6E5E0; /* 4.55:1 על teal, לטקסט משני בלבד */
+
+  /* טקסט על גבי הבאנר והגרדיאנט. הבאנר כהה בשני המצבים, ולכן הטקסט
+     כאן נשאר בהיר תמיד, בניגוד ל---color-on-primary שיושב על מילוי
+     --color-primary ומתהפך במצב כהה. */
+  --color-on-brand: #FFFFFF;
+  --color-on-brand-dim: #DFF0ED;
+  --color-on-brand-faint: #C6E5E0;
+
+  /* שכבות שיושבות על גבי הבאנר הטיל. הן נשארות לבנות גם במצב כהה,
+     כי הבאנר עצמו כהה בשני המצבים. */
+  --on-brand-fill: rgba(0, 0, 0, 0.16);
+  --on-brand-fill-2: rgba(0, 0, 0, 0.22);
+  --on-brand-line: rgba(255, 255, 255, 0.36);
+  --on-brand-ring: rgba(255, 255, 255, 0.9);
+
+  /* ---------- צבע: accent חם ---------- */
+  --color-accent: #F59E0B;           /* amber: 2.15:1 על לבן, לעולם לא כטקסט */
   --color-accent-soft: #FEF3C7;
+  --color-accent-ink: #92600A;       /* טקסט amber על רקע בהיר */
+  --color-accent-on: #3B2A05;        /* טקסט על גבי amber מלא */
+
+  /* ---------- צבע: משטחים ---------- */
   --color-bg: #F7FAF9;
   --color-surface: #FFFFFF;
+  --color-surface-2: #F1F6F5;
+  --color-border: #E3EBEA;
+  --color-border-strong: #B7C9C7;    /* 3:1 מול הרקע, לגבולות שנושאים משמעות */
   --color-text: #17252A;
   --color-muted: #5B6B6E;
-  --color-border: #E3EBEA;
-  --color-success: #16A34A;          /* "נותרו מקומות" */
-  --color-danger: #DC2626;           /* "כמעט מלא" */
 
-  /* טיפוגרפיה */
+  /* ---------- צבע: מצבים ---------- */
+  --color-success: #0F7A38;
+  --color-success-soft: #E8F7EE;
+  --color-warn: #B45309;
+  --color-warn-soft: #FEF3C7;
+  --color-danger: #DC2626;
+  --color-danger-ink: #B91C1C;
+  --color-danger-soft: #FDECEC;
+
+  /* גוני מפה ותוספות */
+  --color-map-bg: #DFF0EC;
+  --color-map-road: #FFFFFF;
+  --color-scrim: rgba(23, 37, 42, 0.42);
+
+  /* ---------- טיפוגרפיה ---------- */
   --font-main: 'Heebo', 'Segoe UI', Arial, sans-serif;
-  --fs-h1: 1.5rem;
-  --fs-h2: 1.15rem;
-  --fs-body: 0.95rem;
-  --fs-small: 0.8rem;
+  --font-num: 'Heebo', 'Segoe UI', Arial, sans-serif;
 
-  /* צורה וריווח */
+  /* סקאלה מלאה. קודם היו כאן ארבעה גדלים, ובפועל app.css השתמש
+     בשנים עשר גדלים קשיחים שלא הופיעו בשום מקום. */
+  --fs-2xs: 0.68rem;
+  --fs-xs: 0.72rem;
+  --fs-sm: 0.8rem;
+  --fs-md: 0.95rem;
+  --fs-lg: 1.15rem;
+  --fs-xl: 1.35rem;
+  --fs-2xl: 1.5rem;
+
+  /* שמות ישנים, נשמרים כדי לא לשבור כלום */
+  --fs-h1: var(--fs-2xl);
+  --fs-h2: var(--fs-lg);
+  --fs-body: var(--fs-md);
+  --fs-small: var(--fs-sm);
+
+  /* ---------- צורה, ריווח, גובה ---------- */
   --radius: 16px;
   --radius-small: 10px;
+  --radius-pill: 999px;
   --space-1: 0.5rem;
   --space-2: 1rem;
   --space-3: 1.5rem;
-  --shadow-card: 0 2px 10px rgba(15, 118, 110, 0.08);
+  --space-4: 2.25rem;
+
+  --elev-1: 0 1px 3px rgba(15, 118, 110, 0.07);
+  --elev-2: 0 2px 10px rgba(15, 118, 110, 0.08);
+  --elev-3: 0 10px 28px rgba(15, 118, 110, 0.16);
+  --shadow-card: var(--elev-2);
+
+  /* ---------- מעטפת ופריסה ---------- */
+  --shell: 430px;      /* רוחב המסך במובייל */
+  --rail: 248px;       /* רוחב הריל בדסקטופ */
+  --band: 1240px;      /* רוחב רצועת התוכן */
+  --gut: 28px;
+  --tap: 44px;         /* יעד מגע מינימלי */
+  --hdr: 64px;         /* גובה ה-appbar, לחישוב sticky */
+
+  --grad-brand: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+}
+
+/* ============================================================
+   מצב כהה. זו גם ההוכחה שמערכת הטוקנים באמת מחזיקה את המוצר:
+   אף קובץ מלבד הקובץ הזה לא משתנה.
+   הכהה נכנס אוטומטית לפי העדפת המערכת, ואפשר לכפות ידנית עם
+   data-theme על <html>.
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    --color-primary: #3FBFB1;
+    --color-primary-dark: #2A9A8E;
+    --color-primary-soft: #123B37;
+    --color-primary-ink: #8FE3D8;
+
+    --color-on-primary: #04211F;
+    --color-on-primary-dim: #0A2B28;
+    --color-on-primary-faint: #114540;
+
+    --color-accent: #F0B357;
+    --color-accent-soft: #3A2C0C;
+    --color-accent-ink: #F3C670;
+    --color-accent-on: #2A1D03;
+
+    --color-bg: #101617;
+    --color-surface: #161E20;
+    --color-surface-2: #1D2729;
+    --color-border: #263234;
+    --color-border-strong: #46595B;
+    --color-text: #EAF1F0;
+    --color-muted: #9DB0B2;
+
+    --color-success: #4ADE80;
+    --color-success-soft: #10301F;
+    --color-warn: #F3C670;
+    --color-warn-soft: #3A2C0C;
+    --color-danger: #F87171;
+    --color-danger-ink: #FCA5A5;
+    --color-danger-soft: #3A1A1A;
+
+    --color-map-bg: #16302D;
+    --color-map-road: #0C1516;
+    --color-scrim: rgba(0, 0, 0, 0.55);
+
+    --elev-1: 0 1px 3px rgba(0, 0, 0, 0.5);
+    --elev-2: 0 2px 12px rgba(0, 0, 0, 0.45);
+    --elev-3: 0 12px 30px rgba(0, 0, 0, 0.55);
+
+    --grad-brand: linear-gradient(135deg, #14514B 0%, #0B3330 100%);
+  }
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-primary: #3FBFB1;
+  --color-primary-dark: #2A9A8E;
+  --color-primary-soft: #123B37;
+  --color-primary-ink: #8FE3D8;
+
+  --color-on-primary: #04211F;
+  --color-on-primary-dim: #0A2B28;
+  --color-on-primary-faint: #114540;
+
+  --color-accent: #F0B357;
+  --color-accent-soft: #3A2C0C;
+  --color-accent-ink: #F3C670;
+  --color-accent-on: #2A1D03;
+
+  --color-bg: #101617;
+  --color-surface: #161E20;
+  --color-surface-2: #1D2729;
+  --color-border: #263234;
+  --color-border-strong: #46595B;
+  --color-text: #EAF1F0;
+  --color-muted: #9DB0B2;
+
+  --color-success: #4ADE80;
+  --color-success-soft: #10301F;
+  --color-warn: #F3C670;
+  --color-warn-soft: #3A2C0C;
+  --color-danger: #F87171;
+  --color-danger-ink: #FCA5A5;
+  --color-danger-soft: #3A1A1A;
+
+  --color-map-bg: #16302D;
+  --color-map-road: #0C1516;
+  --color-scrim: rgba(0, 0, 0, 0.55);
+
+  --elev-1: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --elev-2: 0 2px 12px rgba(0, 0, 0, 0.45);
+  --elev-3: 0 12px 30px rgba(0, 0, 0, 0.55);
+
+  --grad-brand: linear-gradient(135deg, #14514B 0%, #0B3330 100%);
+}
+
+/* ספרות טבלאיות לכל מספר שמופיע ברשימה אנכית: מחירים, שעות, סכומים */
+.num, .price, .summary-row span, .stat b, .capacity p, .facts span {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
 }

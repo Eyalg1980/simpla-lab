@@ -2,29 +2,64 @@
    tokens.css - השפה העיצובית של האתר. זה הקובץ שמחליפים!
    ערכת ברירת המחדל ניטרלית בכוונה. החליפו בערכים מהפרויקט שלכם
    (או הריצו את סקיל 06 על רפרנס ועדכנו כאן).
+
+   שמות התפקידים כאן זהים לאלה של app/styles/tokens.css:
+   --color-primary הוא צבע המותג בשני הקבצים, ו---color-accent הוא
+   תמיד צבע ההדגשה החם. קודם אותו שם החזיק שני תפקידים שונים בשתי
+   המערכות, וזה היה שובר את ההעברה לפיגמה.
    ============================================================ */
 :root {
-  /* צבע */
+  color-scheme: light;
+
+  /* צבע: המותג */
+  --color-primary: #0F766E;          /* הצבע שלכם. אחד. חזק. */
+  --color-primary-ink: #0B5A54;
+  --color-primary-soft: #E6F4F2;
+  --color-on-primary: #FFFFFF;
+
+  /* צבע: הדגשה חמה, לשימוש נדיר */
+  --color-accent-warm: #F59E0B;
+  --color-accent-warm-ink: #92600A;
+  --color-accent-warm-soft: #FEF3C7;
+
+  /* צבע: משטחים */
   --color-bg: #FAFAF8;
   --color-surface: #FFFFFF;
+  --color-surface-2: #F1F1EE;
   --color-text: #1A1A1A;
-  --color-muted: #6B6B6B;
+  --color-muted: #5C5C5C;            /* 7.0:1 על הרקע. היה #6B6B6B */
   --color-border: #E8E6E1;
-  --color-accent: #0F766E;          /* הצבע שלכם. אחד. חזק. */
-  --color-accent-contrast: #FFFFFF; /* טקסט על גבי accent */
-  --color-accent-soft: #E6F4F2;     /* רקע עדין נגזר מה-accent */
+  --color-border-strong: #B5B1A8;    /* 3:1, לגבולות שנושאים משמעות */
+
+  /* צבע: מצבים */
+  --color-danger: #B91C1C;
+  --color-danger-ink: #7F1D1D;
+  --color-danger-soft: #FDECEC;
+  --color-danger-border: #F3C4C4;
+  --color-success: #0F7A38;
+
+  /* שמות תאימות לאחור. כל הקוד הקיים משתמש ב---color-accent
+     כצבע המותג, ולכן הוא ממופה אליו ולא נמחק. */
+  --color-accent: var(--color-primary);
+  --color-accent-contrast: var(--color-on-primary);
+  --color-accent-soft: var(--color-primary-soft);
 
   /* טיפוגרפיה */
   --font-main: 'Heebo', 'Segoe UI', Arial, sans-serif;
   --fs-hero: clamp(2.2rem, 6vw, 3.6rem);
   --fs-h2: clamp(1.5rem, 3.5vw, 2.1rem);
-  --fs-h3: 1.25rem;
+  --fs-h3: clamp(1.3rem, 2.4vw, 1.65rem);
+  --fs-lede: clamp(1.05rem, 1.6vw, 1.25rem);
+  --fs-h4: 1.05rem;
   --fs-body: 1.05rem;
   --fs-small: 0.9rem;
+  --fs-tiny: 0.78rem;
   --lh-body: 1.7;
 
   /* ריווח */
+  --space-0: 0.25rem;
   --space-1: 0.5rem;
+  --space-1-5: 0.75rem;
   --space-2: 1rem;
   --space-3: 1.5rem;
   --space-4: 2.5rem;
@@ -39,5 +74,76 @@
 
   /* פריסה */
   --max-width: 1080px;
+  --measure: 68ch;                   /* מידת שורה אחידה לכל טקסט רץ */
   --grid-gap: var(--space-3);
+  --tap: 44px;
+  --hdr: 88px;                       /* גובה ה-header הדביק, לעוגנים */
+}
+
+@media (min-width: 1200px) {
+  :root { --max-width: 1200px; }
+}
+
+/* ============================================================
+   מצב כהה. הקובץ הזה הוא הקובץ היחיד שמשתנה, וזו בדיוק ההוכחה
+   לטענה שהקייס סטאדי מעלה: "קובץ אחד שמחזיק את כל השפה".
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --color-primary: #4FD1C5;
+    --color-primary-ink: #8FE3D8;
+    --color-primary-soft: #123B37;
+    --color-on-primary: #06231F;
+
+    --color-accent-warm: #F0B357;
+    --color-accent-warm-ink: #F3C670;
+    --color-accent-warm-soft: #3A2C0C;
+
+    --color-bg: #14171A;
+    --color-surface: #1C2024;
+    --color-surface-2: #23282D;
+    --color-text: #F2F2F0;
+    --color-muted: #A9A9A2;
+    --color-border: #2E3439;
+    --color-border-strong: #4A5257;
+
+    --color-danger: #F87171;
+    --color-danger-ink: #FCA5A5;
+    --color-danger-soft: #3A1A1A;
+    --color-danger-border: #5C2A2A;
+    --color-success: #4ADE80;
+
+    --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.45);
+    --shadow-card-hover: 0 10px 28px rgba(0, 0, 0, 0.55);
+  }
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --color-primary: #4FD1C5;
+  --color-primary-ink: #8FE3D8;
+  --color-primary-soft: #123B37;
+  --color-on-primary: #06231F;
+
+  --color-accent-warm: #F0B357;
+  --color-accent-warm-ink: #F3C670;
+  --color-accent-warm-soft: #3A2C0C;
+
+  --color-bg: #14171A;
+  --color-surface: #1C2024;
+  --color-surface-2: #23282D;
+  --color-text: #F2F2F0;
+  --color-muted: #A9A9A2;
+  --color-border: #2E3439;
+  --color-border-strong: #4A5257;
+
+  --color-danger: #F87171;
+  --color-danger-ink: #FCA5A5;
+  --color-danger-soft: #3A1A1A;
+  --color-danger-border: #5C2A2A;
+  --color-success: #4ADE80;
+
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.45);
+  --shadow-card-hover: 0 10px 28px rgba(0, 0, 0, 0.55);
 }

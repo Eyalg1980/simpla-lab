@@ -29,14 +29,14 @@
     }
     .diff-table thead th { font-size: 0.85rem; letter-spacing: 0.04em; color: var(--color-muted); font-weight: 500; border-bottom-width: 2px; }
     .diff-table th[scope="row"] { font-weight: 700; width: 22%; }
-    .col-bad { background: #FDF2F2; }
+    .col-bad { background: var(--color-danger-soft); }
     .col-good { background: var(--color-accent-soft); }
-    .diff-table td.col-bad { color: #7f1d1d; }
+    .diff-table td.col-bad { color: var(--color-danger-ink); }
     .tag-bad, .tag-good {
       display: inline-block; font-size: 0.78rem; font-weight: 700;
       padding: 3px 10px; border-radius: 999px; margin-bottom: 6px;
     }
-    .tag-bad { background: #FDECEC; color: #B91C1C; border: 1px dashed #DC2626; }
+    .tag-bad { background: var(--color-danger-soft); color: var(--color-danger); border: 1px dashed var(--color-danger); }
     .tag-good { background: var(--color-accent); color: var(--color-accent-contrast); }
 
     .frames { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-top: var(--space-4); }
@@ -46,7 +46,7 @@
       gap: var(--space-2); padding: 10px 14px; border-radius: var(--radius-small) var(--radius-small) 0 0;
       font-weight: 700; font-size: 0.95rem;
     }
-    .frame-label.bad { background: #FDECEC; color: #B91C1C; border: 1px solid #F3C4C4; border-bottom: none; }
+    .frame-label.bad { background: var(--color-danger-soft); color: var(--color-danger); border: 1px solid var(--color-danger-border); border-bottom: none; }
     .frame-label.good { background: var(--color-accent); color: var(--color-accent-contrast); border: 1px solid var(--color-accent); border-bottom: none; }
     .frame-label a { font-size: 0.82rem; font-weight: 500; text-decoration: underline; color: inherit; }
     .frame-col iframe {
@@ -55,6 +55,14 @@
     }
     .frame-hint { font-size: var(--fs-small); color: var(--color-muted); margin: 10px 0 0; }
 
+
+    /* במובייל מסגרת מוטמעת היא מלכודת גלילה מקוננת, ולכן היא יורדת
+       ובמקומה נשאר קישור פתיחה בלשונית */
+    @media (max-width: 900px) {
+      .frame-col iframe { display: none; }
+      .frame-col .frame-open { display: inline-flex; }
+    }
+    .frame-open { display: none; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; }
     @media (max-width: 900px) {
       .frames { grid-template-columns: 1fr; }
       .frame-col iframe { height: 60vh; }
@@ -71,10 +79,10 @@
         margin-bottom: var(--space-2); overflow: hidden;
       }
       .diff-table th, .diff-table td { border-bottom: none; padding: 12px 14px; }
-      .diff-table th[scope="row"] { background: #F1F1EE; font-size: 1.02rem; }
+      .diff-table th[scope="row"] { background: var(--color-surface-2); font-size: 1.02rem; }
       .diff-table td.col-bad::before {
         content: "הגרסה החלשה"; display: block; font-weight: 700;
-        font-size: 0.74rem; margin-bottom: 5px; color: #B91C1C;
+        font-size: 0.74rem; margin-bottom: 5px; color: var(--color-danger);
       }
       .diff-table td.col-good::before {
         content: "הגרסה החזקה"; display: block; font-weight: 700;
@@ -84,7 +92,7 @@
   </style>
 
   <script>document.documentElement.classList.add('js')</script>
-  <meta name="color-scheme" content="light" />
+  <meta name="color-scheme" content="light dark" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
   <link rel="canonical" href="https://eyalg1980.github.io/simpla-lab/hachug-sheli/case-studies/compare.html" />
   <meta property="og:type" content="article" />
@@ -174,17 +182,19 @@
             <span>הגרסה החלשה</span>
             <a href="hachug-sheli-bad.html" target="_blank" rel="noopener">פתיחה בלשונית</a>
           </div>
-          <iframe src="hachug-sheli-bad.html" title="הקייס סטאדי בגרסה החלשה"></iframe>
+          <iframe loading="lazy" sandbox="allow-same-origin allow-scripts" src="hachug-sheli-bad.html" title="הקייס סטאדי בגרסה החלשה"></iframe>
+          <a class="frame-open" href="hachug-sheli-bad.html" target="_blank" rel="noopener">פתיחת הגרסה החלשה בלשונית חדשה</a>
         </div>
         <div class="frame-col">
           <div class="frame-label good">
             <span>הגרסה החזקה</span>
             <a href="hachug-sheli.html" target="_blank" rel="noopener">פתיחה בלשונית</a>
           </div>
-          <iframe src="hachug-sheli.html" title="הקייס סטאדי בגרסה החזקה"></iframe>
+          <iframe loading="lazy" sandbox="allow-same-origin allow-scripts" src="hachug-sheli.html" title="הקייס סטאדי בגרסה החזקה"></iframe>
+          <a class="frame-open" href="hachug-sheli.html" target="_blank" rel="noopener">פתיחת הגרסה החזקה בלשונית חדשה</a>
         </div>
       </div>
-      <p class="frame-hint">אפשר לגלול כל צד בנפרד. להקרנה בכיתה עדיף מסך רחב, ובמובייל השניים יוצגו זה מתחת לזה.</p>
+      <p class="frame-hint">אפשר לגלול כל צד בנפרד. להקרנה בכיתה עדיף מסך רחב. במובייל המסגרות יורדות, כי מסגרת נגללת בתוך עמוד נגלל היא מלכודת, ובמקומן נשארים שני קישורי פתיחה.</p>
     </div>
   </main>
 
