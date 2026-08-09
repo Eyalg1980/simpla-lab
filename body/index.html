@@ -237,12 +237,37 @@ footer b{color:var(--burg);font-family:'Bellefair'}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease}
 .reveal.on{opacity:1;transform:none}
 
+/* ===== Build section ===== */
+.build-note{display:flex;align-items:center;gap:7px;margin-top:10px;padding:9px 13px;border:1.5px dashed var(--burg);border-radius:var(--radius);
+  background:rgba(122,31,43,.05);color:var(--ink);text-decoration:none;font-size:.87rem;line-height:1.45}
+.build-note b{color:var(--burg);font-family:'Bellefair';font-size:.95rem;white-space:nowrap}
+.build-note span{margin-inline-start:auto;color:var(--burg)}
+.build-note:hover{background:rgba(122,31,43,.1)}
+.build-systems{display:grid;gap:12px;margin-bottom:16px}
+.bsys{background:var(--parch);border:2px solid var(--ink);outline:1px solid rgba(122,31,43,.35);outline-offset:3px;border-radius:var(--radius);padding:16px}
+.bsys-organ{display:inline-block;font-family:'Bellefair';font-size:.95rem;color:var(--burg);border:1px solid var(--burg);border-radius:var(--radius);padding:2px 12px;margin-bottom:8px}
+.bsys h4{font-size:1.35rem;color:var(--ink);margin-bottom:4px}
+.bsys p{font-size:.9rem;color:var(--text)}
+.build-entities{text-align:center;font-family:'Bellefair';font-size:1.1rem;color:var(--ink);background:rgba(122,31,43,.06);
+  border:1.5px dashed var(--burg);border-radius:var(--radius);padding:12px 16px;margin-bottom:22px}
+.build-entities b{color:var(--burg)}
+.build-log h3{font-size:1.5rem;color:var(--ink);text-align:center;margin-bottom:14px}
+.build-table{width:100%;border-collapse:collapse;background:var(--parch);border:2px solid var(--ink);border-radius:var(--radius);overflow:hidden;font-size:.88rem}
+.build-table th{background:var(--ink);color:var(--parch);font-family:'Bellefair';font-weight:400;font-size:.95rem;padding:8px 10px;text-align:right}
+.build-table td{padding:8px 10px;border-bottom:1px solid rgba(46,58,72,.15);vertical-align:top}
+.build-table tr:last-child td{border-bottom:none}
+.build-table td:nth-child(2){color:var(--burg);font-family:'Bellefair';white-space:nowrap}
+.build-skin{margin-top:22px;background:var(--parch);border:2px solid var(--burg);border-radius:var(--radius);padding:16px 18px}
+.build-skin h4{font-family:'Bellefair';font-size:1.3rem;color:var(--burg);margin-bottom:6px}
+.build-skin p{font-size:.92rem;color:var(--text)}
+
 /* ===== Desktop ===== */
 @media(min-width:1024px){
   .wrap{max-width:1240px}
   .an-sticky{display:flex;flex-direction:column;align-items:center;background:var(--bg)}
   .an-stage{max-width:1180px;height:auto;aspect-ratio:16/8;margin-top:14px;border:2px solid var(--ink);border-radius:var(--radius)}
   .an-meter{top:auto;bottom:32%;left:7%;right:auto;text-align:left}
+  .build-systems{grid-template-columns:repeat(3,1fr);gap:16px}
   .an-meter b{font-size:3.8rem}
   .an-meter span{text-align:left}
   .hero-copy{position:static;background:none;padding:18px;max-width:820px}
@@ -276,6 +301,7 @@ footer b{color:var(--burg);font-family:'Bellefair'}
     </div>
     <nav class="nav-chips">
       <a href="#chapters">תשעת האיברים</a>
+      <a href="#build">מה בונים</a>
       <a href="#exercises">שולחן הניתוחים</a>
       <a href="#atlas">אטלס האיברים</a>
       <a href="#journal">יומן ההשתלות</a>
@@ -345,6 +371,7 @@ footer b{color:var(--burg);font-family:'Bellefair'}
               <li>שאלה מחוץ לתחום מקבלת סירוב מנומס, לא המצאה</li>
             </ul></div>
             <a class="world-link" href="../kitchen/"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg> עולם האימון: המטבח</a>
+            <a class="build-note" href="#build"><b>ההשתלה במערכת:</b> העוזר של העסק עונה בטון ובגבולות שהגדרתם <span>←</span></a>
           </div>
         </div>
       </div>
@@ -368,6 +395,7 @@ footer b{color:var(--burg);font-family:'Bellefair'}
               <li>אפשר למצוא כל פריט לפי מזהה אחד ברור</li>
             </ul></div>
             <a class="world-link" href="../goldmine/"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg> עולם האימון: מכרה הזהב</a>
+            <a class="build-note" href="#build"><b>ההשתלה במערכת:</b> ארבע טבלאות חיות: לקוחות, תורים, פריטים, משימות <span>←</span></a>
           </div>
         </div>
       </div>
@@ -391,6 +419,7 @@ footer b{color:var(--burg);font-family:'Bellefair'}
               <li>שאלה שאין עליה תשובה במאגר מקבלת "אין לי את זה", לא המצאה</li>
             </ul></div>
             <a class="world-link" href="../tik-rag/"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg> עולם האימון: תיק RAG</a>
+            <a class="build-note" href="#build"><b>ההשתלה במערכת:</b> העוזר עונה מתוך מסמכי העסק שלכם, עם מקור <span>←</span></a>
           </div>
         </div>
       </div>
@@ -414,6 +443,7 @@ footer b{color:var(--burg);font-family:'Bellefair'}
               <li>המפתח שמור בכספת, לא בקוד ולא בפרומפט</li>
             </ul></div>
             <a class="world-link" href="../switchboard/"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg> עולם האימון: המרכזייה</a>
+            <a class="build-note" href="#build"><b>ההשתלה במערכת:</b> טופס קליטת ליד שנוחת ישר בטבלת הלקוחות <span>←</span></a>
           </div>
         </div>
       </div>
@@ -437,6 +467,7 @@ footer b{color:var(--burg);font-family:'Bellefair'}
               <li>כשצעד נכשל, אתם יודעים על זה, היא לא נכשלת בשקט</li>
             </ul></div>
             <a class="world-link" href="../railway/"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg> עולם האימון: הרכבת</a>
+            <a class="build-note" href="#build"><b>ההשתלה במערכת:</b> תזכורת תור אוטומטית ומייל סיכום יומי לבעל העסק <span>←</span></a>
           </div>
         </div>
       </div>
@@ -460,6 +491,7 @@ footer b{color:var(--burg);font-family:'Bellefair'}
               <li>יש לו רק את הכלים שהוא צריך, ופעולה רגישה עוברת אישור אדם</li>
             </ul></div>
             <a class="world-link" href="../mission-team/"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg> עולם האימון: צוות המשימה</a>
+            <a class="build-note" href="#build"><b>ההשתלה במערכת:</b> סוכן שמנקד ליד חדש ומנתב אותו לטיפול <span>←</span></a>
           </div>
         </div>
       </div>
@@ -483,6 +515,7 @@ footer b{color:var(--burg);font-family:'Bellefair'}
               <li>עברתם על כל כפתור וטופס לפני שהראיתם למישהו</li>
             </ul></div>
             <a class="world-link" href="../architect/"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg> עולם האימון: האדריכל</a>
+            <a class="build-note" href="#build"><b>ההשתלה במערכת:</b> מסך פורטל חי ללקוח, מעל אותם נתונים בדיוק <span>←</span></a>
           </div>
         </div>
       </div>
@@ -506,6 +539,7 @@ footer b{color:var(--burg);font-family:'Bellefair'}
               <li>הבוט עמד בניסיון הזרקה בסיסי בלי למסור את הסחורה</li>
             </ul></div>
             <a class="world-link" href="../vault/"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg> עולם האימון: משמר הכספת</a>
+            <a class="build-note" href="#build"><b>ההשתלה במערכת:</b> סודות בכספת, הרשאות מינימום ומעקות לעוזר <span>←</span></a>
           </div>
         </div>
       </div>
@@ -529,10 +563,51 @@ footer b{color:var(--burg);font-family:'Bellefair'}
               <li>אתם יודעים לומר במספר אחד אם האימוץ גדל או קטן</li>
             </ul></div>
             <a class="world-link" href="../colony/"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg> עולם האימון: המושבה</a>
+            <a class="build-note" href="#build"><b>ההשתלה במערכת:</b> חלוץ אמיתי עובד עם המערכת, ואתם מודדים שימוש <span>←</span></a>
           </div>
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ===== What we actually build ===== -->
+<section id="build">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">המערכת עצמה</span>
+      <h2>מה בונים בפועל</h2>
+      <p>הגוף הוא לא משל. הוא <b>מערכת אחת לניהול עסק</b>, מיני-ERP שכל סטודנט בונה במו ידיו: לקוחות ולידים, תורים ותיאומים, מלאי ומשימות. שלוש היכולות שכל עסק צריך, בגוף אחד.</p>
+    </div>
+
+    <div class="build-systems reveal">
+      <div class="bsys"><span class="bsys-organ">🫀 מחזור הדם</span><h4>לקוחות ולידים</h4><p>קליטת ליד, ניקוד וניתוב, מעקב עד סגירה. זה ה-CRM של העסק.</p></div>
+      <div class="bsys"><span class="bsys-organ">⚡ מערכת העצבים</span><h4>תורים ותיאומים</h4><p>קביעת תור, תזכורות אוטומטיות, סיכום יומי. הפעולות שקורות לבד.</p></div>
+      <div class="bsys"><span class="bsys-organ">🌾 מערכת העיכול</span><h4>מלאי ומשימות</h4><p>פריטים, התראות חוסר, משימות צוות. מה שנכנס, מתעכל והופך לעבודה.</p></div>
+    </div>
+
+    <div class="build-entities reveal">הכול נשען על ארבע טבלאות בלבד: <b>לקוחות</b> · <b>תורים ופגישות</b> · <b>פריטים</b> · <b>משימות</b></div>
+
+    <div class="build-log reveal">
+      <h3>יומן הבנייה: אחרי כל מודול יש לכם יותר מערכת</h3>
+      <table class="build-table">
+        <tr><th>מודול</th><th>האיבר</th><th>מה נוסף למערכת</th></tr>
+        <tr><td>1 · פרומפטים</td><td>המוח</td><td>העוזר של העסק עונה בטון ובגבולות שהגדרתם</td></tr>
+        <tr><td>2 · דאטה</td><td>השלד</td><td>ארבע הטבלאות חיות ומקושרות</td></tr>
+        <tr><td>3 · RAG</td><td>הזיכרון</td><td>העוזר עונה מתוך מסמכי העסק, עם מקור</td></tr>
+        <tr><td>4 · API</td><td>הדם</td><td>טופס קליטת ליד שנוחת ישר בטבלת הלקוחות</td></tr>
+        <tr><td>5 · אוטומציות</td><td>העצבים</td><td>תזכורת תור אוטומטית ומייל סיכום יומי</td></tr>
+        <tr><td>6 · סוכנים</td><td>הידיים</td><td>סוכן שמנקד ליד חדש ומנתב אותו לטיפול</td></tr>
+        <tr><td>7 · Vibe Coding</td><td>תאי הגזע</td><td>מסך פורטל חי ללקוח, מעל אותם נתונים</td></tr>
+        <tr><td>8 · אבטחה</td><td>החיסון</td><td>סודות בכספת, הרשאות מינימום, מעקות</td></tr>
+        <tr><td>9 · הטמעה</td><td>הלב והנשימה</td><td>חלוץ אמיתי משתמש, ואתם מודדים</td></tr>
+      </table>
+    </div>
+
+    <div class="build-skin reveal">
+      <h4>העור שלכם</h4>
+      <p>המבנה זהה לכולם, הסיפור שלכם: משנים את שמות הישויות לעולם שלכם. קליניקה? "מטופלים" ו"טיפולים". סוכנות? "לידים" ו"קמפיינים". סטודיו? "תלמידים" ו"שיעורים". הבידול האמיתי מגיע בשלב הפיץ': לא מה בניתם, אלא איך אתם מציגים את זה בעולם העסקי שלכם.</p>
     </div>
   </div>
 </section>
@@ -752,7 +827,7 @@ window.addEventListener('resize',()=>heroTick());
 /* ===== Progress bar + nav ===== */
 const progressBar=document.getElementById('progressBar');
 const progressLabel=document.getElementById('progressLabel');
-const secIds=['chapters','exercises','atlas','journal'];
+const secIds=['chapters','build','exercises','atlas','journal'];
 const secNames={chapters:'שולחן האנטומיה',exercises:'שולחן הניתוחים',atlas:'אטלס האיברים',journal:'יומן ההשתלות'};
 const navLinks=[...document.querySelectorAll('.nav-chips a')];
 /* auto-scroll the nav so the active chip stays visible */
