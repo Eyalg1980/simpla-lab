@@ -25,7 +25,6 @@ body{margin:0;background:var(--bg);color:var(--tx);
   transition:background .2s,color .2s}
 .wrap{max-width:820px;margin:0 auto;padding:0 16px}
 
-/* app bar */
 .bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line);
   display:flex;align-items:center;gap:10px;padding:11px 16px}
 .bar .wm{font-family:Poppins;font-weight:600;font-size:13px;letter-spacing:.14em;color:var(--coral);flex:1}
@@ -34,28 +33,33 @@ body{margin:0;background:var(--bg);color:var(--tx);
 .ib:active{border-color:var(--coral)}
 svg{display:block}
 
-/* hero */
-.hero{padding:26px 0 8px}
+/* patient strip */
+.pt{margin-top:18px;border:1.5px dashed var(--coral);border-radius:16px;padding:13px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.pt .nm{font-size:19px;font-weight:600;line-height:1.3}
+.pt .nm small{display:block;font-size:11px;font-family:Poppins;letter-spacing:.16em;
+  color:var(--coral);font-weight:600;margin-bottom:2px}
+.pt .dt{font-family:Poppins;font-size:13px;color:var(--mut);text-align:left}
+.pt .dt b{display:block;color:var(--tx);font-weight:600;font-size:15px}
+
+.hero{padding:22px 0 8px}
 .lbl{font-family:Poppins;font-size:11px;letter-spacing:.2em;font-weight:600;color:var(--coral);text-transform:uppercase}
 h1{font-size:27px;line-height:1.25;font-weight:300;margin:8px 0 12px}
 h1 b{font-weight:700}
 .sub{color:var(--mut);font-size:14px;margin:0 0 16px}
-.facts{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:6px}
+.facts{display:flex;flex-wrap:wrap;gap:7px}
 .fact{border:1.5px dashed var(--line);border-radius:19px;padding:4px 12px;font-size:12px;color:var(--mut)}
 .fact.hot{border-color:var(--coral);color:var(--coral)}
 
-/* callout */
 .call{border:1.5px dashed var(--yellow);border-radius:16px;padding:14px 16px;margin:18px 0 6px;font-size:14px}
 .call b{color:var(--yellow);font-weight:600}
 html[data-t="light"] .call b{color:var(--navy);background:var(--yellow);padding:0 4px;border-radius:3px}
 
-/* progress */
 .prog{display:flex;align-items:center;gap:12px;margin:20px 0 12px}
 .pbar{flex:1;height:6px;border-radius:99px;background:var(--surf2);overflow:hidden}
 .pfill{height:100%;width:0;background:var(--coral);border-radius:99px;transition:width .25s}
 .pnum{font-family:Poppins;font-size:12px;color:var(--mut);white-space:nowrap}
 
-/* filters */
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 18px}
 .chip{border:1.5px dashed var(--line);border-radius:19px;padding:6px 13px;font-size:12.5px;
   color:var(--mut);background:transparent;cursor:pointer;font-family:inherit;font-weight:400}
@@ -63,12 +67,10 @@ html[data-t="light"] .call b{color:var(--navy);background:var(--yellow);padding:
 html[data-t="light"] .chip.on{color:var(--navy);background:rgba(255,233,74,.35);border-color:#E0C800}
 .chip .c{opacity:.6;font-family:Poppins;font-size:11px}
 
-/* groups */
 .grp{margin:26px 0 12px;display:flex;align-items:baseline;gap:10px}
 .grp h2{font-size:16px;font-weight:600;margin:0}
 .grp span{font-size:12px;color:var(--mut)}
 
-/* card */
 .q{background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:10px;
   display:flex;gap:12px;align-items:flex-start;transition:opacity .2s}
 .q.p1{border-right:3px solid var(--coral)}
@@ -86,35 +88,59 @@ html[data-t="light"] .chip.on{color:var(--navy);background:rgba(255,233,74,.35);
 .more{background:none;border:0;padding:4px 0 0;color:var(--mut);font-family:inherit;font-size:12.5px;
   cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 
-/* empty */
+/* term */
+.tm{border-bottom:1px dashed var(--yellow);cursor:pointer;color:inherit}
+.tm sup{color:var(--yellow);font-size:.72em;font-weight:700;margin-inline-start:1px}
+html[data-t="light"] .tm{border-bottom-color:#C9A800}
+html[data-t="light"] .tm sup{color:#B89600}
+
+/* sheet */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:60;display:none}
+.ov.on{display:block}
+.sheet{position:fixed;right:0;left:0;bottom:0;z-index:61;background:var(--surf);
+  border-top:2px solid var(--yellow);border-radius:20px 20px 0 0;padding:20px 18px 30px;
+  transform:translateY(102%);transition:transform .22s;max-height:70vh;overflow:auto}
+.sheet.on{transform:translateY(0)}
+.sheet h3{margin:0 0 6px;font-size:17px;font-weight:600}
+.sheet p{margin:0;font-size:14.5px;color:var(--mut);line-height:1.7}
+.sheet .x{position:absolute;left:16px;top:16px}
+@media(min-width:700px){.sheet{right:auto;left:50%;bottom:auto;top:50%;transform:translate(-50%,-46%) scale(.96);
+  opacity:0;width:460px;border-radius:20px;border:2px solid var(--yellow)}
+  .sheet.on{transform:translate(-50%,-50%) scale(1);opacity:1}}
+
 .empty{border:1.5px dashed var(--line);border-radius:16px;padding:34px 20px;text-align:center;color:var(--mut);font-size:14px}
 
-/* notes */
 textarea{width:100%;min-height:150px;background:var(--surf);color:var(--tx);border:1.5px dashed var(--line);
   border-radius:16px;padding:14px;font-family:inherit;font-size:14.5px;font-weight:300;resize:vertical}
 textarea:focus{outline:none;border-color:var(--coral)}
 .saved{font-size:11.5px;color:var(--mut);margin-top:6px;height:14px}
 
-/* table */
-.fold{margin-top:12px}
 table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:10px}
 th{background:var(--surf2);padding:9px 8px;text-align:right;font-weight:600;font-size:12px}
 td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--mut)}
 td:nth-child(2){color:var(--tx)}
 th:first-child,td:first-child{width:30px;font-family:Poppins}
 
-footer{margin:40px 0 0;padding-top:18px;border-top:1px solid var(--line);
+.gl{display:none;margin-top:10px}
+.gl.open{display:block}
+.gl dt{font-weight:600;font-size:14px;margin-top:12px}
+.gl dd{margin:2px 0 0;font-size:13.5px;color:var(--mut)}
+
+/* hope image */
+.hope{margin:44px 0 10px;text-align:center}
+.hope img{width:100%;max-width:560px;border-radius:20px;border:1.5px dashed var(--line);display:block;margin:0 auto}
+.hope p{font-size:14px;color:var(--mut);margin:14px auto 0;max-width:460px}
+.hope p b{color:var(--coral);font-weight:600}
+
+footer{margin:34px 0 0;padding-top:18px;border-top:1px solid var(--line);
   font-size:11.5px;color:var(--mut);text-align:center;line-height:1.8}
 
-@media(min-width:1024px){
-  .wrap{max-width:900px}
-  h1{font-size:34px}
-}
+@media(min-width:1024px){ .wrap{max-width:900px} h1{font-size:34px} }
 @media print{
-  .bar,.chips,.prog,.more,.ib{display:none}
+  .bar,.chips,.prog,.more,.ib,.ov,.sheet{display:none}
   body{background:#fff;color:#000;padding:0}
   .q,.why{background:#fff;border-color:#ccc}
-  .why{display:block !important}
+  .why,.gl{display:block !important}
 }
 </style>
 </head>
@@ -126,11 +152,16 @@ footer{margin:40px 0 0;padding-top:18px;border-top:1px solid var(--line);
     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
   </button>
   <button class="ib" id="btnTheme" title="מצב תצוגה">
-    <svg id="icoT" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg id="icoT" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></svg>
   </button>
 </div>
 
 <div class="wrap">
+
+<div class="pt">
+  <div class="nm"><small>PATIENT / מטופל</small>רמי גרשון</div>
+  <div class="dt">שיחת שחרור<b id="today">9.8.2026</b></div>
+</div>
 
 <div class="hero">
   <div class="lbl">Discharge</div>
@@ -149,6 +180,7 @@ footer{margin:40px 0 0;padding-top:18px;border-top:1px solid var(--line);
 <div class="call">
   <b>פתח ככה:</b> ״יש לי כמה שאלות קריטיות, אפשר לעבור עליהן לפני שאתה חותם על השחרור?״ —
   ובקש שהתשובות המהותיות ייכנסו למכתב השחרור. מה שלא כתוב שם לא קיים מול קופת החולים ומול כל רופא בהמשך. אל תצא בלי עותק ביד.
+  <br><span style="color:var(--mut);font-size:13px">מילה עם <b style="font-size:11px">*</b> — לחיצה עליה פותחת הסבר קצר.</span>
 </div>
 
 <div class="prog">
@@ -163,42 +195,92 @@ footer{margin:40px 0 0;padding-top:18px;border-top:1px solid var(--line);
 <textarea id="notes" placeholder="רשום כאן את מה שהרופא אמר — במיוחד תאריכים, מינונים, שמות ומספרי טלפון..."></textarea>
 <div class="saved" id="saved"></div>
 
-<div class="fold">
-  <div class="grp"><h2>טבלת סיכום</h2></div>
-  <button class="more" id="tblBtn">+ הצג טבלה</button>
-  <div id="tblWrap" style="display:none"></div>
+<div class="grp"><h2>טבלת סיכום</h2></div>
+<button class="more" id="tblBtn">+ הצג טבלה</button>
+<div id="tblWrap" style="display:none"></div>
+
+<div class="grp"><h2>מילון מונחים</h2><span>כל המונחים במקום אחד</span></div>
+<button class="more" id="glBtn">+ הצג מילון</button>
+<dl class="gl" id="glWrap"></dl>
+
+<div class="hope">
+  <img src="img/hope.webp" alt="" loading="lazy">
+  <p>הלב הוא שריר. גם כשהוא נחלש — <b>לפעמים הוא לומד לחזור.</b><br>שאלות טובות היום הן חצי מהדרך לשם.</p>
 </div>
 
 <footer>
   כלי עזר לשיחה עם הצוות הרפואי — אינו ייעוץ רפואי ואינו מחליף את הרופא המטפל.<br>
   טיפ: קשה לזכור הכול ברגע. תרשום, או הקלט בהסכמה.<br>
-  <span style="opacity:.5">v1.0 · Simpla</span>
+  <span style="opacity:.5">v2.0 · Simpla</span>
 </footer>
 
 </div>
 
+<div class="ov" id="ov"></div>
+<div class="sheet" id="sheet">
+  <button class="ib x" id="sx"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <h3 id="shT"></h3>
+  <p id="shP"></p>
+</div>
+
 <script>
+var G = [
+ ["EF","EF (מקטע פליטה)","האחוז מכמות הדם שבחדר השמאלי שהלב פולט החוצה בכל פעימה. תקין הוא בערך 55%-70%. ערך של 20% אומר שהלב פולט חמישית בלבד, כלומר שריר הלב חלש משמעותית."],
+ ["תפוקת הלב","תפוקת לב","כמות הדם שהלב שולח לגוף בדקה. זה לא אותו דבר כמו EF: אפשר EF נמוך ובכל זאת תפוקה סבירה, אם הלב מפצה בקצב או בנפח."],
+ ["תפוקת לב","תפוקת לב","כמות הדם שהלב שולח לגוף בדקה. זה לא אותו דבר כמו EF: אפשר EF נמוך ובכל זאת תפוקה סבירה, אם הלב מפצה בקצב או בנפח."],
+ ["ICD","ICD — דפיברילטור מושתל","מכשיר קטן שמושתל מתחת לעור בחזה ומחובר בחוט ללב. הוא מנטר את הקצב כל הזמן, ואם מתפתחת הפרעת קצב מסכנת חיים הוא נותן שוק חשמלי שמחזיר את הלב לקצב תקין. זו הגנה מפני מוות לבבי פתאומי."],
+ ["אפוד דפיברילטור לביש","אפוד דפיברילטור לביש (LifeVest / WCD)","אפוד שנלבש על הגוף מתחת לבגדים, 24 שעות ביממה. הוא מנטר את קצב הלב, ואם מזהה הפרעת קצב מסוכנת הוא נותן שוק חשמלי אוטומטי. משמש כגשר זמני: כשעדיין לא ברור אם צריך דפיברילטור מושתל, או עד שמחליטים על השתלה."],
+ ["אבלציה","אבלציה (צריבה)","טיפול שבו מכניסים צנתר דרך כלי דם עד ללב, מאתרים את הנקודות שמייצרות את הפרעת הקצב, וצורבים אותן כדי לנטרל אותן."],
+ ["הולטר","הולטר","מכשיר הקלטה קטן שנצמד לגוף ומתעד את קצב הלב ברצף — בדרך כלל 24 עד 48 שעות, לפעמים כמה שבועות. המטרה היא לתפוס הפרעות קצב שלא מופיעות דווקא ברגע של בדיקה במרפאה."],
+ ["פרוגנוזה","פרוגנוזה","התחזית הרפואית: מה צפוי לקרות בהמשך, באיזה קצב ובאיזה סיכוי. זו הערכה סטטיסטית ולא גזירת גורל."],
+ ["כלילית","עורקים כליליים / מחלה כלילית","העורקים שמספקים דם לשריר הלב עצמו. חסימה או היצרות בהם נקראת מחלה כלילית, והיא אחת הסיבות השכיחות להיחלשות של שריר הלב."],
+ ["איסכמי","איסכמיה","מצב שבו רקמה, כאן שריר הלב, לא מקבלת מספיק דם וחמצן. ״בירור איסכמי״ = בדיקות שנועדו לגלות אם זה מה שקורה."],
+ ["קרדיומיופתיה","קרדיומיופתיה","מחלה של שריר הלב עצמו, שבה הוא נחלש, מתרחב או מתעבה. יש סוגים רבים, וחלקם הפיכים."],
+ ["טכיקרדיה","טכיקרדיה","קצב לב מהיר מדי, מעל 100 פעימות בדקה. כשזה נמשך לאורך זמן זה יכול בעצמו להחליש את שריר הלב."],
+ ["סטורציה","סטורציה","אחוז רוויית החמצן בדם, נמדד בדרך כלל בקליפס על האצבע. תקין בערך 95%-100%."],
+ ["קריאטינין","קריאטינין","חומר בדם שמשמש מדד לתפקוד הכליות. ערך גבוה מעיד שהכליות מסננות פחות טוב — לעיתים בגלל אספקת דם ירודה מהלב, ולכן ירידה בקריאטינין היא סימן מעודד."],
+ ["אשלגן","אשלגן","מינרל בדם שמשפיע ישירות על קצב הלב. חלק מתרופות אי-ספיקת הלב מעלות אותו, ולכן חובה לבדוק אותו בדם אחרי התחלת הטיפול."],
+ ["טיטרציה","טיטרציה","העלאה הדרגתית ומבוקרת של מינון תרופה, שלב אחרי שלב, עד למינון היעד — תוך מעקב אחרי לחץ דם, דופק ותפקוד כליות."],
+ ["פרפוזיה","פרפוזיה","אספקת הדם בפועל לרקמות ולאיברים. פרפוזיה ירודה מתבטאת בין היתר בבלבול, בעייפות קיצונית ובירידה בתפקוד הכליות."],
+ ["טלמטריה","טלמטריה","ניטור רציף של קצב הלב במהלך אשפוז, שמשודר למסך בעמדת האחיות."],
+ ["מבחן זילוח","מבחן זילוח","בדיקת דימות שבודקת אם יש אזור בשריר הלב שמקבל פחות דם, בעיקר במאמץ."],
+ ["צנתור","צנתור","הכנסת צינורית דקה דרך כלי דם, בדרך כלל במפשעה או ביד, עד ללב — לצורך בדיקה של העורקים או טיפול בהם."],
+ ["CT כלילי","CT כלילי","בדיקת דימות לא פולשנית שמצלמת את העורקים הכליליים בעזרת חומר ניגוד, בלי צנתור."],
+ ["ARNI","ARNI","קבוצת תרופות לאי-ספיקת לב (השם המסחרי הנפוץ אנטרסטו). מרחיבה כלי דם, מפחיתה את העומס על הלב ומשפרת הישרדות."],
+ ["ACE","ACE / ARB","תרופות שמרפות את כלי הדם, מורידות לחץ דם ומגנות על שריר הלב מפני הידרדרות."],
+ ["SGLT2","SGLT2","קבוצת תרופות (פורסיגה, ג׳רדיאנס) שפותחה לסוכרת ונמצאה כמשפרת משמעותית תוצאות באי-ספיקת לב, גם אצל מי שאינו סוכרתי."],
+ ["אלדוסטרון","אנטגוניסט אלדוסטרון (MRA)","תרופות כמו ספירונולקטון, שחוסמות הורמון הגורם לאגירת נוזלים ולצלקת בשריר הלב. דורשות מעקב אחרי אשלגן ותפקודי כליה."],
+ ["חוסם בטא","חוסם בטא","תרופה שמאטה את הדופק ומקטינה את העומס על הלב. אחת מאבני היסוד בטיפול באי-ספיקת לב."],
+ ["משתנים","משתנים","תרופות שמוציאות נוזלים עודפים דרך השתן ומקלות על קוצר נשימה ובצקות. פוסיד ודיסוטן הם שמות נפוצים בארץ."],
+ ["CRT","CRT — קוצב דו-חדרי","קוצב שמסנכרן את התכווצות שני חדרי הלב כשהם פועלים לא מתואם. יכול לשפר משמעותית את התפקוד ואת ה-EF."],
+ ["AED","AED","דפיברילטור חוץ-גופי אוטומטי — מכשיר החייאה נייד שמיועד לשימוש גם ללא הכשרה רפואית, ומדריך את המשתמש בקול."],
+ ["QT","מרווח QT","מקטע בא.ק.ג שמשקף את זמן ההתאוששות החשמלית של הלב. תרופות שמאריכות אותו עלולות לגרום להפרעת קצב מסוכנת."],
+ ["בצקות","בצקות","הצטברות נוזלים ברקמות, בעיקר בכפות הרגליים, בקרסוליים ובשוקיים. סימן מוקדם להחמרה באי-ספיקת לב."],
+ ["שיקום לב","שיקום לב","תוכנית מפוקחת של אימון גופני, הדרכה תזונתית וליווי אחרי אירוע לבבי. מוכחת כמשפרת תפקוד ותוחלת חיים."],
+ ["טלמטריה","טלמטריה","ניטור רציף של קצב הלב במהלך אשפוז."]
+];
+
 var Q = [
  {p:1,t:"מה הסיבה ל-EF 20% — האם זו קרדיומיופתיה שנגרמה מהפרעת הקצב עצמה?",
-  w:"זו <em>שאלת המפתח שממנה נגזר הכל</em>. אם הלב נחלש כי פעם לאורך זמן בקצב מהיר (Tachycardia-induced cardiomyopathy) — הוא לרוב מתאושש תוך שבועות עד חודשים אחרי אבלציה מוצלחת. אם הנזק מבני או איסכמי — סיפור אחר לגמרי. שאל במפורש: האם אתם מצפים שה-EF יעלה חזרה, ותוך כמה זמן?"},
- {p:1,t:"אם אין לו שום הגנה — מה מגן עליו בבית בחודשים הקרובים?",
-  w:"עם EF 20% יש סיכון מוגבר לאירוע קצב מסכן חיים. שאל ישירות: <em>האם אפוד דפיברילטור לביש (LifeVest / WCD) מתאים כגשר</em> עד שנדע אם ה-EF מתאושש. אם התשובה שלילית — בקש שיסבירו למה, ושזה יירשם."},
+  w:"זו <em>שאלת המפתח שממנה נגזר הכל</em>. אם הלב נחלש כי פעם לאורך זמן בקצב מהיר (טכיקרדיה ממושכת), הוא לרוב מתאושש תוך שבועות עד חודשים אחרי אבלציה מוצלחת. אם הנזק מבני או איסכמי — סיפור אחר לגמרי. שאל במפורש: האם אתם מצפים שה-EF יעלה חזרה, ותוך כמה זמן?"},
+ {p:1,t:"אם אין לו שום הגנה — מה מגן עליו בבית? האם מתאים לו אפוד דפיברילטור לביש?",
+  w:"עם EF של 20% יש סיכון מוגבר לאירוע קצב מסכן חיים, והוא יוצא הביתה בלי קוצב ובלי ICD. שאל ישירות: <em>האם אפוד דפיברילטור לביש (LifeVest) מתאים לו כגשר</em> עד שנדע אם ה-EF מתאושש, מי מממן אותו ואיך משיגים אותו. אם התשובה שלילית — בקש שיסבירו למה, ושהנימוק יירשם במכתב השחרור."},
  {p:1,t:"מתי בדיוק נקודת ההחלטה על ICD מושתל, ומי מקבל אותה?",
-  w:"הכלל המקובל: אם אחרי כ-3 חודשים של טיפול תרופתי אופטימלי ה-EF עדיין ≤35% — נשקל דפיברילטור מושתל. <em>בקש תאריך יעד לאקו חוזר ותור למרפאת הפרעות קצב שנקבעים היום</em>, לא ״תתקשרו לתאם״."},
+  w:"הכלל המקובל: אם אחרי כ-3 חודשים של טיפול תרופתי אופטימלי ה-EF עדיין 35% ומטה — נשקל דפיברילטור מושתל. <em>בקש תאריך יעד לאקו חוזר ותור למרפאת הפרעות קצב שנקבעים היום</em>, לא ״תתקשרו לתאם״."},
  {p:1,t:"האם האבלציה נחשבת מוצלחת, ומה הסיכוי להישנות?",
-  w:"שאל מה בדיוק נצרב, האם בסוף הפרוצדורה לא ניתן היה לעורר את ההפרעה, האם היו הפרעות קצב בימי ההשגחה, ומה שיעור ההישנות הצפוי. שאל גם אם נגרם נזק להולכה שעלול לחייב קוצב."},
+  w:"שאל מה בדיוק נצרב, האם בסוף הפרוצדורה כבר לא ניתן היה לעורר את ההפרעה, האם היו הפרעות קצב בימי ההשגחה בטלמטריה, ומה שיעור ההישנות הצפוי. שאל גם אם נגרם נזק להולכה שעלול לחייב קוצב."},
  {p:1,t:"האם נשללה סיבה כלילית (חסימה בעורקים) ל-EF הנמוך?",
   w:"EF 20% בלי בירור איסכמי זו פרצה. שאל אם בוצע צנתור, CT כלילי או מבחן זילוח — ואם לא, למה, ומתי כן."},
  {p:1,t:"האם השחרור מוקדם מדי? מה הקריטריון שאומר שהוא יציב מספיק לבית?",
-  w:"שאלה לגיטימית לחלוטין. אם אתה לא רגוע — תגיד את זה בפה מלא ובקש יום השגחה נוסף או טלמטריה. שאל: <em>מה אנחנו מרוויחים מהשחרור היום לעומת מחר?</em>"},
+  w:"שאלה לגיטימית לחלוטין. אם אתה לא רגוע — תגיד את זה בפה מלא ובקש יום השגחה נוסף או המשך טלמטריה. שאל: <em>מה אנחנו מרוויחים מהשחרור היום לעומת מחר?</em>"},
  {p:1,t:"השיפורים שראינו — קריאטינין, סטורציה, צלילות, דופק 65 — אומרים שתפוקת הלב באמת השתפרה?",
-  w:"EF ותפוקת לב אינם אותו דבר. אפשר EF נמוך עם תפוקה סבירה. שאל: <em>האם הפרפוזיה לאיברים תקינה עכשיו או על הגבול</em>, ומה הסימן הראשון שהיא מידרדרת בבית."},
+  w:"EF ותפוקת לב אינם אותו דבר. שאל: <em>האם הפרפוזיה לאיברים תקינה עכשיו או על הגבול</em>, ומה הסימן הראשון שהיא מידרדרת בבית."},
 
  {p:2,t:"האם הוא מקבל את כל ארבע קבוצות התרופות של אי-ספיקת לב?",
-  w:"הסטנדרט היום הוא ארבעה עמודים: חוסם בטא, מעכב ARNI/ACE/ARB, אנטגוניסט אלדוסטרון (ספירונולקטון או אפלרנון), ומעכב SGLT2 (פורסיגה או ג׳רדיאנס). <em>עבור עליהם אחד-אחד בשם</em>. אם חסרה קבוצה — למה, ומתי מתחילים."},
+  w:"הסטנדרט היום הוא ארבעה עמודים: חוסם בטא, מעכב ARNI או ACE, אנטגוניסט אלדוסטרון, ומעכב SGLT2. <em>עבור עליהם אחד-אחד בשם</em>. אם חסרה קבוצה — למה, ומתי מתחילים."},
  {p:2,t:"מי מעלה את המינונים ומתי?",
-  w:"רוב התרופות מתחילות נמוך וצריך לעלות בהדרגה. בקש <em>תוכנית טיטרציה כתובה</em> — מי אחראי, כל כמה זמן, ולפי איזה מדד (לחץ דם, דופק, תפקוד כליות)."},
- {p:2,t:"נוגדי קרישה — כמה זמן, ומה עושים אם יש דימום או צריך טיפול שיניים/ניתוח?",
+  w:"רוב התרופות מתחילות במינון נמוך וצריך לעלות בהדרגה. בקש <em>תוכנית טיטרציה כתובה</em> — מי אחראי, כל כמה זמן, ולפי איזה מדד."},
+ {p:2,t:"נוגדי קרישה — כמה זמן, ומה עושים אם יש דימום או צריך טיפול שיניים או ניתוח?",
   w:"אחרי אבלציה יש תקופה מוגדרת של נוגדי קרישה ולעיתים המשך קבוע. שאל גם מה עושים אם הוא נופל או מקבל מכה בראש."},
  {p:2,t:"משתנים (פוסיד/דיסוטן) — מינון קבוע או גמיש?",
   w:"בקש מרשם גמיש: כלל ברור מתי מותר להוסיף חצי כדור לפי משקל או בצקות, במקום להמתין לתור."},
@@ -210,7 +292,7 @@ var Q = [
  {p:3,t:"אקו לב חוזר — מתי, ואיפה מתאמים?",
   w:"זו הבדיקה שתקבע אם ה-EF מתאושש ואם צריך ICD. <em>בקש שייקבע היום עם תאריך.</em>"},
  {p:3,t:"בדיקות דם — מתי הראשונות אחרי השחרור?",
-  w:"עם ספירונולקטון ו-ARNI חייבים לבדוק קריאטינין ואשלגן תוך שבוע-שבועיים. שאל אילו בדיקות בדיוק ומי מקבל את התוצאות."},
+  w:"עם אלדוסטרון ו-ARNI חייבים לבדוק קריאטינין ואשלגן תוך שבוע-שבועיים. שאל אילו בדיקות בדיוק ומי מקבל את התוצאות."},
  {p:3,t:"האם צריך הולטר או ניטור קצב ביתי?",
   w:"גם כדי לוודא שההפרעה לא חזרה בשקט, וגם כדי לוודא שהדופק לא נמוך מדי מהתרופות."},
  {p:3,t:"מי הכתובת שלנו — שם, טלפון ישיר, שעות מענה?",
@@ -234,7 +316,7 @@ var Q = [
  {p:5,t:"האם הוא יכול להישאר לבד בבית?",
   w:"שאלה מעשית שקובעת איך מארגנים את המשפחה בשבועות הקרובים. שאל גם אם כדאי שהמשפחה תעבור קורס החייאה או תחזיק AED בבית."},
  {p:5,t:"אם ה-EF לא יתאושש — מה האופציות הבאות?",
-  w:"CRT (קוצב דו-חדרי), ICD, ובמקרים מתקדמים מרפאת אי-ספיקת לב מתקדמת. שאל אם כדאי כבר עכשיו הערכה במרפאה מתקדמת — <em>עדיף לשאול מוקדם מאשר בדיעבד</em>."},
+  w:"CRT, ICD, ובמקרים מתקדמים מרפאת אי-ספיקת לב מתקדמת. שאל אם כדאי כבר עכשיו הערכה במרפאה מתקדמת — <em>עדיף לשאול מוקדם מאשר בדיעבד</em>."},
  {p:5,t:"מה הפרוגנוזה הריאלית לחודשים הקרובים?",
   w:"אם אתה רוצה לדעת — שאל ישירות. וגם: מה הדבר האחד שאם נעשה אותו נכון ישפיע הכי הרבה?"}
 ];
@@ -249,7 +331,7 @@ var GRP = {
 
 var TBL = [
 "מה הסיבה ל-EF 20%|״כן, קרדיומיופתיה מטכיקרדיה, מצפים לשיפור תוך X שבועות״ — או הסבר למה לא",
-"מה ההגנה בבית? אפוד לביש|החלטה מנומקת, רשומה במכתב",
+"מה ההגנה בבית? אפוד דפיברילטור לביש|החלטה מנומקת, רשומה במכתב, כולל איך משיגים ומי מממן",
 "מתי מחליטים על ICD|תאריך אקו ותור למרפאת קצב שנקבעים היום",
 "האם האבלציה הצליחה|תיאור מה נצרב ואחוז הישנות מוערך",
 "האם נשללה סיבה כלילית|שם הבדיקה שבוצעה ותוצאתה",
@@ -277,19 +359,60 @@ var TBL = [
 "פרוגנוזה והדבר הכי משפיע|תשובה ישירה"
 ];
 
+/* ---- glossary index ---- */
+var GMAP = {};
+var GKEYS = [];
+(function(){
+  for(var i=0;i<G.length;i++){
+    var k = G[i][0];
+    if(!GMAP[k]){ GMAP[k] = [G[i][1], G[i][2]]; GKEYS.push(k); }
+  }
+  GKEYS.sort(function(a,b){ return b.length - a.length; });
+})();
+
+function isLetter(ch){
+  if(!ch) return false;
+  return /[֐-׿A-Za-z0-9]/.test(ch);
+}
+
+function annotate(str, used){
+  var parts = str.split(/(<[^>]+>)/);
+  for(var p=0;p<parts.length;p++){
+    if(parts[p].charAt(0) === "<") continue;
+    for(var g=0;g<GKEYS.length;g++){
+      var k = GKEYS[g];
+      if(used[k]) continue;
+      var pos = parts[p].indexOf(k);
+      if(pos === -1) continue;
+      var before = parts[p].charAt(pos - 1);
+      var after = parts[p].charAt(pos + k.length);
+      if(isLetter(before) || isLetter(after)) continue;
+      used[k] = 1;
+      parts[p] = parts[p].slice(0, pos) +
+        '<span class="tm" data-k="' + k + '">' + k + '<sup>*</sup></span>' +
+        parts[p].slice(pos + k.length);
+    }
+  }
+  return parts.join("");
+}
+
 var K = "cardioQ_v1";
 var S = {};
 try{ S = JSON.parse(localStorage.getItem(K) || "{}"); }catch(e){ S = {}; }
 function save(){ try{ localStorage.setItem(K, JSON.stringify(S)); }catch(e){} }
 
-var FK = "cardioF_v1";
+var FK = "cardioF_v2";
 var F = {};
 try{ F = JSON.parse(localStorage.getItem(FK) || "{}"); }catch(e){ F = {}; }
 var act = F.act || [];
 var open = F.open || {};
 function saveF(){ try{ localStorage.setItem(FK, JSON.stringify({act:act, open:open})); }catch(e){} }
 
-function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;"); }
+function isOpen(i){
+  var v = open["q" + i];
+  if(typeof v === "undefined") return Q[i].p === 1;
+  return !!v;
+}
 
 function render(){
   var list = document.getElementById("list");
@@ -305,15 +428,16 @@ function render(){
     for(var j=0;j<items.length;j++){
       var idx = items[j];
       var q = Q[idx];
+      var used = {};
       var done = S["q" + idx] ? " done" : "";
-      var isOpen = open["q" + idx] ? " open" : "";
+      var op = isOpen(idx) ? " open" : "";
       html += '<div class="q p' + q.p + done + '" id="card-q' + idx + '">' +
         '<button class="ck" data-ck="' + idx + '" aria-label="סמן"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></button>' +
         '<div class="qb">' +
           '<div class="qn">' + (idx + 1) + '</div>' +
-          '<div class="qt">' + q.t + '</div>' +
-          '<div class="why' + isOpen + '" id="why-q' + idx + '">' + q.w + '</div>' +
-          '<button class="more" data-more="' + idx + '">' + (isOpen ? "− סגור" : "+ למה זה חשוב") + '</button>' +
+          '<div class="qt">' + annotate(q.t, used) + '</div>' +
+          '<div class="why' + op + '" id="why-q' + idx + '">' + annotate(q.w, used) + '</div>' +
+          '<button class="more" data-more="' + idx + '">' + (op ? "− סגור" : "+ למה זה חשוב") + '</button>' +
         '</div></div>';
     }
   }
@@ -343,10 +467,25 @@ function chips(){
   c.innerHTML = html;
 }
 
+/* sheet */
+var ov = document.getElementById("ov"), sh = document.getElementById("sheet");
+function openSheet(k){
+  var d = GMAP[k];
+  if(!d) return;
+  document.getElementById("shT").textContent = d[0];
+  document.getElementById("shP").textContent = d[1];
+  ov.classList.add("on"); sh.classList.add("on");
+}
+function closeSheet(){ ov.classList.remove("on"); sh.classList.remove("on"); }
+ov.addEventListener("click", closeSheet);
+document.getElementById("sx").addEventListener("click", closeSheet);
+
 document.addEventListener("click", function(e){
-  var t = e.target.closest ? e.target.closest("[data-ck],[data-more],[data-f]") : null;
+  var t = e.target.closest ? e.target.closest("[data-ck],[data-more],[data-f],[data-k]") : null;
   if(!t) return;
-  if(t.hasAttribute("data-ck")){
+  if(t.hasAttribute("data-k")){
+    openSheet(t.getAttribute("data-k"));
+  } else if(t.hasAttribute("data-ck")){
     var i = t.getAttribute("data-ck");
     S["q" + i] = !S["q" + i];
     save();
@@ -365,14 +504,14 @@ document.addEventListener("click", function(e){
     var f = t.getAttribute("data-f");
     if(f === "all"){ act = []; }
     else {
-      var k = act.indexOf(f);
-      if(k > -1) act.splice(k,1); else act.push(f);
+      var kk = act.indexOf(f);
+      if(kk > -1) act.splice(kk,1); else act.push(f);
     }
     saveF(); chips(); render();
   }
 });
 
-// notes
+/* notes */
 var nt = document.getElementById("notes"), sv = document.getElementById("saved"), tmr;
 try{ nt.value = localStorage.getItem("cardioN_v1") || ""; }catch(e){}
 nt.addEventListener("input", function(){
@@ -384,7 +523,7 @@ nt.addEventListener("input", function(){
   }, 400);
 });
 
-// table
+/* table */
 var tb = document.getElementById("tblBtn"), tw = document.getElementById("tblWrap");
 tb.addEventListener("click", function(){
   if(tw.style.display === "none"){
@@ -400,7 +539,24 @@ tb.addEventListener("click", function(){
   } else { tw.style.display = "none"; tb.textContent = "+ הצג טבלה"; }
 });
 
-// theme
+/* glossary */
+var gb = document.getElementById("glBtn"), gw = document.getElementById("glWrap");
+gb.addEventListener("click", function(){
+  if(!gw.classList.contains("open")){
+    if(!gw.innerHTML){
+      var h = "", seen = {};
+      for(var i=0;i<G.length;i++){
+        if(seen[G[i][1]]) continue;
+        seen[G[i][1]] = 1;
+        h += "<dt>" + G[i][1] + "</dt><dd>" + G[i][2] + "</dd>";
+      }
+      gw.innerHTML = h;
+    }
+    gw.classList.add("open"); gb.textContent = "− סגור מילון";
+  } else { gw.classList.remove("open"); gb.textContent = "+ הצג מילון"; }
+});
+
+/* theme */
 var TK = "cardioT_v1";
 var th = "dark";
 try{ th = localStorage.getItem(TK) || "dark"; }catch(e){}
