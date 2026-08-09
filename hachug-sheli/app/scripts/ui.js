@@ -177,7 +177,55 @@
     });
   }
 
-  window.UI = { icon: icon, paint: paint, avatar: avatar, foldable: foldable, spots: spots, HAIR: HAIR };
+  /* ---------- 4. משוב: toast והכרזה לקורא מסך ----------
+     כל פעולה שמשנה מצב חייבת להיראות וגם להישמע. עד עכשיו רשימת
+     התוצאות נבנתה מחדש בכל שינוי בחירת ילד בלי ששום דבר הוכרז. */
+  var liveEl = null;
+  function live() {
+    if (liveEl) return liveEl;
+    liveEl = document.createElement('p');
+    liveEl.className = 'sr-only';
+    liveEl.setAttribute('role', 'status');
+    liveEl.setAttribute('aria-live', 'polite');
+    document.body.appendChild(liveEl);
+    return liveEl;
+  }
+  function announce(msg) { live().textContent = msg; }
+
+  var toastEl = null, toastT = null;
+  function toast(msg, opts) {
+    opts = opts || {};
+    if (!toastEl) {
+      toastEl = document.createElement('div');
+      toastEl.className = 'toast';
+      document.body.appendChild(toastEl);
+    }
+    toastEl.innerHTML = icon(opts.icon || 'check') + '<span>' + msg + '</span>' +
+      (opts.action ? '<button type="button" class="toast-act">' + opts.action + '</button>' : '');
+    toastEl.classList.add('on');
+    if (opts.action && opts.onAction) {
+      toastEl.querySelector('.toast-act').addEventListener('click', function () {
+        toastEl.classList.remove('on');
+        opts.onAction();
+      });
+    }
+    announce(msg);
+    clearTimeout(toastT);
+    toastT = setTimeout(function () { toastEl.classList.remove('on'); }, opts.ms || 3600);
+  }
+
+  /* ---------- 5. שלד טעינה ----------
+     הדאטה כאן סינכרונית, אבל מסך שמראה מה עומד להגיע במקום לקפוץ
+     מריק למלא הוא ההבדל בין דמו לבין מוצר. */
+  function skeleton(n, kind) {
+    var one = '<div class="skel skel-' + (kind || 'card') + '" aria-hidden="true"></div>';
+    return new Array((n || 3) + 1).join(one);
+  }
+
+  window.UI = {
+    icon: icon, paint: paint, avatar: avatar, foldable: foldable, spots: spots,
+    toast: toast, announce: announce, skeleton: skeleton, HAIR: HAIR
+  };
 
   document.addEventListener('DOMContentLoaded', function () { paint(); foldable(); });
   if (document.readyState !== 'loading') { paint(); foldable(); }

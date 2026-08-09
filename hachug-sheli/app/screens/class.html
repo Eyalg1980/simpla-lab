@@ -10,6 +10,8 @@
 <main class="screen">
 
   <section class="hero-block is-visible reveal">
+    <button type="button" class="savebtn hero-save" id="h-save" aria-pressed="false"
+            aria-label="שמירה לרשימת ההתלבטות"></button>
     <h1 id="h-name"></h1>
     <p id="h-sub"></p>
   </section>
@@ -90,6 +92,7 @@
 
 <script src="../data/classes.js"></script>
 <script src="../scripts/ui.js"></script>
+<script src="../scripts/store.js"></script>
 <script src="../scripts/kids.js"></script>
 <script src="../scripts/nav.js"></script>
 <script src="../scripts/appbar.js"></script>
@@ -98,8 +101,22 @@
 (function () {
   var D = window.APP_DATA;
   var id = new URLSearchParams(location.search).get('id');
-  var cls = window.Kids.classById(id) || D.classes[0];
+  var cls = window.Kids.classById(id);
   var $ = function (x) { return document.getElementById(x); };
+
+  /* כתובת עם id שלא קיים הציגה עד עכשיו חוג אחר בשקט. הורה שהגיע
+     מקישור ישן היה רואה מוצר שמדבר על חוג שהוא לא ביקש. */
+  function notFound(back) {
+    document.title = 'החוג שלי · החוג לא נמצא';
+    var main = document.querySelector('.screen');
+    main.innerHTML = '<div class="card empty is-visible reveal">' + window.UI.icon('alert') +
+      '<p class="empty-t">החוג הזה כבר לא זמין</p>' +
+      '<p class="empty-s">ייתכן שהקבוצה נסגרה או שהקישור ישן. הנה מה שיש עכשיו באזור.</p>' +
+      '<a class="btn" href="' + window.Kids.link(back) + '">לחיפוש חוגים</a></div>';
+    window.UI.announce('החוג המבוקש לא נמצא');
+  }
+
+  if (!cls) { notFound('home.html'); return; }
 
   /* ---- עובדות קבועות, כולן מתוך הטקסונומיה ---- */
   document.title = 'החוג שלי · ' + cls.name;
@@ -199,6 +216,27 @@
   // בלי mode, "הרשמה ישירה" הייתה מגיעה למסך שכתוב בו "לתשלום היום 0 ש"ח".
   $('cta-trial').setAttribute('href', window.Kids.link('checkout.html') + '&id=' + cls.id + '&mode=trial');
   $('cta-full').setAttribute('href', window.Kids.link('checkout.html') + '&id=' + cls.id + '&mode=full');
+
+  /* ---- שמירה ----
+     עד עכשיו היה במוצר טאב "שמורים" בלי שום דרך לשמור, והרשימה
+     הגיעה מלאה מראש בפריטים שהמשתמש לא יצר. */
+  function paintSave() {
+    var on = window.Store.isSaved(cls.id);
+    var b = $('h-save');
+    b.classList.toggle('on', on);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    b.setAttribute('aria-label', on ? 'הסרה מהשמורים' : 'שמירה לרשימת ההתלבטות');
+    b.innerHTML = window.UI.icon('heart');
+  }
+  $('h-save').addEventListener('click', function () {
+    var added = window.Store.toggleSave(cls.id, window.Kids.selected.map(function (k) { return k.id; }));
+    paintSave();
+    window.UI.toast(added ? 'נשמר לרשימת ההתלבטות' : 'הוסר מהשמורים',
+      { icon: added ? 'heart' : 'trash',
+        action: added ? 'הוספת סיבה' : null,
+        onAction: function () { location.href = window.Kids.link('saved.html') + '&edit=' + cls.id; } });
+  });
+  paintSave();
 
   /* ---- פעולות התיאום ---- */
   function say(msg) { var m = $('coord-msg'); m.textContent = msg; m.hidden = false; }

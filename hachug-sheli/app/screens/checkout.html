@@ -13,20 +13,22 @@
     <span class="loc" data-ic="check" id="c-step">שלב 2 מתוך 2 · פרטי הילד ותשלום</span>
   </header>
 
+  <!-- שורה לכל ילד מסומן. עד עכשיו כל המוצר היה בנוי סביב סימון של
+       שני ילדים, ואז ההרשמה לקחה בשקט את הראשון בלבד. -->
+  <section class="card is-visible reveal">
+    <h2 class="card-h">מי נרשם</h2>
+    <div id="kidrows"></div>
+    <p class="hint" id="kidhint"></p>
+  </section>
+
   <section class="card is-visible reveal">
     <div class="field">
-      <label for="kid">שם הילד/ה</label>
-      <input id="kid" type="text" value="" />
-    </div>
-    <div class="field">
-      <label for="age">גיל</label>
-      <select id="age"></select>
-    </div>
-    <div class="field">
       <label>מסלול</label>
-      <div class="plan">
-        <div class="opt selected">פעם בשבוע<br /><strong id="p1"></strong></div>
-        <div class="opt">פעמיים בשבוע<br /><strong id="p2"></strong></div>
+      <div class="plan" role="radiogroup" aria-label="מסלול">
+        <label class="opt"><input type="radio" name="plan" value="x1" checked />
+          <span class="opt-t">פעם בשבוע</span><strong id="p1"></strong></label>
+        <label class="opt"><input type="radio" name="plan" value="x2" />
+          <span class="opt-t">פעמיים בשבוע</span><strong id="p2"></strong></label>
       </div>
     </div>
   </section>
@@ -35,59 +37,205 @@
        הניסיון יורדת והסכום הוא המחיר האמיתי, אחרת המסך היה מבטיח אפס
        להורה שבחר במפורש לשלם. -->
   <section class="card summary-card is-visible reveal">
-    <div class="summary-row"><span id="s-label">מנוי חודשי · פעם בשבוע</span><span id="s1"></span></div>
+    <div class="summary-row"><span id="s-label">מנוי חודשי</span><span id="s1"></span></div>
     <div class="summary-row" id="row-trial"><span>שיעור ניסיון</span><span style="color:var(--color-success); font-weight:700;">חינם</span></div>
     <div class="summary-row"><span>דמי רישום</span><span>0 ₪</span></div>
     <div class="summary-row total"><span>לתשלום היום</span><span id="s-total">0 ₪</span></div>
     <p style="margin:8px 0 0; font-size:0.75rem; color:var(--color-muted);" id="s-note"></p>
   </section>
 
-  <a class="btn is-visible reveal" id="c-cta" href="family-board.html">אישור ושריון המקום</a>
+  <button class="btn is-visible reveal" type="button" id="c-cta">אישור ושריון המקום</button>
   <div class="trust" data-ic="check">תשלום מאובטח · ביטול חופשי · אישור מיידי למייל</div>
 </main>
+
+<!-- רגע האישור. קודם הלחיצה ניווטה ישר ללוח סטטי, בלי מספר הזמנה,
+     בלי תאריך, ובלי לענות על השאלה "מה קורה עכשיו". -->
+<div class="done-scrim" id="done" hidden>
+  <div class="done-card" role="dialog" aria-modal="true" aria-labelledby="done-t">
+    <div class="done-mark" id="done-ic"></div>
+    <h2 id="done-t"></h2>
+    <p class="done-sub" id="done-sub"></p>
+    <dl class="done-list" id="done-list"></dl>
+    <a class="btn" id="done-board">ללוח המשפחתי</a>
+    <button type="button" class="btn secondary" id="done-cal">הוספה ליומן</button>
+    <p class="done-ref" id="done-ref"></p>
+  </div>
+</div>
 
 <nav class="bottom-nav" id="nav"></nav>
 <script src="../data/classes.js"></script>
 <script src="../scripts/ui.js"></script>
+<script src="../scripts/store.js"></script>
 <script src="../scripts/kids.js"></script>
 <script src="../scripts/nav.js"></script>
 <script src="../scripts/appbar.js"></script>
 <script src="../scripts/layout.js"></script>
 <script>
 (function () {
-  // המסך נגזר מהחוג ומהילד שהגיעו בכתובת, אחרת לחיצה על בלט
+  // המסך נגזר מהחוג ומהילדים שהגיעו בכתובת, אחרת לחיצה על בלט
   // הייתה מגיעה למסך שכתוב בו כדורגל
+  var D = window.APP_DATA;
   var q = new URLSearchParams(location.search);
-  var cls = window.Kids.classById(q.get('id')) || window.APP_DATA.classes[0];
-  var kid = window.Kids.selected[0] || window.APP_DATA.kids[0];
+  var cls = window.Kids.classById(q.get('id'));
   var trial = q.get('mode') !== 'full';   // ברירת מחדל: שיעור ניסיון
   var $ = function (x) { return document.getElementById(x); };
 
-  document.title = 'החוג שלי · הרשמה ל' + cls.name;
-  $('c-title').textContent = (trial ? 'שיעור ניסיון: ' : 'הרשמה: ') + cls.name;
-  $('c-step').textContent = trial
-    ? 'שלב 2 מתוך 2 · פרטי הילד, בלי תשלום'
-    : 'שלב 2 מתוך 2 · פרטי הילד ותשלום';
-  $('kid').value = kid.name;
-  $('age').innerHTML = '<option>' + kid.age + '</option>';
-  $('p1').textContent = cls.price + ' ש"ח';
-  $('p2').textContent = Math.round(cls.price * 1.73 / 10) * 10 + ' ש"ח';
-  $('s1').textContent = cls.price + ' ש"ח';
+  /* כתובת עם id שלא קיים הציגה עד עכשיו חוג אחר בשקט. הורה שהגיע
+     מקישור ישן היה רואה מוצר שמדבר על חוג שהוא לא ביקש. */
+  function notFound(back) {
+    document.title = 'החוג שלי · החוג לא נמצא';
+    var main = document.querySelector('.screen');
+    main.innerHTML = '<div class="card empty is-visible reveal">' + window.UI.icon('alert') +
+      '<p class="empty-t">החוג הזה כבר לא זמין</p>' +
+      '<p class="empty-s">ייתכן שהקבוצה נסגרה או שהקישור ישן. הנה מה שיש עכשיו באזור.</p>' +
+      '<a class="btn" href="' + window.Kids.link(back) + '">לחיפוש חוגים</a></div>';
+    window.UI.announce('החוג המבוקש לא נמצא');
+  }
 
-  $('s-label').textContent = trial
-    ? 'מנוי חודשי · פעם בשבוע · מתחיל אחרי הניסיון'
-    : 'מנוי חודשי · פעם בשבוע';
-  $('row-trial').hidden = !trial;
-  $('s-total').textContent = (trial ? 0 : cls.price) + ' ₪';
-  $('s-note').textContent = trial
-    ? 'החיוב הראשון רק אחרי שיעור הניסיון, ואפשר לבטל בקליק עד 48 שעות לפניו.'
-    : 'החיוב הוא על החודש הראשון. אפשר לבטל עד שבעה ימים מהשיעור הראשון ולקבל החזר מלא.';
+  if (!cls) { notFound('home.html'); return; }
 
-  $('c-cta').textContent = trial
-    ? 'שריון שיעור הניסיון של ' + kid.name
-    : 'אישור ותשלום עבור ' + kid.name;
-  $('c-cta').setAttribute('href', window.Kids.link('family-board.html'));
+  var DAYS = ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש'];
+  // התאריך האמיתי של המפגש הבא. "אחרי שיעור הניסיון" בלי תאריך הוא
+  // בדיוק חוסר הוודאות שהמוצר בא לפתור.
+  function nextDate(dayLetter) {
+    var target = DAYS.indexOf(dayLetter);
+    var d = new Date();
+    var delta = (target - d.getDay() + 7) % 7 || 7;
+    d.setDate(d.getDate() + delta);
+    return { d: d, text: 'יום ' + dayLetter + "' " + d.getDate() + '.' + (d.getMonth() + 1) };
+  }
+  var when = nextDate(cls.day);
+
+  /* ---- מי נרשם ---- */
+  var chosen = window.Kids.selected.length
+    ? window.Kids.selected.map(function (k) { return k.id; })
+    : [D.kids[0].id];
+
+  function kidsOn() { return chosen.map(function (id) { return window.Kids.byId(id); }).filter(Boolean); }
+  function plan() { return document.querySelector('input[name="plan"]:checked').value; }
+  function unit() { return plan() === 'x2' ? Math.round(cls.price * 1.73 / 10) * 10 : cls.price; }
+
+  function renderKids() {
+    $('kidrows').innerHTML = D.kids.map(function (k) {
+      var on = chosen.indexOf(k.id) > -1;
+      var f = window.Kids.fitFor(k, cls);
+      var warn = f.verdict === 'block'
+        ? '<span class="kidrow-warn">' + window.UI.icon('alert') + f.block[0] + '</span>' : '';
+      return '<label class="kidrow' + (on ? ' on' : '') + '">' +
+        '<input type="checkbox" value="' + k.id + '"' + (on ? ' checked' : '') + ' />' +
+        '<span class="kidrow-face">' + window.Kids.face(k, 34) + '</span>' +
+        '<span class="kidrow-main"><b>' + k.name + '</b><small>בן/בת ' + k.age + '</small>' + warn + '</span>' +
+        '<span class="kidrow-price num">' + unit() + ' ש"ח</span>' +
+        '</label>';
+    }).join('');
+
+    $('kidrows').querySelectorAll('input').forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        var i = chosen.indexOf(cb.value);
+        if (cb.checked && i === -1) chosen.push(cb.value);
+        if (!cb.checked && i > -1) chosen.splice(i, 1);
+        if (!chosen.length) { chosen.push(cb.value); cb.checked = true; window.UI.toast('צריך לפחות ילד אחד'); }
+        paint();
+      });
+    });
+
+    var blocked = kidsOn().filter(function (k) { return window.Kids.fitFor(k, cls).verdict === 'block'; });
+    $('kidhint').textContent = blocked.length
+      ? 'שימו לב: ' + blocked.map(function (k) { return k.name; }).join(' ו') + ' מסומנ/ת למרות שהחוג לא מתאים. אפשר להמשיך, אבל שווה לדעת.'
+      : 'אפשר לרשום יותר מילד אחד לאותו חוג באותה הרשמה.';
+    $('kidhint').classList.toggle('warn', !!blocked.length);
+  }
+
+  /* ---- סיכום ---- */
+  function paint() {
+    var n = kidsOn().length;
+    var sum = unit() * n;
+    document.title = 'החוג שלי · הרשמה ל' + cls.name;
+    $('c-title').textContent = (trial ? 'שיעור ניסיון: ' : 'הרשמה: ') + cls.name;
+    $('c-step').textContent = trial
+      ? 'שלב 2 מתוך 2 · פרטי הילדים, בלי תשלום'
+      : 'שלב 2 מתוך 2 · פרטי הילדים ותשלום';
+    $('p1').textContent = cls.price + ' ש"ח';
+    $('p2').textContent = Math.round(cls.price * 1.73 / 10) * 10 + ' ש"ח';
+
+    $('s-label').textContent = 'מנוי חודשי · ' + (plan() === 'x2' ? 'פעמיים בשבוע' : 'פעם בשבוע') +
+      (n > 1 ? ' · ' + n + ' ילדים' : '') + (trial ? ' · מתחיל אחרי הניסיון' : '');
+    $('s1').textContent = sum + ' ש"ח';
+    $('row-trial').hidden = !trial;
+    $('s-total').textContent = (trial ? 0 : sum) + ' ₪';
+    $('s-note').textContent = trial
+      ? 'שיעור הניסיון ב' + when.text + ' בשעה ' + cls.from + '. החיוב הראשון רק אחריו, ואפשר לבטל בקליק עד 48 שעות לפניו.'
+      : 'החיוב הוא על החודש הראשון. המפגש הראשון ב' + when.text + ' בשעה ' + cls.from + ', ואפשר לבטל עד שבעה ימים אחריו ולקבל החזר מלא.';
+
+    var names = kidsOn().map(function (k) { return k.name; }).join(' ול');
+    $('c-cta').textContent = trial ? 'שריון שיעור הניסיון של ' + names : 'אישור ותשלום עבור ' + names;
+    $('kidrows').querySelectorAll('.kidrow-price').forEach(function (el) { el.textContent = unit() + ' ש"ח'; });
+    $('kidrows').querySelectorAll('.kidrow').forEach(function (el) {
+      el.classList.toggle('on', el.querySelector('input').checked);
+    });
+  }
+
+  document.querySelectorAll('input[name="plan"]').forEach(function (r) {
+    r.addEventListener('change', paint);
+  });
+
+  /* ---- רגע האישור ---- */
+  function ref() {
+    var d = new Date();
+    return 'HS-' + String(d.getFullYear()).slice(2) + String(d.getMonth() + 1).padStart(2, '0') +
+      '-' + String(1000 + Math.floor((d.getTime() / 1000) % 9000));
+  }
+
+  $('c-cta').addEventListener('click', function () {
+    var kids = kidsOn();
+    window.Store.enroll(cls.id, kids.map(function (k) { return k.id; }), trial ? 'trial' : 'full');
+
+    $('done-ic').innerHTML = window.UI.icon('check');
+    $('done-t').textContent = trial
+      ? 'שריינו את המקום של ' + kids.map(function (k) { return k.name; }).join(' ושל ')
+      : 'ההרשמה של ' + kids.map(function (k) { return k.name; }).join(' ושל ') + ' הושלמה';
+    $('done-sub').textContent = cls.name + ' · ' + cls.place;
+    $('done-list').innerHTML =
+      '<div><dt>מתי</dt><dd>' + when.text + ' בשעה ' + cls.from + ' עד ' + cls.to + '</dd></div>' +
+      '<div><dt>מה להביא</dt><dd>' + (cls.tags.indexOf('ציוד כלול') > -1 ? 'כלום, הציוד כלול' : 'בקבוק מים ובגדים נוחים') + '</dd></div>' +
+      '<div><dt>אישור</dt><dd>נשלח למייל, ואפשר לבטל עד 48 שעות לפני</dd></div>' +
+      (trial ? '<div><dt>חיוב</dt><dd>אין. החיוב הראשון רק אחרי שיעור הניסיון</dd></div>'
+             : '<div><dt>חויב</dt><dd>' + unit() * kids.length + ' ש"ח</dd></div>');
+    $('done-ref').textContent = 'מספר הזמנה ' + ref();
+    $('done-board').setAttribute('href', window.Kids.link('family-board.html'));
+    $('done').hidden = false;
+    $('done-board').focus();
+    window.UI.announce('ההרשמה אושרה');
+    // הצ'קאאוט יוצא מהמחסנית, כדי שכפתור החזרה לא יחזיר לתשלום שהושלם.
+    // בפרוטוקול file: הדפדפן חוסם replaceState, ושם זה פשוט לא קורה.
+    try {
+      history.replaceState({}, '', window.Kids.link('class.html') + '&id=' + cls.id);
+    } catch (e) { /* file:// */ }
+  });
+
+  // "הוספה ליומן" מייצרת קובץ ics אמיתי, לא הודעה שמבטיחה
+  $('done-cal').addEventListener('click', function () {
+    var pad = function (n) { return String(n).padStart(2, '0'); };
+    var st = new Date(when.d); st.setHours(+cls.from.split(':')[0], +cls.from.split(':')[1], 0, 0);
+    var en = new Date(when.d); en.setHours(+cls.to.split(':')[0], +cls.to.split(':')[1], 0, 0);
+    var fmt = function (d) {
+      return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + 'T' +
+        pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + '00Z';
+    };
+    var ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//hachug-sheli//HE', 'BEGIN:VEVENT',
+      'DTSTART:' + fmt(st), 'DTEND:' + fmt(en),
+      'SUMMARY:' + cls.name + ' · ' + kidsOn().map(function (k) { return k.name; }).join(' ו'),
+      'LOCATION:' + cls.place, 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+    var a = document.createElement('a');
+    a.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+    a.download = 'hachug-' + cls.id + '.ics';
+    a.click();
+    window.UI.toast('הקובץ ירד, אפשר לפתוח אותו ביומן');
+  });
+
   window.Kids.mount('#nothing');
+  renderKids();
+  paint();
 })();
 </script>
 </body>

@@ -636,3 +636,246 @@ a.chug-card { color: inherit; text-decoration: none; }
   .hero-band .kidpick-label { text-align: start; }
   .hero-block { padding: var(--space-3); }
 }
+
+/* ============================================================
+   רכיבים שנוספו עם חיווט החוויה (9.8.2026)
+   ============================================================ */
+
+/* --- שדה חיפוש אמיתי --- */
+.search { gap: var(--space-1); }
+.search-ic { display: inline-flex; color: var(--color-muted); }
+.search input {
+  flex: 1; min-width: 0; border: 0; background: transparent; outline: none;
+  font: inherit; color: var(--color-text); padding: 0; min-height: 28px;
+}
+.search input::placeholder { color: var(--color-muted); }
+.search:focus-within { border-color: var(--color-primary); box-shadow: 0 0 0 3px var(--color-primary-soft); }
+.search-x {
+  width: 26px; height: 26px; border: 0; border-radius: 50%; cursor: pointer;
+  background: var(--color-surface-2); color: var(--color-muted); position: relative;
+}
+.search-x::before, .search-x::after {
+  content: ''; position: absolute; inset: 50% 7px auto; height: 1.6px; background: currentColor; border-radius: 2px;
+}
+.search-x::before { transform: rotate(45deg); }
+.search-x::after { transform: rotate(-45deg); }
+
+/* --- צ'יפים שמסננים באמת --- */
+.chip { cursor: pointer; font-family: inherit; gap: 5px; }
+.chip.locked { cursor: default; background: var(--color-primary-soft); border-color: var(--color-primary-soft); color: var(--color-primary-ink); font-weight: 600; }
+.chip.locked .ic { opacity: 0.75; }
+
+/* --- מונה תוצאות ומיון --- */
+.reslen { margin: 0 0 var(--space-1); font-size: var(--fs-xs); color: var(--color-muted); font-variant-numeric: tabular-nums; }
+.sortpick select {
+  font: inherit; font-size: var(--fs-sm); color: var(--color-primary); font-weight: 600;
+  background: transparent; border: 0; border-radius: var(--radius-small);
+  padding: 4px 2px; min-height: var(--tap); cursor: pointer;
+}
+.sortpick select:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+
+/* --- מצב ריק --- */
+.empty { text-align: center; display: grid; justify-items: center; gap: 4px; color: var(--color-muted); padding: var(--space-3) var(--space-2); }
+.empty-t { margin: 0; font-weight: 600; color: var(--color-text); }
+.empty-s { margin: 0 0 var(--space-1); font-size: var(--fs-sm); }
+.empty .btn { width: auto; padding-inline: var(--space-3); }
+
+/* --- שלד טעינה --- */
+.skel { border-radius: var(--radius); background: var(--color-surface-2); margin-bottom: var(--space-2);
+        position: relative; overflow: hidden; }
+.skel-card { height: 96px; }
+.skel::after {
+  content: ''; position: absolute; inset: 0; transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+  animation: skelshine 1.15s infinite;
+}
+@keyframes skelshine { to { transform: translateX(100%); } }
+
+/* --- כפתור השמירה --- */
+.savebtn {
+  width: 36px; height: 36px; border-radius: 50%; border: 0; cursor: pointer;
+  background: transparent; color: var(--color-muted); display: grid; place-items: center;
+  position: relative; z-index: 2;
+}
+.savebtn .ic { width: 20px; height: 20px; }
+.savebtn.on { color: var(--color-danger); }
+.savebtn.on .ic { fill: currentColor; }
+@media (hover: hover) { .savebtn:hover { background: var(--color-surface-2); color: var(--color-danger); } }
+.chug-side { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+
+/* הכרטיס כולו לחיץ דרך קישור אמיתי, כך שהוא נגיש למקלדת.
+   קודם הוא היה article עם addEventListener, ולא היה אפשר להגיע
+   לאף חוג במוצר בניווט מקלדת. */
+.chug-card { position: relative; }
+.chug-card h3 a.stretch { color: inherit; text-decoration: none; }
+.chug-card h3 a.stretch::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+.chug-card.is-dim { opacity: 0.62; }
+.note-block { color: var(--color-danger); }
+.note-warn { color: var(--color-warn); }
+
+/* --- toast --- */
+.toast {
+  position: fixed; z-index: 60; inset-inline: var(--space-2); bottom: calc(76px + var(--space-2));
+  margin-inline: auto; max-width: 400px;
+  display: flex; align-items: center; gap: 10px;
+  background: var(--color-text); color: var(--color-bg);
+  border-radius: var(--radius); padding: 12px var(--space-2); box-shadow: var(--elev-3);
+  font-size: var(--fs-sm); opacity: 0; transform: translateY(12px); pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+.toast.on { opacity: 1; transform: none; pointer-events: auto; }
+.toast .ic { flex: 0 0 auto; }
+.toast span { flex: 1; }
+.toast-act { border: 0; background: transparent; color: var(--color-primary); font: inherit; font-weight: 700; cursor: pointer; min-height: var(--tap); }
+@media (min-width: 900px) { .toast { bottom: var(--space-3); inset-inline-start: var(--space-3); inset-inline-end: auto; } }
+
+/* --- טבעות איזוכרון במפה --- */
+.iso {
+  position: absolute; top: 50%; right: 50%; transform: translate(50%, -50%);
+  border: 1.5px dashed var(--color-border-strong); border-radius: 50%; pointer-events: none;
+}
+.iso span {
+  position: absolute; top: -9px; right: 50%; transform: translateX(50%);
+  background: var(--color-map-bg); color: var(--color-muted);
+  font-size: var(--fs-2xs); padding: 0 6px; font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* --- שורות הילדים בהרשמה --- */
+.card-h { font-size: var(--fs-h2); margin: 0 0 var(--space-1); }
+.kidrow {
+  display: grid; grid-template-columns: 22px 34px 1fr auto; gap: 10px; align-items: center;
+  border: 1.5px solid var(--color-border); border-radius: var(--radius-small);
+  padding: 10px var(--space-1); margin-bottom: 8px; cursor: pointer; min-height: var(--tap);
+}
+.kidrow.on { border-color: var(--color-primary); background: var(--color-primary-soft); }
+.kidrow input { width: 18px; height: 18px; accent-color: var(--color-primary); }
+.kidrow-face .kidav { display: block; }
+.kidrow-main { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.kidrow-main small { color: var(--color-muted); font-size: var(--fs-xs); }
+.kidrow-warn { display: inline-flex; align-items: center; gap: 5px; color: var(--color-danger-ink); font-size: var(--fs-xs); margin-top: 2px; }
+.kidrow-warn .ic { width: 14px; height: 14px; }
+.kidrow-price { font-weight: 700; font-size: var(--fs-sm); }
+.hint { margin: 4px 0 0; font-size: var(--fs-xs); color: var(--color-muted); }
+.hint.warn { color: var(--color-warn); }
+
+/* --- בורר המסלול: רדיו אמיתי --- */
+.plan .opt { display: grid; gap: 2px; cursor: pointer; min-height: var(--tap); align-content: center; position: relative; }
+.plan .opt input { position: absolute; opacity: 0; pointer-events: none; }
+.plan .opt-t { font-size: var(--fs-sm); color: var(--color-muted); }
+.plan .opt:has(:checked) { border-color: var(--color-primary); background: var(--color-primary-soft); font-weight: 700; }
+.plan .opt:has(:checked) .opt-t { color: var(--color-primary-ink); }
+.plan .opt:has(:focus-visible) { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+
+/* --- רגע האישור --- */
+.done-scrim {
+  position: fixed; inset: 0; z-index: 70; background: var(--color-scrim);
+  display: grid; place-items: center; padding: var(--space-2); overflow: auto;
+}
+.done-card {
+  background: var(--color-surface); border-radius: var(--radius); padding: var(--space-3) var(--space-2);
+  max-width: 420px; width: 100%; box-shadow: var(--elev-3); text-align: center;
+}
+.done-mark {
+  width: 58px; height: 58px; border-radius: 50%; margin: 0 auto var(--space-2);
+  background: var(--color-success-soft); color: var(--color-success); display: grid; place-items: center;
+}
+.done-mark .ic { width: 30px; height: 30px; stroke-width: 2.4; }
+.done-card h2 { margin: 0 0 4px; font-size: var(--fs-lg); }
+.done-sub { margin: 0 0 var(--space-2); color: var(--color-muted); font-size: var(--fs-sm); }
+.done-list { margin: 0 0 var(--space-2); text-align: start; display: grid; gap: 8px; }
+.done-list > div { display: grid; grid-template-columns: 84px 1fr; gap: 8px; font-size: var(--fs-sm); }
+.done-list dt { color: var(--color-muted); }
+.done-list dd { margin: 0; font-weight: 600; }
+.done-card .btn { margin-bottom: 8px; }
+.done-ref { margin: 6px 0 0; font-size: var(--fs-2xs); color: var(--color-muted); font-variant-numeric: tabular-nums; }
+
+/* --- הלוח השבועי --- */
+.wk { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); padding: var(--space-1); box-shadow: var(--shadow-card); }
+.wk-head { display: grid; grid-template-columns: 34px repeat(6, 1fr); gap: 3px; margin-bottom: 4px; }
+.wk-head::before { content: ''; }
+.wk-day { text-align: center; font-size: var(--fs-xs); font-weight: 700; color: var(--color-muted); padding-block: 3px; border-radius: 6px; }
+.wk-day.is-today { background: var(--color-primary); color: var(--color-on-primary); }
+.wk-body { display: grid; grid-template-columns: 34px 1fr; gap: 3px; }
+.wk-hours { display: flex; flex-direction: column; justify-content: space-between; font-size: var(--fs-2xs); color: var(--color-muted); font-variant-numeric: tabular-nums; }
+.wk-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 3px; height: 210px; }
+.wk-col { position: relative; background: var(--color-surface-2); border-radius: 6px; }
+.wk-col.is-today { background: var(--color-primary-soft); }
+.wk-item {
+  position: absolute; inset-inline: 2px; border-radius: 5px; overflow: hidden;
+  padding: 2px 4px; font-size: var(--fs-2xs); line-height: 1.15; min-height: 18px;
+}
+/* בעמודה של כ-55 פיקסלים שם החוג חייב לגלוש לשתי שורות ולא להיחתך
+   אחרי שתי אותיות. השעה יורדת במובייל וחוזרת בדסקטופ, והיא תמיד
+   נמצאת ב-title של הבלוק. */
+.wk-item b { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+             overflow: hidden; font-weight: 700; font-size: var(--fs-2xs); line-height: 1.1; }
+.wk-item small { display: none; opacity: 0.8; font-variant-numeric: tabular-nums; }
+@media (min-width: 560px) { .wk-item small { display: block; } }
+.wk-item.other { opacity: 0.55; }
+.wk-item.clash { outline: 2px solid var(--color-danger); outline-offset: -2px; }
+.wk-legend { display: flex; gap: 6px; }
+.wk-key { font-size: var(--fs-2xs); font-weight: 700; border-radius: 5px; padding: 1px 7px; }
+.wk-note { display: flex; align-items: center; gap: 6px; margin: 6px 0 var(--space-2); font-size: var(--fs-xs); color: var(--color-muted); }
+.wk-note.bad { color: var(--color-danger-ink); font-weight: 600; }
+.wk-note .ic { width: 15px; height: 15px; }
+
+/* --- עריכת הסיבה בשמורים --- */
+.saved-card { display: grid; grid-template-columns: 56px 1fr auto; gap: var(--space-2); align-items: start; position: relative; }
+.saved-card h3 { margin: 0; font-size: var(--fs-md); }
+.saved-card h3 a.stretch { color: inherit; text-decoration: none; }
+.saved-card h3 a.stretch::after { content: ''; position: absolute; inset: 0; z-index: 0; }
+.saved-note.is-empty { color: var(--color-muted); font-style: italic; }
+.saved-acts { display: flex; flex-direction: column; gap: 4px; position: relative; z-index: 2; }
+.iconbtn {
+  width: 36px; height: 36px; border-radius: 50%; border: 0; cursor: pointer;
+  background: transparent; color: var(--color-muted); display: grid; place-items: center;
+}
+.iconbtn .ic { width: 18px; height: 18px; }
+.iconbtn.danger:hover { color: var(--color-danger); }
+@media (hover: hover) { .iconbtn:hover { background: var(--color-surface-2); color: var(--color-text); } }
+.note-edit { position: relative; z-index: 2; margin-top: 8px; }
+.note-edit textarea {
+  width: 100%; font: inherit; font-size: var(--fs-sm); padding: 8px 10px;
+  border: 1.5px solid var(--color-border-strong); border-radius: var(--radius-small);
+  background: var(--color-surface); color: var(--color-text); resize: vertical;
+}
+.note-edit textarea:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 1px; }
+.note-acts { display: flex; gap: 8px; margin-top: 8px; }
+.note-acts .btn { width: auto; flex: 1; padding-block: 0.6em; font-size: var(--fs-sm); }
+
+@media (min-width: 900px) {
+  .wk-grid { height: 300px; }
+  .wk-item { font-size: var(--fs-xs); }
+}
+
+/* עוגן וגלילה: ה-bottom nav הקבוע מכסה 76 פיקסלים, ולכן אלמנט
+   שנגלל לתוך התצוגה או שמקבל פוקוס לא יעצור מתחתיו */
+html { scroll-padding-bottom: calc(76px + var(--space-2)); scroll-padding-top: calc(var(--hdr) + var(--space-1)); }
+@media (min-width: 900px) { html { scroll-padding-bottom: var(--space-3); } }
+
+/* --- ליטוש המפה ושורת הצ'יפים --- */
+.mappin { text-decoration: none; color: inherit; }
+.mappin .lbl { text-decoration: none; color: var(--color-text); }
+/* טבעת האיזוכרון חייבת להישאר עיגול, גם כשאזור המפה אינו ריבועי */
+.iso { aspect-ratio: 1; height: auto; }
+
+/* שורת הצ'יפים נגללת עד קצה המסך ומקבלת דהייה, במקום להיחתך
+   16 פיקסלים לפני הקצה ולהיראות כמו באג פריסה */
+.chips {
+  margin-inline: calc(var(--space-2) * -1);
+  padding-inline: var(--space-2);
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to left, #000 0, #000 90%, transparent 100%);
+  mask-image: linear-gradient(to left, #000 0, #000 90%, transparent 100%);
+}
+.chips::-webkit-scrollbar { display: none; }
+.chip { scroll-snap-align: start; }
+@media (min-width: 900px) {
+  .chips { margin-inline: 0; padding-inline: 0; -webkit-mask-image: none; mask-image: none; }
+}

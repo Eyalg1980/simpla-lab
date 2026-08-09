@@ -35,61 +35,124 @@
 
 <script src="../data/classes.js"></script>
 <script src="../scripts/ui.js"></script>
+<script src="../scripts/store.js"></script>
 <script src="../scripts/kids.js"></script>
 <script src="../scripts/nav.js"></script>
 <script src="../scripts/appbar.js"></script>
 <script src="../scripts/layout.js"></script>
 <script>
 (function () {
-  var D = window.APP_DATA;
   var $ = function (x) { return document.getElementById(x); };
+  var editId = new URLSearchParams(location.search).get('edit');
 
   function render() {
+    var all = window.Store.saved();
     var sel = window.Kids.selected.map(function (k) { return k.id; });
     // בלי סימון רואים הכל, כי הורה שלא בחר עדיין מתלבט לכולם
-    var rows = D.saved.filter(function (s) {
+    var rows = all.filter(function (s) {
       return !sel.length || s.for.some(function (id) { return sel.indexOf(id) > -1; });
     });
 
     $('s-title').textContent = sel.length ? 'שמורים לילדים המסומנים' : 'כל השמורים';
-    $('s-count').textContent = rows.length + ' מתוך ' + D.saved.length;
+    $('s-count').textContent = all.length ? rows.length + ' מתוך ' + all.length : '';
 
     if (!rows.length) {
-      $('list').innerHTML = '<div class="card empty is-visible reveal">' +
-        window.UI.icon('heart') +
-        '<p style="margin:0 0 4px; font-weight:600; color:var(--color-text);">אין כאן שמורים לילדים שסימנתם</p>' +
-        '<p style="margin:0; font-size:var(--fs-small);">בטלו סימון למעלה כדי לראות את כל הרשימה</p></div>';
+      $('list').innerHTML = '<div class="card empty is-visible reveal">' + window.UI.icon('heart') +
+        '<p class="empty-t">' + (all.length ? 'אין כאן שמורים לילדים שסימנתם' : 'עוד לא שמרתם חוגים') + '</p>' +
+        '<p class="empty-s">' + (all.length
+          ? 'בטלו סימון למעלה כדי לראות את כל הרשימה'
+          : 'כפתור הלב על כל חוג שומר אותו לכאן, יחד עם שורת הסיבה') + '</p>' +
+        (all.length ? '' : '<a class="btn secondary" href="' + window.Kids.link('home.html') + '">לחיפוש חוגים</a>') +
+        '</div>';
       return;
     }
 
     $('list').innerHTML = rows.map(function (s) {
       var c = window.Kids.classById(s.classId);
+      if (!c) return '';
       var kids = s.for.map(function (id) { return window.Kids.byId(id); }).filter(Boolean);
+      var href = window.Kids.link('class.html') + '&id=' + c.id;
+      var note = s.note
+        ? '<div class="saved-note">' + s.note + '</div>'
+        : '<div class="saved-note is-empty">בלי סיבה, השמור הזה יחזור להיות עוד צילום מסך</div>';
       return '' +
         '<article class="card saved-card is-visible reveal" data-id="' + c.id + '">' +
           '<div class="chug-icon' + (c.tone === 'warm' ? ' warm' : '') + '">' + window.UI.icon(c.icon) + '</div>' +
-          '<div>' +
-            '<h3 style="margin:0; font-size:1rem;">' + c.name + '</h3>' +
-            '<p class="meta" style="margin:2px 0 0;">ימי ' + c.day + "' " + c.from + ' · ' + c.price + ' ש"ח לחודש</p>' +
-            '<div class="saved-note">' + s.note + '</div>' +
+          '<div class="saved-body">' +
+            '<h3><a class="stretch" href="' + href + '">' + c.name + '</a></h3>' +
+            '<p class="meta">ימי ' + c.day + "' " + c.from + ' · ' + c.price + ' ש"ח לחודש · ' + c.travelMin + ' דק נסיעה</p>' +
+            note +
             '<div class="saved-for">' +
               kids.map(function (k) { return window.Kids.face(k, 22); }).join('') +
               '<span class="saved-when">נשמר ' + s.addedAgo + '</span>' +
             '</div>' +
           '</div>' +
-          '<span class="go">' + window.UI.icon('chevron') + '</span>' +
+          '<div class="saved-acts">' +
+            '<button type="button" class="iconbtn" data-edit="' + c.id + '" aria-label="עריכת הסיבה">' + window.UI.icon('edit') + '</button>' +
+            '<button type="button" class="iconbtn danger" data-del="' + c.id + '" aria-label="הסרה מהשמורים">' + window.UI.icon('trash') + '</button>' +
+          '</div>' +
         '</article>';
     }).join('');
 
-    $('list').querySelectorAll('.saved-card').forEach(function (el) {
-      el.addEventListener('click', function () {
-        location.href = window.Kids.link('class.html') + '&id=' + el.getAttribute('data-id');
+    bind();
+    if (editId) { openEditor(editId); editId = null; }
+  }
+
+  /* עריכת הסיבה במקום, בלי לעזוב את הרשימה. הקופי הבטיח את זה
+     מהיום הראשון, ולא הייתה שום דרך לעשות את זה בפועל. */
+  function openEditor(id) {
+    var card = $('list').querySelector('[data-id="' + id + '"]');
+    if (!card || card.querySelector('.note-edit')) return;
+    var s = window.Store.saved().filter(function (x) { return x.classId === id; })[0];
+    if (!s) return;
+    var box = document.createElement('form');
+    box.className = 'note-edit';
+    box.innerHTML =
+      '<label class="sr-only" for="note-' + id + '">הסיבה לשמירה</label>' +
+      '<textarea id="note-' + id + '" rows="2" maxlength="140" ' +
+      'placeholder="מה הטריד או מה משך כאן? שורה אחת מספיקה">' + (s.note || '') + '</textarea>' +
+      '<div class="note-acts"><button type="submit" class="btn">שמירת הסיבה</button>' +
+      '<button type="button" class="btn secondary" data-cancel>ביטול</button></div>';
+    card.querySelector('.saved-body').appendChild(box);
+    var ta = box.querySelector('textarea');
+    ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length);
+    box.addEventListener('submit', function (e) {
+      e.preventDefault();
+      window.Store.setNote(id, ta.value.trim());
+      window.UI.toast('הסיבה נשמרה', { icon: 'check' });
+      render();
+    });
+    box.querySelector('[data-cancel]').addEventListener('click', function () { render(); });
+  }
+
+  function bind() {
+    $('list').querySelectorAll('[data-edit]').forEach(function (b) {
+      b.addEventListener('click', function (e) { e.preventDefault(); openEditor(b.getAttribute('data-edit')); });
+    });
+    $('list').querySelectorAll('[data-del]').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        var id = b.getAttribute('data-del');
+        var c = window.Kids.classById(id);
+        var snapshot = window.Store.saved().filter(function (x) { return x.classId === id; })[0];
+        window.Store.toggleSave(id);
+        render();
+        // ביטול פעולה, כי הסרה בטעות מרשימת התלבטות היא אובדן אמיתי
+        window.UI.toast('הוסר: ' + c.name, {
+          icon: 'trash', action: 'ביטול',
+          onAction: function () {
+            window.Store.toggleSave(id, snapshot.for);
+            if (snapshot.note) window.Store.setNote(id, snapshot.note);
+            render();
+          }
+        });
       });
     });
   }
 
   window.Kids.mount('#kidpick');
   window.Kids.onChange(render);
+  window.Store.onChange(function () { /* הרינדור נעשה מקומית */ });
   render();
 })();
 </script>

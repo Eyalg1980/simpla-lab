@@ -21,29 +21,42 @@
     <div id="kidpick"></div>
   </header>
 
-  <div class="search is-visible reveal" data-ic="search">מה מחפשים? כדורגל, קרמיקה, רובוטיקה...</div>
+  <!-- חיפוש אמיתי. קודם זה היה div שנראה כמו שדה ולא עשה כלום,
+       וזו הפעולה הראשית של המסך הראשי. -->
+  <form class="search is-visible reveal" role="search" id="searchform">
+    <span class="search-ic" data-ic="search"></span>
+    <input type="search" id="q" autocomplete="off"
+           placeholder="מה מחפשים? כדורגל, קרמיקה, רובוטיקה..." aria-label="חיפוש חוגים" />
+    <button type="button" class="search-x" id="q-clear" aria-label="ניקוי החיפוש" hidden></button>
+  </form>
 
-  <div class="chips">
-    <span class="chip active" id="chip-age">גיל 6-9</span>
-    <span class="chip">ספורט</span>
-    <span class="chip">יצירה</span>
-    <span class="chip">עד 250 ש"ח</span>
-    <span class="chip">אחה"צ</span>
-  </div>
+  <!-- הצ'יפים נגזרים מהטקסונומיה שכבר קיימת בדאטה, ומסננים באמת -->
+  <div class="chips" id="chips" role="group" aria-label="סינון"></div>
 
   <!-- מפה כתצוגה חלופית, לא כדף נפרד. הכאב הוא ודאות, לא גילוי. -->
   <div class="viewtoggle">
-    <button type="button" id="v-list" class="on" data-ic="list">רשימה</button>
-    <button type="button" id="v-map" data-ic="map">מפה</button>
+    <button type="button" id="v-list" class="on" data-ic="list" aria-pressed="true">רשימה</button>
+    <button type="button" id="v-map" data-ic="map" aria-pressed="false">מפה</button>
   </div>
 
   <div id="mapview" hidden>
     <div class="maparea" id="maparea"></div>
-    <p class="maphint">הבית שלכם בשחור. זמן הנסיעה מופיע על כל כרטיס, כי זה מה שמתנגש עם שעת האיסוף.</p>
+    <p class="maphint">הבית במרכז, והמרחק מהמרכז הוא זמן הנסיעה בפועל. הטבעות המקווקוות הן 10 ו-15 דקות.</p>
   </div>
 
   <div id="listview">
-    <div class="section-title"><h2 id="sec-title">מתאים לילדים שלכם</h2><a href="#">הכל</a></div>
+    <div class="section-title">
+      <h2 id="sec-title">מתאים לילדים שלכם</h2>
+      <label class="sortpick"><span class="sr-only">מיון</span>
+        <select id="sort">
+          <option value="fit">לפי התאמה</option>
+          <option value="price">לפי מחיר</option>
+          <option value="travel">לפי זמן נסיעה</option>
+          <option value="spots">לפי מקומות פנויים</option>
+        </select>
+      </label>
+    </div>
+    <p class="reslen" id="reslen"></p>
     <div id="results"></div>
   </div>
 </main>
@@ -52,6 +65,7 @@
 
 <script src="../data/classes.js"></script>
 <script src="../scripts/ui.js"></script>
+<script src="../scripts/store.js"></script>
 <script src="../scripts/kids.js"></script>
 <script src="../scripts/nav.js"></script>
 <script src="../scripts/appbar.js"></script>
@@ -61,103 +75,244 @@
   var D = window.APP_DATA;
   var $ = function (id) { return document.getElementById(id); };
 
-  // התג נגזר מ-UI.spots, אותו מקור אמת שדף החוג משתמש בו, כדי ששני
-  // המסכים לא יגידו דברים מנוגדים על אותו חוג
+  /* ============ מצב הסינון ============
+     שלושה ממדים בלבד, כולם נגזרים מהטקסונומיה שכבר בדאטה: תחום,
+     תקרת מחיר, ושעה. הצ'יפים היו עד עכשיו חמישה span בלי handler,
+     ומשתמש שלחץ עליהם ראה שכלום לא זז. */
+  var state = { q: '', domains: [], maxPrice: null, evening: false, sort: 'fit' };
+
+  var DOMAINS = (D.taxonomy['תחום'] || []).filter(function (t) {
+    return D.classes.some(function (c) { return c.tags.indexOf(t) > -1; });
+  });
+
+  function chipsHTML() {
+    var kids = window.Kids.selected;
+    var ageLabel;
+    if (!kids.length) ageLabel = 'כל הגילאים';
+    else {
+      var ages = kids.map(function (k) { return k.age; });
+      var lo = Math.min.apply(null, ages), hi = Math.max.apply(null, ages);
+      ageLabel = lo === hi ? 'גיל ' + lo : 'גילאי ' + lo + ' עד ' + hi;
+    }
+    var out = ['<button type="button" class="chip locked" aria-disabled="true" ' +
+      'title="הגיל נגזר מהילדים המסומנים למעלה">' + window.UI.icon('user', 'ic-sm') + ageLabel + '</button>'];
+
+    DOMAINS.forEach(function (t) {
+      var on = state.domains.indexOf(t) > -1;
+      out.push('<button type="button" class="chip' + (on ? ' active' : '') + '" data-domain="' + t +
+        '" aria-pressed="' + on + '">' + t + '</button>');
+    });
+    out.push('<button type="button" class="chip' + (state.maxPrice ? ' active' : '') +
+      '" data-price="250" aria-pressed="' + !!state.maxPrice + '">עד 250 ש"ח</button>');
+    out.push('<button type="button" class="chip' + (state.evening ? ' active' : '') +
+      '" data-evening="1" aria-pressed="' + state.evening + '">אחרי 17:00</button>');
+    return out.join('');
+  }
+
+  function renderChips() {
+    $('chips').innerHTML = chipsHTML();
+    $('chips').querySelectorAll('[data-domain]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var t = b.getAttribute('data-domain'), i = state.domains.indexOf(t);
+        if (i > -1) state.domains.splice(i, 1); else state.domains.push(t);
+        renderChips(); render();
+      });
+    });
+    var pb = $('chips').querySelector('[data-price]');
+    if (pb) pb.addEventListener('click', function () { state.maxPrice = state.maxPrice ? null : 250; renderChips(); render(); });
+    var eb = $('chips').querySelector('[data-evening]');
+    if (eb) eb.addEventListener('click', function () { state.evening = !state.evening; renderChips(); render(); });
+  }
+
+  /* ============ סינון, דירוג ומיון ============ */
+  var mins = function (t) { var p = t.split(':'); return (+p[0]) * 60 + (+p[1]); };
+
+  function matches(c) {
+    if (state.q) {
+      var hay = (c.name + ' ' + c.teacher + ' ' + c.place + ' ' + c.tags.join(' ')).toLowerCase();
+      if (hay.indexOf(state.q.toLowerCase()) === -1) return false;
+    }
+    if (state.domains.length && !state.domains.some(function (t) { return c.tags.indexOf(t) > -1; })) return false;
+    if (state.maxPrice && c.price > state.maxPrice) return false;
+    if (state.evening && mins(c.from) < 17 * 60) return false;
+    return true;
+  }
+
+  // חוג חסום יורד למטה ולא נעלם, כי הורה עדיין רוצה לדעת שהוא קיים
+  function rows() {
+    var kids = window.Kids.selected;
+    var list = D.classes.filter(matches).map(function (c) {
+      var fits = kids.map(function (k) { return window.Kids.fitFor(k, c); });
+      var anyOk = fits.some(function (f) { return f.verdict === 'ok'; });
+      var allBlock = fits.length && fits.every(function (f) { return f.verdict === 'block'; });
+      return { c: c, fits: fits, rank: anyOk ? 0 : (allBlock ? 2 : 1) };
+    });
+    var by = {
+      fit:    function (a, b) { return a.rank - b.rank || a.c.travelMin - b.c.travelMin; },
+      price:  function (a, b) { return a.c.price - b.c.price; },
+      travel: function (a, b) { return a.c.travelMin - b.c.travelMin; },
+      spots:  function (a, b) { return b.c.spotsLeft - a.c.spotsLeft; }
+    };
+    return list.sort(by[state.sort] || by.fit);
+  }
+
   function badgeFor(c) {
     var s = window.UI.spots(c);
     return '<span class="badge ' + s.level + '">' + s.short + '</span>';
   }
 
-  // דירוג לפי התאמה לילדים המסומנים. חוג חסום יורד למטה ולא נעלם,
-  // כי הורה עדיין רוצה לדעת שהוא קיים.
-  function scored() {
-    var kids = window.Kids.selected;
-    return D.classes.map(function (c) {
-      var fits = kids.map(function (k) { return window.Kids.fitFor(k, c); });
-      var anyOk = fits.some(function (f) { return f.verdict === 'ok'; });
-      var allBlock = fits.length && fits.every(function (f) { return f.verdict === 'block'; });
-      return { c: c, fits: fits, rank: anyOk ? 0 : (allBlock ? 2 : 1) };
-    }).sort(function (a, b) { return a.rank - b.rank; });
+  function heart(c) {
+    var on = window.Store.isSaved(c.id);
+    return '<button type="button" class="savebtn' + (on ? ' on' : '') + '" data-save="' + c.id + '" ' +
+      'aria-pressed="' + on + '" aria-label="' + (on ? 'הסרה מהשמורים' : 'שמירה לרשימת ההתלבטות') + '">' +
+      window.UI.icon('heart') + '</button>';
   }
 
+  /* ============ מצב ריק, עם הצעה קונקרטית ============ */
+  function emptyHTML() {
+    var relax = [];
+    if (state.q) relax.push({ label: 'ניקוי החיפוש "' + state.q + '"', fn: function () { state.q = ''; $('q').value = ''; } });
+    if (state.maxPrice) relax.push({ label: 'הסרת תקרת המחיר', fn: function () { state.maxPrice = null; } });
+    if (state.evening) relax.push({ label: 'הסרת מסנן השעה', fn: function () { state.evening = false; } });
+    if (state.domains.length) relax.push({ label: 'הסרת מסנן התחום', fn: function () { state.domains = []; } });
+    window.__relax = relax;
+    return '<div class="card empty is-visible reveal">' + window.UI.icon('search') +
+      '<p class="empty-t">אין חוגים שעונים על כל הסינון</p>' +
+      (relax.length
+        ? '<p class="empty-s">הכי קרוב: ' + relax[0].label + '</p>' +
+          '<button type="button" class="btn secondary" id="relax">' + relax[0].label + '</button>'
+        : '<p class="empty-s">נסו להסיר סימון ילד למעלה כדי לראות את כל החוגים באזור</p>') +
+      '</div>';
+  }
+
+  /* ============ רינדור ============ */
   function render() {
     var kids = window.Kids.selected;
     $('sec-title').textContent = kids.length
       ? 'מתאים ל' + kids.map(function (k) { return k.name + ' (' + k.age + ')'; }).join(' ול')
       : 'כל החוגים באזור';
 
-    // שבב הגיל נגזר מהילדים המסומנים, כדי שהמסננים לא יסתרו את הבחירה
-    var chip = $('chip-age');
-    if (!kids.length) { chip.textContent = 'כל הגילאים'; chip.classList.remove('active'); }
-    else {
-      var ages = kids.map(function (k) { return k.age; });
-      var lo = Math.min.apply(null, ages), hi = Math.max.apply(null, ages);
-      chip.textContent = lo === hi ? 'גיל ' + lo : 'גילאי ' + lo + ' עד ' + hi;
-      chip.classList.add('active');
+    var list = rows();
+    $('reslen').textContent = list.length
+      ? list.length + ' מתוך ' + D.classes.length + ' חוגים באזור'
+      : '';
+
+    if (!list.length) {
+      $('results').innerHTML = emptyHTML();
+      var r = $('relax');
+      if (r) r.addEventListener('click', function () { window.__relax[0].fn(); renderChips(); render(); });
+      window.UI.announce('לא נמצאו חוגים בסינון הנוכחי');
+      drawMap([]);
+      return;
     }
 
-    $('results').innerHTML = scored().map(function (row) {
+    $('results').innerHTML = list.map(function (row) {
       var c = row.c;
       var note = '';
-      if (row.rank === 2) note = '<p class="meta" style="color:var(--color-danger)">לא בטווח הגילאים או מתנגש בלוח</p>';
-      else if (row.rank === 1) note = '<p class="meta" style="color:var(--color-warn)">מתאים לחלק מהילדים</p>';
+      if (row.rank === 2) note = '<p class="meta note-block">לא בטווח הגילאים או מתנגש בלוח</p>';
+      else if (row.rank === 1) note = '<p class="meta note-warn">מתאים לחלק מהילדים</p>';
+      var href = window.Kids.link('class.html') + '&id=' + c.id;
       return '' +
-        '<article class="card chug-card is-visible reveal" data-id="' + c.id + '" ' +
-                 'style="' + (row.rank === 2 ? 'opacity:.62' : '') + '">' +
+        '<article class="card chug-card is-visible reveal' + (row.rank === 2 ? ' is-dim' : '') + '">' +
           '<div class="chug-icon' + (c.tone === 'warm' ? ' warm' : '') + '">' + window.UI.icon(c.icon) + '</div>' +
           '<div>' +
-            '<h3>' + c.name + '</h3>' +
+            '<h3><a class="stretch" href="' + href + '">' + c.name + '</a></h3>' +
             '<p class="meta">ימי ' + c.day + "' " + c.from + ' · ' + c.place + ' · ' + c.travelMin + ' דק נסיעה</p>' +
             badgeFor(c) +
             (c.tags.indexOf('שיעור ניסיון חינם') > -1 ? '<span class="badge trial">שיעור ניסיון חינם</span>' : '') +
             note +
           '</div>' +
-          // החץ הוא האפורדנס: הכרטיס נראה כמו משהו שנפתח, לא כמו טקסט
-          '<div class="chug-side"><div class="price">' + c.price + ' ש"ח<small>/חודש</small></div>' +
+          '<div class="chug-side">' + heart(c) +
+            '<div class="price">' + c.price + ' ש"ח<small>/חודש</small></div>' +
             '<span class="go">' + window.UI.icon('chevron') + '</span></div>' +
         '</article>';
     }).join('');
 
-    // כל כרטיס מוביל לדף החוג שלו, לא רק הראשון
-    $('results').querySelectorAll('.chug-card').forEach(function (el) {
-      el.addEventListener('click', function () {
-        location.href = window.Kids.link('class.html') + '&id=' + el.getAttribute('data-id');
-      });
-    });
-    drawMap();
+    bindHearts($('results'));
+    window.UI.announce(list.length + ' חוגים ברשימה');
+    drawMap(list.map(function (r) { return r.c; }));
   }
 
-  /* ---- המפה ---- */
-  var SPOTS = [{ x: 62, y: 34 }, { x: 30, y: 58 }, { x: 74, y: 70 }, { x: 44, y: 22 }];
-  function drawMap() {
+  function bindHearts(root) {
+    root.querySelectorAll('[data-save]').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.preventDefault(); e.stopPropagation();
+        var id = b.getAttribute('data-save');
+        var c = window.Kids.classById(id);
+        var added = window.Store.toggleSave(id, window.Kids.selected.map(function (k) { return k.id; }));
+        window.UI.toast(added ? 'נשמר: ' + c.name : 'הוסר מהשמורים: ' + c.name,
+          { icon: added ? 'heart' : 'trash',
+            action: added ? 'הוספת סיבה' : null,
+            onAction: function () { location.href = window.Kids.link('saved.html') + '&edit=' + id; } });
+        render();
+      });
+    });
+  }
+
+  /* ============ המפה ============
+     הסיכות ממוקמות לפי זמן הנסיעה בפועל, ברדיוס סביב הבית, ולא לפי
+     הסדר במערך. קודם הבלט, שהוא הקרוב ביותר בשש דקות, ישב בפינה
+     הרחוקה, מתחת למשפט שהבטיח שזמן הנסיעה הוא מה שקובע. */
+  function drawMap(list) {
     var host = $('maparea');
-    var roads =
-      '<div class="road" style="right:0; left:0; top:46%; height:10px"></div>' +
-      '<div class="road" style="top:0; bottom:0; right:48%; width:10px"></div>';
-    var home = '<div class="mappin home" style="right:50%; top:52%">' +
+    if (!host) return;
+    var cs = list || D.classes;
+    var maxT = Math.max(18, Math.max.apply(null, D.classes.map(function (c) { return c.travelMin; })));
+    var rings = [10, 15].map(function (m) {
+      var r = (m / maxT) * 44;
+      return '<div class="iso" style="width:' + (r * 2) + '%; height:' + (r * 2) + '%">' +
+        '<span>' + m + ' דק</span></div>';
+    }).join('');
+    var home = '<div class="mappin home" style="right:50%; top:50%">' +
       '<div class="dot">' + window.UI.icon('pin') + '</div><div class="lbl">הבית</div></div>';
-    var pins = D.classes.map(function (c, i) {
-      var s = SPOTS[i % SPOTS.length];
+    var pins = cs.map(function (c, i) {
+      var r = (c.travelMin / maxT) * 44;
+      var ang = (-38 + i * (300 / Math.max(1, cs.length))) * Math.PI / 180;
+      var x = 50 + r * Math.cos(ang), y = 50 + r * Math.sin(ang) * 0.86;
       return '<a class="mappin" href="' + window.Kids.link('class.html') + '&id=' + c.id + '" ' +
-        'style="right:' + s.x + '%; top:' + s.y + '%">' +
+        'style="right:' + x.toFixed(1) + '%; top:' + y.toFixed(1) + '%" title="' + c.name + '">' +
         '<div class="dot' + (c.tone === 'warm' ? ' warm' : '') + '">' + window.UI.icon(c.icon) + '</div>' +
         '<div class="lbl">' + c.travelMin + ' דק</div></a>';
     }).join('');
-    host.innerHTML = roads + home + pins;
+    host.innerHTML = rings + home + pins;
   }
 
-  $('v-list').addEventListener('click', function () {
-    this.classList.add('on'); $('v-map').classList.remove('on');
-    $('listview').hidden = false; $('mapview').hidden = true;
+  /* ============ חיווט ============ */
+  var t = null;
+  $('q').addEventListener('input', function () {
+    state.q = this.value.trim();
+    $('q-clear').hidden = !state.q;
+    clearTimeout(t); t = setTimeout(render, 140);
   });
-  $('v-map').addEventListener('click', function () {
-    this.classList.add('on'); $('v-list').classList.remove('on');
-    $('listview').hidden = true; $('mapview').hidden = false;
+  $('searchform').addEventListener('submit', function (e) { e.preventDefault(); });
+  $('q-clear').addEventListener('click', function () {
+    state.q = ''; $('q').value = ''; this.hidden = true; $('q').focus(); render();
+  });
+  $('sort').addEventListener('change', function () { state.sort = this.value; render(); });
+
+  function view(map) {
+    $('v-map').classList.toggle('on', map); $('v-list').classList.toggle('on', !map);
+    $('v-map').setAttribute('aria-pressed', map); $('v-list').setAttribute('aria-pressed', !map);
+    $('listview').hidden = map; $('mapview').hidden = !map;
+  }
+  $('v-list').addEventListener('click', function () { view(false); });
+  $('v-map').addEventListener('click', function () { view(true); });
+
+  // שחזור מיקום הגלילה: הורה שסקר עשרה חוגים חזר עד עכשיו לראש הרשימה
+  window.addEventListener('pagehide', function () {
+    try { sessionStorage.setItem('home.scroll', String(window.scrollY)); } catch (e) {}
   });
 
+  $('results').innerHTML = window.UI.skeleton(3);
   window.Kids.mount('#kidpick');
-  window.Kids.onChange(render);
+  window.Kids.onChange(function () { renderChips(); render(); });
+  renderChips();
   render();
+
+  try {
+    var y = +sessionStorage.getItem('home.scroll');
+    if (y) window.scrollTo(0, y);
+  } catch (e) {}
 })();
 </script>
 </body>

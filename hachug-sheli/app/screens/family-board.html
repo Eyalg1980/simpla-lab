@@ -18,12 +18,14 @@
     </div>
   </header>
 
-  <div class="week is-visible reveal">
-    <div class="day">א'</div><div class="day">ב'</div><div class="day today">ג'</div>
-    <div class="day">ד'</div><div class="day">ה'</div><div class="day">ו'</div>
-  </div>
+  <!-- הלוח השבועי החזותי. עד עכשיו השורה הזאת הייתה שישה divים
+       דקורטיביים, וההתנגשות, שהיא כל התזה של המוצר, יוצגה רק
+       כמחרוזת טקסט בתוך דף החוג. -->
+  <div class="section-title"><h2>השבוע שלנו</h2><span class="wk-legend" id="wk-legend"></span></div>
+  <div class="wk is-visible reveal" id="wk"></div>
+  <p class="wk-note" id="wk-note"></p>
 
-  <div class="section-title"><h2>היום, יום ג'</h2></div>
+  <div class="section-title"><h2 id="today-h">היום</h2></div>
   <div id="b-today"></div>
 
   <div class="section-title"><h2>בהמשך השבוע</h2></div>
@@ -45,20 +47,102 @@
 <nav class="bottom-nav" id="nav"></nav>
 <script src="../data/classes.js"></script>
 <script src="../scripts/ui.js"></script>
+<script src="../scripts/store.js"></script>
 <script src="../scripts/kids.js"></script>
 <script src="../scripts/nav.js"></script>
 <script src="../scripts/appbar.js"></script>
 <script src="../scripts/layout.js"></script>
 <script>
 (function () {
-  // הלוח נגזר מהדאטה ולא מקודד ב-HTML, כדי שהאייקון, השם והשעה יגיעו
-  // מאותו מקור אמת כמו שאר המסכים ולא ידרשו עריכה בשני מקומות
+  var D = window.APP_DATA;
   var $ = function (x) { return document.getElementById(x); };
-  var C = window.Kids.classById;
-  var K = window.Kids.byId;
+  var C = window.Kids.classById, K = window.Kids.byId;
 
-  var TODAY = [{ cls: 'football-yossi', kid: 'itai', when: '17:00-18:00 · פארק גבעתיים · להביא בקבוק מים', badge: 'שיעור ניסיון · היום' }];
-  var WEEK = [
+  var DAYS = ['א', 'ב', 'ג', 'ד', 'ה', 'ו'];
+  var H0 = 14, H1 = 20;                      // חלון אחר הצהריים
+  var mins = function (t) { var p = t.split(':'); return (+p[0]) * 60 + (+p[1]); };
+  var todayLetter = DAYS[new Date().getDay()] || 'א';
+
+  /* ---- כל מה שתפוס השבוע: לוח קיים של כל ילד, ועוד ההרשמות ----
+     בלי לצרף את ההרשמות, שתי הרשמות באותה שעה באותו סשן לא היו
+     מייצרות שום אזהרה, במוצר שכל ההבטחה שלו היא ודאות מול הלוח. */
+  function blocks() {
+    var out = [];
+    D.kids.forEach(function (k) {
+      (k.schedule || []).forEach(function (s) {
+        out.push({ kid: k, day: s.day, from: s.from, to: s.to, what: trim(s.what), kind: 'other' });
+      });
+      window.Store.busyFor(k.id).forEach(function (s) {
+        out.push({ kid: k, day: s.day, from: s.from, to: s.to, what: trim(s.what), kind: 'chug', classId: s.classId });
+      });
+    });
+    // חוגי הדמו שהמשפחה כבר רשומה אליהם, כדי שהלוח לא יתחיל ריק
+    SEED.forEach(function (r) {
+      var c = C(r.cls), k = K(r.kid);
+      if (!c || !k) return;
+      if (out.some(function (b) { return b.classId === c.id && b.kid.id === k.id; })) return;
+      out.push({ kid: k, day: c.day, from: c.from, to: c.to, what: trim(shortName(c)), kind: 'chug', classId: c.id });
+    });
+    return out;
+  }
+
+  function clashes(list) {
+    var out = [];
+    for (var i = 0; i < list.length; i++) {
+      for (var j = i + 1; j < list.length; j++) {
+        var a = list[i], b = list[j];
+        if (a.kid.id !== b.kid.id || a.day !== b.day) continue;
+        if (mins(a.from) < mins(b.to) && mins(b.from) < mins(a.to)) { out.push([a, b]); a.clash = b.clash = true; }
+      }
+    }
+    return out;
+  }
+
+  function renderWeek() {
+    var list = blocks();
+    var bad = clashes(list);
+    var span = (H1 - H0) * 60;
+
+    var head = DAYS.map(function (d) {
+      return '<div class="wk-day' + (d === todayLetter ? ' is-today' : '') + '">' + d + "'</div>";
+    }).join('');
+
+    var cols = DAYS.map(function (d) {
+      var items = list.filter(function (b) { return b.day === d; }).map(function (b) {
+        var top = (mins(b.from) - H0 * 60) / span * 100;
+        var h = (mins(b.to) - mins(b.from)) / span * 100;
+        return '<div class="wk-item kid-' + b.kid.colorKey + ' ' + b.kind +
+          (b.clash ? ' clash' : '') + '" style="top:' + top.toFixed(1) + '%; height:' + h.toFixed(1) + '%" ' +
+          'title="' + b.what + ' · ' + b.kid.name + ' · ' + b.from + ' עד ' + b.to + '">' +
+          '<b>' + b.what + '</b><small>' + b.from + '</small></div>';
+      }).join('');
+      return '<div class="wk-col' + (d === todayLetter ? ' is-today' : '') + '">' + items + '</div>';
+    }).join('');
+
+    var hours = [];
+    for (var h = H0; h <= H1; h++) hours.push('<span>' + h + ':00</span>');
+
+    $('wk').innerHTML =
+      '<div class="wk-head">' + head + '</div>' +
+      '<div class="wk-body"><div class="wk-hours">' + hours.join('') + '</div>' +
+      '<div class="wk-grid">' + cols + '</div></div>';
+
+    $('wk-legend').innerHTML = D.kids.map(function (k) {
+      return '<span class="wk-key kid-' + k.colorKey + '">' + k.name + '</span>';
+    }).join('');
+
+    $('wk-note').innerHTML = bad.length
+      ? window.UI.icon('alert') + ' התנגשות: ' + bad.map(function (pr) {
+          return pr[0].what + ' מול ' + pr[1].what + ' אצל ' + pr[0].kid.name + ' ביום ' + pr[0].day + "'";
+        }).join(' · ')
+      : window.UI.icon('check') + ' אין התנגשויות בשבוע הזה';
+    $('wk-note').classList.toggle('bad', !!bad.length);
+    return list;
+  }
+
+  /* ---- הכרטיסים מתחת ללוח ---- */
+  var SEED = [
+    { cls: 'football-yossi', kid: 'itai', when: '17:00-18:00 · פארק גבעתיים · להביא בקבוק מים', badge: 'שיעור ניסיון' },
     { cls: 'ceramics-studio', kid: 'noa', when: "יום ה' 16:30 · רח' כצנלסון" },
     { cls: 'ballet-roni',     kid: 'noa', when: "יום א' 17:15 · סטודיו רוני" }
   ];
@@ -69,30 +153,60 @@
   ];
 
   function shortName(c) { return c.name.split('·')[0].trim(); }
+  // בעמודה צרה, "ביה"ס לכדורגל של יוסי" הופך ל"כדורגל". השם המלא
+  // נשאר ב-title של הבלוק.
+  function trim(t) {
+    return String(t).replace(/^(ביה"ס ל|בית ספר ל|סטודיו |חוג )/, '').split('·')[0].trim();
+  }
 
   function card(row) {
     var c = C(row.cls), k = K(row.kid);
+    if (!c || !k) return '';
     return '' +
       '<a class="card chug-card is-visible reveal" href="' + window.Kids.link('class.html') + '&id=' + c.id + '">' +
         '<div class="chug-icon' + (c.tone === 'warm' ? ' warm' : '') + '">' + window.UI.icon(c.icon) + '</div>' +
         '<div>' +
           '<h3>' + shortName(c) + ' <span class="kid-tag kid-' + k.colorKey + '">' + k.name + '</span></h3>' +
-          '<p class="meta">' + row.when + '</p>' +
+          '<p class="meta">' + (row.when || ('יום ' + c.day + "' " + c.from)) + '</p>' +
           (row.badge ? '<span class="badge trial">' + row.badge + '</span>' : '') +
         '</div>' +
         '<div class="chug-side"><span class="go">' + window.UI.icon('chevron') + '</span></div>' +
       '</a>';
   }
 
-  $('b-today').innerHTML = TODAY.map(card).join('');
-  $('b-week').innerHTML = WEEK.map(card).join('');
-  $('b-pay').innerHTML = PAY.map(function (row) {
-    var c = C(row.cls), k = K(row.kid);
-    return '<div class="pay-row"><span class="pay-what">' + window.UI.icon(c.icon) +
-      shortName(c) + ' · ' + k.name + '</span>' +
-      '<span class="pill-' + row.state + '">' + row.text + '</span></div>';
-  }).join('');
+  function renderCards() {
+    // ההרשמות מהסשן נכנסות ללוח, כך שאישור הרשמה באמת משנה משהו
+    var mine = window.Store.enrolled().map(function (e) {
+      return { cls: e.classId, kid: e.kidId, badge: e.mode === 'trial' ? 'שיעור ניסיון' : 'נרשמתם עכשיו' };
+    });
+    var all = mine.concat(SEED.filter(function (r) {
+      return !mine.some(function (m) { return m.cls === r.cls && m.kid === r.kid; });
+    }));
 
+    var today = all.filter(function (r) { var c = C(r.cls); return c && c.day === todayLetter; });
+    var rest  = all.filter(function (r) { var c = C(r.cls); return c && c.day !== todayLetter; });
+
+    $('today-h').textContent = "היום, יום " + todayLetter + "'";
+    $('b-today').innerHTML = today.length ? today.map(card).join('')
+      : '<div class="card empty is-visible reveal">' + window.UI.icon('calendar') +
+        '<p class="empty-t">אין חוגים היום</p><p class="empty-s">אחר צהריים פנוי</p></div>';
+    $('b-week').innerHTML = rest.map(card).join('');
+
+    $('b-pay').innerHTML = PAY.map(function (row) {
+      var c = C(row.cls), k = K(row.kid);
+      return '<div class="pay-row"><span class="pay-what">' + window.UI.icon(c.icon) +
+        shortName(c) + ' · ' + k.name + '</span>' +
+        '<span class="pill-' + row.state + '">' + row.text + '</span></div>';
+    }).join('');
+
+    var n = all.length, kidsN = new Set(all.map(function (r) { return r.kid; })).size;
+    var loc = document.querySelector('.hero-band .loc');
+    if (loc) loc.lastChild.textContent = 'השבוע · ' + kidsN + ' ילדים · ' + n + ' חוגים';
+  }
+
+  renderCards();
+  renderWeek();
+  window.Store.onChange(function () { renderCards(); renderWeek(); });
   window.Kids.mount('#nothing');
 })();
 </script>
