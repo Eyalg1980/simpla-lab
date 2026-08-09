@@ -25,15 +25,21 @@
 
   function selectionParam() { return selected.length ? selected.join(',') : 'none'; }
 
-  // כל קישור פנימי נושא איתו את הבחירה
+  // כל קישור פנימי נושא איתו את הבחירה.
+  // חשוב: מעדכנים רק את kids ומשאירים כל פרמטר אחר על מקומו. הגרסה הקודמת
+  // בנתה את הכתובת מאפס, ולכן סימון ילד מחק את ה-id של החוג והרשמה לבלט
+  // הגיעה למסך של כדורגל.
   function propagate() {
     document.querySelectorAll('a[href]').forEach(function (a) {
       var href = a.getAttribute('href');
-      if (!href || /^(https?:|mailto:|#)/.test(href)) return;
+      if (!href || /^(https?:|mailto:|tel:|#)/.test(href)) return;
       var base = href.split('?')[0].split('#')[0];
       if (!/\.html$/.test(base)) return;
       var hash = href.indexOf('#') > -1 ? href.slice(href.indexOf('#')) : '';
-      a.setAttribute('href', base + '?kids=' + encodeURIComponent(selectionParam()) + hash);
+      var qs = href.indexOf('?') > -1 ? href.slice(href.indexOf('?') + 1).split('#')[0] : '';
+      var params = new URLSearchParams(qs);
+      params.set('kids', selectionParam());
+      a.setAttribute('href', base + '?' + params.toString() + hash);
     });
   }
 
@@ -82,9 +88,13 @@
   }
 
   /* ---------- פרצוף הילד ---------- */
-  // דמות מצוירת אם ui.js נטען, ואמוג'י כגיבוי, כדי שאף מסך לא יישבר
+  // דמות מצוירת אם ui.js נטען, ואות ראשונה בעיגול כגיבוי. היה כאן אמוג'י
+  // סמיילי, וזה היה הגליף הצבעוני היחיד שנשאר בקוד.
   function face(kid, size) {
-    return (window.UI && window.UI.avatar) ? window.UI.avatar(kid, size || 44) : (kid.emoji || '🙂');
+    if (window.UI && window.UI.avatar) return window.UI.avatar(kid, size || 44);
+    return '<span class="kidav-fallback" style="width:' + (size || 44) + 'px;height:' +
+      (size || 44) + 'px" aria-label="' + (kid.name || '') + '">' +
+      (kid.name || '').charAt(0) + '</span>';
   }
 
   /* ---------- קיבוץ תגיות לפי ממדי הטקסונומיה ---------- */

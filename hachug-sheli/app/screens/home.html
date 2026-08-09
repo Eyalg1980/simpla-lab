@@ -13,7 +13,7 @@
   <header class="hero-band">
     <div class="app-header" style="padding-block:0 var(--space-2);">
       <div>
-        <h1 class="hello">שלום דנה 👋</h1>
+        <h1 class="hello">שלום דנה</h1>
         <span class="loc" data-ic="pin">גבעתיים והסביבה</span>
       </div>
       <div class="avatar">ד</div>
@@ -59,12 +59,12 @@
 (function () {
   var D = window.APP_DATA;
   var $ = function (id) { return document.getElementById(id); };
-  var WARM = { 'יצירה': 1, 'מחול': 1 };
 
+  // התג נגזר מ-UI.spots, אותו מקור אמת שדף החוג משתמש בו, כדי ששני
+  // המסכים לא יגידו דברים מנוגדים על אותו חוג
   function badgeFor(c) {
-    return c.spotsLeft <= 3
-      ? '<span class="badge low">נותרו ' + c.spotsLeft + ' מקומות</span>'
-      : '<span class="badge open">יש מקום</span>';
+    var s = window.UI.spots(c);
+    return '<span class="badge ' + s.level + '">' + s.short + '</span>';
   }
 
   // דירוג לפי התאמה לילדים המסומנים. חוג חסום יורד למטה ולא נעלם,
@@ -103,7 +103,7 @@
       return '' +
         '<article class="card chug-card is-visible reveal" data-id="' + c.id + '" ' +
                  'style="' + (row.rank === 2 ? 'opacity:.62' : '') + '">' +
-          '<div class="chug-icon' + (WARM[c.tags[0]] ? ' warm' : '') + '">' + c.emoji + '</div>' +
+          '<div class="chug-icon' + (c.tone === 'warm' ? ' warm' : '') + '">' + window.UI.icon(c.icon) + '</div>' +
           '<div>' +
             '<h3>' + c.name + '</h3>' +
             '<p class="meta">ימי ' + c.day + "' " + c.from + ' · ' + c.place + ' · ' + c.travelMin + ' דק נסיעה</p>' +
@@ -139,7 +139,7 @@
       var s = SPOTS[i % SPOTS.length];
       return '<a class="mappin" href="' + window.Kids.link('class.html') + '&id=' + c.id + '" ' +
         'style="right:' + s.x + '%; top:' + s.y + '%">' +
-        '<div class="dot"><span>' + c.emoji + '</span></div>' +
+        '<div class="dot' + (c.tone === 'warm' ? ' warm' : '') + '">' + window.UI.icon(c.icon) + '</div>' +
         '<div class="lbl">' + c.travelMin + ' דק</div></a>';
     }).join('');
     host.innerHTML = roads + home + pins;

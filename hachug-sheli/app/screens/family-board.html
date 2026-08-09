@@ -24,41 +24,14 @@
   </div>
 
   <div class="section-title"><h2>היום, יום ג'</h2></div>
-  <article class="card chug-card is-visible reveal">
-    <div class="chug-icon">⚽</div>
-    <div>
-      <h3>כדורגל של יוסי <span class="kid-tag kid-a">איתי</span></h3>
-      <p class="meta">17:00-18:00 · פארק גבעתיים · להביא בקבוק מים</p>
-      <span class="badge trial">שיעור ניסיון · היום!</span>
-    </div>
-    <div class="chug-side"><span class="go" data-ic="chevron"></span></div>
-  </article>
+  <div id="b-today"></div>
 
   <div class="section-title"><h2>בהמשך השבוע</h2></div>
-  <article class="card chug-card is-visible reveal">
-    <div class="chug-icon warm">🎨</div>
-    <div>
-      <h3>קרמיקה קטן <span class="kid-tag kid-b">נועה</span></h3>
-      <p class="meta">יום ה' 16:30 · רח' כצנלסון</p>
-    </div>
-    <div class="chug-side"><span class="go" data-ic="chevron"></span></div>
-  </article>
-  <article class="card chug-card is-visible reveal">
-    <div class="chug-icon warm">🩰</div>
-    <div>
-      <h3>בלט מודרני <span class="kid-tag kid-b">נועה</span></h3>
-      <p class="meta">יום א' 17:15 · סטודיו רוני</p>
-    </div>
-    <div class="chug-side"><span class="go" data-ic="chevron"></span></div>
-  </article>
+  <div id="b-week"></div>
 
   <section class="card fold is-visible reveal" data-open>
     <h2 class="fold-h">תשלומים</h2>
-    <div class="fold-b">
-    <div class="pay-row"><span>⚽ כדורגל · איתי</span><span class="pill-paid">אחרי שיעור ניסיון</span></div>
-    <div class="pay-row"><span>🎨 קרמיקה · נועה</span><span class="pill-paid">שולם · אוגוסט</span></div>
-    <div class="pay-row"><span>🩰 בלט · נועה</span><span class="pill-due">לתשלום עד 1/8</span></div>
-    </div>
+    <div class="fold-b" id="b-pay"></div>
   </section>
 
   <section class="card fold is-visible reveal" data-open>
@@ -75,6 +48,52 @@
 <script src="../scripts/kids.js"></script>
 <script src="../scripts/nav.js"></script>
 <script src="../scripts/appbar.js"></script>
-<script>window.Kids.mount("#nothing");</script>
+<script>
+(function () {
+  // הלוח נגזר מהדאטה ולא מקודד ב-HTML, כדי שהאייקון, השם והשעה יגיעו
+  // מאותו מקור אמת כמו שאר המסכים ולא ידרשו עריכה בשני מקומות
+  var $ = function (x) { return document.getElementById(x); };
+  var C = window.Kids.classById;
+  var K = window.Kids.byId;
+
+  var TODAY = [{ cls: 'football-yossi', kid: 'itai', when: '17:00-18:00 · פארק גבעתיים · להביא בקבוק מים', badge: 'שיעור ניסיון · היום' }];
+  var WEEK = [
+    { cls: 'ceramics-studio', kid: 'noa', when: "יום ה' 16:30 · רח' כצנלסון" },
+    { cls: 'ballet-roni',     kid: 'noa', when: "יום א' 17:15 · סטודיו רוני" }
+  ];
+  var PAY = [
+    { cls: 'football-yossi', kid: 'itai', state: 'paid', text: 'אחרי שיעור ניסיון' },
+    { cls: 'ceramics-studio', kid: 'noa', state: 'paid', text: 'שולם · אוגוסט' },
+    { cls: 'ballet-roni',     kid: 'noa', state: 'due',  text: 'לתשלום עד 1/8' }
+  ];
+
+  function shortName(c) { return c.name.split('·')[0].trim(); }
+
+  function card(row) {
+    var c = C(row.cls), k = K(row.kid);
+    return '' +
+      '<a class="card chug-card is-visible reveal" href="' + window.Kids.link('class.html') + '&id=' + c.id + '">' +
+        '<div class="chug-icon' + (c.tone === 'warm' ? ' warm' : '') + '">' + window.UI.icon(c.icon) + '</div>' +
+        '<div>' +
+          '<h3>' + shortName(c) + ' <span class="kid-tag kid-' + k.colorKey + '">' + k.name + '</span></h3>' +
+          '<p class="meta">' + row.when + '</p>' +
+          (row.badge ? '<span class="badge trial">' + row.badge + '</span>' : '') +
+        '</div>' +
+        '<div class="chug-side"><span class="go">' + window.UI.icon('chevron') + '</span></div>' +
+      '</a>';
+  }
+
+  $('b-today').innerHTML = TODAY.map(card).join('');
+  $('b-week').innerHTML = WEEK.map(card).join('');
+  $('b-pay').innerHTML = PAY.map(function (row) {
+    var c = C(row.cls), k = K(row.kid);
+    return '<div class="pay-row"><span class="pay-what">' + window.UI.icon(c.icon) +
+      shortName(c) + ' · ' + k.name + '</span>' +
+      '<span class="pill-' + row.state + '">' + row.text + '</span></div>';
+  }).join('');
+
+  window.Kids.mount('#nothing');
+})();
+</script>
 </body>
 </html>

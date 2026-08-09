@@ -34,15 +34,47 @@
     share:    '<circle cx="17.5" cy="6" r="2.6"/><circle cx="6.5" cy="12" r="2.6"/><circle cx="17.5" cy="18" r="2.6"/><path d="M8.8 10.8l6.4-3.5M8.8 13.2l6.4 3.5"/>',
     plus:     '<path d="M12 5.5v13M5.5 12h13"/>',
     sparkle:  '<path d="M12 4l1.9 5.1L19 11l-5.1 1.9L12 18l-1.9-5.1L5 11l5.1-1.9z"/>',
-    trophy:   '<path d="M7.5 4h9v4.5a4.5 4.5 0 01-9 0z"/><path d="M7.5 5.5H5a2.5 2.5 0 002.5 2.5M16.5 5.5H19a2.5 2.5 0 01-2.5 2.5"/><path d="M12 13v3M9 20h6M10 16.5h4"/>'
+    trophy:   '<path d="M7.5 4h9v4.5a4.5 4.5 0 01-9 0z"/><path d="M7.5 5.5H5a2.5 2.5 0 002.5 2.5M16.5 5.5H19a2.5 2.5 0 01-2.5 2.5"/><path d="M12 13v3M9 20h6M10 16.5h4"/>',
+
+    /* --- זהות התחום של החוג. היה כאן אמוג'י צבעוני, והוחלף באייקוני קו
+           שיורשים currentColor, כי אמוג'י לא מתחלף במצב נבחר, מרונדר
+           אחרת בכל מערכת הפעלה, ומאבד קריאות מתחת ל-20 פיקסלים. --- */
+    sport:    '<circle cx="12" cy="12" r="8.6"/><path d="M12 3.9l4.7 3.4-1.8 5.5H9.1L7.3 7.3z"/><path d="M16.7 7.3l4.4 1.5M7.3 7.3L2.9 8.8M9.1 12.8l-2.7 4.8M14.9 12.8l2.7 4.8"/>',
+    art:      '<path d="M12 3.6c-4.8 0-8.6 3.6-8.6 8.1s3.8 8.1 8.6 8.1c1.2 0 2-.8 2-1.8 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-1 .9-1.8 1.9-1.8h1.4c2.4 0 4.3-2 4.3-4.4 0-3.7-3.8-5.8-8.6-5.8z"/><path d="M7.9 11.4h.01M10.6 8.1h.01M14.7 8.5h.01"/>',
+    tech:     '<rect x="4" y="8.2" width="16" height="11.3" rx="3"/><circle cx="12" cy="3.6" r="1.5"/><path d="M12 5.1v3.1M9.6 13.2h.01M14.4 13.2h.01M9.4 16.6h5.2M4 12.6H2.4M20 12.6h1.6"/>',
+    dance:    '<circle cx="14.2" cy="4.5" r="2.1"/><path d="M14.2 7.1l-3.6 3.3 2.5 2.7-1.3 6.6M12.6 12.9l4.6 1.7M10.6 10.4L6.4 12M11.8 19.7L7.4 21.6"/>',
+
+    /* --- גליפים שהיו תווי טקסט (✓ ! × ★) והפכו לאייקונים --- */
+    x:        '<path d="M6.6 6.6l10.8 10.8M17.4 6.6L6.6 17.4"/>',
+    alert:    '<circle cx="12" cy="12" r="8.6"/><path d="M12 7.6v5M12 16.2h.01"/>',
+    star:     '<path d="M12 3.6l2.6 5.3 5.8.9-4.2 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.2-4.1 5.8-.9z"/>',
+    edit:     '<path d="M4 20h4l10.5-10.5a2.1 2.1 0 000-3l-1-1a2.1 2.1 0 00-3 0L4 16z"/><path d="M13.5 6.5l4 4"/>',
+    trash:    '<path d="M4.5 6.5h15M9.5 6.5V4.8a1.3 1.3 0 011.3-1.3h2.4a1.3 1.3 0 011.3 1.3v1.7"/><path d="M6.5 6.5l.9 12.2a1.6 1.6 0 001.6 1.5h6a1.6 1.6 0 001.6-1.5l.9-12.2"/>',
+    mail:     '<rect x="3" y="5.5" width="18" height="13" rx="2.6"/><path d="M3.6 7l7.3 5.4a1.9 1.9 0 002.2 0L20.4 7"/>',
+    link:     '<path d="M10.5 13.5a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1.2 1.2"/><path d="M13.5 10.5a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1.2-1.2"/>'
   };
+
+  // אייקונים שממולאים במקום להיות קו, כמו כוכב הדירוג
+  var FILLED = { star: 1 };
 
   function icon(name, cls) {
     var d = RAW[name];
     if (!d) return '';
+    var filled = FILLED[name];
     return '<svg class="ic' + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" aria-hidden="true" ' +
-      'fill="' + P.fill + '" stroke="currentColor" stroke-width="' + P.sw +
+      'fill="' + (filled ? 'currentColor' : P.fill) + '" stroke="currentColor" stroke-width="' +
+      (filled ? 1.2 : P.sw) +
       '" stroke-linecap="round" stroke-linejoin="round">' + d + '</svg>';
+  }
+
+  /* ---------- תפוסה: מקור אמת אחד לצבע ולנוסח ----------
+     היה כאן פער: מסך החיפוש סימן חוג עם 6 מקומות בתג ירוק "יש מקום",
+     ובאותו רגע דף החוג הציג עליו בר אדום. אותו חוג, שתי הצהרות מנוגדות. */
+  function spots(cls) {
+    var n = cls.spotsLeft;
+    if (n <= 2) return { level: 'low',  short: 'נותרו ' + n + ' מקומות', long: 'נותרו ' + n + ' מקומות בלבד בקבוצה הזו' };
+    if (n <= 5) return { level: 'few',  short: 'נותרו ' + n + ' מקומות', long: 'נותרו ' + n + ' מקומות בקבוצה הזו' };
+    return { level: 'open', short: 'יש מקום', long: 'יש מקום בקבוצה, ' + n + ' מתוך ' + cls.groupSize + ' פנויים' };
   }
 
   // מחליף כל <i data-ic="search"></i> באייקון אמיתי
@@ -145,7 +177,7 @@
     });
   }
 
-  window.UI = { icon: icon, paint: paint, avatar: avatar, foldable: foldable, HAIR: HAIR };
+  window.UI = { icon: icon, paint: paint, avatar: avatar, foldable: foldable, spots: spots, HAIR: HAIR };
 
   document.addEventListener('DOMContentLoaded', function () { paint(); foldable(); });
   if (document.readyState !== 'loading') { paint(); foldable(); }

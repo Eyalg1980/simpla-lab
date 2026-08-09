@@ -102,7 +102,8 @@
 
   /* ---- עובדות קבועות, כולן מתוך הטקסונומיה ---- */
   document.title = 'החוג שלי · ' + cls.name;
-  $('h-name').textContent = cls.emoji + ' ' + cls.name;
+  // innerHTML ולא textContent, כי האייקון הוא SVG ולא תו
+  $('h-name').innerHTML = '<span class="h-ic">' + window.UI.icon(cls.icon) + '</span>' + cls.name;
   $('h-sub').textContent = cls.place + ' · ' + cls.teacher + ' · גילאי ' + cls.ageMin + ' עד ' + cls.ageMax;
   $('f-when').textContent = 'ימי ' + cls.day + "' " + cls.from + ' עד ' + cls.to;
   $('f-price').textContent = cls.price + ' ש"ח לחודש';
@@ -111,8 +112,11 @@
   $('f-about').textContent = cls.about;
 
   var taken = cls.groupSize - cls.spotsLeft;
+  var sp = window.UI.spots(cls);
   $('f-bar').style.width = Math.round(taken / cls.groupSize * 100) + '%';
-  $('f-spots').textContent = 'נותרו ' + cls.spotsLeft + ' מקומות בקבוצה הזו';
+  $('f-spots').textContent = sp.long;
+  // הבר והטקסט מקבלים את רמת התפוסה, כדי שחוג עם שפע מקומות לא ייצבע אדום
+  $('f-bar').closest('.capacity').classList.add(sp.level);
 
   $('f-lesson').innerHTML = cls.lesson.map(function (l) {
     return '<div class="lesson-line"><span class="t">' + l.min + '</span><span class="w">' + l.what + '</span></div>';
@@ -123,8 +127,10 @@
   $('g-carpool').textContent = cls.group.carpool + ' מציעים טרמפ';
 
   $('f-reviews').innerHTML = cls.reviews.map(function (r) {
-    return '<p style="margin:0 0 6px; font-size:var(--fs-small);">' +
-      '★'.repeat(r.stars) + ' "' + r.text + '" · ' + r.by + '</p>';
+    var stars = new Array(r.stars + 1).join(window.UI.icon('star', 'ic-star'));
+    return '<p class="review">' +
+      '<span class="stars" role="img" aria-label="דירוג ' + r.stars + ' מתוך 5">' + stars + '</span>' +
+      '<span>"' + r.text + '" · ' + r.by + '</span></p>';
   }).join('');
 
   /* ---- התגיות, פרושות לפי ממד ומסומנות לפי הילדים ---- */
@@ -146,7 +152,11 @@
   }
 
   /* ---- ההתאמה, מתעדכנת בכל שינוי בחירה ---- */
-  var ICON = { ok: '✓', warn: '!', block: '×' };
+  var ICON = {
+    ok:    window.UI.icon('check'),
+    warn:  window.UI.icon('alert'),
+    block: window.UI.icon('x')
+  };
   var HEAD = { ok: 'מתאים ל', warn: 'כדאי לבדוק לפני, ל', block: 'לא מתאים ל' };
 
   function renderFits() {
@@ -184,10 +194,10 @@
   window.Kids.onChange(renderFits);
   renderFits();
 
-  // הכפתורים למטה שומרים גם את זהות החוג
-  ['cta-trial', 'cta-full'].forEach(function (x) {
-    $(x).setAttribute('href', window.Kids.link('checkout.html') + '&id=' + cls.id);
-  });
+  // הכפתורים למטה שומרים גם את זהות החוג וגם את סוג ההרשמה.
+  // בלי mode, "הרשמה ישירה" הייתה מגיעה למסך שכתוב בו "לתשלום היום 0 ש"ח".
+  $('cta-trial').setAttribute('href', window.Kids.link('checkout.html') + '&id=' + cls.id + '&mode=trial');
+  $('cta-full').setAttribute('href', window.Kids.link('checkout.html') + '&id=' + cls.id + '&mode=full');
 
   /* ---- פעולות התיאום ---- */
   function say(msg) { var m = $('coord-msg'); m.textContent = msg; m.hidden = false; }

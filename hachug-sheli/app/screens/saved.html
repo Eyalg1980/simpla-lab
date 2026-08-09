@@ -66,7 +66,7 @@
       var kids = s.for.map(function (id) { return window.Kids.byId(id); }).filter(Boolean);
       return '' +
         '<article class="card saved-card is-visible reveal" data-id="' + c.id + '">' +
-          '<div class="chug-icon">' + c.emoji + '</div>' +
+          '<div class="chug-icon' + (c.tone === 'warm' ? ' warm' : '') + '">' + window.UI.icon(c.icon) + '</div>' +
           '<div>' +
             '<h3 style="margin:0; font-size:1rem;">' + c.name + '</h3>' +
             '<p class="meta" style="margin:2px 0 0;">ימי ' + c.day + "' " + c.from + ' · ' + c.price + ' ש"ח לחודש</p>' +

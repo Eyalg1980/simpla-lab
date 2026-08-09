@@ -52,7 +52,7 @@ window.APP_DATA = {
       "id": "itai",
       "name": "איתי",
       "age": 7,
-      "emoji": "⚽",
+      "icon": "sport",
       "colorKey": "a",
       "interests": [
         "ספורט",
@@ -92,7 +92,7 @@ window.APP_DATA = {
       "id": "noa",
       "name": "נועה",
       "age": 5,
-      "emoji": "🎨",
+      "icon": "art",
       "colorKey": "b",
       "interests": [
         "יצירה",
@@ -132,7 +132,8 @@ window.APP_DATA = {
   "classes": [
     {
       "id": "football-yossi",
-      "emoji": "⚽",
+      "icon": "sport",
+      "tone": "cool",
       "name": "ביה\"ס לכדורגל של יוסי",
       "teacher": "יוסי, מאמן מוסמך",
       "place": "פארק גבעתיים",
@@ -196,7 +197,8 @@ window.APP_DATA = {
     },
     {
       "id": "ceramics-studio",
-      "emoji": "🎨",
+      "icon": "art",
+      "tone": "warm",
       "name": "סטודיו קרמיקה קטן",
       "teacher": "רונית, קרמיקאית",
       "place": "רח' כצנלסון",
@@ -250,7 +252,8 @@ window.APP_DATA = {
     },
     {
       "id": "robotics-young",
-      "emoji": "🤖",
+      "icon": "tech",
+      "tone": "cool",
       "name": "רובוטיקה צעירה",
       "teacher": "עומר, מהנדס",
       "place": "מרכז קהילתי",
@@ -304,7 +307,8 @@ window.APP_DATA = {
     },
     {
       "id": "ballet-roni",
-      "emoji": "🩰",
+      "icon": "dance",
+      "tone": "warm",
       "name": "בלט מודרני · סטודיו רוני",
       "teacher": "רוני, רקדנית",
       "place": "רח' ויצמן",

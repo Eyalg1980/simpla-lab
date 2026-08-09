@@ -43,8 +43,10 @@ button, .btn { font-family: inherit; }
   padding: var(--space-2); margin-bottom: var(--space-2);
 }
 .chug-card { display: grid; grid-template-columns: 56px 1fr auto; gap: var(--space-2); align-items: center; }
-.chug-icon { width: 56px; height: 56px; border-radius: var(--radius-small); display: grid; place-items: center; font-size: 1.6rem; background: var(--color-primary-soft); }
-.chug-icon.warm { background: var(--color-accent-soft); }
+/* אריח זהות התחום. היה כאן אמוג'י בגודל 1.6rem, והיום זה אייקון קו
+   שיורש currentColor, ולכן האריח מגדיר צבע ולא גודל גופן. */
+.chug-icon { width: 56px; height: 56px; border-radius: var(--radius-small); display: grid; place-items: center; background: var(--color-primary-soft); color: var(--color-primary); }
+.chug-icon.warm { background: var(--color-accent-soft); color: #92600A; }
 .chug-card h3 { margin: 0 0 2px; font-size: 1rem; }
 .chug-card .meta { color: var(--color-muted); font-size: var(--fs-small); margin: 0; }
 .chug-side { text-align: left; }
@@ -52,7 +54,9 @@ button, .btn { font-family: inherit; }
 .price small { font-weight: 400; color: var(--color-muted); }
 
 .badge { display: inline-block; font-size: 0.72rem; font-weight: 600; border-radius: 999px; padding: 0.15em 0.7em; }
-.badge.open { background: #E8F7EE; color: var(--color-success); }
+/* שלוש רמות תפוסה, אותן רמות שדף החוג צובע בהן את הבר */
+.badge.open { background: #E8F7EE; color: #0F7A38; }
+.badge.few { background: var(--color-accent-soft); color: #92600A; }
 .badge.low { background: #FDECEC; color: var(--color-danger); }
 .badge.trial { background: var(--color-accent-soft); color: #92600A; }
 
@@ -77,8 +81,15 @@ button, .btn { font-family: inherit; }
 .facts div { display: flex; gap: 6px; align-items: center; font-size: var(--fs-small); }
 .capacity { margin-block: var(--space-2); }
 .capacity .bar { height: 8px; border-radius: 999px; background: var(--color-border); overflow: hidden; }
-.capacity .bar span { display: block; height: 100%; width: 87%; background: var(--color-danger); border-radius: 999px; }
-.capacity p { margin: 6px 0 0; font-size: var(--fs-small); color: var(--color-danger); font-weight: 600; }
+.capacity .bar span { display: block; height: 100%; width: 87%; background: var(--color-primary); border-radius: 999px; }
+.capacity p { margin: 6px 0 0; font-size: var(--fs-small); color: var(--color-muted); font-weight: 600; }
+/* הצבע נגזר מרמת התפוסה. קודם הבר היה אדום תמיד, גם עם שישה מקומות פנויים */
+.capacity.open .bar span { background: #0F7A38; }
+.capacity.open p { color: #0F7A38; }
+.capacity.few .bar span { background: var(--color-accent); }
+.capacity.few p { color: #92600A; }
+.capacity.low .bar span { background: var(--color-danger); }
+.capacity.low p { color: var(--color-danger); }
 
 /* Forms (checkout) */
 .field { margin-bottom: var(--space-2); }
@@ -154,12 +165,18 @@ button, .btn { font-family: inherit; }
 .kidchip.on.kid-a .kidchip-face { background: #fff; }
 .kidchip.on.kid-b { border-color: var(--color-accent); background: var(--color-accent-soft); }
 .kidchip.on.kid-b .kidchip-face { background: #fff; }
+/* היה כאן התו ✓. עכשיו זה אייקון קו מוטבע, כדי שכל סימן במוצר יגיע
+   מאותו סט אחד ולא מגליף של גופן. */
 .kidchip.on::after {
-  content: '✓'; position: absolute; top: -7px; inset-inline-start: -7px;
-  width: 20px; height: 20px; border-radius: 50%; font-size: 0.7rem; font-weight: 700;
-  display: grid; place-items: center; color: #fff; background: var(--color-primary);
+  content: ''; position: absolute; top: -7px; inset-inline-start: -7px;
+  width: 20px; height: 20px; border-radius: 50%; background-color: var(--color-primary);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: center; background-size: 11px 11px;
 }
-.kidchip.on.kid-b::after { background: var(--color-accent); color: #3B2A05; }
+.kidchip.on.kid-b::after {
+  background-color: var(--color-accent);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233B2A05' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E");
+}
 .kidpick-hint { margin: 8px 0 0; font-size: 0.72rem; color: var(--color-muted); }
 
 /* כרטיס ההתאמה: עובדות, לא ציון */
@@ -173,7 +190,8 @@ button, .btn { font-family: inherit; }
 .fit-sub { margin: 0; font-size: 0.74rem; color: var(--color-muted); }
 .fit ul { margin: 0; padding: 0; list-style: none; }
 .fit li { display: flex; gap: 8px; align-items: flex-start; font-size: var(--fs-small); padding-block: 3px; }
-.fit li .m { flex: 0 0 auto; font-weight: 700; width: 1.1em; text-align: center; }
+.fit li .m { flex: 0 0 auto; width: 18px; height: 18px; display: grid; place-items: center; margin-top: 1px; }
+.fit li .m .ic { width: 16px; height: 16px; }
 .fit li.i-ok .m    { color: var(--color-success); }
 .fit li.i-warn .m  { color: #B45309; }
 .fit li.i-block .m { color: var(--color-danger); }
@@ -234,7 +252,10 @@ button, .btn { font-family: inherit; }
   background: var(--color-primary); display: grid; place-items: center;
   box-shadow: 0 2px 6px rgba(0,0,0,.2);
 }
-.mappin .dot span { transform: rotate(-45deg); font-size: 0.95rem; }
+/* הסיכה מסובבת ב-45 מעלות, אז האייקון שבתוכה מסובב חזרה */
+.mappin .dot .ic { transform: rotate(-45deg); width: 18px; height: 18px; color: #fff; }
+.mappin .dot.warm { background: var(--color-accent); }
+.mappin .dot.warm .ic { color: #3B2A05; }
 .mappin.home .dot { background: var(--color-text); }
 .mappin .lbl { font-size: 0.62rem; font-weight: 700; background: #fff; border-radius: 999px; padding: 1px 7px; white-space: nowrap; box-shadow: var(--shadow-card); }
 .maphint { margin: 0 0 var(--space-2); font-size: 0.72rem; color: var(--color-muted); }
@@ -431,3 +452,29 @@ button, .btn { font-family: inherit; }
 .search { justify-content: flex-start; }
 .prof-head .kidav { border: 3px solid rgba(255, 255, 255, 0.9); }
 .chug-icon svg { width: 26px; height: 26px; }
+
+/* ============================================================
+   רכיבים שנוספו עם מעבר האמוג'י לאייקוני קו (9.8.2026)
+   ============================================================ */
+
+/* אייקון התחום בכותרת דף החוג */
+.h-ic { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 9px;
+        background: rgba(255,255,255,.16); margin-inline-end: 9px; vertical-align: -0.5em; }
+.h-ic .ic { width: 20px; height: 20px; }
+.hero-block h1 { display: flex; align-items: center; }
+
+/* דירוג בכוכבי SVG, במקום התו ★ */
+.review { display: flex; gap: 7px; align-items: baseline; margin: 0 0 8px; font-size: var(--fs-small); }
+.stars { flex: 0 0 auto; display: inline-flex; gap: 1px; color: var(--color-accent); }
+.ic-star { width: 13px; height: 13px; }
+
+/* גיבוי לאווטאר כשה-SVG לא נטען. היה כאן אמוג'י סמיילי. */
+.kidav-fallback { display: inline-grid; place-items: center; border-radius: 50%;
+                  background: var(--color-primary-soft); color: var(--color-primary); font-weight: 700; }
+
+/* שורת תשלום עם אייקון התחום */
+.pay-what { display: inline-flex; align-items: center; gap: 7px; }
+.pay-what .ic { width: 17px; height: 17px; color: var(--color-primary); }
+
+/* כרטיסי הלוח המשפחתי הם קישורים אמיתיים ולא div עם onclick */
+a.chug-card { color: inherit; text-decoration: none; }

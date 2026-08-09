@@ -6,6 +6,7 @@
   <title>מאפס למוצר חי · הסיפור של החוג שלי</title>
   <meta name="description" content="איך נראה תהליך מלא של עיצוב מוצר בעידן ה-AI: ממחקר משתמשים, דרך שפה עיצובית, ועד מוצר שרץ בדפדפן" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles/tokens.css" />
   <link rel="stylesheet" href="styles/main.css" />
@@ -61,6 +62,18 @@
     .outcome-card a { font-weight: 500; color: var(--color-accent); text-decoration: none; }
     .outcome-card a:hover { text-decoration: underline; }
   </style>
+
+  <script>document.documentElement.classList.add('js')</script>
+  <meta name="color-scheme" content="light" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://eyalg1980.github.io/simpla-lab/hachug-sheli/story.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="מאפס למוצר חי · התהליך" />
+  <meta property="og:description" content="איך פרויקט עובר ממחקר משתמשים לשפה עיצובית ולמוצר שרץ בדפדפן, בשלושה בלוקים." />
+  <meta property="og:url" content="https://eyalg1980.github.io/simpla-lab/hachug-sheli/story.html" />
+  <meta property="og:locale" content="he_IL" />
+  <meta property="og:image" content="https://eyalg1980.github.io/simpla-lab/hachug-sheli/content/shots/hachug-sheli-screens.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 </head>
 <body>
   <a class="skip-link" href="#main">דילוג לתוכן</a>
@@ -72,7 +85,7 @@
         <a href="index.html">עבודות</a>
         <a href="story.html" aria-current="page">התהליך</a>
         <a href="about.html">עליי</a>
-        <a href="mailto:eyal@simpla.co.il">צרו קשר</a>
+        <a href="mailto:eyal@simpla.co.il" data-ic="mail">צרו קשר</a>
       </nav>
     </div>
   </header>
@@ -105,21 +118,21 @@
 
         <div class="steps reveal">
           <div class="step">
-            <h3>ראיונות</h3>
+            <h3 data-ic="mic">ראיונות</h3>
             <p>שאלות בזמן עבר בלבד. מבקשים להראות, לא לספר.</p>
           </div>
           <div class="step">
-            <h3>תמות וקבוצות</h3>
+            <h3 data-ic="group">תמות וקבוצות</h3>
             <p>מה חזר על עצמו, ומי מתנהג דומה למי.</p>
             <span class="tool">interview-analyzer</span>
           </div>
           <div class="step">
-            <h3>פרסונה ואמפתיה</h3>
+            <h3 data-ic="user">פרסונה ואמפתיה</h3>
             <p>הפער בין מה שהורים אומרים למה שהם באמת עושים.</p>
             <span class="tool">figjam-persona-builder</span>
           </div>
           <div class="step">
-            <h3>מסע וארכיטקטורה</h3>
+            <h3 data-ic="map">מסע וארכיטקטורה</h3>
             <p>המסע האמיתי, ומפת המסכים שנגזרה ממנו.</p>
             <span class="tool">figjam-cjm-builder</span>
           </div>
@@ -137,23 +150,23 @@
 
         <div class="steps reveal">
           <div class="step">
-            <h3>Design Tokens</h3>
+            <h3 data-ic="tag">Design Tokens</h3>
             <p>קובץ אחד שמחזיק את כל השפה. מחליפים אותו, וכל המוצר משתנה.</p>
             <span class="tool">extract-design-system</span>
           </div>
           <div class="step">
-            <h3>בנייה בשילוב AI</h3>
-            <p>ארבעה מסכים חיים, לא תמונות. נבנו מהטוקנים החוצה.</p>
+            <h3 data-ic="sparkle">בנייה בשילוב AI</h3>
+            <p>שישה מסכים חיים, לא תמונות. נבנו מהטוקנים החוצה.</p>
           </div>
           <div class="step">
-            <h3>התנהגויות</h3>
+            <h3 data-ic="check">התנהגויות</h3>
             <p>הרגע שבו המסך מפסיק להיראות כמו מוקאפ ומתחיל להרגיש כמו מוצר.</p>
           </div>
         </div>
 
         <div class="shots reveal">
-          <img src="content/shots/hachug-sheli-screens.png" alt="ארבעת מסכי האפליקציה זה לצד זה" />
-          <img src="content/shots/hachug-sheli-research.png" alt="לוחות המחקר: תמות, פרסונה ומסע לקוח" />
+          <img src="content/shots/hachug-sheli-screens.png" alt="ששת מסכי האפליקציה זה לצד זה: חיפוש, דף חוג, שמורים, פרופיל, הרשמה, והלוח המשפחתי" width="2400" height="840" loading="lazy" decoding="async" />
+          <img src="content/shots/hachug-sheli-research.png" alt="לוח המחקר: כרטיס הפרסונה של דנה מימין, ומפת מסע בת שישה שלבים עם עקומת רגש ונקודת שפל בבירור המקום בטלפון" width="3200" height="1122" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
@@ -168,17 +181,17 @@
 
         <div class="outcome reveal">
           <div class="outcome-card">
-            <h3>המוצר החי</h3>
-            <p>ארבעה מסכים שרצים בדפדפן: חיפוש, עמוד חוג, הרשמה, ולוח משפחתי.</p>
+            <h3 data-ic="external">המוצר החי</h3>
+            <p>שישה מסכים שרצים בדפדפן: חיפוש, דף חוג, הרשמה, שמורים, פרופיל, ולוח משפחתי.</p>
             <a href="app/screens/home.html">לפתיחת המוצר</a>
           </div>
           <div class="outcome-card">
-            <h3>הקייס סטאדי</h3>
+            <h3 data-ic="doc">הקייס סטאדי</h3>
             <p>התהליך המלא: מה שאלנו, מה מצאנו, ומה זה שינה בכל החלטה.</p>
             <a href="case-studies/hachug-sheli.html">לקריאת הקייס</a>
           </div>
           <div class="outcome-card">
-            <h3>לפני ואחרי</h3>
+            <h3 data-ic="scissors">לפני ואחרי</h3>
             <p>אותו פרויקט בדיוק, כתיבה אחרת. ההשוואה שמלמדת מה עושה קייס טוב.</p>
             <a href="case-studies/compare.html">להשוואה</a>
           </div>
@@ -192,8 +205,8 @@
     <div class="container">
       <span>© <span data-year>2026</span> אייל גרשון</span>
       <div class="footer-links">
-        <a href="mailto:eyal@simpla.co.il">eyal@simpla.co.il</a>
-        <a href="https://www.linkedin.com/in/eyalgershon" rel="noopener" target="_blank">LinkedIn</a>
+        <a href="mailto:eyal@simpla.co.il" data-ic="mail">eyal@simpla.co.il</a>
+        <a href="https://www.linkedin.com/in/eyalgershon" rel="noopener" target="_blank" data-ic="link">LinkedIn</a>
       </div>
     </div>
   </footer>

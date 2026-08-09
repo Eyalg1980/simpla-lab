@@ -10,7 +10,7 @@
 <main class="screen">
   <header class="hero-band">
     <h1 class="hello" id="c-title">הרשמה</h1>
-    <span class="loc" data-ic="check">שלב 2 מתוך 2 · פרטי הילד ותשלום</span>
+    <span class="loc" data-ic="check" id="c-step">שלב 2 מתוך 2 · פרטי הילד ותשלום</span>
   </header>
 
   <section class="card is-visible reveal">
@@ -31,12 +31,15 @@
     </div>
   </section>
 
+  <!-- הסיכום נגזר מ-mode שהגיע בכתובת. במסלול הרשמה מלאה שורת שיעור
+       הניסיון יורדת והסכום הוא המחיר האמיתי, אחרת המסך היה מבטיח אפס
+       להורה שבחר במפורש לשלם. -->
   <section class="card is-visible reveal">
-    <div class="summary-row"><span>מנוי חודשי · פעם בשבוע</span><span id="s1"></span></div>
-    <div class="summary-row"><span>שיעור ניסיון</span><span style="color:var(--color-success); font-weight:700;">חינם</span></div>
+    <div class="summary-row"><span id="s-label">מנוי חודשי · פעם בשבוע</span><span id="s1"></span></div>
+    <div class="summary-row" id="row-trial"><span>שיעור ניסיון</span><span style="color:var(--color-success); font-weight:700;">חינם</span></div>
     <div class="summary-row"><span>דמי רישום</span><span>0 ₪</span></div>
-    <div class="summary-row total"><span>לתשלום היום</span><span>0 ₪</span></div>
-    <p style="margin:8px 0 0; font-size:0.75rem; color:var(--color-muted);">החיוב הראשון רק אחרי שיעור הניסיון, ואפשר לבטל בקליק עד 48 שעות לפניו.</p>
+    <div class="summary-row total"><span>לתשלום היום</span><span id="s-total">0 ₪</span></div>
+    <p style="margin:8px 0 0; font-size:0.75rem; color:var(--color-muted);" id="s-note"></p>
   </section>
 
   <a class="btn is-visible reveal" id="c-cta" href="family-board.html">אישור ושריון המקום</a>
@@ -53,19 +56,35 @@
 (function () {
   // המסך נגזר מהחוג ומהילד שהגיעו בכתובת, אחרת לחיצה על בלט
   // הייתה מגיעה למסך שכתוב בו כדורגל
-  var id = new URLSearchParams(location.search).get('id');
-  var cls = window.Kids.classById(id) || window.APP_DATA.classes[0];
+  var q = new URLSearchParams(location.search);
+  var cls = window.Kids.classById(q.get('id')) || window.APP_DATA.classes[0];
   var kid = window.Kids.selected[0] || window.APP_DATA.kids[0];
+  var trial = q.get('mode') !== 'full';   // ברירת מחדל: שיעור ניסיון
   var $ = function (x) { return document.getElementById(x); };
 
   document.title = 'החוג שלי · הרשמה ל' + cls.name;
-  $('c-title').textContent = 'הרשמה: ' + cls.name;
+  $('c-title').textContent = (trial ? 'שיעור ניסיון: ' : 'הרשמה: ') + cls.name;
+  $('c-step').textContent = trial
+    ? 'שלב 2 מתוך 2 · פרטי הילד, בלי תשלום'
+    : 'שלב 2 מתוך 2 · פרטי הילד ותשלום';
   $('kid').value = kid.name;
   $('age').innerHTML = '<option>' + kid.age + '</option>';
   $('p1').textContent = cls.price + ' ש"ח';
   $('p2').textContent = Math.round(cls.price * 1.73 / 10) * 10 + ' ש"ח';
   $('s1').textContent = cls.price + ' ש"ח';
-  $('c-cta').textContent = 'אישור ושריון המקום של ' + kid.name;
+
+  $('s-label').textContent = trial
+    ? 'מנוי חודשי · פעם בשבוע · מתחיל אחרי הניסיון'
+    : 'מנוי חודשי · פעם בשבוע';
+  $('row-trial').hidden = !trial;
+  $('s-total').textContent = (trial ? 0 : cls.price) + ' ₪';
+  $('s-note').textContent = trial
+    ? 'החיוב הראשון רק אחרי שיעור הניסיון, ואפשר לבטל בקליק עד 48 שעות לפניו.'
+    : 'החיוב הוא על החודש הראשון. אפשר לבטל עד שבעה ימים מהשיעור הראשון ולקבל החזר מלא.';
+
+  $('c-cta').textContent = trial
+    ? 'שריון שיעור הניסיון של ' + kid.name
+    : 'אישור ותשלום עבור ' + kid.name;
   $('c-cta').setAttribute('href', window.Kids.link('family-board.html'));
   window.Kids.mount('#nothing');
 })();
