@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="he" dir="rtl" data-t="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -70,6 +70,18 @@ html[data-t="light"] .chip.on{color:var(--navy);background:rgba(255,233,74,.35);
 .grp{margin:26px 0 12px;display:flex;align-items:baseline;gap:10px}
 .grp h2{font-size:16px;font-weight:600;margin:0}
 .grp span{font-size:12px;color:var(--mut)}
+.gtog{cursor:pointer;user-select:none;border:1.5px dashed var(--line);border-radius:16px;
+  padding:11px 14px;margin:22px 0 10px;align-items:center}
+.gtog h2{flex:1;font-size:15px}
+.gtog .gc{font-family:Poppins;font-size:11px;color:var(--mut);border:1.5px dashed var(--line);
+  border-radius:19px;padding:1px 9px}
+.gtog .ga{font-family:Poppins;font-weight:700;font-size:15px;color:var(--coral);width:14px;text-align:center}
+.gbody{display:none}
+.gbody.open{display:block}
+.tools{display:flex;gap:8px;margin:0 0 16px}
+.tbtn{border:1.5px dashed var(--line);border-radius:19px;padding:6px 14px;font-size:12.5px;
+  color:var(--mut);background:transparent;cursor:pointer;font-family:inherit;font-weight:400}
+.tbtn:active{border-color:var(--coral);color:var(--coral)}
 
 .q{background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:10px;
   display:flex;gap:12px;align-items:flex-start;transition:opacity .2s}
@@ -140,7 +152,8 @@ footer{margin:34px 0 0;padding-top:18px;border-top:1px solid var(--line);
   .bar,.chips,.prog,.more,.ib,.ov,.sheet{display:none}
   body{background:#fff;color:#000;padding:0}
   .q,.why{background:#fff;border-color:#ccc}
-  .why,.gl{display:block !important}
+  .why,.gl,.gbody{display:block !important}
+  .tools{display:none}
 }
 </style>
 </head>
@@ -189,6 +202,10 @@ footer{margin:34px 0 0;padding-top:18px;border-top:1px solid var(--line);
 </div>
 
 <div class="chips" id="chips"></div>
+<div class="tools">
+  <button class="tbtn" id="allBtn">+ פתח את כל ההסברים</button>
+  <button class="tbtn" id="secBtn">− כווץ את כל האזורים</button>
+</div>
 <div id="list"></div>
 
 <div class="grp" style="margin-top:34px"><h2>התשובות</h2><span>נשמר אוטומטית במכשיר</span></div>
@@ -211,7 +228,7 @@ footer{margin:34px 0 0;padding-top:18px;border-top:1px solid var(--line);
 <footer>
   כלי עזר לשיחה עם הצוות הרפואי — אינו ייעוץ רפואי ואינו מחליף את הרופא המטפל.<br>
   טיפ: קשה לזכור הכול ברגע. תרשום, או הקלט בהסכמה.<br>
-  <span style="opacity:.5">v2.0 · Simpla</span>
+  <span style="opacity:.5">v3.0 · Simpla</span>
 </footer>
 
 </div>
@@ -401,16 +418,20 @@ var S = {};
 try{ S = JSON.parse(localStorage.getItem(K) || "{}"); }catch(e){ S = {}; }
 function save(){ try{ localStorage.setItem(K, JSON.stringify(S)); }catch(e){} }
 
-var FK = "cardioF_v2";
+var FK = "cardioF_v3";
 var F = {};
 try{ F = JSON.parse(localStorage.getItem(FK) || "{}"); }catch(e){ F = {}; }
 var act = F.act || [];
 var open = F.open || {};
-function saveF(){ try{ localStorage.setItem(FK, JSON.stringify({act:act, open:open})); }catch(e){} }
+var gsec = F.gsec || {};
+function saveF(){ try{ localStorage.setItem(FK, JSON.stringify({act:act, open:open, gsec:gsec})); }catch(e){} }
 
-function isOpen(i){
-  var v = open["q" + i];
-  if(typeof v === "undefined") return Q[i].p === 1;
+/* all extra info starts CLOSED */
+function isOpen(i){ return !!open["q" + i]; }
+/* sections start OPEN, collapsible */
+function secOpen(p){
+  var v = gsec["g" + p];
+  if(typeof v === "undefined") return true;
   return !!v;
 }
 
@@ -424,7 +445,11 @@ function render(){
     for(var i=0;i<Q.length;i++){ if(Q[i].p === p) items.push(i); }
     if(!items.length) continue;
     shown += items.length;
-    html += '<div class="grp"><h2>' + GRP[p][0] + '</h2>' + (GRP[p][1] ? '<span>' + GRP[p][1] + '</span>' : '') + '</div>';
+    var so = secOpen(p);
+    html += '<div class="grp gtog" data-g="' + p + '"><h2>' + GRP[p][0] + '</h2>' +
+      '<span class="gc">' + items.length + '</span>' +
+      '<span class="ga" id="ga-' + p + '">' + (so ? "−" : "+") + '</span></div>' +
+      '<div class="gbody' + (so ? " open" : "") + '" id="gb-' + p + '">';
     for(var j=0;j<items.length;j++){
       var idx = items[j];
       var q = Q[idx];
@@ -440,6 +465,7 @@ function render(){
           '<button class="more" data-more="' + idx + '">' + (op ? "− סגור" : "+ למה זה חשוב") + '</button>' +
         '</div></div>';
     }
+    html += '</div>';
   }
   if(!shown){
     html = '<div class="empty">לא נבחרה אף רמת עדיפות.<br>בחר לפחות אחת מהצ׳יפים למעלה, או בטל את הסינון כדי לראות את כל 27 השאלות.</div>';
@@ -481,9 +507,17 @@ ov.addEventListener("click", closeSheet);
 document.getElementById("sx").addEventListener("click", closeSheet);
 
 document.addEventListener("click", function(e){
-  var t = e.target.closest ? e.target.closest("[data-ck],[data-more],[data-f],[data-k]") : null;
+  var t = e.target.closest ? e.target.closest("[data-ck],[data-more],[data-f],[data-k],[data-g]") : null;
   if(!t) return;
-  if(t.hasAttribute("data-k")){
+  if(t.hasAttribute("data-g")){
+    var g = t.getAttribute("data-g");
+    var body = document.getElementById("gb-" + g);
+    var now = !body.classList.contains("open");
+    if(now) body.classList.add("open"); else body.classList.remove("open");
+    document.getElementById("ga-" + g).textContent = now ? "−" : "+";
+    gsec["g" + g] = now;
+    saveF();
+  } else if(t.hasAttribute("data-k")){
     openSheet(t.getAttribute("data-k"));
   } else if(t.hasAttribute("data-ck")){
     var i = t.getAttribute("data-ck");
@@ -509,6 +543,22 @@ document.addEventListener("click", function(e){
     }
     saveF(); chips(); render();
   }
+});
+
+/* expand / collapse all */
+var allOn = false;
+document.getElementById("allBtn").addEventListener("click", function(){
+  allOn = !allOn;
+  for(var i=0;i<Q.length;i++){ open["q" + i] = allOn; }
+  saveF(); render();
+  this.textContent = allOn ? "− סגור את כל ההסברים" : "+ פתח את כל ההסברים";
+});
+var secOn = true;
+document.getElementById("secBtn").addEventListener("click", function(){
+  secOn = !secOn;
+  for(var p=1;p<=5;p++){ gsec["g" + p] = secOn; }
+  saveF(); render();
+  this.textContent = secOn ? "− כווץ את כל האזורים" : "+ פתח את כל האזורים";
 });
 
 /* notes */
@@ -557,7 +607,7 @@ gb.addEventListener("click", function(){
 });
 
 /* theme */
-var TK = "cardioT_v1";
+var TK = "cardioT_v2";
 var th = "dark";
 try{ th = localStorage.getItem(TK) || "dark"; }catch(e){}
 function setT(v){
