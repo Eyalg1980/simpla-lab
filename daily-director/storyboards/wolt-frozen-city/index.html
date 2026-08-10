@@ -24,8 +24,8 @@ window.SB = {
   cdn: "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/",
 
   film: {
-    src: "https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/d77eb09b-6f2c-4de2-a5aa-b5bc41587ac2.mp4",
-    note: "אסמבלי v6, 8.8: 56 שניות. חלק א' קוצר (פתיח 2.5, עיר 4, כלב 2.5, בית 4.5), רוח קרה על כל החלק הקפוא, שורת קריינות חדשה נוספה, שורת הפתיח בלי סאונד אפקט. הסמטאות גונרטו מחדש עם הוראת קיפאון קשוחה. חלק ב' זורז (גלגל x1.2, צומת x1.25, דלת x1.3), הנקישות סונכרנו לשוט הדפיקה, הצחקוקים הונמכו, והסגיר גונרט מחדש - בלי זום, השליח חולף מהר מול הלוגו. חסרה רק המוזיקה הקצבית - ממתינה לחיבור Suno/Udio."
+    src: "https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/811fbbe6-9681-42f9-b40c-6733fadc6e4b.mp4",
+    note: "אסמבלי v7, 10.8: הפסקול נכנס. Thunder in the Wind מ-19 שנ' עם מעטפת עוצמה מלאה - נכנס חלש, מתגבר, מונמך תחת כל שורת קריינות ותחת השיחה בבית, שיאים בצלחת ובעיר החיה, ודהייה איטית בסוף. רוח מסונתזת (sox) על כל חלק א' עד 19, רעש מנוע על שוט הקטנוע, שיחה חמה בבית במקום הטקסט הקטוע, וצחקוק אחד עדין וקצר. שוט הסמטאות עבר לדולי דיגיטלי - סוף סוף באמת קפוא. 56 שניות."
   },
 
   synopsis: {
@@ -101,14 +101,17 @@ The angle the film leaves open: in the first version, the user is the one who mo
   },
 
   vo: [
-    { t: "0-2.5", text: "בלי קריינות ובלי סאונד אפקט. רק הטקסט In a frozen city... על רקע הרוח.", note: "הרוח מתחילה מהפריים הראשון." },
-    { t: "0-19",  text: "אווירה: רוח קרה נושבת על כל חלק א'.", note: "טייק Kling על פריים העיר, בלולאה, פייד אאוט ב-17-19." },
+    { t: "0-2.5", text: "בלי קריינות. רק הטקסט In a frozen city... על רקע הרוח.", note: "אין סאונד אפקט בפתיח - הרוח לבד." },
+    { t: "0-19",  text: "אווירה: רוח קרה נושבת על כל חלק א'.", note: "רוח מסונתזת ב-sox (brownnoise + band + tremolo), פייד אאוט לקראת 19." },
     { t: "7-10",  text: "There is a moment when an entire city stops.", en: "יש רגע שבו עיר שלמה נעצרת." },
     { t: "11.8-16.9", text: "It feels like someone switched the whole city off... and it froze.", en: "כאילו מישהו כיבה את העיר... והיא קפאה." },
-    { t: "18.5-22.7", text: "המוזיקה הקצבית נכנסת עם הופעת השליח.", note: "טרק נבנה בהדרגה עד הצומת, מונמך סביב השולחן, נגמר לפני הלוגו." },
+    { t: "18.5-22.7", text: "רעש מנוע הקטנוע - ההופעה הראשונה של השליח.", note: "טייק Kling נקי של מנוע, וכאן גם המוזיקה נכנסת חלש (19)." },
     { t: "22.9-25.1", text: "And then one person moves.", en: "ואז מישהו אחד זז." },
+    { t: "22.8-26.6", text: "השריקות של השליח משתלבות עם המוזיקה.", note: "שריקה ב-0.42, המוזיקה מונמכת תחת הקריינות." },
     { t: "26.9-31", text: "And street after street, the city remembers how to breathe.", en: "ורחוב אחרי רחוב, העיר זוכרת איך לנשום." },
-    { t: "36.6-39.1", text: "נקישות על הדלת, מסונכרנות עם היד.", note: "שלוש נקישות, ותו לא." },
+    { t: "36.7-39.1", text: "שתי נקישות על הדלת, מסונכרנות לפי אונסט האודיו.", note: "האונסט נמדד ב-silencedetect והוזז ל-0.5 שנ' אחרי הקאט." },
+    { t: "42.2-45.7", text: "שיחה חמה ושקטה של הזוג בבית.", note: "טייק Kling חדש, מרמור בלי מילים מזוהות, highpass להורדת אקו. המוזיקה מונמכת." },
+    { t: "46.2-47.5", text: "צחקוק אחד עדין וקצר.", note: "1.35 שנ' בלבד, בעוצמה 0.3." },
     { t: "52.8-56.1", text: "Wolt. So that someone moves for you.", en: "וולט. שמישהו אחד יזוז בשבילך." }
   ],
 
@@ -143,9 +146,9 @@ The angle the film leaves open: in the first version, the user is the one who mo
         model:"Nano Banana Pro ואז Kling 3",
         title:"סמטאות העיר העתיקה", titleEn:"The Old Town Alleys",
         img:"hf_20260806_075122_5e7fc14e-df9e-4ae1-b0ab-9650f5df7c9e.png",
-        vid:"hf_20260808_175411_b51dc5dd-b731-42bf-a262-9ce629f2c5f6.mp4",
+        vid:"hf_20260806_075122_5e7fc14e-df9e-4ae1-b0ab-9650f5df7c9e.png",
         still:"First person walk-through view inside a dense old clay town, a narrow winding alley between tall crowded pale clay buildings that almost touch overhead, clay arches, crooked clay balconies, hanging clay laundry lines, small clay market stalls, frozen clay figures caught mid step very close to the camera on both sides of the narrow street, a frozen clay cat on a doorstep, the alley curving away deeper into the old town, everything completely drained to pale chalky cream, no colour anywhere, absolutely no motion blur, one soft light from above left, generous negative space in the upper third",
-        motion:"First person walk-through, the camera walks slowly forward through the narrow winding clay alley of the old town, weaving gently between the frozen pale clay figures standing mid step on both sides, passing close to the frozen cat on the doorstep and under the clay arch, every single figure is a rigid motionless statue, nothing in the scene animates, only the camera travels deeper into the alley, smooth steady dreamlike walking movement, no cuts" },
+        motion:"FINAL SOLUTION (like shot 2): digital dolly forward on the still frame itself (ffmpeg zoompan, 1.00 to 1.14 over 5s). Kling animated the figures in five separate attempts even with the harshest wording, so the freeze is guaranteed mathematically - zero movement inside the frame, only the camera travels down the alley" },
 
       { n:4, dur:"2.5 שנ'", durEn:"2.5 sec", cam:"נעול, דחיפה זעירה", camEn:"Locked off, micro push in",
         model:"Nano Banana Pro ואז Kling 3",
@@ -256,6 +259,7 @@ The angle the film leaves open: in the first version, the user is the one who mo
   notes: {
     title: "מה עושים עם הפריימים האלה",
     items: [
+      "סבב v7 10.8, הפסקול: הטרק Thunder in the Wind (שאייל ייצר) נכנס ב-19 שנ' עם מעטפת volume דינמית ב-ffmpeg (eval=frame): נכנס ב-0.10 ומטפס ל-0.26, מונמך ל-0.22-0.26 תחת כל שורת קריינות ותחת השיחה בבית, בונה ל-0.62 עד הדלת, 0.34 תחת הנקישות, שיא 0.80 בצלחת המלאה, 0.78 בעיר החיה, ודהייה מ-0.34 לאפס בסוף. הרוח סונתזה ב-sox במקום טייק Kling (brownnoise 190-280Hz + שני tremolo לגאסטים) - נקייה ובלי קליפינג. נוסף רעש מנוע קטנוע על שוט הכניסה. השיחה בבית והצחקוק גונרטו מחדש כטייקי Kling נקיים: מרמור חם בלי מילים מזוהות במקום הטקסט הקטוע, וצחקוק אחד של 1.35 שנ' בלבד. שוט הסמטאות עבר לדולי דיגיטלי כמו שוט העיר - אחרי חמישה ניסיונות שבהם קלינג הזיז את הפסלים. סך הכל 56.4 שניות. הטרק שמור בריפו: music-thunder-in-the-wind.mp3.",
       "סבב v6 8.8: חלק א' - פתיח קוצר ל-2.5 שנ' בלי סאונד אפקט, העיר 4 שנ', הכלב 2.5, הבית 4.5, רוח קרה (טייק Kling בלולאה) על כל החלק, ונוספה שורת קריינות: It feels like someone switched the whole city off... and it froze (5.1 שנ', פיקסי). חלק ב' - הגלגל הראשון הואץ x1.2, הצומת x1.25, הדלת x1.3, הצלחת המלאה 3 שנ', הבית 3.5, הזוג 3.5 עם צחקוקים מונמכים (0.45/0.4), הנקישות סונכרנו לתחילת שוט הדפיקה, והסגיר גונרט מחדש: מצלמה נעולה בלי זום והשליח חולף מהר מול הלוגו. סך הכל 56.4 שניות - כמעט בדיוק 55 של התקנון. מוזיקה: אין מודל מוזיקה זמין בהיגספילד (sonilo_music נעול לפייפליין משחקים) ואין קונקטור Suno/Udio ברגיסטרי - שתי אופציות: טרק מוכן מ-Suno שמצרפים למיקס, או קונקטור קסטום.",
       "סבב v5 6.8: שורת הקריינות השנייה (Not because of a disaster. Because of hunger.) הוסרה מהמיקס לגמרי - הצלחת הריקה עובדת בשקט. שוט העיר הקפואה: אחרי ארבעה ניסיונות שבהם קלינג הזיז דמויות, ההנפשה הוחלפה בזום דיגיטלי איטי (ffmpeg zoompan 1.00-1.08) על פריים הסטילס - קיפאון מובטח. זה גם הפתרון המומלץ לכל שוט קפאון עתידי שקלינג מסרב להשאיר סטטי.",
       "סבב v4 6.8: הפתיח נשאר טקסט בלבד עם סאונד אפקט עדין (וווש+צ'יים מטייק Kling) ובלי קריינות. העיר הקפואה הונפשה מחדש - אף דמות לא זזה, רק דריפט מצלמה עדין. שוט הטיול הוחלף ב-walk-through בסמטה צרה של עיר עתיקה צפופה (קשתות, כביסה, דוכנים, חתול קפוא). נוסף שוט 4 חדש: קלוז אפ על פני כלב חימר קפוא וחסר צבע. שוט השליח בדלת הונפש מחדש - הצבע מחלחל רק בתחתית הדלת, סנטימטרים ספורים. נוסף סאונד נקישות (טייק Kling על פריים הדפיקה) ב-45-48. סך הכל 67 שניות, 16 שוטים. קבצי סאונד חדשים: hf_20260806_075801_12f611d0 (פתיח), hf_20260806_075802_e2c0f5af (נקישות).",
@@ -276,6 +280,7 @@ The angle the film leaves open: in the first version, the user is the one who mo
       "פתוח מול המארגנים: התקנון אומר on behalf of a real brand. הקריאה הסבירה היא ספק-אד עם בריף שאתה כותב, אבל שווה שאלה קצרה לפני הפקה מלאה."
     ],
     itemsEn: [
+      "v7 pass 10.8, the score: the Thunder in the Wind track (made by Eyal) enters at 19s with a dynamic ffmpeg volume envelope (eval=frame): in at 0.10 climbing to 0.26, ducked to 0.22-0.26 under every narration line and under the home conversation, building to 0.62 by the door, 0.34 under the knocks, peak 0.80 on the full plate, 0.78 on the living city, and a fade from 0.34 to zero at the end. The wind was synthesized in sox instead of a Kling take (brownnoise 190-280Hz plus two tremolos for gusts) - clean and unclipped. A scooter engine sound was added over the entry shot. The home conversation and the giggle were regenerated as clean Kling takes: a warm murmur with no recognisable words instead of the cut-off text, and a single 1.35s giggle. The alley shot moved to a digital dolly like the city shot, after five attempts in which Kling animated the statues. Total 56.4 seconds. The track is stored in the repo: music-thunder-in-the-wind.mp3.",
       "v6 pass 8.8: Part A - opener cut to 2.5s with no SFX, city 4s, dog 2.5s, home 4.5s, cold wind (looped Kling take) across the whole part, and a new narration line added: It feels like someone switched the whole city off... and it froze (5.1s, Pixie). Part B - first wheel sped x1.2, intersection x1.25, door x1.3, full plate 3s, home 3.5s, couple 3.5s with giggles lowered (0.45/0.4), knocks synced to the knock shot start, and the end card regenerated: locked camera, no zoom, the rider zips past the logo. Total 56.4 seconds - almost exactly the 55 in the rules. Music: no standalone music model available in Higgsfield (sonilo_music is locked to the game pipeline) and no Suno/Udio connector in the registry - two options: a ready track from Suno dropped into the mix, or a custom connector.",
       "v5 pass 6.8: the second narration line (Not because of a disaster. Because of hunger.) was removed from the mix entirely - the empty plate works in silence. The frozen city shot: after four attempts in which Kling animated the figures, the animation was replaced with a slow digital zoom (ffmpeg zoompan 1.00-1.08) on the still frame itself - guaranteed freeze. This is also the recommended solution for any future freeze shot Kling refuses to keep static.",
       "v4 pass 6.8: the opener is text-only with a subtle sound effect (whoosh+chime from a Kling take) and no narration. The frozen city re-animated - no figure moves, only a gentle camera drift. The walk shot replaced with a walk-through in a narrow alley of a dense old town (arches, laundry, stalls, a frozen cat). New shot 4: close up on the face of a frozen colourless clay dog. The courier-at-the-door shot re-animated - colour seeps only into the bottom of the door, a few centimetres. Knocking sound added (Kling take on the knock frame) at 45-48. Total 67 seconds, 16 shots. New sound files: hf_20260806_075801_12f611d0 (opener), hf_20260806_075802_e2c0f5af (knocks).",
