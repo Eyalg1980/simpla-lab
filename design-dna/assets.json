@@ -1,0 +1,26 @@
+{
+  "note": "Generated with Higgsfield on 10.8.2026. The sandbox network blocks this CDN host, so the site references these URLs directly. To self-host, download them from a machine with open network into design-dna/media/ and switch MEDIA_BASE in the builder.",
+  "base_prompt": "Subject: a lighthouse on a rocky cliff, waves breaking below, a single bird in the sky. No text, no lettering, no watermark.",
+  "image_model": "nano_banana_2 (served as nano_banana_flash), 16:9, 2k",
+  "video_model": "cinematic_studio_video_v2, 16:9, 5s, silent, near-monochrome",
+  "cdn": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/",
+  "images": {
+    "kitchen": "hf_20260810_113016_985bc1f0-5692-4ed1-978f-031524819b9e.png",
+    "goldmine": "hf_20260810_113016_e43528b5-1d19-4dc1-b4ca-94bb4b0a57e4.png",
+    "detective": "hf_20260810_113016_73839521-0af7-4252-9a66-54ce2fc27b71.png",
+    "switchboard": "hf_20260810_113016_b4047491-667e-4ec8-9131-1177fa372d48.png",
+    "railway": "hf_20260810_113016_ea3630af-f660-4e81-8529-c229f93ac1d6.png",
+    "mission": "hf_20260810_113016_6c7aa9bb-d656-4634-8c8c-98521bdb4124.png",
+    "blueprint": "hf_20260810_113016_38fd5f64-7817-4c98-a472-a8a77120df01.png",
+    "vault": "hf_20260810_113016_4d227297-bf73-40aa-9d95-b90deca564cb.png",
+    "colony": "hf_20260810_113016_8200182e-786b-4f94-8fb1-04309821a081.png",
+    "anatomy": "hf_20260810_113016_1a877db4-830f-4fff-9cc6-6fb049dba98e.png",
+    "atlas": "hf_20260810_113016_d4cdd453-576f-460a-8fcb-5adf7301412b.png",
+    "simpla": "hf_20260810_113016_edb41ad9-c3d6-4940-a885-c395c0618046.png"
+  },
+  "videos": {
+    "suitcase": "hf_20260810_113105_346e2c5f-c025-4401-aeeb-08084fb14261.mp4",
+    "corridor": "hf_20260810_113105_2264a4a9-81f1-4c13-a9bc-5e1708c81610.mp4",
+    "rocket": "hf_20260810_113105_48bd1b7a-2ead-460d-bcbe-7cc0ea33b3a4.mp4"
+  }
+}
