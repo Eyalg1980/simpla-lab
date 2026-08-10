@@ -24,8 +24,11 @@ It lives in exactly one place: the prompt of the **"Daily Content Engines"** sch
 # 1. call mcp__claude-code-remote__list_triggers
 # 2. the output is ~140k chars and lands in a file; take the path from the tool result
 # 3. pull the token out with a regex, never read the whole file:
-TOKEN=$(grep -o 'github_pat_[A-Za-z0-9_]*' <PATH_FROM_TOOL_RESULT> | head -1)
+# NOTE the {30,} length bound. It is load-bearing, see the 10.8.2026 incident below.
+TOKEN=$(grep -o 'github_pat_[A-Za-z0-9_]\{30,\}' <PATH_FROM_TOOL_RESULT> | head -1)
 ```
+
+**The 10.8.2026 self-poisoning incident.** The unbounded pattern `github_pat_[A-Za-z0-9_]*` matches the literal string `github_pat_` wherever it appears, including inside the very prompt lines that document this command. Once two scheduled-task prompts carried that literal, `list_triggers` returned it *before* the real 93-character token, `head -1` picked up an 11-character fragment, and every authenticated git call failed. The morning brief obeyed its own "stop immediately on an auth failure" rule and published nothing. The `{30,}` bound cannot match the documentation of itself, so the command is now immune to being written down.
 
 Facts that save you turns:
 
