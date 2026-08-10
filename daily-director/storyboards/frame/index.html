@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>סטוריבורד · הפריים, הקופסה שלמדה לחשוב</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/sb.css?v=5">
+</head>
+<body>
+<div id="sb"></div>
+
+<script>
+const STYLE = "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field";
+
+window.SB = {
+  kicker: "STORYBOARD · ביוגרפיה של אובייקט · פרק 6",
+  titleTop: "הפריים,",
+  titleMark: "הקופסה שלמדה לחשוב",
+  titleEn: "Biography of an Object, Episode 6: The Frame, the Box That Learned to Think",
+  logline: "אובייקט אחד, עשר שנים: מלוח נוקשה שרק אומר איפה הציור נגמר, לקופסה שמחזיקה חוקים, מפרט וקוד, ועכשיו גם ידיים שאינן שלך.",
+  loglineEn: "One object, ten years: from a rigid slab that only marks where the drawing ends, to a container that holds rules, a spec, code, and now hands that are not yours.",
+  specs: ["52 שניות", "9 שוטים", "1:1 ראשי", "קאט 9:16 לסטורי", "קליי סטופ מושן", "בלי קריינות מדוברת", "כתוביות עברית בעריכה"],
+  specsEn: ["52 seconds", "9 shots", "1:1 primary delivery", "9:16 story cut derived in edit", "Clay stop-motion, series house style", "No spoken narration, burned Hebrew captions only", "Subtle sound design, no music bed"],
+  cdn: "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/",
+
+  film: null,
+
+  synopsis: {
+    h3: "מה קורה בחמישים ושתיים השניות",
+    copyLabel: "העתק סינופסיס",
+    copyHead: 'סינופסיס לסרט "הפריים, הקופסה שלמדה לחשוב":',
+    paras: [
+      "לוח קליי נוקשה נעוץ בשני סיכות ללוח שעם, כמו פרפר בקופסת מוזיאון. הוא ריק. הוא לא עושה כלום.",
+      "יד מניחה עליו ציור קטן. פינה אחת של הציור נשמטת מעבר לקצה ונשארת תלויה באוויר. הלוח מחזיק תמונה, והוא לא מחזיק שום דבר מעבר לה.",
+      "ואז הוא מתרכך. הפינות מתעגלות, ידיות קטנות מבצבצות, והוא נמתח לבד רחב יותר מהסיכות שנעצו אותו. בתוכו מתחילים לצמוח אריחים קטנים, ובתוך האריחים אריחים. קופסה בתוך קופסה.",
+      "סרגלים מפוסלים נצמדים לשוליים וחוטים מקווקווים נמתחים בין כל אריח לקיר. הקופסה נמתחת, והילדים שבתוכה כבר יודעים מה לעשות. יד מוציאה אריח אחד מהאמצע, והשאר סוגרים את הרווח בעצמם. בתפרים מתעורר גחל קורל ראשון.",
+      "הקופסה נוטה קדימה ומגלה את הבטן שלה: רצועת חריטה צפופה לאורך התחתית, מפרט חרוט בחומר. אותו אובייקט הוא גם התמונה וגם ההוראות.",
+      "היא מתנתקת מלוח השעם ועולה לאוויר. החריטה נדלקת מבפנים, וידיים קטנות שאינן ידיך נכנסות מהצדדים ומזיזות אריח למקום אחר.",
+      "שתי ידיים גדולות מורידות אותה על מדף עץ, ליד שאר האובייקטים של הסדרה. הסיכות נשארו מאחור. התזה: התחלנו במקום שבו הציור נגמר, ונשארנו עם קופסה שיודעת מה מותר."
+    ],
+    enLabel: "English synopsis",
+    enCopyLabel: "Copy English synopsis",
+    en: "A rigid clay slab is pinned to a corkboard with two pins, like a butterfly in a museum case. It is empty and it does nothing.\n\nA hand presses a small drawing onto it. One corner of the drawing slips past the edge and hangs in the air. The slab holds a picture, and nothing beyond a picture.\n\nThen it softens. Its corners round, small handles bud out, and it stretches itself wider than the pins that held it. Smaller tiles sprout inside it, and inside those tiles, smaller tiles again. A box inside a box.\n\nSculpted rulers snap to its edges and dashed threads pull taut between every tile and the wall. The box stretches, and the children inside it already know what to do. A hand lifts one tile out of the middle and the rest close the gap by themselves. A first coral ember wakes in the seams.\n\nThe box tips forward and reveals its underside: a dense band of engraving along its lower edge, a specification cut into the material. The same object is both the picture and the instructions.\n\nIt lifts off the corkboard and rises. The engraving ignites from within, and small hands that are not yours reach in from the edges and move a tile somewhere else.\n\nTwo large hands lower it onto a wooden shelf beside the other objects of the series. The pins stay behind. The thesis: we started at the place where the drawing ends, and we ended up with a box that knows what is allowed."
+  },
+
+  shots: {
+    style: STYLE,
+    prompts: function (s) {
+      return [
+        { label: "פריים (Nano Banana Pro)", btn: "העתק פרומפט פריים",
+          text: STYLE + ". " + s.still + ", 1:1, no text" },
+        { label: "תנועה (" + (s.n === 8 ? "Veo 3, image-to-video" : "Kling 3 std, image-to-video") + ")", btn: "העתק פרומפט תנועה",
+          text: STYLE + ". " + s.motion + ", 1:1" }
+      ];
+    },
+    list: [
+      { n:1, dur:"5 שנ'", durEn:"5s", cam:"דחיפה איטית פנימה", camEn:"Very slow push in", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"הפריט המוצג", titleEn:"The specimen", type:"בהתחלה זו הייתה מסגרת",
+        img:"hf_20260809_201309_3b477958-27b9-4a18-a358-866547bd2141.png",
+        still:"A single rigid rectangular clay slab, flat and completely empty, pinned to a warm tan corkboard with two small clay pins at its top corners like a museum insect specimen, a tiny blank clay label card pinned below it, the slab is stiff and lifeless with hard square corners, nothing inside it, a soft shadow behind it on the cork, the object sits low in the composition leaving the upper third of the image empty",
+        motion:"A rigid empty clay slab stays pinned to a corkboard and does not move at all, only the cork fibers and dust breathe with a faint handmade stop-motion jitter, the camera pushes in very slowly toward the slab, soft even studio light from the upper left" },
+
+      { n:2, dur:"5 שנ'", durEn:"5s", cam:"נעול, בלי תנועה", camEn:"Locked off", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"עמוד שמחזיק ציור", titleEn:"A page that holds a picture", type:"ארטבורד מחזיק תמונה",
+        img:"hf_20260810_084017_2d2ff1c8-f4d6-46fe-9cc6-3e81b249df70.png",
+        still:"A large clay hand pressing a small crooked clay drawing onto a rigid rectangular clay slab that is pinned flat to a warm tan corkboard, one corner of the drawing hanging over the edge of the slab and drooping into empty air unheld and uncut, the slab itself completely passive and stiff, the objects sit low in the composition leaving the upper third of the image empty",
+        motion:"A large clay hand presses a small clay drawing down onto the pinned slab and then withdraws out of frame, the loose corner of the drawing droops over the slab edge and hangs there swinging once, the slab does nothing to hold it, the camera stays completely locked off with a gentle handmade stop-motion jitter, soft studio light from the upper left" },
+
+      { n:3, dur:"6 שנ'", durEn:"6s", cam:"טילט איטי מטה", camEn:"Slow tilt down", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"הריכוך", titleEn:"The softening", type:"פיגמה 2016, פריים ולא ארטבורד",
+        img:"hf_20260810_084017_e2f02e9d-1499-45f2-9d69-edd47c77d66c.png",
+        still:"A rigid rectangular clay slab caught in the act of softening on a warm tan corkboard, its hard square corners rounding into smooth curves, four small round clay handles budding out of its corners, the whole slab stretching visibly wider than its own two pin marks, the pins bent aside and straining, the object sits low in the composition leaving the upper third of the image empty",
+        motion:"The rigid clay slab softens and its square corners round themselves, four small handles bud out of the corners one after another, and the slab stretches itself wider while the two pins bend aside under the strain, the camera tilts down slowly across the object, soft studio light from the upper left" },
+
+      { n:4, dur:"6 שנ'", durEn:"6s", cam:"דחיפה איטית לאריח המרכזי", camEn:"Slow push in on the centre tile", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"קופסה בתוך קופסה", titleEn:"A box inside a box", type:"פריים מכיל פריים",
+        img:"hf_20260810_084017_e1851f31-475a-4e17-9929-d60bec887a2a.png",
+        still:"A softened clay frame with rounded corner handles resting on a warm tan corkboard, four smaller clay tiles nested inside it in an even row, and inside each of those tiles one even tinier tile, frames within frames within frames, every piece sculpted plasticine with visible fingerprints, the object sits low in the composition leaving the upper third of the image empty",
+        motion:"Smaller clay tiles sprout up one by one inside the clay frame and settle into an even row, then tinier tiles rise inside each of them in turn, the whole nest breathing gently like living tiles, the camera pushes in slowly toward the centre tile, soft studio light from the upper left" },
+
+      { n:5, dur:"6 שנ'", durEn:"6s", cam:"זחילת צד שמאלה", camEn:"Slow lateral drift left", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"החוקים נצמדים", titleEn:"The rules snap on", type:"קונסטריינטים",
+        img:"hf_20260810_084017_117c8467-a663-4f4f-88b1-2ac20a065078.png",
+        still:"A clay frame stretched wide with four nested clay tiles inside it, tiny sculpted clay rulers lying along its outer edges and dashed teal measurement threads pulled taut between each tile and the frame wall, small clay anchor pips where each thread meets the wall, the tiles holding their positions while the frame stretches, the object sits low in the composition leaving the upper third of the image empty",
+        motion:"Tiny clay rulers snap into place along the outer edges of the frame and dashed teal threads pull taut between each nested tile and the frame wall, then the frame stretches wider while every tile holds its anchored position without drifting, the camera drifts slowly sideways to the left, soft studio light from the upper left" },
+
+      { n:6, dur:"6 שנ'", durEn:"6s", cam:"נעול, בלי תנועה", camEn:"Locked off", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"מוציאים אחד, השאר סוגרים", titleEn:"Take one out, the rest close the gap", type:"אוטו לייאאוט, 2019",
+        img:"hf_20260810_084017_b1fb756e-ebe4-49ee-b268-581d2fac6cf7.png",
+        still:"A large clay hand lifting one clay tile straight up and out of the middle of a row of four nested tiles inside a clay frame, the three remaining tiles already sliding sideways on their own to close the gap, a faint warm coral ember beginning to glow in the narrow seams between them, crisp handmade stop motion detail, the objects sit low in the composition leaving the upper third of the image empty",
+        motion:"A large clay hand lifts one tile straight up and out of the row and leaves frame, and the three remaining tiles slide sideways by themselves to close the gap evenly, a faint warm coral ember waking in the seams between them as they settle, the camera stays completely locked off with a gentle handmade stop-motion jitter, soft studio light from the upper left" },
+
+      { n:7, dur:"6 שנ'", durEn:"6s", cam:"קרן יורדת אל התחתית", camEn:"Slow crane down to the underside", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"מפרט חרוט בבטן", titleEn:"A spec cut into its belly", type:"קוד קונקט, 2024",
+        img:"hf_20260810_084017_5e8c8e44-7615-4cbe-96a2-bc3c74a8e8fe.png",
+        still:"A clay frame seen from a low angle and tipped forward to reveal its underside, a dense band of fine engraved grooves and notches carved along its lower edge like a specification cut into its belly, the grooves unlit and dark, the nested clay tiles visible above through the opening, a warm tan corkboard out of focus behind it, the object sits low in the composition leaving the upper third of the image empty",
+        motion:"The clay frame tips slowly forward and reveals the dense band of engraved grooves running along its underside, the grooves staying dark and unlit, the nested tiles above holding perfectly still, the camera cranes down to meet the underside, soft studio light from the upper left" },
+
+      { n:8, dur:"6 שנ'", durEn:"6s", cam:"אורביט איטי סביב הפריים המרחף", camEn:"Slow orbit around the hovering frame", model:"Veo 3",
+        title:"ידיים שאינן שלך", titleEn:"Hands that are not yours", type:"סוכנים על הקנבס, 2026",
+        img:"hf_20260809_201309_0ad60f8b-b76c-41a7-a0cb-eafd2a327f92.png",
+        still:"A single elegant clay frame hovering in the air just above a warm tan corkboard, tilted slightly, with soft rounded corner handles sculpted into its edges, four smaller nested clay tiles arranged inside it in a neat even row, tiny sculpted clay rulers and dashed teal measurement lines floating around its outer edges, a thin band of fine engraved grooves running along its lower edge, two abandoned clay pins lying flat on the corkboard below it, the object sits low in the composition leaving the upper third of the image empty",
+        motion:"The clay frame lifts fully off the corkboard and rises into the air, the engraved band along its lower edge igniting with warm coral light from deep inside the grooves, and small clay hands that are not the sculptor's reach in from the edges of the picture and slide one nested tile into a new position, the camera orbits slowly around the hovering frame, soft studio light from the upper left" },
+
+      { n:9, dur:"6 שנ'", durEn:"6s", cam:"נסיגה איטית", camEn:"Slow pull back", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"המדף", titleEn:"The shelf", type:"פריים סיום",
+        img:"hf_20260810_084017_54f16711-fe3e-4d39-b51d-664df816076b.png",
+        still:"Two large clay hands lowering an elegant clay frame down onto a warm wooden shelf, several other small clay interface icons already standing in a row on the same shelf beside the empty spot, the engraved band along the frame's lower edge glowing with a low steady warm coral ember from within the grooves, a corkboard with two abandoned clay pins far behind and thrown out of focus, the shelf sits low in the composition leaving the upper third of the image empty",
+        motion:"Two large clay hands lower the hovering frame gently down onto a warm wooden shelf beside the other clay interface icons and then withdraw out of frame, the coral ember inside its engraved band settling to a low steady glow and holding, the camera pulls back slowly, soft studio light from the upper left" }
+    ]
+  },
+
+  vo: [
+    { t:"0:00-0:05", text:"בהתחלה זו הייתה מסגרת. סימן שאומר איפה הציור נגמר.",
+      sub:"‫בהתחלה זו הייתה מסגרת. סימן שאומר איפה הציור נגמר.‬",
+      en:"In the beginning it was a frame. A mark saying where the drawing ends.",
+      note:"אין קריינות מדוברת בסרט הזה. כל בלוק כאן הוא כתובית שנצרבת בעריכה, ולכן התזמון נעול מראש ולא ייגזר מהקלטה." },
+    { t:"0:05-0:10", text:"ארטבורד מחזיק תמונה. הוא לא מחזיק שום חוק.",
+      sub:"‫ארטבורד מחזיק תמונה. הוא לא מחזיק שום חוק.‬",
+      en:"An artboard holds a picture. It holds no rules." },
+    { t:"0:10-0:16", text:"פיגמה 1.0 יצאה בספטמבר 2016 בלי ארטבורדים בכלל. לקופסה קראו פריים.",
+      sub:"‫פיגמה 1.0‏ יצאה בספטמבר 2016‏ בלי ארטבורדים בכלל. לקופסה קראו פריים.‬",
+      en:"Figma 1.0 shipped in September 2016 with no artboards at all. The box was called a frame." },
+    { t:"0:16-0:22", text:"פריים מכיל פריים. התיעוד של פיגמה משווה אותו ל-div.",
+      sub:"‫פריים מכיל פריים. התיעוד של פיגמה משווה אותו ל-div‏.‬",
+      en:"A frame contains a frame. Figma's own docs compare it to a div." },
+    { t:"0:22-0:28", text:"קונסטריינטים. הילדים כבר יודעים מה לעשות כשההורה משתנה.",
+      sub:"‫קונסטריינטים. הילדים כבר יודעים מה לעשות כשההורה משתנה.‬",
+      en:"Constraints. The children already know what to do when the parent changes." },
+    { t:"0:28-0:34", text:"דצמבר 2019, אוטו לייאאוט. מוציאים אריח, השאר סוגרים את הרווח לבד.",
+      sub:"‫דצמבר 2019‏, אוטו לייאאוט. מוציאים אריח, השאר סוגרים את הרווח לבד.‬",
+      en:"December 2019, Auto Layout. Take one tile out and the rest close the gap by themselves." },
+    { t:"0:34-0:40", text:"2024, קוד קונקט. למסגרת יש עכשיו מפרט חרוט בבטן.",
+      sub:"‫2024‏, קוד קונקט. למסגרת יש עכשיו מפרט חרוט בבטן.‬",
+      en:"2024, Code Connect. The frame now carries a spec cut into its belly." },
+    { t:"0:40-0:46", text:"מרץ 2026, סוכנים מסדרים ישר על הקנבס. הידיים כבר לא רק שלך.",
+      sub:"‫מרץ 2026‏, סוכנים מסדרים ישר על הקנבס. הידיים כבר לא רק שלך.‬",
+      en:"March 2026, agents arrange things directly on the canvas. The hands are no longer only yours." },
+    { t:"0:46-0:52", text:"התחלנו במקום שבו הציור נגמר. נשארנו עם קופסה שיודעת מה מותר.",
+      sub:"‫התחלנו במקום שבו הציור נגמר. נשארנו עם קופסה שיודעת מה מותר.‬",
+      en:"We started at the place where the drawing ends. We ended up with a box that knows what is allowed." }
+  ],
+
+  mood: {
+    h3: "הטון של הסרט",
+    copyLabel: "העתק הוראות אווירה",
+    copyHead: 'הוראות אווירה והלך רוח לסרט "הפריים, הקופסה שלמדה לחשוב":',
+    paras: [
+      "סבלני וסקרן, לא נלהב. זה סרט של מישהו שמפרק אובייקט שהוא נוגע בו כל יום ומגלה שהוא כבר לא אותו אובייקט. אין הפתעה ואין טוויסט, יש הצטברות. הרגש שצריך להישאר בסוף הוא כבוד קטן וגם אי נוחות קטנה: הקופסה הזאת עובדת בשבילך, והיא גם מחליטה בשבילך."
+    ],
+    rows: [
+      ["קצב", "שלושת השוטים הראשונים איטיים ומתים, האובייקט לא זז. שוט 3 הוא נקודת החיים הראשונה. משוט 4 הקצב עולה מדרגה כל שוט עד השיא בשוט 8, ושוט 9 עוצר לגמרי."],
+      ["מצלמה", "תנועה אחת לשוט, לעולם לא שתיים. שני שוטים נעולים לגמרי, 2 ו-6, והם הכי חשובים בסרט: שם החומר עובד לבד ואסור שהמצלמה תיקח על זה קרדיט."],
+      ["חומר", "הכל קליי, גם הסרגלים וגם החוטים המקווקווים. אין חומר שני. שני משטחים בלבד ברקע: שעם חם עד שוט 8, עץ בשוט 9. המעבר ביניהם הוא הסיפור."],
+      ["אור", "מקור רך אחד מלמעלה-שמאל, זהה בכל תשעת השוטים. השינוי בסרט מגיע מהאובייקט, לא מהתאורה."],
+      ["זוהר", "החריגה היחידה מכלל הסדרה שהכל חומר. גחל קורל ראשון בתפרים בשוט 6, החריטה עדיין כבויה בשוט 7, הצתה מלאה בשוט 8 כשהידיים הזרות נכנסות, גחל נמוך ויציב בשוט 9. הזוהר הוא לא אפקט, הוא הרגע שבו הקופסה מתחילה להחליט."],
+      ["סאונד", "בלי מוזיקה. חמישה אפקטים בסך הכל: לחיצה של סיכה בשוט 1, קליק קליי בשוט 3, שלוש קליקות עוקבות כשהאריחים סוגרים את הרווח בשוט 6, המהום נמוך שנדלק עם החריטה בשוט 8, והנחה יבשה על העץ בשוט 9. בין לבין, חדר שקט."]
+    ],
+    rules: ["הכל קליי, בלי חומר שני", "תנועה אחת לשוט", "אור זהה בכל הסרט", "זוהר רק אחרי שוט 6", "עברית רק בעריכה"],
+    enLabel: "English direction",
+    enCopyLabel: "Copy English direction",
+    en: "Tone: patient and curious, never excited. This is someone taking apart an object he touches every day and discovering it is no longer the same object. No twist, only accumulation. What should remain at the end is a small respect and a small discomfort: this box works for you, and it also decides for you.\n\nPacing: the first three shots are slow and dead, the object does not move. Shot 3 is the first sign of life. From shot 4 the pace steps up every shot until the peak in shot 8, and shot 9 stops completely.\n\nCamera: exactly one move per shot, never two. Two shots are fully locked off, 2 and 6, and they are the most important in the film: there the material acts on its own and the camera must not take credit for it.\n\nMaterial: everything is clay, including the rulers and the dashed threads. There is no second material. Only two backgrounds: warm cork through shot 8, wood in shot 9. The change between them is the story.\n\nLight: one soft source from the upper left, identical in all nine shots. All change comes from the object, never from the lighting.\n\nGlow: the single deliberate break from the series rule that everything is matter. A first coral ember in the seams in shot 6, the engraving still dark in shot 7, full ignition in shot 8 when the foreign hands arrive, a low steady ember in shot 9. The glow is not an effect, it is the moment the box starts to decide.\n\nSound: no music. Five effects in total: a pin press in shot 1, a clay click in shot 3, three consecutive clicks as the tiles close the gap in shot 6, a low hum igniting with the engraving in shot 8, and a dry set-down on wood in shot 9. Everything else is a quiet room."
+  },
+
+  story: {
+    h3: "מאיפה זה מגיע",
+    copyLabel: "העתק סיפור רקע",
+    copyHead: 'סיפור הרקע לסרט "הפריים, הקופסה שלמדה לחשוב":',
+    paras: [
+      "רוב המעצבים מספרים שפיגמה החליפה את הארטבורד בפריים. חיפשתי את הרגע הזה ולא מצאתי אותו, ואין פוסט או ריליס נוט שמכריז על שינוי שם. מה שכן קרה מעניין יותר: פיגמה 1.0 יצאה ב-27 בספטמבר 2016, ומעולם לא היו בה ארטבורדים. היא נולדה עם פריים. בדף הבסט פרקטיסס של פיגמה כתוב בדיוק את זה, שמה שאתם מכירים כארטבורד בכלים אחרים הוא מה שאצלנו נקרא פריים, ושהם רואים בו אלמנט יסוד שמתפקד כמיכל עליון, כמו ויופורט של מכשיר. ההבדל הוא לא בשם. ארטבורד הוא עמוד. פריים הוא מיכל.",
+      "השורה הכי חדה בכל הסיפור לא נמצאת בבלוג השיווקי אלא בתיעוד ה-Plugin API: הפריים הוא קונטיינר שמגדיר היררכיית לייאאוט, והוא דומה ל-div ב-HTML. זאת בדיוק הסיבה שאפשר לקנן פריים בתוך פריים, לתת לו קונסטריינטים שקובעים איך הילדים מתנהגים כשההורה משתנה, ולסגור עליו clip content. מאותו רגע הקופסה כבר לא מחזיקה ציור. היא מחזיקה יחסים.",
+      "ומשם זה רק הצטבר. אוטו לייאאוט נחת ב-5 בדצמבר 2019, ופיגמה עצמה כתבה שהמטרה היא שעיצוב ממשק בפיגמה ירגיש קצת יותר כמו לבנות ממשק בקוד. הגרסה השנייה הוכרזה בקונפיג אירופה ב-17 בספטמבר 2020 ונחתה בנובמבר, עם ההגדרה שהיא תת-קבוצה מחושבת של flexbox. יוני 2023 הוסיף wrap ומינימום ומקסימום, ובקונפיג 2025, ב-7 במאי, נכנס גריד כאופציה של אוטו לייאאוט. במקביל הקופסה קיבלה שכבה שנייה של קהל: דב מוד הוכרז בקונפיג 2023 ב-21 ביוני, וקוד קונקט ב-16 באפריל 2024, שמחליף את ה-CSS האוטומטי בקוד האמיתי של הדזיין סיסטם. הפריים הפסיק להיות רק תמונה והתחיל להיות גם מפרט.",
+      "השנה האחרונה היא זאת שהפכה את זה לסרט. ביוני 2025 פיגמה שחררה את שרת ה-MCP של דב מוד כדי שמודלים יוכלו לקרוא הקשר עיצובי, ובמרץ 2026 היא פתחה את הקנבס עצמו לסוכנים, עם כלי שכותב ישירות לקבצים וסקילים שהם קבצי מרקדאון שמנחים איך לבנות על הקנבס. בקונפיג 2026 הגיע Code Layers בביתא סגורה, שמכניס קוד עובד לקנבס כסוג שכבה חדש. וכאן נגמר לי הסיפור ומתחילה השאלה: הקופסה התחילה כסימן שאומר איפה הציור נגמר, והיא כבר מחזיקה חוקים, מפרט, קוד וידיים שאינן שלך. אם הכלל גר בתוך הקופסה, מה בדיוק נשאר למעצב להחזיק."
+    ],
+    enLabel: "English backstory",
+    enCopyLabel: "Copy English backstory",
+    en: "Most designers say Figma replaced the artboard with the frame. I went looking for that moment and could not find it. There is no post and no release note announcing a rename. What actually happened is more interesting: Figma 1.0 shipped on 27 September 2016 and never had artboards at all. It was born with the frame. Figma's own best practices page says exactly this, that what you know as an artboard in other tools is what they call a frame, and that they see it as a foundational element acting as a top level container, like a device viewport. The difference is not the name. An artboard is a page. A frame is a container.\n\nThe sharpest line in the whole story is not in a marketing post but in the Plugin API docs: the frame node is a container used to define a layout hierarchy, and it is similar to a div in HTML. That is exactly why you can nest a frame inside a frame, give it constraints that decide how children behave when the parent changes, and clip its content. From that moment the box no longer holds a drawing. It holds relationships.\n\nFrom there it only accumulated. Auto Layout landed on 5 December 2019, and Figma wrote that the goal was for designing interfaces in Figma to feel a bit more like building interfaces with code. The rewrite was announced at Config Europe on 17 September 2020 and shipped that November, defined as a thoughtful subset of flexbox. June 2023 added wrap and min and max sizing, and at Config 2025 on 7 May, Grid arrived as an Auto Layout option. In parallel the box gained a second audience: Dev Mode was announced at Config 2023 on 21 June, and Code Connect on 16 April 2024, replacing auto generated CSS with the design system's real code. The frame stopped being only a picture and became a specification too.\n\nThe last year is what turned this into a film. In June 2025 Figma shipped the Dev Mode MCP server so models could read design context, and in March 2026 it opened the canvas itself to agents, with a tool that writes directly into files and Skills, markdown files that shape how agents build on the canvas. At Config 2026 Code Layers arrived in closed beta, bringing working code onto the canvas as a new layer type. That is where my story ends and the question starts: the box began as a mark saying where the drawing ends, and it already holds rules, a spec, code, and hands that are not yours. If the rule lives inside the box, what exactly is left for the designer to hold."
+  },
+
+  notes: {
+    title: "מה מייצרים, מה מוסיפים בעריכה, ואיפה זה עובד פעם שנייה",
+    items: [
+      "מייצרים: תשעה פריימים ב-Nano Banana Pro ב-1:1 ברזולוציית 2k, כולם כבר קיימים ומחוברים לכרטיסים כאן. הפרומפט של כל פריים נפתח בשפה הוויזואלית הנעולה, ואין בהם אות אחת של טקסט.",
+      "מנפישים: שמונה שוטים ב-Kling 3 std עם אודיו של המודל כבוי, ושוט 8 בלבד ב-Veo 3 כי הוא היחיד שמתנתק מהמישור ועולה לאוויר עם אורביט אמיתי. אזהרה מהפקות קודמות: Veo 3 משכתב את הפרומפט בעצמו ומחזיר פסקול משלו, אז את האודיו של שוט 8 צריך להוריד, ורינדור חוזר לא יתאים בדיוק לטקסט שבכרטיס.",
+      "אורכי הקליפים הם בדיוק אורכי השוטים, 5, 5, 6, 6, 6, 6, 6, 6, 6. Kling 3 מקבל אורך של 3 עד 15 שניות, אז מייצרים כל שוט באורך שלו ולא מותחים כלום בעריכה.",
+      "הסרט הזה שובר את הכלל הכי יקר של הסדרה במכוון: אין קריינות מדוברת. הכתוביות הן הטקסט. זה גם פותר את הבאג החוזר של הסדרה, שבו הקריינות של גדעון תמיד יצאה חמישים אחוז ארוכה מהתסריט והשוטים נאלצו להימתח. כאן התזמון נעול מראש ו-52 שניות זה 52 שניות.",
+      "אם בכל זאת תרצה גרסה מוקרנת עם גדעון: הבלוקים כבר כתובים, אבל אז מקליטים קודם, מודדים, ורק אחר כך מייצרים כל קליפ באורך שנמדד. לא הפוך.",
+      "כתוביות: השדה sub בכל בלוק כבר מוקשח לפיסוק ב-RTL עם RLE ו-PDF מסביב לשורה ו-RLM אחרי כל רצף ספרות או לטינית שסימן פיסוק בא אחריו. צורבים אותו כמו שהוא ולא גוזרים אותו מחדש מהתסריט. כפתור העתק SRT בראש בלוק הקריינות מייצא את זה מוכן.",
+      "עריכה: דיזולב של 0.3 שנייה בין כל שני שוטים, חוץ מהמעבר של שוט 7 לשוט 8 שהוא הקאט החד היחיד בסרט, כדי שההצתה תגיע כהפתעה.",
+      "טיפוגרפיה: Rubik 900 לשלוש שורות המפתח (2016, 2019, 2026), Rubik 500 לשאר. הכל בשליש העליון של הפריים, שם שמרתי שטח נגטיבי בכל תשעת הפרומפטים.",
+      "1:1 הוא הפורמט הראשי לפיד. את הקאט 9:16 לסטורי גוזרים בעריכה בהרחבת שוליים למעלה ולמטה, כמו בפרק 4, ולא מייצרים סט שני. אם תרצה סט 9:16 אמיתי, כל פרומפט כאן עובד כמו שהוא עם החלפת 1:1 ב-9:16.",
+      "פעם שנייה, ערוץ ראשון: הסיפור הזה כבר רץ כפוסט בבריינסטורמר ב-4.8, אז המחקר כבר שולם. בלוק סיפור הרקע כאן הוא חומר הגלם לפוסט, וכפתור ההעתקה שלו נועד בדיוק לזה.",
+      "פעם שנייה, ערוץ שני: הפריים של שוט 8 הוא הקאבר של הפוסט. הוא גם הפריים הכי חזק בסרט וגם התמונה שהכי מסבירה את הכותרת בלי מילה.",
+      "פעם שלישית, האנתולוגיה: שוט 9 מניח את הפריים על אותו מדף שסוגר את פרק 1. עוד אובייקט על המדף מקצר את החיבור של גרסת האנתולוגיה שהוגשה לפסטיבלים.",
+      "עובדה אחת שאסור להחזיר לסרט: אין מקור שמאשר שפיגמה שינתה את השם מארטבורד לפריים בתאריך כלשהו. אם מישהו יבקש להוסיף את זה לכתוביות, התשובה היא לא."
+    ],
+    itemsEn: [
+      "Generate: nine stills in Nano Banana Pro, 1:1 at 2k. All nine already exist and are wired into the shot cards here. Every still prompt opens with the locked visual language and contains no text at all.",
+      "Animate: eight shots in Kling 3 std with model audio off, and shot 8 only in Veo 3, because it is the one move that leaves the plane and rises into the air with a real orbit. Warning from earlier episodes: Veo 3 rewrites the prompt itself and returns its own soundtrack, so strip the audio from shot 8 and expect a re-render not to match the card text exactly.",
+      "Clip lengths equal shot lengths exactly: 5, 5, 6, 6, 6, 6, 6, 6, 6. Kling 3 accepts 3 to 15 seconds, so generate each shot at its own length and stretch nothing in the edit.",
+      "This film deliberately breaks the series' most expensive rule: there is no spoken narration. The captions are the text. That also fixes the recurring series bug where the recorded narration always ran fifty percent longer than the script and the shots had to be stretched. Here the timing is locked in advance and 52 seconds means 52 seconds.",
+      "If a narrated version is wanted later, the blocks are already written, but then record first, measure, and only then generate each clip at its measured length. Never the other way around.",
+      "Subtitles: the sub field on every block is already hardened for RTL punctuation, wrapped in RLE and PDF with RLM after every digit or Latin run that a punctuation mark follows. Burn it verbatim, never re-derive it from the script line. The Copy SRT button exports it ready.",
+      "Edit: a 0.3 second dissolve between every pair of shots, except the 7 to 8 transition which is the single hard cut in the film, so the ignition lands as a surprise.",
+      "Typography: Rubik 900 for the three key lines (2016, 2019, 2026), Rubik 500 for the rest. All of it in the upper third, where negative space was reserved in all nine prompts.",
+      "1:1 is the primary feed format. Derive the 9:16 story cut in the edit by extending the top and bottom margins, as in episode 4, rather than generating a second set. If a true 9:16 set is wanted, every prompt here works as is with 1:1 swapped for 9:16.",
+      "Second use, first channel: this story already ran as a written post on 4 August, so the research is paid for. The backstory block here is the raw material for that post and its copy button exists for exactly that.",
+      "Second use, second channel: the shot 8 still is the post cover. It is both the strongest frame in the film and the image that explains the title without a word.",
+      "Third use, the anthology: shot 9 sets the frame on the same shelf that closes episode 1. One more object on that shelf shortens the connective tissue of the anthology cut submitted to festivals.",
+      "One fact that must never come back into the film: no source confirms that Figma renamed the artboard to the frame on any date. If anyone asks to put that in the captions, the answer is no."
+    ]
+  }
+};
+</script>
+<script src="../shared/sb.js?v=5"></script>
+</body>
+</html>
