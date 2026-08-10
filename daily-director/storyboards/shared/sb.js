@@ -221,7 +221,7 @@
       var raw = MEDIA === 'img' ? null : s[MEDIA];
       var vid = typeof raw === 'string' ? raw : (raw && raw[RATIO]);
       var media = vid
-        ? '<video src="' + esc((S.cdn || '') + vid) + '" poster="' + esc((S.cdn || '') + img) +
+        ? '<video src="' + esc(/^https?:/.test(vid) ? vid : (S.cdn || '') + vid) + '" poster="' + esc((S.cdn || '') + img) +
           '" controls playsinline preload="none"></video>'
         : '<img src="' + esc((S.cdn || '') + img) + '" alt="שוט ' + s.n + '" loading="lazy">';
       return '<div class="shot">' +
