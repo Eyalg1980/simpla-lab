@@ -5,6 +5,25 @@
       "dateLabel": "יום שלישי, 11 באוגוסט",
       "ideas": [
         {
+          "id": "2026-08-11-6",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "איש בן שמונים ושתיים מרכיב לבד רהיט מארגז, והקול הדיגיטלי שקורא לו את ההוראות מתחיל להוסיף דברים שלא כתובים במדריך. בשוט האחרון מתברר שהוא הרכיב עריסה.",
+          "concept": "חדר אחד, אדם אחד, וקול. הוא יושב על הרצפה ומרכיב רהיט לפי הוראות קוליות באנגלית, וכשיתד אחת נתקעת הקול אומר משפט שאין סיכוי שכתוב במדריך: קח את הזמן שלך, אין דדליין. מכאן הקול נשאר ענייני אבל מוסיף דברים בין השלבים, והוא עונה לו בעברית, בקצרה, כמו שעונים למישהו שאתה לא בטוח שהוא שם. בסוף הוא נעמד, המצלמה נסוגה, ומתברר שהוא הרכיב עריסה. ההיפוך משנה לאחור כל בדיחה שקדמה לו.",
+          "execution": "ארבע דקות ועשר שניות, תשעה עשר שוטים, 16:9. היגספילד: Nano Banana Pro לפריימים ו-Kling 3 std לתנועה, כל תשעה עשר הפריימים כבר יוצרו. סגנון ריאליסטי, אור אחד מחלון ביום מעונן, זהה בכל הסרט, מצלמה על חצובה עם תנועה אחת בלבד בכל הסרט, הנסיגה שחושפת את העריסה. הקול של המכשיר באנגלית שטוחה במנוע רב לשוני, חמש שורות בעברית בקול ילידי, כתוביות צרובות לשני הכיוונים. אין מוזיקה עד שוט 17.",
+          "why": "זה הכיוון הבטוח ביותר טכנית מכל בנק התחרויות: שני הקולות בסרט הם שלו והקול של המכשיר, כלומר אפס דיאלוג מסונכרן בין שני אנשים. הוא יושב על הרצפה כמעט כל הסרט, כלומר אפס הליכת גוף שלם. וכל הסרט הוא ידיים על חומר, הנושא היחיד שמודלים עושים באמת טוב. ובכל זאת יש כאן מהלך עלילתי שלם עם היפוך בסוף, וזה בדיוק מה שחסר לסבתא נגד הצרעה.",
+          "competition": "Higgsfield Global Film Festival",
+          "srcUrl": "https://higgsfield.ai/contests/higgsfield-global-film-festival",
+          "srcLabel": "Higgsfield Global Film Festival, מינימום שלוש דקות, סוגר 3.9",
+          "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/the-instructions/",
+          "prompts": {
+            "video": "Photoreal 35mm cinema, Kodak Vision3 500T pushed one stop, fine natural grain, lifted blacks, one soft window light from camera left on an overcast day with no fill and the right third of the room two stops under, palette limited to cardboard brown, pale plaster and light birch plywood with one charcoal garment. An eighty-two year old man with close cropped white hair and a worn charcoal cardigan sits cross-legged on a bare floor and presses a wooden dowel home into a pale birch panel, a phone propped against a flat carton beside him. His body and the room hold completely still and only his hands move. The camera stays completely locked off on a tripod at floor level. 16:9, model sound off, no text of any kind",
+            "script": "פתח לי את רעיון הווידאו \"ההוראות\" לסטוריבורד מלא: לוגליין, סינופסיס של חמש עד שבע פסקאות, שוט-ליסט של תשעה עשר שוטים לארבע דקות ועשר שניות, ולכל שוט משך, תנועת מצלמה ושני פרומפטים, פריים פותח ותנועה. אילוצים מחייבים: חדר אחד, דמות אחת, אפס דיאלוג מסונכרן בין שני אנשים, אפס הליכה של גוף שלם, אפס המונים, אפס רכבים, ותנועת מצלמה אחת בלבד בכל הסרט. הקול של המכשיר הוא אנגלית שטוחה, וחמש שורות בלבד בעברית שלו. הכלל הקשה: העריסה חייבת להישאר סוד עד שוט 16, כלומר עד שם אף פריים לא מראה מבנה מורכב שלם והמילים crib ו-slats אינן מופיעות באף פרומפט. סגנון ריאליסטי, אור אחד מחלון מעונן זהה בכל הסרט, 16:9. יעד: Higgsfield Global Film Festival שסוגר 3.9 ואסטנה שסוגרת 31.8.",
+            "image": "Photoreal 35mm cinema still, Kodak Vision3 500T pushed one stop, fine natural grain, lifted blacks and low contrast, one soft window light from camera left on an overcast day with no fill and the right third of the room two stops under, palette limited to cardboard brown, pale plaster and light birch plywood with one charcoal garment. An eighty-two year old Israeli man, thin and narrow shouldered, close cropped white hair receding at the temples, wearing a dark charcoal wool cardigan worn through at the right elbow, sitting cross-legged on a bare floor sorting pale birch panels and wooden dowels into straight rows by size, a phone propped against a flat carton with a shipping label torn half away. 40mm at T2, camera on a tripod at his seated eye height, focus on his hands with his face falling soft. He occupies the lower right third and the upper half of the frame is unbroken plaster wall. The window at frame left is blown a stop and a half. no text, no letters, no signage, no captions, no logos, no watermark, no subtitles",
+            "raw": "הוק: איש בן שמונים ושתיים מרכיב לבד רהיט מארגז, והקול הדיגיטלי שקורא לו את ההוראות מתחיל להוסיף דברים שלא כתובים במדריך. בשוט האחרון מתברר שהוא הרכיב עריסה.\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, סוגר 3.9, ובמקביל אסטנה שסוגרת 31.8\nקונספט: חדר אחד, אדם אחד וקול. יתד נתקעת, הקול אומר קח את הזמן שלך אין דדליין, ומכאן הוא כבר לא רק מדריך. הוא עונה לו בעברית בקצרה. בסוף המצלמה נסוגה ומתגלה עריסה.\nביצוע: ארבע דקות ועשר שניות, תשעה עשר שוטים, 16:9, Nano Banana Pro פלוס Kling 3 std, אור אחד מחלון מעונן, תנועת מצלמה אחת בכל הסרט, אין מוזיקה עד שוט 17.\nלמה עכשיו: הכיוון הבטוח ביותר טכנית מכל הבנק, ובכל זאת עם מהלך עלילתי מלא והיפוך שמשנה לאחור כל בדיחה שקדמה לו."
+          }
+        },
+        {
           "id": "2026-08-11-1",
           "world": "סרטוני הסבר",
           "color": "#71F73C",
@@ -48,7 +67,7 @@
           "color": "#71F73C",
           "hook": "שני שכנים משני צדי חצר פנימית מנהלים חיזור שלם רק דרך מה שהם מסדרים על אדן החלון. הוא לא יודע שהיא עברה דירה.",
           "concept": "בניין תל אביבי, חצר פנימית, שני חלונות זה מול זה. הוא תולה כביסה, היא משקה עציצים, ולאורך קיץ שלם הם מדברים רק דרך אובייקטים: עציץ שמוזז, ספר שמונח כך שייראה, כוס שמחכה. כשהוא סוף סוף משאיר פתק, הדירה ריקה. בשוט האחרון שוכר חדש משקה את העציצים בדיוק כמוה, ולא יודע כלום. שתי הדמויות לא מופיעות יחד בפריים אף פעם, וזה גם הבימוי וגם ההגנה הטכנית: אפס בעיית המשכיות, אפס הליכה, אפס דיאלוג.",
-          "execution": "שלוש דקות וחצי, 16:9, Higgsfield: Nano Banana Pro לפריימים ו-Kling 3 std לתנועה. סגנון ריאליסטי, אור ים תיכוני קשה של אחר הצהריים שנרך לאורך הסרט. מצלמה נעולה בשני זוויות בלבד, חלון מול חלון, וכל שוט הוא אותו קדר עם אדן שהשתנה. בלי קריינות ובלי דיאלוג, רק סאונד של החצר. כתוביות אנגלית צרובות רק לשלט הפתק.",
+          "execution": "ארבע דקות ועשר שניות, 16:9, Higgsfield: Nano Banana Pro לפריימים ו-Kling 3 std לתנועה. סגנון ריאליסטי, אור ים תיכוני קשה של אחר הצהריים שנרך לאורך הסרט. מצלמה נעולה בשני זוויות בלבד, חלון מול חלון, וכל שוט הוא אותו קדר עם אדן שהשתנה. בלי קריינות ובלי דיאלוג, רק סאונד של החצר. כתוביות אנגלית צרובות רק לשלט הפתק.",
           "why": "מ-11.8 הבמאי היומי במוד תחרויות עד 3.9. הפסטיבל הגלובלי של היגספילד סוגר ב-3.9 עם מיליון דולר וחבר שופטים בראשות אד קטמאל, ואסטנה סוגרת ב-31.8 עם מיליון נוסף. שתיהן דורשות מינימום שלוש דקות, אז כל רעיון מהיום מתוכנן לשלוש עד ארבע דקות ומשמש לשתיהן.",
           "competition": "Higgsfield Global Film Festival",
           "srcUrl": "https://higgsfield.ai/contests/higgsfield-global-film-festival",

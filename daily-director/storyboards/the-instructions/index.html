@@ -11,231 +11,258 @@
 <div id="sb"></div>
 
 <script>
-const STYLE = "Photorealistic cinematic style, one soft overcast window light from the left that never changes for the whole film, muted palette of cardboard brown, pale wall and light wood, shallow depth of field, fine 35mm grain, locked-off tripod camera, patient observational framing";
+const STYLE = "Photoreal 35mm cinema still, Kodak Vision3 500T pushed one stop, fine natural grain, lifted blacks and low contrast, one soft window light from camera left on an overcast day with no fill and the right third of the room two stops under, palette limited to cardboard brown, pale plaster and light birch plywood with one charcoal garment, camera locked on a tripod, documentary restraint.";
+const NEG = "no text, no letters, no signage, no captions, no logos, no watermark, no subtitles";
+const MAN = "an eighty-two year old Israeli man, thin and narrow shouldered, close cropped white hair receding at the temples, deep vertical lines either side of his mouth, his left eyelid sitting slightly lower than the right, a small pale scar through his right eyebrow, wearing a dark charcoal wool cardigan worn through at the right elbow over a collarless white cotton shirt and loose grey trousers";
 
 window.SB = {
-  kicker: "STORYBOARD · תחרויות · ריאליסטי",
-  titleTop: "ההוראות",
-  titleMark: "עריסה",
+  kicker: "STORYBOARD · מוד תחרויות · Higgsfield GFF 3.9 ו-Astana 31.8",
+  titleTop: "ההוראות,",
+  titleMark: "והקול שהוסיף משפט",
   titleEn: "The Instructions",
   logline: "איש בן שמונים ושתיים מרכיב לבד רהיט מארגז, והקול הדיגיטלי שקורא לו את ההוראות מתחיל להוסיף דברים שלא כתובים במדריך. בשוט האחרון מתברר שהוא הרכיב עריסה.",
-  loglineEn: "A man of eighty-two assembles flat-pack furniture alone, and the digital voice reading him the instructions starts adding things that are not in the manual. In the last shot we see that he has built a crib.",
-  specs: ["4:10", "16:9 · 1920x1080", "19 שוטים", "חדר אחד", "Higgsfield Global FF + Astana"],
-  specsEn: ["4 min 10 s", "16:9 1920x1080", "19 shots", "one room, one actor", "Hebrew dialogue, burned English subtitles"],
+  loglineEn: "An eighty-two year old man assembles a flat-pack alone, and the digital voice reading him the instructions begins to add things the manual does not contain. In the last shot it becomes clear he has built a crib.",
+  specs: ["4:10", "19 שוטים", "16:9", "חדר אחד", "אפס דיאלוג בין שני אנשים", "עברית: חמש שורות", "קול מכשיר: אנגלית", "מוזיקה: רק בשוט 17", "פריימים מוכנים"],
+  specsEn: ["4 minutes 10 seconds", "19 shots", "16:9", "One room, one character", "No synced two-person dialogue anywhere", "Five spoken Hebrew lines in total", "Device voice in flat English", "Music enters only at shot 17", "All key frames generated"],
   cdn: "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/",
 
   film: null,
 
   synopsis: {
-    h3: "מה קורה בסרט",
+    h3: "מה קורה בארבע הדקות",
     copyLabel: "העתק סינופסיס",
     copyHead: 'סינופסיס לסרט "ההוראות":',
     paras: [
-      "חדר כמעט ריק בדירה ישראלית. אור אחד מחלון שמאלי, יום מעונן. איש בן שמונים ושתיים יושב על הרצפה, מוציא מארגז שטוח את החלקים, ומסדר אותם בשורות ישרות לפי גודל. יש בו סדר של מישהו שעשה דברים בידיים כל החיים.",
+      "חדר כמעט ריק בדירה ישראלית. אור אחד מחלון שמאלי, יום מעונן. איש בן שמונים ושתיים יושב על הרצפה, פותח ארגז שטוח ומסדר את החלקים בשורות ישרות לפי גודל. יש בו סדר של מישהו שעשה דברים בידיים כל החיים.",
       "הוא משעין את הטלפון על הקרטון ומפעיל את ההוראות. קול נשי אנגלי, נעים ונטול אישיות, אומר: שלב ראשון, זהה חלק A. הוא מזהה. שלב שני. הוא ממשיך. זה עובד.",
       "ואז זה נתקע. יתד אחת לא נכנסת. הקול חוזר על שלב שלוש. הוא מנסה שוב. הקול חוזר שוב. אחרי הפעם הרביעית הקול אומר משפט שאין שום סיכוי שכתוב במדריך: קח את הזמן שלך, אין דדליין. הוא מרים את הראש ומסתכל על הטלפון בפעם הראשונה.",
       "מכאן הקול לא חוזר להיות רק מדריך. הוא נשאר ענייני, אבל בין שלב לשלב הוא מוסיף דברים. אני לא מתעייף מלחזור על דברים. השלב הזה קל יותר עם אדם שני. השלב הזה קשה לכולם. הוא עונה לו, בעברית, בקצרה, כמו שעונים למישהו שאתה לא בטוח שהוא שם.",
-      "באמצע הסרט הוא מפיל בורג. הבורג מתגלגל מתחת לארגז. הוא מנסה להתכופף ולא מצליח. הוא נשאר יושב, נושם, מסתכל על הפתח הריק של החדר. הקול, בתזמון גרוע ומושלם, אומר את המשפט על האדם השני.",
-      "הוא מגיע לבורג לבד. הוא ממשיך. השוטים נעשים ארוכים יותר והנשימה שלו נשמעת יותר. הוא מסיים. הוא נעמד, לראשונה בסרט, בכבדות, והמצלמה נסוגה מעט ואנחנו רואים מה בנה. עריסה.",
-      "הוא מניח יד אחת על המעקה ומנענע פעם אחת. הקול אומר: ההרכבה הושלמה. הוא אומר תודה. ואז הוא מוציא מכיס המעיל שמיכת תינוק מקופלת קטנה, מניח אותה בפנים, ומתיישב בחזרה על הרצפה ליד העריסה. הוא לא בוכה ולא מחייך, הוא פשוט מסתכל עליה. התזה: מכונה יכולה להקריא לך כל שלב ובכל זאת לא לדעת מה אתה בונה."
+      "באמצע הסרט הוא מפיל בורג. הבורג מתגלגל מתחת לארגז. הוא מנסה להתכופף ולא מצליח, נשאר יושב, ומסתכל על הפתח הריק של החדר. הקול, בתזמון גרוע ומושלם, אומר בדיוק אז את המשפט על האדם השני.",
+      "הוא מגיע לבורג לבד. הוא ממשיך. השוטים נעשים ארוכים יותר, הנשימה שלו נשמעת יותר, והוא מסיים. הוא נעמד, לראשונה בסרט, בכבדות, והמצלמה נסוגה ואנחנו רואים מה בנה. עריסה.",
+      "הוא מניח יד אחת על המעקה ומנענע פעם אחת. הקול אומר: ההרכבה הושלמה. הוא אומר תודה. ואז הוא מוציא מכיס המעיל שמיכת תינוק מקופלת קטנה, מניח אותה בפנים, ומתיישב בחזרה על הרצפה לידה. הוא לא בוכה ולא מחייך. התזה: הוא לא בנה רהיט, הוא סיים משהו, והדבר היחיד שליווה אותו לאורך זה היה קול שאין לו שום מושג מה הוא עושה."
     ],
     enLabel: "English synopsis",
     enCopyLabel: "Copy English synopsis",
-    en: "An almost empty room in an Israeli apartment. One soft overcast window light. A man of eighty-two sits on the floor unpacking a flat-pack box, laying the parts out in straight rows by size with the order of somebody who has worked with his hands all his life.\n\nHe props his phone against the cardboard and starts the instructions. A pleasant, personality-free English voice says: step one, identify part A. He does. Step two. It works.\n\nThen it jams. One dowel will not go in. The voice repeats step three. He tries again. It repeats again. After the fourth time it says something that cannot possibly be in the manual: take your time, there is no deadline. He lifts his head and looks at the phone for the first time.\n\nFrom here the voice stays businesslike but keeps adding things between steps. I do not mind repeating things. This step is easier with a second person. This one is difficult for everyone. He answers it, in Hebrew, briefly, the way you answer someone you are not sure is there.\n\nHalfway through he drops a screw. It rolls under the box. He cannot bend far enough to reach it. He stays sitting, breathing, looking at the empty doorway. The voice, with terrible and perfect timing, says the line about the second person.\n\nHe gets the screw himself. He carries on. The shots get longer and his breathing gets louder. He finishes. He stands up for the first time in the film, heavily, the camera pulls back a little, and we see what he has built. A crib.\n\nHe puts one hand on the rail and rocks it once. The voice says: assembly complete. He says thank you. Then he takes a small folded baby blanket out of his coat pocket, lays it inside, and sits back down on the floor beside the crib. He is not crying and not smiling. He is just looking at it. The thesis: a machine can read you every single step and still not know what you are building."
+    en: "An almost empty room in an Israeli apartment. One window on the left, an overcast day. An eighty-two year old man sits on the floor, opens a flat carton and lays the parts out in straight rows by size. He has the order of someone who has worked with his hands all his life.\n\nHe props his phone against the cardboard and starts the instructions. A pleasant, characterless English female voice says: step one, identify part A. He identifies it. Step two. He continues. It works.\n\nThen it jams. One dowel will not go in. The voice repeats step three. He tries again. The voice repeats again. After the fourth time the voice says a sentence that could not possibly be in the manual: take your time, there is no deadline. He lifts his head and looks at the phone for the first time.\n\nFrom here the voice never goes back to being only a guide. It stays practical, but between the steps it adds things. I do not mind repeating things. This step is easier with a second person. This one is difficult for everyone. He answers it, in Hebrew, briefly, the way you answer someone you are not sure is there.\n\nHalfway through he drops a screw. It rolls under the carton. He tries to bend down and cannot, stays sitting, and looks at the empty doorway of the room. The voice, with terrible and perfect timing, chooses that exact moment for the line about the second person.\n\nHe reaches the screw by himself. He carries on. The shots get longer, his breathing gets louder, and he finishes. He stands, for the first time in the film, heavily, and the camera pulls back and we see what he built. A crib.\n\nHe puts one hand on the rail and rocks it once. The voice says: assembly complete. He says thank you. Then he takes a small folded baby blanket out of his coat pocket, lays it inside, and sits back down on the floor beside it. He does not cry and he does not smile. The thesis: he did not build a piece of furniture, he finished something, and the only thing that kept him company through it was a voice that has no idea what it is doing."
   },
+
+  shots: {
+    style: STYLE,
+    prompts: function (s) {
+      return [
+        { label: "פריים (Nano Banana Pro, 16:9)", btn: "העתק פרומפט פריים",
+          text: STYLE + " " + s.still + " " + NEG },
+        { label: "תנועה (Kling 3 std, image-to-video)", btn: "העתק פרומפט תנועה",
+          text: s.motion + " 16:9, model sound off." }
+      ];
+    },
+    list: [
+      { n:1, dur:"10 שנ'", durEn:"10s", cam:"רחב סטטי, 28mm", camEn:"Static wide, 28mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"החדר והארגז", titleEn:"The room and the carton",
+        img:"hf_20260811_120311_d3ccb359-f52b-4822-9ffe-c5f081461dd5.png",
+        still:"A bare rectangular room in an Israeli apartment, empty except for one large flat cardboard carton lying closed on pale floor tiles. A shipping label torn half away at one corner and a strip of packing tape lifted at the edge. 28mm at T4, camera on a tripod at floor level and perfectly level, three metres back, focus on the carton. The carton sits low in the lower third and the upper half of the frame is unbroken plaster wall. The window at frame left is blown a stop and a half with bloom spilling into the room.",
+        motion:"Nothing moves in the room at all except the faintest settling of dust in the window light. The carton, the walls, the tiles and the light hold completely still and nothing enters the frame that is not already in it. The camera stays completely locked off with no move whatsoever. The shot ends exactly as it began." },
+
+      { n:2, dur:"12 שנ'", durEn:"12s", cam:"קלוז אפ יד, 100mm מאקרו", camEn:"Macro close-up on the hand, 100mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"פתיחת הקרטון", titleEn:"Opening the carton",
+        img:"hf_20260811_120311_1c0410aa-c086-4c61-88db-1da8b28a3299.png",
+        still:"The hands of " + MAN + ", drawing a small utility knife along the taped seam of a flat cardboard carton, the tape parting and the flap lifting a few millimetres. A curl of cut tape still clinging to the blade. 100mm macro at T2.8, camera low and close, focus on the blade edge, the room behind falling to soft grey. The hands fill the right half of the frame. One knuckle falls slightly out of focus where the plane lands short.",
+        motion:"A hand draws a utility knife along the taped seam of a carton in one continuous pull and the tape parts behind the blade. The carton, the floor and the room hold completely still and only the hand and the blade move. The camera stays completely locked off. The pull ends with the flap lifting a centimetre and the hand leaving frame. The cardboard resists the blade and the tape stretches before it separates." },
+
+      { n:3, dur:"14 שנ'", durEn:"14s", cam:"טופ שוט ישר מלמעלה, 35mm", camEn:"Straight-down top shot, 35mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"שורות לפי גודל", titleEn:"Rows by size",
+        img:"hf_20260811_120311_d4bcafad-2685-4b8d-99cb-ba8c8e013308.png",
+        still:"Seen from directly above, the hands of " + MAN + ", laying flat pale birch panels, wooden dowels, cam locks and a bundle of identical thin rods into straight rows by size on pale floor tiles, the open carton at the edge of frame. One cam lock has rolled out of its row and he has not corrected it yet. 35mm at T4, camera looking straight down from two metres, focus on the middle row. The rows run across the lower two thirds and the empty tiles fill the top. The frame is a degree or two off square.",
+        motion:"Continuous motion throughout with nothing ever holding still: two hands lift parts out of the open carton one after another and lay them into straight rows by size, working steadily without pause. The floor, the carton and the rows already laid hold their positions and nothing enters the frame that is not already in it. The camera stays locked off looking straight down. The last part is laid at the end of the row and the hands withdraw. Each part settles with a small dry knock on the tile." },
+
+      { n:4, dur:"8 שנ'", durEn:"8s", cam:"קלוז אפ, 100mm מאקרו", camEn:"Macro close-up, 100mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"הפעלת ההוראות", titleEn:"Starting the instructions",
+        img:"hf_20260811_120311_d8a5a5f2-c9ea-49b3-b3be-706765723d43.png",
+        still:"A phone propped upright against the corrugated wall of an open carton, its screen a plain pale glow, the index finger of an eighty-two year old Israeli man just touching it, his cardigan cuff charcoal at the frame edge. A smear of dust on the phone screen catching the window light. 100mm macro at T2, camera at floor level a hand's width away, focus on the fingertip, the phone edge already soft. The phone sits in the right third against a large soft field of cardboard brown. A faint flare from the window smears the top left corner.",
+        motion:"A single index finger reaches in and presses the phone screen once, then withdraws. The phone, the carton and everything else hold completely still and nothing enters the frame that is not already in it. The camera stays completely locked off. The finger leaves and the screen is left alone in frame. The phone rocks a millimetre against the cardboard when the finger presses it." },
+
+      { n:5, dur:"10 שנ'", durEn:"10s", cam:"מדיום, 40mm", camEn:"Medium, 40mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"זה עובד", titleEn:"It works",
+        img:"hf_20260811_120311_5efe1193-a169-4a2c-a263-694ca5ec0e0b.png",
+        still:MAN + ", sitting cross-legged on a bare floor holding a single wooden dowel up close to his eye and turning it, his head tilted, listening to something out of frame. A folded paper instruction sheet lying face down beside his knee. 40mm at T2, camera on a tripod at his seated eye height, two metres away, focus on his face. He occupies the lower right third, the upper half is empty plaster wall. Focus lands a centimetre behind his eye and on his cheekbone instead.",
+        motion:"He turns a wooden dowel slowly between his fingers close to his eye and then lowers it, his head still tilted toward something out of frame. His body stays seated and does not shift, and the room behind him holds completely still. The camera stays completely locked off. He ends with the dowel resting on his knee and his eyes still off frame. The dowel has real weight and does not float in his fingers." },
+
+      { n:6, dur:"12 שנ'", durEn:"12s", cam:"קלוז אפ ידיים, 100mm מאקרו", camEn:"Macro on the hands, 100mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"החיבור הראשון", titleEn:"The first joint",
+        img:"hf_20260811_120311_ee4a095b-2406-4617-bd31-12f15a6d43bb.png",
+        still:"The hands of an eighty-two year old Israeli man, thin and narrow shouldered, wearing a dark charcoal wool cardigan worn through at the right elbow over a collarless white cotton shirt, pressing two pale birch pieces together at a right angle while a wooden dowel seats flush into its hole, the joint closing cleanly. A pencil mark on the inside face of one panel. 100mm macro at T2.8, camera low and close, focus on the joint, his cardigan cuff a soft charcoal mass at the frame edge. The joint sits centre right against grey floor tiles. The near edge of the panel blooms slightly where the window light hits it.",
+        motion:"Two hands press a wooden dowel home into its hole and the two birch pieces close together into a right angle. The floor, the other parts and the room hold completely still and only the hands and the two pieces move. The camera stays completely locked off. The joint seats flush and the hands relax without leaving frame. The panel shifts a few millimetres on the tile under the pressure." },
+
+      { n:7, dur:"16 שנ'", durEn:"16s", cam:"מדיום קלוז מלמטה, 50mm", camEn:"Medium close from slightly below, 50mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"היתד שלא נכנסת", titleEn:"The dowel that will not go in",
+        img:"hf_20260811_120311_19f2da56-29e4-4a59-b7ef-2baacd8cd726.png",
+        still:MAN + ", kneeling forward over a partly built birch assembly and pushing hard on a wooden dowel that will not enter its hole, the heel of his hand white with pressure and his shoulders locked. A thin split starting in the wood beside the hole. 50mm at T2, camera at floor level slightly below him, one and a half metres away, focus on his hands with his face soft above them. He fills the right half, the left is the pale room falling away. His forearm carries a trace of motion blur.",
+        motion:"He pushes down hard on a dowel that will not enter its hole, the heel of his hand whitening, and the push fails. His seated position, the floor and the room behind him hold completely still. The camera stays completely locked off. He ends with the dowel still standing proud of the hole and his hand still on it. The panel skids a centimetre across the tile under the force instead of the dowel going in." },
+
+      { n:8, dur:"12 שנ'", durEn:"12s", cam:"קלוז אפ פנים, 85mm", camEn:"Close-up on the face, 85mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"הוא מרים את הראש", titleEn:"He lifts his head",
+        img:"hf_20260811_120311_6a8a5bad-8706-4efa-b156-dbb79fff7d82.png",
+        still:MAN + ", lifting his head from his work and looking directly at something low and out of frame, his mouth closed, his expression neither angry nor moved, only attentive for the first time. A bead of sweat at his temple. 85mm at T2, camera at his seated eye height, one metre away, focus exactly on his near eye. His face fills the right two thirds, the left is soft empty wall. The window behind him is blown and haloes the edge of his hair.",
+        motion:"He lifts his head from his work and turns his eyes to something low and out of frame, and holds there. Everything else in the room holds completely still and nothing enters the frame that is not already in it. The camera stays completely locked off. He ends looking at it, mouth closed, without any further expression. He blinks once, late, and not on the movement." },
+
+      { n:9, dur:"14 שנ'", durEn:"14s", cam:"מדיום, 40mm", camEn:"Medium, 40mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"שורת הדיאלוג הראשונה שלו", titleEn:"His first line",
+        img:"hf_20260811_120312_41f15c22-6d66-4d0c-93dd-55bbdae32cbf.png",
+        still:MAN + ", sitting back on his heels on a bare floor and speaking one short sentence toward a phone propped against a carton, one hand still resting flat on a birch panel. The wedding band worn thin on his left hand. 40mm at T2, camera on a tripod at his seated eye height, two metres back, focus on his face. He occupies the lower right third, the upper half is empty plaster wall. The frame is very slightly off level and uncorrected.",
+        motion:"He sits back on his heels and says one short sentence toward something out of frame, his jaw and mouth moving briefly and then stopping. His hands and the panel under them hold still and the room behind him does not move. The camera stays completely locked off. He ends with his mouth closed and his eyes still on the phone. His shoulders drop slightly as he exhales at the end of the line." },
+
+      { n:10, dur:"10 שנ'", durEn:"10s", cam:"קלוז אפ ברמת הרצפה, 100mm מאקרו", camEn:"Macro at tile level, 100mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"הבורג נופל", titleEn:"The screw falls",
+        img:"hf_20260811_120311_d189116a-0f85-4afe-b0f0-eeb2ac49e61e.png",
+        still:"A small steel screw dropped and rolling across pale floor tiles toward the dark gap beneath a cardboard carton, caught mid-roll and slightly blurred, an open hand still hanging above it out of focus. A hairline scratch in the tile the screw is crossing. 100mm macro at T2, camera on the floor at tile level, focus on the screw. The screw sits centre left with a wide field of empty tile around it. The dark under-carton gap crushes to pure black.",
+        motion:"A small steel screw rolls across the tiles, slows, and disappears into the dark gap under the carton. The tiles, the carton and everything else hold completely still and nothing enters the frame that is not already in it. The camera stays completely locked off at floor level. The shot ends on the empty tile where the screw was. The screw loses speed as it rolls and wobbles on its head before it goes in, it does not glide." },
+
+      { n:11, dur:"18 שנ'", durEn:"18s", cam:"רחב סטטי, 28mm", camEn:"Static wide, 28mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"הוא לא מצליח להתכופף", titleEn:"He cannot bend down",
+        img:"hf_20260811_120311_3b64464c-024a-4d60-b681-3978bd32b8ed.png",
+        still:MAN + ", seated on a bare floor with one arm braced behind him, twisted at the waist and reaching down and sideways toward the gap under a carton, his hand stopping well short, his other hand pressed flat on the tiles. The cardigan pulled tight and rucked at his shoulder. 28mm at T4, camera on a tripod at floor level, three metres back, focus on him. He occupies the lower right quarter and the empty room fills everything else. The window at frame left is blown a stop and a half.",
+        motion:"He twists at the waist and reaches down toward the gap under the carton, his hand stops well short, and he stays where he is. The room, the carton and the parts on the floor hold completely still. The camera stays completely locked off. He ends seated exactly where he started, breathing, his arm back at his side. His weight is real and the reach clearly costs him." },
+
+      { n:12, dur:"14 שנ'", durEn:"14s", cam:"סטטי, 40mm, בלי אף אחד בפריים", camEn:"Static, 40mm, no one in frame", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"הפתח הריק", titleEn:"The empty doorway",
+        img:"hf_20260811_120311_dc8fc40a-78a2-4e56-98fb-c3d34d79d079.png",
+        still:"An empty doorway in a bare plaster wall with a dim unlit hallway beyond it, no person anywhere in the frame, a single wooden dowel lying abandoned on the tiles in the foreground. A chipped corner of plaster at the door frame edge. 40mm at T2.8, camera on a tripod at floor level, two and a half metres back, focus on the doorway with the dowel soft in front. The doorway sits centre left, the right half is unbroken wall. The hallway falls three stops under to near black.",
+        motion:"Nothing in the empty doorway moves at all except a faint shift of light in the hallway beyond. The wall, the doorway and the dowel in the foreground hold completely still and no person enters the frame at any point. The camera stays completely locked off. The shot ends exactly as it began, still empty." },
+
+      { n:13, dur:"12 שנ'", durEn:"12s", cam:"קלוז אפ ברמת הרצפה, 100mm מאקרו", camEn:"Macro at tile level, 100mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"הוא מגיע לבורג לבד", titleEn:"He reaches it himself",
+        img:"hf_20260811_120431_e44fe257-b20a-4924-a16e-be9f68b5b007.png",
+        still:"The hand of an eighty-two year old Israeli man, thin and narrow shouldered, wearing a dark charcoal wool cardigan worn through at the right elbow, pushed flat into the narrow dark gap under a cardboard carton, two fingers closing on a small steel screw, the cardboard edge pressing a line into his wrist. The wrist skin creased white where the carton bears on it. 100mm macro at T2.8, camera on the floor at tile level, focus on the fingertips. The hand runs in from the right and the dark gap fills the upper left. Grain rises in the crushed shadow.",
+        motion:"A hand pushes flat into the dark gap under the carton, the fingers close on the screw, and the hand draws back out with it. The carton, the tiles and everything else hold completely still. The camera stays completely locked off at floor level. The hand ends clear of the gap with the screw held between two fingers. The carton edge presses into the wrist and drags on the skin as the hand pulls back." },
+
+      { n:14, dur:"16 שנ'", durEn:"16s", cam:"מדיום, 50mm, בלי חתך", camEn:"Medium, 50mm, no cut", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"הוא ממשיך", titleEn:"He carries on",
+        img:"hf_20260811_120431_545c87fe-b84d-4725-8157-a1bf8d6b8a54.png",
+        still:MAN + ", seated on the floor working a hand screwdriver into a birch panel with his mouth slightly open and his chest lifted with effort, the partly built assembly cropped so no whole shape is readable. A single hair stuck to his damp forehead. 50mm at T2, camera at floor level one and a half metres away, focus on his hands with his face soft behind. He occupies the right two thirds, the left is pale falling wall. One hand carries motion blur and the other is sharp.",
+        motion:"He works a hand screwdriver in steady turns, his chest lifting and falling with the effort. The floor, the wall and the parts around him hold completely still and nothing enters the frame that is not already in it. The camera stays completely locked off. He ends mid-turn, still working, without resolution. His breathing is visible in his shoulders and the screwdriver bites and slips once." },
+
+      { n:15, dur:"12 שנ'", durEn:"12s", cam:"קלוז אפ, 100mm מאקרו", camEn:"Macro close-up, 100mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"הבורג האחרון", titleEn:"The last screw",
+        img:"hf_20260811_120431_6b126dab-9e74-49af-b631-47f98fbec7c8.png",
+        still:"The hands of an eighty-two year old Israeli man, thin and narrow shouldered, wearing a dark charcoal wool cardigan worn through at the right elbow, turning a final screw down flush into pale birch with a hand screwdriver, the blade seated in the head and the wood fibres compressing under the screw collar. A faint ring of graphite where the hole was marked. 100mm macro at T2.8, camera close and low, focus on the screw head, everything past two centimetres soft. The screw sits centre right on a large field of birch grain. A window highlight blooms along the top edge of the panel.",
+        motion:"A hand turns the final screw down until the head seats flush and the wood fibres compress under the collar, then stops. Everything else in the frame holds completely still. The camera stays completely locked off. The turning stops the moment the head meets the wood. The screwdriver blade slips a fraction in the head on the last turn." },
+
+      { n:16, dur:"14 שנ'", durEn:"14s", cam:"מדיום ונסיגה, 28mm. התנועה היחידה בסרט", camEn:"Medium to pull back, 28mm. The only camera move in the film", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"העריסה מתגלה", titleEn:"The crib is revealed",
+        img:"hf_20260811_120431_47729790-ae48-423b-8534-c54c5a4be91e.png",
+        still:"An eighty-two year old Israeli man, thin and narrow shouldered, close cropped white hair receding at the temples, his left eyelid sitting slightly lower than the right, wearing a dark charcoal wool cardigan worn through at the right elbow over a collarless white cotton shirt and loose grey trousers, standing up heavily from the floor with one hand pushing off his knee, and behind him a finished pale birch baby crib fully assembled and standing complete in the empty room, seen whole for the first time. Two cam lock covers left unpressed on the crib rail. 28mm at T4, camera on a tripod at standing chest height, four metres back, focus on the crib. The crib stands centre left and he rises at the right, the upper third is empty wall. The window at frame left is blown a stop and a half.",
+        motion:"Continuous motion throughout with nothing ever holding still: he pushes off his knee and rises heavily to standing, and as he rises the camera pulls back steadily to reveal the finished crib whole for the first time behind him. The crib itself and the room hold completely still while he moves. The camera pulls back and does nothing else. He ends standing beside the crib with the whole object in frame. His rise is slow and effortful and he uses his knee, not his back." },
+
+      { n:17, dur:"12 שנ'", durEn:"12s", cam:"קלוז אפ יד ומעקה, 85mm", camEn:"Close-up, hand and rail, 85mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"נענוע אחד", titleEn:"One rock",
+        img:"hf_20260811_120431_b6f5c999-2dbf-434b-9fe4-da5aadec82e1.png",
+        still:"The hand of an eighty-two year old Israeli man, wearing a dark charcoal wool cardigan worn through at the right elbow, resting on the top rail of a pale birch baby crib and rocking it a few degrees, the near slats slightly blurred by the movement and the far slats sharp. A thumbprint of dust on the rail where his hand has been before. 85mm at T2, camera at standing chest height one metre away, focus on his hand. The hand and rail run across the lower half, the upper half is empty plaster wall. The blur reads only on the near slats.",
+        motion:"A hand on the top rail of the crib pushes it once and the crib rocks a few degrees and comes back. The floor, the wall and the man hold completely still and only the crib and the hand move. The camera stays completely locked off. The rocking damps out and the crib comes to rest. The crib carries real weight and the rock decays over two or three swings rather than stopping dead." },
+
+      { n:18, dur:"14 שנ'", durEn:"14s", cam:"קלוז אפ מלמעלה לתוך העריסה, 50mm", camEn:"Looking down into the crib, 50mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"השמיכה", titleEn:"The blanket",
+        img:"hf_20260811_120431_7d837b65-3d43-4223-ba4e-f03214524c84.png",
+        still:"The hands of an eighty-two year old Israeli man drawing a small folded baby blanket out of a charcoal wool coat pocket and lowering it into the base of a pale birch crib, the fabric still holding the creases of having been folded a long time. A loose thread trailing from one corner of the blanket. 50mm at T2, camera looking down into the crib from standing height, focus on the blanket. The blanket sits centre and the birch base fills the frame around it. Deep grain rises in the shadowed inside corner of the crib.",
+        motion:"Two hands draw a folded baby blanket out of a coat pocket and lower it into the base of the crib, then withdraw out of frame. The crib and everything around it hold completely still. The camera stays completely locked off looking down into the crib. The blanket ends lying in the base, alone in frame. The fabric holds its old folds and does not fall open." },
+
+      { n:19, dur:"20 שנ'", durEn:"20s", cam:"רחב סטטי, 28mm. השוט הארוך של הסרט", camEn:"Static wide, 28mm. The film's one long shot", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"הוא מתיישב לידה", titleEn:"He sits down beside it",
+        img:"hf_20260811_120431_722503dd-629d-4a60-9e9a-d3474f378267.png",
+        still:"An eighty-two year old Israeli man, thin and narrow shouldered, close cropped white hair receding at the temples, his left eyelid sitting slightly lower than the right, wearing a dark charcoal wool cardigan worn through at the right elbow over a collarless white cotton shirt and loose grey trousers, sitting back down on the bare floor beside a finished pale birch baby crib with his back against the wall and one knee up, looking at the crib without expression, his tools abandoned on the tiles beside him. The flattened empty carton pushed against the far wall. 28mm at T4, camera on a tripod at floor level, four metres back, focus on him. He sits in the lower right, the crib stands to his left, the upper third is empty wall. The window at frame left is blown a stop and a half and the room falls away to the right.",
+        motion:"He lowers himself back down to the floor beside the crib, settles with his back against the wall, and then does not move again. The crib, the room and the light hold completely still for the rest of the shot. The camera stays completely locked off. He ends seated and looking at the crib, and holds there until the frame goes dark. Only his chest moves, slowly, and nothing else in the frame moves at all." }
+    ]
+  },
+
+  vo: [
+    { t:"0:46 · שוט 5", sec:"מכשיר", text:"Step one. Identify part A.",
+      en:"Step one. Identify part A.",
+      note:"הקול הוא קול נשי אנגלי שטוח ומנומס, בלי אישיות. אין לו שם ואין לו מותג. כתוביות עברית צרובות רק עליו, וכתוביות אנגלית צרובות רק על העברית שלו." },
+    { t:"1:08 · שוט 7", sec:"מכשיר", text:"Step three. Insert the dowel. Step three. Insert the dowel.",
+      en:"Step three. Insert the dowel. Step three. Insert the dowel." },
+    { t:"1:16 · שוט 7", sec:"מכשיר", text:"Take your time. There is no deadline.",
+      en:"Take your time. There is no deadline.",
+      note:"זה המשפט שמסובב את הסרט. עד כאן הקול היה מדריך, ומכאן הוא משהו אחר. אסור שהמסירה תשתנה, אותו טון בדיוק כמו שלב שלוש." },
+    { t:"1:37 · שוט 9", sec:"הוא", text:"תמיד יש דדליין.",
+      sub:"‫תמיד יש דדליין.‬",
+      en:"There is always a deadline." },
+    { t:"1:41 · שוט 9", sec:"מכשיר", text:"Step four. Attach the side panel. I don't mind repeating things.",
+      en:"Step four. Attach the side panel. I don't mind repeating things." },
+    { t:"2:08 · שוט 11", sec:"מכשיר", text:"Step nine. This step is easier with a second person.",
+      en:"Step nine. This step is easier with a second person.",
+      note:"התזמון הוא הבדיחה והוא גם הסכין. המשפט נופל בדיוק כשהוא יושב על הרצפה ולא מצליח להגיע לבורג." },
+    { t:"2:45 · שוט 14", sec:"מכשיר", text:"Step eleven. This one is difficult for everyone.",
+      en:"Step eleven. This one is difficult for everyone." },
+    { t:"3:18 · שוט 16", sec:"מכשיר", text:"Assembly complete.",
+      en:"Assembly complete." },
+    { t:"3:27 · שוט 17", sec:"הוא", text:"תודה.",
+      sub:"‫תודה.‬",
+      en:"Thank you.",
+      note:"המילה האחרונה בסרט. אחריה שתי דקות אין אף מילה, רק שמיכה, רצפה ונשימה." }
+  ],
 
   mood: {
     h3: "הטון של הסרט",
     copyLabel: "העתק הוראות אווירה",
     copyHead: 'הוראות אווירה והלך רוח לסרט "ההוראות":',
-    paras: ["מרוסן, סבלני וחם. הקומדיה נובעת מהקול, לא מהאיש, והסרט לא צוחק עליו אף פעם. הרגש שצריך להישאר בסוף הוא לא רחמים אלא כבוד: אדם אחד עשה לבד דבר שנועד לשניים, וזה הצליח."],
-    rows: [
-      ["אור", "מקור אחד, חלון משמאל, יום מעונן. לא משתנה אף פעם, לא בעוצמה ולא בטמפרטורה. כל מה שקורה בסרט קורה בחומר ובפנים, לא בתאורה."],
-      ["מצלמה", "חצובה. שוטים סטטיים בלבד. תנועת המצלמה היחידה בכל הסרט היא הנסיגה בשוט 16, ולכן היא נקראת כהתרחשות."],
-      ["קצב", "השוטים מתארכים לאורך הסרט. פתיחה של שמונה עד ארבע עשרה שניות, סיום של עשרים. הצופה צריך להתעייף איתו."],
-      ["סאונד", "כל הסרט הוא סאונד דיאגטי: קרטון, ברגים על רצפה, מפתח אלן, נשימה, ומקדחה ידנית. הקול של המכשיר הוא הדבר היחיד שנשמע נקי ומעובד, וזה הניגוד."],
-      ["מוזיקה", "אין מוזיקה עד שוט 17. שם נכנס דבר אחד קטן וכמעט לא נשמע, והוא נגמר לפני השחור."]
+    paras: [
+      "יבש, סבלני, ובלי טיפת רחמים. זה לא סרט על זקן בודד, זה סרט על מישהו שיודע לעבוד ומסיים עבודה. הרגש כולו נמצא בשוט האחרון ובשום מקום לפניו, ולכן שמונה עשר השוטים הראשונים חייבים להיות מדויקים ולא מרגשים. הקומדיה נובעת מהקול, לעולם לא ממנו."
     ],
-    rules: ["הסרט לא צוחק עליו", "אור אחד, בלי שינוי", "תנועת מצלמה אחת בכל הסרט", "העריסה סוד עד שוט 16"],
-    en: "Restrained, patient and warm. The comedy comes from the voice, never from the man, and the film never laughs at him. The feeling left at the end is respect rather than pity: one person did alone a thing designed for two, and it worked.\n\nLIGHT: one source, a window on the left, overcast. It never changes, not in intensity and not in temperature. Everything that happens in this film happens in the material and in the face, never in the lighting.\n\nCAMERA: tripod. Static shots only. The single camera move in the entire film is the pull-back in shot 16, which is why it reads as an event.\n\nPACE: shots get longer as the film goes on. Eight to fourteen seconds at the start, twenty at the end. The viewer should get tired along with him.\n\nSOUND: everything is diegetic. Cardboard, screws on a floor, a hex key, breathing, a hand drill. The device voice is the only clean processed sound in the film, and that is the contrast.\n\nMUSIC: none until shot 17. One small barely-audible thing enters there and ends before the black."
+    rows: [
+      ["קצב", "שלושת השוטים הראשונים עובדים בקצב אמיתי של פתיחת ארגז. מהיתד התקועה בשוט 7 הקצב מתהדק, ומשוט 14 הוא מאט ולא מאיץ שוב. שוט 19 ארוך פי שניים מכל שוט אחר בסרט."],
+      ["מצלמה", "חצובה בלבד. שמונה עשר שוטים נעולים לגמרי, ותנועה אחת בכל הסרט: הנסיגה בשוט 16. אם המצלמה זזה עוד פעם אחת, ההתגלות של העריסה מפסיקה להיות אירוע."],
+      ["אור", "מקור אחד מחלון שמאלי ביום מעונן, זהה בכל תשעה עשר השוטים. אין תאורה מוספת, אין פיל, והשליש הימני של החדר נופל שני סטופים. השינוי בסרט מגיע מהאדם, לא מהאור."],
+      ["חומר", "קרטון, טיח חיוור, ליבנה בהיר, ובגד כהה אחד. אין צבע רביעי. הרצפה היא משטח משחק ולא רקע, ורוב הסרט מצולם מגובה הרצפה כי שם הוא נמצא."],
+      ["סאונד", "הסרט חי על סאונד. קרטון, ברגים על אריחים, מברג ידני, נשימה, ורחש חדר. הקול של המכשיר יושב תמיד באותו מרחק ובאותו עוצמה, גם כשהוא אומר דברים שאינם הוראות, כי זה מה שהופך אותם למצחיקים ואז לכואבים."],
+      ["מוזיקה", "אין מוזיקה בשמונה עשר השוטים הראשונים. בשוט 17, אחרי המילה תודה, נכנס דבר אחד קטן וכמעט לא נשמע, והוא נגמר לפני השחור. זו הפעם היחידה שהסרט מרשה לעצמו להגיד משהו."]
+    ],
+    rules: ["הסרט לא צוחק עליו אף פעם", "העריסה סוד עד שוט 16", "תנועת מצלמה אחת בכל הסרט", "אור זהה בכל שוט", "עברית רק בעריכה, אף פעם בפרומפט"],
+    enLabel: "English direction",
+    enCopyLabel: "Copy English direction",
+    en: "Tone: dry, patient, and without a drop of pity. This is not a film about a lonely old man, it is a film about someone who knows how to work and who finishes a job. All of the emotion sits in the last shot and nowhere before it, which is exactly why the first eighteen shots must be precise and unmoving. The comedy comes from the voice, never from him.\n\nPacing: the first three shots run at the real pace of opening a box. From the jammed dowel in shot 7 the cutting tightens, and from shot 14 it slows and never speeds up again. Shot 19 is twice the length of any other shot in the film.\n\nCamera: tripod only. Eighteen fully locked shots and exactly one move in the entire film, the pull back in shot 16. If the camera moves even one more time, the reveal of the crib stops being an event.\n\nLight: one source from a window at camera left on an overcast day, identical in all nineteen shots. No added light, no fill, and the right third of the room falls two stops under. All change in the film comes from the man, never from the lighting.\n\nMaterial: cardboard, pale plaster, light birch, and one dark garment. There is no fourth colour. The floor is a playing surface rather than a background, and most of the film is shot from floor height because that is where he is.\n\nSound: the film lives on sound. Cardboard, screws on tile, a hand screwdriver, breathing, and room tone. The device voice always sits at the same distance and the same level, including when it says things that are not instructions, because that is what makes them funny and then painful.\n\nMusic: there is no music in the first eighteen shots. In shot 17, after the word thank you, one small barely audible thing enters and it ends before the black. That is the only time the film allows itself to say anything."
   },
 
   story: {
-    h3: "למה הסרט הזה בנוי כך",
+    h3: "מאיפה זה מגיע",
     copyLabel: "העתק סיפור רקע",
-    copyHead: 'הרקע וההיגיון התחרותי מאחורי הסרט "ההוראות":',
+    copyHead: 'סיפור הרקע לסרט "ההוראות":',
     paras: [
-      "הסרט נבנה במפורש מתוך ניתוח הזוכים בתחרויות סרטי AI, אוגוסט 2026. שלוש מסקנות עיצבו אותו. הראשונה, שהפורמט המושאל הוא המכשיר החזק ביותר שיש למגיש AI, כי הוא מתיר מראש את הפגמים. כאן הפורמט הוא סרטון הדרכה להרכבת רהיט, וכל צופה מכיר את הדקדוק שלו.",
-      "השנייה, שדיאלוג מסונכרן בין שני אנשים הוא החולשה הגדולה של המודלים היום, וששופטים מציינים שהמשחק ש-AI מייצר נשאר שטוח. הפתרון כאן הוא מבני ולא טכני: אין בסרט הזה שני אנשים. יש איש אחד וקול מכשיר, כלומר בעיית הליפ סינק לא קיימת אצל הצד שמדבר הכי הרבה.",
-      "השלישית, שפנים מקומטות ואסימטריות נקראות כאופי בזמן שפנים צעירות וסימטריות נופלות לעמק המפלצות. ולכן הגיבור בן שמונים ושתיים, ולכן הוא יושב על הרצפה כמעט כל הסרט, מה שמנטרל גם את הליכת הגוף השלם שהמודלים הכי גרועים בה.",
-      "מה שנשאר פתוח הוא הדבר שהסרט לא אומר: למי העריסה. הסרט לא עונה על זה, וזה מכוון. השאלה שהוא משאיר היא לא מי נולד, אלא מה זה אומר שמכונה יכולה להקריא לך כל שלב ולעולם לא לדעת מה אתה בונה."
+      "האובייקט שהסרט הזה בנוי סביבו נולד מפתרון לוגיסטי ולא מרעיון עיצובי. ב-1956 עובד של איקאה בשם גיליס לונדגרן ניסה להכניס שולחן צד למכונית, לא הצליח, ופירק לו את הרגליים. השולחן הזה, לוֶט, הוא הפריט הראשון שנשלח שטוח, ואיקאה עצמה מספרת את הסיפור הזה כנקודת ההתחלה של כל המודל שלה. היא גם החזירה את השולחן לייצור ב-2013. מה שמעניין בסיפור הוא לא החיסכון בהובלה אלא ההעברה: מאותו רגע חלק מהעבודה עבר מהיצרן אל מי שקנה. אתה לא קונה רהיט, אתה קונה ערכה ומשימה.",
+      "ואז נשארה שאלה אחת: איך מסבירים את המשימה הזאת לאדם בשלושים מדינות. התשובה של איקאה היא המדריך חסר המילים, גיליון של איורים בלי משפט אחד, שאותו עותק בדיוק נשלח לכל שוק. זה אחד המסמכים היחידים בעולם המסחרי שנבנה מראש כך שאי אפשר לתרגם אותו, כי אין בו מה לתרגם. גם המשמעות של זה היא העברה: לא רק העבודה עברה אליך, גם ההבנה. אתה לבד מול ציור.",
+      "והנה מה שהשתנה בשנים האחרונות ומה שהסרט מתיישב עליו. הליווי חזר, אבל לא בתור אדם. ההוראות מוקראות עכשיו בקול, בטלפון, בפודקאסט של המוצר, בעוזר קולי. ובעברית ובאנגלית כאחד, הקול הזה נשמע קרוב מאוד לקול של מישהו שנמצא איתך בחדר. הוא ענייני, מנומס, סבלני עד אינסוף, והוא לא מתעייף מלחזור על אותו שלב. הוא גם, וזה הקטע, לא יודע שאתה בן שמונים ושתיים, לא יודע מה אתה מרכיב, ולא יודע למה.",
+      "מכאן הסרט. אני לא מעניין אותי לשאול אם מכונה יכולה להיות חברה. השאלה שנשארת פתוחה בסוף היא הפוכה וקטנה יותר: כשהדבר היחיד שליווה אותך בשעה הכי קשה נשמע כמו נוכחות ומתנהג כמו נוכחות ואומר בדיוק את המשפט הנכון ברגע הנכון, בלי כוונה ובלי מודעות ובלי שום מושג מה קורה בחדר, האם זה עדיין לא נחשב. הוא אומר תודה בסוף. השאלה היא למי."
     ],
-    en: "The film was built directly out of an analysis of AI film-competition winners, August 2026. Three findings shaped it.\n\nFirst, a borrowed diegetic format is the strongest device available to an AI filmmaker, because it pre-licenses the flaws. Here the format is a furniture assembly instruction video, whose grammar every viewer already knows.\n\nSecond, sustained synced dialogue between two people is the models' biggest weakness, and juries note that AI-generated performance stays flat. The solution here is structural rather than technical: there are no two people in this film. There is one man and a device voice, so the lip-sync problem does not exist for the party that talks most.\n\nThird, lined and asymmetric faces read as character while young symmetric faces fall into the uncanny valley. Hence a protagonist of eighty-two, and hence him sitting on the floor for almost the whole film, which also removes the full-body walking the models handle worst.\n\nWhat stays open is the thing the film never says: who the crib is for. It does not answer that, deliberately. The question it leaves is not who is being born, but what it means that a machine can read you every step and never know what you are building."
-  },
-
-  vo: [
-    { t: "0:46.0-0:49.5", text: "מכשיר: Step one. Identify part A.", note: "הקול של המכשיר באנגלית לכל אורך הסרט. קול נשי שטוח ומנומס, ללא אישיות. TTS של היגספילד." },
-    { t: "1:08.0-1:12.0", text: "מכשיר: Step three. Insert the dowel. Step three. Insert the dowel.", note: "אותו קובץ מושמע פעמיים בדיוק, בלי שינוי. החזרה היא הבדיחה." },
-    { t: "1:16.0-1:19.5", text: "מכשיר: Take your time. There is no deadline.", note: "השורה הראשונה שאין שום סיכוי שכתובה במדריך. זו נקודת המפנה של הסרט." },
-    { t: "1:36.0-1:38.0", text: "הוא: תמיד יש דדליין.", sub: "There is always a deadline.", note: "שורת הדיאלוג הראשונה שלו. חמש שורות בסך הכל בכל הסרט. עברית, כתובית אנגלית צרובה." },
-    { t: "1:40.0-1:45.5", text: "מכשיר: Step four. Attach the side panel. I don't mind repeating things." },
-    { t: "2:06.0-2:10.5", text: "מכשיר: Step nine. This step is easier with a second person.", note: "נופל בדיוק כשהוא יושב על הרצפה ולא מצליח להגיע לבורג. התזמון הוא כל השורה." },
-    { t: "2:46.0-2:50.0", text: "מכשיר: Step eleven. This one is difficult for everyone." },
-    { t: "3:18.0-3:20.0", text: "מכשיר: Assembly complete." },
-    { t: "3:28.0-3:29.5", text: "הוא: תודה.", sub: "Thank you.", note: "השורה האחרונה בסרט. אחריה רק שמיכה, רצפה ושחור." }
-  ],
-
-  shots: {
-    style: STYLE,
-    mediaHint: "כל הפריימים נוצרו ב-Nano Banana Pro ב-11.8. פריים 1 הוא המאסטר, וכל השאר נוצרו איתו כ-image reference כדי שהחדר, האור והאיש יישארו זהים לאורך כל הסרט.",
-    prompts: function (s) {
-      return [
-        { label: "פריים פותח", btn: "העתק פריים", text: STYLE + ", 16:9. " + s.prompt + ", no text" },
-        { label: "תנועה, image-to-video", btn: "העתק תנועה", text: s.move + " Continuous motion throughout with nothing ever holding still. Locked-off camera unless stated. Duration " + s.durEn + "." }
-      ];
-    },
-    list: [
-      { n:1, dur:"10 שנ'", durEn:"10s", cam:"סטטי, רחב", camEn:"Static wide", model:"Nano Banana Pro · Kling 3 std",
-        title:"החדר הריק והארגז", titleEn:"The empty room and the box",
-        img:"hf_20260811_071633_99441144-bb02-4474-a9a2-a6179ff074bb.png",
-        prompt:"a man in his early eighties with deep facial lines, thin white hair and reading glasses sits directly on the bare floor of an almost empty room, surrounded by flat-pack furniture parts, dowels and a small pile of screws laid out in neat rows, an open instruction booklet on his knee, a phone propped against a cardboard box beside him with its screen glowing, his expression patient and slightly defeated, no other people",
-        move:"He breathes, shifts his weight slightly, and turns one wooden part over in his hands. Dust drifts in the window light. Nothing else in the room moves." },
-
-      { n:2, dur:"12 שנ'", durEn:"12s", cam:"קלוז אפ יד", camEn:"Hands close-up", model:"Kling 3 std",
-        title:"הארגז נפתח", titleEn:"Opening the box",
-        img:"hf_20260811_110757_2fd2decb-f048-459b-9118-04c401d03029.png",
-        prompt:"a utility knife slices the packing tape along the seam of a flat cardboard furniture box on a bare floor, old lined hands doing it slowly and precisely, the flap lifting, dust in the soft window light",
-        move:"The blade travels the length of the seam in one steady unhurried pass, the tape parting, then both hands fold the cardboard flap open and away." },
-
-      { n:3, dur:"14 שנ'", durEn:"14s", cam:"טופ שוט", camEn:"Overhead top-down", model:"Kling 3 std",
-        title:"הסדר", titleEn:"The order",
-        img:"hf_20260811_110757_dfbbc676-2e12-47e6-8f9e-d016d80e2750.png",
-        prompt:"overhead top-down shot looking straight down at a bare floor: old lined hands arranging flat-pack furniture parts into neat straight rows by size, wooden dowels lined up like surgical instruments, screws grouped in small tidy piles, the opened cardboard box at the edge of frame",
-        move:"The hands place three more dowels into the row one at a time, each one aligned to the last, then nudge a pile of screws a centimetre to square it up. Deliberate, unhurried, almost surgical." },
-
-      { n:4, dur:"8 שנ'", durEn:"8s", cam:"קלוז אפ", camEn:"Close-up", model:"Kling 3 std",
-        title:"מפעילים את ההוראות", titleEn:"Starting the instructions",
-        img:"hf_20260811_110757_dd6fafe8-0a50-481e-a160-0d1b5228254d.png",
-        prompt:"an old smartphone propped upright against a cardboard box on a bare floor, its screen glowing with a simple instruction app, one lined finger reaching in to tap it, everything else soft and out of focus",
-        move:"One lined finger enters frame, hesitates a beat above the screen, then taps once and withdraws. The screen brightens slightly. Nothing else moves." },
-
-      { n:5, dur:"10 שנ'", durEn:"10s", cam:"סטטי, מדיום", camEn:"Static medium", model:"Kling 3 std",
-        title:"שלב ראשון, וזה עובד", titleEn:"Step one, and it works",
-        img:"hf_20260811_110757_4c528241-eac4-49cb-bbc8-0efad5971b23.png",
-        prompt:"the man in his early eighties sitting on the bare floor, head tilted slightly as he listens to an instruction being read aloud, holding up one wooden panel and studying it with real concentration, reading glasses low on his nose",
-        move:"He listens, tilts the panel to catch the light, finds the hole he was looking for and nods once to himself. Small, contained satisfaction." },
-
-      { n:6, dur:"12 שנ'", durEn:"12s", cam:"קלוז אפ ידיים", camEn:"Hands close-up", model:"Kling 3 std",
-        title:"החיבור הראשון", titleEn:"The first join",
-        img:"hf_20260811_110757_2ba23682-f85f-472e-b55b-283c6e9c3011.png",
-        prompt:"old lined hands on a bare floor sliding two pale wooden panels together so their pre-drilled holes align, a wooden dowel seated in one of them, the join working cleanly, soft window light raking across the wood grain",
-        move:"The two panels slide together, the dowel seats, and the hands press the joint home with one firm push. A clean satisfying fit." },
-
-      { n:7, dur:"16 שנ'", durEn:"16s", cam:"מדיום קלוז", camEn:"Medium close-up", model:"Kling 3 std",
-        title:"היתד שלא נכנסת", titleEn:"The dowel that will not go in",
-        img:"hf_20260811_111034_acb34b3e-7161-4421-9855-2dfde6bfcbac.png",
-        prompt:"the man in his early eighties seated on the floor, both hands pressing a small wooden dowel against a pre-drilled hole in a pale wooden panel that will not accept it, jaw set, brow furrowed in concentration, the effort visible in his wrists and forearms, patient rather than angry",
-        move:"He presses, releases, checks the hole, and presses again. Three separate attempts inside one shot, each one a little harder, his breathing getting audible. He never loses his temper." },
-
-      { n:8, dur:"12 שנ'", durEn:"12s", cam:"קלוז אפ פנים", camEn:"Face close-up", model:"Kling 3 std",
-        title:"הוא מרים את הראש", titleEn:"He looks up",
-        img:"hf_20260811_110757_3d2ea700-e907-4f20-b8d6-5cc646f7a3e7.png",
-        prompt:"close-up on the face of the man in his early eighties as he lifts his head and looks off-frame toward the propped-up phone for the first time, an unreadable pause in his expression, deep lines, reading glasses, soft window light modelling one side of his face",
-        move:"His head lifts slowly and stops. He holds the look off-frame for a long beat, blinks once, and does not look away. Nothing is resolved on his face." },
-
-      { n:9, dur:"14 שנ'", durEn:"14s", cam:"סטטי, מדיום", camEn:"Static medium", model:"Kling 3 std",
-        title:"הוא עונה לו", titleEn:"He answers it",
-        img:"hf_20260811_110757_f415e5db-dac6-4a8d-8d76-a92f222bc346.png",
-        prompt:"the man in his early eighties seated on the floor, mouth open mid-sentence as he answers something out loud, not to anyone in the room, one hand resting on a half-assembled wooden frame",
-        move:"He speaks one short sentence out loud, then goes straight back to work as if he had not said anything, his hand returning to the frame. No reaction shot, no pause for effect." },
-
-      { n:10, dur:"10 שנ'", durEn:"10s", cam:"קלוז אפ, גובה רצפה", camEn:"Floor-level close-up", model:"Kling 3 std",
-        title:"הבורג נופל", titleEn:"The screw falls",
-        img:"hf_20260811_110757_2c7c5b1d-aff7-4321-9370-2921ded55032.png",
-        prompt:"low close-up at floor level: a single small metal screw rolling across the bare floor and coming to rest in the dark gap beneath a cardboard box, extremely shallow focus on the screw, the room falling away behind it",
-        move:"The screw rolls across the floor in a slow curve, wobbles, and disappears into the shadow under the box. The camera does not follow it in." },
-
-      { n:11, dur:"18 שנ'", durEn:"18s", cam:"סטטי, רחב", camEn:"Static wide", model:"Kling 3 std",
-        title:"הוא לא מצליח להתכופף", titleEn:"He cannot bend down",
-        img:"hf_20260811_110757_143dd332-f831-4a7c-8edb-411f5d865f8e.png",
-        prompt:"wide static shot of the almost empty room: the man in his early eighties has stopped trying to reach under the box and simply sits on the floor among the parts, upright, breathing, hands loose in his lap, the whole room around him",
-        move:"He leans forward, tries once, cannot get low enough, and sits back upright. Then he simply stays there, breathing, hands in his lap, for a long time. This is the stillest shot in the film and it must not be cut short." },
-
-      { n:12, dur:"14 שנ'", durEn:"14s", cam:"סטטי", camEn:"Static", model:"Kling 3 std",
-        title:"הפתח הריק", titleEn:"The empty doorway",
-        img:"hf_20260811_110818_566c4523-c0f6-4d3a-af63-c92b7543446c.png",
-        prompt:"static shot of the empty doorway of the room seen from floor level, the hallway beyond it dark and out of focus, nobody in the frame at all, a scattering of furniture parts in the foreground, soft window light on the doorframe",
-        move:"Absolutely nothing happens. Only the dust in the light moves. If a figure appears anywhere in this shot the take is unusable." },
-
-      { n:13, dur:"12 שנ'", durEn:"12s", cam:"קלוז אפ", camEn:"Close-up", model:"Kling 3 std",
-        title:"הוא מגיע לבורג לבד", titleEn:"He gets it himself",
-        img:"hf_20260811_110818_a15a9c79-b077-453e-adb8-e6b2af7526a4.png",
-        prompt:"an old lined hand and forearm stretched flat along the floor, reaching into the shadow gap beneath a cardboard box, fingertips just closing around a small metal screw, the strain visible in the tendons",
-        move:"The fingers stretch, fall short, stretch again, and on the third try close around the screw and draw it back out into the light." },
-
-      { n:14, dur:"16 שנ'", durEn:"16s", cam:"סטטי, מדיום", camEn:"Static medium", model:"Kling 3 std",
-        title:"הוא ממשיך", titleEn:"He carries on",
-        img:"hf_20260811_110818_a16bfe3a-74d0-4147-82a8-a1a7e22980f9.png",
-        prompt:"the man in his early eighties working steadily on a half-built pale wooden frame on the floor, sleeves pushed up, shoulders rounded with effort, clearly tired but continuing",
-        move:"He works continuously through the whole shot, turning a screw, repositioning a panel, wiping his forehead once with the back of a wrist. His breathing carries the shot. No cut inside it." },
-
-      { n:15, dur:"12 שנ'", durEn:"12s", cam:"מאקרו", camEn:"Macro", model:"Kling 3 std",
-        title:"הבורג האחרון", titleEn:"The last screw",
-        img:"hf_20260811_110818_a4455752-2bca-48bd-8e20-5cd5b747521f.png",
-        prompt:"extreme close-up of an old lined hand turning a small hex key to tighten the final screw into pale wood, the metal seating flush, everything else in soft shadow",
-        move:"The hex key turns in short quarter rotations, four of them, each one slower than the last, until the screw head sits flush against the wood and the hand stops." },
-
-      { n:16, dur:"14 שנ'", durEn:"14s", cam:"נסיגה איטית", camEn:"Slow pull-back", model:"Kling 3 std",
-        title:"מה הוא בנה", titleEn:"What he built",
-        img:"hf_20260811_110818_d81cce27-6d8c-4b5e-b70f-4bbd33663748.png",
-        prompt:"a wider shot revealing for the first time what he has built: a simple pale wooden baby crib standing complete on the bare floor of the almost empty room, the man in his early eighties standing beside it heavily, one hand on the frame, empty cardboard packaging pushed aside",
-        move:"He pushes himself up off the floor slowly and heavily, and as he rises the camera pulls back just enough to reveal the whole crib. This is the only camera move in the entire film, so it must be slow, smooth and short." },
-
-      { n:17, dur:"12 שנ'", durEn:"12s", cam:"קלוז אפ", camEn:"Close-up", model:"Kling 3 std",
-        title:"נענוע אחד", titleEn:"One rock",
-        img:"hf_20260811_110818_c3058bf0-fc68-43f3-84b4-68d7f1a709b4.png",
-        prompt:"close-up of one old lined hand resting on the top rail of a pale wooden baby crib and rocking it a few centimetres, the wood grain sharp, the rest of the room soft behind",
-        move:"The hand pushes the rail gently, the crib rocks once and settles, and the hand stays where it is. One rock only, not a repeated motion." },
-
-      { n:18, dur:"14 שנ'", durEn:"14s", cam:"קלוז אפ", camEn:"Close-up", model:"Kling 3 std",
-        title:"השמיכה", titleEn:"The blanket",
-        img:"hf_20260811_110818_4777b24d-e856-4c88-86db-ff23e5208627.png",
-        prompt:"close-up of old lined hands drawing a small folded pale knitted baby blanket out of a dark coat pocket and laying it down inside a pale wooden crib, the gesture careful and unhurried",
-        move:"The hands draw the folded blanket out of the coat pocket, hold it for a beat, then lower it into the crib and smooth it once with the flat of a palm." },
-
-      { n:19, dur:"20 שנ'", durEn:"20s", cam:"סטטי, רחב", camEn:"Static wide", model:"Kling 3 std",
-        title:"הוא מתיישב לידה", titleEn:"He sits down beside it",
-        img:"hf_20260811_110818_9f5f1950-b0de-41b6-ae1e-0721c5ca8dd5.png",
-        prompt:"wide static shot of the almost empty room: a finished pale wooden baby crib stands on the bare floor and the man in his early eighties has sat back down on the floor beside it, looking at it, not crying and not smiling, the whole room quiet around him",
-        move:"He is already seated when the shot begins. He shifts once, settles, and then simply looks at the crib for a very long time. The film ends on a slow fade to black from inside this shot, not on a cut." }
-    ]
+    enLabel: "English backstory",
+    enCopyLabel: "Copy English backstory",
+    en: "The object this film is built around was born from a logistics fix, not from a design idea. In 1956 an IKEA employee named Gillis Lundgren tried to fit a side table into a car, failed, and took its legs off. That table, the Lovet, is the first item shipped flat, and IKEA itself tells this story as the starting point of its whole model. It even put the table back into production in 2013. What is interesting in the story is not the saving on freight but the transfer: from that moment part of the work moved from the manufacturer to the person who bought it. You are not buying furniture, you are buying a kit and a task.\n\nThat left one question: how do you explain the task to a person in thirty countries. IKEA's answer is the wordless manual, a sheet of drawings without a single sentence, the exact same copy shipped to every market. It is one of the only documents in the commercial world deliberately built so that it cannot be translated, because there is nothing in it to translate. And the meaning of that is also transfer: not only the work moved to you, the understanding did too. You are alone with a drawing.\n\nHere is what changed in the last few years and what the film sits on. The company came back, but not as a person. Instructions are now read aloud, on a phone, in a product's own audio guide, by a voice assistant. And in Hebrew as in English, that voice sounds very close to someone who is in the room with you. It is practical, polite, infinitely patient, and it never gets tired of repeating the same step. It also, and this is the point, does not know that you are eighty-two, does not know what you are assembling, and does not know why.\n\nHence the film. I am not interested in asking whether a machine can be company. The question left open at the end is the reverse of that and smaller: when the only thing that kept you company through the hardest hour sounds like a presence, behaves like a presence, and says exactly the right sentence at exactly the right moment, with no intent and no awareness and no idea what is happening in the room, does that still not count. He says thank you at the end. The question is to whom."
   },
 
   notes: {
-    title: "הערות הפקה",
+    title: "איך מפיקים את זה, ומה מסוכן בו",
     items: [
-      "אורך אמת: 4:10, לא 3:20 כמו שנכתב בטיפול הראשון. סכימת המשכים בפועל נותנת 250 שניות. זה בתוך הטווח המומלץ של שלוש עד חמש דקות בפסטיבל הגלובלי ומעל רף שלוש הדקות של אסטנה, ולכן לא קוצרנו שוטים כדי להגיע ל-3:20.",
-      "פריים 1 הוא המאסטר החזותי. כל שמונה עשר הפריימים האחרים נוצרו איתו כ-image reference בשדה medias, כדי שהחדר, האור והאיש יישארו זהים. זו ההגנה על הכשל שהשופטים מציינים הכי הרבה, חוסר עקביות בין שוטים.",
-      "העריסה חייבת להישאר סוד עד שוט 16. עד שם אין אף פריים שרואים בו חלק מורכב שלם, רק ידיים, חלקים בודדים ופרטים. אם קדר אחד חושף את הצורה מוקדם, הסרט מאבד את כל ההיפוך.",
-      "שוט 16 הוא תנועת המצלמה היחידה בכל הסרט. אם יוצא ממנו קליפ עם עוד תנועה כלשהי, מרנדרים מחדש.",
-      "שוט 12, הפתח הריק, הוא שוט שאסור שתיכנס אליו אף דמות. אם Kling מוסיף אדם, מחליפים את הקליפ בדולי דיגיטלי של zoompan על הסטילס. זה הפתרון היחיד שמבטיח אפס תנועה פנימית, נלמד בסרט של וולט אחרי חמישה ניסיונות שנכשלו.",
-      "סדר ההפקה, וזה הלקח שעלה ארבעה סרטים בסדרה: קודם מקליטים את הקול של המכשיר ואת חמש שורות העברית שלו, מודדים אותם אחרי silenceremove ו-loudnorm, ורק אז מייצרים כל קליפ באורך שנמדד. אף שוט לא נמתח ב-setpts.",
-      "הקול של המכשיר חייב להישמע כמו TTS ולא כמו שחקנית. זה המקום היחיד בסרט שבו סינתטיות היא בחירה נרטיבית, ולכן לא מחפשים שם קול חם.",
-      "אין טקסט בג'ינרוט. חמש שורות העברית שלו מקבלות כתוביות אנגלית צרובות בעריכה, בשליש התחתון, בשיטת ה-PNG השקוף של Pillow עם direction rtl ובלי python-bidi.",
-      "אסטנה דורשת כתוביות אנגלית צרובות בתוך הווידאו וגם גילוי מלא של הפייפליין. שני הדברים כבר בתכנון, אבל לאמת את התקנון מול האתר לפני ההגשה.",
-      "מוזיקה: פריט אחד קטן בשוט 17 בלבד. אם המקור אינו מקורי או royalty free, זה הסעיף היחיד שיכול לפסול הגשה תקינה אחרת."
+      "תיקון אורך מהטיפול: הטיפול הכתוב אמר 3:20 אבל סכום המשכים בטבלה הוא 250 שניות, כלומר 4:10. 4:10 הוא המספר הנכון והוא גם המספר העדיף: שתי התחרויות דורשות מינימום שלוש דקות והיגספילד ממליצה על שלוש עד חמש, אז הסרט יושב בדיוק במרכז החלון.",
+      "הסיכון היחיד שיכול להרוג את הסרט הוא חשיפה מוקדמת של העריסה. עד שוט 15 אף פריים לא מראה מבנה שלם, רק ידיים, חלקים בודדים ופרטים, והמילים slats, crib ו-cot אינן מופיעות באף פרומפט לפני שוט 16 בכוונה. בשוט 3 החלקים נקראים panels, dowels, cam locks ו-thin rods, בלי לרמוז מה יוצא מהם.",
+      "נעילת דמות: קודם נוצר גיליון דמות בארבע תצוגות (hf_20260811_120019_e32d625a-9582-4f9b-bdfd-3d031d3e06a9.png), וכל שוט שבו הוא מופיע יוצר עם הגיליון הזה כרפרנס תמונה פלוס מחרוזת נעילה זהה מילה במילה. שינוי של תואר אחד במחרוזת משנה את הפנים, אז לא לקצר אותה בקלוז אפ ולא להרחיב אותה ברחב.",
+      "כל תשעה עשר הפריימים כבר יוצרו ב-Nano Banana Pro ב-16:9 והם מחוברים לכרטיסים כאן. מה שנשאר הוא הנפשה, קריינות ועריכה.",
+      "סדר ההפקה, וזה השיעור שעלה ארבעה סרטים: קודם מקליטים את הקריינות, מודדים אותה עם silenceremove ו-loudnorm, ורק אז מייצרים כל קליפ באורך שנמדד. הסרט הזה מיוחד בכך שרוב האורך אינו דיבור, אז המדידה קובעת רק שבעה שוטים מתוך תשעה עשר, אבל בהם היא קובעת לגמרי.",
+      "פיצול השפות בקריינות: הקול של המכשיר הוא אנגלית שטוחה, וכדאי דווקא מנוע רב לשוני כאן, כי חוסר הנשמה שלו הוא בדיוק מה שצריך. חמש השורות שלו בעברית הן הפוך, קול עברית ילידי, Oren במנוע inworld_text_to_speech. זו הפעם הראשונה שהחולשה של המנוע הרב לשוני עובדת לטובתנו.",
+      "כתוביות: אנגלית צרובות על העברית שלו, ועברית צרובות על האנגלית של המכשיר. שיטת הרינדור היא PNG שקופים ב-Pillow עם direction rtl ובלי python-bidi, ו-overlay enable=between, ולא libass. שתי הבדיקות רצות לפני הקידוד כרגיל.",
+      "אין טקסט בשום פרומפט, ואין כרטיס טקסט בסרט הזה בכלל. זה הסרט היחיד משני הסרטים שלא משתמש בהיתר של כרטיס אחד, כי המשפט שהוא לא אומר בקול נמצא בשוט 19 ולא בכתובית.",
+      "שוט 16 הוא התנועה היחידה בסרט וגם השוט היחיד שבו יש סיכון של קפיאה, כי הוא דורש שהאיש יזוז והמצלמה תיסוג בו זמנית. אם הוא חוזר סטטי, לפתוח את הפרומפט ב-Continuous motion throughout ולא להוסיף פעלים.",
+      "אם קליפ חוזר עם דמות שהשתנתה, לא לתקן בפרומפט אלא לרנדר מחדש את הפריים מהגיליון ורק אז להנפיש. תיקון בפרומפט התנועה תמיד מחמיר.",
+      "המכשיר בשוט 4 הוא טלפון גנרי בלי לוגו ובלי ממשק מזוהה, וזה בכוונה: ברגע שהמותג מזוהה הסרט הופך לפרסומת או לביקורת על חברה, ושניהם קטנים ממנו."
     ],
     itemsEn: [
-      "True runtime is 4 minutes 10 seconds. The shot durations sum to 250 seconds, which sits inside the festival's recommended three-to-five band and above Astana's three-minute floor, so no shots were cut to reach a shorter number.",
-      "Shot 1 is the visual master. All eighteen other frames were generated with it as an image reference so the room, the light and the man stay identical. This is the defence against the failure juries cite most often, cross-shot inconsistency.",
-      "The crib must stay secret until shot 16. Before that no frame shows a complete assembled part, only hands, single components and details.",
-      "Shot 16 is the only camera move in the film. If a clip comes back with any other movement, re-render it.",
-      "Shot 12, the empty doorway, must contain no figure at all. If the model adds a person, replace the clip with an ffmpeg zoompan digital dolly on the still, which guarantees zero internal motion.",
-      "Production order: record the device voice and his five Hebrew lines FIRST, measure them after silence removal and loudnorm, and only then generate each clip at its measured length. Never stretch a shot with setpts.",
-      "The device voice must sound like TTS rather than like an actress. This is the one place in the film where synthetic delivery is a narrative choice.",
-      "No text inside generation. His five Hebrew lines get burned English subtitles in the edit, lower third, using the transparent-PNG Pillow method with direction rtl and without python-bidi.",
-      "Astana requires English subtitles burned into the video and full pipeline disclosure. Both are planned, but re-verify the rules on the festival's own site before submitting.",
-      "Music: one small element in shot 17 only. If it is not original or royalty free, that is the single item that can disqualify an otherwise clean entry."
+      "Runtime correction from the treatment: the written treatment said 3:20 but the shot durations sum to 250 seconds, which is 4:10. 4:10 is the correct number and it is also the better one, since both target contests demand a three minute minimum and Higgsfield recommends three to five, so the film sits in the middle of the window.",
+      "The one risk that can kill this film is revealing the crib early. Through shot 15 no frame shows a complete structure, only hands, single parts and details, and the words slats, crib and cot deliberately do not appear in any prompt before shot 16. In shot 3 the parts are called panels, dowels, cam locks and thin rods, with no hint of what they become.",
+      "Character lock: a four view character sheet was generated first and every shot in which he appears was generated with that sheet as an image reference plus a lock string repeated verbatim. Changing one adjective in the string changes the face, so it is never shortened for a close-up or extended for a wide.",
+      "All nineteen frames are already generated in Nano Banana Pro at 16:9 and are wired into the cards here. What remains is animation, narration and the edit.",
+      "Production order, the lesson that cost four films: record the narration first, measure it with silence removal and loudness normalisation, and only then generate each clip at its measured length. This film is unusual in that most of its runtime is not speech, so measurement governs only seven of the nineteen shots, but in those seven it governs completely.",
+      "Language split in the voice: the device voice is flat English, and a multilingual engine is actually the right choice here because its soullessness is exactly what the part needs. His five Hebrew lines are the opposite, a native Hebrew voice. This is the first time the multilingual engine's weakness works in our favour.",
+      "Subtitles: burned English over his Hebrew, burned Hebrew over the device English. Render as transparent PNGs in Pillow with direction rtl and without python-bidi, burned with overlay enable=between rather than libass. Both assertions run before encoding as usual.",
+      "There is no text in any prompt and no text card anywhere in this film. It is the only one of the two films that does not use the one-card allowance, because the sentence it refuses to say out loud lives in shot 19 and not in a caption.",
+      "Shot 16 is the only camera move in the film and also the only shot with a freeze risk, because it needs the man to move and the camera to pull back at the same time. If it comes back static, open the prompt with Continuous motion throughout and do not add more verbs.",
+      "If a clip comes back with a changed face, do not fix it in the motion prompt. Re-render the frame from the character sheet and animate again. Fixing identity in a motion prompt always makes it worse.",
+      "The device in shot 4 is a generic phone with no logo and no recognisable interface, and that is deliberate: the moment a brand is identifiable the film becomes either an advertisement or a complaint about a company, and both are smaller than it is."
     ]
   }
 };

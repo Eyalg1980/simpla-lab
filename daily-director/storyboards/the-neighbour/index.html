@@ -11,229 +11,254 @@
 <div id="sb"></div>
 
 <script>
-const STYLE = "Photorealistic cinematic style, hard warm Mediterranean afternoon light, muted sand, faded teal and peeling green palette, shallow depth of field, fine 35mm grain, absolutely locked-off camera with no movement, narrow airshaft courtyard inside a 1950s Tel Aviv apartment building";
+const STYLE = "Photoreal 35mm cinema still, Kodak Vision3 250D, fine grain, deep contrast with crushed shadow, hard vertical Mediterranean afternoon sun falling down a narrow airshaft, palette limited to faded sand plaster, peeling shutter green and terracotta, locked tripod, static observational framing with no camera movement.";
+const STYLE_SOFT = "Photoreal 35mm cinema still, Kodak Vision3 250D, fine grain, deep contrast with crushed shadow, palette limited to faded sand plaster, peeling shutter green and terracotta, locked tripod, static observational framing with no camera movement.";
+const NEG = "no text, no letters, no signage, no captions, no logos, no watermark, no subtitles";
+const HIM = "a man of about forty five, Israeli, heavy set and slightly stooped, thinning dark hair cut short, a heavy jaw with two days of stubble, thick forearms with a faded green ink tattoo on the left forearm, wearing a washed out olive cotton undershirt";
+const HER = "a woman of about thirty eight, Israeli, olive skinned, dark hair pinned up loosely with strands escaping at the nape, a slightly crooked nose broken as a child, a small dark mole below her left jaw, wearing a faded terracotta cotton sleeveless dress and a thin silver ring on her right index finger";
+const BOY = "a young man of about twenty five, lean, close cropped dark hair, a sparse beard along the jaw, wearing a sleeveless white cotton vest";
 
 window.SB = {
-  kicker: "STORYBOARD · תחרויות · ריאליסטי",
-  titleTop: "השכן",
-  titleMark: "אדן החלון",
+  kicker: "STORYBOARD · מוד תחרויות · Higgsfield GFF 3.9 ו-Astana 31.8",
+  titleTop: "השכן,",
+  titleMark: "וכל מה שעבר על האדן",
   titleEn: "The Neighbour",
   logline: "שני שכנים משני צדי חצר פנימית בבניין תל אביבי מנהלים חיזור שלם, לאורך קיץ, רק דרך מה שהם מסדרים על אדן החלון. כשהוא סוף סוף משאיר פתק, היא כבר עברה דירה.",
-  loglineEn: "Two neighbours on either side of a Tel Aviv airshaft courtyard conduct an entire courtship across one summer, using nothing but what they arrange on their windowsills. By the time he finally leaves a note, she has moved out.",
-  specs: ["4:10", "16:9 · 1920x1080", "20 שוטים", "אפס מילים", "שתי זוויות נעולות"],
-  specsEn: ["4 min 10 s", "16:9 1920x1080", "20 shots", "no dialogue at all", "two locked angles, zero camera movement"],
+  loglineEn: "Two neighbours on opposite sides of a Tel Aviv airshaft conduct an entire courtship across one summer, using nothing but what they arrange on their windowsills. By the time he finally leaves a note, she has already moved out.",
+  specs: ["4:10", "20 שוטים", "16:9", "אפס מילים מדוברות", "שתי זוויות נעולות בלבד", "אפס תנועת מצלמה", "השעון של הסרט הוא האור", "כרטיס טקסט אחד בסוף", "פריימים מוכנים"],
+  specsEn: ["4 minutes 10 seconds", "20 shots", "16:9", "Not one spoken word in the entire film", "Only two locked camera angles", "Zero camera movement anywhere", "The film's clock is the light", "One text card at the very end", "All key frames generated"],
   cdn: "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/",
 
   film: null,
 
   synopsis: {
-    h3: "מה קורה בסרט",
+    h3: "מה קורה בארבע הדקות",
     copyLabel: "העתק סינופסיס",
     copyHead: 'סינופסיס לסרט "השכן":',
     paras: [
-      "חצר פנימית צרה בבניין תל אביבי משנות החמישים. שני חלונות זה מול זה, לא בגובה זהה. אור אחר הצהריים קשה ואנכי. הוא תולה חולצה אחת. היא משקה עציצים. אף אחד מהם לא מרים את הראש. זה הסרט בשוט אחד, ומכאן הוא רק נבנה.",
-      "חולצה נופלת לחצר. בשוט הבא היא נעלמה מהחצר ומקופלת על האדן שלו. זה הדבר הראשון שקרה ביניהם, והוא קרה בלי שראינו אותו.",
-      "מכאן מתפתחת שפה. הוא מוציא שתיל, גזר מהעציץ שלה. היא מוציאה כוס מים קטנה בשבילו. הוא מעמיד ספר עם הכריכה כלפי חוץ, כדי שהיא תראה מה הוא קורא. היא מעמידה ספר בחזרה. הוא מוציא שתי כוסות קפה ריקות. היא מוציאה אחת, ואחרי יומיים שתיים.",
-      "סערה. בבוקר שאחריה העציצים שלה הפוכים והשתיל שבור. ובשוט שאחרי, על האדן שלה, עומד עציץ חדש, ישר, עם השתיל שלה נטוע בו מחדש. הוא חצה. אנחנו לא רואים אותו חוצה. זה הרגע שהסרט מתהפך בו.",
-      "היא מוציאה רדיו קטן. מוזיקה חוצה את החצר. זה הכי קרוב שהם מגיעים, וזה נמשך כמה ימים, וזו גם הפעם הראשונה שיש מוזיקה בסרט. ואז הרדיו לא שם. האדן חשוף. התריסים סגורים. יום, עוד יום, עוד יום.",
-      "הוא כותב. אנחנו רואים את הידיים כותבות, מקפלות, ומניחות את הפתק על האדן שלה. אנחנו לא קוראים אותו. התריסים נפתחים, ובחור צעיר בגופייה לוקח את הפתק, מסתכל בו, לא מבין, ומניח אותו בחזרה. הרוח מזיזה אותו.",
-      "האור נהיה רך יותר, סוף אוגוסט, והעציצים מתחילים למות. ובשוט האחרון הבחור הצעיר יוצא עם מזלף ומשקה אותם, אחד אחד, באותו סדר בדיוק שבו היא השקתה, בלי שידע שהוא עושה את זה. המצלמה מחזיקה. שחור. ואז כרטיס אחד, בכתב יד, עם מה שהיה כתוב בפתק."
+      "חצר פנימית צרה בבניין תל אביבי משנות החמישים. שני חלונות זה מול זה, לא בגובה זהה. אור אחר הצהריים קשה ואנכי. הוא תולה חולצה אחת. היא משקה עציצים. אף אחד מהם לא מרים את הראש. זה הסרט בשני שוטים, ומכאן הוא רק נבנה.",
+      "חולצה נופלת לחצר. בשוט הבא היא נעלמה מהחצר ומקופלת על האדן שלו. זה הדבר הראשון שקרה ביניהם, והוא קרה בלי שראינו אותו. מכאן מתפתחת שפה. הוא מוציא שתיל, גזור מהעציץ שלה. היא מוציאה כוס מים קטנה בשבילו. הוא מעמיד ספר עם הכריכה כלפי חוץ. היא מעמידה ספר בחזרה.",
+      "הוא מוציא שתי כוסות קפה ריקות. היא מוציאה אחת. אחרי יומיים היא מוציאה שתיים. אף אחד מהם לא ראה את השני עושה את זה, ואנחנו גם לא.",
+      "ואז סערה. בבוקר שאחריה העציצים שלה הפוכים והשתיל שבור, והאור בשוט הזה שטוח ומעונן, הפעם היחידה בסרט. ובשוט שאחרי, על האדן שלה, עומד עציץ חדש, ישר, עם השתיל שלה נטוע בו מחדש ונתמך במקל. הוא חצה. אנחנו לא רואים אותו חוצה. זה הרגע שהסרט מתהפך בו.",
+      "היא מוציאה רדיו קטן. מוזיקה חוצה את החצר. זה הכי קרוב שהם מגיעים, וזה גם הרגע שבו האור מתחיל להתרכך. ואז הרדיו לא שם. האדן חשוף. התריסים סגורים. שלושה ימים בשלושה חתכים.",
+      "הוא כותב. אנחנו רואים ידיים כותבות, מקפלות ומניחות את הפתק על האדן שלה. אנחנו לא קוראים אותו. התריסים נפתחים, ובחור צעיר בגופייה מרים את הפתק, מסתכל בו, לא מבין, ומניח אותו בחזרה.",
+      "האור נהיה נמוך ונטוי. סוף אוגוסט. העציצים מתחילים למות. ובשוט האחרון הבחור הצעיר יוצא עם מזלף ומשקה אותם, אחד אחד, באותו סדר בדיוק שבו היא השקתה, בלי שידע שהוא עושה את זה. המצלמה מחזיקה, שחור, ואז כרטיס אחד בכתב יד עם מה שהיה כתוב בפתק. התזה: אפשר לנהל שיחה שלמה עם מישהו ולא להגיד לו אף מילה, ואפשר גם לאחר את זה בשבוע."
     ],
     enLabel: "English synopsis",
     enCopyLabel: "Copy English synopsis",
-    en: "A narrow airshaft courtyard inside a 1950s Tel Aviv apartment building. Two windows face each other at slightly different heights. Hard vertical afternoon light. He hangs one shirt. She waters her plants. Neither of them looks up. That is the whole film in a single shot, and everything else is built on top of it.\n\nA shirt falls into the courtyard. In the next shot it is gone from the courtyard and folded on his sill. That is the first thing that happens between them, and it happens without us seeing it.\n\nFrom there a language develops. He puts out a cutting taken from her plant. She puts out a small glass of water for it. He props a book with its cover facing outward so she can see what he is reading. She props one back. He puts out two empty coffee cups. She puts out one, and two days later, two.\n\nA storm. The next morning her pots are knocked over and the cutting is snapped. And in the shot after that, standing on her sill, is a new pot, square to the sill, with her cutting replanted in fresh soil. He crossed. We never see him cross. That is the moment the film turns.\n\nShe puts out a small radio. Music crosses the courtyard. It is the closest they get, it lasts a few days, and it is also the first time there is music in the film. Then the radio is gone. The sill is bare. The shutters are shut. A day, another day, another day.\n\nHe writes. We see the hands writing, folding, placing the note on her sill. We never read it. The shutters open and a young man in a singlet picks the note up, looks at it, does not understand it, and puts it back down. The wind moves it.\n\nThe light softens into late August and the plants begin to die. And in the last shot the young man comes out with a watering can and waters them, one at a time, in exactly the order she used to, with no idea that is what he is doing. The camera holds. Black. Then one handwritten card with what the note said."
+    en: "A narrow inner courtyard in a 1950s Tel Aviv apartment block. Two windows facing each other, not at the same height. Hard vertical afternoon light. He hangs one shirt. She waters her plants. Neither of them looks up. That is the film in two shots, and from here it only builds.\n\nA shirt falls into the shaft. In the next shot it is gone from the shaft and folded on his sill. That is the first thing that happened between them, and it happened without us seeing it. From there a language develops. He puts out a cutting, taken from her plant. She puts out a small glass of water for it. He stands a book on the sill with the cover facing outward. She stands a book back.\n\nHe puts out two empty coffee glasses. She puts out one. Two days later she puts out two. Neither of them ever saw the other do it, and neither did we.\n\nThen a storm. The morning after, her pots are overturned and the cutting is snapped, and the light in that shot is flat and overcast, the only time in the film. And in the shot after it, standing on her sill, is a new pot, square and upright, with her cutting replanted in it and staked. He crossed. We never see him cross. That is the moment the film turns over.\n\nShe puts out a small radio. Music crosses the shaft. That is the closest they ever get, and it is also the moment the light begins to soften. And then the radio is not there. The sill is bare. The shutters are closed. Three days in three cuts.\n\nHe writes. We see hands writing, folding, and laying the note on her sill. We never read it. The shutters open, and a young man in a vest picks the note up, looks at it, does not understand it, and puts it back.\n\nThe light goes low and raking. End of August. The plants begin to die. And in the last shot the young man comes out with a watering can and waters them, one by one, in exactly the same order she used, without knowing he is doing it. The camera holds, black, and then one handwritten card with what the note said. The thesis: you can hold an entire conversation with someone and never say a word to them, and you can also be a week too late."
   },
+
+  shots: {
+    style: STYLE,
+    prompts: function (s) {
+      return [
+        { label: "פריים (Nano Banana Pro, 16:9)", btn: "העתק פרומפט פריים",
+          text: (s.soft ? STYLE_SOFT : STYLE) + " " + s.still + " " + NEG },
+        { label: "תנועה (Kling 3 std, image-to-video)", btn: "העתק פרומפט תנועה",
+          text: s.motion + " 16:9, model sound off." }
+      ];
+    },
+    list: [
+      { n:1, dur:"14 שנ'", durEn:"14s", cam:"נעול, מאסטר של החצר, 35mm", camEn:"Locked, courtyard master, 35mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"החצר", titleEn:"The shaft",
+        img:"hf_20260811_120431_087c06a2-71e5-49f7-adeb-ec700aa38d25.png",
+        still:"A narrow inner courtyard airshaft in a 1950s Tel Aviv apartment block, two shuttered windows facing each other across it at slightly different heights, one sill bare and one crowded with terracotta pots. A washing line strung across the shaft with two wooden pegs on it and no washing. 35mm at T4, camera locked on a tripod at the level of the lower sill, four metres across the shaft, focus on the far wall. The two windows sit at left and right with the empty shaft between them, the top third is bare plaster. Hard overhead sun blows the top of the wall a stop and a half and crushes the bottom of the shaft to black.",
+        motion:"Nothing in the courtyard moves except the two empty pegs turning slowly on the washing line in the air. Both windows, both sills, the plaster and the light hold completely still and no person appears at any point. The camera stays completely locked off. The shot ends exactly as it began. The pegs swing on the line with real weight and slow to a stop." },
+
+      { n:2, dur:"10 שנ'", durEn:"10s", cam:"נעול, זווית A, 50mm", camEn:"Locked, angle A, 50mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"חולצה אחת", titleEn:"One shirt",
+        img:"hf_20260811_120431_7b5c6c20-4ece-4be4-95f1-a833f0eeaef6.png",
+        still:HIM + ", leaning out of a window and pegging one pale shirt to a washing line strung across a narrow courtyard airshaft, his head down, not looking across. A bare sill beside him with a cracked ashtray on it. 50mm at T2.8, camera locked at sill level four metres across the shaft, focus on the shirt with his face soft behind it. He occupies the right half and a peeling green shutter fills the left. Hard overhead sun blows the shirt fabric to pure white along its upper edge.",
+        motion:"He pegs one shirt to the line in a single movement and then draws back inside without ever raising his head. The shutter, the sill and the courtyard hold completely still and the far window stays empty. The camera stays completely locked off. He ends gone from the frame with the shirt hanging alone. The shirt takes the weight and the line dips slightly when he lets go." },
+
+      { n:3, dur:"10 שנ'", durEn:"10s", cam:"נעול, זווית B, 50mm", camEn:"Locked, angle B, 50mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"היא משקה", titleEn:"She waters",
+        img:"hf_20260811_120431_02df07ab-8381-4e86-8ff3-a06a94e210a6.png",
+        still:HER + ", leaning out of a window and pouring water from a small tin can into a row of terracotta pots on a sill, her head down, not looking across the courtyard. One pot glazed a different colour from the rest. 50mm at T2.8, camera locked at sill level four metres across the shaft, focus on the pots with her face soft behind them. She occupies the left half and a peeling green shutter fills the right. Hard overhead sun crushes the shadow under the sill to black.",
+        motion:"She tips a small tin can and pours water into the pots one after another along the sill, then draws back inside without ever raising her head. The shutter, the plaster and the courtyard hold completely still and the far window stays empty. The camera stays completely locked off. She ends gone from the frame with the wet soil darkening in the pots. The water runs and soaks in rather than sitting on the surface." },
+
+      { n:4, dur:"8 שנ'", durEn:"8s", cam:"נעול, זווית A, 35mm", camEn:"Locked, angle A, 35mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"החולצה נופלת", titleEn:"The shirt falls",
+        img:"hf_20260811_120431_bce7c2a3-2c79-498f-b73f-265110602dae.png",
+        still:"A pale shirt falling loose from a washing line down the shaft of a narrow courtyard, caught mid-fall and blurred, the empty wooden pegs still swinging on the line above it, no person anywhere in the frame. One peg has come apart into two halves. 35mm at T4, camera locked at sill level, focus on the line with the falling shirt already soft. The shirt sits centre low against the dark bottom of the shaft. Hard overhead sun blows the top of the wall a stop and a half.",
+        motion:"The shirt slips off the line and falls straight down the shaft out of the bottom of the frame while the empty pegs swing above it. Both windows and both sills hold completely still and no person appears at any point. The camera stays completely locked off. The shot ends on the empty line with the pegs still swinging. The shirt falls with real weight and catches air, it does not drift." },
+
+      { n:5, dur:"10 שנ'", durEn:"10s", cam:"נעול, זווית A, 50mm", camEn:"Locked, angle A, 50mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"מקופלת על האדן שלו", titleEn:"Folded on his sill",
+        img:"hf_20260811_120431_34f65376-63fa-4c23-8a54-a181434f56e0.png",
+        still:"The bare bottom of a narrow courtyard shaft with nothing lying in it, and above it on a stone sill the same pale shirt folded into a neat square with the sleeves tucked under, no person anywhere in the frame. A faint water stain on the plaster under the sill. 50mm at T2.8, camera locked at sill level four metres across the shaft, focus on the folded shirt. The shirt sits in the right third and the shaft falls away in the lower left. The shadow under the sill crushes to black.",
+        motion:"Nothing moves at all except the folded shirt breathing once in the draught of the shaft. The sills, the shutters, the plaster and the light hold completely still and no person appears at any point. The camera stays completely locked off. The shot ends exactly as it began. A single corner of the folded shirt lifts and settles." },
+
+      { n:6, dur:"10 שנ'", durEn:"10s", cam:"נעול, זווית A, 50mm", camEn:"Locked, angle A, 50mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"השתיל", titleEn:"The cutting",
+        img:"hf_20260811_120543_b1456d59-b611-47e6-a51e-047e77308bca.png",
+        still:"A pair of thick forearms with a faded green ink tattoo on the left, belonging to " + HIM + ", setting a small plant cutting rooted in a jam jar of water down onto a bare stone windowsill above a narrow courtyard shaft and already withdrawing into the dark of the room. A rust ring on the sill where a can used to stand. 50mm at T2.8, camera locked at sill level four metres across the shaft, focus on the jar. The jar sits in the right third and a peeling green shutter fills the left. The room behind the window crushes three stops under to black.",
+        motion:"Two forearms set a jam jar cutting down onto the bare sill and withdraw straight back into the dark of the room. The sill, the shutter and the far window hold completely still and nothing else enters the frame. The camera stays completely locked off. The jar ends standing alone on the sill. The water in the jar sloshes once and settles when the jar is set down." },
+
+      { n:7, dur:"10 שנ'", durEn:"10s", cam:"נעול, זווית A, 50mm", camEn:"Locked, angle A, 50mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"כוס מים הופיעה", titleEn:"A glass of water has appeared",
+        img:"hf_20260811_120543_42fe2f8b-f264-43ad-8a55-e379589d5e86.png",
+        still:"A bare stone windowsill above a narrow courtyard shaft, empty except for a small glass of water that has appeared beside a jam jar plant cutting, no person anywhere in the frame and the shutters half closed behind them. A chip out of the rim of the glass. 50mm at T2.8, camera locked at sill level four metres across the shaft, focus on the glass. The two objects sit in the right third against a large field of faded sand plaster. Hard overhead sun throws a hard-edged shadow of the sill across the wall beneath it.",
+        motion:"Nothing moves except the light shifting a fraction across the sill and the water in the glass trembling once. The glass, the jar, the shutters and the plaster hold completely still and no person appears at any point. The camera stays completely locked off. The shot ends exactly as it began. The surface of the water in the glass shows the building moving, nothing else does." },
+
+      { n:8, dur:"12 שנ'", durEn:"12s", cam:"נעול, זווית A, 50mm", camEn:"Locked, angle A, 50mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"הכריכה כלפי חוץ", titleEn:"Cover facing out",
+        img:"hf_20260811_120543_8f2f7474-7bb0-45a3-92f5-0bf6bced46d3.png",
+        still:"A thick forearm with a faded green ink tattoo standing a worn paperback book upright on a stone windowsill with its cover deliberately facing outward across a narrow courtyard shaft, the book propped against a jam jar cutting, the arm already withdrawing. The cover of the book bleached by the sun to blank pale card with no design left on it. 50mm at T2.8, camera locked at sill level four metres across, focus on the book. The book sits in the right third and the shaft falls away at the lower left. The sun blows the top edge of the book to white.",
+        motion:"A hand stands the book upright on the sill with its cover facing outward and then withdraws into the dark of the room. The sill, the jar and the far window hold completely still and nothing else enters the frame. The camera stays completely locked off. The book ends standing alone facing across the shaft. The book leans and rocks once before it settles against the jar." },
+
+      { n:9, dur:"10 שנ'", durEn:"10s", cam:"נעול, זווית B, 50mm", camEn:"Locked, angle B, 50mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"ספר עומד בחזרה", titleEn:"A book stands back",
+        img:"hf_20260811_120543_856e11cd-9066-4fe3-a8a0-cbb46b2c7a5d.png",
+        still:"A worn paperback book standing upright with its blank sun-bleached cover facing outward on a windowsill crowded with terracotta pots across a narrow courtyard shaft, no person in frame, the shutters open behind it onto a dark room. One pot has been moved aside to make room for the book. 50mm at T2.8, camera locked at sill level four metres across, focus on the book. The book sits in the left third among the pots. The dark room behind crushes to black.",
+        motion:"Nothing moves except the pages of the standing book lifting slightly in the draught. The pots, the sill, the shutters and the plaster hold completely still and no person appears at any point. The camera stays completely locked off. The shot ends exactly as it began. Only the outer edges of the pages move." },
+
+      { n:10, dur:"12 שנ'", durEn:"12s", cam:"נעול, זווית A, 85mm", camEn:"Locked, angle A, 85mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"שתי כוסות", titleEn:"Two cups",
+        img:"hf_20260811_120543_ac22841b-fa1f-4329-a9e5-14e3628bec00.png",
+        still:"Two empty glass coffee cups standing side by side on a bare stone windowsill above a narrow courtyard shaft, both dry, one with a dark ring dried at the bottom and one perfectly clean, no person in frame. A cigarette burn in the wooden sill edge. 85mm at T2.8, camera locked at sill level four metres across, focus on the near cup. The two cups sit centre right and the plaster wall fills the rest. The clean cup catches a hard specular highlight from the overhead sun.",
+        motion:"Nothing moves at all in the frame except a slow crawl of light along the rim of the clean cup. The two cups, the sill and the plaster hold completely still and no person appears at any point. The camera stays completely locked off. The shot ends exactly as it began. The highlight travels a few millimetres and no object shifts." },
+
+      { n:11, dur:"12 שנ'", durEn:"12s", cam:"נעול, זווית B, 85mm. חתך יחיד בתוך השוט", camEn:"Locked, angle B, 85mm. One cut inside the shot", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"אחת, ואז שתיים", titleEn:"One, then two",
+        img:"hf_20260811_120543_2d33084e-c87f-41f1-ae8f-af1d518d3250.png",
+        still:"Two empty glass coffee cups standing on a windowsill crowded with terracotta pots across a narrow courtyard shaft, one placed slightly apart from the other as if set down later, no person in frame. A leaf that has fallen into one of the cups. 85mm at T2.8, camera locked at sill level four metres across, focus on the nearer cup. The cups sit in the left third among the pots. The shadow between the pots crushes to black.",
+        motion:"Nothing moves except the fallen leaf turning once inside one of the cups. The two cups, the pots, the sill and the shutters hold completely still and no person appears at any point. The camera stays completely locked off. The shot ends exactly as it began. The leaf rotates on the glass and comes to rest." },
+
+      { n:12, dur:"12 שנ'", durEn:"12s", cam:"נעול, מאסטר של החצר, 35mm, לילה", camEn:"Locked, courtyard master, 35mm, night", model:"Nano Banana Pro ואז Kling 3 std", soft:true,
+        title:"הסערה", titleEn:"The storm",
+        img:"hf_20260811_120543_04afde01-94bc-4091-8952-978387d220a4.png",
+        still:"A narrow courtyard airshaft in heavy rain at night, the two facing windows dark and streaming, water running down the plaster in sheets and a shutter banging half open, terracotta pots on one sill already tipping. Rain bouncing back up off the stone sill in a fine spray. 35mm at T2, camera locked at sill level four metres across, focus on the far sill. The two windows sit left and right with the streaming shaft between them. The whole frame runs three stops under with only wet highlights reading.",
+        motion:"Continuous motion throughout with nothing ever holding still: rain drives down the shaft in sheets, water runs off both sills, a shutter swings and bangs on its hinge, and the terracotta pots rock further over with every gust. The two windows and the walls stay exactly where they are and no person appears at any point. The camera stays completely locked off. The shot ends with one pot going over the edge of the sill. The rain has real weight and bounces back up off the stone." },
+
+      { n:13, dur:"10 שנ'", durEn:"10s", cam:"נעול, זווית B, 50mm, אור מעונן שטוח", camEn:"Locked, angle B, 50mm, flat overcast light", model:"Nano Banana Pro ואז Kling 3 std", soft:true,
+        title:"הבוקר שאחרי", titleEn:"The morning after",
+        img:"hf_20260811_120543_c152d57f-1374-4bd5-b26d-33e683c66207.png",
+        still:"The morning after a storm in a narrow courtyard airshaft, terracotta pots overturned on a windowsill with soil spilled across the stone and one small plant cutting snapped at the stem, the shutters hanging open, no person in frame. A single terracotta shard balanced on the sill edge about to fall. 50mm at T2.8, camera locked at sill level four metres across, focus on the broken cutting. The wreckage runs across the left half of the frame. Flat overcast light with no hard shadow anywhere, breaking the film's usual hard sun.",
+        motion:"Nothing moves in the wreckage except loose soil trickling off the sill edge and the snapped cutting swaying once. The overturned pots, the shutters and the walls hold completely still and no person appears at any point. The camera stays completely locked off. The shot ends with the balanced terracotta shard still not fallen. The soil falls in a thin dry stream, grain by grain." },
+
+      { n:14, dur:"14 שנ'", durEn:"14s", cam:"נעול, זווית B, 50mm", camEn:"Locked, angle B, 50mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"הוא חצה", titleEn:"He crossed",
+        img:"hf_20260811_120543_f9f5d711-9630-4f93-a8c9-9cc83cad0bdc.png",
+        still:"A new unweathered terracotta pot standing perfectly upright and square on a windowsill across a narrow courtyard shaft, a snapped plant cutting replanted in it and staked with a thin wooden skewer, the spilled soil around it swept into a neat line, no person in frame. The new pot still carries a pale smear where a price sticker was peeled off. 50mm at T2.8, camera locked at sill level four metres across, focus on the new pot. The pot sits in the left third and the old broken pots are stacked behind it. Hard overhead sun has returned and blows the rim of the new pot to white.",
+        motion:"Nothing moves except the new cutting turning very slightly on its stake. The new pot, the swept soil, the stacked broken pots and the shutters hold completely still and no person appears at any point. The camera stays completely locked off. The shot ends exactly as it began. The leaf turns on the stem, the pot does not move at all." },
+
+      { n:15, dur:"16 שנ'", durEn:"16s", cam:"נעול, זווית B, 85mm. האור מתחיל להתרכך", camEn:"Locked, angle B, 85mm. The light starts to soften", model:"Nano Banana Pro ואז Kling 3 std", soft:true,
+        title:"הרדיו", titleEn:"The radio",
+        img:"hf_20260811_120543_63ea3cdf-bea1-400b-92cc-176e8b2fa962.png",
+        still:"A small battered transistor radio standing on a windowsill among terracotta pots across a narrow courtyard shaft, its dial faintly lit, its aerial extended at an angle up into the shaft, no person in frame. A strip of masking tape holding the battery cover shut. 85mm at T2.8, camera locked at sill level four metres across, focus on the radio. The radio sits in the left third among the pots. Late afternoon sun has gone soft and now rakes across the wall instead of falling vertically.",
+        motion:"Nothing moves except the extended aerial of the radio trembling and the dial glow pulsing very slightly. The radio, the pots, the sill and the shutters hold completely still and no person appears at any point. The camera stays completely locked off. The shot ends exactly as it began. Only the thin aerial has enough give to move." },
+
+      { n:16, dur:"14 שנ'", durEn:"14s", cam:"נעול, זווית B, 50mm. שלושה ימים בשלושה חתכים", camEn:"Locked, angle B, 50mm. Three days in three cuts", model:"Nano Banana Pro ואז Kling 3 std", soft:true,
+        title:"האדן חשוף", titleEn:"The sill is bare",
+        img:"hf_20260811_120543_209858f7-cdef-4e35-9024-ecfa723da345.png",
+        still:"A stone windowsill across a narrow courtyard shaft completely bare, every pot and object gone, the green shutters closed and latched behind it, no person in frame. Three pale unweathered rings on the stone where the pots stood. 50mm at T2.8, camera locked at sill level four metres across, focus on the empty sill. The bare sill runs across the left half and the plaster fills the rest. Soft raking late-summer light with the hard sun gone.",
+        motion:"Nothing moves at all except dust drifting slowly through the shaft light in front of the bare sill. The empty sill, the closed shutters and the plaster hold completely still and no person appears at any point. The camera stays completely locked off. The shot ends exactly as it began, still empty. The dust turns in the air and never settles." },
+
+      { n:17, dur:"16 שנ'", durEn:"16s", cam:"קלוז אפ ידיים, 100mm מאקרו", camEn:"Macro on the hands, 100mm", model:"Nano Banana Pro ואז Kling 3 std", soft:true,
+        title:"הפתק", titleEn:"The note",
+        img:"hf_20260811_120543_b51be918-6c3c-4a3c-a6f2-a6af073c486a.png",
+        still:"The thick forearms and hands of a man of about forty five with a faded green ink tattoo on the left forearm, folding a small square of paper once and laying it flat on a stone windowsill, the written side turned down against the stone and unreadable. A pen with its cap chewed flat lying beside his wrist. 100mm macro at T2.8, camera close at sill level, focus on the folded paper. The hands and paper fill the lower right and pale plaster fills the rest. Late soft light with the fold of the paper catching a single bright edge.",
+        motion:"Two hands fold a small square of paper once, press the crease flat with a thumb, and lay it face down on the stone sill, then withdraw. The sill, the pen and everything else hold completely still. The camera stays completely locked off. The paper ends lying flat and alone on the stone. The paper resists the fold and springs back a fraction before the thumb presses it." },
+
+      { n:18, dur:"16 שנ'", durEn:"16s", cam:"נעול, זווית B, 50mm", camEn:"Locked, angle B, 50mm", model:"Nano Banana Pro ואז Kling 3 std", soft:true,
+        title:"התריסים נפתחים", titleEn:"The shutters open",
+        img:"hf_20260811_120610_1d66a034-0086-4b4f-b8b3-08ad4bf1ffc6.png",
+        still:BOY + ", leaning out of a newly opened window across a narrow courtyard shaft holding a small unfolded square of paper in one hand and looking at it without understanding, the sill beside him bare of pots. A cardboard moving box still taped shut on the floor behind him inside the room. 50mm at T2.8, camera locked at sill level four metres across, focus on the paper with his face soft behind it. He occupies the left half and the plaster fills the right. Soft raking late-summer light with the hard sun gone.",
+        motion:"He opens the folded paper, looks at it without understanding, and lets his hand drop with the paper still in it. The window, the sill and the room behind him hold completely still and nothing else enters the frame. The camera stays completely locked off. He ends holding the open paper at his side. The paper keeps its old crease and will not lie flat in his hand." },
+
+      { n:19, dur:"14 שנ'", durEn:"14s", cam:"נעול, זווית B, 50mm", camEn:"Locked, angle B, 50mm", model:"Nano Banana Pro ואז Kling 3 std", soft:true,
+        title:"העציצים מתחילים למות", titleEn:"The plants begin to die",
+        img:"hf_20260811_120610_6efed2c0-8c93-48d9-b00f-88bcb6b42375.png",
+        still:"A windowsill across a narrow courtyard shaft with terracotta pots back on it, the plants in them yellowing and drying at the leaf edges, the soil shrunk away from the sides of the pots, the shutters open onto a dark room, no person in frame. A small folded square of paper still lying on the sill edge with one corner lifted by the air. 50mm at T2.8, camera locked at sill level four metres across, focus on the nearest dying plant. The pots run across the left half of the frame. Late August light comes in low and raking from the side rather than from overhead.",
+        motion:"Nothing moves except a dry yellowed leaf detaching from one plant and falling out of frame, and the corner of the folded paper lifting in the air. The pots, the sill, the shutters and the plaster hold completely still and no person appears at any point. The camera stays completely locked off. The shot ends with the paper still on the sill. The leaf falls slowly and turns as it goes." },
+
+      { n:20, dur:"20 שנ'", durEn:"20s", cam:"נעול, זווית B, 50mm. השוט הארוך של הסרט", camEn:"Locked, angle B, 50mm. The film's one long shot", model:"Nano Banana Pro ואז Kling 3 std", soft:true,
+        title:"אותו סדר בדיוק", titleEn:"Exactly the same order",
+        type:"אני גר ממול. שמונה עשרה שנים.",
+        img:"hf_20260811_120610_63d51ae5-ff9f-449a-9736-7d90ffbbbab3.png",
+        still:BOY + ", leaning out of a window across a narrow courtyard shaft and pouring water from a small dented tin can into a row of terracotta pots one after another along the sill, working from the far end inward. The same small tin can with the same dented spout. 50mm at T2.8, camera locked at sill level four metres across, focus on the pots with him soft behind them. He occupies the left half and the plaster fills the right. Low raking late-summer light with the hard overhead sun completely gone.",
+        motion:"Continuous motion throughout with nothing ever holding still: he pours water from the tin can into each pot along the sill in turn, working from the far end inward without pausing between them. The sill, the shutters and the walls stay exactly where they are and nothing else enters the frame. The camera stays completely locked off. He finishes the last pot, straightens, and goes back inside leaving the sill wet. The water runs into the dry soil and pools before it soaks in." }
+    ]
+  },
+
+  vo: [
+    { t:"0:00 - 4:03", sec:"אפס מילים", text:"אין קריינות ואין דיאלוג בסרט הזה. אף מילה לא נאמרת בקול לאורך כל ארבע הדקות ועשר השניות, וזו החלטה ולא ויתור: סרט חסר מילים לחלוטין כבר לקח פרס ראשון בליגה הזאת, והוא גם מוציא מהמשוואה את הדבר היחיד שמודלים עדיין לא עושים טוב, דיבור מסונכרן.",
+      en:"There is no narration and no dialogue in this film. Not one word is spoken across the full four minutes and ten seconds, and that is a decision rather than a concession: a completely wordless film has already taken first prize in this league, and it also removes from the equation the one thing the models still do badly, synced speech." },
+    { t:"2:31 - 3:01 · שוטים 15 ו-16", sec:"רדיו דיאגטי", text:"הסאונד היחיד שהוא לא חצר: מוזיקה שיוצאת מרדיו טרנזיסטור קטן על האדן שלה וחוצה את החצר. בלי מילים מזוהות ובלי שיר מוכר, ובשום מקרה לא רצועה מורשית, כי רישיון מוזיקה הוא הדבר שהכי מפיל הגשה נקייה. מוזיקה מקורית או רויאלטי פרי בלבד, עם התנאים המסחריים מאושרים בכתב לפני ההגשה.",
+      en:"The only sound in the film that is not the courtyard itself: music leaking from a small transistor radio on her sill and crossing the shaft. No identifiable lyrics and no recognisable song, and under no circumstances a licensed track, since music licensing is the single most common disqualifier of an otherwise clean entry. Original or royalty free only, with the commercial terms confirmed in writing before submission." },
+    { t:"4:04 - 4:10 · אחרי השחור", sec:"כרטיס אחד", text:"אני גר ממול. שמונה עשרה שנים.",
+      sub:"‫אני גר ממול. שמונה עשרה שנים.‬",
+      en:"I live across from you. Eighteen years.",
+      note:"זה הטקסט היחיד בסרט וההיתר היחיד שהוא לוקח. הוא נוסף בעריכה בכתב יד, לעולם לא בג'נרציה, ומופיע רק אחרי השחור. אם הוא מופיע רגע אחד מוקדם יותר, הוא הופך את השוט האחרון להסבר במקום לגילוי." }
+  ],
 
   mood: {
     h3: "הטון של הסרט",
     copyLabel: "העתק הוראות אווירה",
     copyHead: 'הוראות אווירה והלך רוח לסרט "השכן":',
-    paras: ["שקט, סבלני ומאוד לא סנטימנטלי. אין בסרט הזה רגע אחד של געגוע מוצהר. כל הרגש נמצא באובייקטים, ולכן הבימוי חייב להתייחס לעציץ ולכוס כמו לשחקנים. הרגש שצריך להישאר בסוף הוא לא עצב אלא החמצה שקטה, ולכן השוט האחרון הוא חסד ולא אגרוף."],
-    rows: [
-      ["השעון של הסרט", "האור. פותחים בקיץ קשה ואנכי ומסיימים באור נטוי ורך של סוף אוגוסט. במקביל העציצים גדלים ואז מתים. שני השעונים האלה הם מה שמחזיק סרט בלי מילים."],
-      ["מצלמה", "שתי זוויות נעולות בלבד, A לחלון שלו ו-B לחלון שלה, ואף תנועת מצלמה אחת בכל הסרט. כל שוט הוא בדיוק אותו קדר עם אדן שהשתנה."],
-      ["הכלל של האדן", "בכל שוט משהו על האדן השתנה מהשוט הקודם. זו כל העלילה. אם בשוט מסוים אין שינוי, השוט מיותר."],
-      ["פנים", "אף אחד מהשניים לא נראה בפנים לאורך כל הסרט. רואים ידיים, זרועות, וכתף אחת. זה גם בימוי וגם ההגנה הטכנית."],
-      ["סאונד", "חצר פנימית בלבד: יונים, מזגן שמטפטף, כלים ממטבח אחר, ילדים רחוקים, רוח בפיר. שקט הוא חומר גלם ולא חוסר."],
-      ["מוזיקה", "אין מוזיקה מוספת בכל הסרט. המוזיקה היחידה היא הרדיו הדיאגטי בשוטים 15 ו-16, ולכן היעלמותו נשמעת."]
+    paras: [
+      "רגוע, סקרן, ובלי שום געגוע. הסרט לא עצוב בזמן שהוא רץ, הוא נעשה עצוב רק בדיעבד, בשוט האחרון. עד שם הוא בעצם משחק: מה השתנה על האדן מהשוט הקודם. הצופה לא מתבקש להיות סבלני, הוא מקבל חידה חדשה בכל חתך, וזו כל ההגנה של הסרט מפני שעמום."
     ],
-    rules: ["שתי הדמויות אף פעם לא באותו פריים", "אפס מילים", "אפס תנועת מצלמה", "בכל שוט האדן משתנה"],
-    en: "Quiet, patient and very unsentimental. There is not one moment of declared longing in this film. All the emotion sits in objects, so the direction has to treat a flowerpot and a cup as actors. The feeling left at the end is quiet missed connection rather than sadness, which is why the last shot is a mercy and not a punch.\n\nTHE FILM'S CLOCK: the light. It opens in hard vertical summer sun and ends in the low soft raking light of late August. In parallel the plants grow and then die. Those two clocks are what hold a film with no words.\n\nCAMERA: two locked angles only, A on his window and B on hers, and not a single camera movement anywhere in the film. Every shot is the exact same frame with a changed sill.\n\nFACES: neither of the two is ever seen in the face. We see hands, forearms and one shoulder. That is both the direction and the technical defence.\n\nSOUND: courtyard only. Pigeons, a dripping air conditioner, dishes from someone else's kitchen, distant children, wind in the shaft. Silence is a material here, not an absence.\n\nMUSIC: no added music anywhere. The only music is the diegetic radio in shots 15 and 16, which is why its disappearance is audible."
+    rows: [
+      ["קצב", "השוטים הראשונים ארוכים ומרווחים כי הצופה עוד לומד את החוקים. מהשוט של השתיל הקצב מתהדק, הסערה היא הפסיק היחיד, ומשוט 16 הכל מאט. שוט 20 הוא הארוך בסרט ואסור לו להיחתך."],
+      ["מצלמה", "שתי זוויות נעולות בלבד, A על החלון שלו ו-B על החלון שלה, ואפס תנועת מצלמה בכל הסרט. יוצא דופן אחד: שוט 17 הוא קלוז אפ מאקרו על הידיים, וזו הפעם היחידה שהמצלמה מתקרבת למישהו. לכן היא מתקרבת בדיוק ברגע שהוא סוף סוף מנסה לדבר."],
+      ["אור", "האור הוא השעון של הסרט וגם התאריך שלו. פותחים בשמש אנכית קשה של קיץ ישראלי, עוברים דרך אור שטוח ומעונן בבוקר שאחרי הסערה, וסוגרים באור נמוך ונטוי של סוף אוגוסט. אף שוט לא מסביר את מעבר הזמן במילים כי האור כבר עשה את זה."],
+      ["חומר", "טיח חול דהוי, ירוק תריס מתקלף וטרקוטה. שלושה חומרים ותו לא. שני האדנים הם הבמה, החצר היא התהום ביניהם, ואף פעם לא רואים את החדרים מבפנים."],
+      ["סאונד", "חצר. יונים, מזגן מטפטף, כלים ממטבח אחר, טלוויזיה מקומה אחרת, רוח בפיר. הסאונד הוא מה שהופך את השתיקה למאוכלסת במקום לריקה."],
+      ["הכלל הקשה", "שתי הדמויות לא נמצאות יחד בפריים אף פעם, ואף פעם לא רואים אחת מהן מבצעת פעולה על האדן של השנייה. כל מעשה שלהם קורה בין חתך לחתך. זה גם מה שהופך את הסרט לבלתי אפשרי לקלקל טכנית וגם מה שהופך אותו לרומנטי."]
+    ],
+    rules: ["בכל שוט משהו על האדן השתנה", "שתי הדמויות לעולם לא באותו פריים", "אפס תנועת מצלמה", "האור הוא לוח השנה", "כרטיס טקסט אחד, רק אחרי השחור"],
+    enLabel: "English direction",
+    enCopyLabel: "Copy English direction",
+    en: "Tone: calm, curious, and with no longing in it at all. The film is not sad while it runs, it becomes sad only in retrospect, in the last shot. Until then it is essentially a game: what changed on the sill since the last shot. The viewer is never asked to be patient, they are handed a fresh puzzle at every cut, and that is the film's entire defence against boredom.\n\nPacing: the first shots are long and spacious because the viewer is still learning the rules. From the cutting onward the cutting tightens, the storm is the only comma, and from shot 16 everything slows. Shot 20 is the longest in the film and must not be cut into.\n\nCamera: two locked angles only, A on his window and B on hers, and zero camera movement in the entire film. One exception: shot 17 is a macro close-up on hands, the only time the camera comes near anyone. So it comes near at exactly the moment he finally tries to speak.\n\nLight: the light is the film's clock and also its calendar. It opens on hard vertical Israeli summer sun, passes through flat overcast light on the morning after the storm, and closes on low raking end-of-August light. No shot explains the passage of time in words because the light has already done it.\n\nMaterial: faded sand plaster, peeling shutter green, terracotta. Three materials and nothing else. The two sills are the stage, the shaft is the drop between them, and the interiors are never seen.\n\nSound: a courtyard. Pigeons, a dripping air conditioner, dishes from someone else's kitchen, a television from another floor, wind in the shaft. The sound is what makes the silence populated rather than empty.\n\nThe hard rule: the two characters are never in frame together, and neither is ever seen performing an action on the other's sill. Every act they commit happens between cuts. That is both what makes the film technically almost impossible to break and what makes it romantic."
   },
 
   story: {
-    h3: "למה הסרט הזה בנוי כך",
+    h3: "מאיפה זה מגיע",
     copyLabel: "העתק סיפור רקע",
-    copyHead: 'הרקע וההיגיון התחרותי מאחורי הסרט "השכן":',
+    copyHead: 'סיפור הרקע לסרט "השכן":',
     paras: [
-      "הסרט הזה הוא היישום הישיר ביותר של מה שנמצא בניתוח הזוכים בתחרויות סרטי AI, אוגוסט 2026. הצורה שנצחה בפסגה בליגה הזאת היא אהבה לא סימטרית: לא שני אנשים שווים שמתאהבים, אלא מישהו שאוהב יותר, מישהו שלא יודע שהוא נאהב, או אהבה שקיימת רק בצד אחד. הפרס הגדול של Runway 2026 הלך לסרט שמתויג רומנטיקה ובנוי בדיוק כך, וגם הזוכה בתחרות ה-feel-good, שהוא סרט חסר מילים לחלוטין.",
-      "וההגנה הטכנית כאן היא הכי חזקה מכל חמשת הכיוונים שפיתחנו. שתי הדמויות לא מופיעות יחד בפריים אף פעם, כלומר אין בכלל בעיית עקביות דמות בין שוטים, שזה הכשל שהשופטים מציינים הכי הרבה. אין הליכה של גוף שלם. אין המונים. אין רכבים. אין דיאלוג מסונכרן, כי אין דיאלוג בכלל. ואף מצלמה לא זזה, כלומר אין מורפינג בין סביבות.",
-      "מה שנשאר זה הסיכון האמיתי היחיד, קצב. סרט חסר מילים יכול לאבד את הצופה בדקה השנייה, ובתחרות שבה רוב ההגשות נופלות בשלב הסינון זה סיכון קיומי. התשובה שהסרט נותן היא לא לבקש סבלנות אלא לתת חידה: בכל שוט משהו על האדן השתנה, וברגע שהצופה מבין שהאדן הוא דיאלוג, הוא מחפש את השינוי בעצמו.",
-      "הכרטיס האחרון, שהוא הטקסט היחיד בסרט ונוסף בעריכה, הוא מה שהופך את הסרט מאנקדוטה לטענה. הוא אומר מה היה כתוב בפתק שאף אחד לא קרא, וזה גם מודד את כל מה שקדם לו: שמונה עשר שנים של קרבה שנוהלה במרחק של ארבעה מטרים."
+      "תל אביב מוכרת בעולם בזכות הצד היפה של הבנייה שלה. העיר הלבנה, כארבעת אלפים מבנים בסגנון הבינלאומי שנבנו בעיקר משנות השלושים, נרשמה כאתר מורשת עולמית של אונסק\"ו ב-2003. אבל הסרט הזה לא מתרחש בחזית של אף אחד מהמבנים האלה. הוא מתרחש בדבר שאף אחד לא מצלם: הפיר הפנימי בגב הבניין.",
+      "החצר הפנימית הצרה היא פתרון הנדסי ולא רעיון קהילתי. כשבונים בצפיפות על מגרש עירוני, החדרים הפנימיים צריכים אוויר ואור, אז חותכים בבניין באר אנכית ומפנים אליה את המטבחים, השירותים וחדרי השירות. התוצאה היא שהחלקים הכי פרטיים של שתי דירות זרות נפתחים אל אותו חלל בגודל של מסדרון. אף אחד לא תכנן שם קרבה. הקרבה היא תופעת לוואי של מערכת אוורור.",
+      "ולכן זה עובד. אתה מכיר את הריחות של השכן שלך, את שעת המקלחת שלו ואת התוכנית שהוא רואה, ובאותו זמן אתה לא בטוח באיזו קומה הוא גר. הפיר מספק אינטימיות מלאה בלי היכרות, וזה בדיוק המצב שהסרט מנצל: שני אנשים שיודעים הכל אחד על השני חוץ מהדבר האחד שהיה משנה.",
+      "ואדן החלון הוא המשטח היחיד בבית שגלוי לשני הצדדים. הוא לא ציבורי ולא פרטי, הוא מדף בגובה העיניים שאתה בוחר מה לשים עליו, וכל מי שמולך רואה. במובן הזה זה ממשק, במלוא מובן המילה: שטח תצוגה קטן, אוצר מוגבל של אובייקטים, וכל בחירה היא הודעה. שאלה שהסרט משאיר פתוחה, ואני לא בטוח שיש לה תשובה: אם אפשר לנהל שיחה שלמה בלי שפה, למה בכל זאת מחכים לפתק. ואם ממילא מחכים, למה מחכים כל כך הרבה זמן."
     ],
-    en: "This film is the most direct application of what the analysis of AI film-competition winners, August 2026, actually found. The shape that wins at the very top of this league is asymmetric love: not two equal people falling for each other, but someone who loves more, someone who does not know they are loved, or love that exists on only one side. The Runway 2026 Grand Prix went to a film tagged romance built exactly that way, and so did the winner of the feel-good competition, which is completely wordless.\n\nThe technical defence here is the strongest of the five directions we developed. The two characters never appear in the same frame, so there is no cross-shot character consistency problem at all, which is the failure juries cite most. No full-body walking. No crowds. No vehicles. No synced dialogue, because there is no dialogue. And no camera moves, so no environment morphing.\n\nWhat remains is the one real risk, pace. A wordless film can lose a viewer in its second minute, and in a contest where most entries die in the screening pass that is an existential risk. The film's answer is not to ask for patience but to offer a puzzle: in every shot something on the sill has changed, and once the viewer understands that the sill is the dialogue, they start hunting for the change themselves.\n\nThe final card, the only text in the film and added in the edit, is what turns the film from an anecdote into a claim. It says what the note nobody read actually said, and it also measures everything before it: eighteen years of closeness conducted at a distance of four metres."
-  },
-
-  vo: [],
-
-  shots: {
-    style: STYLE,
-    mediaHint: "שני מאסטרים חזותיים: פריים 1, הרחב של החצר, ופריים של החלון שלה. כל שאר הפריימים נוצרו איתם כ-image reference כדי שהחצר, התריסים והאור יישארו זהים בכל עשרים השוטים. זווית A היא החלון שלו, זווית B היא החלון שלה.",
-    prompts: function (s) {
-      return [
-        { label: "פריים פותח", btn: "העתק פריים", text: STYLE + ", 16:9. " + s.prompt + ", no text" },
-        { label: "תנועה, image-to-video", btn: "העתק תנועה", text: s.move + " The camera itself never moves at all. Duration " + s.durEn + "." }
-      ];
-    },
-    list: [
-      { n:1, dur:"14 שנ'", durEn:"14s", cam:"נעול, רחב מבסס", camEn:"Locked wide establishing", model:"Nano Banana Pro · Kling 3 std",
-        title:"החצר, שני החלונות", titleEn:"The courtyard, two windows",
-        img:"hf_20260811_110757_b1cc3d75-dc70-46d4-a9dc-c52c7aacc77c.png",
-        prompt:"wide establishing view of a narrow airshaft courtyard: two apartment windows face each other across the shaft at slightly different heights, the right one with peeling green shutters and a weathered wooden sill crowded with potted plants, the left one with a laundry line and bare sill, cracked render walls, an air-conditioning unit, no people visible",
-        move:"Only the smallest things move: a leaf turning in the draught, a dripping air-conditioning unit, one pigeon crossing the shaft high up. No person appears anywhere in this shot." },
-
-      { n:2, dur:"10 שנ'", durEn:"10s", cam:"נעול, זווית A", camEn:"Locked, angle A", model:"Nano Banana Pro · Kling 3 std",
-        title:"הוא תולה חולצה", titleEn:"He hangs a shirt",
-        img:"hf_20260811_110757_be79db1f-0351-4529-956a-fdae519172ca.png",
-        prompt:"view across the courtyard at his window with a bare weathered wooden sill and a short laundry line strung beside it, a man's hands and forearms only entering frame from inside the dark window to peg one grey shirt onto the line, his face never visible",
-        move:"The hands reach out, peg the shirt with two clothespins, give it one small adjusting tug, and withdraw into the dark room. The shirt sways. The face never enters frame." },
-
-      { n:3, dur:"10 שנ'", durEn:"10s", cam:"נעול, זווית B", camEn:"Locked, angle B", model:"Kling 3 std",
-        title:"היא משקה", titleEn:"She waters",
-        img:"hf_20260811_110934_af0f9625-ae47-4770-8aa5-b4f148e4a21a.png",
-        prompt:"view of her window: a woman's hands and forearms only, entering frame from inside the dark room, tipping a small metal watering can over one potted plant on the crowded wooden sill, her face never visible, water beading on the leaves",
-        move:"The can tips over one pot, then a second, then a third, in a fixed left-to-right order. Establish that order clearly, because the last shot of the film repeats it exactly. The face never enters frame." },
-
-      { n:4, dur:"8 שנ'", durEn:"8s", cam:"נעול, מטה לחצר", camEn:"Locked, down into the shaft", model:"Kling 3 std",
-        title:"החולצה נופלת", titleEn:"The shirt falls",
-        img:"hf_20260811_110934_ef4d5990-534c-4bdc-bce5-27d9067e55f9.png",
-        prompt:"looking down into the narrow courtyard floor: one grey shirt has fallen from a laundry line and lies crumpled on the cracked concrete among a little debris and a drain, both windows small and out of focus above, nobody present",
-        move:"The shirt settles, one sleeve still shifting in the draught, then goes completely still. Nobody comes for it inside this shot." },
-
-      { n:5, dur:"10 שנ'", durEn:"10s", cam:"נעול, זווית A", camEn:"Locked, angle A", model:"Kling 3 std",
-        title:"מקופלת על האדן שלו", titleEn:"Folded on his sill",
-        img:"hf_20260811_110934_57d4efcd-c1fc-4b9b-93ea-164052d9ff02.png",
-        prompt:"view across the courtyard at his window: the courtyard floor below is now empty and clean, and one grey shirt sits neatly folded into a square on the bare wooden sill, nobody present anywhere in frame",
-        move:"Nothing moves except the light and the dust. This is the first thing that happens between them and it has already happened before the shot begins." },
-
-      { n:6, dur:"10 שנ'", durEn:"10s", cam:"נעול, זווית A", camEn:"Locked, angle A", model:"Kling 3 std",
-        title:"הוא מוציא שתיל", titleEn:"He puts out a cutting",
-        img:"hf_20260811_110934_d90d56b0-d0a1-483c-88c3-4fc58ecf3c9d.png",
-        prompt:"view across the courtyard at his window: a man's hands only, from inside the dark room, setting a small plant cutting in a chipped jar down onto the bare wooden sill, his face never visible",
-        move:"The hands place the jar on the sill, turn it a few degrees so the cutting faces the other window, and withdraw. One small deliberate adjustment." },
-
-      { n:7, dur:"10 שנ'", durEn:"10s", cam:"נעול, זווית A", camEn:"Locked, angle A", model:"Kling 3 std",
-        title:"כוס מים הופיעה", titleEn:"A glass of water appeared",
-        img:"hf_20260811_110934_ee4bdf92-c4d3-45d8-b37d-b39d5be3260d.png",
-        prompt:"view across the courtyard at his window: on the bare wooden sill sit the chipped jar with the cutting and, placed carefully beside it, a small drinking glass of water that was not there before, nobody in frame at all",
-        move:"Absolutely still except a tremor of light on the water surface and the leaf turning. No hands in this shot. The reply arrived while nobody was looking." },
-
-      { n:8, dur:"12 שנ'", durEn:"12s", cam:"נעול, זווית A", camEn:"Locked, angle A", model:"Kling 3 std",
-        title:"ספר עם הכריכה כלפי חוץ", titleEn:"A book facing outward",
-        img:"hf_20260811_110934_4ad97bb5-4155-4f08-a54c-4e92c9a5071b.png",
-        prompt:"view across the courtyard at his window: a worn paperback book stands propped upright on the wooden sill with its cover deliberately facing outward across the courtyard, the cutting and glass beside it, nobody in frame, the cover art abstract and unreadable",
-        move:"The book leans, slips a centimetre, and settles. Hard afternoon light crawls a little across the sill. Nothing else." },
-
-      { n:9, dur:"10 שנ'", durEn:"10s", cam:"נעול, זווית B", camEn:"Locked, angle B", model:"Kling 3 std",
-        title:"היא עונה בספר", titleEn:"She answers with a book",
-        img:"hf_20260811_110934_c853c7bc-cf1f-441e-b444-e45518524fbd.png",
-        prompt:"view of her window: among the potted plants on the crowded wooden sill, a different worn paperback now stands propped upright with its cover facing outward across the courtyard, an answer to something, nobody in frame, the cover art abstract and unreadable",
-        move:"Still. A page corner lifts and falls in the draught. That is the entire performance of this shot." },
-
-      { n:10, dur:"12 שנ'", durEn:"12s", cam:"נעול, זווית A", camEn:"Locked, angle A", model:"Kling 3 std",
-        title:"שתי כוסות קפה", titleEn:"Two coffee cups",
-        img:"hf_20260811_110934_cd59c39c-3106-4aa5-b1e7-474ae9a616f0.png",
-        prompt:"view across the courtyard at his window: two empty white coffee cups on saucers stand side by side on the wooden sill, both clearly used, nobody in frame, hard afternoon light throwing their shadows along the sill",
-        move:"The shadows of the two cups lengthen almost imperceptibly across the sill. Nothing else in the frame moves at all." },
-
-      { n:11, dur:"12 שנ'", durEn:"12s", cam:"נעול, זווית B", camEn:"Locked, angle B", model:"Kling 3 std",
-        title:"אחת, ואז שתיים", titleEn:"One, then two",
-        img:"hf_20260811_110934_87868d6a-05b2-43fa-b4eb-bb137149b479.png",
-        prompt:"view of her window: two empty glass tea cups stand together on the wooden sill in front of the potted plants, nobody in frame, late afternoon light warmer and lower than before",
-        move:"Still, warm, low light. In the edit this shot is preceded by two seconds of the same frame carrying only ONE cup, so the second cup arrives on a cut." },
-
-      { n:12, dur:"12 שנ'", durEn:"12s", cam:"נעול, זווית B, לילה", camEn:"Locked, angle B, night", model:"Kling 3 std",
-        title:"סערה", titleEn:"The storm",
-        img:"hf_20260811_110934_dd5d98d6-dbb9-4033-9d13-3612ca59a0ce.png",
-        prompt:"her window at night in a violent storm: heavy rain driving sideways through the airshaft, the potted plants on the sill whipping and tilting, the green shutters banging, one weak yellow light behind the glass, deep blue darkness, nobody in frame",
-        move:"Rain drives sideways in gusts, the shutters bang twice, one pot rocks dangerously and tips out of frame. Violent motion, but the camera still does not move." },
-
-      { n:13, dur:"10 שנ'", durEn:"10s", cam:"נעול, זווית B", camEn:"Locked, angle B", model:"Kling 3 std",
-        title:"הבוקר שאחרי", titleEn:"The morning after",
-        img:"hf_20260811_110934_bc947844-0226-4db6-9561-d18b77bbca52.png",
-        prompt:"her window in flat pale morning light after the storm: the potted plants on the sill are knocked over, soil spilled across the wood, one plant snapped at the stem, a puddle on the sill, the shutters hanging open, nobody in frame",
-        move:"A last drip falls from the shutter into the puddle. The snapped stem hangs and turns very slightly. Everything else is wreckage and stillness." },
-
-      { n:14, dur:"14 שנ'", durEn:"14s", cam:"נעול, זווית B", camEn:"Locked, angle B", model:"Kling 3 std",
-        title:"מישהו תיקן את זה", titleEn:"Someone fixed it",
-        img:"hf_20260811_110956_3125588c-30c4-4ada-9398-5ba7b39e503a.png",
-        prompt:"her window: the sill has been cleaned and the spilled soil swept, and standing in the middle of it is a brand new terracotta pot, upright and squared to the sill, with the broken cutting replanted in fresh dark soil, placed there by someone else, nobody in frame",
-        move:"Completely still. The new pot is squared to the sill with a precision nobody in this film has shown before. This is the turn of the whole film and it is carried entirely by the object." },
-
-      { n:15, dur:"16 שנ'", durEn:"16s", cam:"נעול, זווית B", camEn:"Locked, angle B", model:"Kling 3 std",
-        title:"הרדיו", titleEn:"The radio",
-        img:"hf_20260811_110955_57625149-8d3a-4ac1-8a52-9bfeb78c8380.png",
-        prompt:"her window: a small old transistor radio with a chrome grille sits on the wooden sill among the potted plants, angled outward across the courtyard, its dial lit, nobody in frame, warm low light",
-        move:"The radio sits and plays. The only movement is the leaves and a slow crawl of warm light along the chrome. This is the longest quiet shot in the film and the only one with music in it." },
-
-      { n:16, dur:"14 שנ'", durEn:"14s", cam:"נעול, זווית B", camEn:"Locked, angle B", model:"Kling 3 std",
-        title:"האדן חשוף", titleEn:"The bare sill",
-        img:"hf_20260811_110955_09934a5a-27d7-4e20-b731-d6fe22a540ce.png",
-        prompt:"her window: the sill is completely bare, the plants and the radio all gone, the green shutters closed tight, a pale rectangle of clean wood where a pot used to stand, the whole frame emptier and quieter than before",
-        move:"Nothing at all moves. In the edit this same frame is cut three times with slightly different light, so it reads as three separate days rather than one long shot." },
-
-      { n:17, dur:"16 שנ'", durEn:"16s", cam:"קלוז אפ ידיים", camEn:"Hands close-up", model:"Kling 3 std",
-        title:"הוא כותב את הפתק", titleEn:"He writes the note",
-        img:"hf_20260811_110934_6eae65d5-bc47-40d5-9186-033227aea087.png",
-        prompt:"tight close-up of an older man's lined hands at a windowsill: a pen finishing a short handwritten line on a small torn square of paper, then folding it once, the folded paper held between two fingers, the courtyard soft and bright behind, the handwriting illegible and out of focus",
-        move:"The pen finishes the line, pauses, then the hands fold the paper once, hold it a beat too long, and set it down on the sill. The handwriting must stay unreadable at every frame." },
-
-      { n:18, dur:"16 שנ'", durEn:"16s", cam:"נעול, זווית B", camEn:"Locked, angle B", model:"Kling 3 std",
-        title:"התריסים נפתחים", titleEn:"The shutters open",
-        img:"hf_20260811_110955_86a8b602-2157-4125-b681-0a71fef94f08.png",
-        prompt:"her window: the green shutters are now thrown wide open and a young man in a plain white singlet leans on the bare sill holding a small folded square of paper, glancing at it with mild incomprehension, moving boxes stacked behind him inside the room, the potted plants back on the sill but rearranged wrongly",
-        move:"He turns the folded paper over once, glances at it without real interest, sets it back down on the sill and goes back inside. The wind moves the paper a few centimetres. He is the only person in this film whose face we see." },
-
-      { n:19, dur:"14 שנ'", durEn:"14s", cam:"נעול, זווית B", camEn:"Locked, angle B", model:"Kling 3 std",
-        title:"סוף אוגוסט", titleEn:"Late August",
-        img:"hf_20260811_110956_26c646a0-e284-4b2d-bb98-d9be7c919af8.png",
-        prompt:"her window, with the light now soft low late-August light coming in at a shallow angle instead of hard vertical sun: the potted plants on the sill are visibly dying, leaves yellowed and drooping, soil cracked and dry, nobody in frame",
-        move:"One dry yellowed leaf detaches and falls out of frame. Otherwise complete stillness. The light is the only thing in this film that has been moving all along." },
-
-      { n:20, dur:"20 שנ'", durEn:"20s", cam:"נעול, זווית B", camEn:"Locked, angle B", model:"Kling 3 std",
-        title:"הוא משקה אותם באותו סדר", titleEn:"He waters them in the same order",
-        type:"אני גר ממול. שמונה עשר שנים.",
-        img:"hf_20260811_110955_df7e40c7-8004-421b-98d6-f10e47d24062.png",
-        prompt:"her window in soft low late-August light: the young man in the plain white singlet is watering the potted plants on the sill with a small metal watering can, working along the row one pot at a time with unexpected care, not knowing why he is doing it this way, the folded paper forgotten on the sill beside him",
-        move:"He waters the pots one at a time in exactly the same left-to-right order established in shot 3. He does not hurry and he does not know why he is being careful. He finishes, looks at the courtyard for one beat, and goes in. The frame holds empty for four seconds before a slow fade to black, and only then the handwritten card." }
-    ]
+    enLabel: "English backstory",
+    enCopyLabel: "Copy English backstory",
+    en: "Tel Aviv is known abroad for the beautiful side of its building stock. The White City, roughly four thousand International Style buildings put up mostly from the 1930s, was inscribed as a UNESCO World Heritage site in 2003. But this film does not take place on the facade of any of those buildings. It takes place in the thing nobody photographs: the inner shaft at the back.\n\nThe narrow inner courtyard is an engineering solution, not a community idea. When you build densely on an urban plot, the inner rooms still need air and light, so you cut a vertical well through the building and turn the kitchens, the bathrooms and the service rooms toward it. The result is that the most private parts of two unrelated apartments open onto the same space, a space about the width of a corridor. Nobody designed closeness in there. The closeness is a side effect of a ventilation system.\n\nAnd that is why it works. You know your neighbour's cooking smells, their shower hour and the show they watch, and at the same time you are not sure which floor they live on. The shaft supplies complete intimacy without acquaintance, and that is exactly the condition the film exploits: two people who know everything about each other except the one thing that would have mattered.\n\nThe windowsill is the only surface in a home that is visible from both sides. It is neither public nor private, it is an eye-level shelf where you choose what to put out, and whoever is opposite you sees it. In that sense it is an interface in the full meaning of the word: a small display area, a limited inventory of objects, and every choice is a message. The question the film leaves open, and I am not sure it has an answer: if you can hold a whole conversation without language, why do you still wait for the note. And if you are going to wait anyway, why wait that long."
   },
 
   notes: {
-    title: "הערות הפקה",
+    title: "איך מפיקים את זה, ומה מסוכן בו",
     items: [
-      "אורך אמת: 4:10, לא 3:30 כמו שנכתב בטיפול הראשון. סכימת המשכים בפועל נותנת 250 שניות. זה בתוך הטווח המומלץ של שלוש עד חמש דקות בפסטיבל הגלובלי ומעל רף שלוש הדקות של אסטנה, אז לא קוצרנו שוטים כדי להגיע למספר שהוצהר.",
-      "שני מאסטרים חזותיים: פריים 1 לחצר כולה, ופריים החלון שלה. כל שמונה עשר הפריימים האחרים נוצרו איתם כ-image reference בשדה medias. זו ההגנה על חוסר העקביות בין שוטים, ובסרט שכולו אותו קדר עשרים פעם זה קריטי במיוחד.",
-      "שתי זוויות בלבד, A לחלון שלו ו-B לחלון שלה, ואף תנועת מצלמה בכל הסרט. אם קליפ חוזר עם תנועה, מרנדרים מחדש. אם הוא חוזר סטטי מדי ובלי חיים בכלל, מוסיפים תנועה קטנה בסביבה, עלה או טפטוף, ולא במצלמה.",
-      "שתי הדמויות אף פעם לא באותו פריים, ואף אחד מהם לא נראה בפנים. רואים ידיים, זרועות וכתף. הבחור הצעיר בשוט 18 הוא הפנים היחידות בסרט, וזה נכון גם דרמטית: הזר הוא היחיד שמראים.",
-      "סדר ההשקיה בשוט 3 הוא חוזה. אותו סדר בדיוק חוזר בשוט 20, וזה כל הסוף. לתעד את הסדר בזמן הרינדור של שוט 3 ולוודא שהקליפ של שוט 20 מציית לו.",
-      "שוט 11 ושוט 16 נבנים בעריכה מאותו פריים עם וריאציות: 11 מקבל שתי שניות עם כוס אחת לפני שהשנייה מופיעה בחתך, ו-16 נחתך שלוש פעמים באור מעט שונה כדי שייקרא כשלושה ימים.",
-      "הפתק חייב להישאר בלתי קריא בכל פריים בכל הסרט. הכרטיס האחרון, שהוא הטקסט היחיד, נוסף בעריכה בכתב יד ולא בג'ינרוט. הנוסח: אני גר ממול. שמונה עשר שנים.",
-      "אין קריינות ואין דיאלוג, אז אין מה למדוד לפני ההפקה. זה הסרט היחיד מהחמישה שבו ניתן לייצר את הקליפים ישר, בלי להקליט קודם. במקום זה מה שקובע את הקצב הוא עיצוב הסאונד, ולכן בונים את פסקול החצר לפני העריכה ולא אחריה.",
-      "אין מוזיקה מוספת. המוזיקה היחידה היא הרדיו הדיאגטי בשוטים 15 ו-16, וצריך לוודא שהיא מקורית או royalty free, כי זה הסעיף היחיד שיכול לפסול הגשה תקינה אחרת.",
-      "אסטנה דורשת כתוביות אנגלית צרובות בתוך הווידאו. בסרט בלי מילים זה נוגע רק לכרטיס האחרון, אז מגישים אותו עם הכרטיס באנגלית או בשתי השפות, ומאמתים את התקנון מול האתר לפני ההגשה."
+      "תיקון אורך מהטיפול: הטיפול אמר 3:30 אבל סכום המשכים בטבלה הוא 250 שניות, כלומר 4:10. זה המספר הנכון, והוא בדיוק בטווח שהיגספילד ממליצה עליו, שלוש עד חמש דקות.",
+      "הסיכון היחיד האמיתי הוא קצב, לא טכניקה. סרט בלי מילים מאבד צופה בדקה השנייה אם הוא מבקש סבלנות. ההגנה כתובה לתוך השוט-ליסט: בכל שוט משהו על האדן השתנה מהשוט הקודם, ולכן הצופה מקבל חידה ולא בקשה. אם בעריכה מתברר ששני שוטים עוקבים נראים אותו דבר, אחד מהם יוצא.",
+      "טכנית זה הסרט הבטוח מבין השניים ואולי מכל בנק הרעיונות: שתי הדמויות אף פעם לא באותו פריים, כלומר אפס בעיית המשכיות ביניהן, אפס הליכה של גוף שלם, אפס קלוז אפ פנים, אפס דיאלוג, ואפס תנועת מצלמה. אחת עשרה מתוך עשרים השוטים הן טבע דומם בלי בני אדם בכלל.",
+      "נעילת דמות: נוצרו שני גיליונות דמות בארבע תצוגות, אחד לו (hf_20260811_120019_81e1c16f-817a-484d-9952-449134d5bcb0.png) ואחד לה (hf_20260811_120019_140a575d-8458-4c3a-af23-6d91f04baeb8.png), וכל שוט שבו הם מופיעים יוצר מהגיליון פלוס מחרוזת נעילה זהה מילה במילה. היא מופיעה בשוט אחד בלבד בכל הסרט, וזה בכוונה.",
+      "מחרוזת הסגנון מתפצלת לשתי גרסאות ולא לאחת, וזה מכוון: הגרסה הראשית כוללת שמש אנכית קשה, והגרסה הרכה (שוטים 12, 13, 15 עד 20) מורידה אותה. זה מה שנותן לסרט לוח שנה בלי אף כותרת תאריך. הפלטה, הפילם סטוק והמשמעת של המצלמה זהות בשתיהן.",
+      "כל עשרים הפריימים כבר יוצרו ב-Nano Banana Pro ב-16:9 והם מחוברים לכרטיסים כאן. מה שנשאר הוא הנפשה, סאונד דיזיין ועריכה. אין קריינות להקליט, אז השיעור של המדידה לא רלוונטי כאן, ולראשונה אפשר לייצר כל קליפ באורך של הכרטיס.",
+      "שוט 11 הוא השוט היחיד שיש בו חתך פנימי: כוס אחת, חתך, שתי כוסות. אותה זווית בדיוק, אותו אור בדיוק. אם הזווית זזה מילימטר, הבדיחה מתפרקת.",
+      "שוטים 12 ו-20 הם היחידים עם תנועה גדולה בפריים, ולכן הם היחידים עם סיכון קפיאה. שניהם כבר נכתבים עם Continuous motion throughout בפתיחה. אחד עשר השוטים הסטטיים הם ההפך: אם מודל מסרב לתת להם חיים מזעריים, לא להילחם בו, אלא להחיל zoompan דיגיטלי איטי על הסטיל בעריכה.",
+      "כרטיס הטקסט: אני גר ממול. שמונה עשרה שנים. נוסף בעריכה בכתב יד, אחרי השחור, ולא נכנס לשום פרומפט. זה ההיתר היחיד של כרטיס אחד לסרט, והסרט הזה מוציא אותו במקום הנכון.",
+      "רישיון מוזיקה הוא הפריט שהכי מפיל הגשה נקייה בשתי התחרויות. הרדיו בשוטים 15 ו-16 חייב להיות מוזיקה מקורית או רויאלטי פרי, עם התנאים המסחריים מאושרים בכתב לפני ההגשה ולא אחריה.",
+      "לאסטנה כתוביות אנגלית חייבות להיות צרובות בתוך הווידאו ולא כקובץ נפרד. בסרט הזה יש כתובית אחת בסך הכל, אז זה זול, אבל צריך לזכור לעשות את זה.",
+      "הנכס הנוסף: אחד עשר הפריימים חסרי הדמויות הם סט תמונות עצמאי לגמרי, והם חומר גלם מוכן לפוסט על הפיר הפנימי כממשק. אותו נכס, שני ערוצים."
     ],
     itemsEn: [
-      "True runtime is 4 minutes 10 seconds. The shot durations sum to 250 seconds, inside the festival's recommended three-to-five band and above Astana's three-minute floor, so no shots were cut to reach a shorter stated number.",
-      "Two visual masters: frame 1 for the whole courtyard and the frame of her window. All eighteen other frames were generated with those as image references. In a film that is the same frame twenty times over, this is critical.",
-      "Two angles only, A on his window and B on hers, and no camera movement anywhere. If a clip comes back with movement, re-render. If it comes back too dead, add small motion in the environment, a leaf or a drip, never in the camera.",
-      "The two characters are never in the same frame and neither is ever seen in the face. Hands, forearms and a shoulder. The young man in shot 18 is the only face in the film, which is also dramatically correct: the stranger is the one we are shown.",
-      "The watering order in shot 3 is a contract. The exact same order returns in shot 20, and that is the whole ending. Document the order while rendering shot 3 and make sure shot 20's clip obeys it.",
-      "Shots 11 and 16 are built in the edit from the same frame with variations: 11 gets two seconds with only ONE cup before the second arrives on a cut, and 16 is cut three times with slightly different light so it reads as three days.",
-      "The note must stay unreadable in every frame of the film. The final card, the only text, is added in the edit in handwriting, never in generation. It reads: I live across from you. Eighteen years.",
-      "There is no narration and no dialogue, so there is nothing to measure before production. This is the only one of the five films whose clips can be generated straight away without recording first. What sets the pace instead is sound design, so build the courtyard bed before the edit rather than after it.",
-      "No added music. The only music is the diegetic radio in shots 15 and 16, and it must be original or royalty free, because that is the single item that can disqualify an otherwise clean entry.",
-      "Astana requires English subtitles burned into the video. In a wordless film that only touches the final card, so submit it with the card in English or in both languages, and re-verify the rules on the festival's own site first."
+      "Runtime correction from the treatment: the treatment said 3:30 but the shot durations sum to 250 seconds, which is 4:10. That is the correct number and it sits exactly inside the three to five minute range Higgsfield recommends.",
+      "The only real risk is pacing, not technique. A wordless film loses the viewer in its second minute if it asks for patience. The defence is written into the shot list: in every shot something on the sill has changed since the shot before, so the viewer is handed a puzzle rather than a request. If two consecutive shots look the same in the edit, one of them goes.",
+      "Technically this is the safer of the two films and possibly of the entire idea bank: the two characters are never in the same frame, so there is no continuity problem between them, no full-body walking, no facial close-ups, no dialogue and no camera movement. Eleven of the twenty shots are still lifes with no people in them at all.",
+      "Character lock: two four-view character sheets were generated, one for him and one for her, and every shot in which they appear was generated from the sheet plus a verbatim lock string. She appears in exactly one shot in the whole film, and that is deliberate.",
+      "The style string deliberately splits into two versions rather than one: the primary carries hard vertical sun, and the soft version (shots 12, 13, and 15 through 20) removes it. That is what gives the film a calendar without a single date card. Palette, film stock and camera discipline are identical in both.",
+      "All twenty frames are already generated in Nano Banana Pro at 16:9 and wired into the cards here. What remains is animation, sound design and the edit. There is no narration to record, so the measure-first lesson does not apply, and for once every clip can be generated at its card length.",
+      "Shot 11 is the only shot with an internal cut: one cup, cut, two cups. Exactly the same angle and exactly the same light. If the angle moves a millimetre the joke falls apart.",
+      "Shots 12 and 20 are the only ones with large in-frame movement, so they are the only ones carrying freeze risk. Both are already written with Continuous motion throughout at the opening. The eleven static shots are the opposite problem: if a model refuses to give them minimal life, do not fight it, apply a slow digital zoompan to the still in the edit instead.",
+      "The text card, I live across from you, eighteen years, is added in the edit in handwriting, after the black, and never enters any prompt. It is the film's single allowed text card and this film spends it in the right place.",
+      "Music licensing is the item most likely to disqualify an otherwise clean entry at both contests. The radio in shots 15 and 16 must be original or royalty free, with the commercial terms confirmed in writing before submission rather than after.",
+      "For Astana the English subtitles must be burned into the video rather than supplied as a separate file. This film has exactly one subtitle, so it is cheap, but it still has to be remembered.",
+      "The bonus asset: the eleven people-free frames are a completely standalone photo set and are ready-made source material for a written post about the inner airshaft as an interface. One asset, two channels."
     ]
   }
 };
