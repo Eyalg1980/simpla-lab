@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>סטוריבורד · מדריך שדה: הזוג הישראלי בסופר</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/sb.css?v=5">
+</head>
+<body>
+<div id="sb"></div>
+
+<script>
+const STYLE = "Photoreal 35mm cinema still, Kodak Vision3 500T, fine grain, mixed supermarket fluorescent overhead and cold white chiller light, palette limited to bleached linoleum, supermarket steel and one warm skin tone, long lens wide open so the aisle collapses to bokeh behind, handheld with small correcting adjustments, patient wildlife-documentary observation from a distance.";
+const NEG = "no text, no letters, no signage, no captions, no logos, no watermark, no subtitles";
+const HIM = "a man of about sixty five, Israeli, short and thick set, a wide bald crown with grey hair at the sides, a heavy grey moustache, deep sun creases across the back of his neck, wearing a pale short sleeved button shirt tucked into belted trousers and worn leather sandals";
+const HER = "a woman of about sixty three, Israeli, short and solid, silver hair cut close and set, reading glasses pushed up onto the top of her head, a small dark mole at the left corner of her mouth, wearing a loose navy linen tunic over cotton trousers and flat canvas shoes";
+
+window.SB = {
+  kicker: "STORYBOARD · מוד תחרויות · Higgsfield GFF 3.9 ו-Astana 31.8",
+  titleTop: "מדריך שדה,",
+  titleMark: "הזוג הישראלי בסופר",
+  titleEn: "Field Guide: The Israeli Couple at the Supermarket",
+  logline: "קריינות של סרט טבע מלווה זוג בני שישים בקנייה השבועית בסופר כאילו הם שני יצורים נדירים בטקס חיזור. בשוט האחרון, בלי מילה אחת מהקריין, הוא מחזיר את הגבינה שרצה ולוקח את זו שהיא אוהבת.",
+  loglineEn: "A nature-documentary narration follows a couple in their sixties through the weekly supermarket run as though they were two rare creatures in a courtship ritual. In the last shots, without a single word from the narrator, he puts back the cheese he wanted and takes the one she likes.",
+  specs: ["3:54", "18 שוטים", "16:9", "קריינות סרט טבע בעברית", "עדשות ארוכות פתוחות לגמרי", "אפס שוט רחב על הרצפה", "ארבעת השוטים האחרונים בלי קריינות", "פריימים מוכנים"],
+  specsEn: ["3 minutes 54 seconds", "18 shots", "16:9", "Hebrew nature-documentary narration, burned English subtitles", "Long lenses wide open throughout", "No wide shot of the shop floor anywhere", "The last four shots carry no narration at all", "All key frames generated"],
+  cdn: "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/",
+
+  film: null,
+
+  synopsis: {
+    h3: "מה קורה בשלוש דקות וחמישים וארבע",
+    copyLabel: "העתק סינופסיס",
+    copyHead: 'סינופסיס לסרט "מדריך שדה: הזוג הישראלי בסופר":',
+    paras: [
+      "שעת פתיחה בסופר ישראלי. הדלתות האוטומטיות נפתחות על רצפה עוד רטובה משטיפה, ואין אף אחד. קריינות בעברית, בדיוק במשלב של סרט טבע מדובב, מכריזה שעם שחר נפתחים שערי המושבה.",
+      "זכר בן שישים וחמש מבודד עגלה מן העדר. הוא מושך אותה החוצה והשאר נעות קדימה לסגור את הרווח. הוא ובת זוגו נכנסים לטריטוריה מגבם למצלמה, ידו בצד אחד של הידית וידה בצד השני, לא נוגעות.",
+      "מכאן הקריינות עובדת בכובד ראש מוחלט. הנקבה בודקת אבוקדו בלחיצת אגודל, ושלושים שנות ניסיון מרוכזות בשתי שניות. הזכר מתבונן ולא מתערב. הוא מושיט יד למדף עליון, בזמן שהיא כבר מחזיקה בדיוק את אותו פריט ולא יודעת שהוא ניסה.",
+      "התוכן של העגלה מצולם מלמעלה כאילו הוא מבנה חברתי. יש בו היררכיה. ואז תצוגת חיזור: הזכר מרים מוצר לגובה החזה ומפנה אותו אליה, מרפק מורם, והיא לא מסתובבת. ואז סימון גבולות, כשהוא חוסם את פתח המעבר בעגלה ומודיע על נוכחותו לכל מי שיגיע.",
+      "ניסיון להברחה. הוא מכניס משהו לעגלה כשהיא מסובבת. היא מוציאה אותו ומחזירה למדף בלי להסתובב ובלי להעיר. אין עימות ואין צורך בעימות. בדלפק המעדנייה הוא עומד לבד עם מספר ביד וממתין לתורו.",
+      "ואז מגיע הרגע שאליו כל הסרט הלך, והוא היחיד שאין עליו קריינות. הוא עומד מול ארון הקירור, מחזיק את הגבינה היקרה שהוא רצה כל השנה, ומסתכל עליה. זה השוט הארוך והשקט ביותר בסרט. ואז הוא מחזיר אותה למדף ולוקח את השנייה, זו שהיא אוהבת. הקריין לא אומר על זה מילה.",
+      "המסוע בקופה מוביל את הקנייה משם. ובשוט האחרון השניים יוצאים מהדלתות אל אור בוקר לבן ושטוח, מגבם, כל אחד עם שקיות, ידו לא על ידה, שתי הצלליות כמעט מתמזגות. שחור. התזה: מדריך שדה יכול לתאר כל התנהגות שאתה רואה, ולפספס לגמרי את הרגע היחיד שבו משהו באמת קרה."
+    ],
+    enLabel: "English synopsis",
+    enCopyLabel: "Copy English synopsis",
+    en: "Opening hour at an Israeli supermarket. The automatic doors open onto a floor still wet from mopping, and there is nobody there. A Hebrew narration, in exactly the register of a dubbed nature film, announces that at dawn the gates of the colony open.\n\nA male of about sixty five isolates a trolley from the herd. He pulls it free and the others roll forward to close the gap. He and his mate enter the territory with their backs to us, his hand on one side of the handle and hers on the other, not touching.\n\nFrom here the narration works with complete gravity. The female tests an avocado with a thumb press, and thirty years of experience are concentrated into two seconds. The male observes and does not intervene. He reaches for a top shelf while she is already holding exactly the same item and does not know he tried.\n\nThe contents of the trolley are shot from above as though they were a social structure. There is a hierarchy in it. Then a courtship display: the male raises a product to chest height and turns it toward her, elbow lifted, and she does not turn around. Then boundary marking, as he blocks the mouth of the aisle with the trolley and announces his presence to anyone who arrives.\n\nAn attempted smuggling. He puts something into the trolley while she is turned away. She takes it out and returns it to the shelf without turning and without comment. There is no confrontation and no need for one. At the deli counter he stands alone with a number in his hand, waiting his turn.\n\nAnd then comes the moment the whole film has been walking toward, and it is the only one with no narration over it. He stands at the chiller cabinet holding the expensive cheese he has wanted all year, and looks at it. It is the longest and quietest shot in the film. Then he puts it back and takes the other one, the one she likes. The narrator says nothing about it.\n\nThe checkout belt carries the shopping away. And in the last shot the two of them walk out through the doors into flat white morning light, from behind, each carrying bags, his hand not on hers, their two silhouettes almost merging. Black. The thesis: a field guide can describe every behaviour you can see, and miss entirely the one moment when something actually happened."
+  },
+
+  shots: {
+    style: STYLE,
+    prompts: function (s) {
+      return [
+        { label: "פריים (Nano Banana Pro, 16:9)", btn: "העתק פרומפט פריים",
+          text: STYLE + " " + s.still + " " + NEG },
+        { label: "תנועה (Kling 3 std, image-to-video)", btn: "העתק פרומפט תנועה",
+          text: s.motion + " 16:9, model sound off." }
+      ];
+    },
+    list: [
+      { n:1, dur:"10 שנ'", durEn:"10s", cam:"יד, 135mm, מרחוק דרך הדלתות", camEn:"Handheld, 135mm, from far outside the doors", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"שערי המושבה", titleEn:"The gates of the colony",
+        img:"hf_20260811_152222_ea5984aa-62b3-421e-932d-998b94b093da.png",
+        still:"The automatic glass doors of an Israeli supermarket standing open at opening hour onto an empty entrance, the floor still wet from mopping, a rank of trolleys nested to one side, no shoppers anywhere in the frame. A single flattened cardboard box left leaning against the trolley rank. 135mm at T2 from far outside the doors, camera handheld at chest height thirty metres back, focus on the doorway with everything in front of it dissolved to bokeh. The doorway sits centre right and the compressed foreground is pure blur. The overhead fluorescents inside are blown a stop and a half.",
+        motion:"The automatic doors slide open and hold, and nothing else in the frame moves at all. The trolleys, the wet floor and the light stay exactly where they are and no person enters the frame at any point. The camera stays handheld with only small correcting adjustments and makes no move. The shot ends with the doors open and the entrance still empty. The doors move at their real mechanical speed and stop hard at the end of their travel." },
+
+      { n:2, dur:"12 שנ'", durEn:"12s", cam:"יד, 135mm", camEn:"Handheld, 135mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"בידוד כלי הנשיאה", titleEn:"Isolating the carrier",
+        img:"hf_20260811_152559_fd4bebec-eb77-4e92-96e7-66eeca37df9c.png",
+        still:"The thick sun-marked hands of a man of about sixty five in a pale short sleeved button shirt pulling a steel trolley free from a nested rank, the trolleys behind it rattling forward a few centimetres to close the gap. A strip of old adhesive residue on the trolley handle where a label was peeled off. 135mm at T2, camera handheld at waist height eight metres away, focus on his hands with the rank behind dissolved to bokeh. The hands and handle fill the right half. The overhead fluorescent blows a hard specular streak along the steel.",
+        motion:"He pulls the trolley free from the rank in one movement and the trolleys behind it roll forward to close the gap. His body stays where it is and nothing else in the frame moves. The camera stays handheld with only small correcting adjustments and makes no move. The trolley ends clear of the rank and still rocking slightly. The trolleys carry real weight and the rank settles a moment after he stops pulling." },
+
+      { n:3, dur:"12 שנ'", durEn:"12s", cam:"יד, 135mm, מגבם במורד המעבר", camEn:"Handheld, 135mm, from behind down the aisle", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"כניסה לטריטוריה", titleEn:"Entering the territory",
+        img:"hf_20260811_152559_ecd7fe50-aa95-4d96-9207-475385721bad.png",
+        still:"A man of about sixty five with a wide bald crown and grey hair at the sides in a pale short sleeved button shirt, and a woman of about sixty three with close cut silver hair in a loose navy linen tunic, seen from directly behind, walking side by side into the mouth of a supermarket aisle pushing one trolley between them, neither looking at the other, no other shoppers anywhere in the frame. His hand on the left side of the handle and hers on the right, not touching. 135mm at T2, camera handheld at chest height twenty metres back down the aisle, focus on their shoulders with everything nearer and further dissolved to bokeh. They occupy the centre and the aisle collapses to blur on both sides. The overhead lights compress into a row of blown discs above them.",
+        motion:"The two of them push the trolley slowly away from camera down the aisle and neither of them turns or looks at the other. The shelves, the floor and the lights hold exactly where they are and nobody else enters the frame. The camera stays handheld with only small correcting adjustments and makes no move. They end further down the aisle and smaller in frame. Their walking pace is slow and unhurried and the trolley rolls with real weight." },
+
+      { n:4, dur:"14 שנ'", durEn:"14s", cam:"יד, 135mm מאקרו", camEn:"Handheld, 135mm macro", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"לחיצת האגודל", titleEn:"The thumb press",
+        img:"hf_20260811_152559_c798549c-9494-4620-abea-aa5b935ec433.png",
+        still:"The hand of a woman of about sixty three closing around a dark avocado in a produce bin, her thumb pressing into the skin near the stem, the other fruit around it out of focus. A thin gold ring worn down to a flat band on her finger. 135mm macro at T2, camera handheld at bin height three metres away, focus on the point where her thumb meets the skin. The hand and fruit fill the lower right and the produce bin dissolves upward. The cold produce light blooms on the wet skin of the fruit.",
+        motion:"Her thumb presses into the skin of the avocado once, releases, and the hand sets the fruit back down in the bin. The bin, the other fruit and the light hold completely still and nothing enters the frame that is not already in it. The camera stays handheld with only small correcting adjustments and makes no move. The hand ends withdrawing empty. The skin of the fruit dimples under the thumb and recovers slowly rather than instantly." },
+
+      { n:5, dur:"10 שנ'", durEn:"10s", cam:"יד, 135mm", camEn:"Handheld, 135mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"הוא מתבונן", titleEn:"He observes",
+        img:"hf_20260811_152559_45a5b580-db01-433a-a313-f2dd21c402df.png",
+        still:"A man of about sixty five, Israeli, short and thick set, a wide bald crown with grey hair at the sides, a heavy grey moustache, deep sun creases across the back of his neck, wearing a pale short sleeved button shirt, standing a few paces back and watching something low and out of frame with complete attention, his mouth closed, one hand still resting on a trolley handle at the edge of the frame. A pair of reading glasses hooked into the placket of his shirt. 135mm at T2, camera handheld at his eye height fifteen metres away, focus on his near eye with the aisle behind him fully dissolved. He occupies the left half and pure bokeh fills the right. The overhead light haloes his bald crown.",
+        motion:"He watches something low and out of frame and does not move except to blink once and shift his weight onto the other foot. The aisle, the trolley and the light behind him hold completely still and nobody else enters the frame. The camera stays handheld with only small correcting adjustments and makes no move. He ends still watching, having done nothing. The weight shift is small and involuntary rather than a decision." },
+
+      { n:6, dur:"12 שנ'", durEn:"12s", cam:"יד, 135mm", camEn:"Handheld, 135mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"המשאב שכבר הושג", titleEn:"The resource already secured",
+        img:"hf_20260811_152559_84f85d70-0e49-4372-929b-59265dd3462a.png",
+        still:"A man of about sixty five with a wide bald crown and a heavy grey moustache in a pale short sleeved button shirt with one arm stretched up toward a high shelf, while a woman of about sixty three with close cut silver hair in a navy linen tunic stands below and slightly in front of him already holding an identical packet in her hand, neither of them aware of the other, her back to him. His sandal lifted at the heel where he is up on his toes. 135mm at T2.8, camera handheld at chest height eighteen metres down the aisle, focus on her hand and the packet with him soft above her. She occupies the lower centre and his raised arm crosses the upper right. The shelf lighting blows along the top edge of the frame.",
+        motion:"He stretches higher, fails to reach the shelf, and lowers his arm, while she drops the identical packet into the trolley without ever turning around. The shelves and the aisle hold exactly where they are and nobody else enters the frame. The camera stays handheld with only small correcting adjustments and makes no move. He ends with his arm down and she ends with her hands empty. His heel comes back down to the floor slowly under real weight." },
+
+      { n:7, dur:"14 שנ'", durEn:"14s", cam:"יד, 85mm, ישר מלמעלה", camEn:"Handheld, 85mm, straight down", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"היררכיה בעגלה", titleEn:"Hierarchy in the trolley",
+        img:"hf_20260811_152559_61f11165-47d0-44b4-9c78-bc4b53e7b0ae.png",
+        still:"Looking straight down into a half filled supermarket trolley, the items arranged in a way that is clearly deliberate, heavy things laid flat at the bottom and soft things balanced on top, one lone item sitting apart from the others in the child seat. A folded scrap of paper wedged into the corner of the wire basket. 85mm at T2.8, camera handheld directly above the trolley one metre up, focus on the middle of the load. The trolley fills the frame edge to edge. One corner of the basket is soft where the camera is not quite level.",
+        motion:"The trolley rolls slowly forward beneath the camera and the load shifts and settles as it goes, one item on top sliding a few centimetres. Nothing enters the frame that is not already in it. The camera stays handheld directly above and travels with the trolley without turning. The load ends resettled with the top item in a new position. The items move against each other with real friction and weight rather than sliding freely." },
+
+      { n:8, dur:"12 שנ'", durEn:"12s", cam:"יד, 135mm", camEn:"Handheld, 135mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"תצוגת החיזור", titleEn:"The courtship display",
+        img:"hf_20260811_153543_b0f1d254-5e1a-4b54-a920-b853938ec124.png",
+        still:"A man of about sixty five with a wide bald crown and a heavy grey moustache in a pale short sleeved button shirt holding a packet up at chest height and turned deliberately toward a woman of about sixty three in a navy linen tunic, who is two paces further along the aisle with her back to him reading something in her hand and not turning around. His elbow lifted in a small display posture that nobody is watching. 135mm at T2, camera handheld at chest height eighteen metres back, focus on the packet in his hand with her dissolved behind. He occupies the right half and she is a soft shape at the left. The aisle behind them is a wall of blown light.",
+        motion:"He holds the packet up toward her, waits, and lowers it again when she does not turn around. She stays exactly where she is with her back to him and does not move. The camera stays handheld with only small correcting adjustments and makes no move. He ends with the packet down at his side. The wait is a beat too long, which is what makes the lowering read as a decision." },
+
+      { n:9, dur:"16 שנ'", durEn:"16s", cam:"יד, 135mm", camEn:"Handheld, 135mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"סימון גבולות", titleEn:"Marking the boundary",
+        img:"hf_20260811_152559_d831db2b-8d45-4c9c-8832-59def13fed51.png",
+        still:"A steel trolley parked squarely across the mouth of a supermarket aisle and completely blocking it, a man of about sixty five in a pale short sleeved button shirt two metres beyond it with his back turned and studying a shelf, and a second trolley stopped and waiting a few metres away with only a pair of hands on its handle visible. The blocking trolley's front wheel turned in at an angle. 135mm at T2.8, camera handheld at chest height twenty metres back, focus on the parked trolley. The blocking trolley sits centre and the waiting hands are a soft shape at the frame edge. The overhead lights compress into blown discs down the aisle.",
+        motion:"The waiting trolley edges forward a few centimetres, stops, and backs off again, while the man beyond keeps his back turned and does not notice any of it. The blocking trolley and the shelves stay exactly where they are and nobody speaks or gestures. The camera stays handheld with only small correcting adjustments and makes no move. The waiting trolley ends further back than it started. The blocking trolley does not move at all for the entire shot." },
+
+      { n:10, dur:"12 שנ'", durEn:"12s", cam:"יד, 135mm", camEn:"Handheld, 135mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"המסמך", titleEn:"The document",
+        img:"hf_20260811_152559_6a9767e0-12b0-4e43-a9c3-fe105d86b55d.png",
+        still:"The hand of a woman of about sixty three holding a small torn scrap of paper close to her chest, the paper creased into quarters and covered in dense handwriting that is completely illegible at this angle and distance, her thumb covering part of it. A pen clipped into the neckline of her navy linen tunic. 135mm at T2, camera handheld at chest height four metres away, focus on the crease of the paper rather than on the writing. The paper fills the centre right and everything else dissolves to bokeh. The paper is blown almost to white by the overhead fluorescent.",
+        motion:"Her thumb moves down the paper one line at a time and stops, and the paper tips slightly further away from the lens. The pen, her tunic and the aisle behind hold completely still and nothing enters the frame. The camera stays handheld with only small correcting adjustments and makes no move. The paper ends angled away and still unreadable. The paper is soft from handling and bends rather than holding its shape." },
+
+      { n:11, dur:"12 שנ'", durEn:"12s", cam:"יד, 135mm", camEn:"Handheld, 135mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"ניסיון להברחה", titleEn:"The smuggling attempt",
+        img:"hf_20260811_152658_260d965d-cd90-4ef5-a5cb-169d0879b12d.png",
+        still:"A man of about sixty five with a wide bald crown and a heavy grey moustache in a pale short sleeved button shirt dropping a packet into a trolley with a quick low movement while a woman of about sixty three in a navy linen tunic is turned the other way reaching into a chiller cabinet, his eyes already back on the shelf as if nothing happened. The packet landing off centre on top of the load. 135mm at T2.8, camera handheld at chest height eighteen metres back, focus on the trolley basket with both of them soft. The trolley sits centre, he is at the right edge, she is a soft navy shape at the left. The chiller cabinet behind her is blown to white.",
+        motion:"He drops the packet into the trolley in one quick low movement and turns his eyes back to the shelf, while she stays turned away reaching into the chiller and does not see it. The trolley, the shelves and the cabinet hold exactly where they are. The camera stays handheld with only small correcting adjustments and makes no move. The packet ends lying off centre on top of the load. The packet bounces once on the load before it settles." },
+
+      { n:12, dur:"10 שנ'", durEn:"10s", cam:"יד, 135mm", camEn:"Handheld, 135mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"בלי עימות", titleEn:"No confrontation",
+        img:"hf_20260811_152658_c9b96c04-57b2-4b3d-9512-003c2de068c8.png",
+        still:"The hand of a woman of about sixty three lifting a packet back out of a trolley and setting it down on a shelf, her head turned away and her eyes elsewhere, doing it without any comment at all. Her wrist passing directly in front of a blank price rail that is deliberately out of focus. 135mm at T2, camera handheld at shelf height five metres away, focus on the packet in her hand. The hand and packet fill the centre and the shelf dissolves both ways. The shelf strip light flares across the top of the frame.",
+        motion:"Her hand lifts the packet out of the trolley, sets it down on the shelf, and withdraws, all in one unhurried movement, and her head never turns toward it. The trolley, the shelf and the rail hold completely still and nobody else enters the frame. The camera stays handheld with only small correcting adjustments and makes no move. The packet ends sitting on the shelf alone. The packet is set down rather than dropped, which is what makes it read as routine instead of angry." },
+
+      { n:13, dur:"14 שנ'", durEn:"14s", cam:"יד, 135mm", camEn:"Handheld, 135mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"המתנה בשולי הטריטוריה", titleEn:"Waiting at the edge of the territory",
+        img:"hf_20260811_152658_d32735b9-04a9-4388-97aa-5044114844a2.png",
+        still:"A man of about sixty five with a wide bald crown and a heavy grey moustache in a pale short sleeved button shirt standing alone at a deli counter holding a small blank paper ticket between two fingers at waist height, the counter glass in front of him blown out by its own strip lighting, nobody serving and nobody else waiting. His thumb worrying at the corner of the ticket, which is already soft from being held. 135mm at T2, camera handheld at chest height twelve metres away, focus on the ticket in his fingers with his face soft above it. He occupies the right half and the counter glare fills the left. The counter lighting blooms into a veil across the lower frame.",
+        motion:"His thumb works at the corner of the paper ticket and folds it over, and he shifts his weight and looks up toward the counter and back down. The counter, the glass and the light hold completely still and nobody arrives to serve him. The camera stays handheld with only small correcting adjustments and makes no move. He ends still holding the ticket, still waiting. The paper is soft from being held and creases rather than snapping." },
+
+      { n:14, dur:"12 שנ'", durEn:"12s", cam:"יד, 135mm מאקרו", camEn:"Handheld, 135mm macro", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"היד על היקרה", titleEn:"The hand on the expensive one",
+        img:"hf_20260811_152658_b17c5c1e-3558-40c8-b4c3-dfb9a1ae81b6.png",
+        still:"The hand of a man of about sixty five resting on a wedge of hard cheese in a refrigerated cabinet, the cold blue-white light of the cabinet falling on the back of his hand, another very similar wedge sitting a few centimetres away. A faint fog of condensation on the glass edge nearest the camera. 135mm macro at T2, camera handheld at cabinet height three metres away, focus on the back of his hand where the cold light lands. The hand and the two wedges fill the centre right. The cabinet light is blown a stop and a half and drains all warmth out of his skin.",
+        motion:"His hand closes around the wedge of cheese, lifts it a few centimetres out of the cabinet, and holds it there. The other wedge, the shelf and the glass hold completely still and nothing enters the frame. The camera stays handheld with only small correcting adjustments and makes no move. The wedge ends held clear of the shelf and not yet taken. The cheese has real weight and his wrist adjusts under it as he lifts." },
+
+      { n:15, dur:"16 שנ'", durEn:"16s", cam:"יד, 135mm. השוט הארוך והשקט של הסרט", camEn:"Handheld, 135mm. The film's long, silent shot", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"המבט", titleEn:"The look",
+        img:"hf_20260811_152658_80fc364c-57b7-4385-9736-74a5430255ff.png",
+        still:"A man of about sixty five, Israeli, short and thick set, a wide bald crown with grey hair at the sides, a heavy grey moustache, wearing a pale short sleeved button shirt, standing at a refrigerated cabinet holding a wedge of hard cheese in one hand and looking down at it without moving, his other hand back on a trolley handle, the whole aisle empty behind him. The deep line between his brows lit hard from below by the cabinet. 135mm at T2, camera handheld at his eye height fourteen metres away, focus on his near eye. He occupies the right two thirds and the empty aisle dissolves to bokeh at the left. The cabinet light from below is blown and rims his jaw.",
+        motion:"He looks down at the cheese in his hand and does not move at all except to breathe out once and blink slowly. The cabinet, the trolley and the empty aisle behind him hold completely still and nobody enters the frame at any point. The camera stays handheld with only the smallest correcting adjustments and makes no move. He ends still looking at it, having decided nothing yet on his face. The only thing that changes in the whole shot is his breathing." },
+
+      { n:16, dur:"14 שנ'", durEn:"14s", cam:"יד, 135mm מאקרו", camEn:"Handheld, 135mm macro", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"ההחלפה", titleEn:"The swap",
+        img:"hf_20260811_152658_3ebc949e-33e7-4293-a6a3-95b4151e2a8d.png",
+        still:"The hand of a man of about sixty five sliding a wedge of hard cheese back onto its shelf in a refrigerated cabinet and closing on the other very similar wedge beside it, the swap already done. The first wedge left sitting a few millimetres proud of the shelf edge where he pushed it back too fast. 135mm macro at T2, camera handheld at cabinet height three metres away, focus on the wedge he is taking. Both wedges and his hand fill the centre right. The cabinet light is blown and the shelf edge flares.",
+        motion:"His hand pushes the first wedge back onto the shelf and closes on the second one beside it, and lifts it away out of frame. The shelf, the cabinet and the first wedge hold completely still after he releases it. The camera stays handheld with only small correcting adjustments and makes no move. The frame ends on the rejected wedge sitting alone and slightly proud of the shelf edge. He pushes it back a fraction too hard, which is why it does not sit flush." },
+
+      { n:17, dur:"12 שנ'", durEn:"12s", cam:"יד, 135mm", camEn:"Handheld, 135mm", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"המסוע", titleEn:"The belt",
+        img:"hf_20260811_152658_491f01eb-22b6-40d0-a827-14cfb6046f51.png",
+        still:"A conveyor belt at a supermarket checkout carrying a load of groceries away from camera in a single line, two hands unloading the last items onto the belt from the right, nobody else in the frame and no cashier visible. One item has tipped over on the belt and nobody has righted it. 135mm at T2.8, camera handheld at belt height six metres back, focus on the middle of the line of items. The belt runs diagonally from the lower right to the upper left and everything else dissolves to bokeh. The checkout light blows a long streak down the belt surface.",
+        motion:"The belt carries the line of groceries steadily away from camera and out of the top of the frame, and two hands set the last item down onto the end of the line and withdraw. The checkout, the light and the belt housing stay exactly where they are. The camera stays handheld with only small correcting adjustments and makes no move. The belt ends still moving with the last item on it. The tipped item slides slightly against the one behind it as the belt travels." },
+
+      { n:18, dur:"20 שנ'", durEn:"20s", cam:"יד, 135mm, מגבם אל הדלתות", camEn:"Handheld, 135mm, from behind toward the doors", model:"Nano Banana Pro ואז Kling 3 std",
+        title:"החוצה, אל האור", titleEn:"Out into the light",
+        img:"hf_20260811_152658_950b0415-615a-46ab-aa77-b6ee10fd1738.png",
+        still:"A man of about sixty five with a wide bald crown in a pale short sleeved button shirt and a woman of about sixty three with close cut silver hair in a navy linen tunic, seen from directly behind, walking out through open automatic doors into flat white morning light, each carrying bags, his hand not on hers, their two silhouettes almost merging against the blown out doorway. One of her bags hanging lower than the other and pulling her shoulder down. 135mm at T2, camera handheld at chest height twenty five metres back inside the store, focus on their shoulders. They occupy the centre and the doorway light fills everything around them. The doorway is blown three stops to pure white and their outlines dissolve into it.",
+        motion:"The two of them walk slowly away from camera and out through the doors, and as they cross into the white light their outlines dissolve into it until only two dark shapes remain. The doors, the entrance and the light stay exactly where they are and nobody else enters the frame. The camera stays handheld with only small correcting adjustments and makes no move. The shot ends on the empty blown out doorway after they are gone. The bag pulling her shoulder down changes how she walks for the whole shot." }
+    ]
+  },
+
+  vo: [
+    { t:"0:03 · שוט 1", sec:"קריין", text:"עם שחר, שערי המושבה נפתחים.",
+      sub:"‫עם שחר, שערי המושבה נפתחים.‬",
+      en:"At dawn, the gates of the colony open.",
+      note:"הקריינות היא עברית במשלב המדויק של סרט טבע מדובב: מוסמכת, שקטה, קצת יותר מדי מכובדת. זו הבחירה שהוחלפה מהכרטיס המקורי, שביקש אנגלית. עברית מצחיקה יותר כאן וגם נחשבת אצל השופטים לאות אותנטיות." },
+    { t:"0:13 · שוט 2", sec:"קריין", text:"הזכר מבודד את כלי הנשיאה מן העדר.",
+      sub:"‫הזכר מבודד את כלי הנשיאה מן העדר.‬",
+      en:"The male isolates a carrier from the herd." },
+    { t:"0:25 · שוט 3", sec:"קריין", text:"הצמד נכנס לטריטוריה. הם חולקים את הכלי, אך לא את ההחלטות.",
+      sub:"‫הצמד נכנס לטריטוריה. הם חולקים את הכלי, אך לא את ההחלטות.‬",
+      en:"The pair enter the territory. They share the vessel, but not the decisions." },
+    { t:"0:37 · שוט 4", sec:"קריין", text:"הנקבה בודקת את הפרי בלחיצת אגודל. שלושים שנות ניסיון מרוכזות בשתי שניות.",
+      sub:"‫הנקבה בודקת את הפרי בלחיצת אגודל. שלושים שנות ניסיון מרוכזות בשתי שניות.‬",
+      en:"The female tests the fruit with a press of the thumb. Thirty years of experience concentrated into two seconds." },
+    { t:"0:50 · שוט 5", sec:"קריין", text:"הזכר מתבונן. הוא לא יתערב.",
+      sub:"‫הזכר מתבונן. הוא לא יתערב.‬",
+      en:"The male observes. He will not intervene." },
+    { t:"1:00 · שוט 6", sec:"קריין", text:"לעיתים ינסה הזכר להשיג את המשאב בעצמו, בלי לדעת שהוא כבר הושג.",
+      sub:"‫לעיתים ינסה הזכר להשיג את המשאב בעצמו, בלי לדעת שהוא כבר הושג.‬",
+      en:"At times the male will attempt to secure the resource himself, unaware that it has already been secured." },
+    { t:"1:12 · שוט 7", sec:"קריין", text:"הסדר בכלי אינו מקרי. יש כאן היררכיה.",
+      sub:"‫הסדר בכלי אינו מקרי. יש כאן היררכיה.‬",
+      en:"The order inside the vessel is not accidental. There is a hierarchy here." },
+    { t:"1:26 · שוט 8", sec:"קריין", text:"וכאן, תצוגת החיזור. הזכר מציג את המוצא שלו. הנקבה אינה מסתובבת.",
+      sub:"‫וכאן, תצוגת החיזור. הזכר מציג את המוצא שלו. הנקבה אינה מסתובבת.‬",
+      en:"And here, the courtship display. The male presents his find. The female does not turn around." },
+    { t:"1:38 · שוט 9", sec:"קריין", text:"סימון גבולות. הזכר חוסם את המעבר, ובכך מודיע על נוכחותו לכל מי שיגיע.",
+      sub:"‫סימון גבולות. הזכר חוסם את המעבר, ובכך מודיע על נוכחותו לכל מי שיגיע.‬",
+      en:"Boundary marking. The male blocks the passage, thereby announcing his presence to all who arrive." },
+    { t:"1:54 · שוט 10", sec:"קריין", text:"בידה של הנקבה, המסמך. איש מלבדה אינו יודע לקרוא אותו.",
+      sub:"‫בידה של הנקבה, המסמך. איש מלבדה אינו יודע לקרוא אותו.‬",
+      en:"In the female's hand, the document. Nobody but her can read it." },
+    { t:"2:06 · שוט 11", sec:"קריין", text:"ניסיון להברחה.",
+      sub:"‫ניסיון להברחה.‬",
+      en:"An attempted smuggling." },
+    { t:"2:18 · שוט 12", sec:"קריין", text:"הניסיון נכשל. אין עימות. אין צורך.",
+      sub:"‫הניסיון נכשל. אין עימות. אין צורך.‬",
+      en:"The attempt fails. There is no confrontation. There is no need." },
+    { t:"2:28 · שוט 13", sec:"קריין", text:"בשולי הטריטוריה, המתנה. הזכר מחזיק בסימן, וממתין לתורו.",
+      sub:"‫בשולי הטריטוריה, המתנה. הזכר מחזיק בסימן, וממתין לתורו.‬",
+      en:"At the edge of the territory, a wait. The male holds his marker and waits his turn." },
+    { t:"2:42 · שוט 14", sec:"קריין", text:"וכאן, רגע ההכרעה של העונה.",
+      sub:"‫וכאן, רגע ההכרעה של העונה.‬",
+      en:"And here, the decisive moment of the season.",
+      note:"זו השורה האחרונה בסרט. אחריה נשארות שבעים שניות של סרט בלי אף מילה, וזה כל המהלך: הקריין מכריז על הרגע המכריע ואז אין לו שום דבר להגיד עליו." },
+    { t:"2:52 - 3:54 · שוטים 15 עד 18", sec:"שתיקה מלאה", text:"אין קריינות בארבעת השוטים האחרונים. הקריין הכריז על רגע ההכרעה ונעלם בדיוק כשהוא קרה. מה שנשמע במקומו הוא רק אווירת סופר: מקררים, גלגלי עגלה, רדיו רחוק, וסורק בקופה.",
+      en:"There is no narration in the last four shots. The narrator announced the decisive moment and then vanished exactly as it happened. What is heard instead is only supermarket ambience: chillers, trolley wheels, a distant radio, and a scanner at the checkout.",
+      note:"זה המכניזם המרכזי של הסרט ואסור להתפשר עליו. כל פיתוי להוסיף שורת קריינות חכמה על הגבינה הורס את הסרט. הקריין תיאר הכל, ואת הדבר האחד שבאמת קרה הוא פספס." }
+  ],
+
+  mood: {
+    h3: "הטון של הסרט",
+    copyLabel: "העתק הוראות אווירה",
+    copyHead: 'הוראות אווירה והלך רוח לסרט "מדריך שדה: הזוג הישראלי בסופר":',
+    paras: [
+      "הסרט משחק את עצמו בכובד ראש מוחלט משתי קצוות בו זמנית. הקריינות רצינית לגמרי, והזוג רגיל לגמרי. אף אחד משני הצדדים לא יודע שהוא בקומדיה, ובדיוק מהפער הזה נולדת כל הבדיחה, בלי שהיא עולה שום יכולת טכנית. ואז, בשליש האחרון, אותו פער בדיוק הופך לרוך, כי הצורה שהצחיקה אותנו היא גם הצורה שמפספסת את הרגע."
+    ],
+    rows: [
+      ["עדשות", "הסרט כולו על 85 עד 135 מילימטר פתוח לגמרי. זו גם הדקדוק האמיתי של צילום טבע מרחוק, וגם ההגנה הטכנית: המעבר מתמוטט לבוקה מוחלט, וכל אדם שאינו אחד משני הגיבורים הופך לכתם. אין בסרט הזה אף שוט רחב על רצפת הסופר."],
+      ["שעה", "הכל מצולם בשעת הפתיחה. הרצפה עוד רטובה, המדפים מלאים, ואין קונים. זה פותר את בעיית ההמונים בלוקיישן במקום בפרומפט, וזה גם נכון לזוג הזה: אנשים שמגיעים כשנפתח."],
+      ["מצלמה", "יד לאורך כל הסרט, עם תיקוני פריים קטנים ולא מושלמים, כאילו יש צלם אמיתי שעוקב ולא רוצה להיתפס. אף פעם לא נקי מדי ואף פעם לא רועד מדי. אין אף תנועת מצלמה מכוונת בכל הסרט."],
+      ["קצב", "ארוך ורגוע בשליש הראשון בזמן שהצופה לומד את המשחק, מתהדק באמצע כשהבדיחות מצטברות, ואז נעצר כמעט לגמרי משוט 14 והלאה. שוט 15 הוא הארוך בסרט וגם השקט ביותר."],
+      ["סאונד", "אווירת סופר אמיתית ומלאה: המהום מקררים, גלגלי עגלה על לינולאום, רדיו רחוק מאחורי דלת, סורק בקופה. הסאונד הוא מה שהופך את המקום למקום. אין מוזיקה מוספת בכלל בשום שלב, כי מוזיקה תסמן את הבדיחה ותהרוג אותה."],
+      ["הכלל הקשה", "אף אחד מהשניים לא מדבר, לא מסתכל למצלמה, ולא יודע שמצלמים אותו. אין אף שורת דיאלוג מסונכרנת בסרט. כל מה שעובר ביניהם עובר דרך אובייקטים ותנוחות, בדיוק כמו בשכן."]
+    ],
+    rules: ["עדשות ארוכות פתוחות בלבד", "אף שוט רחב על הרצפה", "אין מוזיקה מוספת", "אין דיאלוג מסונכרן", "ארבעת השוטים האחרונים בלי קריינות"],
+    enLabel: "English direction",
+    enCopyLabel: "Copy English direction",
+    en: "Tone: the film plays itself with complete gravity from both ends at once. The narration is entirely serious, and the couple are entirely ordinary. Neither side knows it is in a comedy, and the whole joke is born from exactly that gap, at zero technical cost. Then, in the final third, that same gap turns into tenderness, because the form that made us laugh is also the form that misses the moment.\n\nLenses: the entire film runs on 85 to 135mm wide open. That is both the real grammar of distant wildlife photography and the technical defence: the aisle collapses into complete bokeh and any person who is not one of the two protagonists becomes a smear. There is no wide shot of the shop floor anywhere in this film.\n\nHour: everything is shot at opening time. The floor is still wet, the shelves are full, and there are no shoppers. This solves the crowd problem in the location rather than in the prompt, and it is also true to this couple: people who arrive when it opens.\n\nCamera: handheld throughout, with small imperfect reframes, as though a real operator is following and does not want to be caught. Never too clean and never too shaky. There is not one deliberate camera move in the whole film.\n\nPacing: long and unhurried in the first third while the viewer learns the game, tightening in the middle as the jokes accumulate, then almost stopping from shot 14 onward. Shot 15 is the longest in the film and also the quietest.\n\nSound: full, real supermarket ambience. Chiller hum, trolley wheels on linoleum, a distant radio behind a door, a scanner at the checkout. The sound is what makes the place a place. There is no added music at any point, because music would signpost the joke and kill it.\n\nThe hard rule: neither of them speaks, looks at the camera, or knows they are being filmed. There is not one line of synced dialogue in the film. Everything that passes between them passes through objects and postures, exactly as in The Neighbour."
+  },
+
+  story: {
+    h3: "מאיפה זה מגיע",
+    copyLabel: "העתק סיפור רקע",
+    copyHead: 'סיפור הרקע לסרט "מדריך שדה: הזוג הישראלי בסופר":',
+    paras: [
+      "לסרט טבע יש דקדוק כל כך יציב שאפשר להשאיל אותו שלם ולהניח מתחתיו כל דבר. הוא בנוי על שלושה מרכיבים קבועים: קול סמכותי שאינו מופיע בפריים, עדשה ארוכה שמצולמת ממרחק כדי לא להפריע, ומילון קבוע של התנהגויות, טריטוריה, היררכיה, תצוגת חיזור וסימון גבולות. שלושת המרכיבים האלה עובדים בדיוק אותו דבר בין אם מולם עדר פילים או שני אנשים בשדרת החלב.",
+      "ובעברית יש לזה שכבה נוספת שאין באנגלית. דור שלם בישראל הכיר את הפורמט הזה לא במקור אלא בדיבוב, וכתוב הדיבוב הוא ז'אנר בפני עצמו: מוסמך, מעט ארכאי, נוטה למשפטים קצרים ולנוסח שאף אחד לא מדבר בו באמת. המשלב הזה מזוהה מיידית לכל צופה ישראלי, וזה בדיוק החומר שהסרט הזה עשוי ממנו. זו גם הסיבה שהחלפנו את הקריינות מאנגלית לעברית: באנגלית זה חיקוי, בעברית זה זיכרון.",
+      "הבחירה הטכנית שמחזיקה את הסרט היא באמת אותה בחירה שמחזיקה את הבדיחה, וזה נדיר. סרט טבע מצולם בעדשה ארוכה ממרחק כדי לא להבהיל את הנושא, וזה בדיוק מה שצריך כאן: עדשה ארוכה פתוחה לגמרי ממוטטת מעבר שלם של סופר לכתמי אור, ובכך מוציאה מהמשוואה את הדבר היחיד שהיה מפרק את הסרט הזה ריאליסטית, קהל. הצילום בשעת הפתיחה עושה את השאר.",
+      "ומה שנשאר פתוח הוא לא בדיחה בכלל. מדריך שדה טוב יודע לתאר כל דבר שאפשר לראות. הוא יודע לומר מי מוביל, מי מוותר, מי מסמן ומי מתעלם. הוא לא יודע לומר למה גבר בן שישים וחמש מחזיר גבינה שהוא רצה כל השנה. הסרט מסתיים כשהקריין נגמר, וזה קורה בדיוק כשמשהו סוף סוף קורה."
+    ],
+    enLabel: "English backstory",
+    enCopyLabel: "Copy English backstory",
+    en: "The nature documentary has a grammar so stable that you can borrow it whole and put anything at all underneath it. It is built from three fixed components: an authoritative voice that never appears in frame, a long lens shooting from a distance so as not to disturb, and a fixed vocabulary of behaviours, territory, hierarchy, courtship display and boundary marking. Those three components work exactly the same way whether what is in front of them is a herd of elephants or two people in the dairy aisle.\n\nAnd in Hebrew there is an extra layer that does not exist in English. An entire generation in Israel met this format not in the original but in dubbing, and dubbing script is a genre of its own: qualified, slightly archaic, inclined toward short sentences and phrasing nobody actually speaks in. That register is instantly recognisable to any Israeli viewer, and it is exactly the material this film is made of. It is also why the narration was switched from English to Hebrew: in English this is an imitation, in Hebrew it is a memory.\n\nThe technical choice that holds the film up is genuinely the same choice that holds the joke up, which is rare. A nature film is shot on a long lens from a distance so as not to startle the subject, and that is exactly what is needed here: a long lens wide open collapses an entire supermarket aisle into blobs of light, and in doing so removes from the equation the one thing that would break this film in photoreal, a crowd. Shooting at opening hour does the rest.\n\nAnd what stays open is not a joke at all. A good field guide can describe anything you can see. It can tell you who leads, who yields, who marks and who ignores. It cannot tell you why a man of sixty five puts back a cheese he has wanted all year. The film ends when the narrator runs out, and that happens at exactly the moment something finally happens."
+  },
+
+  notes: {
+    title: "איך מפיקים את זה, ומה מסוכן בו",
+    items: [
+      "לרעיון הזה לא היה טיפול כתוב, רק כרטיס רעיון. הטיפול, השוט-ליסט, הקריינות והאווירה נכתבו מאפס כאן. שני שינויים מודעים מול הכרטיס: הקריינות עברה מאנגלית לעברית, והאורך עלה משלוש דקות ל-3:54 כדי לתת לשליש האחרון את הזמן שהוא צריך.",
+      "הסיכון האמיתי היחיד בסרט הוא המונים, וזה בדיוק מה שמתפרק הכי חזק ריאליסטית. ההגנה כאן משולשת ומובנית לתוך הרעיון ולא מודבקת עליו: הכל מצולם בשעת הפתיחה כשהחנות ריקה, הכל על 85 עד 135 מילימטר פתוח לגמרי כך שכל דבר מעבר לנושא הוא בוקה, ואין בסרט אף שוט רחב על רצפת הסופר. אחד עשר מתוך שמונה עשר השוטים הם ידיים, אובייקטים או גב.",
+      "היופי במקרה הזה הוא שההגנה הטכנית והבדיחה הן אותה בחירה. עדשה ארוכה ממרחק היא הדקדוק של סרט טבע, ולכן כל פריים שנועד להסתיר קהל גם נראה יותר כמו סרט טבע. אין כאן פשרה בין מה שנכון לסרט למה שנכון למודל.",
+      "נעילת דמות: שני גיליונות דמות בארבע תצוגות, אחד לו ואחד לה, וכל שוט שבו הם מופיעים יוצר מהגיליון כרפרנס תמונה פלוס מחרוזת נעילה זהה מילה במילה. גיליון הדמות שלהם כולל במפורש תצוגה מגב, כי חמישה שוטים בסרט מצולמים מגבם והפוטנציאל לדריפט שם גבוה במיוחד.",
+      "כל שמונה עשר הפריימים יוצרו ב-Nano Banana Pro ב-16:9 ומחוברים לכרטיסים כאן. שוט 8 נפל בסבב הראשון והוגש מחדש בלי שינוי בפרומפט, וזה הכשל היחיד מתוך שלושים ותשעה פריימים בסבב הזה.",
+      "אף פרומפט לא מכיל אף מילה של טקסט, וזה קריטי במיוחד בסרט שמתרחש בסופר, כי סופר הוא סביבה שמלאה באריזות ובשלטים. בכל פרומפט התוויות מוגדרות כלא קריאות, מטושטשות או ריקות: הפתק של שוט 10 הוא כתב יד בלתי קריא בכוונה, פס המחיר בשוט 12 מוגדר ריק ומחוץ לפוקוס, והספרור בשוט 13 הוא נייר לבן ריק.",
+      "מותגים: אין בסרט הזה אף לוגו ואף אריזה מזוהה, וזה לא רק כלל של פרומפט אלא צורך משפטי. ברגע שרואים מותג אמיתי, הסרט הופך לפרסומת לא מורשית והגשה לתחרות נעשית בעייתית. אם פריים חוזר עם משהו שנראה כמו מותג אמיתי, לרנדר אותו מחדש ולא לתקן בעריכה.",
+      "אין מוזיקה בסרט הזה בכלל, וזו החלטה ולא חיסכון. פסקול היה מסמן לצופה שזו בדיחה, והרגע שהוא מבין שזו בדיחה הוא הרגע שהפורמט מפסיק להתיר את הפגמים. מה שכן צריך זה עבודת סאונד רצינית: המהום מקררים, גלגלים על לינולאום, רדיו מרוחק, וסורק. ההגשות בתחרויות מדרגות סאונד דיזיין במשקל שווה לנרטיב.",
+      "שוט 15 הוא הלב של הסרט וגם השוט שהכי קל לקלקל. הוא ארוך, הדמות בו כמעט לא זזה, וזה בדיוק המתכון לקליפ קפוא. הפרומפט כבר כתוב עם פעולה פיזית אחת מדויקת, נשיפה ומצמוץ איטי, ועם משפט מפורש על מה לא זז. אם הוא בכל זאת חוזר קפוא, לא להוסיף פעלים, אלא להחיל zoompan דיגיטלי איטי על הסטיל בעריכה. זה מתמטית אפס תנועה פנימית וזה תמיד עובד.",
+      "סדר ההפקה: כאן הקריינות היא רוב הסרט, ולכן הכלל של הסדרה הוא קריטי במיוחד. קודם מקליטים את ארבע עשרה שורות הקריין, מודדים עם silenceremove ו-loudnorm, ורק אז מייצרים כל קליפ באורך שנמדד. ארבעת השוטים האחרונים אינם תלויים בקריינות בכלל, אז את האורך שלהם קובעת העריכה.",
+      "הקול: זה צריך להיות קול גברי עברי ילידי ומבוגר, לא רב לשוני, כי כל מבטא זר הורס את המשלב של הדיבוב. במנוע inworld יש רק שני קולות עברית, Yael ו-Oren, ואורן הוא הכיוון כאן. כדאי להשוות אותו מול מיניmax על שורה אחת לפני שמקליטים את כל הארבע עשרה.",
+      "הנכס הכפול: אחד עשר השוטים שאין בהם פנים הם סט תמונות עצמאי לגמרי, וסיפור הרקע כאן הוא חומר גלם מוכן לפוסט על דקדוק של סרטי טבע כמכשיר עיצובי. אותו נכס, שני ערוצים."
+    ],
+    itemsEn: [
+      "This idea had no written treatment, only an idea card. The treatment, shot list, narration and direction were all written from scratch here. Two deliberate changes from the card: the narration moved from English to Hebrew, and the runtime went from three minutes to 3:54 to give the last third the time it needs.",
+      "The only real risk in the film is crowds, and crowds are exactly what breaks hardest in photoreal. The defence here is threefold and built into the idea rather than bolted onto it: everything is shot at opening hour when the store is empty, everything is on 85 to 135mm wide open so anything beyond the subject is bokeh, and there is no wide shot of the shop floor anywhere. Eleven of the eighteen shots are hands, objects or backs.",
+      "The beauty of this case is that the technical defence and the joke are the same choice. A long lens from a distance is the grammar of a nature film, so every frame designed to hide a crowd also looks more like a nature film. There is no compromise here between what is right for the film and what is right for the model.",
+      "Character lock: two four-view character sheets, one for him and one for her, and every shot they appear in was generated from the sheet as an image reference plus a verbatim lock string. Their sheets deliberately include a view from behind, because five shots in the film are shot from behind them and the drift potential there is unusually high.",
+      "All eighteen frames were generated in Nano Banana Pro at 16:9 and are wired into the cards here. Shot 8 failed on the first pass and was resubmitted with no change to the prompt, and that is the only failure out of thirty nine frames in this round.",
+      "No prompt contains a single word of text, which matters particularly in a film set in a supermarket, since a supermarket is an environment made of packaging and signage. In every prompt the labels are defined as illegible, blurred or blank: the note in shot 10 is deliberately unreadable handwriting, the price rail in shot 12 is defined as blank and out of focus, and the deli ticket in shot 13 is blank white paper.",
+      "Brands: there is no logo and no recognisable packaging in this film, and that is not only a prompt rule but a legal necessity. The moment a real brand is visible, the film becomes an unauthorised advertisement and submission becomes a problem. If a frame comes back with something that looks like a real brand, re-render it rather than patching it in the edit.",
+      "There is no music in this film at all, and that is a decision rather than a saving. A score would signal to the viewer that this is a joke, and the moment they understand it is a joke is the moment the format stops licensing the flaws. What it does need is serious sound work: chiller hum, wheels on linoleum, a distant radio, a scanner. Contest rubrics weight sound design equally with narrative design.",
+      "Shot 15 is the heart of the film and also the easiest one to ruin. It is long, its character barely moves, and that is precisely the recipe for a frozen clip. The prompt is already written with one precise physical action, an exhale and a slow blink, and an explicit sentence about what does not move. If it still comes back frozen, do not add verbs, apply a slow digital zoompan to the still in the edit instead. That is mathematically zero internal motion and it always works.",
+      "Production order: here the narration is most of the film, so the series rule matters more than usual. Record the fourteen narrator lines first, measure with silence removal and loudness normalisation, and only then generate each clip at its measured length. The last four shots do not depend on narration at all, so their lengths are set by the edit.",
+      "The voice: this needs a native, older, male Hebrew voice, not a multilingual one, because any foreign accent destroys the dubbing register. Inworld offers only two Hebrew voices, and the male one is the direction here. It is worth comparing it against MiniMax on one line before recording all fourteen.",
+      "The double asset: the eleven shots with no faces in them are a completely standalone photo set, and the backstory here is ready-made source material for a written post about nature-documentary grammar as a design device. One asset, two channels."
+    ]
+  }
+};
+</script>
+<script src="../shared/sb.js?v=5"></script>
+</body>
+</html>

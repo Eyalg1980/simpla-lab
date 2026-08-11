@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>סטוריבורד · עברית לחתולים</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/sb.css?v=5">
+</head>
+<body>
+<div id="sb"></div>
+
+<script>
+const STUDIO = "Photoreal flagship product film still, single large soft key from above with one clean rim light, seamless graduated dark grey to black backdrop, palette limited to machined aluminium, black anodising and one warm amber indicator, extremely shallow depth of field, immaculate and reverent, clean digital cinema look with no grain.";
+const HOME = "Photoreal 35mm cinema still, Kodak Vision3 500T pushed one stop, fine natural grain, lifted blacks, available domestic light only, palette limited to warm oak, pale wall and one cool appliance glow, handheld with small correcting adjustments, unpolished and real.";
+const LIFESTYLE = "Photoreal 35mm cinema still, clean digital cinema look with very fine grain, bright even daylight through a large window with a soft bounce fill, palette limited to pale oak, warm white walls and one muted sage textile, shallow depth of field, locked tripod, the polished grammar of a lifestyle product film.";
+const TESTIMONIAL = "Photoreal 35mm cinema still, Kodak Vision3 500T, fine grain, one large soft key from camera left at head height with a gentle negative fill on the far side, palette limited to warm neutral wall, one muted upholstery tone and skin, locked tripod, the exact grammar of a filmed testimonial.";
+const NEG = "no text, no letters, no signage, no captions, no logos, no watermark, no subtitles";
+const CAT = "a short haired domestic cat, mostly slate grey with a white chest blaze and one white forepaw, a torn notch in the left ear, wide amber eyes set slightly asymmetrically, a permanently unimpressed expression";
+const MAN = "a man of about thirty eight, Israeli, lean and tired looking, dark hair growing out of a short cut, four days of uneven stubble, a small scar under his right eye, wearing a stretched grey cotton t-shirt and soft dark tracksuit trousers, barefoot";
+
+window.SB = {
+  kicker: "STORYBOARD · מוד תחרויות · Higgsfield GFF 3.9 ו-Astana 31.8",
+  titleTop: "עברית לחתולים,",
+  titleMark: "והתשובה שהיא לא",
+  titleEn: "Hebrew for Cats",
+  logline: "סרט השקה מלוטש לחלוטין למכשיר ישראלי שמלמד את החתול שלך עברית. הכל ברצינות תהומית, עד שמתברר שהחתול אכן למד עברית, ומשתמש בה רק כדי לסרב.",
+  loglineEn: "A completely polished launch film for an Israeli device that teaches your cat Hebrew. Everything is played with total seriousness, until it turns out the cat did learn Hebrew, and uses it only to refuse.",
+  specs: ["3:48", "21 שוטים", "16:9", "פרסומת מזויפת", "קריינות עברית", "שתי שפות חזותיות", "קאט 0:45 ב-9:16 לרשתות", "פריימים מוכנים"],
+  specsEn: ["3 minutes 48 seconds", "21 shots", "16:9", "Fake product launch film", "Hebrew voice-over, burned English subtitles", "Two visual languages that swap hard", "A 45 second 9:16 cut derived from the same material", "All key frames generated"],
+  cdn: "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/",
+
+  film: null,
+
+  synopsis: {
+    h3: "מה קורה בשלוש דקות וארבעים ושמונה",
+    copyLabel: "העתק סינופסיס",
+    copyHead: 'סינופסיס לסרט "עברית לחתולים":',
+    paras: [
+      "שחור. ואז חתול, בסלואו מושן, בתאורת רים, מצולם ביראת כבוד גמורה. קריינות בטון של השקת מוצר דגל: אחת עשרה אלף שנה אנחנו חיים לצידם, ואף פעם לא ידענו מה הם חושבים.",
+      "חשיפת מוצר. קולר דק מאלומיניום מעובד, מסתובב על עמוד על רקע שחור, ואז מתפרק בפיצוץ רכיבים באוויר. פרטים הנדסיים אבסורדיים בעוצמה: מערך של תשעה מיקרופונים, ארבע מאות אלף שעות של האזנה, מעבד שתוכנן למשימה אחת בלבד. הקולר נסגר על צוואר של חתול, והחתול לא מתרשם.",
+      "מפל הפיצ'רים, מצולם בשפה ביתית מלוטשת של סרט לייף סטייל. תרגום בזמן אמת. היסטוריית מצב רוח. ומצב אחים, למשקי בית מרובי חתולים, שבו שני חתולים יושבים זה לצד זה ושניהם אדישים לחלוטין.",
+      "עדויות. שני בעלים, מצולמים בדיוק בדקדוק של פרסומת עדויות אמיתית, אור רך אחד וכיסא. הראשונה נלהבת. השני אומר, סוף סוף אני מבין אותה, ואז שותק, ואז מוסיף: הלוואי שלא הייתי.",
+      "הדגמה. אישה יורדת על ברכיה מול החתולה, מושיטה יד, והתרגום שיוצא מהמכשיר הוא רק: לא. ואחר כך: לא. ואחר כך: לא. חזרה למצגת, מהר יותר, מלוטש יותר, מתעלם לחלוטין ממה שראינו הרגע.",
+      "ואז התפנית, והיא השוט הארוך בסרט. גבר לבד בלילה על רצפת המטבח, מואר רק במקרר פתוח, מדבר אל החתולה שלו דרך המכשיר. הוא אומר משהו אמיתי ובודד. המכשיר מתרגם את התשובה שלה, והתשובה אדישה לגמרי. הוא מקבל את זה ונשאר על הרצפה איתה בכל מקרה. זה השוט היחיד בסרט בלי מוזיקה.",
+      "חזרה למותג. לוגו, סלוגן, ואותיות קטנות של תנאים שמפילות את כל הסרט: התוצאות משתנות, החתול אינו מחויב להשתתף. ואחרי הלוגו, שוט אחד: הקולר על הרצפה, מוסר, והחתולה ישנה על הקרטון. התזה: קנינו מכשיר שיגיד לנו מה הם חושבים, וקיבלנו בדיוק את מה שכבר ידענו, רק במילים."
+    ],
+    enLabel: "English synopsis",
+    enCopyLabel: "Copy English synopsis",
+    en: "Black. Then a cat, in slow motion, rim lit, photographed with complete reverence. A voice-over in the register of a flagship product launch: for eleven thousand years we have lived beside them, and we never knew what they were thinking.\n\nProduct reveal. A slim machined aluminium collar turning on a plinth against black, then breaking apart into an exploded view in mid air. Engineering details of absurd intensity: an array of nine microphones, four hundred thousand hours of listening, a processor designed for one task only. The collar closes around a cat's neck, and the cat is unimpressed.\n\nThe feature cascade, shot in the polished domestic language of a lifestyle film. Real-time translation. Mood history. And sibling mode, for multi-cat households, in which two cats sit side by side and both are completely indifferent.\n\nTestimonials. Two owners, shot in exactly the grammar of a real testimonial commercial, one soft key and a chair. The first is delighted. The second says, finally I understand her, then goes quiet, then adds: I wish I didn't.\n\nA demonstration. A woman kneels down to face the cat and holds out a hand, and the translation coming out of the device is only: no. And then: no. And then: no. Back to the deck, faster, glossier, completely ignoring what we just watched.\n\nThen the turn, and it is the longest shot in the film. A man alone at night on his kitchen floor, lit only by an open fridge, talking to his cat through the device. He says something true and lonely. The device translates her answer, and the answer is entirely indifferent. He accepts it and stays on the floor with her anyway. It is the only shot in the film with no music.\n\nBack to brand. Logo, tagline, and a line of small-print terms that brings the whole film down: results may vary, the cat is under no obligation to participate. And after the logo, one shot: the collar on the floor, taken off, and the cat asleep on a flattened box. The thesis: we bought a device to tell us what they are thinking, and we got exactly what we already knew, only now in words."
+  },
+
+  shots: {
+    style: STUDIO,
+    prompts: function (s) {
+      return [
+        { label: "פריים (Nano Banana Pro, 16:9)", btn: "העתק פרומפט פריים",
+          text: s.style + " " + s.still + " " + NEG },
+        { label: "תנועה (Kling 3 std, image-to-video)", btn: "העתק פרומפט תנועה",
+          text: s.motion + " 16:9, model sound off." }
+      ];
+    },
+    list: [
+      { n:1, dur:"6 שנ'", durEn:"6s", cam:"מאקרו נעול, 100mm", camEn:"Locked macro, 100mm", model:"Nano Banana Pro ואז Kling 3 std", style:HOME,
+        title:"נשימה אחת בחושך", titleEn:"One breath in the dark",
+        img:"hf_20260811_152436_5d0ee62f-ac18-4d88-b373-df2a951715d5.png",
+        still:"An extreme close view of the flank of a sleeping short haired domestic cat, mostly slate grey with a white chest blaze, in near darkness, only the very tips of the fur catching a single distant light and the rest of the frame falling to black. One whisker crossing into the lit edge. 100mm macro at T2, camera a hand's width from the fur, focus on the lit fur tips. The lit edge runs along the lower right and the rest is unbroken black. Grain rises heavily in the crushed shadow.",
+        motion:"Nothing moves except the slow rise and fall of the sleeping cat's flank and one whisker trembling. The darkness, the light source and everything else hold completely still and nothing enters the frame. The camera stays completely locked off. The shot ends on the same slow breath it began on. The fur moves as one mass with the ribs rather than independently." },
+
+      { n:2, dur:"10 שנ'", durEn:"10s", cam:"נעול, סלואו מושן קיצוני, 100mm", camEn:"Locked, extreme slow motion, 100mm", model:"Nano Banana Pro ואז Kling 3 std", style:STUDIO,
+        title:"יראת הכבוד", titleEn:"The reverence",
+        img:"hf_20260811_152436_7d93a652-8498-4faa-b067-2311244ca924.png",
+        still:"A short haired domestic cat, mostly slate grey with a white chest blaze and one white forepaw, a torn notch in the left ear, wide amber eyes set slightly asymmetrically, a permanently unimpressed expression, turning its head slowly toward the lens against the black backdrop, lit by one clean hard rim light that traces the outline of its ears and shoulder and leaves the face almost dark, every guard hair separated by the light. A single hair standing out of place on the crown of its head. 100mm at T2.8, camera level with the cat's eyes one metre away, focus on the near eye. The cat sits in the right third and black fills the rest. The rim light blooms into a soft veil along the top of the head.",
+        motion:"The cat turns its head slowly toward the lens in one continuous movement and stops, holding the lens. Its body does not shift at all and the black backdrop holds completely still. The camera stays completely locked off. It ends looking directly into the lens without blinking. The movement runs in extreme slow motion so the guard hairs lag behind the skin." },
+
+      { n:3, dur:"8 שנ'", durEn:"8s", cam:"מאקרו נעול, 100mm", camEn:"Locked macro, 100mm", model:"Nano Banana Pro ואז Kling 3 std", style:STUDIO,
+        title:"האישון", titleEn:"The pupil",
+        img:"hf_20260811_152436_9e6eca89-3713-4bec-8fc7-2f045f099fae.png",
+        still:"An extreme macro of a single amber cat eye filling most of the frame, the pupil a wide vertical slit, the iris showing fine radial fibres and a curved reflection of a soft rectangular light source. A tiny fleck of dust caught in the tear line at the inner corner. 100mm macro at T4, camera a few centimetres from the eye, focus on the iris fibres with the surrounding slate grey fur already soft. The eye sits centre left and dark fur fills the rest. Chromatic fringing shows at the edge of the pupil.",
+        motion:"The pupil contracts and then dilates wide in one continuous change while the eye itself does not move at all. The fur, the head and the reflection in the iris hold completely still. The camera stays completely locked off. The pupil ends fully dilated and holds. Only the pupil edge moves, the iris fibres stay exactly where they are." },
+
+      { n:4, dur:"10 שנ'", durEn:"10s", cam:"נעול, המוצר מסתובב על עמוד, 100mm", camEn:"Locked, product turning on a plinth, 100mm", model:"Nano Banana Pro ואז Kling 3 std", style:STUDIO,
+        title:"חשיפת המוצר", titleEn:"The product reveal",
+        img:"hf_20260811_152222_cb56d6bc-275a-4673-8375-bb74a4c00d16.png",
+        still:"A slim machined aluminium pet collar standing upright on a low black plinth, its band a single continuous ring with a small sealed module at the front, one warm amber indicator dot unlit. A single hairline machining mark across the top of the module, the only imperfection on it. 100mm at T2.8, camera at plinth height one metre away, focus on the module face with the far side of the ring already soft. The collar stands centre and the backdrop falls away to black on both sides. A faint lens veil bleeds off the rim light into the upper right.",
+        motion:"The collar rotates slowly on its plinth through half a turn and stops with the module facing the lens. The plinth, the backdrop and the light hold completely still. The camera stays completely locked off. It ends with the module square to the lens and the amber indicator still dark. The rotation is perfectly even with no wobble." },
+
+      { n:5, dur:"12 שנ'", durEn:"12s", cam:"נעול, פיצוץ רכיבים, 100mm", camEn:"Locked, exploded view, 100mm", model:"Nano Banana Pro ואז Kling 3 std", style:STUDIO,
+        title:"פיצוץ הרכיבים", titleEn:"The exploded view",
+        img:"hf_20260811_152222_3d75865f-552e-40bf-9cd8-c8717a16ae9d.png",
+        still:"A slim machined aluminium pet collar broken apart into its components and suspended in the air in an even exploded row, band, sealed module, nine tiny microphone capsules, a battery cell and a bare circuit board, each part hanging perfectly still. One microphone capsule is very slightly out of line with the other eight. 100mm at T4, camera level with the row two metres away, focus on the module at the centre. The row runs across the middle of the frame and the backdrop falls to black above and below. The nearest part at the frame edge is soft.",
+        motion:"The exploded components drift a few centimetres further apart and then hold, each part rotating very slowly on its own axis. Nothing enters the frame that is not already in it and the backdrop does not move. The camera stays completely locked off. The parts end further apart and still rotating. The parts have weight and rotate at different rates according to their size." },
+
+      { n:6, dur:"8 שנ'", durEn:"8s", cam:"מאקרו נעול, 100mm", camEn:"Locked macro, 100mm", model:"Nano Banana Pro ואז Kling 3 std", style:STUDIO,
+        title:"תשעה מיקרופונים", titleEn:"Nine microphones",
+        img:"hf_20260811_152222_c95887d1-0c85-4bd4-a026-d589164151af.png",
+        still:"Nine tiny gold coloured microphone capsules seated in a precise row inside a milled aluminium channel, each ringed with a black gasket, the metal around them showing fine concentric machining marks. A single dust particle resting on the fourth capsule. 100mm macro at T2.8, camera almost flat to the channel a few centimetres away, focus on the fourth capsule with the first and the ninth falling soft. The row runs diagonally across the frame. The highlight along the machined edge blooms slightly.",
+        motion:"The row of microphone capsules glints one after another from left to right as a light passes across them out of frame. The channel, the capsules and the dust particle hold completely still. The camera stays completely locked off. The glint ends on the ninth capsule. Only the highlight moves, nothing physical does." },
+
+      { n:7, dur:"10 שנ'", durEn:"10s", cam:"נעול, 85mm", camEn:"Locked, 85mm", model:"Nano Banana Pro ואז Kling 3 std", style:STUDIO,
+        title:"ארבע מאות אלף שעות", titleEn:"Four hundred thousand hours",
+        img:"hf_20260811_152222_7d013378-4660-4b42-b0a5-11b45bc8c0d4.png",
+        still:"A rising stepped array of polished aluminium bars standing on a black surface, each bar taller than the one before it, arranged in a clean ascending curve, sculptural and abstract with no markings of any kind on them. The tallest bar carries a faint fingerprint someone forgot to polish off. 85mm at T4, camera low and level with the base of the array, focus on the third bar. The array climbs from the lower left toward the upper right and black fills the rest. A soft flare crosses the top of the tallest bar.",
+        motion:"Continuous motion throughout with nothing ever holding still: the aluminium bars rise out of the black surface one after another in an ascending run, each stopping at its own height. The black surface and the lighting stay exactly where they are. The camera stays completely locked off. The tallest bar rises last and the array holds. Each bar has real mass and settles with a small overshoot." },
+
+      { n:8, dur:"8 שנ'", durEn:"8s", cam:"נעול, 85mm", camEn:"Locked, 85mm", model:"Nano Banana Pro ואז Kling 3 std", style:STUDIO,
+        title:"הקולר נסגר", titleEn:"The collar closes",
+        img:"hf_20260811_152436_05047935-fd16-432f-b399-d065d39c785f.png",
+        still:"A short haired domestic cat, mostly slate grey with a white chest blaze and one white forepaw, a torn notch in the left ear, wide amber eyes set slightly asymmetrically, a permanently unimpressed expression, sitting upright on a black seamless surface while a slim machined aluminium collar closes around its neck, the cat entirely unmoved and looking slightly off camera, the amber indicator on the collar lit low. The fur pushed up into a small ridge where the band sits. 85mm at T2.8, camera level with the cat's chest one and a half metres away, focus on the collar module with the face soft above it. The cat sits centre and black falls away on both sides. The rim light along the collar blooms.",
+        motion:"The collar closes around the cat's neck in one smooth movement and clicks shut, and the amber indicator lights. The cat does not move at all and does not react in any way. The camera stays completely locked off. It ends with the collar closed and the cat still looking slightly off camera. The fur is displaced by the band and springs only partly back." },
+
+      { n:9, dur:"10 שנ'", durEn:"10s", cam:"נעול, 85mm", camEn:"Locked, 85mm", model:"Nano Banana Pro ואז Kling 3 std", style:LIFESTYLE,
+        title:"תרגום בזמן אמת", titleEn:"Real-time translation",
+        img:"hf_20260811_152436_9e6553e6-9d65-4598-8e1f-7b86e753a00e.png",
+        still:"A hand holding a phone at arm's length in a bright modern living room, the phone screen a plain soft field of pale light with nothing legible on it at all, a slate grey short haired cat with a white chest blaze sitting on a rug in the background completely ignoring it. A charging cable still plugged into the bottom of the phone and trailing out of frame. 85mm at T2, camera at seated eye height two metres away, focus on the phone with the cat dissolved behind it. The phone sits in the left third and the cat is a soft shape at the right. The screen is blown a stop and a half.",
+        motion:"The cat in the background turns its head away from the phone and settles, while the hand holding the phone stays exactly where it is. The room, the furniture and the phone hold completely still. The camera stays completely locked off. It ends with the cat facing away. The cat moves only its head and neck, its body does not shift." },
+
+      { n:10, dur:"8 שנ'", durEn:"8s", cam:"נעול מלמעלה, 100mm", camEn:"Locked overhead, 100mm", model:"Nano Banana Pro ואז Kling 3 std", style:LIFESTYLE,
+        title:"היסטוריית מצב רוח", titleEn:"Mood history",
+        img:"hf_20260811_152436_38a99400-7d3c-4fa3-85fb-85e78f7c0f85.png",
+        still:"A phone lying face up on a pale oak table, its screen showing a plain soft gradient of colour with nothing legible on it at all, a slate grey short haired cat asleep in the background out of focus on a sage cushion. A ring of condensation on the oak beside the phone. 100mm at T2.8, camera looking down at forty five degrees from half a metre, focus on the near edge of the phone. The phone sits in the lower right and the sleeping cat is a soft mass in the upper left. The window highlight on the screen glass is blown.",
+        motion:"The colour on the phone screen shifts slowly through one gradual change while the sleeping cat behind it breathes. The table, the phone and the room hold completely still and nothing enters the frame. The camera stays completely locked off. The screen ends on a different colour than it began. Only light changes on the screen, the phone itself does not move at all." },
+
+      { n:11, dur:"10 שנ'", durEn:"10s", cam:"נעול, 85mm", camEn:"Locked, 85mm", model:"Nano Banana Pro ואז Kling 3 std", style:STUDIO,
+        title:"מצב אחים", titleEn:"Sibling mode",
+        img:"hf_20260811_152436_90bfefe8-458e-40fe-93f7-2cf2a70d74f2.png",
+        still:"Two short haired domestic cats sitting side by side on a black seamless surface, the left one slate grey with a white chest blaze and a torn notch in the left ear, each wearing a slim machined aluminium collar with a lit amber indicator, both looking in different directions and both completely indifferent, one of them caught mid-blink. The tail of the left cat crossing over the paw of the right one. 85mm at T4, camera level with them two metres away, focus on the nearer collar. The two cats sit centred with black falling away on both sides. The rim light along both collars blooms into the black.",
+        motion:"The right hand cat blinks slowly and looks further away, while the left hand cat does not move at all. The black backdrop, the collars and the light hold completely still. The camera stays completely locked off. Both cats end looking in different directions. Only eyelids and one ear move in the whole frame." },
+
+      { n:12, dur:"10 שנ'", durEn:"10s", cam:"נעול, 85mm, דקדוק של עדות", camEn:"Locked, 85mm, testimonial grammar", model:"Nano Banana Pro ואז Kling 3 std", style:TESTIMONIAL,
+        title:"עדות ראשונה", titleEn:"First testimonial",
+        img:"hf_20260811_152436_7e363874-4113-44e5-84fb-15be54166b42.png",
+        still:"A woman of about fifty sitting in an interview chair against a warm neutral wall, leaning slightly forward and speaking with real delight, her hands lifted, her eyes just off the lens toward an interviewer. A small framed photograph on a shelf behind her, deliberately half cropped by the frame edge. 85mm at T2, camera at her seated eye height two metres away, focus on her near eye. She occupies the right two thirds and soft wall fills the left. The key light blows the highlight on her forehead.",
+        motion:"She speaks with delight, her hands lifting once and coming back down to her lap. The chair, the wall and the shelf behind her hold completely still and nothing enters the frame. The camera stays completely locked off. She ends with her hands in her lap and still smiling. Her whole upper body moves with the gesture, not only her arms." },
+
+      { n:13, dur:"14 שנ'", durEn:"14s", cam:"נעול, 85mm, דקדוק של עדות", camEn:"Locked, 85mm, testimonial grammar", model:"Nano Banana Pro ואז Kling 3 std", style:TESTIMONIAL,
+        title:"הלוואי שלא הייתי", titleEn:"I wish I didn't",
+        img:"hf_20260811_152436_0b82367b-3d54-450b-bacb-56e9fe12c8cf.png",
+        still:"A man of about sixty sitting in an interview chair against a warm neutral wall, sitting back, his mouth closed at the end of a sentence, his eyes just off the lens and no longer smiling, his hands flat on his knees. A single cat hair caught on the shoulder of his shirt. 85mm at T2, camera at his seated eye height two metres away, focus intended on his near eye. He occupies the right two thirds and soft wall fills the left. The focus lands a centimetre behind the eye, on his ear.",
+        motion:"He finishes a sentence, closes his mouth, and the smile leaves his face without anything replacing it. His hands stay flat on his knees and the wall behind him holds completely still. The camera stays completely locked off. He ends looking off lens with no expression at all. The change happens in the eyes first and in the mouth second." },
+
+      { n:14, dur:"16 שנ'", durEn:"16s", cam:"נעול ברמת הרצפה, 50mm", camEn:"Locked at floor level, 50mm", model:"Nano Banana Pro ואז Kling 3 std", style:LIFESTYLE,
+        title:"ההדגמה", titleEn:"The demonstration",
+        img:"hf_20260811_152436_7161266c-00f3-4f3a-928f-8f3e0f81477c.png",
+        still:"A woman kneeling down on a pale oak floor with her face level with a slate grey short haired cat that has a white chest blaze and a torn notch in the left ear, holding one hand out low toward it, the cat sitting upright wearing a slim aluminium collar with its amber indicator lit and looking at her without moving at all. Her knees pressed white against the wood. 50mm at T2, camera on the floor at the cat's eye height two metres away, focus on the cat. The cat sits in the right third and the kneeling woman fills the left. The window behind them is blown two stops.",
+        motion:"The woman holds her hand out low toward the cat and waits, and the cat does not move at all. The floor, the window light and the room hold completely still. The camera stays completely locked off. It ends with her hand still out and the cat still not having moved. Her hand trembles very slightly from being held out too long." },
+
+      { n:15, dur:"12 שנ'", durEn:"12s", cam:"נעול, 85mm, מונטאז' מהיר", camEn:"Locked, 85mm, fast montage", model:"Nano Banana Pro ואז Kling 3 std", style:STUDIO,
+        title:"חזרה למצגת", titleEn:"Back to the deck",
+        img:"hf_20260811_152436_76171541-62f5-4227-a5f3-b07c90e23360.png",
+        still:"A hand in a dark sleeve sweeping past a row of identical machined aluminium collars standing upright on a black plinth, the hand blurred by the movement and the collars sharp, all their amber indicators lit in a line. One collar in the row is turned a few degrees out of alignment with the others. 85mm at T4, camera level with the plinth two metres away, focus on the third collar. The row runs across the lower half and black fills everything above. The moving hand carries heavy motion blur while everything else is sharp.",
+        motion:"A hand in a dark sleeve sweeps past the row of collars from right to left in one fast movement and leaves frame. The collars, the plinth and the backdrop hold completely still and none of them is knocked. The camera stays completely locked off. The frame ends on the still row alone. The hand is heavily motion blurred and the collars are not." },
+
+      { n:16, dur:"26 שנ'", durEn:"26s", cam:"נעול ברמת רצפת המטבח, 40mm. השוט הארוך של הסרט", camEn:"Locked at kitchen floor level, 40mm. The film's long shot", model:"Nano Banana Pro ואז Kling 3 std", style:HOME,
+        title:"התפנית", titleEn:"The turn",
+        img:"hf_20260811_152436_46298714-877e-453a-925b-0a3236563a2c.png",
+        still:"A man of about thirty eight, Israeli, lean and tired looking, dark hair growing out of a short cut, four days of uneven stubble, a small scar under his right eye, wearing a stretched grey cotton t-shirt and soft dark tracksuit trousers, barefoot, sitting on the floor of a small kitchen at night with his back against a cupboard and his knees up, speaking quietly toward a slate grey short haired cat sitting on the tiles a metre away wearing a slim aluminium collar with its amber indicator lit, the only light coming from an open fridge behind him. An unopened tin of cat food standing on the floor between them. 40mm at T2, camera on the kitchen floor at his seated eye height three metres away, focus on him with the cat soft in the foreground. He sits in the right half, the cat is a dark shape lower left, the upper third is a dark cupboard face. The open fridge blows out behind him and haloes his shoulder.",
+        motion:"Continuous motion throughout with nothing ever holding still: he talks quietly to the cat, shifts his weight, rubs his face with one hand and lets it drop, while the cat sits and does not move at all. The kitchen, the cupboards and the fridge light stay exactly where they are. The camera stays completely locked off. He ends looking at the cat with his hand back on the floor. He is genuinely tired and every movement costs him something." },
+
+      { n:17, dur:"10 שנ'", durEn:"10s", cam:"מאקרו נעול, 100mm", camEn:"Locked macro, 100mm", model:"Nano Banana Pro ואז Kling 3 std", style:HOME,
+        title:"אני יודעת", titleEn:"I know",
+        img:"hf_20260811_152559_0e9563ed-007e-4417-b051-a9a21cea76fc.png",
+        still:"An extreme close view of a slim aluminium collar module on a slate grey cat's neck at night, the amber indicator lit steadily, the fur around it lit only by a cold spill from an open fridge out of frame. A single fine scratch across the face of the module. 100mm macro at T2, camera a hand's width from the collar, focus on the indicator with the fur already dissolving. The module sits centre right and dark fur fills the rest. The indicator blooms and flares slightly.",
+        motion:"The amber indicator pulses twice, brightens, and settles back to steady. The fur, the collar and the cold light hold completely still. The camera stays completely locked off. It ends on the same steady glow it started on. Only the light level changes, no object moves." },
+
+      { n:18, dur:"12 שנ'", durEn:"12s", cam:"נעול ברמת רצפת המטבח, 40mm", camEn:"Locked at kitchen floor level, 40mm", model:"Nano Banana Pro ואז Kling 3 std", style:HOME,
+        title:"הוא נשאר איתה", titleEn:"He stays with her",
+        img:"hf_20260811_152559_adf0fb63-01b1-4309-8a5c-6ccd26330239.png",
+        still:"A man of about thirty eight, Israeli, lean and tired looking, dark hair growing out of a short cut, four days of uneven stubble, a small scar under his right eye, wearing a stretched grey cotton t-shirt and soft dark tracksuit trousers, barefoot, still sitting on the kitchen floor at night with his head tipped back against the cupboard and his eyes open, a slate grey short haired cat now lying down on the tiles beside his foot rather than facing him, neither of them looking at the other. His hand resting palm up on the tiles halfway between them, not reaching. 40mm at T2, camera on the kitchen floor at his seated eye height three metres away, focus on his open hand between them. He sits right, the cat lies lower left, the upper third is dark cupboard. The open fridge behind him is blown and the room falls three stops under.",
+        motion:"He tips his head back against the cupboard and then does not move again, while the cat lies down and settles by his foot. The kitchen and the fridge light hold completely still for the rest of the shot. The camera stays completely locked off. It ends with both of them still and neither looking at the other. Only his chest and the cat's flank move, very slowly." },
+
+      { n:19, dur:"10 שנ'", durEn:"10s", cam:"נעול, פלייט ללוגו, 85mm", camEn:"Locked, logo plate, 85mm", model:"Nano Banana Pro ואז Kling 3 std", style:STUDIO,
+        title:"סוף סוף, בעברית", titleEn:"Finally, in Hebrew",
+        type:"מיאו. סוף סוף, בעברית.",
+        img:"hf_20260811_152223_958c0f17-135d-4e32-ac2f-4cef31eec499.png",
+        still:"A slim machined aluminium pet collar standing alone and perfectly centred on a polished black seamless surface, the amber indicator lit low and steady, absolutely nothing else anywhere in the frame. A shallow reflection of the collar in the polished black surface beneath it. 85mm at T4, camera level with the collar two metres back, focus on the module. The collar sits low and centred and the entire upper half of the frame is empty black. The reflection falls off into pure black about a hand's width below the object.",
+        motion:"Nothing moves at all except a very slow crawl of the rim highlight along the top of the collar. The plinth, the backdrop and the reflection hold completely still. The camera stays completely locked off. The shot ends exactly as it began. The amber indicator holds a perfectly constant level." },
+
+      { n:20, dur:"8 שנ'", durEn:"8s", cam:"נעול, פלייט לאותיות הקטנות, 85mm", camEn:"Locked, small-print plate, 85mm", model:"Nano Banana Pro ואז Kling 3 std", style:STUDIO,
+        title:"האותיות הקטנות", titleEn:"The small print",
+        type:"התוצאות משתנות. החתול אינו מחויב להשתתף.",
+        img:"hf_20260811_152222_6457c96c-2db1-465f-9bea-441fb4ce7009.png",
+        still:"A wide empty black surface running edge to edge with a slim machined aluminium pet collar lying flat and far out of focus along the very bottom of the frame, its amber indicator a soft unfocused point of light. The out of focus indicator flares into a small clean disc. 85mm at T2, camera very low and close to the surface, focus set well beyond the collar on empty black. The collar occupies only the bottom eighth of the frame and everything above it is unbroken black. Heavy vignetting into the corners.",
+        motion:"Nothing moves in the frame except the out of focus amber point drifting a fraction as the surface settles. The black surface and the collar hold completely still. The camera stays completely locked off. The shot ends exactly as it began, still empty and still black. The defocused point of light keeps a clean circular shape throughout." },
+
+      { n:21, dur:"10 שנ'", durEn:"10s", cam:"נעול ברמת הרצפה, 50mm", camEn:"Locked at floor level, 50mm", model:"Nano Banana Pro ואז Kling 3 std", style:HOME,
+        title:"הקולר על הרצפה", titleEn:"The collar on the floor",
+        img:"hf_20260811_152600_b025a5a0-da6d-4059-9b72-f56276cebf34.png",
+        still:"A slim machined aluminium collar lying open and unfastened on a kitchen floor with its amber indicator dark, and beside it a slate grey short haired cat with a white chest blaze asleep curled on a flattened cardboard box, low morning light coming in across the tiles. A scuff of cat hair caught in the open clasp of the collar. 50mm at T2.8, camera on the floor at tile level two metres away, focus on the collar with the sleeping cat soft behind it. The collar sits lower right, the cat is a soft mass upper left, the tiles run away to the top of the frame. The morning light streak across the tiles is blown.",
+        motion:"The sleeping cat's flank rises and falls slowly and one ear rotates once toward a sound out of frame, and nothing else moves. The collar, the cardboard and the morning light hold completely still. The camera stays completely locked off. It ends with the cat still asleep and the collar still dark. The ear moves independently of the head, which does not lift." }
+    ]
+  },
+
+  vo: [
+    { t:"0:08 · שוט 2", sec:"קריינות", text:"אחת עשרה אלף שנה אנחנו חיים לצידם.",
+      sub:"‫אחת עשרה אלף שנה אנחנו חיים לצידם.‬",
+      en:"For eleven thousand years we have lived beside them.",
+      note:"הקריינות היא עברית בטון של השקת מוצר דגל: שקטה, בטוחה, מאמינה בעצמה לגמרי, בלי שמץ אירוניה. ברגע שיש קריצה בקול, כל הסרט נופל. המספרים נכתבים במילים בתסריט הקריינות וכספרות בכתוביות, לפי הכלל של הסדרה." },
+    { t:"0:18 · שוט 3", sec:"קריינות", text:"ואף פעם לא ידענו מה הם חושבים.",
+      sub:"‫ואף פעם לא ידענו מה הם חושבים.‬",
+      en:"And we never knew what they were thinking." },
+    { t:"0:27 · שוט 4", sec:"קריינות", text:"זה מיאו.",
+      sub:"‫זה מיאו.‬",
+      en:"This is Miao." },
+    { t:"0:48 · שוט 6", sec:"קריינות", text:"תשעה מיקרופונים.",
+      sub:"‫תשעה מיקרופונים.‬",
+      en:"Nine microphones." },
+    { t:"0:57 · שוט 7", sec:"קריינות", text:"ארבע מאות אלף שעות של האזנה.",
+      sub:"‫ארבע מאות אלף שעות של האזנה.‬",
+      en:"Four hundred thousand hours of listening." },
+    { t:"1:06 · שוט 8", sec:"קריינות", text:"ומעבד שתוכנן למשימה אחת בלבד.",
+      sub:"‫ומעבד שתוכנן למשימה אחת בלבד.‬",
+      en:"And a processor designed for one task only." },
+    { t:"1:43 · שוט 12", sec:"עדות א", text:"היא אמרה לי בוקר טוב. בעברית.",
+      sub:"‫היא אמרה לי בוקר טוב. בעברית.‬",
+      en:"She said good morning to me. In Hebrew.",
+      note:"העדויות הן שורות של שלוש עד חמש שניות עם חתכים, לא שיחות. כל אחת מהן מצולמת בדיוק כמו עדות אמיתית, וזה מה שמייצר את חוסר הנוחות." },
+    { t:"1:53 · שוט 13", sec:"עדות ב", text:"סוף סוף אני מבין אותה.",
+      sub:"‫סוף סוף אני מבין אותה.‬",
+      en:"Finally I understand her." },
+    { t:"1:59 · שוט 13", sec:"עדות ב", text:"הלוואי שלא הייתי.",
+      sub:"‫הלוואי שלא הייתי.‬",
+      en:"I wish I didn't.",
+      note:"בין שתי השורות שלו יושבות שלוש שניות של שתיקה מלאה. השתיקה הזאת היא הרגע שהסרט מפסיק להיות בדיחה, וחייבים לתת לה את מלוא האורך." },
+    { t:"2:08 · שוט 14", sec:"מכשיר", text:"לא.",
+      sub:"‫לא.‬",
+      en:"No.",
+      note:"נאמר שלוש פעמים לאורך השוט, באותו טון סינתטי מדויק בכל פעם, בלי שום שינוי. הקול של המכשיר הוא הקול היחיד בסרט שאינו אנושי ואינו קריינות." },
+    { t:"2:40 · שוט 16", sec:"גבר", text:"אני לא יודע למה אני מדבר איתך. את אפילו לא מסתכלת עליי.",
+      sub:"‫אני לא יודע למה אני מדבר איתך. את אפילו לא מסתכלת עליי.‬",
+      en:"I don't know why I'm talking to you. You don't even look at me." },
+    { t:"3:00 · שוט 17", sec:"מכשיר", text:"אני יודעת.",
+      sub:"‫אני יודעת.‬",
+      en:"I know.",
+      note:"השורה שכל הסרט תלוי בה. היא חייבת להישמע אדישה לגמרי, באותו טון סינתטי בדיוק כמו הלא, ובדיוק בגלל זה היא הופכת לרכה. אם הקול ירכך אותה, הסרט נגמר." },
+    { t:"3:24 · שוט 19", sec:"קריינות", text:"מיאו. סוף סוף, בעברית.",
+      sub:"‫מיאו. סוף סוף, בעברית.‬",
+      en:"Miao. Finally, in Hebrew." }
+  ],
+
+  mood: {
+    h3: "הטון של הסרט",
+    copyLabel: "העתק הוראות אווירה",
+    copyHead: 'הוראות אווירה והלך רוח לסרט "עברית לחתולים":',
+    paras: [
+      "הסרט מאמין בעצמו לחלוטין, מהשנייה הראשונה ועד הלוגו. הוא לא פארודיה שמכריזה על עצמה, הוא פרסומת אמיתית שבמקרה מוכרת דבר בלתי אפשרי. כל הקומדיה נובעת מהפער בין הרצינות של הצורה לבין מה שקורה בתוכה, וזה בדיוק המכניזם שלקח את הפרס הגדול ביותר שניתן אי פעם לסרט AI. ברגע שהסרט קורץ, הפורמט מפסיק להתיר את הפגמים ומתחיל לחשוף אותם."
+    ],
+    rows: [
+      ["שתי שפות חזותיות", "סטודיו מוצר מול חומר ביתי, והחילוף ביניהן חד ולא מרוכך. הסטודיו הוא שחור חלק, רים נקי, עומק שדה רדוד מאוד ואפס גריין. הביתי הוא אור טבעי, גריין אמיתי, ומצלמה שנשענת ביד. שוט 16 יוצא לגמרי מהשפה של הפרסומת, ולכן הוא עובד."],
+      ["קצב", "עולה בהתמדה מהחשיפה ועד המונטאז' בשוט 15, ואז נופל לחלוטין. שוט 16 ארוך פי שניים מכל שוט אחר בסרט, ואסור לחתוך אותו באמצע בשום מצב."],
+      ["מצלמה", "כל עשרים ואחד השוטים נעולים. אין תנועת מצלמה בסרט הזה בכלל, כי פרסומת מוצר אמיתית עושה את זה בסליידר או בקאט ולא בטלטול, וכי כל שוט נעול הוא שוט שלא יכול להתפרק."],
+      ["חתולים", "החתול הוא הגיבור הלא אנושי של הסרט והוא אף פעם לא משחק. הוא לא מתרשם בשוט 8, לא מגיב בשוט 14, ולא מסתכל בשוט 18. ההוראה לבימוי היא שהחתול תמיד עושה פחות ממה שהרגע מבקש."],
+      ["סאונד", "מוזיקה נקייה של השקת מוצר בכל הסרט, שמתגברת לקראת המונטאז'. היא נעצרת לגמרי בכניסה לשוט 16 וחוזרת רק בלוגו. שוט 16 הוא היחיד בלי מוזיקה, וזה מה שהופך אותו לרגע ולא לעוד סצנה."],
+      ["טקסט", "שני כרטיסים בלבד, שניהם בעריכה ואף אחד מהם לא בג'נרציה: הלוגו והסלוגן בשוט 19, והאותיות הקטנות בשוט 20. האותיות הקטנות הן הבדיחה הכי טובה בסרט ולכן הן צריכות להיראות בדיוק כמו אותיות קטנות אמיתיות, קטנות ומשעממות ולא מודגשות."]
+    ],
+    rules: ["הסרט לא קורץ אף פעם", "כל השוטים נעולים", "החתול תמיד עושה פחות", "שוט 16 בלי מוזיקה", "טקסט רק בעריכה"],
+    enLabel: "English direction",
+    enCopyLabel: "Copy English direction",
+    en: "Tone: the film believes itself completely, from the first second to the logo. It is not a parody that announces itself, it is a real commercial that happens to be selling an impossible thing. All of the comedy comes from the gap between the seriousness of the form and what is happening inside it, which is precisely the mechanism behind the largest prize ever awarded to an AI short. The moment the film winks, the format stops licensing the flaws and starts exposing them.\n\nTwo visual languages: product studio against domestic material, and the switch between them is hard and never softened. The studio is smooth black, a clean rim, extremely shallow depth of field and zero grain. The domestic is available light, real grain, and a camera resting in a hand. Shot 16 leaves the language of the commercial entirely, which is exactly why it works.\n\nPacing: it builds steadily from the reveal through the montage in shot 15, then falls away completely. Shot 16 is twice the length of any other shot in the film and must never be cut into.\n\nCamera: all twenty one shots are locked. There is no camera movement in this film at all, because a real product commercial does this on a slider or with a cut rather than with a wobble, and because a locked shot is a shot that cannot fall apart.\n\nCats: the cat is the film's non-human protagonist and it never acts. It is unimpressed in shot 8, unresponsive in shot 14, and not looking in shot 18. The directing instruction is that the cat always does less than the moment asks for.\n\nSound: clean product-launch music throughout, rising toward the montage. It stops completely on the cut into shot 16 and returns only at the logo. Shot 16 is the only shot with no music, and that is what makes it a moment rather than another scene.\n\nText: exactly two cards, both added in the edit and neither generated: the logo and tagline in shot 19, and the small print in shot 20. The small print is the best joke in the film, which is why it has to look exactly like real small print, small and boring and not emphasised."
+  },
+
+  story: {
+    h3: "מאיפה זה מגיע",
+    copyLabel: "העתק סיפור רקע",
+    copyHead: 'סיפור הרקע לסרט "עברית לחתולים":',
+    paras: [
+      "הרעיון שאפשר לתרגם חיה הוא ישן וחוזר בכל פעם שיש טכנולוגיה חדשה להתלות בה. מה שהשתנה בשנים האחרונות הוא שזה הפסיק להיות בדיחה: יש היום מאמצים רציניים ומתועדים לפענח תקשורת של חיות בעזרת מודלים, ובעולם הצרכני יש כבר מוצרים שמבטיחים לתרגם נביחות או ניאוקים לשפה אנושית. הרעיון הבדיוני היחיד בסרט הזה הוא הרמה שבה זה עובד, לא הקיום שלו.
+
+וזאת בדיוק הסיבה שהוא עובד כפרסומת מזויפת. הצופה כבר ראה השקה כזאת. הוא מכיר את הדקדוק לגמרי: השחור בהתחלה, החומר שמסתובב באיטיות, פיצוץ הרכיבים באוויר, המספר הגדול שאמור להרשים, והעדות שמצולמת באור רך על כיסא. אנחנו לא צריכים להסביר שום דבר מהצורה הזאת, כי היא כבר יושבת בראש שלו.",
+      "ומכאן הבחירה שהופכת את זה מבדיחה לסרט. השאלה שהמכשיר מבטיח לענות עליה היא מה החתול חושב. השאלה האמיתית של האדם שקונה אותו היא שונה לגמרי, והיא האם החתול אוהב אותי. אלה לא אותה שאלה, והמכשיר יכול לענות רק על הראשונה. כל הסרט בנוי על הפער הזה.",
+      "בעלים של חתולים כבר יודעים את התשובה. הם לא צריכים מכשיר כדי לדעת שהחתולה שלהם אדישה, הם חיים עם זה כל יום, והם נשארים בכל מקרה. וזה בדיוק מה שקורה בשוט 16: הגבר מקבל אישור מפורש למה שהוא כבר ידע, וזה לא משנה שום דבר בהתנהגות שלו. הוא נשאר על הרצפה.",
+      "מה שנשאר פתוח, ואני לא בטוח שיש לזה תשובה טובה: אם היינו יכולים באמת לשמוע מה כל דבר שאנחנו אוהבים חושב עלינו, האם היינו רוצים. עדות ב בשוט 13 אומרת את זה בשש מילים, והסרט לא חוזר על זה אף פעם. הוא רק מוכר לך את המכשיר."
+    ],
+    enLabel: "English backstory",
+    enCopyLabel: "Copy English backstory",
+    en: "The idea that an animal could be translated is old, and it comes back every time there is a new technology to hang it on. What changed in recent years is that it stopped being a joke: there are now serious documented efforts to decode animal communication using models, and in the consumer world there are already products promising to turn barks or meows into human language. The only invented thing in this film is the level at which it works, not the fact that it exists.\n\nAnd that is exactly why it works as a fake commercial. The viewer has already seen this launch. They know the grammar completely: the black at the start, the material turning slowly, the components exploding in mid air, the big number meant to impress, and the testimonial shot in soft light on a chair. We do not need to explain any of that form, because it is already sitting in their head.\n\nFrom there comes the choice that turns this from a joke into a film. The question the device promises to answer is what does the cat think. The real question of the person buying it is a completely different one, and it is does the cat love me. Those are not the same question, and the device can only answer the first. The whole film is built on that gap.\n\nCat owners already know the answer. They do not need a device to tell them their cat is indifferent, they live with it every day, and they stay anyway. And that is exactly what happens in shot 16: the man gets explicit confirmation of what he already knew, and it changes nothing at all in his behaviour. He stays on the floor.\n\nWhat stays open, and I am not sure it has a good answer: if we really could hear what everything we love thinks about us, would we want to. The second testimonial says it in six words in shot 13, and the film never returns to it. It just goes on selling you the device."
+  },
+
+  notes: {
+    title: "איך מפיקים את זה, ומה מסוכן בו",
+    items: [
+      "תיקון אורך, וזו הפעם השלישית ברצף: הטיפול כתב 2:40, מה שהיה פוסל את הסרט אוטומטית באסטנה ומוציא אותו מהרף של היגספילד. סכום המשכים בטבלה הוא 228 שניות, כלומר 3:48, והסרט כשר לשתי התחרויות בלי לשנות בו שוט אחד. תמיד לסכם את הטבלה.",
+      "הסיכון היחיד שיכול להרוג את הסרט הוא קריצה. אף שוט לא מודה שזו בדיחה, אף שחקן לא מרים גבה, והקריינות לא משנה טון אפילו בשורה על ארבע מאות אלף שעות. השורה הכי מצחיקה בסרט, האותיות הקטנות בשוט 20, נמסרת בלי שום הדגשה.",
+      "נעילת דמות: שני גיליונות דמות בארבע תצוגות, אחד לחתול ואחד לגבר של שוט 16, וכל שוט שבו הם מופיעים יוצר מהגיליון כרפרנס תמונה פלוס מחרוזת נעילה זהה מילה במילה. חתול הוא מקרה קשה יותר מאדם כי הסימנים שלו קטנים, ולכן מחרוזת הנעילה כאן נוקבת בשלושה סימנים ולא בשניים: כתם החזה הלבן, כף רגל קדמית לבנה אחת, וחריץ קרוע באוזן השמאלית.",
+      "כל עשרים ואחד הפריימים כבר יוצרו ב-Nano Banana Pro ב-16:9 ומחוברים לכרטיסים כאן. מה שנשאר הוא הנפשה, קריינות, מוזיקה ועריכה.",
+      "מחרוזת סגנון אחת לא מספיקה לסרט הזה, ולכן יש כאן ארבע, וכל כרטיס נושא את שלו בשדה `style`. סטודיו מוצר, ביתי מלוטש, ביתי אמיתי, ועדות. זה בכוונה נגד הכלל הרגיל של מחרוזת אחת לסרט, כי בסרט הזה חילוף השפה החזותית הוא התוכן.",
+      "אין מודל מוזיקה בהיגספילד. הפסקול של השקת מוצר צריך להיות מסונתז ב-numpy בסנדבוקס כמו בפרק 1 של הסדרה, או להילקח ממקור רויאלטי פרי עם התנאים המסחריים מאושרים בכתב לפני ההגשה. רישיון מוזיקה הוא הדבר שהכי מפיל הגשה נקייה בשתי התחרויות.",
+      "שוט 7 הוא הפתרון לבעיה שאין לה פתרון אחר: הטיפול ביקש גרף עולה עם מספר, ומספרים בפרומפט מייצרים זבל. במקום גרף יוצר מערך פיזי של מוטות אלומיניום שעולים במדרגות, בלי שום סימון, והמספר נוסף בעריכה מעל השטח הנקי. אותו טריק חוזר בשוטים 9 ו-10, שבהם מסך הטלפון הוא שדה אור או גרדיאנט ולא ממשק.",
+      "שוטים 19 ו-20 הם פלייטים, כלומר פריימים שנוצרו במפורש כדי שיהיה עליהם מקום ריק לטקסט של העריכה. שוט 19 משאיר את כל החצי העליון שחור ללוגו, ושוט 20 משאיר שבע שמיניות מהפריים שחורות לאותיות הקטנות.",
+      "שוט 16 הוא השוט היחיד בסרט עם סיכון קפיאה, כי הוא ארוך והדמות בו יושבת. הוא כבר נכתב עם Continuous motion throughout בפתיחה ועם שלוש פעולות פיזיות מפורשות. אם הוא בכל זאת חוזר סטטי, לא להוסיף פעלים, אלא לפצל אותו לשני קליפים ולחבר בעריכה על תנועת היד.",
+      "הקאט השני: מאותו חומר בדיוק יוצא קאט של ארבעים וחמש שניות ב-9:16 לרשתות, והוא שוטים 2, 4, 8, 14, 19 ו-21 בלבד. אותו נכס, שני ערוצים, בלי לייצר סט שני של פריימים.",
+      "עובדה אחת שאסור להכניס לסרט: אין שום מוצר אמיתי שמתרגם חתולים ברמה הזאת, ואסור לרמוז שיש. הסרט מומצא לגמרי ואם הוא מוגש לתחרות, גילוי נאות של הפייפליין צריך לומר את זה במפורש, במיוחד באסטנה שדורשת גילוי מלא."
+    ],
+    itemsEn: [
+      "Runtime correction, and this is the third in a row: the treatment said 2:40, which would have auto-rejected the film at Astana and put it under the Higgsfield floor. The shot durations sum to 228 seconds, which is 3:48, and the film qualifies for both contests without changing a single shot. Always sum the table.",
+      "The one risk that can kill this film is a wink. No shot admits it is a joke, no performer raises an eyebrow, and the voice-over does not change register even on the four hundred thousand hours line. The funniest line in the film, the small print in shot 20, is delivered with no emphasis at all.",
+      "Character lock: two four-view character sheets, one for the cat and one for the man in shot 16, and every shot they appear in was generated from the sheet as an image reference plus a verbatim lock string. A cat is a harder case than a person because its markings are small, so the lock string here names three markings rather than two: the white chest blaze, one white forepaw, and a torn notch in the left ear.",
+      "All twenty one frames are already generated in Nano Banana Pro at 16:9 and wired into the cards here. What remains is animation, narration, music and the edit.",
+      "One style string is not enough for this film, so there are four, and each card carries its own in a `style` field: product studio, polished domestic, real domestic, and testimonial. This deliberately breaks the usual one-string-per-film rule, because in this film the switching of visual language IS the content.",
+      "There is no music model in Higgsfield. The product-launch score has to be synthesised in numpy in the sandbox as in episode 1 of the series, or taken from a royalty free source with the commercial terms confirmed in writing before submission. Music licensing is the single most common disqualifier at both contests.",
+      "Shot 7 is the answer to a problem with no other answer: the treatment asked for a rising graph with a number on it, and numbers in a prompt produce garbage. Instead of a graph, a physical array of aluminium bars rising in steps was generated with no markings at all, and the number is added in the edit over the clean area. The same trick recurs in shots 9 and 10, where the phone screen is a field of light or a gradient rather than an interface.",
+      "Shots 19 and 20 are plates, meaning frames generated specifically so that there is empty room on them for the edit's text. Shot 19 leaves the entire upper half black for the logo, and shot 20 leaves seven eighths of the frame black for the small print.",
+      "Shot 16 is the only shot in the film carrying freeze risk, because it is long and its character is seated. It is already written with Continuous motion throughout at the opening and three explicit physical actions. If it still comes back static, do not add verbs, split it into two clips and join them in the edit on the hand movement.",
+      "The second cut: a forty five second 9:16 cut for social comes out of exactly this material, and it is shots 2, 4, 8, 14, 19 and 21 only. One asset, two channels, without generating a second set of frames.",
+      "One thing that must not enter the film: there is no real product that translates cats at this level, and the film must not imply that there is. It is entirely invented, and if it is submitted, the pipeline disclosure needs to say so explicitly, particularly at Astana which requires full disclosure."
+    ]
+  }
+};
+</script>
+<script src="../shared/sb.js?v=5"></script>
+</body>
+</html>
