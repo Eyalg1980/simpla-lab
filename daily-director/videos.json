@@ -1,6 +1,64 @@
 {
  "days": [
   {
+   "date": "2026-08-11",
+   "dateLabel": "יום שלישי, 11 באוגוסט",
+   "ideas": [
+    {
+     "id": "2026-08-11-1",
+     "world": "סרטוני הסבר",
+     "color": "#71F73C",
+     "hook": "חמש אותיות מחליטות אם כלי AI נשאר בזרימת העבודה שלך או עף. נילסן נורמן קראו לזה PROVE. סרטון של 8 שניות שמסביר אותן על מסך אחד.",
+     "concept": "טיפוגרפיה קינטית: האות P עולה במרכז המסך ומתפוצצת לחמש אותיות שנופלות למקומן אחת אחת, P R O V E. השיא בשוט על האות V, שעון עצר קטן מסתובב מהר ואז נעצר ונדלק בקורל, כי המהירות היא המדד שהכי הרבה כלים נופלים בו כשבודקים אותם נכון. עוגן: מסגרת PROVE (Problem, Risk, Output, Velocity, Experience) שפורסמה ב-nngroup.com.",
+     "execution": "Higgsfield, שפת Editorial kinetic, Kling 3 std, 9:16, 8 שניות בשוט אחד רציף, קריינות עברית קצרה בקול Yael (inworld_text_to_speech) שמקריאה את חמש המילים תוך כדי שהאותיות נופלות.",
+     "why": "המסגרת פורסמה ב-7.8, טרייה וקלה מאוד להמחשה חזותית, אותו נכס כמו פוסט ה-UX+AI של היום בבריינסטורמר, נכס אחד בשני ערוצים.",
+     "competition": null,
+     "srcUrl": "https://www.nngroup.com/articles/prove-framework/",
+     "srcLabel": "Nielsen Norman Group, PROVE Framework 7.8",
+     "prompts": {
+      "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A giant letter P rises center screen and bursts into five falling letters P R O V E that lock into a horizontal row one by one, each letter briefly expanding into its full word in thin sans-serif type with a small line icon beside it, camera holds on the letter V as a small stopwatch icon spins rapidly then freezes and glows coral, subtle grain, 9:16, 8 seconds",
+      "script": "פתח לי את רעיון הווידאו \"חמש אותיות מחליטות אם כלי AI נשאר\" לסטוריבורד מלא במבנה הסדרה: לוגליין, סינופסיס, שוט-ליסט של 5 שוטים (אחד לכל אות: Problem, Risk, Output, Velocity, Experience) עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט, פריים פותח ותנועה. העוגן: מסגרת PROVE של נילסן נורמן שפורסמה ב-nngroup.com ב-7.8, לבדוק את התוכן המדויק של המאמר לפני כתיבת התסריט. שפה: editorial kinetic, פחם עמוק, קורל וצהוב חם, 9:16, קריינות עברית קצרה בקול Yael.",
+      "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. Five bold letters P R O V E standing in a clean horizontal row at center frame, each letter paired with a small thin line icon beneath it, the letter V glowing coral brighter than the rest",
+      "raw": "הוק: חמש אותיות מחליטות אם כלי AI נשאר בזרימת העבודה שלך או עף\nעולם: סרטוני הסבר\nקונספט: מסגרת PROVE של נילסן נורמן, טיפוגרפיה קינטית שמפרקת מילה לחמש אותיות, שיא על האות V עם שעון עצר\nביצוע: Higgsfield, שפת Editorial kinetic, Kling 3 std, 9:16, 8 שניות, קריינות עברית קצרה בקול Yael\nלמה עכשיו: המסגרת פורסמה ב-7.8, טרייה וקלה להמחשה, אותו נכס כמו פוסט ה-UX+AI של היום"
+     },
+     "storyboardUrl": null
+    },
+    {
+     "id": "2026-08-11-2",
+     "world": "קונספטואלי",
+     "color": "#71F73C",
+     "hook": "השורות עצמן ידעו הפעם איפה לשבת. פיגמה שחררה גריד עם מיקום אוטומטי, וזה נראה כמו רהיטים שמסדרים את עצמם.",
+     "concept": "שוט קונספטואלי קצר: משטח עבודה ריק שמתמלא בריבועים קטנים שנוחתים ומסדרים את עצמם בשורות ועמודות בלי יד מכוונת, שני ריבועים מחליפים מקום ביניהם בהחלקה עדינה. המטאפורה: העיצוב עובר מ'אני מסדר כל פיקסל' ל'אני קובע חוקים והמסך מסדר את עצמו'.",
+     "execution": "Higgsfield, שפת Optimistic near-future, Veo 3.1 לשוט הפתיחה הרחב מגבוה, Kling 3 std לשוט ההחלפה הקרוב, 1:1, 8 שניות, בלי קריינות, כתוביות עברית קצרות בלבד.",
+     "why": "Grid יצא ל-GA השבוע, נכס חזותי שלוקח 2 דקות להסביר במילים ו-8 שניות להראות.",
+     "competition": null,
+     "srcUrl": "https://www.figma.com/release-notes/",
+     "srcLabel": "Figma Release Notes 11.8",
+     "prompts": {
+      "video": "Optimistic near-future visual style, Mediterranean warm light, sand cream and soft teal palette, human and hopeful mood, shallow depth of field. Wide overhead shot of an empty pale sand colored surface, dozens of small teal squares drift down and settle themselves into a perfect grid of rows and columns with no visible hand guiding them, two squares near the center gently swap places sliding past each other, warm golden light sweeping slowly across the surface, camera pushes in slowly throughout, 1:1, 8 seconds",
+      "script": "פתח לי את רעיון הווידאו \"השורות עצמן ידעו הפעם איפה לשבת\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט-ליסט של 3 שוטים (פתיחה רחבה מגבוה, החלפת שני ריבועים, סגירה על הגריד המלא) עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. עוגן: Grid בפיגמה יצא לגרסה כללית עם מיקום אוטומטי וסידור עמודות בגרירה, לפי הודעת השחרור הרשמית. שפה: Optimistic near-future, Veo 3.1 לשוט הפתיחה ו-Kling 3 std לשוט ההחלפה, 1:1, בלי קריינות, כתוביות עברית קצרות.",
+      "image": "Optimistic near-future visual style, Mediterranean warm light, sand cream and soft teal palette, human and hopeful mood, shallow depth of field. Overhead view of a pale sand surface with a perfectly arranged grid of small teal squares, one square mid air still settling into its slot with a soft golden glow beneath it, generous negative space around the grid, no text",
+      "raw": "הוק: השורות עצמן ידעו הפעם איפה לשבת\nעולם: קונספטואלי\nקונספט: גריד בפיגמה יצא לגרסה כללית, מיקום אוטומטי וסידור עמודות בגרירה, מטאפורה של רהיטים שמסדרים את עצמם\nביצוע: Higgsfield, שפת Optimistic near-future, Veo 3.1 לפתיחה ו-Kling 3 std להחלפה, 1:1, 8 שניות, בלי קריינות\nלמה עכשיו: Grid יצא ל-GA השבוע, נכס חזותי מהיר מאוד להסביר"
+     },
+     "storyboardUrl": null
+    }
+   ],
+   "watch": [
+    {
+     "title": "Higgsfield News, אוגוסט 2026",
+     "desc": "סיכום עדכוני מודל וכלים חודשי, לבדוק מה חדש לפני שבוחרים מודל לפרויקט הבא.",
+     "meta": "mean.ceo · אוגוסט 2026",
+     "url": "https://blog.mean.ceo/higgsfield-news-august-2026/"
+    },
+    {
+     "title": "Best AI Video Models 2026: Seedance 2 vs Veo 3.1 vs Kling 3",
+     "desc": "השוואת מודלים עדכנית, שימושי לבחירת מודל לפי סוג שוט (סטטי מול תנועת מצלמה).",
+     "meta": "teamday.ai · 2026",
+     "url": "https://www.teamday.ai/blog/best-ai-video-models-2026"
+    }
+   ]
+  },
+  {
    "date": "2026-08-09",
    "dateLabel": "יום ראשון, 9 באוגוסט",
    "ideas": [
