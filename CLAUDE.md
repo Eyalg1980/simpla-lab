@@ -64,3 +64,18 @@ The apps are **mobile-first and the mobile rendering is frozen**. Desktop is add
 - **Tall portrait images need a height cap on desktop.** A `9/16` image at `width:100%` in a 550px column is 970px tall. Use `width:auto; max-width:100%; max-height:…; margin-inline:auto`.
 - **Storyboards:** the shot list is a real frame board, `#sec-shots .sec-b` as a grid with the ratio/media switches spanning. A shot with its prompts open widens itself via `.shot:has(details[open]){grid-column:1/-1}`. `shotsBlock()` rebuilds that innerHTML on every ratio switch, so any wrapper must come from CSS, never from injected DOM.
 - `sb.css` and `sb.js` are shared by every storyboard page and cache hard. **Bump the `?v=` on the `<link>` and `<script>` in all storyboard pages whenever either file changes.**
+
+## Higgsfield credit economics (measured 12.8.2026, not from docs)
+
+Every number here came from a `get_cost` preflight or from differencing `balance` across a known batch. Check them again if a run comes back unexpectedly expensive.
+
+- **`kling3_0` std with `sound:"off"` bills 1.25 credits per second of requested duration.** Verified: 17 clips totalling 211 seconds cost exactly 263.75. The `get_cost` preflight quotes **1.5** per second for the same call, so preflight over-estimates by 20%; budget with 1.5 and expect to come in under.
+- `sound:"on"` costs +33% (2.0/sec). `mode:"pro"` is 1.75/sec. `mode:"4k"` is **6.0/sec**, four times std. Never touch 4k or Topaz (38 per pass) until a film is picked for submission.
+- `kling3_0_turbo` is the same 1.5/sec as std and only accepts `start_image`, so it breaks the two-frame method for zero saving. Not a budget option.
+- Genuinely cheaper video at 1.0/sec: `veo3_1_lite` (audio off, durations 4/6/8 only) and `seedance_2_0_mini` at 480p. Both keep `start_image` plus `end_image`.
+- `flux_3_video` is a flat **90 credits per generation**. It is almost never the right call here.
+- Images: `nano_banana_2_lite` costs **1**, `nano_banana_pro` and `nano_banana_2` cost 2, GPT Image 2.0 costs 7. Lite takes `image_references`, so it does frame-consistency work at half price. Default to it for storyboard frames.
+- Narration: `Voiceover` is 0.3 per line, `Text to Speech` is 2. Use Voiceover.
+- **Images are not free in aggregate.** On 11.8 the day cost 767.75 credits and it split almost evenly: 393.75 on 26 Kling clips and 374 on 189 Nano Banana Pro frames. Each frame felt free at 2 credits and together they matched a whole film. Count frames, not just clips.
+- **Bursts are deliberate waste.** A five-cut burst generates 15 seconds to use 6. Kling will not go under 3 seconds, so short cuts are trimmed long clips. Cut bursts first when credits are tight.
+- **The scheduled tasks spend from the same balance, concurrently.** On 12.8 the daily automation spent 300 credits on 19 Kling clips inside the same two minutes as a manual batch, plus 22 on TTS and 8 on frames. Read `balance` immediately before and after any planned batch, and never plan a budget as though this session is the only spender.
