@@ -1,6 +1,58 @@
 {
   "days": [
     {
+      "date": "2026-08-12",
+      "ideas": [
+        {
+          "id": "2026-08-12-1",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "מכונת התורים בקופת חולים זוכרת כל בוקר במשך עשרים ושתיים שנה. הבוקר שהיא נשארת דוממת, מישהי עדיין לוחצת על הכפתור שלה.",
+          "concept": "מרפאה קטנה, פינה אחת קבועה שבה עומדת מכונת תורים ישנה עם מסך דיגיטלי אדום. קבלנית אחת, שהזדקנה יחד עם המכונה, מגיעה כל בוקר ולוחצת איפוס. שוט חוזר על אותו קדר בדיוק, רק השעון על הקיר ולבושה מסמנים שנים שעוברות. יום אחד מופיע שילוט QR חדש לצד המכונה, והמסך האדום נשאר כבוי. בשוט האחרון, מתוך הרגל, היא עדיין לוחצת על הכפתור הריק. אף אדם נוסף לא נראה בפריים, רק ידיים וצפצוף המכונה.",
+          "execution": "שלוש דקות ורבע, 16:9, Higgsfield: Nano Banana Pro לפריימים, Kling 3 std לתנועה עדינה בלבד. מצלמה נעולה בזווית אחת קבועה על פינת המכונה. אור פלורוסנט קר שמתחמם בהדרגה לגוון חמים יותר לקראת הסוף. קריינות עברית קצרה בגוף ראשון של המכונה עצמה, שלוש עד ארבע שורות בלבד לאורך הסרט, אין דיאלוג מסונכרן ואין הליכה של גוף שלם. כתוביות אנגלית צרובות לקריינות בלבד.",
+          "why": "מ-11.8 הבמאי היומי במוד תחרויות עד 3.9. הפסטיבל הגלובלי של היגספילד סוגר ב-3.9 עם מיליון דולר וחבר שופטים בראשות אד קטמאל, ואסטנה סוגרת ב-31.8 עם מיליון נוסף. שתיהן דורשות מינימום שלוש דקות, אז הרעיון מתוכנן לשלוש עד ארבע דקות ומשמש לשתיהן.",
+          "competition": "Higgsfield Global Film Festival",
+          "srcUrl": "https://higgsfield.ai/contests/higgsfield-global-film-festival",
+          "srcLabel": "Higgsfield Global Film Festival, אומת מול הדף הרשמי 11.8",
+          "prompts": {
+            "video": "Photorealistic cinematic style, cool fluorescent clinic light that gradually warms over the timeline, muted sand and faded teal palette, shallow depth of field, fine 35mm grain. Locked-off camera fixed on a small weathered ticket-dispensing machine with a red digital display mounted on a waiting-room wall, an aging woman's hand entering frame each cycle to press its worn red reset button, a wall clock softly visible behind marking passing years through changing sleeve cuffs and clock style only, no crowd ever visible, no camera movement, 16:9",
+            "script": "פתח לי את רעיון הווידאו \"מכונת התורים\" לסטוריבורד מלא: לוגליין, סינופסיס של 5 עד 7 פסקאות, שוט-ליסט של 16 עד 20 שוטים לשלוש דקות ורבע, ולכל שוט משך, תנועת מצלמה ושני פרומפטים, פריים פותח ותנועה. אילוצים מחייבים: זווית מצלמה נעולה אחת בלבד על פינת המכונה, אף אדם נוסף לא נראה בפריים מלבד ידי הקבלנית, אפס דיאלוג מסונכרן, אפס הליכה של גוף שלם, אפס המונים, אפס רכבים. השפה הדרמטית היא חלוף השנים דרך פרטים קטנים בלבד: שעון הקיר, השרוול, גוון האור. הסוף הוא הכפתור הריק שעדיין נלחץ מתוך הרגל אחרי שהמכונה כבויה. קריינות עברית קצרה בגוף ראשון של המכונה, שלוש עד ארבע שורות. סגנון ריאליסטי, 16:9, שלוש דקות ורבע, יעד: Higgsfield Global Film Festival שסוגר 3.9 ואסטנה שסוגרת 31.8.",
+            "image": "Photorealistic cinematic still, cool fluorescent clinic light, muted sand and faded teal palette, shallow depth of field, fine grain. A small weathered ticket-dispensing machine with a red digital display mounted on a clinic waiting-room wall, an aging woman's hand paused just before pressing its worn reset button, a wall clock softly blurred in the background, no other people in frame, generous negative space to the left for titling, no text",
+            "raw": "הוק: מכונת התורים בקופת חולים זוכרת כל בוקר במשך עשרים ושתיים שנה, והבוקר שהיא נשארת דוממת מישהי עדיין לוחצת על הכפתור שלה\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, סוגר 3.9, וגם Astana AI Film Festival, סוגרת 31.8\nקונספט: קבלנית שמזדקנת יחד עם מכונת תורים ישנה, שוט חוזר על אותו קדר במשך עשרים ושתיים שנה, יום שהמכונה מוחלפת בשילוט QR והיא עדיין לוחצת מתוך הרגל על כפתור ריק\nביצוע: שלוש דקות ורבע, 16:9, Nano Banana Pro ו-Kling 3 std, זווית נעולה אחת, קריינות עברית קצרה בגוף ראשון של המכונה, אפס דיאלוג\nלמה עכשיו: מוד תחרויות עד 3.9, שתי התחרויות דורשות מינימום שלוש דקות, ופורמט מקום אחד עם חזרה לנקודת ההתחלה הוא המנגנון המצוטט ביותר אצל השופטים"
+          },
+          "used": false
+        },
+        {
+          "id": "2026-08-12-2",
+          "world": "וידאו ארט",
+          "color": "#71F73C",
+          "hook": "המראה בחנות התפירה זוכרת כל לקוח שעמד מולה ארבעים שנה. אף אחד לא זוכר אותה.",
+          "concept": "חנות תפירה קטנה, נקודת מבט שהיא המראה עצמה, אף פעם לא חותכת החוצה מהזווית הזאת. חייט מזדקן מודד לקוחות לאורך עשורים, האופנה על הכתפיים משתנה, ידיו רועדות יותר עם השנים. קריינות עברית רכה בגוף ראשון של המראה עצמה מלווה את השוטים. בסוף החנות נסגרת, עובדים עוטפים את המראה בבד לקראת השלכה. השורה האחרונה: אני זוכר את כולם, אני מקווה שמישהו יזכור גם אותי.",
+          "execution": "שלוש דקות וארבעים שניות, 16:9, Higgsfield: Nano Banana Pro לפריימים, Kling 3 std לתנועה. פריים תמיד באותה זווית בדיוק, כאילו המצלמה חיה בתוך המראה ולא זזה מהמקום. אור סטודיו חם שמשתנה בעדינות עם העשורים, בגדי הלקוחות ברקע משתנים באופנה. קריינות עברית רכה בגוף ראשון של המראה, אין דיאלוג מסונכרן, אין הליכה של גוף שלם. כתוביות אנגלית צרובות לקריינות בלבד.",
+          "why": "מ-11.8 הבמאי היומי במוד תחרויות עד 3.9. הפסטיבל הגלובלי של היגספילד סוגר ב-3.9 עם מיליון דולר וחבר שופטים בראשות אד קטמאל, ואסטנה סוגרת ב-31.8 עם מיליון נוסף. שתיהן דורשות מינימום שלוש דקות, אז הרעיון מתוכנן לשלוש עד ארבע דקות ומשמש לשתיהן.",
+          "competition": "Higgsfield Global Film Festival",
+          "srcUrl": "https://higgsfield.ai/contests/higgsfield-global-film-festival",
+          "srcLabel": "Higgsfield Global Film Festival, אומת מול הדף הרשמי 11.8",
+          "prompts": {
+            "video": "Photorealistic cinematic style, warm optimistic tailor-shop studio light that softens and deepens over the decades, muted sand and soft teal palette, shallow depth of field, fine grain. Static camera positioned exactly where a wall mirror would be, framing an aging tailor's hands and posture as he measures a customer, his hands trembling slightly more with each passing cycle, changing fabric and fashion visible on the customer's shoulders behind him marking the years, the frame never moving, never cutting to a different angle, no crowd, 16:9",
+            "script": "פתח לי את רעיון הווידאו \"המראה של החייט\" לסטוריבורד מלא: לוגליין, סינופסיס של 5 עד 7 פסקאות, שוט-ליסט של 16 עד 20 שוטים לשלוש דקות וארבעים שניות, ולכל שוט משך, תנועת מצלמה ושני פרומפטים, פריים פותח ותנועה. אילוצים מחייבים: כל השוטים מצולמים מנקודת המבט הקבועה של המראה עצמה, בלי לחתוך לזווית אחרת, אף אדם נוסף לא נראה מלבד החייט והלקוח הרגעי מולו, אפס דיאלוג מסונכרן, אפס הליכה של גוף שלם, אפס המונים, אפס רכבים. השפה הדרמטית היא הזדקנות ידי החייט ואופנת הלקוחות מול קבועה אחת שלא זזה. הסוף הוא עטיפת המראה בבד לפני זריקה, עם קריינות סוגרת בגוף ראשון של המראה. סגנון ריאליסטי, 16:9, שלוש דקות וארבעים שניות, יעד: Higgsfield Global Film Festival שסוגר 3.9 ואסטנה שסוגרת 31.8.",
+            "image": "Photorealistic cinematic still, warm tailor-shop studio light, muted sand and soft teal palette, shallow depth of field, fine grain. Viewed from exactly where a wall mirror would hang, an aging tailor's weathered hands mid-measurement holding a tape against a customer's shoulder, fabric bolts and old fashion sketches softly visible on the walls around, no other people, generous negative space above for titling, no text",
+            "raw": "הוק: המראה בחנות התפירה זוכרת כל לקוח שעמד מולה ארבעים שנה, אף אחד לא זוכר אותה\nעולם: וידאו ארט\nתחרות: Higgsfield Global Film Festival, סוגר 3.9, וגם Astana AI Film Festival, סוגרת 31.8\nקונספט: מצלמה שהיא נקודת המבט הקבועה של מראה בחנות תפירה, חייט מזדקן מודד לקוחות לאורך עשורים, בסוף עוטפים את המראה בבד לזריקה וקריינות סוגרת בגוף ראשון שלה\nביצוע: שלוש דקות וארבעים שניות, 16:9, Nano Banana Pro ו-Kling 3 std, זווית אחת קבועה שלא זזה לעולם, קריינות עברית רכה, אפס דיאלוג\nלמה עכשיו: מוד תחרויות עד 3.9, מנגנון גיבור לא אנושי ואהבה לא סימטרית, מי שזוכר יותר ממה שנזכר, הם המצוטטים ביותר אצל השופטים"
+          },
+          "used": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "Connecting Figma and Weave",
+          "desc": "רקע טוב להבין את יחסי הכוח בין שני המוצרים לפני שממשיכים לבנות בהם, רלוונטי גם לצד הכלים של הבמאי היומי.",
+          "meta": "Figma Blog · 2026",
+          "url": "https://www.figma.com/blog/connecting-figma-and-weave/"
+        }
+      ],
+      "dateLabel": "יום רביעי, 12 באוגוסט"
+    },
+    {
       "date": "2026-08-11",
       "dateLabel": "יום שלישי, 11 באוגוסט",
       "ideas": [
