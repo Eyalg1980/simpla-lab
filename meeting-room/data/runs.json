@@ -87,7 +87,7 @@
   "durationMin": 30,
   "webSearches": 3,
   "webFetches": 6,
-  "commits": 3,
+  "commits": 4,
   "notes": "clean; Wednesday full comp sweep via aifilmcontests.com surfaced ~50 more festivals but none verified individually on their own site within budget, none added; xprize+aimf 15.8 deadlines re-verified (xprize live, aimf cross-checked via aggregator, filmfreeway still unreachable); 1 of 6 fetches denied PROVENANCE_REQUIRED (aiuxdesign.guide); live verify blocked PROVENANCE_REQUIRED on all three sites, done via fresh clone instead"
  }
 ]
