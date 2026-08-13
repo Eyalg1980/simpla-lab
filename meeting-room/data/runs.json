@@ -89,5 +89,18 @@
   "webFetches": 6,
   "commits": 4,
   "notes": "clean; Wednesday full comp sweep via aifilmcontests.com surfaced ~50 more festivals but none verified individually on their own site within budget, none added; xprize+aimf 15.8 deadlines re-verified (xprize live, aimf cross-checked via aggregator, filmfreeway still unreachable); 1 of 6 fetches denied PROVENANCE_REQUIRED (aiuxdesign.guide); live verify blocked PROVENANCE_REQUIRED on all three sites, done via fresh clone instead"
+ },
+ {
+  "date": "2026-08-13",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
+  },
+  "durationMin": 27,
+  "webSearches": 5,
+  "webFetches": 9,
+  "commits": 2,
+  "notes": "clean; research fetches 6 of 6 budget (figma release notes, aiuxdesign news, digg 403, figma weave tools doc, MCP MRTR spec, xprize rules PROVENANCE_REQUIRED); Thursday light comp pass only, xprize+aimf-la 15.8 both unverifiable today (PROVENANCE_REQUIRED / filmfreeway still blocked), kept as previously verified 12.8 unchanged; pain advisor brought 0 ideas (inbox empty, closest fresh evidence overlapped two already-rejected ideas so skipped rather than invent); visionary used MCP Multi Round-Trip Requests spec (28.7) as the dated capability; live verify via fresh clone, all 3 WebFetch calls denied PROVENANCE_REQUIRED (unattended run)"
  }
 ]
