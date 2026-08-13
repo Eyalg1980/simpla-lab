@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מיישם AI ואוטומציה 53500 · מרחב עבודה · גרסת סילבוס אוגוסט 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* John Bryce palette: red + charcoal + white, with Navy kept as the structural colour */
+  --navy:#1B2D6B; --navy-2:#2A4090; --navy-soft:#E7EAF4;
+  --coral:#E4002B; --coral-soft:#FCE6EA;   /* JB red */
+  --red-dk:#B00020;
+  --char:#3D3D3D; --char-2:#2B2B2B; --char-soft:#EDEDED;
+  --yellow:#3D3D3D; --yellow-soft:#F1F1F1; /* charcoal replaces the old yellow accent */
+  --cream:#F6F5F3; --paper:#FFFFFF;
+  --ink:#1E1E1E; --ink-2:#555555; --ink-3:#8A8A8A;
+  --line:#E2E2E2; --dash:#C9C9C9;
+  --radius:8px; --radius-s:5px;
+  --rail:264px; --max:1420px;
+  --shadow:0 1px 2px rgba(0,0,0,.04), 0 10px 26px -20px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Heebo',system-ui,sans-serif; background:var(--cream); color:var(--ink);
+  font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+::selection{background:var(--coral);color:#fff}
+.en{font-family:'Poppins',sans-serif;direction:ltr;display:inline-block}
+
+/* ---------- LAYOUT ---------- */
+.shell{display:flex;min-height:100vh}
+.rail{
+  width:var(--rail); flex:0 0 var(--rail); position:sticky; top:0; height:100vh;
+  background:var(--navy); color:#fff; display:flex; flex-direction:column; padding:26px 18px;
+}
+.brand{padding:0 8px 22px;border-bottom:2px dashed rgba(255,255,255,.22);margin-bottom:20px}
+.brand .kicker{font-size:11px;letter-spacing:.16em;color:#fff;font-weight:700;text-transform:uppercase;background:var(--coral);display:inline-block;padding:3px 9px;border-radius:3px}
+.brand h1{font-size:22px;font-weight:900;line-height:1.25;margin-top:8px}
+.brand .sku{font-size:12px;color:rgba(255,255,255,.6);margin-top:6px}
+.nav{display:flex;flex-direction:column;gap:6px}
+.nav button{
+  all:unset;cursor:pointer;display:flex;align-items:center;gap:12px;
+  padding:12px 14px;border-radius:var(--radius-s);font-size:15px;font-weight:500;
+  color:rgba(255,255,255,.78);transition:.16s;
+}
+.nav button:hover{background:rgba(255,255,255,.08);color:#fff}
+.nav button.on{background:#fff;color:var(--navy);font-weight:700}
+.nav button.on .ico{color:var(--coral)}
+.ico{width:20px;height:20px;flex:0 0 20px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;color:rgba(255,255,255,.55)}
+.rail-foot{margin-top:auto;padding-top:20px;border-top:2px dashed rgba(255,255,255,.22);font-size:12px;color:rgba(255,255,255,.55);line-height:1.7}
+.rail-foot b{color:#fff;font-weight:700}
+
+.main{flex:1;min-width:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:44px 46px 90px}
+.page{display:none;animation:fade .28s ease}
+.page.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ---------- TYPO ---------- */
+/* ---------- COLLAPSIBLE SECTION ---------- */
+.sect{border-top:3px solid var(--char);border-bottom:1px solid var(--line);margin:30px 0;padding-bottom:26px}
+.sect:first-of-type{margin-top:34px}
+.sect.closed{padding-bottom:0;border-bottom-style:dashed}
+h2.sec{font-size:21px;font-weight:900;letter-spacing:0;color:var(--ink);display:flex;align-items:center;gap:13px;
+       margin:0;padding:16px 2px;cursor:pointer;user-select:none;outline:none}
+h2.sec:focus-visible{box-shadow:inset 0 0 0 2px var(--coral);border-radius:4px}
+.sic{width:36px;height:36px;flex:0 0 36px;border-radius:6px;background:var(--coral);display:grid;place-items:center}
+.sic svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.stt{flex:1;min-width:0;transition:.15s}
+h2.sec:hover .stt{color:var(--coral)}
+.schv{width:22px;height:22px;flex:0 0 22px;stroke:var(--ink-3);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:.2s}
+.sect.closed .schv{transform:rotate(90deg)}
+.sec-body{padding-top:6px}
+.sect.closed .sec-body{display:none}
+h3{font-size:20px;font-weight:700;line-height:1.35}
+p{color:var(--ink-2)}
+.lead{font-size:18px;color:var(--ink-2);max-width:78ch}
+.muted{color:var(--ink-3);font-size:13px}
+
+/* ---------- HERO ---------- */
+.hero{background:var(--navy);color:#fff;border-radius:var(--radius);padding:52px 54px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;top:0;right:0;bottom:0;width:10px;background:var(--coral)}
+.hero::before{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.18);border-radius:4px;pointer-events:none}
+.hero .tag{display:inline-block;background:var(--coral);color:#fff;font-weight:700;font-size:12px;padding:6px 15px;border-radius:3px;letter-spacing:.04em}
+.hero h2{font-size:46px;font-weight:900;line-height:1.15;margin:20px 0 14px;max-width:20ch}
+.hero h2 em{font-style:normal;color:#fff;box-shadow:inset 0 -.16em 0 var(--coral)}
+.hero p{color:rgba(255,255,255,.8);font-size:18px;max-width:62ch}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px;position:relative}
+.stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-top:3px solid var(--coral);border-radius:4px;padding:16px 18px}
+.stat b{display:block;font-size:26px;font-weight:900;color:#fff;font-family:'Poppins',sans-serif}
+.stat span{font-size:13px;color:rgba(255,255,255,.72)}
+
+/* ---------- CARDS ---------- */
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow)}
+.card.dash{border:2px dashed var(--dash);box-shadow:none;background:transparent}
+.card h4{font-size:17px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:9px}
+.card p{font-size:14.5px}
+.card .num{width:28px;height:28px;flex:0 0 28px;border-radius:8px;background:var(--coral);color:#fff;display:grid;place-items:center;font-size:14px;font-weight:700;font-family:'Poppins',sans-serif}
+.card.y .num{background:var(--char);color:#fff}
+.card.n .num{background:var(--navy)}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:3px 11px;border-radius:99px;background:var(--navy-soft);color:var(--navy);margin:0 0 0 5px}
+.pill.c{background:var(--coral-soft);color:var(--red-dk)}
+.pill.y{background:var(--char-soft);color:var(--char)}
+.pill.o{background:#fff;border:1.5px dashed var(--dash);color:var(--ink-2)}
+ul.tick{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:4px}
+ul.tick li{position:relative;padding-right:24px;font-size:14.5px;color:var(--ink-2)}
+ul.tick li::before{content:"";position:absolute;right:2px;top:9px;width:9px;height:9px;border-radius:2px;background:var(--coral)}
+ul.tick.c li::before{background:var(--navy)}
+.qa{border-bottom:2px dashed var(--dash);padding:16px 0}
+.qa:last-child{border-bottom:0}
+.qa b{display:block;color:var(--navy);font-size:15.5px;margin-bottom:5px}
+.qa span{font-size:14.5px;color:var(--ink-2)}
+.quote{background:var(--paper);border:1px solid var(--line);border-right:5px solid var(--coral);border-radius:4px;padding:16px 20px;font-size:16px;font-weight:500;color:var(--ink)}
+.callout{background:var(--coral-soft);border:2px dashed var(--coral);border-radius:var(--radius);padding:18px 22px}
+.callout b{color:var(--red-dk)}
+
+/* ---------- TABLE ---------- */
+table{width:100%;border-collapse:collapse;background:var(--paper);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);font-size:14.5px}
+th{background:var(--navy);color:#fff;text-align:right;padding:13px 16px;font-weight:600;font-size:13.5px}
+td{padding:13px 16px;border-top:1px solid var(--line);color:var(--ink-2);vertical-align:top}
+tr:nth-child(even) td{background:#FAFAFA}
+td b{color:var(--ink)}
+
+/* ---------- MODULE / MEETING ---------- */
+.mod{margin-bottom:14px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--paper);box-shadow:var(--shadow)}
+.mod-head{display:flex;align-items:center;gap:16px;padding:18px 22px;cursor:pointer;user-select:none;transition:.15s}
+.mod-head:hover{background:#FAFAFA}
+.mod-badge{width:44px;height:44px;flex:0 0 44px;border-radius:6px;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:'Poppins',sans-serif;font-weight:700;font-size:18px}
+.mod-t{flex:1;min-width:0}
+.mod-t h3{font-size:18px}
+.mod-t .meta{font-size:13px;color:var(--ink-3);margin-top:3px}
+.mod-tools{font-size:12.5px;color:var(--navy);background:var(--navy-soft);padding:5px 12px;border-radius:99px;white-space:nowrap;max-width:290px;overflow:hidden;text-overflow:ellipsis}
+.chev{width:18px;height:18px;stroke:var(--ink-3);fill:none;stroke-width:2.2;transition:.2s;flex:0 0 18px}
+.mod.open .chev{transform:rotate(180deg)}
+.mod-body{display:none;padding:0 22px 22px;border-top:2px dashed var(--dash)}
+.mod.open .mod-body{display:block}
+.mod-intro{font-size:14.5px;color:var(--ink-2);padding:16px 0 4px}
+.mt{border-right:3px solid var(--line);padding:14px 18px 14px 0;margin-top:14px;position:relative}
+.mt:hover{border-right-color:var(--coral)}
+.mt h5{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.mt h5 .no{font-family:'Poppins',sans-serif;color:var(--coral);margin-left:6px}
+.mt ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin:6px 0 0}
+.mt ul li{font-size:14px;color:var(--ink-2);padding-right:16px;position:relative}
+.mt ul li::before{content:"";position:absolute;right:3px;top:10px;width:5px;height:5px;border-radius:50%;background:var(--dash)}
+.box{margin-top:11px;border-radius:var(--radius-s);padding:12px 15px;font-size:13.8px;line-height:1.6}
+.box .lab{display:block;font-weight:700;font-size:12px;letter-spacing:.04em;margin-bottom:4px}
+.box.ex{background:#F4F6FC;border:1px solid #D9E0F2}.box.ex .lab{color:var(--navy-2)}
+.box.pr{background:#FAFAFA;border:1px dashed #C9C9C9;color:#3D3D3D}.box.pr .lab{color:var(--char)}
+.box.rl{background:var(--coral-soft);border:1px solid #F6C4CD}.box.rl .lab{color:var(--red-dk)}
+.box.sub{background:#EEF9F1;border:1px solid #CDE9D6}.box.sub .lab{color:#1E6B3A}
+.box.demo{background:var(--cream);border:1px solid var(--dash);border-right:3px solid var(--char)}.box.demo .lab{color:var(--char-2)}
+.tgs{display:flex;flex-wrap:wrap;gap:6px;margin-top:5px}
+.tg{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 11px;border-radius:99px;background:var(--navy-soft);color:var(--navy);border:1px solid #D2DAEE}
+.tg.tbd{background:var(--char-soft);color:var(--ink-2);border-color:var(--line);font-weight:500}
+.tcell{display:flex;flex-wrap:wrap;gap:5px}
+.dep{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;white-space:nowrap}
+.dep.d1{background:var(--coral-soft);color:var(--red-dk)}
+.dep.d2{background:var(--navy-soft);color:var(--navy)}
+.dep.d3{background:var(--char-soft);color:var(--ink-2)}
+.dep.d0{background:#FFF;color:var(--ink-3);border:1px dashed var(--dash);font-weight:500}
+
+/* ---------- STAGES ---------- */
+.tracks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.track{background:var(--paper);border-radius:var(--radius);padding:0;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.track .top{padding:5px 0 0;background:var(--coral)}
+.track.b .top{background:var(--navy)} .track.c .top{background:var(--char)}
+.track .in{padding:20px 22px}
+.track .k{font-size:12px;font-weight:700;color:var(--coral);letter-spacing:.06em}
+.track.b .k{color:var(--navy)} .track.c .k{color:var(--char)}
+.track h4{font-size:19px;font-weight:900;margin:6px 0 10px}
+.track dl{display:grid;grid-template-columns:auto 1fr;gap:7px 12px;font-size:13.5px;margin-top:12px}
+.track dt{color:var(--ink-3);white-space:nowrap}
+.track dd{color:var(--ink-2)}
+.track .slogan{margin-top:14px;padding-top:12px;border-top:2px dashed var(--dash);font-size:14px;font-weight:600;color:var(--navy)}
+
+.stage{margin-bottom:16px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.stage-head{display:flex;align-items:center;gap:18px;padding:20px 24px;cursor:pointer}
+.stage-head:hover{background:#FAFAFA}
+.st-no{width:52px;height:52px;flex:0 0 52px;border-radius:6px;background:var(--coral);color:#fff;display:grid;place-items:center;font-family:'Poppins',sans-serif;font-weight:700;line-height:1;text-align:center}
+.st-no small{display:block;font-size:9px;font-weight:600;opacity:.7}
+.st-no b{font-size:22px}
+.stage-head .t{flex:1;min-width:0}
+.stage-head .t h3{font-size:19px}
+.stage-head .t .meta{font-size:13px;color:var(--ink-3);margin-top:3px}
+.wgt{font-family:'Poppins',sans-serif;font-weight:700;color:var(--coral);font-size:17px;white-space:nowrap}
+.stage-body{display:none;padding:0 24px 24px;border-top:2px dashed var(--dash)}
+.stage.open .stage-body{display:block}
+.stage.open .chev{transform:rotate(180deg)}
+.sb-t{font-size:12.5px;font-weight:900;letter-spacing:.06em;color:var(--coral);margin:20px 0 10px}
+.tasks{display:flex;flex-direction:column;gap:8px}
+.task{display:flex;gap:12px;background:#FAFAFA;border:1px solid var(--line);border-radius:var(--radius-s);padding:12px 15px}
+.task .pts{font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;color:var(--navy);background:#fff;border:1.5px solid var(--navy-soft);border-radius:8px;padding:2px 9px;height:fit-content;white-space:nowrap}
+.task div{font-size:14px;color:var(--ink-2)}
+.task b{color:var(--ink)}
+.adv{background:#F4F6FC;border:2px dashed #B9C3E4;border-radius:var(--radius);padding:16px 20px}
+.adv .lab{font-size:12px;font-weight:900;letter-spacing:.05em;color:var(--navy);margin-bottom:8px;display:block}
+.adv ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.adv li{font-size:14px;color:var(--ink-2);padding-right:20px;position:relative}
+.adv li::before{content:"";position:absolute;right:2px;top:8px;width:8px;height:8px;border-radius:2px;background:var(--navy);transform:rotate(45deg)}
+.adv li b{color:var(--ink)}
+
+/* ---------- GLOSSARY ---------- */
+.tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
+.search{flex:1;min-width:280px;position:relative}
+.search input{width:100%;font-family:'Heebo';font-size:15px;padding:13px 46px 13px 16px;border:2px solid var(--line);border-radius:var(--radius-s);background:var(--paper);color:var(--ink);outline:none;transition:.15s}
+.search input:focus{border-color:var(--coral)}
+.search svg{position:absolute;right:15px;top:50%;transform:translateY(-50%);width:19px;height:19px;stroke:var(--ink-3);fill:none;stroke-width:2}
+.chips{display:flex;gap:7px;flex-wrap:wrap}
+.chip{all:unset;cursor:pointer;font-size:13px;font-weight:600;padding:8px 15px;border-radius:99px;background:var(--paper);border:1.5px dashed var(--dash);color:var(--ink-2);transition:.15s}
+.chip:hover{border-color:var(--coral);color:var(--coral)}
+.chip.on{background:var(--coral);border-color:var(--coral);border-style:solid;color:#fff}
+.terms{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.term{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);transition:.15s}
+.term:hover{border-color:var(--coral);transform:translateY(-2px)}
+.term .h{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:7px}
+.term h4{font-size:16.5px;font-weight:700;color:var(--navy);line-height:1.3}
+.term .lat{font-family:'Poppins',sans-serif;font-size:12px;color:var(--ink-3);direction:ltr;display:block;margin-top:2px;font-weight:400}
+.term p{font-size:14px;color:var(--ink-2)}
+.term .foot{margin-top:11px;padding-top:10px;border-top:2px dashed var(--dash);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.term .where{font-size:12px;color:var(--ink-3)}
+.count{font-size:13px;color:var(--ink-3);margin-bottom:14px}
+.empty{grid-column:1/-1;text-align:center;padding:60px 0;color:var(--ink-3)}
+
+/* ---------- MISC ---------- */
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);background:var(--paper);border:2px dashed var(--dash);border-radius:var(--radius);padding:14px 20px;margin-bottom:20px}
+.legend span{display:flex;align-items:center;gap:7px}
+.dotm{width:11px;height:11px;border-radius:3px;display:inline-block}
+.toolbar{display:flex;gap:10px;margin-bottom:18px}
+.btn{all:unset;cursor:pointer;font-size:13.5px;font-weight:600;padding:9px 17px;border-radius:99px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink-2);transition:.15s}
+.btn:hover{border-color:var(--coral);color:var(--coral)}
+
+
+/* ---------- TABLE SCROLL WRAPPER ---------- */
+.twx{position:relative}
+.twx .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--radius)}
+.twx.sc::after{content:"";position:absolute;top:0;bottom:0;left:0;width:38px;pointer-events:none;background:linear-gradient(to left,rgba(255,255,255,0),rgba(255,255,255,.92))}
+.thint{display:none;font-size:11.5px;color:var(--ink-3);margin-bottom:7px}
+.thint.on{display:block}
+
+/* ---------- MOBILE HEADER ---------- */
+.mtop{display:none}
+
+/* ---------- TABLET ---------- */
+@media (max-width:1100px){
+  :root{--rail:224px}
+  .wrap{padding:34px 28px 74px}
+  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+  .tracks{grid-template-columns:1fr}
+  .terms{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .hero{padding:40px 36px}
+  .hero h2{font-size:36px}
+  .mod-tools{max-width:190px}
+  .twx .tw table{min-width:620px}
+}
+
+/* ---------- BOTTOM NAV ---------- */
+@media (max-width:900px){
+  .mtop{display:flex;align-items:center;gap:11px;position:sticky;top:0;z-index:40;background:var(--navy);color:#fff;padding:11px 16px}
+  .mtop .k{background:var(--coral);color:#fff;font-size:9.5px;font-weight:900;letter-spacing:.1em;padding:3px 8px;border-radius:3px;white-space:nowrap}
+  .mtop h1{font-size:15.5px;font-weight:900;line-height:1.2}
+  .mtop .sku{font-size:11px;color:rgba(255,255,255,.55);margin-right:auto;white-space:nowrap}
+  .shell{display:block;min-height:auto}
+  .rail{position:fixed;inset:auto 0 0 0;width:auto;height:auto;flex:none;padding:0;z-index:50;
+        border-top:3px solid var(--coral);box-shadow:0 -6px 22px rgba(0,0,0,.28)}
+  .brand,.rail-foot{display:none}
+  .nav{flex-direction:row;gap:0}
+  .nav button{flex:1;min-width:0;flex-direction:column;gap:4px;justify-content:center;text-align:center;
+              padding:8px 2px;padding-bottom:calc(8px + env(safe-area-inset-bottom));
+              border-radius:0;font-size:9.8px;font-weight:600;line-height:1.2;min-height:56px}
+  .nl{display:none} .ns{display:inline}
+  .ico{width:20px;height:20px;flex:0 0 20px}
+  .nav button:hover{background:transparent}
+  .nav button.on{background:#fff;color:var(--navy);font-weight:700}
+  .ico{width:22px;height:22px;flex:0 0 22px}
+  .wrap{padding:24px 20px 100px}
+}
+
+/* ---------- PHONE ---------- */
+@media (max-width:700px){
+  .wrap{padding:20px 14px 100px}
+  .grid{gap:12px}
+  .g2,.g3,.g4,.terms,.d-cols{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr);gap:10px;margin-top:26px}
+  .hero{padding:26px 20px}
+  .hero::before{inset:8px}
+  .hero::after{width:6px}
+  .hero .tag{font-size:11px;padding:5px 12px}
+  .hero h2{font-size:27px!important;max-width:none;margin:14px 0 10px}
+  .hero p{font-size:15.5px}
+  .stat{padding:12px 14px}
+  .stat b{font-size:21px}
+  .stat span{font-size:12px}
+  h2.sec{font-size:17px;padding:14px 0;gap:10px}
+  .sic{width:31px;height:31px;flex:0 0 31px}
+  .sic svg{width:17px;height:17px}
+  .schv{width:19px;height:19px;flex:0 0 19px}
+  .sect{margin:22px 0;padding-bottom:18px}
+  h3{font-size:18px}
+  .lead{font-size:16px}
+  .card{padding:18px}
+  .card h4{font-size:16px}
+  .decide,.erp{padding:20px 17px}
+  .d-head h3{font-size:18px}
+  .d-cols{padding-top:14px;gap:16px}
+  .erp-lead h3{font-size:19px}
+  .erp-lead p{font-size:14.5px}
+  .quote{font-size:15px;padding:14px 16px}
+  .callout{padding:15px 17px}
+  .mod-head{flex-wrap:wrap;gap:11px;padding:14px 15px}
+  .mod-badge{width:38px;height:38px;flex:0 0 38px;font-size:16px}
+  .mod-t{flex:1 1 auto;min-width:0}
+  .mod-t h3{font-size:16px}
+  .mod-t .meta{font-size:12px}
+  .mod-tools{order:3;flex:1 1 100%;max-width:none;white-space:normal;text-align:center;font-size:12px}
+  .mod-body{padding:0 15px 18px}
+  .mt{padding:12px 14px 12px 0}
+  .mt h5{font-size:15px}
+  .box{font-size:13.2px;padding:11px 13px}
+  .stage-head{flex-wrap:wrap;gap:12px;padding:15px}
+  .stage-head .t{flex:1 1 auto;min-width:0}
+  .stage-head .t h3{font-size:17px}
+  .stage-head .meta{font-size:11.5px}
+  .st-no{width:44px;height:44px;flex:0 0 44px;font-size:14px}
+  .wgt{font-size:15px}
+  .stage-body{padding:0 15px 18px}
+  .sb-t{font-size:13px}
+  .task{padding:11px 13px;font-size:13.5px}
+  .adv{padding:14px 16px}
+  .track .in{padding:18px}
+  .track dl{grid-template-columns:1fr;gap:0}
+  .track dt{margin-top:9px;font-size:12.5px}
+  .pm{grid-template-columns:1fr;gap:13px}
+  .opt,.oq,.sw,.qb,.tl{padding:17px 16px}
+  .mo{padding:19px 17px} .mo h4{font-size:17px} .mo li{font-size:14.5px}
+  .epi{font-size:16px;padding:20px 8px}
+  .tl-pt b{font-size:10px} .tl-pt s{font-size:10px}
+  .search{min-width:0;width:100%}
+  .search input{font-size:16px}
+  .chips{gap:7px}
+  .chip{padding:10px 14px;font-size:12.5px}
+  .btn{padding:11px 15px}
+  .toolbar{flex-wrap:wrap;gap:8px}
+  .term{padding:16px 17px}
+  .twx .tw table{min-width:560px;font-size:13px}
+  .twx .tw th,.twx .tw td{padding:10px 12px}
+}
+
+
+/* ---------- NAV LABELS ---------- */
+.ns{display:none}
+
+/* ---------- HOME: PAGE CARDS ---------- */
+.pcard{display:block;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);cursor:pointer;transition:.16s;text-align:right;width:100%;font:inherit;color:inherit}
+.pcard:hover{border-color:var(--coral);transform:translateY(-2px)}
+.pcard .ph{display:flex;align-items:center;gap:11px;margin-bottom:9px}
+.pcard .pn{width:32px;height:32px;flex:0 0 32px;border-radius:6px;background:var(--coral);display:grid;place-items:center}
+.pcard .pn svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.pcard h4{font-size:17px;font-weight:800;flex:1;min-width:0}
+.pcard .who{font-size:11.5px;font-weight:700;color:var(--navy);background:var(--navy-soft);padding:3px 10px;border-radius:99px;white-space:nowrap}
+.pcard p{font-size:14.3px}
+.pcard .go{display:block;margin-top:11px;font-size:12.5px;font-weight:700;color:var(--coral)}
+
+/* ---------- TIMELINE ---------- */
+.tl{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px 20px;box-shadow:var(--shadow)}
+.tl-bar{position:relative;height:10px;border-radius:5px;background:var(--char-soft);margin:34px 0 0}
+.tl-gap{position:absolute;top:0;bottom:0;background:var(--navy);border-radius:5px 0 0 5px}
+.tl-pt{position:absolute;top:-7px;width:24px;margin-right:-12px;text-align:center}
+.tl-pt i{display:block;width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid var(--coral)}
+.tl-pt.n i{border-color:var(--navy)}
+.tl-pt b{position:absolute;top:30px;right:50%;transform:translateX(50%);font-size:11.5px;font-weight:700;white-space:nowrap;color:var(--ink)}
+.tl-pt s{position:absolute;top:-24px;right:50%;transform:translateX(50%);font-family:'Poppins';font-size:11px;color:var(--ink-3);text-decoration:none;white-space:nowrap}
+.tl-note{margin-top:52px;font-size:13.5px;color:var(--ink-2);border-top:2px dashed var(--dash);padding-top:14px}
+.tl-note b{color:var(--navy)}
+
+/* ---------- OPTION CARD ---------- */
+.opt{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--coral);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow)}
+.opt.b{border-top-color:var(--navy)}
+.opt .on-t{font-size:11.5px;font-weight:900;letter-spacing:.06em;color:var(--coral);margin-bottom:6px;display:block}
+.opt.b .on-t{color:var(--navy)}
+.opt h4{font-size:18px;font-weight:800;margin-bottom:5px}
+.opt .when{font-size:12.5px;color:var(--ink-3);margin-bottom:11px}
+.pm{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px;padding-top:14px;border-top:2px dashed var(--dash)}
+.pm b{display:block;font-size:12.5px;margin-bottom:7px}
+.pm .p b{color:var(--ok,#1E7A46)} .pm .m b{color:var(--red-dk)}
+.pm ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.pm li{font-size:13.6px;color:var(--ink-2);padding-right:16px;position:relative}
+.pm li::before{content:"";position:absolute;right:2px;top:8px;width:6px;height:6px;border-radius:2px;background:var(--dash)}
+.pm .p li::before{background:#1E7A46} .pm .m li::before{background:var(--red-dk)}
+
+/* ---------- OPEN QUESTION ---------- */
+.oq{background:var(--paper);border:1px solid var(--line);border-right:5px solid var(--navy);border-radius:var(--radius);padding:20px 22px;margin-bottom:13px;box-shadow:var(--shadow)}
+.oq .oqk{font-size:11.5px;font-weight:900;letter-spacing:.05em;color:var(--navy);display:block;margin-bottom:6px}
+.oq h4{font-size:17.5px;font-weight:800;margin-bottom:8px}
+.oq .prop{margin-top:12px;background:var(--coral-soft);border:1px dashed var(--coral);border-radius:var(--radius-s);padding:12px 15px;font-size:14.3px;color:var(--ink)}
+.oq .prop b{color:var(--red-dk)}
+
+/* ---------- SWOT ---------- */
+.sw{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow)}
+.sw.s{border-top:4px solid #1E7A46} .sw.w{border-top:4px solid var(--coral)} .sw.d{border-top:4px solid var(--navy)}
+.sw h4{font-size:17px;font-weight:800;margin-bottom:11px}
+.sw ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.sw li{font-size:14.4px;color:var(--ink-2);padding-right:22px;position:relative}
+.sw li b{color:var(--ink)}
+.sw li::before{content:"";position:absolute;right:2px;top:9px;width:8px;height:8px;border-radius:2px}
+.sw.s li::before{background:#1E7A46} .sw.w li::before{background:var(--coral)} .sw.d li::before{background:var(--navy)}
+
+/* ---------- GUIDING QUESTIONS ---------- */
+.qb{background:var(--paper);border:2px dashed var(--dash);border-radius:var(--radius);padding:20px 22px}
+.qb h4{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:12px}
+.qb ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:10px}
+.qb li{counter-increment:q;font-size:14.6px;color:var(--ink-2);padding-right:32px;position:relative}
+.qb li::before{content:counter(q);position:absolute;right:0;top:2px;width:22px;height:22px;border-radius:5px;background:var(--navy-soft);color:var(--navy);display:grid;place-items:center;font-family:'Poppins';font-weight:700;font-size:11.5px}
+
+/* ---------- EPIGRAPH ---------- */
+.epi{text-align:center;padding:26px 20px;font-size:19px;font-weight:500;color:var(--navy);border-top:2px dashed var(--dash);border-bottom:2px dashed var(--dash);margin-top:18px}
+.epi small{display:block;margin-top:9px;font-size:13px;color:var(--ink-3);font-weight:400}
+
+/* ---------- MIN OUTCOMES ---------- */
+.mo{background:var(--navy);color:#fff;border-radius:var(--radius);padding:24px 26px;position:relative;overflow:hidden;margin-top:16px}
+.mo::after{content:"";position:absolute;top:0;right:0;bottom:0;width:7px;background:var(--coral)}
+.mo h4{font-size:19px;font-weight:900;margin-bottom:14px}
+.mo ol{list-style:none;counter-reset:m;display:flex;flex-direction:column;gap:12px}
+.mo li{counter-increment:m;position:relative;padding-right:40px;font-size:15.5px;color:rgba(255,255,255,.88)}
+.mo li b{color:#fff}
+.mo li::before{content:counter(m);position:absolute;right:0;top:1px;width:27px;height:27px;border-radius:6px;background:var(--coral);color:#fff;display:grid;place-items:center;font-family:'Poppins';font-weight:700;font-size:13px}
+
+/* ---------- DECISION / ERP BLOCKS ---------- */
+.decide{background:var(--paper);border:1px solid var(--line);border-right:6px solid var(--coral);border-radius:var(--radius);padding:24px 28px;margin-top:34px;box-shadow:var(--shadow)}
+.d-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.d-tag{background:var(--coral);color:#fff;font-size:11px;font-weight:900;letter-spacing:.08em;padding:4px 11px;border-radius:3px}
+.d-head h3{font-size:21px}
+.d-cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:18px;padding-top:18px;border-top:2px dashed var(--dash)}
+.d-cols b{display:block;font-size:14px;color:var(--navy);margin-bottom:8px}
+.erp{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;box-shadow:var(--shadow)}
+.erp-lead h3{font-size:23px;color:var(--navy);margin-bottom:10px}
+.erp-lead p{font-size:15.5px}
+.erp .card .num{font-size:17px;line-height:1}
+@media print{.rail{display:none}}
+@media print{.rail{display:none}.mod-body,.stage-body{display:block!important}}
+</style>
+</head>
+<body>
+<header class="mtop"><span class="k">JOHN BRYCE</span><h1>מיישם AI ואוטומציה</h1><span class="sku">53500</span></header>
+<div class="shell">
+<aside class="rail">
+  <div class="brand">
+    <div class="kicker">John Bryce / Matrix</div>
+    <h1>מיישם AI<br>ואוטומציה</h1>
+    <div class="sku">מק"ט 53500 · מתכונת ערב · 29 מפגשים · אוגוסט 2026</div>
+  </div>
+  <nav class="nav" id="nav">
+    <button data-p="home" class="on"><svg class="ico" viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg><span class="nl">דף הבית</span><span class="ns">בית</span></button>
+    <button data-p="syllabus"><svg class="ico" viewBox="0 0 24 24"><path d="M4 4h11l5 5v11a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1z"/><path d="M14 4v6h6M8 14h8M8 18h5"/></svg><span class="nl">סילבוס ומפגשים</span><span class="ns">סילבוס</span></button>
+    <button data-p="project"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg><span class="nl">הפרויקט המתגלגל</span><span class="ns">פרויקט</span></button>
+    <button data-p="teachers"><svg class="ico" viewBox="0 0 24 24"><path d="M3 5.5h18v11H3z"/><path d="M12 16.5V21M8 21h8M7 9.5h6M7 12.5h4"/></svg><span class="nl">חדר מרצים</span><span class="ns">מרצים</span></button>
+    <button data-p="marketing"><svg class="ico" viewBox="0 0 24 24"><path d="M3 10.5v3a1 1 0 001 1h3l5 4V5.5l-5 4H4a1 1 0 00-1 1z"/><path d="M17 8.5a5 5 0 010 7M20 6a8.5 8.5 0 010 12"/></svg><span class="nl">עזר למרקטינג</span><span class="ns">מרקטינג</span></button>
+    <button data-p="glossary"><svg class="ico" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg><span class="nl">ארכיון מושגים</span><span class="ns">מושגים</span></button>
+  </nav>
+  <div class="rail-foot">
+    <b>גרסת סילבוס</b><br>אוגוסט 2026<br>
+    <span style="opacity:.7">עודכן על ידי אייל גרשון, אסף פינקלשטיין ולירון חונן</span>
+  </div>
+</aside>
+<main class="main"><div class="wrap">
+<!-- ================= HOME (OVERVIEW) ================= -->
+<section class="page on" id="p-home">
+
+<div class="hero">
+  <span class="tag">מיישם AI ואוטומציה · מק"ט 53500 · גרסת סילבוס · אוגוסט 2026</span>
+  <h2>"הבוגר שלנו לא מספר שלמד.<br>הוא שולח קישור ומראה מה בנה."</h2>
+  <p>מרחב עבודה משותף לפדגוגיה, למרצים ולמכירות. גרסת סילבוס אוגוסט 2026, עודכנה על ידי אייל גרשון, אסף פינקלשטיין ולירון חונן: הסילבוס המלא, הפרויקט המתגלגל בנושא חופשי, המיזם המלווה, עזר מכירה וארכיון מושגים. כל אזור נפתח באתר משלו, בתפריט הצדי.</p>
+  <div class="stats">
+    <div class="stat"><b>259.5</b><span>שעות סה"כ במסלול</span></div>
+    <div class="stat"><b>29</b><span>מפגשי ערב, 5.5 ש' כל אחד</span></div>
+    <div class="stat"><b>7</b><span>מודולים, מסע מוצרי אחד</span></div>
+    <div class="stat"><b>0</b><span>שורות קוד לאורך הדרך</span></div>
+  </div>
+</div>
+
+</section>
+<!-- ================= TEACHERS ROOM ================= -->
+<section class="page" id="p-teachers">
+
+<div class="hero">
+  <span class="tag">חדר מרצים</span>
+  <h2>בקרוב.</h2>
+  <p>האזור הזה ריק בכוונה בגרסה הנוכחית. חומרי ההכנה למרצים יתווספו כאן בהמשך.</p>
+</div>
+
+</section>
+<!-- ================= SYLLABUS ================= -->
+<section class="page" id="p-syllabus">
+  <div class="hero" style="padding:38px 44px">
+    <span class="tag">סילבוס מלא ומעודכן · אוגוסט 2026</span>
+    <h2 style="font-size:36px;max-width:26ch">7 מודולים, 29 מפגשים,<br>פרויקט אישי אחד לאורך כולם.</h2>
+    <p>159.5 שעות לימוד ועוד 100 שעות עבודה עצמית מובנית. כל מפגש משלב תיאוריה ממוקדת, הדגמה חיה וסדנה מעשית, ומקדם את הפרויקט האישי של כל תלמיד.</p>
+  </div>
+
+<h2 class="sec">מפת המודולים</h2>
+  <table id="modmap"></table>
+
+  <h2 class="sec">הסילבוס המפורט</h2>
+  <div class="legend">
+    <span><i class="dotm" style="background:#F4F6FC;border:1px solid #A9BCEE"></i> תרגיל כיתתי</span>
+    <span><i class="dotm" style="background:#FAFAFA;border:1px dashed #C9C9C9"></i> פרומפט עבודה</span>
+    <span><i class="dotm" style="background:#FCE6EA;border:1px solid #F6C4CD"></i> חיבור לפרויקט המתגלגל</span>
+    <span><i class="dotm" style="background:#EEF9F1;border:1px solid #CDE9D6"></i> הגשת שלב</span>
+  </div>
+  <div class="toolbar">
+    <button class="btn" onclick="allMods(true)">פתיחת כל המודולים</button>
+    <button class="btn" onclick="allMods(false)">סגירת הכול</button>
+  </div>
+  <div id="mods"></div>
+
+  <h2 class="sec">טבלת הכלים</h2>
+  <p class="lead" style="margin-bottom:14px">כל הכלים שמופיעים בסילבוס, עם מה עושים איתם, באילו מודולים הם נכנסים, מודל העלות ומידת ההעמקה. מסומן "טרם נקבע" בכל מקום שבו הכלי עדיין פתוח להחלטה.</p>
+  <div class="legend">
+    <span><i class="dotm" style="background:#FCE6EA;border:1px solid #F6C4CD"></i> <b>העמקה:</b> כלי ליבה, נלמד לעומק ומתורגל</span>
+    <span><i class="dotm" style="background:#E7EAF4;border:1px solid #A9BCEE"></i> <b>שימוש מעשי:</b> התלמידים עובדים איתו בפועל</span>
+    <span><i class="dotm" style="background:#EDEDED;border:1px solid #C9C9C9"></i> <b>הדגמה והיכרות:</b> מוצג ומוסבר, בלי תרגול מלא</span>
+  </div>
+  <div class="chips" id="tchips"></div>
+  <div class="count" id="tcount" style="margin-top:16px"></div>
+  <table id="toolstable"></table>
+  <div class="callout" style="margin-top:16px"><b>לתשומת לב:</b> מודלי העלות נכונים לזמן כתיבת הסילבוס ומשתנים לעתים קרובות. יש לאמת אותם מול הספקים לפני פתיחת המחזור, ולוודא שלכל תלמיד יש גישה לחשבונות הנדרשים לפני המפגש שבו הכלי נכנס.</div>
+</section>
+
+<!-- ================= ROLLING PROJECT ================= -->
+<section class="page" id="p-project">
+  <div class="hero" style="padding:38px 44px">
+    <span class="tag">עמוד השדרה של הקורס</span>
+    <h2 style="font-size:36px;max-width:26ch">פרויקט אישי אחד,<br>מרעיון למערכת חיה.</h2>
+    <p>כל תלמיד בוחר בתחילת הקורס נושא אישי משלו ומפתח אותו לאורך שבעת המודולים עד מערכת דיגיטלית חיה: אפליקציה, תוכן, שכבת AI ואוטומציה. במקביל, המרצה בונה בשידור חי דוגמה מלווה משלו, "המתנה המושלמת", כך שבכל מודול יש הדגמה קונקרטית לצד ההנחיה הכללית.</p>
+  </div>
+
+  <h2 class="sec">המיזם המלווה: "המתנה המושלמת" 🎁</h2>
+  <div class="callout" style="margin-bottom:16px">המיזם המלווה לא מחליף את הבחירה האישית של כל תלמיד. הוא ניתן כדוגמה חיה וזהה לכל הכיתה, כדי שבכל מודול יהיה הדגמה קונקרטית לצד ההנחיה הכללית.</div>
+  <div class="grid g2">
+    <div class="card">
+      <h4>מה זה</h4>
+      <p>חנות מתנות ושירות למציאת מתנות: אתר שבו המשתמש עונה על כמה שאלות (למי המתנה, גיל, תחביבים, תקציב, ומה האירוע), וה-AI מחזיר שלושה רעיונות למתנה.</p>
+    </div>
+    <div class="card y">
+      <h4>הפרויקט לא נגמר שם</h4>
+      <ul class="tick">
+        <li>יצירת תמונת המתנה</li>
+        <li>ברכה אישית</li>
+        <li>סרטון ברכה</li>
+        <li>מייל אישי עם רשימת ההצעות</li>
+        <li>שמירת הפנייה ו-Follow-up אוטומטי</li>
+        <li>יצירת תוכן לרשתות</li>
+      </ul>
+    </div>
+  </div>
+  <p class="muted" style="margin-top:10px">פרויקט פשוט להבנה, אך יכול להדגים כמעט כל טכנולוגיה שנלמדת בקורס, בדיוק בשביל זה הוא נבחר כמיזם המלווה.</p>
+
+  <h2 class="sec">רעיונות נוספים להשראה</h2>
+  <p class="lead" style="margin-bottom:16px">אלה רק דוגמאות. כל תלמיד יכול גם לבחור נושא אחר משלו לגמרי, כל עוד הוא עומד בעקרונות המנחים.</p>
+  <div class="grid g3">
+    <div class="card"><h4>מתכנן טיולים</h4><p>בונה מסלול טיול מותאם אישית לפי יעד, תקציב ומספר ימים, וממליץ על אטרקציות ולינה.</p></div>
+    <div class="card y"><h4>אפליקציית ניהול Webinars</h4><p>מנהלת הרשמה, תזכורות ותוכן להעברת וובינר, מהרשמה ועד סיכום אוטומטי בסיום האירוע.</p></div>
+    <div class="card n"><h4>ניהול סטודיו או חוג</h4><p>ניהול מנויים, הרשמה לשיעורים ותזכורות אוטומטיות ללקוחות, לחוג ריקוד, סטודיו יוגה או חדר כושר.</p></div>
+  </div>
+
+  <h2 class="sec">המסע לאורך הקורס</h2>
+  <table id="stagemap"></table>
+
+  <div class="toolbar">
+    <button class="btn" onclick="allStages(true)">פתיחת כל המודולים</button>
+    <button class="btn" onclick="allStages(false)">סגירת הכול</button>
+  </div>
+  <div id="stages"></div>
+
+  </section>
+
+<!-- ================= GLOSSARY ================= -->
+<section class="page" id="p-glossary">
+  <div class="hero" style="padding:38px 44px">
+    <span class="tag">שפה מקצועית משותפת</span>
+    <h2 style="font-size:36px;max-width:26ch">ארכיון מושגים</h2>
+    <p>כל המושגים שנלמדים לאורך המסלול, בהגדרה קצרה בעברית, עם ציון היכן בקורס הם נכנסים. מיועד לסטודנטים כרפרנס, למרצים כמילון אחיד, ולצוותי המכירות כדי לדבר בשפת הקורס.</p>
+  </div>
+  <div class="tools" style="margin-top:34px">
+    <div class="search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="text" placeholder="חיפוש מושג בעברית או באנגלית, למשל: Webhook, MVP, סוכן, RAG">
+    </div>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="count" id="count" style="margin-top:18px"></div>
+  <div class="terms" id="terms"></div>
+</section>
+<!-- ================= MARKETING ================= -->
+<section class="page" id="p-marketing">
+
+<div class="hero">
+  <span class="tag">עזר למרקטינג · מסלול הכשרה למקצוע</span>
+  <h2>לא קורס <em>על</em> AI,<br>אלא קורס שבו <em>בונים</em> איתו.</h2>
+  <p>מסלול מעשי שלוקח אדם ללא רקע טכני, ומוציא אותו עם מערכת דיגיטלית חיה באוויר, תיק עבודות מקצועי ושיטת עבודה שנשארת גם כשהכלים מתחלפים.</p>
+  <div class="stats">
+    <div class="stat"><b>259.5</b><span>שעות סה"כ במסלול</span></div>
+    <div class="stat"><b>29</b><span>מפגשי ערב, 5.5 ש' כל אחד</span></div>
+    <div class="stat"><b>7</b><span>מודולים, מסע מוצרי אחד</span></div>
+    <div class="stat"><b>0</b><span>שורות קוד לאורך הדרך</span></div>
+  </div>
+</div>
+
+<h2 class="sec">ההצעה: מה אנחנו מבטיחים, ומקיימים</h2>
+<div class="grid g4">
+  <div class="card"><h4><span class="num">1</span>מקצוע חדש</h4><p>הכשרת <b>Citizen Developer</b>: איש מקצוע לא טכני שבונה פתרונות דיגיטליים עסקיים שלמים, בלי לכתוב קוד.</p></div>
+  <div class="card y"><h4><span class="num">2</span>שיטה, לא רשימת כלים</h4><p>אפיון נכון, עבודה מול AI במתודולוגיית <b>תכנון, אישור, ביצוע</b>, ובדיקות כמו בתעשייה. הכלים יתחלפו, השיטה נשארת.</p></div>
+  <div class="card n"><h4><span class="num">3</span>תוצר מוחשי</h4><p>בסוף הקורס יש <b>מערכת אמיתית באוויר</b> עם קישור ציבורי, לא תעודה על הקיר.</p></div>
+  <div class="card"><h4><span class="num">4</span>ביטחון מקצועי</h4><p>הבוגר יודע לקחת כל בעיה עסקית ולהפוך אותה לפתרון דיגיטלי, <b>בלי תלות במתכנתים</b>.</p></div>
+</div>
+
+<div class="quote" style="margin-top:20px">"הבוגר שלנו לא מספר שלמד. הוא שולח קישור ומראה מה בנה."</div>
+
+<h2 class="sec">קהל היעד: ארבע פרסונות</h2>
+<div class="grid g4">
+  <div class="card dash"><h4>המשדרגת</h4><p>אשת שיווק, תפעול, שירות או אדמיניסטרציה שרוצה להפוך לנכס בצוות שלה. מחפשת יתרון תחרותי בתוך הארגון.</p><div style="margin-top:12px"><span class="pill">שדרוג תפקיד</span></div></div>
+  <div class="card dash"><h4>בעל העסק</h4><p>עצמאי או בעל עסק קטן שמשלם היום על כלים ופרילנסרים, ורוצה לבנות לעצמו מערכות שעובדות בשבילו.</p><div style="margin-top:12px"><span class="pill c">ROI ישיר</span></div></div>
+  <div class="card dash"><h4>המוביל</h4><p>מנהל ביניים שהארגון שלו מדבר על AI, והוא רוצה להיות זה שמוביל את היישום בפועל, לא רק במצגות.</p><div style="margin-top:12px"><span class="pill y">הובלה פנים ארגונית</span></div></div>
+  <div class="card dash"><h4>המסב קריירה</h4><p>מחפש כניסה לעולם הטק בלי ללמוד תכנות שנים. רוצה מקצוע דיגיטלי מבוקש עם תיק עבודות ביד.</p><div style="margin-top:12px"><span class="pill">פורטפוליו</span></div></div>
+</div>
+<div class="callout" style="margin-top:16px"><b>המשותף לכולם: אפס רקע טכני נדרש.</b> הקורס בנוי מהיסוד לקהל no-code, ולכן כל משימה מגיעה עם פרומפט מוכן ורשת ביטחון פדגוגית.</div>
+
+<h2 class="sec">למי הקורס לא מתאים (וזה כוח מכירה)</h2>
+<div class="grid g3">
+  <div class="card"><h4>מי שרוצה לכתוב קוד</h4><p>יש מסלולי פיתוח ייעודיים: <span class="en">Python</span>, AI לפיתוח תוכנה.</p></div>
+  <div class="card"><h4>מפתחים מנוסים</h4><p>מחפשים העמקה טכנית? <span class="en">RAG Systems, Agentic Development, Claude Code</span>.</p></div>
+  <div class="card"><h4>מי שמחפש טעימה</h4><p>"הרצאת היכרות עם AI" היא סדנה קצרה, לא מסלול הכשרה למקצוע.</p></div>
+</div>
+<div class="quote" style="margin-top:16px">המשפט לנציג: "זה מסלול הכשרה למקצוע, לא סדנת טעימות. אם אתה רוצה לבנות, זה הבית שלך."</div>
+
+<h2 class="sec">מה יוצאים משם: התוצרים</h2>
+<div class="grid g2">
+  <div class="card">
+    <h4><span class="num">A</span>מערכת דיגיטלית חיה, עם קישור ציבורי</h4>
+    <ul class="tick">
+      <li>אפליקציה מחוברת לבסיס נתונים</li>
+      <li>אוטומציות שרצות לבד (<span class="en">n8n</span>)</li>
+      <li>סוכן AI עם בסיס ידע וגבולות בטוחים</li>
+      <li>בוט שיחה וסורק מסמכים חכם</li>
+      <li>דשבורד מנהלים חי על נתוני המערכת</li>
+    </ul>
+  </div>
+  <div class="card y">
+    <h4><span class="num">B</span>נכסי קריירה</h4>
+    <ul class="tick c">
+      <li><span class="en">Case Study</span> מקצועי ואתר פורטפוליו אישי</li>
+      <li><span class="en">Pitch Deck</span> עם שקף ROI</li>
+      <li>ספריית פרומפטים, אוטומציות וסוכנים לשימוש מיידי בכל ארגון</li>
+      <li>הצגת גמר חיה מול קהל</li>
+      <li>תעודת מיזם מלאה עם יומן החלטות</li>
+    </ul>
+  </div>
+</div>
+
+<h2 class="sec">הכנה לשוק העבודה</h2>
+<div class="grid g2">
+  <div class="card dash">
+    <h4>מה קורה בחוץ</h4>
+    <ul class="tick">
+      <li>AI נכנס לכל תפקיד: שיווק, שירות, תפעול, כספים ומשאבי אנוש</li>
+      <li>הפער בארגונים הוא לא בכלים, אלא באנשים שיודעים לחבר אותם לתהליך עסקי אמיתי</li>
+      <li>כלי No-Code בשילוב AI הורידו את מחסום הכניסה: מה שדרש צוות פיתוח נבנה היום על ידי עובד מיומן אחד</li>
+      <li>היכולת "לבנות עם AI" הופכת מיתרון לדרישת סף</li>
+    </ul>
+  </div>
+  <div class="card dash">
+    <h4>לאן הבוגרים הולכים</h4>
+    <ul class="tick c">
+      <li>תפקידים חדשים: מיישם AI, מוביל אוטומציה, <span class="en">Citizen Developer</span></li>
+      <li>שדרוג התפקיד הקיים: לבנות בעצמם את מה שחיכה שנה למחלקת IT</li>
+      <li>עצמאות: בניית מערכות לעצמם וללקוחות</li>
+    </ul>
+    <div class="quote" style="margin-top:14px;font-size:14.5px">AI לא מחליף אתכם, הוא משנה את התפקיד. הקורס מכין בדיוק לשינוי הזה.</div>
+  </div>
+</div>
+
+<h2 class="sec">הבידול: למה ג'ון ברייס</h2>
+<div class="grid g3">
+  <div class="card"><h4><span class="num">1</span>הפרויקט המתגלגל</h4><p>מיזם אישי אחד שמלווה את כל הקורס, מודול אחר מודול, לצד דוגמה חיה שהמרצה בונה על "המתנה המושלמת".</p></div>
+  <div class="card y"><h4><span class="num">2</span>פרומפטים מלווים</h4><p>כל משימה מגיעה עם פרומפט מקצועי מובנה. הסטודנט לא ממציא את הדרך מאפס, הוא מפעיל, מתאים ומשפר.</p></div>
+  <div class="card n"><h4><span class="num">3</span>רשתות ביטחון</h4><p>מי שנתקע מקבל תבנית מוכנה מהמרצה וממשיך הלאה. קריטי לקהל ללא רקע.</p></div>
+  <div class="card"><h4><span class="num">4</span>מבנה מפגש קבוע</h4><p>תיאוריה ממוקדת ואז סדנה מעשית בליווי אישי. לומדים בידיים, לא בשקפים.</p></div>
+  <div class="card y"><h4><span class="num">5</span>המותג</h4><p>הניסיון וההיקף של ג'ון ברייס ומטריקס, מרצים מהתעשייה, קהילת בוגרים ותקן הכשרה של חברות ההייטק.</p></div>
+  <div class="card n"><h4><span class="num">6</span>תעודת המיזם</h4><p>מסמך חי אחד שמלווה את הסטודנט מהמפגש הראשון ועד האחרון, ומונע אובדן הקשר בין המודולים.</p></div>
+</div>
+
+<h2 class="sec">מיפוי מול קורסים משיקים: איך מנתבים ליד</h2>
+<table>
+  <tr><th style="width:32%">הקורס המשיק</th><th style="width:34%">מה יש שם</th><th>מתי מנתבים אלינו</th></tr>
+  <tr><td><b>היכרות עם כלי AI וסדנאות מנהלים</b></td><td>לומדים להשתמש ולהתייעל</td><td>מתעניין שרוצה טעימה הולך לשם. רוצה מקצוע, מגיע אלינו</td></tr>
+  <tr><td><b><span class="en">Vibe Coding with Claude</span></b></td><td>קורס ממוקד בבניית מוצר</td><td>53500 הוא מסלול מקיף: אפיון, UX, נתונים, אוטומציה, סוכנים, ממשקי שיחה ופורטפוליו</td></tr>
+  <tr><td><b>קורסי AI למפתחים</b> (<span class="en">RAG, Agentic, Copilot</span>)</td><td>מיועדים לאנשי קוד</td><td>יש רקע פיתוח? לשם. אין רקע? אלינו</td></tr>
+  <tr><td><b>קורסי AI תחומיים</b> (שיווק, HR, פיננסים)</td><td>שימושי AI בתוך מקצוע קיים</td><td>53500 נותן מקצוע חדש, לא תוספת למקצוע קיים</td></tr>
+</table>
+<div class="quote" style="margin-top:16px">שורת הזהב: זה המסלול היחיד שלוקח אדם ללא רקע ומוציא אותו עם מערכת חיה ותיק עבודות.</div>
+
+<h2 class="sec">התנגדויות נפוצות ותשובות שעובדות</h2>
+<div class="card">
+  <div class="qa"><b>"אין לי שום רקע טכני"</b><span>בדיוק בשבילך הקורס נבנה. אין קוד, יש כלים חזותיים ושפה טבעית, וכל משימה מגיעה עם פרומפט מוכן ורשת ביטחון.</span></div>
+  <div class="qa"><b>"אני יכול ללמוד את זה לבד ביוטיוב"</b><span>ביוטיוב לומדים כלי. כאן בונים מערכת שלמה בליווי אישי, עם שיטה, פידבק ותיק עבודות שמעסיקים רואים. ההבדל בין לצפות באימון לבין להתאמן.</span></div>
+  <div class="qa"><b>"ה-AI מתקדם כל כך מהר, מה שאלמד יתיישן"</b><span>נכון, הכלים מתחלפים. לכן מלמדים שיטת עבודה: אפיון, תכנון מול AI, בדיקות. השיטה עוברת איתך מכלי לכלי.</span></div>
+  <div class="qa"><b>"אין לי זמן"</b><span>מפגשי ערב ועבודה עצמית מדורגת סביב פרויקט אחד. כל שעה שמושקעת מתועלת למיזם האישי, לא לתרגילים שנזרקים.</span></div>
+  <div class="qa"><b>"מה אני מקבל ביד בסוף?"</b><span>מערכת חיה באוויר, פורטפוליו, Case Study ו-Pitch Deck. תוצר שאפשר להראות בראיון עבודה או ללקוח.</span></div>
+</div>
+
+<h2 class="sec">דיוק ליד בשיחה: ארבע שאלות</h2>
+<div class="grid g4">
+  <div class="card"><h4><span class="num">1</span>"ספר לי מה אתה עושה היום"</h4><p>מזהים פרסונה: משדרגת, בעל עסק, מוביל או מסב קריירה.</p></div>
+  <div class="card"><h4><span class="num">2</span>"יש לך רקע בתכנות?"</h4><p>יש רקע ורוצה קוד: מנתבים למסלולי פיתוח. אין רקע: ממשיכים.</p></div>
+  <div class="card"><h4><span class="num">3</span>"מה היית רוצה שיעבוד אצלך לבד?"</h4><p>התשובה היא נושא הפרויקט שלו. מראים לו איך זה נראה דרך דוגמת "המתנה המושלמת", ומזמינים אותו לבחור נושא דומה משלו.</p></div>
+  <div class="card"><h4><span class="num">4</span>"מה יעשה את הקורס שווה בשבילך?"</h4><p>קריירה: פורטפוליו והצגת גמר. עסק: אוטומציות ו-ROI. ארגון: הובלת יישום פנימית.</p></div>
+</div>
+
+<h2 class="sec">משפטי מפתח לשימוש חופשי</h2>
+<div class="grid g3">
+  <div class="quote">"לא קורס על AI, אלא קורס שבו בונים איתו"</div>
+  <div class="quote">"מהרעיון למערכת חיה, בלי שורת קוד אחת"</div>
+  <div class="quote">"הכלים מתחלפים, השיטה נשארת"</div>
+  <div class="quote">"אף אחד לא נשאר מאחור: לכל שלב יש רשת ביטחון"</div>
+  <div class="quote">"בסוף הקורס לא נשארים עם תעודה, נשארים עם מערכת באוויר"</div>
+  <div class="quote">"הבוגר שלנו לא מספר שלמד, הוא שולח קישור"</div>
+</div>
+
+</section>
+</div></main></div>
+<script>
+/* =============== NAV =============== */
+document.getElementById('nav').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  document.querySelectorAll('#nav button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+b.dataset.p));
+  window.scrollTo({top:0,behavior:'instant'});
+});
+document.querySelectorAll('.pcard[data-go]').forEach(b=>b.addEventListener('click',()=>{
+  const target=b.dataset.go;
+  document.querySelectorAll('#nav button').forEach(x=>x.classList.toggle('on',x.dataset.p===target));
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+target));
+  window.scrollTo({top:0,behavior:'instant'});
+}));
+const CH='<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
+
+/* =============== MODULES =============== */
+const MODS=[{"n": 1, "t": "משלב הרעיון למוצר: היכרות עם הקורס ובחירת נושא", "mt": "1-3", "h": 16.5, "tools": "AI Chat RTL Control, Grammarly, WisprFlow, ChatGPT, Gemini, Claude, Grok", "intro": "מפגשי הפתיחה של הקורס: מי אנחנו, מה זה AI ולמה זה חשוב, ותרגול ראשוני של הנדסת פרומפטים. כאן גם נחשפים לראשונה לפרויקט המתגלגל, ובוחרים את הנושא האישי שילווה את כל הקורס.", "M": [{"n": "1", "t": "יסודות AI", "open": ["רכזת הקורס פותחת את המפגש", "הצגה עצמית של המרצה (Pitch)", "מה הולכים ללמוד בקורס, מעבר על נושאי הסילבוס", "סבב היכרות קצר בין התלמידים (לא חובה)"], "top": ["מונחים בסיסיים", "היסטוריה", "שימושים", "כיצד LLM עובד", "כלי עזר נוספים"], "tools": ["AI Chat RTL Control", "Grammarly", "WisprFlow"], "rl": ["מצגת על מה זה הפרויקט המתגלגל, הצגה לתלמידים", "כל תלמיד מוצא נושא המתאים לו"], "demo": "המרצה מציג את \"המתנה המושלמת\" כרעיון, ומראה לאן הוא מגיע בסוף הקורס: מה ייבנה בכל מודול, ואיך המערכת הסופית נראית. זו נקודת הפתיחה שממנה כל תלמיד גוזר את הנושא שלו."}, {"n": "2-3", "t": "הנדסת פרומפטים", "top": ["מונחים בסיסיים", "ה-Context", "כלכלת טוקנים", "טכניקות פרומפטינג מתקדמות", "מאגרי פרומפטים אונליין"], "tools": ["ChatGPT", "Gemini", "Claude", "Grok"], "rl": "אין מטלות לביצוע", "note": "יש להנחות את התלמידים לפתוח ג'ימייל חדש לשיעור הבא, כדי לעבוד איתו לאורך המסלול ולא על הג'ימייל האישי שלהם.", "demo": "בניית הפרומפט שמחזיר שלושה רעיונות למתנה על בסיס חמש השאלות (למי, גיל, תחביבים, תקציב, אירוע), ושיפורו בכמה איטרציות מול הכיתה: מפרומפט גולמי לפרומפט מקצועי."}]}, {"n": 2, "t": "מדיה: תמונה, וידאו, אודיו ומסמכים", "mt": "4-6", "h": 16.5, "tools": "ChatGPT Image Edit, Gemini, Grok, Ideogram, Stable Diffusion, KreaAI, Google Vids, KlingAI, Seedance, CapCut, Suno, ElevenLabs, Gemini Notebook, Google Slides, Gamma", "intro": "שכבת התוכן החזותי והמסמכי של הפרויקט: תמונות, וידאו, אודיו ומצגות. כל התרגילים מופעלים ישירות על נושא הפרויקט שנבחר במפגש 1, כך שבסוף המודול לכל תלמיד יש כבר ערכת תוכן ראשונית למיזם שלו.", "M": [{"n": "4", "t": "יצירת תמונות", "top": ["מונחים בסיסיים", "כיצד מודל תמונות עובד", "פעולות AI נפוצות על תמונות", "סגנונות אומנותיים", "כלי AI ליצירת תמונות", "פעולות על תמונה קיימת", "תמונות לנראות עסקית", "כלים נוספים ליצירת תמונות"], "tools": ["ChatGPT Image Edit", "Gemini Imaging", "Grok Imaging", "Ideogram", "Stable Diffusion", "KreaAI (בתשלום, כ-5$)"], "rl": ["יצירת תמונות בנושא הפרויקט לשילוב במערכת", "יצירת תמונות בנושא הפרויקט למיתוג, שיווק ונראות עסקית", "יצירת לוגו אם דרוש"], "demo": "יצירת הלוגו של \"המתנה המושלמת\", תמונות המחשה לרעיונות המתנה שהמערכת מציעה, ותמונת באנר לעמוד הראשי."}, {"n": "5", "t": "יצירת וידאו ואודיו", "top": ["מונחים בסיסיים בעולם הווידאו", "כיצד מודל וידאו עובד", "פעולות AI נפוצות על וידאו", "סגנונות וידאו אומנותיים", "מונחים בסיסיים בעולם האודיו", "כיצד מודל אודיו עובד", "פעולות AI נפוצות על אודיו"], "tools": ["Google Vids", "Grok", "VidMuse", "KlingAI", "Seedance", "CapCut", "Suno", "ElevenLabs"], "rl": ["יצירת סרטון מיתוג או סרטון פרסומת לשילוב במערכת", "רשות: יצירת אודיו כלשהו לשילוב במערכת, אם דרוש"], "demo": "סרטון פרסומת קצר לשירות, בתוספת קריינות ומוזיקת רקע שנוצרות ב-AI."}, {"n": "6", "t": "עבודה עם מסמכים", "top": ["Word ו-Google Docs", "Excel ו-Google Spreadsheets", "תוסף GPT ל-Excel ול-Google Spreadsheets", "Gemini Notebook", "Google Slides", "Gamma"], "tools": ["Gemini Notebook", "Google Slides", "Gamma"], "rl": ["הכנת מצגת מעוצבת לתיאור הפרויקט", "רשות: הכנת מסמכים הקשורים לפרויקט, אם יש צורך"], "demo": "מצגת שמסבירה את \"המתנה המושלמת\": הבעיה, הפתרון, קהל היעד ותמונת המסך של המוצר."}]}, {"n": 3, "t": "בניית אפליקציות", "mt": "7-13", "h": 38.5, "tools": "Whimsical, ChatGPT, Canva, FigJam, Base44, Lovable, Claude App, Git, Firebase", "intro": "הלב הטכני של הקורס: מאפיון MVP ותרשימי זרימה, דרך זהות ויזואלית ועיצוב, ועד בניית האפליקציה בפועל ב-Vibe Coding (Base44 / Lovable / Claude Code) והעלאתה לאוויר. בסוף המודול לכל תלמיד יש מערכת חיה בכתובת ציבורית.", "M": [{"n": "7", "t": "אפיון אפליקציות ו-MVP", "top": ["מונחים בסיסיים", "עקרונות אפיון ו-MVP", "עקרונות User Flow", "עבודה עם Whimsical לבניית Workflows", "עבודה עם Whimsical לבניית Wireframes"], "tools": ["Whimsical"], "rl": ["אפיון MVP", "אפיון מסכים"], "demo": "הגדרת ה-MVP של \"המתנה המושלמת\", תרשים זרימה של המסע מהשאלון ועד קבלת שלוש ההצעות, ושלד המסכים ב-Whimsical."}, {"n": "8", "t": "עיצוב אפליקציות", "top": ["מונחים בסיסיים", "עקרונות UI/UX", "הגדרת זהות ויזואלית", "עיצוב Flat בעזרת GPT", "עיצוב באמצעות Canva"], "tools": ["ChatGPT ליצירת עיצוב Flat", "Canva", "FigJam"], "rl": ["הגדרת הזהות הוויזואלית", "יצירת עיצוב"], "demo": "קביעת הזהות הוויזואלית של \"המתנה המושלמת\": פלטת צבעים, טיפוגרפיה ועיצוב המסך הראשי."}, {"n": "9", "t": "No Code (בכפוף לזמן)", "top": ["מאגר הנתונים", "חיבור מסכים", "יצירת Theme"], "tools": "טרם נקבע", "rl": "אין מטלות לביצוע", "demo": "בניית מאגר הנתונים והמסכים של \"המתנה המושלמת\" בכלי No-Code, אם הזמן מאפשר."}, {"n": "10", "t": "Vibe Coding", "top": ["עבודה עם Base44", "עבודה עם Lovable"], "tools": ["Base44", "Lovable"], "rl": ["בניית דף נחיתה פשוט עבור נושא ספציפי מתוך המערכת, המאפשר השארת פרטים (דף צור קשר)", "בניית האפליקציה ה-Web-ית, רק עבור מי שמעדיף לעבוד עם Base44 או Lovable במקום Claude Code. במצב כזה כנראה החשבון החינמי לא יספיק ויידרש מעבר לחשבון בתשלום."], "demo": "בניית דף נחיתה של \"המתנה המושלמת\" עם טופס השארת פרטים, ב-Base44 או ב-Lovable."}, {"n": "11-12", "t": "Claude Code", "top": ["התקנת Claude App", "עבודה עם Claude Chat", "עבודה עם Claude Cowork", "עבודה עם Claude Code", "תווים מיוחדים (/, @)", "Projects", "Artifacts", "Scheduled", "Connectors", "סקילים: שימוש, יצירה, הורדה ומאגרי סקילים", "ממה להיזהר"], "tools": ["Claude App"], "rl": "בניית האפליקציה ה-Web-ית, למי שבוחר לבנות באמצעות Claude Code", "note": ["מי שרוצה לעבוד עם Codex או כל מערכת אחרת, אפשרי", "יש להנחות את התלמידים להתקין Git לקראת השיעור הבא, כדי לחסוך זמן התקנות באמצע המפגש"], "demo": "בניית האתר המלא של \"המתנה המושלמת\" ב-Claude Code: שאלון חמש השאלות, מסך הצגת שלוש ההצעות, ושמירת הפנייה."}, {"n": "13", "t": "העלאה לאוויר", "top": ["Git", "GitHub", "GitHub Connector", "העלאת פרויקט ל-GitHub", "פרסום הפרויקט ל-GitHub Pages", "עבודה עם הטרמינל", "העלאת פרויקט ל-Firebase", "Netlify (בכפוף לזמן)", "עדכוני קוד"], "tools": ["Git", "Firebase"], "rl": "העלאת האתר לאוויר", "demo": "העלאת \"המתנה המושלמת\" ל-GitHub ופרסום האתר לאוויר, ואז עדכון קוד קטן כדי לראות את השינוי עולה לאתר החי."}]}, {"n": 4, "t": "אתיקה, הנגשה ואבטחה", "mt": "14-16", "h": 16.5, "tools": "Lighthouse, Wave Evaluation Tools", "intro": "עצירה לביקורת: לפני שממשיכים הלאה, בודקים שהמערכת שנבנתה עומדת בעקרונות אתיקה, נגישות דיגיטלית ואבטחה בסיסית, ומתקנים מה שצריך.", "M": [{"n": "14", "t": "אתיקה והנגשה", "top": ["עקרונות אתיקה", "עקרונות הנגשה"], "tools": ["Lighthouse", "Wave Evaluation Tools (תוספי דפדפן)"], "rl": ["בדיקת עקרונות אתיקה במערכת ותיקון אם צריך", "בדיקת עקרונות הנגשה במערכת ותיקון אם צריך"], "demo": "הרצת Lighthouse ו-Wave על אתר \"המתנה המושלמת\", וזיהוי ותיקון של ממצא נגישות אחד מול הכיתה."}, {"n": "15-16", "t": "אבטחת קוד ו-AI", "top": ["עקרונות אבטחת קוד", "עקרונות אבטחת AI"], "tools": "טרם נקבע", "rl": ["בדיקות אבטחת קוד במערכת ותיקון אם צריך", "בדיקות אבטחת AI במערכת ותיקון אם צריך"], "demo": "בדיקת האבטחה של \"המתנה המושלמת\": מה חשוף בטופס ובקוד, ומה צריך להגן עליו לפני שהאתר באוויר."}]}, {"n": 5, "t": "סוכני AI", "mt": "17-21", "h": 27.5, "tools": "AirTable, Claude Code Connectors, Snowflake, Voiceflow, Manychat", "intro": "מהמידע הגולמי לסוכן שפועל לבד: מבנה נתונים, חיבור לכלים חיצוניים, ובניית סוכני AI וצ'אטבוט שמבצעים פעולות אמיתיות על המערכת.", "M": [{"n": "17", "t": "עבודה עם נתונים ומידע", "top": ["מה זה אובייקט", "מה זה מערך (Array)", "XML", "JSON", "YAML", "עבודה עם AirTable"], "tools": ["AirTable"], "rl": "טבלה ב-AirTable אם דרוש בפרויקט (למשל לקוחות/מוצרים)", "demo": "בניית טבלאות \"המתנה המושלמת\" ב-AirTable: פניות, רעיונות מתנה וקטגוריות, כולל הקשרים ביניהן."}, {"n": "18", "t": "שילוב כלים חיצוניים", "top": ["התחברות לג'ימייל", "התחברות ל-Calendar", "התחברות ל-Drive", "התחברות ל-Canva", "התחברות ל-Slack", "ועוד"], "tools": ["Claude Code", "Connectors"], "rl": "אין מטלות לביצוע", "demo": "חיבור \"המתנה המושלמת\" ל-Gmail וליומן: שליחת רשימת ההצעות במייל, ותזכורת לקראת מועד האירוע."}, {"n": "19-20", "t": "סוכני AI", "top": ["יצירת סוכן AI", "יצירת צוות סוכני AI העובדים יחד", "Snowflake", "אם יש זמן: Hermes או OpenClaw"], "tools": ["Snowflake (טרם סופי)", "Hermes / OpenClaw (טרם סופי)"], "rl": "יצירת סוכן AI שמבצע פעולה כלשהי על המערכת, On Demand או מתוזמן", "demo": "סוכן AI שמקבל את תשובות השאלון ומחזיר שלושה רעיונות מתנה מנומקים, ורץ גם באופן מתוזמן על פניות שהצטברו."}, {"n": "21", "t": "יצירת צ'אטבוט", "top": ["יצירת צ'אטבוט", "שילוב הצ'אטבוט באתר"], "tools": ["Voiceflow (טרם סופי)", "Manychat (טרם סופי)"], "rl": "יצירת צ'אטבוט באתר", "demo": "צ'אטבוט באתר \"המתנה המושלמת\" שמלווה את המשתמש בבחירת המתנה בשיחה, במקום טופס."}]}, {"n": 6, "t": "בניית אוטומציות", "mt": "22-28", "h": 38.5, "tools": "n8n, AirTable, ChatGPT", "intro": "ניתוח העסק והפיכתו לתהליכים אוטומטיים: זיהוי מה שווה לייעל, ואז בניית התרחישים בפועל ב-n8n, מטריגר ראשון ועד סוכן AI וזרימת RAG.", "M": [{"n": "22", "t": "ניתוח עסק והתאמת פתרונות", "top": ["ניתוח תהליכי עבודה", "זיהוי משימות שניתן לייעל באמצעות AI", "זיהוי משימות שניתן לייעל באמצעות אוטומציות", "התאמת פתרונות טכנולוגיים לצורכי העסק"], "tools": "טרם נקבע", "rl": ["ניתוח בעיות בעסק", "התאמת פתרונות AI", "התאמת פתרונות אוטומציה"], "demo": "מיפוי התהליך של \"המתנה המושלמת\" מקצה לקצה, וזיהוי אילו שלבים בו כדאי להעביר לאוטומציה."}, {"n": "23-28", "t": "n8n ואוטומציות", "top": ["פתיחת חשבון חינמי ב-n8n (כ-10 דקות באימייל)", "התמצאות בסביבה", "יצירת Workflow", "יצירת טריגר ידני / אוטומטי", "שימוש ב-Nodes פופולריים: Google Docs, Google Sheets, Google Drive, Gmail", "שימוש ב-AirTable", "שימוש ב-APIs", "יצירת WebHooks לדף נחיתה", "שימוש ב-ChatGPT", "שימוש ב-Chatbot", "יצירת סוכן AI", "יצירת RAG (בכפוף לזמן)"], "tools": ["n8n"], "rl": "יישום אוטומציות מתאימות במערכת", "demo": "בניית האוטומציות של \"המתנה המושלמת\": WebHook מהטופס, שמירת הפנייה ב-AirTable, מייל אישי עם ההצעות, Follow-up כעבור כמה ימים, ויצירת תוכן לרשתות מהתמונות שנוצרו."}]}, {"n": 7, "t": "פרויקט גמר", "mt": "29", "h": 5.5, "tools": "ללא כלי ייעודי", "intro": "מפגש הסיום: כל תלמיד עולה ומראה מה בנה, לא מספר שלמד.", "M": [{"n": "29", "t": "הצגת פרויקט הגמר", "top": ["כל תלמיד מציג את הפרויקט שלו"], "note": "זמן הצגה של כ-10 דקות (פלוס-מינוס), כך שכל התלמידים יספיקו להציג.", "demo": "המרצה מציג את \"המתנה המושלמת\" המלאה כדוגמה להצגת גמר: קישור חי, מה נבנה בכל שלב, ומה היה הקושי המרכזי."}]}];
+
+const TOOLS=[["ChatGPT", "מודלי שפה", "מודל השפה המרכזי לתרגול הנדסת פרומפטים, ובהמשך גם ליצירת עיצוב Flat ולשימוש בתוך תרחישי n8n", "1, 2, 3, 6", "חינמי, עם מנוי בתשלום לפיצ'רים מתקדמים", "העמקה"], ["Claude", "מודלי שפה", "מודל שפה, ובמודול 3 גם סביבת הבנייה המרכזית: Claude Chat, Cowork ו-Claude Code", "1, 3, 5", "חינמי, עם מנוי בתשלום לשימוש מלא", "העמקה"], ["Gemini", "מודלי שפה", "מודל שפה, ובהמשך גם יצירת תמונות ו-Gemini Notebook לעבודה עם מסמכים", "1, 2", "חינמי, עם מנוי בתשלום", "העמקה"], ["Grok", "מודלי שפה", "מודל שפה נוסף להשוואה, וגם יצירת תמונות ווידאו", "1, 2", "מנוי בתשלום", "הדגמה והיכרות"], ["AI Chat RTL Control", "כלי עזר", "תוסף דפדפן שמתקן את כיוון הטקסט בעברית בממשקי צ'אט", "1", "חינמי", "הדגמה והיכרות"], ["Grammarly", "כלי עזר", "הגהה ושיפור ניסוח באנגלית", "1", "חינמי, עם גרסת Premium בתשלום", "הדגמה והיכרות"], ["WisprFlow", "כלי עזר", "הכתבה קולית מהירה במקום הקלדה", "1", "בתשלום, עם תקופת ניסיון", "הדגמה והיכרות"], ["ChatGPT Image Edit", "תמונה", "יצירה ועריכה של תמונות למיזם: תוכן למערכת, מיתוג ונראות עסקית", "2", "כלול במנוי ChatGPT", "שימוש מעשי"], ["Gemini Imaging", "תמונה", "יצירת תמונות ועריכה של תמונה קיימת", "2", "חינמי, עם מנוי בתשלום", "שימוש מעשי"], ["Grok Imaging", "תמונה", "יצירת תמונות בסגנונות שונים", "2", "מנוי בתשלום", "הדגמה והיכרות"], ["Ideogram", "תמונה", "יצירת תמונות עם טקסט קריא, שימושי ללוגו ולבאנרים", "2", "חינמי במגבלות, עם מנוי בתשלום", "שימוש מעשי"], ["Stable Diffusion", "תמונה", "מודל תמונות פתוח, להבנת אופן הפעולה ולשליטה מתקדמת", "2", "חינמי (תלוי בפלטפורמת ההרצה)", "הדגמה והיכרות"], ["KreaAI", "תמונה", "כלי תמונה נוסף לבדיקה", "2", "בתשלום, כ-5$ (לאימות לפני הקורס)", "הדגמה והיכרות"], ["Google Vids", "וידאו", "יצירת סרטון מיתוג או פרסומת למיזם", "2", "כלול ב-Google Workspace", "שימוש מעשי"], ["KlingAI", "וידאו", "יצירת וידאו מבוסס AI", "2", "חינמי במגבלות, עם מנוי בתשלום", "שימוש מעשי"], ["Seedance", "וידאו", "יצירת וידאו מבוסס AI", "2", "חינמי במגבלות, עם מנוי בתשלום", "הדגמה והיכרות"], ["VidMuse", "וידאו", "יצירת וידאו מבוסס AI", "2", "טרם נקבע", "הדגמה והיכרות"], ["CapCut", "וידאו", "עריכת וידאו והרכבת הסרטון הסופי", "2", "חינמי, עם גרסת Pro בתשלום", "שימוש מעשי"], ["Suno", "אודיו", "יצירת מוזיקה ופסקול למיזם", "2", "חינמי במגבלות, עם מנוי בתשלום", "שימוש מעשי"], ["ElevenLabs", "אודיו", "קריינות וקולות מבוססי AI", "2", "חינמי במגבלות, עם מנוי בתשלום", "שימוש מעשי"], ["Gemini Notebook", "מסמכים", "עבודה עם מסמכי מקור, סיכום וחקירה של חומר קיים", "2", "חינמי", "שימוש מעשי"], ["Google Slides", "מסמכים", "הכנת מצגת לתיאור המיזם", "2", "חינמי", "שימוש מעשי"], ["Gamma", "מסמכים", "הכנת מצגת מעוצבת במהירות מתוך טקסט", "2", "חינמי במגבלות, עם מנוי בתשלום", "שימוש מעשי"], ["Whimsical", "אפיון ועיצוב", "תרשימי זרימה (Workflows) ושלד מסכים (Wireframes) של המיזם", "3", "חינמי במגבלות, עם מנוי בתשלום", "העמקה"], ["Canva", "אפיון ועיצוב", "עיצוב הזהות הוויזואלית ונכסי המיתוג של המיזם", "3", "חינמי, עם גרסת Pro בתשלום", "שימוש מעשי"], ["FigJam", "אפיון ועיצוב", "לוח עבודה שיתופי לעיצוב ולאפיון", "3", "חינמי במגבלות", "הדגמה והיכרות"], ["Claude Code", "בנייה", "בניית האפליקציה עצמה: Projects, Artifacts, Connectors, סקילים ומשימות מתוזמנות", "3", "מנוי בתשלום", "העמקה"], ["Base44", "בנייה", "Vibe Coding: בניית אפליקציה מתיאור מילולי, כחלופה ל-Claude Code", "3", "חינמי במגבלות, לרוב יידרש מנוי בתשלום", "שימוש מעשי"], ["Lovable", "בנייה", "Vibe Coding: בניית אפליקציה מתיאור מילולי, כחלופה ל-Claude Code", "3", "חינמי במגבלות, לרוב יידרש מנוי בתשלום", "שימוש מעשי"], ["Git", "העלאה לאוויר", "ניהול גרסאות ועבודה מול הטרמינל. יש להתקין לפני מפגש 13", "3", "חינמי", "שימוש מעשי"], ["GitHub ו-GitHub Pages", "העלאה לאוויר", "העלאת הפרויקט לריפוזיטורי ופרסום האתר לאוויר", "3", "חינמי", "שימוש מעשי"], ["Firebase", "העלאה לאוויר", "אחסון ופרסום הפרויקט כחלופה ל-GitHub Pages", "3", "חינמי במגבלות (Spark), תשלום לפי שימוש", "שימוש מעשי"], ["Netlify", "העלאה לאוויר", "פרסום האתר, נלמד רק אם הזמן מאפשר", "3", "חינמי במגבלות", "הדגמה והיכרות"], ["Lighthouse", "בקרה", "בדיקת נגישות וביצועים של המערכת שנבנתה, ותיקון ממצאים", "4", "חינמי, מובנה בדפדפן Chrome", "שימוש מעשי"], ["Wave Evaluation Tools", "בקרה", "תוסף דפדפן לבדיקת נגישות דיגיטלית", "4", "חינמי", "שימוש מעשי"], ["AirTable", "נתונים", "בסיס הנתונים של המיזם: טבלאות, שדות וקשרים. משמש גם כמקור נתונים לאוטומציות", "5, 6", "חינמי במגבלות, עם מנוי בתשלום", "העמקה"], ["Claude Connectors", "סוכני AI", "חיבור הסוכן לכלים חיצוניים: Gmail, Calendar, Drive, Canva, Slack ועוד", "5", "כלול במנוי Claude", "שימוש מעשי"], ["Snowflake", "סוכני AI", "בניית סוכני AI וצוות סוכנים העובדים יחד", "5", "טרם נקבע", "טרם נקבע"], ["Hermes / OpenClaw", "סוכני AI", "סוכנים מתקדמים, ייכנס רק אם הזמן מאפשר", "5", "טרם נקבע", "טרם נקבע"], ["Voiceflow", "צ'אטבוט", "בניית צ'אטבוט ושילובו באתר המיזם", "5", "טרם נקבע", "טרם נקבע"], ["Manychat", "צ'אטבוט", "בניית צ'אטבוט ושילובו באתר המיזם", "5", "טרם נקבע", "טרם נקבע"], ["n8n", "אוטומציה", "מנוע האוטומציה של הקורס: Workflows, טריגרים, Nodes, APIs, WebHooks, סוכן AI ו-RAG", "6", "חינמי (חשבון בסיסי), עם מסלולים בתשלום", "העמקה"]];
+const TOOLCATS=["הכול", "מודלי שפה", "כלי עזר", "תמונה", "וידאו", "אודיו", "מסמכים", "אפיון ועיצוב", "בנייה", "העלאה לאוויר", "בקרה", "נתונים", "סוכני AI", "צ'אטבוט", "אוטומציה"];
+
+const PROJECTMAP=[{"n": 1, "t": "בחירת נושא ופתיחת הפרויקט", "mod": "מודול 1", "mt": "מפגשים 1-3", "tool": "שיחה חופשית + Whimsical", "what": "כל תלמיד בוחר נושא אישי משלו, ופותח את תעודת המיזם: שם הפרויקט, הבעיה שהוא פותר, ולמי.", "demo": "המרצה בוחר את \"המתנה המושלמת\" כדוגמה המלווה של הכיתה, ופותח עבורה תעודת מיזם לדוגמה מול כל התלמידים."}, {"n": 2, "t": "בניית שכבת התוכן", "mod": "מודול 2", "mt": "מפגשים 4-6", "tool": "כלי תמונה, וידאו, אודיו ומצגות", "what": "כל תלמיד מייצר תמונות, סרטון קצר ומצגת לנושא הפרויקט שלו, חומרי הבסיס למיתוג ולשיווק.", "demo": "למתנה המושלמת נוצרות תמונת מוצר, סרטון פרסומת קצר ומצגת שמסבירה את הרעיון, כל אחד בהדגמה חיה מול הכיתה."}, {"n": 3, "t": "אפיון, עיצוב ובנייה", "mod": "מודול 3", "mt": "מפגשים 7-13", "tool": "Whimsical, Canva, Base44 / Lovable / Claude Code", "what": "מ-MVP ותרשים זרימה, דרך זהות ויזואלית, ועד אפליקציה חיה שעולה לאוויר בכתובת ציבורית.", "demo": "המרצה בונה בשידור חי את אתר המתנה המושלמת: טופס עם חמש שאלות (למי המתנה, גיל, תחביבים, תקציב, אירוע), ומפרסם אותו."}, {"n": 4, "t": "ביקורת: אתיקה, נגישות ואבטחה", "mod": "מודול 4", "mt": "מפגשים 14-16", "tool": "Lighthouse, Wave", "what": "כל תלמיד בודק את המערכת שלו מול עקרונות אתיקה, נגישות ואבטחה בסיסית, ומתקן ממצאים.", "demo": "המרצה מריץ Lighthouse על אתר המתנה המושלמת מול הכיתה, ומתקן יחד איתם ממצא נגישות אחד לדוגמה."}, {"n": 5, "t": "הוספת שכבת AI", "mod": "מודול 5", "mt": "מפגשים 17-21", "tool": "AirTable, סוכני AI, צ'אטבוט", "what": "בניית בסיס נתונים, חיבור כלים חיצוניים, וסוכן AI או צ'אטבוט שמבצע פעולה אמיתית על המערכת.", "demo": "למתנה המושלמת מתווסף המנוע שמחזיר שלושה רעיונות מתנה לפי התשובות, וצ'אטבוט קטן שמלווה את הפנייה באתר."}, {"n": 6, "t": "אוטומציה מלאה", "mod": "מודול 6", "mt": "מפגשים 22-28", "tool": "n8n", "what": "ניתוח התהליך העסקי ובניית תרחישי אוטומציה ב-n8n שמריצים חלקים מהמערכת בלי מגע יד.", "demo": "למתנה המושלמת מתווספות אוטומציות: שמירת כל פנייה, מייל אישי עם רשימת ההצעות, Follow-up כעבור כמה ימים, ותוכן לרשתות מהתמונות שנוצרו."}, {"n": 7, "t": "הצגת הפרויקט", "mod": "מודול 7", "mt": "מפגש 29", "tool": "ללא כלי ייעודי", "what": "כל תלמיד מציג את המערכת שלו מול הכיתה: קישור חי, לא שקפים על מה שלמד.", "demo": "המרצה מציג את המתנה המושלמת המלאה, כדוגמה לאיך שורה תחתונה של הפרויקט נראית בפועל."}];
+
+const CATS=["הכול","אפיון ומוצר","עיצוב וממשק","פרומפטים ו-LLM","נתונים ואנליטיקה","פיתוח No-Code","אוטומציה ואינטגרציות","סוכני AI","שיחה ומסמכים","שיטת הקורס"];
+const T=[
+// אפיון ומוצר
+["Citizen Developer","מפתח אזרחי","אפיון ומוצר","איש מקצוע ללא רקע טכני שבונה פתרונות דיגיטליים עסקיים שלמים בכלים חזותיים ובשפה טבעית, בלי לכתוב קוד. זו ההגדרה המקצועית של בוגר הקורס.","מפגש 1"],
+["Problem Statement","משפט הבעיה","אפיון ומוצר","ניסוח חד של הבעיה בתבנית קבועה: סוג משתמש צריך צורך, כי סיבה. זה המשפט שכל החלטה בהמשך נבחנת מולו.","מפגש 1, שלב 1"],
+["MVP","Minimum Viable Product","אפיון ומוצר","הגרסה המצומצמת ביותר של המוצר שעדיין פותרת את הבעיה. בקורס: 3 עד 5 פיצ'רי ליבה ומדד הצלחה אחד מדיד.","מפגש 1, שלב 1"],
+["MoSCoW","מודל תיעדוף","אפיון ומוצר","שיטת תיעדוף פיצ'רים לארבע קבוצות: Must, Should, Could, Won't. הכלי שמכריע מה נכנס ל-MVP ומה יוצא.","מפגש 1"],
+["Scope Creep","זחילת היקף","אפיון ומוצר","התנפחות הדרגתית של הפרויקט בפיצ'רים שנוספו \"כי אפשר\". האויב המרכזי של סטודנט בקורס פרויקטלי.","מפגש 1"],
+["Out of Scope","מחוץ לתכולה","אפיון ומוצר","רשימה מפורשת של מה שהמערכת לא תעשה. הצהרה על ויתור היא חלק מהציון, לא חיסרון.","שלב 1"],
+["Lean","גישת Lean","אפיון ומוצר","מחזור עבודה של בעיה, הנחה, MVP, משוב. במקום לבנות הכול ואז לבדוק, בונים מעט ולומדים מהר.","מפגש 1"],
+["חמש שאלות המפתח","","אפיון ומוצר","מטרה, קהל, תקציב או מודל הכנסה, לוח זמנים וסקייל. המסגרת שמחליפה אפיון ארוך בשלב הראשוני.","מפגש 1, שלב 1"],
+["AS-IS / TO-BE","מצב קיים ומצב רצוי","אפיון ומוצר","ניתוח התהליך העסקי כפי שהוא היום, ואז תכנון הגרסה המשופרת. בלי AS-IS אין דרך להוכיח שיפור.","מפגש 2"],
+["תהליך עסקי","","אפיון ומוצר","רצף של טריגר, פעולות, תנאים ונקודת סיום. היחידה הבסיסית שממנה נגזרים גם המסכים וגם האוטומציות.","מפגש 2"],
+// עיצוב וממשק
+["Flowchart","תרשים זרימה","עיצוב וממשק","ייצוג ויזואלי של תהליך עסקי בשפה מוסכמת: Terminator, Process, Decision, Input/Output. בקורס הוא המפרט הישיר של אוטומציות שלב 3.","מפגש 2, שלב 1"],
+["Swimlanes","נתיבי אחריות","עיצוב וממשק","חלוקת תרשים הזרימה לנתיבים לפי בעל התפקיד, כדי להראות מי אחראי על כל צעד. רכיב בונוס בשלב 1.","מפגש 2"],
+["Wireframe","שלד מסך","עיצוב וממשק","שרטוט מסך בשחור-לבן שמתמקד במבנה, בהיררכיה ובשדות, ולא בעיצוב. כל שדה קלט בו הופך לעמודה בבסיס הנתונים.","מפגש 2, שלב 1"],
+["Touchpoint","נקודת מגע","עיצוב וממשק","כל מקום שבו המשתמש נוגע במערכת. זיהוי ה-Touchpoints הוא הגשר מתרשים הזרימה לרשימת המסכים.","מפגש 2"],
+["רכיב בחירה סגור","","עיצוב וממשק","תפריט, כפתורי רדיו או Single Select במקום טקסט חופשי. מונע טעויות אנוש ושומר על שלמות הנתונים.","מפגש 2"],
+["נגישות דיגיטלית","","עיצוב וממשק","ניגודיות מספקת, סימון שדות חובה, גדלי כפתורים וטקסט חלופי. נבדק בפועל דרך Lighthouse בשלב 2.","מפגשים 2, 10"],
+["Empty State","מסך ריק","עיצוב וממשק","מה המשתמש רואה כשאין עדיין נתונים. אחד ממצבי הקצה שחובה לממש בשלב 2.","מפגשים 7, 10"],
+["Edge States","מצבי קצה","עיצוב וממשק","מסכים והודעות למצבים לא שגרתיים: ריק, שגיאה, הצלחה, טעינה. ההבדל בין דמו לבין מוצר.","מפגש 7"],
+["Lighthouse","","עיצוב וממשק","כלי בדיקה אוטומטי בדפדפן שנותן ציון נגישות וביצועים. בשלב 2 מתעדים את הציון ומתקנים ממצא אחד לפחות.","מפגש 10, שלב 2"],
+["חוק היק","Hick's Law","עיצוב וממשק","ככל שיש יותר אפשרויות בחירה, כך זמן ההחלטה מתארך. הבסיס להורדת שדות מיותרים מהטופס.","מפגש 3"],
+// פרומפטים ו-LLM
+["LLM","מודל שפה גדול","פרומפטים ו-LLM","מנוע חיזוי סטטיסטי שמנחש את המילה הבאה. הבנת המנגנון היא מה שמסביר גם את הכוח וגם את ההזיות.","מפגש 4"],
+["Context Window","חלון ההקשר","פרומפטים ו-LLM","כמות המידע שהמודל יכול להחזיק בבת אחת. הסיבה שתעודת המיזם קיימת: כדי להחזיר הקשר מלא בכל פרומפט.","מפגש 4"],
+["Hallucination","הזיה","פרומפטים ו-LLM","תשובה שנשמעת סמכותית אך אינה נכונה. הכלים נגדה: עיגון במקורות, תגיות XML ו-Guardrails.","מפגשים 4, 20"],
+["Role / Context / Task / Constraints","נוסחת הפרומפט","פרומפטים ו-LLM","ארבעת מרכיבי הפרומפט השלם: מי אתה, מה הרקע, מה המשימה, ומה המגבלות. כל פרומפטי הקורס בנויים בה.","מפגש 4"],
+["Zero-Shot / Few-Shot","","פרומפטים ו-LLM","פרומפט ללא דוגמאות מול פרומפט עם דוגמאות. הוספת שתיים-שלוש דוגמאות היא הדרך הזולה ביותר לשפר עקביות.","מפגש 4"],
+["Chain of Thought","שרשרת מחשבה","פרומפטים ו-LLM","בקשה מהמודל לחשוב שלב אחר שלב לפני התשובה הסופית. משפר משמעותית לוגיקה עסקית סבוכה.","מפגש 5"],
+["תגיות XML","","פרומפטים ו-LLM","עטיפת חלקי הפרומפט בתגיות כמו role, context ו-task. מפרידה אחריות ומקטינה בלבול והזיות.","מפגש 5"],
+["Claude Project","","פרומפטים ו-LLM","סביבת עבודה עם זיכרון קבוע והוראות מערכת, שבה נבנה סוכן מומחה התוכן האישי ובה נשמרת תעודת המיזם.","מפגש 5"],
+["Artifacts","","פרומפטים ו-LLM","תוצרים ניתנים לעריכה שנוצרים בשיחה עם המודל, לצד הטקסט. נוח לתחזוקת ספריית פרומפטים.","מפגש 5"],
+["ספריית פרומפטים","","פרומפטים ו-LLM","אוסף מתועד של תבניות פרומפט רב-פעמיות. נכס דיגיטלי בפני עצמו, ומרכיב בפורטפוליו.","מפגש 5"],
+["System Prompt","הוראת מערכת","פרומפטים ו-LLM","ההנחיה הקבועה שמגדירה לסוכן תפקיד, טון, גבולות ופורמט תשובה. הרכיב המרכזי בציון שלב 4.","מפגשים 18, שלב 4"],
+// נתונים
+["בסיס נתונים יחסי","Relational DB","נתונים ואנליטיקה","נתונים המפוזרים בטבלאות מקושרות במקום גיליון שטוח אחד. הבסיס למניעת כפילויות.","מפגש 8"],
+["Data Integrity","שלמות נתונים","נתונים ואנליטיקה","הבטחה שהמידע נשאר עקבי ותקין: סוגי שדות נכונים, קישורים במקום שכפול, וערכים סגורים.","מפגש 8"],
+["Airtable","","נתונים ואנליטיקה","פלטפורמת בסיס נתונים חזותית: Base, Tables, Views, סוגי שדות ו-Linked Fields. ה-Backend של המיזם.","מודול 3"],
+["Linked Field","שדה מקושר","נתונים ואנליטיקה","קישור בין רשומות בשתי טבלאות. הכלי שמונע כפילויות ומאפשר לשאול שאלות חוצות טבלאות.","מפגש 8"],
+["סכמת נתונים","Schema","נתונים ואנליטיקה","המפה של הטבלאות, השדות והקשרים. בקורס היא נגזרת ישירות משדות הקלט של ה-Wireframes.","מפגש 8, שלב 2"],
+["Supabase","","נתונים ואנליטיקה","בסיס נתונים ושכבת אימות משתמשים מובנים בתוך Lovable, כחלופה או השלמה ל-Airtable.","מפגש 7"],
+["KPI","מדד ביצוע מרכזי","נתונים ואנליטיקה","המספר שמעיד אם המערכת עובדת. כל מיזם בקורס מגדיר מדד הצלחה אחד מדיד כבר בשלב 1.","מפגש 11"],
+["Dashboard","לוח בקרה","נתונים ואנליטיקה","תצוגה חיה של מדדי הליבה. נבנה ב-Airtable Interfaces על נתוני המיזם עצמו.","מפגשים 11-12"],
+["Airtable Interfaces","","נתונים ואנליטיקה","שכבת ממשקים ולוחות בקרה מעל בסיס הנתונים, כולל הגדרת התראות, בלי כלי BI חיצוני.","מפגש 11"],
+["פירסור","Parsing","נתונים ואנליטיקה","פירוק קובץ גולמי ומבולגן למבנה נתונים תקין. הצעד הראשון לפני כל ניתוח או דשבורד.","מפגש 12"],
+// פיתוח No-Code
+["No-Code","","פיתוח No-Code","בנייה בכלים חזותיים ובשפה טבעית ללא כתיבת קוד. כלל הזהב של הקורס: נתקעת בקוד, עצור וחפש פתרון No-Code או AI.","לאורך כל הקורס"],
+["Vibe Coding","","פיתוח No-Code","תרגום תיאור מילולי לאפליקציה חיה. העיקרון: לא לכתוב קוד, אלא לנהל אותו כמנהל מוצר.","מודול 3"],
+["Text-to-App","","פיתוח No-Code","המרה מיידית של תיאור בשפה טבעית לאפליקציה עובדת. הטכנולוגיה שמאחורי Lovable, v0 ו-Bolt.","מפגש 6"],
+["Plan, Approve, Execute","תכנון, אישור, ביצוע","פיתוח No-Code","המתודולוגיה המרכזית של הקורס: מבקשים מה-AI תוכנית, בודקים מול ה-MVP, ורק אז מאשרים לבצע.","לאורך כל הקורס"],
+["Lovable","","פיתוח No-Code","פלטפורמת Full-Stack מונחית AI עם Supabase מובנה ו-Deploy בלחיצה, ללא Vendor Lock-in.","מפגש 7"],
+["v0 / Bolt.new","","פיתוח No-Code","כלי יצירת ממשקי קצה מתיאור מילולי. v0 מצוין לרכיבים ומסכים בודדים.","מפגש 6"],
+["Full-Stack","","פיתוח No-Code","מערכת שלמה: ממשק, שרת, בסיס נתונים ואימות משתמשים. המעבר מ-Frontend בלבד למוצר אמיתי.","מפגש 7"],
+["Authentication","אימות משתמשים","פיתוח No-Code","זיהוי מי המשתמש ומה מותר לו לראות. הבסיס להרשאות ולהפרדת מידע בין תפקידים.","מפגש 7"],
+["Deploy","פרסום","פיתוח No-Code","העלאת המערכת לאוויר וקבלת URL ציבורי. בקורס זו דרישת סף להגשת שלב 2.","מפגש 10, שלב 2"],
+["Vendor Lock-in","נעילת ספק","פיתוח No-Code","מצב שבו אי אפשר לצאת מהכלי בלי לאבד את המוצר. שיקול בבחירת פלטפורמה.","מפגש 7"],
+["דיבוג חכם","","פיתוח No-Code","מתארים ל-AI את ההתנהגות הרצויה מול ההתנהגות בפועל ומבקשים אבחון, במקום לגעת בקוד.","מפגש 10"],
+["QA","בקרת איכות","פיתוח No-Code","מעבר שיטתי על המוצר לזיהוי תקלות, דירוגן לפי חומרה, וניסוח פרומפט תיקון לכל ממצא.","מפגשים 9, 26"],
+// אוטומציה
+["Trigger","טריגר","אוטומציה ואינטגרציות","האירוע שמפעיל את התרחיש: טופס שנשלח, שעה קבועה, שורה חדשה. תחילת כל אוטומציה.","מפגש 13"],
+["Make (חלופה)","","אוטומציה ואינטגרציות","כלי האוטומציה שמופיע בסילבוס הכתוב. הצוות בחר ב-n8n בפועל; העקרונות זהים ורוב המושגים מתורגמים אחד לאחד, ולכן הסילבוס תקף בשני הכלים.","מודול 5"],
+["Zapier","","אוטומציה ואינטגרציות","כלי אוטומציה פשוט לתרחישים ליניאריים. בקורס משמש להבנת העיקרון לפני המעבר ל-n8n.","מפגש 13"],
+["n8n","","אוטומציה ואינטגרציות","מנוע האוטומציה של הקורס (החלטת הצוות): צמתים, ניתוב מותנה, לולאות, Error Workflow וצמתי AI. גם Self-Hosted וגם Cloud.","מודולים 5-7"],
+["Switch / IF","צומת ניתוב","אוטומציה ואינטגרציות","פיצול התרחיש לכמה נתיבים לפי תנאי עסקי. התרגום הישיר של צומת החלטה מתרשים הזרימה (ב-Make נקרא Router).","מפגש 14"],
+["Filter","פילטר","אוטומציה ואינטגרציות","תנאי שמחליט אם הנתונים ממשיכים בנתיב. חובה להגדיר גם מה קורה כשאף תנאי לא מתקיים.","מפגש 14"],
+["Split In Batches / Merge","עיבוד רשימות","אוטומציה ואינטגרציות","פירוק רשימה לפריטים בודדים לעיבוד, ואיחודם חזרה לתוצאה אחת. הטיפול הנכון ברשימות (ב-Make: Iterator ו-Aggregator).","מפגש 14"],
+["JSON","","אוטומציה ואינטגרציות","פורמט העברת מידע מובנה בין מערכות. השפה שבה חילוץ המסמכים חוזר למערכת.","מפגשים 14, 25"],
+["Webhook","","אוטומציה ואינטגרציות","כתובת שמקבלת נתונים בזמן אמת ברגע שהם נוצרים. החיבור החי הראשון בין האפליקציה למנוע האוטומציה.","מפגש 15, שלב 3"],
+["Payload","מטען הנתונים","אוטומציה ואינטגרציות","המידע שנשלח בתוך קריאת Webhook או API. הבנת מבנהו היא תנאי למיפוי שדות נכון.","מפגש 15"],
+["API","ממשק תכנותי","אוטומציה ואינטגרציות","דרך מוסכמת שבה מערכות מדברות זו עם זו. בקורס עובדים איתו ללא קוד, דרך מודולי HTTP.","מפגש 15"],
+["iPaaS / RPA","","אוטומציה ואינטגרציות","רמות בסולם האינטגרציה: פלטפורמת אינטגרציה בענן מול רובוט שמחקה פעולות אדם במסך. בוחרים רמה לפי הבעיה.","מפגש 13"],
+["Error Workflow","טיפול בשגיאות","אוטומציה ואינטגרציות","תרחיש נפרד ב-n8n שנקרא אוטומטית כשתרחיש אחר נכשל: ניסיון חוזר, תור טיפול ידני או התראה. ההבדל בין תרחיש שקורס לתרחיש שעובד.","מפגש 15, שלב 3"],
+["Retry","ניסיון חוזר","אוטומציה ואינטגרציות","מנגנון שמנסה שוב פעולה שנכשלה זמנית. יש להיזהר מכפילויות שנוצרות ממנו.","מפגש 15"],
+["Data Validation","ולידציה","אוטומציה ואינטגרציות","בדיקת תקינות של כל שדה נכנס: פורמט טלפון, אימייל, שדות חובה. שכבת החובה לפני כתיבה לנתונים.","מפגש 16, שלב 3"],
+["אבטחת מידע באוטומציה","","אוטומציה ואינטגרציות","אימות מקור הקריאה, הצפנה, וגישה מינימלית בלבד. חלק מהסטנדרט המקצועי שנדרש בהגשות.","מפגש 15"],
+// סוכני AI
+["AI Agent","סוכן AI","סוכני AI","מערכת שמתכננת, פועלת, בודקת ומתקנת את עצמה, בניגוד לצ'אטבוט שרק עונה. הקפיצה של מודול 6.","מפגש 18"],
+["Skills","משימות סוכן","סוכני AI","היכולות המוגדרות של הסוכן: מה הוא יודע לעשות ובאילו תנאים.","מפגש 18"],
+["Tools","כלים","סוכני AI","גישות חיצוניות שניתנות לסוכן: קריאה לבסיס נתונים, שליחת הודעה, הפעלת תרחיש. עיקרון ההרשאה המינימלית חל כאן.","מפגש 20"],
+["Agentic Workflow","שרשור סוכנים","סוכני AI","כמה סוכנים העובדים יחד בתבנית Pipeline, Supervisor או Parallel, עם הפרדת אחריות ברורה ביניהם.","מפגש 19"],
+["Human in the Loop","בקרה אנושית","סוכני AI","נקודת עצירה מוגדרת שבה הסוכן חייב לקבל אישור אדם לפני שהוא ממשיך.","מפגש 19"],
+["RAG","ידע ארגוני מעוגן","סוכני AI","חיבור הסוכן למסמכי המיזם כך שיענה רק מהמקורות, ואם התשובה אינה שם יאמר זאת ויפנה לנציג אנושי.","מפגש 20, שלב 4"],
+["Guardrails","גבולות גזרה","סוכני AI","הכללים שמונעים מהסוכן לחרוג מתפקידו, להמציא מידע או לחשוף נתונים רגישים.","מפגש 20, שלב 4"],
+["Red-Team","בדיקת חדירות","סוכני AI","ניסיונות מכוונים לגרום לסוכן להיכשל, ותיקון כל פרצה שנמצאה. חמישה ניסיונות מתועדים הם חלק מציון שלב 4.","מפגש 20, שלב 4"],
+["ניטור בפרודקשן","","סוכני AI","מעקב אחרי לוגים, עלויות והתנהגות חריגה של הסוכן אחרי שהוא חי. מה שמפריד בין הדגמה למערכת.","מפגש 20"],
+["n8n / CrewAI","","סוכני AI","פלטפורמות לבניית מערכי סוכנים. n8n חזותי ומבוסס תרחישים, CrewAI מבוסס הגדרת תפקידים.","מודול 6"],
+// שיחה ומסמכים
+["Conversational UX","עיצוב שיחה","שיחה ומסמכים","עקרונות בניית שיחה: פתיחה, ניתוב כוונות, ניסוח תשובות ומסלולי מילוט.","מפגש 23"],
+["Intent","כוונה","שיחה ומסמכים","מה המשתמש באמת רוצה מאחורי המשפט שכתב. הבסיס לניתוב נכון בבוט.","מפגש 23"],
+["Fallback","נתיב מילוט","שיחה ומסמכים","מה הבוט עושה כשהוא לא מבין: מבקש הבהרה או מעביר לנציג אנושי. חובה בכל תרחיש שיחה.","מפגש 23"],
+["Voiceflow","","שיחה ומסמכים","פלטפורמה חזותית לבניית תרחישי שיחה, עם שילוב LLM לצד תסריט מובנה.","מודול 7"],
+["Widget","","שיחה ומסמכים","רכיב הבוט המוטמע בתוך האתר או האפליקציה. ההטמעה היא רכיב נפרד בציון שלב 5.","מפגש 24"],
+["שאלות סינון","Qualification","שיחה ומסמכים","שאלות פתיחה שמסננות פנייה ומחליטות אם היא ליד רלוונטי ולאן היא ממשיכה.","מפגש 23"],
+["IDP","עיבוד מסמכים חכם","שיחה ומסמכים","חילוץ מובנה של מידע ממסמכים כמו חשבוניות, טפסים ותעודות, והזנתו אוטומטית למערכת.","מפגש 25, שלב 5"],
+["OCR / Vision","","שיחה ומסמכים","קריאת טקסט מתוך תמונה או PDF באמצעות AI. הבסיס הטכני של רכיב הסריקה.","מפגש 25"],
+["Confidence","רמת ודאות","שיחה ומסמכים","ציון שהמודל מחזיר לכל שדה מחולץ. מאפשר להעביר לאישור אנושי רק את מה שלא בטוח.","מפגש 25"],
+["End-to-End","בדיקת שרשרת מלאה","שיחה ומסמכים","בדיקה שעוברת דרך כל הרכיבים ברצף: שיחה, סריקה, עדכון נתונים והתראה. דרישת הגשה בשלב 5.","מפגש 27, שלב 5"],
+// שיטת הקורס
+["הפרויקט המתגלגל","","שיטת הקורס","מיזם אחד שנבחר בשלב 1 ומתפתח בשישה שלבים עד מערכת חיה. עמוד השדרה של הקורס.","לאורך כל הקורס"],
+["תעודת המיזם","","שיטת הקורס","מסמך חי אחד שמרכז את כל ההקשר של המיזם ומתעדכן בסוף כל שלב. מודבק לתוך כל פרומפט.","לאורך כל הקורס"],
+["רשת ביטחון","","שיטת הקורס","תבנית מוכנה מהמרצה לסטודנט שנתקע, כדי שימשיך לשלב הבא. השימוש מתועד ואינו פוגע בציון ההמשך.","כל שלב"],
+["PBL","למידה מבוססת פרויקט","שיטת הקורס","שיטת ההוראה של הקורס: התיאוריה נלמדת תוך כדי בנייה של פרויקט אמיתי אחד.","לאורך כל הקורס"],
+["פרומפט ביקורת","","שיטת הקורס","פרומפט שמריצים על התוצר לפני ההגשה, שמדמה בודק חיצוני ומחזיר רשימת תיקונים מדורגת.","כל שלב"],
+["Case Study","","שיטת הקורס","מסמך שמספר את הפרויקט במבנה: בעיה, קהל, תהליך, פתרון ואימפקט מדיד. הנכס המרכזי בפורטפוליו.","מפגש 28, שלב 6"],
+["Pitch Deck","","שיטת הקורס","מצגת של שבעה שקפים, מסר אחד לשקף, כולל שקף ROI: מה המערכת חוסכת בזמן ובכסף.","מפגש 28, שלב 6"],
+["ROI","החזר השקעה","שיטת הקורס","החישוב שמצדיק את המערכת מול הלקוח: כמה זמן וכסף היא חוסכת ביחס לעלות התפעול שלה.","מפגש 28"],
+["בקרת עמיתים","Peer Feedback","שיטת הקורס","הצגת התוצר לעמיתים, קבלת הערות ותיקון מתועד. רכיב בונוס בשלב 1 ומרכיב קבוע בסדנאות.","מפגש 3"],
+["יומן החלטות","","שיטת הקורס","שלוש שורות בסוף כל שלב: החלטה מרכזית, דבר שהפתיע, ודבר שאעשה אחרת. הבסיס לכתיבת ה-Case Study.","כל שלב"]
+];
+
+/* =============== RENDER: MODULE MAP =============== */
+(function(){
+  let h='<tr><th style="width:56px">מודול</th><th>נושא</th><th style="width:92px">מפגשים</th><th style="width:70px">ש"ל</th><th style="width:30%">כלים מרכזיים</th></tr>';
+  let H=0;
+  MODS.forEach(m=>{H+=m.h;
+    h+=`<tr><td><b style="font-family:Poppins">${m.n}</b></td><td><b>${m.t}</b></td><td>${m.mt}</td><td>${m.h}</td><td>${m.tools}</td></tr>`;});
+  h+=`<tr style="background:var(--navy-soft)"><td colspan="2"><b>סה"כ</b></td><td><b>29</b></td><td><b>${H.toFixed(1)}</b></td><td><b>259.5 שעות סה"כ (כולל 100 ש' עבודה עצמית)</b></td></tr>`;
+  document.getElementById('modmap').innerHTML=h;
+})();
+/* =============== RENDER: MODULES =============== */
+function renderList(arr){ return Array.isArray(arr) ? arr.map(t=>`<li>${t}</li>`).join('') : `<li>${arr}</li>`; }
+(function(){
+  let h='';
+  MODS.forEach(m=>{
+    let body=`<div class="mod-intro">${m.intro}</div>`;
+    m.M.forEach(x=>{
+      body+=`<div class="mt"><h5><span class="no">מפגש ${x.n}</span> ${x.t}</h5>`;
+      if(x.open)body+=`<div class="box pr"><span class="lab">פתיחה</span><ul>${renderList(x.open)}</ul></div>`;
+      if(x.top)body+=`<ul>${x.top.map(t=>`<li>${t}</li>`).join('')}</ul>`;
+      if(x.tools)body+=`<div class="tgs">${Array.isArray(x.tools)?x.tools.map(t=>`<span class="tg">${t}</span>`).join(''):`<span class="tg tbd">${x.tools}</span>`}</div>`;
+      if(x.rl)body+=(x.rl==='אין מטלות לביצוע')
+        ? `<div class="box rl"><span class="lab">חיבור לפרויקט המתגלגל</span>אין מטלות לביצוע במפגש הזה</div>`
+        : `<div class="box rl"><span class="lab">חיבור לפרויקט המתגלגל</span><ul>${renderList(x.rl)}</ul></div>`;
+      if(x.demo)body+=`<div class="box demo"><span class="lab">🎁 הדגמה במיזם המלווה, "המתנה המושלמת"</span>${x.demo}</div>`;
+      if(x.note)body+=`<div class="box sub"><span class="lab">הערות</span><ul>${renderList(x.note)}</ul></div>`;
+      body+=`</div>`;
+    });
+    h+=`<div class="mod"><div class="mod-head" onclick="this.parentNode.classList.toggle('open')">
+      <div class="mod-badge">${m.n}</div>
+      <div class="mod-t"><h3>${m.t}</h3><div class="meta">מפגשים ${m.mt} · ${m.h} ש"ל</div></div>
+      <div class="mod-tools">${m.tools}</div>${CH}</div>
+      <div class="mod-body">${body}</div></div>`;
+  });
+  document.getElementById('mods').innerHTML=h;
+})();function allMods(o){document.querySelectorAll('#mods .mod').forEach(m=>m.classList.toggle('open',o));}
+function allStages(o){document.querySelectorAll('#stages .stage').forEach(m=>m.classList.toggle('open',o));}
+
+/* =============== RENDER: TOOLS TABLE =============== */
+let curTCat="הכול";
+const DEPCLS={"העמקה":"d1","שימוש מעשי":"d2","הדגמה והיכרות":"d3","טרם נקבע":"d0"};
+document.getElementById('tchips').innerHTML=TOOLCATS.map(c=>{
+  const n = c==="הכול" ? TOOLS.length : TOOLS.filter(t=>t[1]===c).length;
+  return `<button class="chip${c==="הכול"?' on':''}" data-tc="${c}">${c} <span style="opacity:.55">${n}</span></button>`;
+}).join('');
+document.getElementById('tchips').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b)return;
+  curTCat=b.dataset.tc;
+  document.querySelectorAll('#tchips .chip').forEach(x=>x.classList.toggle('on',x===b));
+  drawTools(); setTimeout(wrapTables,60);
+});
+function drawTools(){
+  const list = TOOLS.filter(t=>curTCat==="הכול"||t[1]===curTCat);
+  document.getElementById('tcount').textContent=`מוצגים ${list.length} כלים מתוך ${TOOLS.length}`;
+  let h='<tr><th style="width:16%">הכלי</th><th style="width:11%">תחום</th><th>למה משמש בקורס</th><th style="width:9%">מודולים</th><th style="width:19%">מודל עלות</th><th style="width:12%">מידת העמקה</th></tr>';
+  list.forEach(t=>{
+    h+=`<tr><td><b>${t[0]}</b></td><td>${t[1]}</td><td>${t[2]}</td><td style="white-space:nowrap">${t[3]}</td><td>${t[4]}</td><td><span class="dep ${DEPCLS[t[5]]||'d0'}">${t[5]}</span></td></tr>`;
+  });
+  document.getElementById('toolstable').innerHTML=h;
+}
+drawTools();
+
+/* =============== RENDER: PROJECT MAP TABLE =============== */
+(function(){
+  let h='<tr><th style="width:64px">מודול</th><th>מה בונים</th><th style="width:16%">מיקום בקורס</th><th style="width:22%">כלי מרכזי</th></tr>';
+  PROJECTMAP.forEach(s=>{h+=`<tr><td><b style="font-family:Poppins">${s.n}</b></td><td><b>${s.t}</b></td><td>${s.mod}, ${s.mt}</td><td>${s.tool}</td></tr>`;});
+  document.getElementById('stagemap').innerHTML=h;
+})();
+
+/* =============== RENDER: PROJECT MODULES (STAGES) =============== */
+(function(){
+  let h='';
+  PROJECTMAP.forEach(s=>{
+    let b=`<div class="sb-t">מה בונה כל תלמיד בנושא שלו</div><p style="font-size:15px">${s.what}</p>`;
+    b+=`<div class="sb-t">כך זה נראה במיזם המלווה, "המתנה המושלמת"</div><div class="card dash" style="padding:16px 18px"><p style="font-size:14px">${s.demo}</p></div>`;
+    h+=`<div class="stage"><div class="stage-head" onclick="this.parentNode.classList.toggle('open')">
+      <div class="st-no"><small>מודול</small><b>${s.n}</b></div>
+      <div class="t"><h3>${s.t}</h3><div class="meta">${s.mod} · ${s.mt} · ${s.tool}</div></div>${CH}</div><div class="stage-body">${b}</div></div>`;
+  });
+  document.getElementById('stages').innerHTML=h;
+})();
+
+/* =============== RENDER: GLOSSARY =============== */
+let curCat="הכול";
+document.getElementById('chips').innerHTML=CATS.map(c=>`<button class="chip${c==="הכול"?' on':''}" data-c="${c}">${c}${c!=="הכול"?` <span style="opacity:.55">${T.filter(t=>t[2]===c).length}</span>`:` <span style="opacity:.55">${T.length}</span>`}</button>`).join('');
+document.getElementById('chips').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b)return;
+  curCat=b.dataset.c;
+  document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===b));
+  drawTerms();
+});
+document.getElementById('q').addEventListener('input',drawTerms);
+function drawTerms(){
+  const q=document.getElementById('q').value.trim().toLowerCase();
+  const list=T.filter(t=>{
+    if(curCat!=="הכול"&&t[2]!==curCat)return false;
+    if(!q)return true;
+    return (t[0]+' '+t[1]+' '+t[3]+' '+t[2]).toLowerCase().includes(q);
+  }).sort((a,b)=>a[0].localeCompare(b[0],'he'));
+  document.getElementById('count').textContent=`מוצגים ${list.length} מושגים מתוך ${T.length}`;
+  document.getElementById('terms').innerHTML = list.length? list.map(t=>`
+    <div class="term">
+      <div class="h"><div><h4>${t[0]}</h4>${t[1]?`<span class="lat">${t[1]}</span>`:''}</div></div>
+      <p>${t[3]}</p>
+      <div class="foot"><span class="pill o">${t[2]}</span><span class="where">${t[4]}</span></div>
+    </div>`).join('') : `<div class="empty">לא נמצא מושג תואם. נסה מונח אחר, למשל Webhook, סוכן, MVP או נגישות.</div>`;
+}
+drawTerms();
+
+/* =============== MOBILE: TABLE SCROLL WRAPPERS =============== */
+function wrapTables(){
+  document.querySelectorAll('table').forEach(t=>{
+    if(t.closest('.twx'))return;
+    const x=document.createElement('div');x.className='twx';
+    const w=document.createElement('div');w.className='tw';
+    const h=document.createElement('div');h.className='thint';h.textContent='גלול לצדדים כדי לראות את הטבלה המלאה';
+    t.parentNode.insertBefore(h,t);t.parentNode.insertBefore(x,t);x.appendChild(w);w.appendChild(t);
+  });
+  document.querySelectorAll('.twx').forEach(x=>{
+    const w=x.querySelector('.tw'), sc = w.scrollWidth > w.clientWidth+4;
+    x.classList.toggle('sc', sc);
+    const h=x.previousElementSibling;
+    if(h&&h.classList.contains('thint')) h.classList.toggle('on', sc);
+  });
+}
+
+/* =============== COLLAPSIBLE SECTIONS =============== */
+const SIC={
+"מה יש כאן, ולמי":'<rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>',
+"מה כבר הוכרע":'<circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.7 2.8L16 9.5"/>',
+"מה עוד פתוח להכרעה":'<circle cx="12" cy="12" r="9"/><path d="M9.4 9.4a2.7 2.7 0 015.2.9c0 1.8-2.6 2.4-2.6 2.4M12 16.6h.01"/>',
+"קהל היעד: ארבע פרסונות, מכנה משותף אחד":'<circle cx="9" cy="8" r="3.2"/><path d="M2.8 20a6.2 6.2 0 0112.4 0"/><path d="M16.5 5.6a3.2 3.2 0 010 5.6M18 14.4a6 6 0 013.3 5.6"/>',
+"מטרת הקורס: מה אנחנו מבטיחים":'<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/>',
+"על הפרק: מה דורש הכרעה":'<rect x="4" y="3.5" width="16" height="17" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+"טעימת בנייה מוקדמת":'<path d="M12 2.5l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 8.2l5.4-.8z"/><path d="M12 19v2.5"/>',
+"התרגיל המתגלגל: ארבע שאלות פתוחות":'<path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/>',
+"כלים: הרשימה המלאה ומעמד כל כלי":'<path d="M14.5 6.2a4.2 4.2 0 015.4 5.4l-8.6 8.6a2.3 2.3 0 01-3.3-3.3z"/><path d="M6.5 3.5l1.2 2.8 2.8 1.2-2.8 1.2L6.5 11.5 5.3 8.7 2.5 7.5l2.8-1.2z"/>',
+"מבט על: חוזקות, חולשות ותלויות":'<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>',
+"שאלות מנחות לניהול הדיון":'<path d="M20.5 12.5a7.5 7.5 0 01-10.8 6.7L4 21l1.8-5.4A7.5 7.5 0 1120.5 12.5z"/><path d="M9.8 10a2.3 2.3 0 014.4.8c0 1.5-2.2 2-2.2 2M12 15.5h.01"/>',
+"סיכום: מה יוצאים איתו":'<path d="M5 3h9l5 5v13a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M14 3v5h5"/><path d="M8 13.5l1.8 1.8 3.4-3.6M8 18h6"/>',
+
+"ההצעה: מה אנחנו מבטיחים, ומקיימים":'<path d="M12 3l2.5 5.4 6 .8-4.4 4.2 1.1 5.9L12 16.5 6.8 19.3l1.1-5.9L3.5 9.2l6-.8z"/>',
+"קהל היעד: ארבע פרסונות":'<circle cx="9" cy="8" r="3.2"/><path d="M2.8 20a6.2 6.2 0 0112.4 0"/><path d="M16.5 5.6a3.2 3.2 0 010 5.6M18 14.4a6 6 0 013.3 5.6"/>',
+"למי הקורס לא מתאים (וזה כוח מכירה)":'<circle cx="12" cy="12" r="9"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/>',
+"מה יוצאים משם: התוצרים":'<path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/>',
+"הכנה לשוק העבודה":'<rect x="2.5" y="7" width="19" height="13" rx="2"/><path d="M8.5 7V5a2 2 0 012-2h3a2 2 0 012 2v2M2.5 12h19"/>',
+"הבידול: למה ג\'ון ברייס":'<path d="M12 2.5l7.5 3.2v5c0 4.6-3.1 8.6-7.5 10.3C7.6 19.3 4.5 15.3 4.5 10.7v-5z"/><path d="M9 12l2 2 4-4"/>',
+"מיפוי מול קורסים משיקים: איך מנתבים ליד":'<circle cx="6" cy="5.5" r="2.5"/><circle cx="18" cy="5.5" r="2.5"/><circle cx="12" cy="19" r="2.5"/><path d="M6 8v3a2 2 0 002 2h8a2 2 0 002-2V8M12 13v3.5"/>',
+"התנגדויות נפוצות ותשובות שעובדות":'<path d="M20.5 12.5a7.5 7.5 0 01-10.8 6.7L4 21l1.8-5.4A7.5 7.5 0 1120.5 12.5z"/><path d="M9 11h6M9 14.5h3.5"/>',
+"דיוק ליד בשיחה: ארבע שאלות":'<circle cx="12" cy="12" r="9"/><path d="M9.4 9.4a2.7 2.7 0 015.2.9c0 1.8-2.6 2.4-2.6 2.4"/><path d="M12 16.6h.01"/>',
+"משפטי מפתח לשימוש חופשי":'<path d="M8 6.5C5.5 7.5 4 9.8 4 12.5V17h5v-5H6.6c.2-1.7 1-2.9 2.4-3.6zM19 6.5c-2.5 1-4 3.3-4 6V17h5v-5h-2.4c.2-1.7 1-2.9 2.4-3.6z"/>',
+"מפת המודולים":'<path d="M3 6.8l6-2.8 6 2.8 6-2.8v13.2l-6 2.8-6-2.8-6 2.8z"/><path d="M9 4v13.2M15 6.8V20"/>',
+"הסילבוס המפורט":'<path d="M3 5.5A2.5 2.5 0 015.5 3H11v18H5.5A2.5 2.5 0 013 18.5z"/><path d="M21 5.5A2.5 2.5 0 0018.5 3H13v18h5.5a2.5 2.5 0 002.5-2.5z"/>',
+"חמישה עקרונות מנחים":'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',
+"שלושת המסלולים":'<path d="M3 5h5l3 7 3-7h7"/><path d="M3 19h5l3-7"/><circle cx="20" cy="5" r="1.6"/><circle cx="20" cy="19" r="1.6"/><path d="M14 19h4.4"/>',
+"למה שלושה מסלולים ולא ERP":'<path d="M12 3v18M5 7h14"/><path d="M5 7l-2.5 6h5zM19 7l-2.5 6h5z"/><path d="M8.5 21h7"/>',
+"תעודת המיזם: מנוע ההמשכיות":'<path d="M5 3h9l5 5v13a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M14 3v5h5M8 13h8M8 17h5"/>',
+"מפת השלבים מול המפגשים":'<rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.8v3.4M16 2.8v3.4M7.5 13h3M13.5 13h3M7.5 16.8h3"/>',
+"ששת השלבים: איך זה יושב על כל מפגש":'<path d="M3 20h4v-5h5V9.5h5V4.5h4"/><path d="M3 20v-5h4v-5.5h5V4.5h5"/>'
+};
+const DEFIC='<circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/>';
+function buildSections(){
+  document.querySelectorAll('.page').forEach(pg=>{
+    if(pg.querySelector(':scope > .sect'))return;
+    let body=null;
+    [...pg.children].forEach(el=>{
+      if(el.tagName==='H2'&&el.classList.contains('sec')){
+        const sect=document.createElement('section');sect.className='sect';
+        pg.insertBefore(sect,el);
+        const t=el.textContent.trim();
+        el.innerHTML='<span class="sic"><svg viewBox="0 0 24 24">'+(SIC[t]||DEFIC)+'</svg></span>'+
+                     '<span class="stt">'+t+'</span>'+
+                     '<svg class="schv" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
+        el.setAttribute('role','button');el.setAttribute('tabindex','0');
+        el.setAttribute('aria-expanded','true');
+        sect.appendChild(el);
+        body=document.createElement('div');body.className='sec-body';
+        sect.appendChild(body);
+      } else if(body){ body.appendChild(el); }
+    });
+  });
+  document.querySelectorAll('.sect > h2.sec').forEach(h=>{
+    if(h.dataset.b)return; h.dataset.b='1';
+    const go=()=>{const c=h.parentNode.classList.toggle('closed');
+                  h.setAttribute('aria-expanded',String(!c));setTimeout(wrapTables,60);};
+    h.addEventListener('click',go);
+    h.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
+  });
+}
+buildSections();
+wrapTables();
+window.addEventListener('resize',wrapTables);
+document.addEventListener('click',e=>{if(e.target.closest('.mod-head,.stage-head,.nav,.toolbar'))setTimeout(wrapTables,60);});
+</script>
+</body>
+</html>
