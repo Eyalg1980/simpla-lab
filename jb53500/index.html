@@ -155,6 +155,38 @@ td b{color:var(--ink)}
 .box.rl{background:var(--coral-soft);border:1px solid #F6C4CD}.box.rl .lab{color:var(--red-dk)}
 .box.sub{background:#EEF9F1;border:1px solid #CDE9D6}.box.sub .lab{color:#1E6B3A}
 .box.demo{background:var(--cream);border:1px solid var(--dash);border-right:3px solid var(--char)}.box.demo .lab{color:var(--char-2)}
+.utpl{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
+.utpl .uh{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.utpl .uk{width:26px;height:26px;flex:0 0 26px;border-radius:50%;background:var(--coral);color:#fff;
+          display:grid;place-items:center;font-weight:900;font-size:13px}
+.utpl h5{font-size:16px;font-weight:800}
+.utpl .uw{font-size:12px;color:var(--ink-3);margin-bottom:9px;padding-right:36px}
+.ptxt{background:#FAFAFA;border:1px dashed #C9C9C9;border-radius:var(--radius-s);padding:12px 14px;
+      font-size:13.6px;line-height:1.65;color:#3D3D3D}
+.ptxt b.ph{background:var(--coral-soft);color:var(--red-dk);font-weight:700;padding:1px 5px;border-radius:3px}
+.slide{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:12px;
+       box-shadow:var(--shadow);overflow:hidden}
+.slide-head{display:flex;align-items:center;gap:14px;padding:16px 20px;cursor:pointer}
+.slide-head:hover{background:var(--cream)}
+.slide .sn{width:42px;height:42px;flex:0 0 42px;border-radius:var(--radius-s);background:var(--navy);color:#fff;
+           display:grid;place-items:center;font-family:'Poppins';font-weight:700;font-size:19px}
+.slide.open .sn{background:var(--coral)}
+.slide .st{flex:1;min-width:0}
+.slide .st h4{font-size:17px;font-weight:800;line-height:1.3}
+.slide .st .meta{font-size:12.5px;color:var(--ink-3);margin-top:2px}
+.slide-body{display:none;padding:0 20px 20px;border-top:1px solid var(--line)}
+.slide.open .slide-body{display:block}
+.slide.open .chev{transform:rotate(180deg)}
+.gl{background:var(--navy-soft);border-radius:var(--radius-s);padding:12px 15px;margin-top:16px;font-size:14.5px}
+.gl b{color:var(--navy)}
+@media (max-width:700px){
+  .slide-head{padding:13px 14px;gap:11px}
+  .slide .sn{width:35px;height:35px;flex:0 0 35px;font-size:16px}
+  .slide .st h4{font-size:15.5px}
+  .slide-body{padding:0 14px 16px}
+  .utpl{padding:15px 16px}
+  .ptxt{font-size:13px}
+}
 .tgs{display:flex;flex-wrap:wrap;gap:6px;margin-top:5px}
 .tg{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 11px;border-radius:99px;background:var(--navy-soft);color:var(--navy);border:1px solid #D2DAEE}
 .tg.tbd{background:var(--char-soft);color:var(--ink-2);border-color:var(--line);font-weight:500}
@@ -266,6 +298,8 @@ td b{color:var(--ink)}
   .mtop .k{background:var(--coral);color:#fff;font-size:9.5px;font-weight:900;letter-spacing:.1em;padding:3px 8px;border-radius:3px;white-space:nowrap}
   .mtop h1{font-size:15.5px;font-weight:900;line-height:1.2}
   .mtop .sku{font-size:11px;color:rgba(255,255,255,.55);margin-right:auto;white-space:nowrap}
+  .mtop .msec{margin-right:auto;font-size:12px;font-weight:700;color:#fff;background:rgba(255,255,255,.14);
+              border:1px solid rgba(255,255,255,.22);padding:4px 11px;border-radius:99px;white-space:nowrap}
   .shell{display:block;min-height:auto}
   .rail{position:fixed;inset:auto 0 0 0;width:auto;height:auto;flex:none;padding:0;z-index:50;
         border-top:3px solid var(--coral);box-shadow:0 -6px 22px rgba(0,0,0,.28)}
@@ -355,6 +389,12 @@ td b{color:var(--ink)}
 
 /* ---------- NAV LABELS ---------- */
 .ns{display:none}
+@media (max-width:900px){
+  .nl{display:none!important}
+  .ns{display:block!important;font-size:10px;line-height:1.15;max-width:100%;
+      overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}
+@media (max-width:360px){ .ns{font-size:9px} }
 
 /* ---------- HOME: PAGE CARDS ---------- */
 .pcard{display:block;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);cursor:pointer;transition:.16s;text-align:right;width:100%;font:inherit;color:inherit}
@@ -447,7 +487,7 @@ td b{color:var(--ink)}
 </style>
 </head>
 <body>
-<header class="mtop"><span class="k">JOHN BRYCE</span><h1>מיישם AI ואוטומציה</h1><span class="sku">53500</span></header>
+<header class="mtop"><span class="k">JOHN BRYCE</span><h1>מיישם AI ואוטומציה</h1><span class="msec" id="msec">דף הבית</span></header>
 <div class="shell">
 <aside class="rail">
   <div class="brand">
@@ -577,6 +617,21 @@ td b{color:var(--ink)}
     <button class="btn" onclick="allStages(false)">סגירת הכול</button>
   </div>
   <div id="stages"></div>
+
+  <h2 class="sec">מצגת הכנה: איך נכנסים לכל שלב</h2>
+  <p class="lead" style="margin-bottom:16px">שקף לכל מודול: מה המטרה, מה להכין מראש, ואיזה פרומפט מפעילים. הפרומפטים הם תבניות. מחליפים את מה שבסוגריים המרובעים ואותה תבנית עובדת לכל נושא פרויקט ולכל מפגש.</p>
+
+  <div class="callout" style="margin-bottom:18px"><b>איך קוראים את זה:</b> ארבע התבניות הכלליות למטה מלוות את כל הקורס ולא משתנות. שבעת השקפים שאחריהן מוסיפים לכל מודול תבנית ייעודית אחת, ולצידה דוגמה מלאה על המיזם המלווה, "המתנה המושלמת".</div>
+
+  <h3 style="margin-bottom:12px">ארבע התבניות הכלליות</h3>
+  <div class="grid g2" id="univ"></div>
+
+  <h3 style="margin:26px 0 12px">שקף לכל מודול</h3>
+  <div class="toolbar">
+    <button class="btn" onclick="allSlides(true)">פתיחת כל השקפים</button>
+    <button class="btn" onclick="allSlides(false)">סגירת הכול</button>
+  </div>
+  <div id="slides"></div>
 
   </section>
 
@@ -736,22 +791,28 @@ td b{color:var(--ink)}
 </div></main></div>
 <script>
 /* =============== NAV =============== */
-document.getElementById('nav').addEventListener('click',e=>{
-  const b=e.target.closest('button'); if(!b)return;
-  document.querySelectorAll('#nav button').forEach(x=>x.classList.toggle('on',x===b));
-  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+b.dataset.p));
-  window.scrollTo({top:0,behavior:'instant'});
-});
-document.querySelectorAll('.pcard[data-go]').forEach(b=>b.addEventListener('click',()=>{
-  const target=b.dataset.go;
+function setArea(target){
   document.querySelectorAll('#nav button').forEach(x=>x.classList.toggle('on',x.dataset.p===target));
   document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+target));
+  const btn=document.querySelector('#nav button[data-p="'+target+'"]');
+  const lbl=btn&&btn.querySelector('.nl');
+  const m=document.getElementById('msec');
+  if(m&&lbl) m.textContent=lbl.textContent;
   window.scrollTo({top:0,behavior:'instant'});
-}));
+}
+document.getElementById('nav').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  setArea(b.dataset.p);
+});
+document.querySelectorAll('.pcard[data-go]').forEach(b=>
+  b.addEventListener('click',()=>setArea(b.dataset.go)));
 const CH='<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
 
 /* =============== MODULES =============== */
 const MODS=[{"n": 1, "t": "משלב הרעיון למוצר: היכרות עם הקורס ובחירת נושא", "mt": "1-3", "h": 16.5, "tools": "AI Chat RTL Control, Grammarly, WisprFlow, ChatGPT, Gemini, Claude, Grok", "intro": "מפגשי הפתיחה של הקורס: מי אנחנו, מה זה AI ולמה זה חשוב, ותרגול ראשוני של הנדסת פרומפטים. כאן גם נחשפים לראשונה לפרויקט המתגלגל, ובוחרים את הנושא האישי שילווה את כל הקורס.", "M": [{"n": "1", "t": "יסודות AI", "open": ["רכזת הקורס פותחת את המפגש", "הצגה עצמית של המרצה (Pitch)", "מה הולכים ללמוד בקורס, מעבר על נושאי הסילבוס", "סבב היכרות קצר בין התלמידים (לא חובה)"], "top": ["מונחים בסיסיים", "היסטוריה", "שימושים", "כיצד LLM עובד", "כלי עזר נוספים"], "tools": ["AI Chat RTL Control", "Grammarly", "WisprFlow"], "rl": ["מצגת על מה זה הפרויקט המתגלגל, הצגה לתלמידים", "כל תלמיד מוצא נושא המתאים לו"], "demo": "המרצה מציג את \"המתנה המושלמת\" כרעיון, ומראה לאן הוא מגיע בסוף הקורס: מה ייבנה בכל מודול, ואיך המערכת הסופית נראית. זו נקודת הפתיחה שממנה כל תלמיד גוזר את הנושא שלו."}, {"n": "2-3", "t": "הנדסת פרומפטים", "top": ["מונחים בסיסיים", "ה-Context", "כלכלת טוקנים", "טכניקות פרומפטינג מתקדמות", "מאגרי פרומפטים אונליין"], "tools": ["ChatGPT", "Gemini", "Claude", "Grok"], "rl": "אין מטלות לביצוע", "note": "יש להנחות את התלמידים לפתוח ג'ימייל חדש לשיעור הבא, כדי לעבוד איתו לאורך המסלול ולא על הג'ימייל האישי שלהם.", "demo": "בניית הפרומפט שמחזיר שלושה רעיונות למתנה על בסיס חמש השאלות (למי, גיל, תחביבים, תקציב, אירוע), ושיפורו בכמה איטרציות מול הכיתה: מפרומפט גולמי לפרומפט מקצועי."}]}, {"n": 2, "t": "מדיה: תמונה, וידאו, אודיו ומסמכים", "mt": "4-6", "h": 16.5, "tools": "ChatGPT Image Edit, Gemini, Grok, Ideogram, Stable Diffusion, KreaAI, Google Vids, KlingAI, Seedance, CapCut, Suno, ElevenLabs, Gemini Notebook, Google Slides, Gamma", "intro": "שכבת התוכן החזותי והמסמכי של הפרויקט: תמונות, וידאו, אודיו ומצגות. כל התרגילים מופעלים ישירות על נושא הפרויקט שנבחר במפגש 1, כך שבסוף המודול לכל תלמיד יש כבר ערכת תוכן ראשונית למיזם שלו.", "M": [{"n": "4", "t": "יצירת תמונות", "top": ["מונחים בסיסיים", "כיצד מודל תמונות עובד", "פעולות AI נפוצות על תמונות", "סגנונות אומנותיים", "כלי AI ליצירת תמונות", "פעולות על תמונה קיימת", "תמונות לנראות עסקית", "כלים נוספים ליצירת תמונות"], "tools": ["ChatGPT Image Edit", "Gemini Imaging", "Grok Imaging", "Ideogram", "Stable Diffusion", "KreaAI (בתשלום, כ-5$)"], "rl": ["יצירת תמונות בנושא הפרויקט לשילוב במערכת", "יצירת תמונות בנושא הפרויקט למיתוג, שיווק ונראות עסקית", "יצירת לוגו אם דרוש"], "demo": "יצירת הלוגו של \"המתנה המושלמת\", תמונות המחשה לרעיונות המתנה שהמערכת מציעה, ותמונת באנר לעמוד הראשי."}, {"n": "5", "t": "יצירת וידאו ואודיו", "top": ["מונחים בסיסיים בעולם הווידאו", "כיצד מודל וידאו עובד", "פעולות AI נפוצות על וידאו", "סגנונות וידאו אומנותיים", "מונחים בסיסיים בעולם האודיו", "כיצד מודל אודיו עובד", "פעולות AI נפוצות על אודיו"], "tools": ["Google Vids", "Grok", "VidMuse", "KlingAI", "Seedance", "CapCut", "Suno", "ElevenLabs"], "rl": ["יצירת סרטון מיתוג או סרטון פרסומת לשילוב במערכת", "רשות: יצירת אודיו כלשהו לשילוב במערכת, אם דרוש"], "demo": "סרטון פרסומת קצר לשירות, בתוספת קריינות ומוזיקת רקע שנוצרות ב-AI."}, {"n": "6", "t": "עבודה עם מסמכים", "top": ["Word ו-Google Docs", "Excel ו-Google Spreadsheets", "תוסף GPT ל-Excel ול-Google Spreadsheets", "Gemini Notebook", "Google Slides", "Gamma"], "tools": ["Gemini Notebook", "Google Slides", "Gamma"], "rl": ["הכנת מצגת מעוצבת לתיאור הפרויקט", "רשות: הכנת מסמכים הקשורים לפרויקט, אם יש צורך"], "demo": "מצגת שמסבירה את \"המתנה המושלמת\": הבעיה, הפתרון, קהל היעד ותמונת המסך של המוצר."}]}, {"n": 3, "t": "בניית אפליקציות", "mt": "7-13", "h": 38.5, "tools": "Whimsical, ChatGPT, Canva, FigJam, Base44, Lovable, Claude App, Git, Firebase", "intro": "הלב הטכני של הקורס: מאפיון MVP ותרשימי זרימה, דרך זהות ויזואלית ועיצוב, ועד בניית האפליקציה בפועל ב-Vibe Coding (Base44 / Lovable / Claude Code) והעלאתה לאוויר. בסוף המודול לכל תלמיד יש מערכת חיה בכתובת ציבורית.", "M": [{"n": "7", "t": "אפיון אפליקציות ו-MVP", "top": ["מונחים בסיסיים", "עקרונות אפיון ו-MVP", "עקרונות User Flow", "עבודה עם Whimsical לבניית Workflows", "עבודה עם Whimsical לבניית Wireframes"], "tools": ["Whimsical"], "rl": ["אפיון MVP", "אפיון מסכים"], "demo": "הגדרת ה-MVP של \"המתנה המושלמת\", תרשים זרימה של המסע מהשאלון ועד קבלת שלוש ההצעות, ושלד המסכים ב-Whimsical."}, {"n": "8", "t": "עיצוב אפליקציות", "top": ["מונחים בסיסיים", "עקרונות UI/UX", "הגדרת זהות ויזואלית", "עיצוב Flat בעזרת GPT", "עיצוב באמצעות Canva"], "tools": ["ChatGPT ליצירת עיצוב Flat", "Canva", "FigJam"], "rl": ["הגדרת הזהות הוויזואלית", "יצירת עיצוב"], "demo": "קביעת הזהות הוויזואלית של \"המתנה המושלמת\": פלטת צבעים, טיפוגרפיה ועיצוב המסך הראשי."}, {"n": "9", "t": "No Code (בכפוף לזמן)", "top": ["מאגר הנתונים", "חיבור מסכים", "יצירת Theme"], "tools": "טרם נקבע", "rl": "אין מטלות לביצוע", "demo": "בניית מאגר הנתונים והמסכים של \"המתנה המושלמת\" בכלי No-Code, אם הזמן מאפשר."}, {"n": "10", "t": "Vibe Coding", "top": ["עבודה עם Base44", "עבודה עם Lovable"], "tools": ["Base44", "Lovable"], "rl": ["בניית דף נחיתה פשוט עבור נושא ספציפי מתוך המערכת, המאפשר השארת פרטים (דף צור קשר)", "בניית האפליקציה ה-Web-ית, רק עבור מי שמעדיף לעבוד עם Base44 או Lovable במקום Claude Code. במצב כזה כנראה החשבון החינמי לא יספיק ויידרש מעבר לחשבון בתשלום."], "demo": "בניית דף נחיתה של \"המתנה המושלמת\" עם טופס השארת פרטים, ב-Base44 או ב-Lovable."}, {"n": "11-12", "t": "Claude Code", "top": ["התקנת Claude App", "עבודה עם Claude Chat", "עבודה עם Claude Cowork", "עבודה עם Claude Code", "תווים מיוחדים (/, @)", "Projects", "Artifacts", "Scheduled", "Connectors", "סקילים: שימוש, יצירה, הורדה ומאגרי סקילים", "ממה להיזהר"], "tools": ["Claude App"], "rl": "בניית האפליקציה ה-Web-ית, למי שבוחר לבנות באמצעות Claude Code", "note": ["מי שרוצה לעבוד עם Codex או כל מערכת אחרת, אפשרי", "יש להנחות את התלמידים להתקין Git לקראת השיעור הבא, כדי לחסוך זמן התקנות באמצע המפגש"], "demo": "בניית האתר המלא של \"המתנה המושלמת\" ב-Claude Code: שאלון חמש השאלות, מסך הצגת שלוש ההצעות, ושמירת הפנייה."}, {"n": "13", "t": "העלאה לאוויר", "top": ["Git", "GitHub", "GitHub Connector", "העלאת פרויקט ל-GitHub", "פרסום הפרויקט ל-GitHub Pages", "עבודה עם הטרמינל", "העלאת פרויקט ל-Firebase", "Netlify (בכפוף לזמן)", "עדכוני קוד"], "tools": ["Git", "Firebase"], "rl": "העלאת האתר לאוויר", "demo": "העלאת \"המתנה המושלמת\" ל-GitHub ופרסום האתר לאוויר, ואז עדכון קוד קטן כדי לראות את השינוי עולה לאתר החי."}]}, {"n": 4, "t": "אתיקה, הנגשה ואבטחה", "mt": "14-16", "h": 16.5, "tools": "Lighthouse, Wave Evaluation Tools", "intro": "עצירה לביקורת: לפני שממשיכים הלאה, בודקים שהמערכת שנבנתה עומדת בעקרונות אתיקה, נגישות דיגיטלית ואבטחה בסיסית, ומתקנים מה שצריך.", "M": [{"n": "14", "t": "אתיקה והנגשה", "top": ["עקרונות אתיקה", "עקרונות הנגשה"], "tools": ["Lighthouse", "Wave Evaluation Tools (תוספי דפדפן)"], "rl": ["בדיקת עקרונות אתיקה במערכת ותיקון אם צריך", "בדיקת עקרונות הנגשה במערכת ותיקון אם צריך"], "demo": "הרצת Lighthouse ו-Wave על אתר \"המתנה המושלמת\", וזיהוי ותיקון של ממצא נגישות אחד מול הכיתה."}, {"n": "15-16", "t": "אבטחת קוד ו-AI", "top": ["עקרונות אבטחת קוד", "עקרונות אבטחת AI"], "tools": "טרם נקבע", "rl": ["בדיקות אבטחת קוד במערכת ותיקון אם צריך", "בדיקות אבטחת AI במערכת ותיקון אם צריך"], "demo": "בדיקת האבטחה של \"המתנה המושלמת\": מה חשוף בטופס ובקוד, ומה צריך להגן עליו לפני שהאתר באוויר."}]}, {"n": 5, "t": "סוכני AI", "mt": "17-21", "h": 27.5, "tools": "AirTable, Claude Code Connectors, Snowflake, Voiceflow, Manychat", "intro": "מהמידע הגולמי לסוכן שפועל לבד: מבנה נתונים, חיבור לכלים חיצוניים, ובניית סוכני AI וצ'אטבוט שמבצעים פעולות אמיתיות על המערכת.", "M": [{"n": "17", "t": "עבודה עם נתונים ומידע", "top": ["מה זה אובייקט", "מה זה מערך (Array)", "XML", "JSON", "YAML", "עבודה עם AirTable"], "tools": ["AirTable"], "rl": "טבלה ב-AirTable אם דרוש בפרויקט (למשל לקוחות/מוצרים)", "demo": "בניית טבלאות \"המתנה המושלמת\" ב-AirTable: פניות, רעיונות מתנה וקטגוריות, כולל הקשרים ביניהן."}, {"n": "18", "t": "שילוב כלים חיצוניים", "top": ["התחברות לג'ימייל", "התחברות ל-Calendar", "התחברות ל-Drive", "התחברות ל-Canva", "התחברות ל-Slack", "ועוד"], "tools": ["Claude Code", "Connectors"], "rl": "אין מטלות לביצוע", "demo": "חיבור \"המתנה המושלמת\" ל-Gmail וליומן: שליחת רשימת ההצעות במייל, ותזכורת לקראת מועד האירוע."}, {"n": "19-20", "t": "סוכני AI", "top": ["יצירת סוכן AI", "יצירת צוות סוכני AI העובדים יחד", "Snowflake", "אם יש זמן: Hermes או OpenClaw"], "tools": ["Snowflake (טרם סופי)", "Hermes / OpenClaw (טרם סופי)"], "rl": "יצירת סוכן AI שמבצע פעולה כלשהי על המערכת, On Demand או מתוזמן", "demo": "סוכן AI שמקבל את תשובות השאלון ומחזיר שלושה רעיונות מתנה מנומקים, ורץ גם באופן מתוזמן על פניות שהצטברו."}, {"n": "21", "t": "יצירת צ'אטבוט", "top": ["יצירת צ'אטבוט", "שילוב הצ'אטבוט באתר"], "tools": ["Voiceflow (טרם סופי)", "Manychat (טרם סופי)"], "rl": "יצירת צ'אטבוט באתר", "demo": "צ'אטבוט באתר \"המתנה המושלמת\" שמלווה את המשתמש בבחירת המתנה בשיחה, במקום טופס."}]}, {"n": 6, "t": "בניית אוטומציות", "mt": "22-28", "h": 38.5, "tools": "n8n, AirTable, ChatGPT", "intro": "ניתוח העסק והפיכתו לתהליכים אוטומטיים: זיהוי מה שווה לייעל, ואז בניית התרחישים בפועל ב-n8n, מטריגר ראשון ועד סוכן AI וזרימת RAG.", "M": [{"n": "22", "t": "ניתוח עסק והתאמת פתרונות", "top": ["ניתוח תהליכי עבודה", "זיהוי משימות שניתן לייעל באמצעות AI", "זיהוי משימות שניתן לייעל באמצעות אוטומציות", "התאמת פתרונות טכנולוגיים לצורכי העסק"], "tools": "טרם נקבע", "rl": ["ניתוח בעיות בעסק", "התאמת פתרונות AI", "התאמת פתרונות אוטומציה"], "demo": "מיפוי התהליך של \"המתנה המושלמת\" מקצה לקצה, וזיהוי אילו שלבים בו כדאי להעביר לאוטומציה."}, {"n": "23-28", "t": "n8n ואוטומציות", "top": ["פתיחת חשבון חינמי ב-n8n (כ-10 דקות באימייל)", "התמצאות בסביבה", "יצירת Workflow", "יצירת טריגר ידני / אוטומטי", "שימוש ב-Nodes פופולריים: Google Docs, Google Sheets, Google Drive, Gmail", "שימוש ב-AirTable", "שימוש ב-APIs", "יצירת WebHooks לדף נחיתה", "שימוש ב-ChatGPT", "שימוש ב-Chatbot", "יצירת סוכן AI", "יצירת RAG (בכפוף לזמן)"], "tools": ["n8n"], "rl": "יישום אוטומציות מתאימות במערכת", "demo": "בניית האוטומציות של \"המתנה המושלמת\": WebHook מהטופס, שמירת הפנייה ב-AirTable, מייל אישי עם ההצעות, Follow-up כעבור כמה ימים, ויצירת תוכן לרשתות מהתמונות שנוצרו."}]}, {"n": 7, "t": "פרויקט גמר", "mt": "29", "h": 5.5, "tools": "ללא כלי ייעודי", "intro": "מפגש הסיום: כל תלמיד עולה ומראה מה בנה, לא מספר שלמד.", "M": [{"n": "29", "t": "הצגת פרויקט הגמר", "top": ["כל תלמיד מציג את הפרויקט שלו"], "note": "זמן הצגה של כ-10 דקות (פלוס-מינוס), כך שכל התלמידים יספיקו להציג.", "demo": "המרצה מציג את \"המתנה המושלמת\" המלאה כדוגמה להצגת גמר: קישור חי, מה נבנה בכל שלב, ומה היה הקושי המרכזי."}]}];
+
+const UNIVERSAL=[{"k": "א", "lab": "הכנה לפני המפגש", "when": "לפני כל מודול, ולפני כל שיעור", "p": "אני לומד בקורס מיישם AI ואוטומציה. נושא הפרויקט שלי: [נושא הפרויקט]. המפגש הקרוב עוסק ב-[נושא המפגש], והכלים שנלמד בו הם [רשימת הכלים]. הכן לי רשימת הכנה קצרה: מה כדאי שיהיה מוכן מראש, אילו חשבונות לפתוח, ושלוש שאלות ששווה שאשאל את המרצה במפגש עצמו."}, {"k": "ב", "lab": "ביצוע המשימה", "when": "בזמן העבודה על התוצר", "p": "נושא הפרויקט שלי: [נושא הפרויקט]. מה שכבר בניתי עד עכשיו: [מצב הפרויקט]. המשימה הנוכחית: [המשימה מהמפגש]. לפני שאתה מבצע, כתוב לי תוכנית קצרה בשלושה עד חמישה צעדים והמתן לאישור שלי. אחרי שאאשר, בצע צעד אחד בכל פעם ועצור לבדיקה. אל תחרוג ממה שביקשתי."}, {"k": "ג", "lab": "חילוץ מתקיעה", "when": "בכל פעם שנתקעים", "p": "נתקעתי. נושא הפרויקט שלי: [נושא הפרויקט]. מה ניסיתי לעשות: [תיאור]. מה קרה בפועל: [התקלה או הודעת השגיאה]. אל תיתן לי פתרון קוד. אבחן את שורש הבעיה במונחי No-Code, הצע שלוש דרכי פעולה מהפשוטה למורכבת, וציין לכל אחת מתי עדיף פשוט לפנות למרצה."}, {"k": "ד", "lab": "סיכום וסגירה", "when": "בסוף כל מודול", "p": "סיימתי את [שם המודול] בפרויקט [נושא הפרויקט]. מה שבניתי בו: [תיאור ההישגים והקישורים]. סכם לי בשלוש שורות: ההחלטה המרכזית שקיבלתי, דבר אחד שהפתיע אותי, ודבר אחד שאעשה אחרת בשלב הבא. בנוסף, כתוב פסקה קצרה שאוכל להדביק בפורטפוליו."}];
+const PREP=[{"n": 1, "t": "בחירת הנושא ופתיחת הפרויקט", "mod": "מודול 1", "mt": "מפגשים 1-3", "goal": "לצאת מהמודול עם נושא פרויקט אחד שנבחר, ומשפט אחד ברור שמסביר איזו בעיה הוא פותר ולמי.", "prep": ["לחשוב על שניים או שלושה תחומים שמעניינים אותך באמת, כי תעבוד על זה 29 מפגשים", "לפתוח חשבון ג'ימייל ייעודי לקורס, לא האישי", "לפתוח חשבון באחד ממודלי השפה (ChatGPT, Claude או Gemini)"], "tpl": "אני צריך לבחור נושא לפרויקט שילווה אותי לאורך כל הקורס: אפליקציה עם בסיס נתונים, אוטומציות וסוכן AI. התחומים שמעניינים אותי: [התחומים שלך]. הרקע המקצועי שלי: [רקע]. הצע לי שלושה נושאים אפשריים, ולכל אחד: את הבעיה שהוא פותר, מי המשתמש, ולמה הוא מתאים בהיקף של קורס. סיים בהמלצה על אחד ובנימוק.", "ex": "התחומים שמעניינים אותי: מתנות, קניות ואירועים משפחתיים. הרקע המקצועי שלי: עבדתי בשירות לקוחות בקמעונאות. [...] המערכת שנבחרה: \"המתנה המושלמת\", שירות שממליץ על מתנה לפי כמה שאלות קצרות.", "out": "משפט בעיה אחד, ושם לפרויקט."}, {"n": 2, "t": "בניית שכבת התוכן", "mod": "מודול 2", "mt": "מפגשים 4-6", "goal": "ערכת תוכן ראשונית לפרויקט: תמונות, סרטון קצר ומצגת שמסבירה אותו.", "prep": ["שיהיה מוכן משפט הבעיה ושם הפרויקט מהמודול הקודם", "לפתוח חשבונות בכלי התמונה והווידאו שהמרצה יציין מראש", "לאסוף שתיים או שלוש דוגמאות לסגנון ויזואלי שאהבת, כרפרנס"], "tpl": "אני בונה נכסי תוכן לפרויקט [נושא הפרויקט], שפותר את [הבעיה] עבור [קהל היעד]. כתוב לי חמישה פרומפטים ליצירת תמונות: לוגו, תמונת באנר לעמוד הראשי, ושלוש תמונות המחשה לתוכן עצמו. לכל פרומפט ציין את הסגנון הוויזואלי ואת יחס הממדים המומלץ.", "ex": "אני בונה נכסי תוכן לפרויקט \"המתנה המושלמת\", שפותר את הקושי לבחור מתנה מתאימה עבור אנשים שקונים מתנה לאירוע. [...] מתקבלים פרומפטים ללוגו, לבאנר, ולתמונות של רעיונות מתנה.", "out": "תיקיית תוכן, ומצגת קצרה שמסבירה את הפרויקט."}, {"n": 3, "t": "אפיון, עיצוב ובנייה", "mod": "מודול 3", "mt": "מפגשים 7-13", "goal": "אפליקציה חיה באוויר, בכתובת שאפשר לשלוח למישהו.", "prep": ["לפתוח חשבונות ב-Whimsical ובכלי הבנייה שבחרת (Base44, Lovable או Claude Code)", "להתקין Git לפני מפגש 13, כדי לא לבזבז את המפגש על התקנות", "לרשום מראש את שלושת הדברים שהמערכת חייבת לדעת לעשות"], "tpl": "אני מאפיין את [נושא הפרויקט]. המשתמש הוא [מי], והוא בא למערכת כדי [מה הוא רוצה]. פרק לי את התהליך שלו לצעדים, מהרגע שהוא נכנס ועד שהוא מקבל את מה שרצה. לכל צעד ציין: איזה מסך הוא רואה, מה הוא מזין, ומה המערכת מחזירה. סמן שתי נקודות החלטה שבהן התהליך יכול להתפצל.", "ex": "המשתמש הוא מישהו שצריך לקנות מתנה ולא יודע מה. הוא בא כדי לקבל רעיון. [...] מתקבל: מסך פתיחה, שאלון חמש שאלות, מסך תוצאות עם שלוש הצעות, ומסך שמירת פרטים.", "out": "תרשים זרימה, Wireframes, ואפליקציה מפורסמת."}, {"n": 4, "t": "ביקורת: אתיקה, נגישות ואבטחה", "mod": "מודול 4", "mt": "מפגשים 14-16", "goal": "אותה מערכת, אחרי שעברה בדיקה ותוקנה. לא פיצ'רים חדשים.", "prep": ["שהאתר יהיה באוויר וזמין בכתובת ציבורית, אחרת אין מה לבדוק", "להתקין את תוסף Wave בדפדפן", "לרשום אילו פרטים אישיים המערכת שלך אוספת בפועל"], "tpl": "עבור על המערכת שבניתי: [כתובת האתר או תיאור המסכים]. המערכת אוספת מהמשתמש: [רשימת השדות]. בדוק שלושה דברים ותן לי ממצאים לפי סדר חשיבות: נגישות (ניגודיות, גדלי טקסט, טקסט חלופי), אתיקה (מה המשתמש יודע על מה שנאסף עליו), ואבטחה בסיסית (מה חשוף שלא צריך). לכל ממצא, הצע תיקון קונקרטי.", "ex": "המערכת אוספת: שם, אימייל, גיל המקבל, תקציב וסוג האירוע. [...] הממצא המרכזי: אין הסבר למה נאסף האימייל, והניגודיות בטקסט המשני נמוכה מדי.", "out": "רשימת ממצאים, ולפחות תיקון אחד שבוצע בפועל."}, {"n": 5, "t": "הוספת שכבת AI", "mod": "מודול 5", "mt": "מפגשים 17-21", "goal": "המערכת עושה משהו חכם לבד: סוכן או צ'אטבוט שמבצע פעולה אמיתית.", "prep": ["לפתוח חשבון AirTable", "לחשוב מראש איזה מידע המערכת שלך צריכה לזכור בין פנייה לפנייה", "לנסח במשפט אחד מה בדיוק אתה רוצה שהסוכן יעשה"], "tpl": "אני מוסיף שכבת AI לפרויקט [נושא הפרויקט]. הנתונים שיש לי במערכת: [רשימת השדות]. אני רוצה שהסוכן יקבל [הקלט] ויחזיר [הפלט]. כתוב לי את הגדרת הסוכן במבנה Role, Context, Task, Constraints, והוסף שלוש דוגמאות קלט ופלט שיעזרו לו להבין את הפורמט הרצוי.", "ex": "הסוכן מקבל: למי המתנה, גיל, תחביבים, תקציב ואירוע. מחזיר: שלושה רעיונות, כל אחד עם נימוק קצר וטווח מחירים. [...] אילוץ: לא לחרוג מהתקציב שנמסר, ולא להציע פריטים שדורשים התאמה אישית מראש.", "out": "סוכן או צ'אטבוט פעיל בתוך המערכת."}, {"n": 6, "t": "אוטומציה מלאה", "mod": "מודול 6", "mt": "מפגשים 22-28", "goal": "חלקים מהמערכת רצים לבד, בלי שאף אחד לוחץ על כלום.", "prep": ["לפתוח חשבון חינמי ב-n8n מראש, זה לוקח כעשר דקות", "למפות על דף אחד את התהליך של המערכת שלך מקצה לקצה", "לזהות שני שלבים שהיום היו נעשים ידנית"], "tpl": "התהליך במערכת שלי: [תיאור התהליך מקצה לקצה]. אני רוצה להפוך לאוטומטי את [השלב שבחרת]. תאר לי את תרחיש ה-n8n המתאים: מה הטריגר, אילו Nodes נדרשים ובאיזה סדר, ומה קורה אם שלב באמצע נכשל. אל תכתוב לי קוד, תאר את המבנה.", "ex": "התהליך: משתמש ממלא שאלון, מקבל שלוש הצעות, ומשאיר אימייל. השלב לאוטומציה: שמירת הפנייה ושליחת ההצעות במייל. [...] הטריגר הוא WebHook מהטופס, ואחריו שמירה ב-AirTable, ניסוח מייל, ושליחה.", "out": "לפחות תרחיש אוטומציה אחד שרץ בפועל."}, {"n": 7, "t": "הצגת הפרויקט", "mod": "מודול 7", "mt": "מפגש 29", "goal": "הצגה של כעשר דקות, שמראה מערכת חיה ולא מספרת מה למדת.", "prep": ["לוודא שהקישור עובד מדפדפן אחר ומהטלפון, לא רק מהמחשב שלך", "להכין שני מסכים פתוחים מראש, כדי לא לחפש באמצע", "לתרגל את ההדגמה פעם אחת מההתחלה ועד הסוף, עם שעון"], "tpl": "אני מציג את הפרויקט [נושא הפרויקט] בעשר דקות. מה שבניתי: [רשימת הרכיבים]. בנה לי מבנה הצגה: דקה על הבעיה, שש דקות הדגמה חיה לפי סדר הגיוני, ושתי דקות על מה היה הקושי הגדול ואיך פתרתי אותו. ציין לי בכל חלק מה להראות על המסך, ומה לומר.", "ex": "מה שבניתי: אתר עם שאלון, מנוע המלצות, צ'אטבוט, ואוטומציה ששולחת מייל ועושה Follow-up. [...] ההדגמה מתחילה מהשאלון, ולא מהמסכים הפנימיים.", "out": "הצגה חיה, וקישור שנשאר אחריך."}];
 
 const TOOLS=[["ChatGPT", "מודלי שפה", "מודל השפה המרכזי לתרגול הנדסת פרומפטים, ובהמשך גם ליצירת עיצוב Flat ולשימוש בתוך תרחישי n8n", "1, 2, 3, 6", "חינמי, עם מנוי בתשלום לפיצ'רים מתקדמים", "העמקה"], ["Claude", "מודלי שפה", "מודל שפה, ובמודול 3 גם סביבת הבנייה המרכזית: Claude Chat, Cowork ו-Claude Code", "1, 3, 5", "חינמי, עם מנוי בתשלום לשימוש מלא", "העמקה"], ["Gemini", "מודלי שפה", "מודל שפה, ובהמשך גם יצירת תמונות ו-Gemini Notebook לעבודה עם מסמכים", "1, 2", "חינמי, עם מנוי בתשלום", "העמקה"], ["Grok", "מודלי שפה", "מודל שפה נוסף להשוואה, וגם יצירת תמונות ווידאו", "1, 2", "מנוי בתשלום", "הדגמה והיכרות"], ["AI Chat RTL Control", "כלי עזר", "תוסף דפדפן שמתקן את כיוון הטקסט בעברית בממשקי צ'אט", "1", "חינמי", "הדגמה והיכרות"], ["Grammarly", "כלי עזר", "הגהה ושיפור ניסוח באנגלית", "1", "חינמי, עם גרסת Premium בתשלום", "הדגמה והיכרות"], ["WisprFlow", "כלי עזר", "הכתבה קולית מהירה במקום הקלדה", "1", "בתשלום, עם תקופת ניסיון", "הדגמה והיכרות"], ["ChatGPT Image Edit", "תמונה", "יצירה ועריכה של תמונות למיזם: תוכן למערכת, מיתוג ונראות עסקית", "2", "כלול במנוי ChatGPT", "שימוש מעשי"], ["Gemini Imaging", "תמונה", "יצירת תמונות ועריכה של תמונה קיימת", "2", "חינמי, עם מנוי בתשלום", "שימוש מעשי"], ["Grok Imaging", "תמונה", "יצירת תמונות בסגנונות שונים", "2", "מנוי בתשלום", "הדגמה והיכרות"], ["Ideogram", "תמונה", "יצירת תמונות עם טקסט קריא, שימושי ללוגו ולבאנרים", "2", "חינמי במגבלות, עם מנוי בתשלום", "שימוש מעשי"], ["Stable Diffusion", "תמונה", "מודל תמונות פתוח, להבנת אופן הפעולה ולשליטה מתקדמת", "2", "חינמי (תלוי בפלטפורמת ההרצה)", "הדגמה והיכרות"], ["KreaAI", "תמונה", "כלי תמונה נוסף לבדיקה", "2", "בתשלום, כ-5$ (לאימות לפני הקורס)", "הדגמה והיכרות"], ["Google Vids", "וידאו", "יצירת סרטון מיתוג או פרסומת למיזם", "2", "כלול ב-Google Workspace", "שימוש מעשי"], ["KlingAI", "וידאו", "יצירת וידאו מבוסס AI", "2", "חינמי במגבלות, עם מנוי בתשלום", "שימוש מעשי"], ["Seedance", "וידאו", "יצירת וידאו מבוסס AI", "2", "חינמי במגבלות, עם מנוי בתשלום", "הדגמה והיכרות"], ["VidMuse", "וידאו", "יצירת וידאו מבוסס AI", "2", "טרם נקבע", "הדגמה והיכרות"], ["CapCut", "וידאו", "עריכת וידאו והרכבת הסרטון הסופי", "2", "חינמי, עם גרסת Pro בתשלום", "שימוש מעשי"], ["Suno", "אודיו", "יצירת מוזיקה ופסקול למיזם", "2", "חינמי במגבלות, עם מנוי בתשלום", "שימוש מעשי"], ["ElevenLabs", "אודיו", "קריינות וקולות מבוססי AI", "2", "חינמי במגבלות, עם מנוי בתשלום", "שימוש מעשי"], ["Gemini Notebook", "מסמכים", "עבודה עם מסמכי מקור, סיכום וחקירה של חומר קיים", "2", "חינמי", "שימוש מעשי"], ["Google Slides", "מסמכים", "הכנת מצגת לתיאור המיזם", "2", "חינמי", "שימוש מעשי"], ["Gamma", "מסמכים", "הכנת מצגת מעוצבת במהירות מתוך טקסט", "2", "חינמי במגבלות, עם מנוי בתשלום", "שימוש מעשי"], ["Whimsical", "אפיון ועיצוב", "תרשימי זרימה (Workflows) ושלד מסכים (Wireframes) של המיזם", "3", "חינמי במגבלות, עם מנוי בתשלום", "העמקה"], ["Canva", "אפיון ועיצוב", "עיצוב הזהות הוויזואלית ונכסי המיתוג של המיזם", "3", "חינמי, עם גרסת Pro בתשלום", "שימוש מעשי"], ["FigJam", "אפיון ועיצוב", "לוח עבודה שיתופי לעיצוב ולאפיון", "3", "חינמי במגבלות", "הדגמה והיכרות"], ["Claude Code", "בנייה", "בניית האפליקציה עצמה: Projects, Artifacts, Connectors, סקילים ומשימות מתוזמנות", "3", "מנוי בתשלום", "העמקה"], ["Base44", "בנייה", "Vibe Coding: בניית אפליקציה מתיאור מילולי, כחלופה ל-Claude Code", "3", "חינמי במגבלות, לרוב יידרש מנוי בתשלום", "שימוש מעשי"], ["Lovable", "בנייה", "Vibe Coding: בניית אפליקציה מתיאור מילולי, כחלופה ל-Claude Code", "3", "חינמי במגבלות, לרוב יידרש מנוי בתשלום", "שימוש מעשי"], ["Git", "העלאה לאוויר", "ניהול גרסאות ועבודה מול הטרמינל. יש להתקין לפני מפגש 13", "3", "חינמי", "שימוש מעשי"], ["GitHub ו-GitHub Pages", "העלאה לאוויר", "העלאת הפרויקט לריפוזיטורי ופרסום האתר לאוויר", "3", "חינמי", "שימוש מעשי"], ["Firebase", "העלאה לאוויר", "אחסון ופרסום הפרויקט כחלופה ל-GitHub Pages", "3", "חינמי במגבלות (Spark), תשלום לפי שימוש", "שימוש מעשי"], ["Netlify", "העלאה לאוויר", "פרסום האתר, נלמד רק אם הזמן מאפשר", "3", "חינמי במגבלות", "הדגמה והיכרות"], ["Lighthouse", "בקרה", "בדיקת נגישות וביצועים של המערכת שנבנתה, ותיקון ממצאים", "4", "חינמי, מובנה בדפדפן Chrome", "שימוש מעשי"], ["Wave Evaluation Tools", "בקרה", "תוסף דפדפן לבדיקת נגישות דיגיטלית", "4", "חינמי", "שימוש מעשי"], ["AirTable", "נתונים", "בסיס הנתונים של המיזם: טבלאות, שדות וקשרים. משמש גם כמקור נתונים לאוטומציות", "5, 6", "חינמי במגבלות, עם מנוי בתשלום", "העמקה"], ["Claude Connectors", "סוכני AI", "חיבור הסוכן לכלים חיצוניים: Gmail, Calendar, Drive, Canva, Slack ועוד", "5", "כלול במנוי Claude", "שימוש מעשי"], ["Snowflake", "סוכני AI", "בניית סוכני AI וצוות סוכנים העובדים יחד", "5", "טרם נקבע", "טרם נקבע"], ["Hermes / OpenClaw", "סוכני AI", "סוכנים מתקדמים, ייכנס רק אם הזמן מאפשר", "5", "טרם נקבע", "טרם נקבע"], ["Voiceflow", "צ'אטבוט", "בניית צ'אטבוט ושילובו באתר המיזם", "5", "טרם נקבע", "טרם נקבע"], ["Manychat", "צ'אטבוט", "בניית צ'אטבוט ושילובו באתר המיזם", "5", "טרם נקבע", "טרם נקבע"], ["n8n", "אוטומציה", "מנוע האוטומציה של הקורס: Workflows, טריגרים, Nodes, APIs, WebHooks, סוכן AI ו-RAG", "6", "חינמי (חשבון בסיסי), עם מסלולים בתשלום", "העמקה"]];
 const TOOLCATS=["הכול", "מודלי שפה", "כלי עזר", "תמונה", "וידאו", "אודיו", "מסמכים", "אפיון ועיצוב", "בנייה", "העלאה לאוויר", "בקרה", "נתונים", "סוכני AI", "צ'אטבוט", "אוטומציה"];
@@ -907,6 +968,32 @@ function renderList(arr){ return Array.isArray(arr) ? arr.map(t=>`<li>${t}</li>`
 })();function allMods(o){document.querySelectorAll('#mods .mod').forEach(m=>m.classList.toggle('open',o));}
 function allStages(o){document.querySelectorAll('#stages .stage').forEach(m=>m.classList.toggle('open',o));}
 
+/* =============== RENDER: PREP DECK =============== */
+function hlPh(s){ return s.replace(/\[([^\]]+)\]/g,'<b class="ph">[$1]</b>'); }
+document.getElementById('univ').innerHTML=UNIVERSAL.map(u=>`
+  <div class="utpl">
+    <div class="uh"><span class="uk">${u.k}</span><h5>${u.lab}</h5></div>
+    <div class="uw">${u.when}</div>
+    <div class="ptxt">"${hlPh(u.p)}"</div>
+  </div>`).join('');
+
+(function(){
+  let h='';
+  PREP.forEach(s=>{
+    let b=`<div class="gl"><b>המטרה של השלב:</b> ${s.goal}</div>`;
+    b+=`<div class="sb-t">מה להכין מראש</div><ul class="tick">${s.prep.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+    b+=`<div class="sb-t">התבנית של השלב</div><div class="ptxt">"${hlPh(s.tpl)}"</div>`;
+    b+=`<div class="box demo" style="margin-top:12px"><span class="lab">🎁 אותה תבנית, ממולאת על "המתנה המושלמת"</span>${s.ex}</div>`;
+    b+=`<div class="box sub" style="margin-top:12px"><span class="lab">מה יוצא מהשלב</span>${s.out}</div>`;
+    h+=`<div class="slide"><div class="slide-head" onclick="this.parentNode.classList.toggle('open')">
+      <div class="sn">${s.n}</div>
+      <div class="st"><h4>${s.t}</h4><div class="meta">${s.mod} · ${s.mt}</div></div>${CH}</div>
+      <div class="slide-body">${b}</div></div>`;
+  });
+  document.getElementById('slides').innerHTML=h;
+})();
+function allSlides(o){document.querySelectorAll('#slides .slide').forEach(s=>s.classList.toggle('open',o));}
+
 /* =============== RENDER: TOOLS TABLE =============== */
 let curTCat="הכול";
 const DEPCLS={"העמקה":"d1","שימוש מעשי":"d2","הדגמה והיכרות":"d3","טרם נקבע":"d0"};
@@ -1036,14 +1123,14 @@ function buildSections(){
     let body=null;
     [...pg.children].forEach(el=>{
       if(el.tagName==='H2'&&el.classList.contains('sec')){
-        const sect=document.createElement('section');sect.className='sect';
+        const sect=document.createElement('section');sect.className='sect closed';
         pg.insertBefore(sect,el);
         const t=el.textContent.trim();
         el.innerHTML='<span class="sic"><svg viewBox="0 0 24 24">'+(SIC[t]||DEFIC)+'</svg></span>'+
                      '<span class="stt">'+t+'</span>'+
                      '<svg class="schv" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
         el.setAttribute('role','button');el.setAttribute('tabindex','0');
-        el.setAttribute('aria-expanded','true');
+        el.setAttribute('aria-expanded','false');
         sect.appendChild(el);
         body=document.createElement('div');body.className='sec-body';
         sect.appendChild(body);
