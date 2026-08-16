@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Backstage · ווירפריימים v3</title>
-<meta property="og:title" content="Backstage · ווירפריימים v3">
-<meta property="og:description" content="14 מסכים. שלושה אזורים, header קבוע, והמערכת מחליטה במקום המשתמש.">
+<title>Backstage · ווירפריימים v4</title>
+<meta property="og:title" content="Backstage · ווירפריימים v4">
+<meta property="og:description" content="15 מסכים. שלושה אזורים, header קבוע, והמערכת מחליטה במקום המשתמש.">
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -15,10 +15,13 @@ h1{font-size:30px;font-weight:700;letter-spacing:-.02em}
 .ver{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;direction:ltr;
   border:1px solid #D8D3C9;border-radius:999px;padding:3px 10px;color:#6B665E;margin-inline-start:10px;vertical-align:middle}
 .sub{color:#6B665E;font-size:15px;margin-top:8px;line-height:1.65;max-width:64ch}
-.rules{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:24px 0 28px}
+.rules{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:24px 0 22px}
 .rule{background:#fff;border:1px solid #E2DED6;border-radius:12px;padding:14px 16px}
 .rule b{display:block;font-size:14px;margin-bottom:3px}
 .rule span{font-size:13px;color:#6B665E;line-height:1.5}
+.note{background:#fff;border:1px solid #E2DED6;border-inline-start:3px solid #16150F;border-radius:12px;
+  padding:14px 16px;margin-bottom:24px;font-size:13.5px;color:#4A463F;line-height:1.65}
+.note b{color:#16150F}
 .legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
 .legend span{font-size:12px;background:#fff;border:1px solid #E2DED6;border-radius:999px;padding:6px 12px;color:#4A463F}
 .grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(258px,1fr))}
@@ -40,8 +43,8 @@ footer{margin-top:44px;font-size:13px;color:#8C877D;line-height:1.7}
 <body>
 <div class="wrap">
 <header>
-  <h1>Backstage · ווירפריימים<span class="ver">v3 · 16.8.2026</span></h1>
-  <p class="sub">הגרסה העדכנית והיחידה. ארבעה עשר מסכים לפי המבנה החדש: שלושה אזורים, header קבוע בכל מסך, רצועת קול יועץ עם בלם, וכל ההגדרות תחת המבורגר.</p>
+  <h1>Backstage · ווירפריימים<span class="ver">v4 · 16.8.2026</span></h1>
+  <p class="sub">הגרסה העדכנית והיחידה. חמישה עשר מסכים: שלושה אזורים, header קבוע, המערכת מסווגת במקום המשתמש, וכל ההגדרות תחת המבורגר.</p>
 </header>
 
 <div class="rules">
@@ -50,18 +53,24 @@ footer{margin-top:44px;font-size:13px;color:#8C877D;line-height:1.7}
   <div class="rule"><b>המערכת מחליטה, המשתמש רואה</b><span>אין בחירה בין רגע לסשן. יש תג שמציג מה זה הפך להיות</span></div>
 </div>
 
+<div class="note">
+  <b>שתי מוסכמות בגרסה הזו.</b>
+  כל שם שהוצע לשינוי מופיע עם השם הישן בסוגריים, כדי שהלקוח יראה הצעה ולא מחיקה: <code>GROW (YOU)</code>, <code>SUMMARY (CURTAIN DOWN)</code>, <code>INSIGHT (AHA MOMENT)</code>.
+  ורצועת קול היועץ צומצמה למצב יחיד: שם היועץ, play, X. הטקסט היוזם עבר למסך להתכונן.
+</div>
+
 <div class="legend">
   <span>להתכונן · Prepare</span>
   <span>לדבר · Talk</span>
-  <span>להתפתח · Grow</span>
+  <span>להתפתח · Grow (You)</span>
   <span>המבורגר</span>
-  <span>רכיב</span>
+  <span>רכיבים</span>
 </div>
 
 <div class="grid" id="g"></div>
 
 <footer>
-  נוצר עם Higgsfield. הפרומפטים, האפיון המלא ומסמך ההנמקה נמצאים במסמכים המלווים.<br>
+  נוצר עם Higgsfield. האפיון המלא ומסמך ההנמקה נמצאים במסמכים המלווים.<br>
   גרסאות קודמות הוחלפו. זו הגרסה היחידה התקפה.
 </footer>
 </div>
@@ -70,40 +79,43 @@ footer{margin-top:44px;font-size:13px;color:#8C877D;line-height:1.7}
 
 <script>
 const B='https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/';
+const A='hf_20260816_162924_', C='hf_20260816_162946_';
 const S=[
- ['hf_20260816_151544_cac02beb-fd99-4362-9a33-714f8561163d','W1','להתכונן',
-  'המסך הראשי. רצועת הקול מתחת ל-header, שאלה פתוחה, הכרטיס של הפעם הקודמת עם תג, ומשימות ברוחב מלא',['להתכונן','תג חדש']],
- ['hf_20260816_151544_aab5fde8-4aad-4bf6-89c7-07fedc75e87d','W2','לדבר',
-  'כניסה אחת בלבד. אין בחירה בין סשן לרגע. מתחת, שיחות אחרונות עם תג לכל אחת',['לדבר','שונה מהיסוד']],
- ['hf_20260816_151544_84d4b764-da9d-47e2-8601-e3cb226e77b5','W3','שיחה חיה',
-  'מסך פוקוס. נוספו שעון, השהיה, וחזרה לטרנסקריפט. התג מופיע ליד השעון עם שורה שמסבירה מה קרה',['לדבר','תג חדש']],
- ['hf_20260816_151544_bb6deb21-ded1-4583-ad44-b03e8baab5c5','W4','סיכום שיחה',
-  'שלושה סעיפים ממוספרים במקום גליל אינסופי. כרטיסי משימה ברוחב מלא, מכניקה אחת',['לדבר']],
- ['hf_20260816_151544_b3817633-8a83-4866-8ce8-a09ef375b577','W5','תובנה',
-  'המסך שהיה הכי חסר. התובנה במלואה, והראיות שמאחוריה עם תג לכל אחת',['להתפתח','מסך חדש']],
- ['hf_20260816_151544_f911c900-2e67-47e2-9038-6a2b6df64e03','W6','להתפתח',
-  'מחליף את You. פאטרן, תובנות, ה-Toolkit כסעיף, ועקרונות. בלי מונים ובלי רצף ימים',['להתפתח']],
- ['hf_20260816_151544_e9f1a08c-432c-4756-a0db-d230b1f20564','W7','המבורגר',
-  'כל ההגדרות. יוזמות ושקט הם הפריט הראשון, לא האחרון',['המבורגר']],
- ['hf_20260816_151544_46748bad-fd1d-4485-9bfa-f08069b3f5e4','W8','רצועת קול היועץ',
-  'שלושה מצבים: פתוחה, מקופלת, ואפשרויות ההשתקה. נוספה השהיה קצרה',['רכיב']],
- ['hf_20260816_151544_69a45896-c8e7-4810-8975-146bef5751ff','W9','בחירת יועץ',
-  'אקורדיון. סגור וקומפקטי כברירת מחדל, נפתח לפרטים. שורת מחץ בראש המסך',['אונבורדינג','שונה מהיסוד']],
- ['hf_20260816_151544_8196bf7a-7fda-4a9b-8b09-5f2819f0b051','W10','מצב ריק',
+ [A+'7a6371c4-e806-4110-9b3e-fef6b4dcbcef','W1','להתכונן',
+  'המסך הראשי. הרצועה החדשה למעלה, ומתחתיה המשפט היוזם שעבר לכאן מהרצועה',['להתכונן','עודכן']],
+ [A+'9e966b7c-85a6-4c48-8843-8d6908b08c30','W2','לדבר',
+  'כניסה אחת בלבד. אין בחירה בין סשן לרגע. מתחת, שיחות אחרונות עם תג לכל אחת',['לדבר']],
+ [A+'6e7064ed-ca9a-48e8-9571-d713e801a80d','W3','שיחה חיה',
+  'מסך פוקוס. שעון, השהיה, וחזרה לטרנסקריפט. הטרנסקריפט מציג שיחה אמיתית',['לדבר']],
+ [A+'50c7ef43-1358-4ae1-a222-542796403a46','W4','Summary (Curtain Down)',
+  'שלושה סעיפים ממוספרים במקום גליל. השם הישן חזר בסוגריים',['לדבר','שם עודכן']],
+ [A+'cee50822-926f-4e9e-bd96-616aef4ad4d1','W5','Insight (AHA moment)',
+  'המסך שהיה הכי חסר. התובנה במלואה, והראיות מאחוריה עם תג לכל אחת',['להתפתח','שם עודכן']],
+ [A+'c0d52533-b5fe-46f5-8f79-1a29aa9f219f','W6','Grow (You)',
+  'פאטרן, תובנות, שורה שנפתחת לטולקיט, ועקרונות. בלי מונים ובלי רצף ימים',['להתפתח','שם עודכן']],
+ [A+'4beaf753-8d30-4e09-9cf3-a5281621297d','W7','המבורגר',
+  'כל ההגדרות. יוזמות ושקט הם הפריט הראשון. Schedule a session חזר לשמו',['המבורגר','עודכן']],
+ [A+'c2ec9683-881f-4477-9b9c-3cae8f8a19f5','W8','רכיבים',
+  'הרצועה במצב יחיד: שם, play, X. ומערכת התגים על שלושת מצביה',['רכיבים','שונה מהיסוד']],
+ [A+'d98ff746-2b6c-4df4-8d4a-bfe58f5b5318','W9','בחירת יועץ',
+  'חמשת היועצים האמיתיים בסדר האמיתי. האקספנד בקצה הנגדי מ-play ומהבחירה',['אונבורדינג','שונה מהיסוד']],
+ [A+'5719056e-23be-4d35-9573-81dc7baf5846','W10','מצב ריק',
   'מחליף את שלוש קופסאות הרפאים. אומר מה יקרה, מתי, ולמה לא ננחש',['להתפתח']],
- ['hf_20260816_151544_8e971e66-5ece-497d-8150-bb1d4e7c2f17','W11','כל השיחות',
-  'דקדוק אחד לכל השורות, תג לכל שיחה, סינון וקיבוץ. רגע ריק מסומן כלא הושלם',['לדבר','תג חדש']],
- ['hf_20260816_151544_fe4dc0a5-ce6f-497f-8964-9736230c7bff','W12','יוזמות ושקט',
-  'הבלם שכבר קיים באפליקציה, נגיש גם מהרצועה. נוספה השהיה של שעתיים',['המבורגר']],
- ['hf_20260816_151600_aea26a94-dbc6-4160-a6f9-d58d66b998b2','W13','התוכנית',
+ [A+'aa0adf3d-e107-4e4c-968d-e05b87b0d767','W11','History',
+  'השם המקורי נשאר. דקדוק אחד לכל השורות, תג לכל שיחה, סינון וקיבוץ',['לדבר','שם הוחזר']],
+ [A+'7d2e7b73-b02d-4806-8661-42ca1785b143','W12','יוזמות ושקט',
+  'הבלם שכבר קיים באפליקציה, עם השהיה קצרה שנוספה',['המבורגר']],
+ [C+'603e5a21-e9cb-4002-acb1-aaa1c94ff3fe','W13','התוכנית',
   'המונה הופך למד התקדמות. Stars ירד. פורמט מחיר אחיד',['המבורגר']],
- ['hf_20260816_151559_2cc269d3-9270-486d-9eae-24291ef8a668','W14','קביעת זמן',
-  'גיליון תחתון בתוך להתכונן. בלי בורר אורך, כי המערכת מחליטה',['להתכונן','שונה מהיסוד']]
+ [C+'cf24a063-d4bd-45b8-a733-fc6b610580a7','W14','Schedule a session',
+  'גיליון תחתון. השם המקורי נשאר, בורר האורך ירד כי המערכת מחליטה',['להתכונן','שם הוחזר']],
+ [C+'08add75c-50ea-44be-a93d-99144a2028b9','W15','Your Toolkit',
+  'מסך חדש. כל מסגרת מציגה מאיזו שיחה היא הגיעה, כדי שלא תהיה מדף מנותק',['להתפתח','מסך חדש']]
 ];
 document.getElementById('g').innerHTML = S.map(([f,n,t,d,tags])=>
 `<figure><img loading="lazy" src="${B}${f}.png" alt="${t}">
 <figcaption><span class="n">${n}</span><div class="t">${t}</div><div class="d">${d}</div>
-<div class="tags">${tags.map(x=>`<span class="tag${/שונה|חדש/.test(x)?' new':''}">${x}</span>`).join('')}</div>
+<div class="tags">${tags.map(x=>`<span class="tag${/שונה|חדש|עודכן|הוחזר/.test(x)?' new':''}">${x}</span>`).join('')}</div>
 </figcaption></figure>`).join('');
 
 const lb=document.getElementById('lb');
