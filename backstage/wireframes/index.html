@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Backstage · ווירפריימים v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Assistant',system-ui,sans-serif;background:#F5F3EF;color:#16150F;padding:28px 16px 80px}
+header{max-width:1180px;margin:0 auto 32px}
+h1{font-size:30px;font-weight:700;letter-spacing:-.02em}
+.sub{color:#6B665E;font-size:15px;margin-top:6px;line-height:1.6;max-width:60ch}
+.legend{max-width:1180px;margin:0 auto 26px;display:flex;flex-wrap:wrap;gap:8px}
+.legend span{font-size:12px;background:#fff;border:1px solid #E2DED6;border-radius:999px;padding:6px 12px;color:#4A463F}
+.grid{max-width:1180px;margin:0 auto;display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+figure{background:#fff;border:1px solid #E2DED6;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+figure img{width:100%;display:block;background:#fff}
+figcaption{padding:12px 14px 14px;border-top:1px solid #EFECE5}
+.n{font-family:'JetBrains Mono',monospace;font-size:11px;color:#9A948A;letter-spacing:.06em;direction:ltr;display:block}
+.t{font-size:15px;font-weight:600;margin:3px 0 4px}
+.d{font-size:13px;color:#6B665E;line-height:1.5}
+.area{display:inline-block;font-size:11px;border:1px solid #DDD8CE;border-radius:999px;padding:2px 8px;margin-top:8px;color:#57534B}
+footer{max-width:1180px;margin:44px auto 0;font-size:13px;color:#8C877D;line-height:1.7}
+a{color:#16150F}
+</style>
+</head>
+<body>
+<header>
+  <h1>Backstage · ווירפריימים למבנה החדש</h1>
+  <p class="sub">עשרה מסכים לפי המבנה של שלושה אזורים, header קבוע, רצועת קול יועץ עם בלם, וכל ההגדרות תחת המבורגר. סגנון אחיד: שחור לבן, קווי מתאר דקים.</p>
+</header>
+
+<div class="legend">
+  <span>להתכונן · Prepare</span>
+  <span>לדבר · Talk</span>
+  <span>להתפתח · Grow</span>
+  <span>המבורגר · הגדרות</span>
+</div>
+
+<div class="grid" id="g"></div>
+
+<footer>
+  16.8.2026 · נוצר עם Higgsfield, מודל nano banana. הפרומפטים והאפיון המלא במסמך המלווה.
+</footer>
+
+<script>
+const B='https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20260816_145527_';
+const S=[
+ ['271b265b-757c-4c23-8b05-84481ed39a10','W1','להתכונן (בית)','המסך הראשי. רצועת קול מתחת ל-header, שאלה פתוחה, הסשן הבא, ומשימות ברוחב מלא','להתכונן'],
+ ['3eaee405-2035-4234-a713-00a02bfaa0a8','W2','לדבר (בית)','מסך חדש. שתי דרכי כניסה, סשן ארוך או רגע קצר, והיסטוריית שיחות מתחתן','לדבר'],
+ ['673fbde6-0347-4f50-9573-0f66298f475b','W3','סשן קולי חי','מסך פוקוס. נוסף שעון, השהיה, וחזרה לטרנסקריפט העדכני','לדבר'],
+ ['dc8a3ac7-7629-42b1-b343-c4a4155aa38a','W4','סיכום סשן','שלושה סעיפים ממוספרים במקום גליל אינסופי. כרטיסי משימה ברוחב מלא','לדבר'],
+ ['ca093674-7b85-4cd0-a1c8-5be6a33f21ad','W5','מסך התובנה','המסך החסר החשוב ביותר. התובנה במלואה עם הראיות שמאחוריה','להתפתח'],
+ ['dd6bf34f-f2ec-4262-b91d-1730bb7e2ec0','W6','להתפתח (בית)','מחליף את You. פאטרן, תובנות, עקרונות. בלי מונים ובלי רצף ימים','להתפתח'],
+ ['324eb3db-c36d-4346-b6ba-4e4525004a64','W7','תפריט המבורגר','כל ההגדרות. השקט והיוזמות הם הפריט הראשון, לא האחרון','המבורגר'],
+ ['764a5adc-3146-4ed9-8321-aef91c06f94a','W8','רצועת קול היועץ','שלושה מצבים: פתוחה, מקופלת, ואפשרויות ההשתקה','רכיב'],
+ ['c15dbdfa-fa7d-4779-a309-d058ae0092fd','W9','בחירת יועץ','תיקון באג הפריסה. הטקסט רץ על רוחב הכרטיס המלא','אונבורדינג'],
+ ['c2a7fadf-5327-4ab8-b4ec-b45489dfd26e','W10','מצב ריק','מחליף את שלוש קופסאות הרפאים. אומר מה יקרה ומתי','להתפתח']
+];
+document.getElementById('g').innerHTML = S.map(([id,n,t,d,a])=>
+`<figure><img loading="lazy" src="${B}${id}.png" alt="${t}">
+<figcaption><span class="n">${n}</span><div class="t">${t}</div><div class="d">${d}</div><span class="area">${a}</span></figcaption></figure>`).join('');
+</script>
+</body>
+</html>
