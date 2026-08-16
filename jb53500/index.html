@@ -136,6 +136,14 @@ td b{color:var(--ink)}
 .mod-t h3{font-size:18px}
 .mod-t .meta{font-size:13px;color:var(--ink-3);margin-top:3px}
 .mod-tools{font-size:12.5px;color:var(--navy);background:var(--navy-soft);padding:5px 12px;border-radius:99px;white-space:nowrap;max-width:290px;overflow:hidden;text-overflow:ellipsis}
+.mod-peek{padding:0 22px 18px;display:flex;flex-direction:column;gap:9px}
+.mod.open .mod-peek{display:none}
+.pk{display:flex;gap:11px;align-items:flex-start}
+.pkn{flex:0 0 auto;font-size:11.5px;font-weight:700;color:var(--navy);background:var(--navy-soft);
+     border-radius:99px;padding:3px 10px;white-space:nowrap;margin-top:1px}
+.pkt{min-width:0;font-size:13.5px;line-height:1.5}
+.pkt b{display:block;font-weight:700;color:var(--ink)}
+.pkt span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:var(--ink-3);font-size:13px}
 .chev{width:18px;height:18px;stroke:var(--ink-3);fill:none;stroke-width:2.2;transition:.2s;flex:0 0 18px}
 .mod.open .chev{transform:rotate(180deg)}
 .mod-body{display:none;padding:0 22px 22px;border-top:2px dashed var(--dash)}
@@ -289,6 +297,7 @@ td b{color:var(--ink)}
   .hero{padding:40px 36px}
   .hero h2{font-size:36px}
   .mod-tools{max-width:190px}
+  .mod-peek{padding:0 16px 15px}
   .twx .tw table{min-width:620px}
 }
 
@@ -382,6 +391,9 @@ td b{color:var(--ink)}
   .btn{padding:11px 15px}
   .toolbar{flex-wrap:wrap;gap:8px}
   .term{padding:16px 17px}
+  .mod-peek{padding:0 14px 14px;gap:8px}
+  .pk{flex-direction:column;gap:3px}
+  .pkt span{-webkit-line-clamp:2}
   .twx .tw table{min-width:560px;font-size:13px}
   .twx .tw th,.twx .tw td{padding:10px 12px}
 }
@@ -395,6 +407,19 @@ td b{color:var(--ink)}
       overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 }
 @media (max-width:360px){ .ns{font-size:9px} }
+
+/* ---------- HOME: QUICK BUTTONS ---------- */
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}
+.qb{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:3px;
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:17px 19px;box-shadow:var(--shadow);transition:.16s;text-align:right}
+.qb:hover{border-color:var(--coral);transform:translateY(-2px)}
+.qb:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+.qb svg{width:22px;height:22px;stroke:var(--coral);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-bottom:5px}
+.qb b{font-size:16px;font-weight:800;color:var(--ink)}
+.qb span{font-size:13px;color:var(--ink-3);line-height:1.45}
+@media (max-width:1100px){ .quick{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:700px){ .quick{grid-template-columns:1fr;gap:10px;margin-top:26px} .qb{padding:14px 16px} }
 
 /* ---------- HOME: PAGE CARDS ---------- */
 .pcard{display:block;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);cursor:pointer;transition:.16s;text-align:right;width:100%;font:inherit;color:inherit}
@@ -524,6 +549,14 @@ td b{color:var(--ink)}
   </div>
 </div>
 
+<div class="quick" id="quick">
+  <button class="qb" data-go="syllabus"><svg viewBox="0 0 24 24"><path d="M4 4h11l5 5v11a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1z"/><path d="M14 4v6h6M8 14h8M8 18h5"/></svg><b>סילבוס ומפגשים</b><span>7 מודולים, 29 מפגשים</span></button>
+  <button class="qb" data-go="project"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg><b>הפרויקט המתגלגל</b><span>המסע, המיזם המלווה ומצגת ההכנה</span></button>
+  <button class="qb" data-go="teachers"><svg viewBox="0 0 24 24"><path d="M3 5.5h18v11H3z"/><path d="M12 16.5V21M8 21h8M7 9.5h6M7 12.5h4"/></svg><b>חדר מרצים</b><span>בהכנה</span></button>
+  <button class="qb" data-go="marketing"><svg viewBox="0 0 24 24"><path d="M3 10.5v3a1 1 0 001 1h3l5 4V5.5l-5 4H4a1 1 0 00-1 1z"/><path d="M17 8.5a5 5 0 010 7M20 6a8.5 8.5 0 010 12"/></svg><b>עזר למרקטינג</b><span>פרסונות, בידול והתנגדויות</span></button>
+  <button class="qb" data-go="glossary"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg><b>ארכיון מושגים</b><span>99 מושגים, עם חיפוש</span></button>
+</div>
+
 </section>
 <!-- ================= TEACHERS ROOM ================= -->
 <section class="page" id="p-teachers">
@@ -601,19 +634,14 @@ td b{color:var(--ink)}
   </div>
   <p class="muted" style="margin-top:10px">פרויקט פשוט להבנה, אך יכול להדגים כמעט כל טכנולוגיה שנלמדת בקורס, בדיוק בשביל זה הוא נבחר כמיזם המלווה.</p>
 
-  <h2 class="sec">רעיונות נוספים להשראה</h2>
-  <p class="lead" style="margin-bottom:16px">אלה רק דוגמאות. כל תלמיד יכול גם לבחור נושא אחר משלו לגמרי, כל עוד הוא עומד בעקרונות המנחים.</p>
-  <div class="grid g3">
-    <div class="card"><h4>מתכנן טיולים</h4><p>בונה מסלול טיול מותאם אישית לפי יעד, תקציב ומספר ימים, וממליץ על אטרקציות ולינה.</p></div>
-    <div class="card y"><h4>אפליקציית ניהול Webinars</h4><p>מנהלת הרשמה, תזכורות ותוכן להעברת וובינר, מהרשמה ועד סיכום אוטומטי בסיום האירוע.</p></div>
-    <div class="card n"><h4>ניהול סטודיו או חוג</h4><p>ניהול מנויים, הרשמה לשיעורים ותזכורות אוטומטיות ללקוחות, לחוג ריקוד, סטודיו יוגה או חדר כושר.</p></div>
-  </div>
-
-  <h2 class="sec">המסע לאורך הקורס</h2>
+  <h2 class="sec">מבט על</h2>
+  <p class="lead" style="margin-bottom:14px">שבע תחנות, מודול אחר מודול: מה נבנה בכל אחת, מתי היא קורית ובאיזה כלי מרכזי.</p>
   <table id="stagemap"></table>
 
+  <h2 class="sec">השלבים</h2>
+  <p class="lead" style="margin-bottom:14px">כל שלב בפירוט: מה כל תלמיד בונה בנושא שלו, ואיך אותו שלב נראה במיזם המלווה.</p>
   <div class="toolbar">
-    <button class="btn" onclick="allStages(true)">פתיחת כל המודולים</button>
+    <button class="btn" onclick="allStages(true)">פתיחת כל השלבים</button>
     <button class="btn" onclick="allStages(false)">סגירת הכול</button>
   </div>
   <div id="stages"></div>
@@ -632,6 +660,14 @@ td b{color:var(--ink)}
     <button class="btn" onclick="allSlides(false)">סגירת הכול</button>
   </div>
   <div id="slides"></div>
+
+  <h2 class="sec">רעיונות נוספים להשראה</h2>
+  <p class="lead" style="margin-bottom:16px">אלה רק דוגמאות. כל תלמיד יכול גם לבחור נושא אחר משלו לגמרי, כל עוד הוא עומד בעקרונות המנחים.</p>
+  <div class="grid g3">
+    <div class="card"><h4>מתכנן טיולים</h4><p>בונה מסלול טיול מותאם אישית לפי יעד, תקציב ומספר ימים, וממליץ על אטרקציות ולינה.</p></div>
+    <div class="card y"><h4>אפליקציית ניהול Webinars</h4><p>מנהלת הרשמה, תזכורות ותוכן להעברת וובינר, מהרשמה ועד סיכום אוטומטי בסיום האירוע.</p></div>
+    <div class="card n"><h4>ניהול סטודיו או חוג</h4><p>ניהול מנויים, הרשמה לשיעורים ותזכורות אוטומטיות ללקוחות, לחוג ריקוד, סטודיו יוגה או חדר כושר.</p></div>
+  </div>
 
   </section>
 
@@ -804,7 +840,7 @@ document.getElementById('nav').addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b)return;
   setArea(b.dataset.p);
 });
-document.querySelectorAll('.pcard[data-go]').forEach(b=>
+document.querySelectorAll('.pcard[data-go],.qb[data-go]').forEach(b=>
   b.addEventListener('click',()=>setArea(b.dataset.go)));
 const CH='<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
 
@@ -961,7 +997,10 @@ function renderList(arr){ return Array.isArray(arr) ? arr.map(t=>`<li>${t}</li>`
     h+=`<div class="mod"><div class="mod-head" onclick="this.parentNode.classList.toggle('open')">
       <div class="mod-badge">${m.n}</div>
       <div class="mod-t"><h3>${m.t}</h3><div class="meta">מפגשים ${m.mt} · ${m.h} ש"ל</div></div>
-      <div class="mod-tools">${m.tools}</div>${CH}</div>
+      ${CH}</div>
+      <div class="mod-peek">${m.M.map(x=>`
+        <div class="pk"><span class="pkn">מפגש ${x.n}</span><div class="pkt"><b>${x.t}</b>
+        <span>${(x.top||[]).join(' · ')}</span></div></div>`).join('')}</div>
       <div class="mod-body">${body}</div></div>`;
   });
   document.getElementById('mods').innerHTML=h;
