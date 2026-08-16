@@ -1,6 +1,55 @@
 {
  "days": [
   {
+   "date": "2026-08-16",
+   "ideas": [
+    {
+     "id": "2026-08-16-1",
+     "world": "סרטוני תחרויות",
+     "color": "#71F73C",
+     "hook": "מצלמת האבטחה של המכבסה השכונתית מצלמת את אותה גרב בודדה חוזרת לאותה פינה במשך חודשים. הבעלים מנסה כל פעם למצוא לה זוג, ובסוף מבינים שהוא לא באמת רוצה שהיא תימצא.",
+     "concept": "בעל מכבסה שכונתית מוצא גרב בודדה בייבוש התעשייתי, מניח אותה בקופסת אבידות על הדלפק, ומצלמת האבטחה הקבועה בפינת החדר מתעדת אותה יושבת שם לאורך זמן. פעם בכמה ימים הוא מזיז אותה סנטימטר, מסדר אותה מחדש, כאילו הוא שומר עליה מסודרת בשביל מישהו שיחזור. בשוט האחרון, מצלמה חדשה שהוא מתקין בטעות מראה אותו נכנס בלילה רק כדי להביט בקופסה, לא לחפש בה.",
+     "execution": "שלוש דקות ועשרים שניות, 16:9, זווית מצלמת אבטחה קבועה אחת מהתקרה לכל אורך הסרט, גרעין ורעש דיגיטלי אופייני לפוטג' בזמן אמת, טיים-קוד קבוע בפינת הפריים. Higgsfield: Nano Banana Pro לבניית שלד דמות לבעל המכבסה לשמירה על זהות עקבית, Kling 3 std לתנועה מינימלית של יד ואור בלבד. בלי דיאלוג, בלי קריינות, רק רעש מכבסה ברקע: מכונות כביסה, זמזום פלורוסנט.",
+     "why": "אושרו היום שוב שני הדדליינים הפעילים, אסטנה ב-31.8 והיגספילד ב-3.9. פורמט מצלמת האבטחה כבר הוכיח את עצמו בז'אנר הזה בבנק הרעיונות של מחזור 1, אבל תמיד עם דמות אנושית במרכז. אובייקט לא אנושי כגיבור בתוך אותו פורמט עדיין לא נוסה, וזה בדיוק החוסר שנשאר על השולחן.",
+     "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+     "srcUrl": "https://higgsfield.ai/contests/higgsfield-global-film-festival",
+     "srcLabel": "Higgsfield Global Film Festival, אומת היום מול האתר הרשמי: דדליין 3.9, אורך מינימום שלוש דקות",
+     "prompts": {
+      "video": "Photorealistic security camera footage style, fixed overhead ceiling angle, slight fisheye lens distortion, visible digital noise and a burned-in timestamp in the corner, warm fluorescent laundromat lighting, muted teal and beige palette, a middle-aged laundromat owner with a weathered ordinary face straightens a single lost sock sitting inside a small lost-and-found box on the counter, repeats this small gesture across implied passing time shown only through subtle lighting changes, final shot at night shows him quietly opening the box just to look without touching anything inside, camera never moves at any point, 16:9",
+      "script": "פתח לי את רעיון הווידאו 'הגרב היחיד' לסטוריבורד מלא: לוגליין, סינופסיס של 5 עד 7 פסקאות, שוט ליסט של 14 עד 18 שוטים לשלוש דקות ועשרים שניות, ולכל שוט משך, תנועת מצלמה ושני פרומפטים. אילוצים מחייבים: זווית מצלמת אבטחה קבועה אחת מהתקרה לכל אורך הסרט בלי תזוזת מצלמה, דמות אחת בלבד בפריים, אפס דיאלוג ואפס קריינות, רק רעשי רקע של מכבסה, גרעין דיגיטלי וטיים-קוד קבוע בפינה. סגנון ריאליסטי צילומי מצלמת אבטחה, 16:9, שלוש דקות ועשרים שניות, יעד: Higgsfield Global Film Festival שסוגר 3.9 וגם Astana AI Film Festival שסוגרת 31.8.",
+      "image": "Photorealistic security camera still frame, fixed overhead ceiling angle, slight fisheye lens distortion, visible digital noise and a burned-in timestamp in the corner, warm fluorescent laundromat lighting, muted teal and beige palette, a small cardboard lost-and-found box on a counter with a single folded sock inside, a middle-aged man's hand mid-adjustment near the box, generous negative space, no text",
+      "raw": "הוק: מצלמת האבטחה של המכבסה השכונתית מצלמת את אותה גרב בודדה חוזרת לאותה פינה במשך חודשים, הבעלים מנסה כל פעם למצוא לה זוג ובסוף מבינים שהוא לא באמת רוצה שהיא תימצא\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, סוגר 3.9, וגם Astana AI Film Festival, סוגרת 31.8\nקונספט: בעל מכבסה שכונתית שם גרב בודדה בקופסת אבידות, מצלמת אבטחה קבועה מתעדת אותו מסדר אותה מחדש שוב ושוב, בסוף הוא נכנס בלילה רק להביט בקופסה\nביצוע: שלוש דקות ועשרים שניות, 16:9, Nano Banana Pro ו-Kling 3 std, מצלמת אבטחה קבועה אחת, בלי דיאלוג\nלמה עכשיו: שני הדדליינים אושרו היום, אסטנה 31.8 והיגספילד 3.9, אובייקט לא אנושי כגיבור עדיין לא נוסה בפורמט מצלמת האבטחה בבנק הנוכחי"
+     }
+    },
+    {
+     "id": "2026-08-16-2",
+     "world": "סרטוני תחרויות",
+     "color": "#71F73C",
+     "hook": "פרסומת ישנה ומצוחצחת לתא הטלפון הציבורי האחרון בתל אביב, בדיוק כמו שהעירייה פרסמה אותו ב-1998. רק שהתא עדיין עומד היום, ומישהי אחת עדיין באה אליו כל שבוע.",
+     "concept": "פרסומת מזויפת בסגנון עירוני מהסוף של שנות התשעים, מספרת על תא הטלפון הציבורי כאילו הוא עדיין החידוש הכי גדול ברחוב, עם קריינות תקופתית ומוזיקת רקע נוסטלגית. באמצע הסרט המצלמה יוצאת בשקט מהפרסומת אל התא האמיתי היום, מכוסה מדבקות ואבק, ומגלה אישה מבוגרת שמגיעה כל יום שישי, מכניסה מטבע שכבר לא תקף, ומחזיקה את השפופרת בלי לחייג לאף אחד.",
+     "execution": "שלוש דקות ושלושים שניות, 16:9, שני מרקמים חזותיים בתוך אותו סרט: פרסומת וינטג' עם גרעין פילם ו-VHS בשליש הראשון, ואז מעבר לצילום ריאליסטי עכשווי לשאר הסרט. Higgsfield: Nano Banana Pro לפריים הפתיחה בסגנון פרסומת, Kling 3 std לשוטי התא האמיתי, שלד דמות לאישה לשמירת זהות. קריינות עברית קצרה בסגנון פרסומת תקופתית בשליש הראשון בלבד, ואז שקט מלא לשאר הסרט חוץ מרעש רחוב עמום.",
+     "why": "פורמט הפרסומת המזויפת עדיין לא נוצל בבנק הרעיונות הנוכחי. תא טלפון ציבורי הוא ביוגרפיית אובייקט טבעית שמתחברת ישירות לשיעורים שלי, בלי לחזור על אף אחד מהרעיונות הקיימים ובלי דמות אנושית זהה בכל השוטים.",
+     "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+     "srcUrl": "https://aaiff.ai/",
+     "srcLabel": "Astana AI Film Festival, לפי הנתון הקיים במעקב שלנו מ-12.8: דדליין 31.8, אורך מינימום שלוש דקות",
+     "prompts": {
+      "video": "Split visual style within one continuous piece, first third styled as a glossy late-1990s municipal advertisement, warm VHS video grain, slight scan lines, saturated primary colors, a retro announcement composition implied purely through lighting and framing with no text, showing a public payphone booth presented like the newest street innovation, camera then pulls back and the film shifts into contemporary photorealistic cinematography, cool overcast daylight, muted grey and rust palette, the same payphone booth now weathered and covered in faded stickers, an elderly woman with soft wrinkled hands inserts an obsolete coin and holds the receiver to her ear without dialing, single static camera position throughout the contemporary section, 16:9",
+      "script": "פתח לי את רעיון הווידאו 'התא האחרון' לסטוריבורד מלא: לוגליין, סינופסיס של 5 עד 7 פסקאות, שוט ליסט של 16 עד 20 שוטים לשלוש דקות ושלושים שניות, ולכל שוט משך, תנועת מצלמה ושני פרומפטים. אילוצים מחייבים: השליש הראשון בסגנון פרסומת וינטג' משנות התשעים עם קריינות עברית תקופתית קצרה בלבד, מעבר חד לצילום ריאליסטי עכשווי לשאר הסרט עם שקט מלא, מצלמה כמעט קבועה, דמות אחת בלבד בחלק העכשווי, בלי דיאלוג. סגנון מעורב, 16:9, שלוש דקות ושלושים שניות, יעד: Higgsfield Global Film Festival שסוגר 3.9 וגם Astana AI Film Festival שסוגרת 31.8.",
+      "image": "Photorealistic contemporary still, cool overcast daylight, muted grey and rust palette, a weathered public payphone booth covered in faded stickers and peeling paint standing alone on an empty sidewalk corner, generous negative space above for titling, no text",
+      "raw": "הוק: פרסומת ישנה ומצוחצחת לתא הטלפון הציבורי האחרון בתל אביב בדיוק כמו שהעירייה פרסמה אותו ב-1998, רק שהתא עדיין עומד היום ומישהי אחת עדיין באה אליו כל שבוע\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, סוגר 3.9, וגם Astana AI Film Festival, סוגרת 31.8\nקונספט: פרסומת מזויפת וינטג' לתא טלפון ציבורי עוברת באמצע לצילום עכשווי, אישה מבוגרת מגיעה כל שבוע ומחזיקה שפופרת בלי לחייג\nביצוע: שלוש דקות ושלושים שניות, 16:9, Nano Banana Pro ו-Kling 3 std, מעבר סגנון אחד באמצע, שקט ברוב הסרט\nלמה עכשיו: פורמט הפרסומת המזויפת עדיין לא נוצל בבנק הנוכחי, ביוגרפיית אובייקט טבעית שמתחברת לשיעורים"
+     }
+    }
+   ],
+   "articles": [
+    {
+     "title": "AI Film Contests, מפת התחרויות המלאה",
+     "desc": "מצאנו כאן שלוש תחרויות חדשות שלא היו על השולחן, ואימות מחדש שהיגספילד ואסטנה עדיין הדדליינים המרכזיים.",
+     "meta": "AI Film Contests · 16.8",
+     "url": "https://aifilmcontests.com/"
+    }
+   ]
+  },
+  {
    "date": "2026-08-14",
    "ideas": [
     {
