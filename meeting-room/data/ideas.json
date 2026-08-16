@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-13",
+ "updated": "2026-08-14",
  "ideas": [
   {
    "id": "I-2026-0231",
@@ -677,6 +677,62 @@
    "status": "pool",
    "snoozes": 0,
    "touchedAt": "2026-08-13"
+  },
+  {
+   "id": "I-2026-0286",
+   "title": "משך אמיתי",
+   "line": "שלוש פעמים ברצף השבוע האחרון הצהרת משך שגוי לסרט, ותיקנת רק אחרי שסיכמת ידנית את טבלת השוטים",
+   "advisor": "pain",
+   "createdAt": "2026-08-14",
+   "capability": null,
+   "evidence": "בין 11 ל-13.8 שלושה סטוריבורדים ברצף הצהירו משך לא נכון: ההוראות 3:20 מול 4:10 בפועל, השכן 3:30 מול 4:10 בפועל, מיאו 2:40 מול 3:48 בפועל, וכל פעם רק סיכום ידני של טבלת השוטים חשף את הטעות",
+   "lesson": null,
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-08-14"
+  },
+  {
+   "id": "I-2026-0287",
+   "title": "תפוסת סלאג",
+   "line": "פעמיים באותו יום שני סשנים כתבו במקביל לאותו סלאג סטוריבורד וייצרו קונפליקט גיט וכפילות מזהה",
+   "advisor": "pain",
+   "createdAt": "2026-08-14",
+   "capability": null,
+   "evidence": "ב-11.8 שני סשנים כתבו במקביל ל-storyboards/the-instructions/ ול-storyboards/the-neighbour/, מה שיצר קונפליקט add/add ומזהה רעיון כפול בvideos.json שתוקן ידנית",
+   "lesson": null,
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-08-14"
+  },
+  {
+   "id": "I-2026-0288",
+   "title": "בחירת נושא",
+   "line": "אחרי שהמסלולים הסגורים ירדו, איך נראה על מסך הכיתה הרגע שבו כל סטודנט בוחר לבד את הנושא שלו בשיעור הראשון?",
+   "advisor": "teacher",
+   "createdAt": "2026-08-14",
+   "capability": null,
+   "evidence": null,
+   "lesson": "מודול 1 היכרות, שיעור 1, מיישם AI ואוטומציה (53500)",
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-08-14"
+  },
+  {
+   "id": "I-2026-0289",
+   "title": "תרשים לפני כלי",
+   "line": "לפני שסטודנט נוגע ב-n8n בשיעור 23, איך נראה על המסך תרגיל שבו הוא רק מצייר את תרשים הזרימה על נייר?",
+   "advisor": "teacher",
+   "createdAt": "2026-08-14",
+   "capability": null,
+   "evidence": null,
+   "lesson": "מודול 6 בניית אוטומציות, שיעור 23, מיישם AI ואוטומציה (53500)",
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-08-14"
   }
  ]
 }
