@@ -3,69 +3,116 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Backstage · ווירפריימים v2</title>
+<title>Backstage · ווירפריימים v3</title>
+<meta property="og:title" content="Backstage · ווירפריימים v3">
+<meta property="og:description" content="14 מסכים. שלושה אזורים, header קבוע, והמערכת מחליטה במקום המשתמש.">
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Assistant',system-ui,sans-serif;background:#F5F3EF;color:#16150F;padding:28px 16px 80px}
-header{max-width:1180px;margin:0 auto 32px}
+body{font-family:'Assistant',system-ui,sans-serif;background:#F5F3EF;color:#16150F;padding:28px 16px 80px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto}
 h1{font-size:30px;font-weight:700;letter-spacing:-.02em}
-.sub{color:#6B665E;font-size:15px;margin-top:6px;line-height:1.6;max-width:60ch}
-.legend{max-width:1180px;margin:0 auto 26px;display:flex;flex-wrap:wrap;gap:8px}
+.ver{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;direction:ltr;
+  border:1px solid #D8D3C9;border-radius:999px;padding:3px 10px;color:#6B665E;margin-inline-start:10px;vertical-align:middle}
+.sub{color:#6B665E;font-size:15px;margin-top:8px;line-height:1.65;max-width:64ch}
+.rules{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:24px 0 28px}
+.rule{background:#fff;border:1px solid #E2DED6;border-radius:12px;padding:14px 16px}
+.rule b{display:block;font-size:14px;margin-bottom:3px}
+.rule span{font-size:13px;color:#6B665E;line-height:1.5}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
 .legend span{font-size:12px;background:#fff;border:1px solid #E2DED6;border-radius:999px;padding:6px 12px;color:#4A463F}
-.grid{max-width:1180px;margin:0 auto;display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(258px,1fr))}
 figure{background:#fff;border:1px solid #E2DED6;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-figure img{width:100%;display:block;background:#fff}
+figure img{width:100%;display:block;background:#fff;cursor:zoom-in}
 figcaption{padding:12px 14px 14px;border-top:1px solid #EFECE5}
-.n{font-family:'JetBrains Mono',monospace;font-size:11px;color:#9A948A;letter-spacing:.06em;direction:ltr;display:block}
+.n{font-family:'JetBrains Mono',monospace;font-size:11px;color:#9A948A;letter-spacing:.06em;direction:ltr}
 .t{font-size:15px;font-weight:600;margin:3px 0 4px}
 .d{font-size:13px;color:#6B665E;line-height:1.5}
-.area{display:inline-block;font-size:11px;border:1px solid #DDD8CE;border-radius:999px;padding:2px 8px;margin-top:8px;color:#57534B}
-footer{max-width:1180px;margin:44px auto 0;font-size:13px;color:#8C877D;line-height:1.7}
-a{color:#16150F}
+.tags{margin-top:9px;display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-size:11px;border:1px solid #DDD8CE;border-radius:999px;padding:2px 8px;color:#57534B}
+.tag.new{border-color:#16150F;color:#16150F;font-weight:600}
+footer{margin-top:44px;font-size:13px;color:#8C877D;line-height:1.7}
+#lb{position:fixed;inset:0;background:rgba(10,10,10,.92);display:none;align-items:center;justify-content:center;z-index:99;cursor:zoom-out;padding:20px}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:100%;border-radius:8px}
 </style>
 </head>
 <body>
+<div class="wrap">
 <header>
-  <h1>Backstage · ווירפריימים למבנה החדש</h1>
-  <p class="sub">ארבעה עשר מסכים לפי המבנה של שלושה אזורים, header קבוע, רצועת קול יועץ עם בלם, וכל ההגדרות תחת המבורגר. סגנון אחיד: שחור לבן, קווי מתאר דקים.</p>
+  <h1>Backstage · ווירפריימים<span class="ver">v3 · 16.8.2026</span></h1>
+  <p class="sub">הגרסה העדכנית והיחידה. ארבעה עשר מסכים לפי המבנה החדש: שלושה אזורים, header קבוע בכל מסך, רצועת קול יועץ עם בלם, וכל ההגדרות תחת המבורגר.</p>
 </header>
+
+<div class="rules">
+  <div class="rule"><b>תמיד ברור איפה אתה</b><span>header קבוע עם שם מסך, ודרך חזרה בכל מסך מלבד שלושה</span></div>
+  <div class="rule"><b>שלושה מקומות, לא אחד עשר</b><span>להתכונן, לדבר, להתפתח. כל השאר בהמבורגר</span></div>
+  <div class="rule"><b>המערכת מחליטה, המשתמש רואה</b><span>אין בחירה בין רגע לסשן. יש תג שמציג מה זה הפך להיות</span></div>
+</div>
 
 <div class="legend">
   <span>להתכונן · Prepare</span>
   <span>לדבר · Talk</span>
   <span>להתפתח · Grow</span>
-  <span>המבורגר · הגדרות</span>
+  <span>המבורגר</span>
+  <span>רכיב</span>
 </div>
 
 <div class="grid" id="g"></div>
 
 <footer>
-  16.8.2026, עודכן · נוצר עם Higgsfield, מודל nano banana. הפרומפטים והאפיון המלא במסמך המלווה.
+  נוצר עם Higgsfield. הפרומפטים, האפיון המלא ומסמך ההנמקה נמצאים במסמכים המלווים.<br>
+  גרסאות קודמות הוחלפו. זו הגרסה היחידה התקפה.
 </footer>
+</div>
+
+<div id="lb"><img alt=""></div>
 
 <script>
-const B1='https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20260816_145527_';
-const B2='https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20260816_150050_';
+const B='https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/';
 const S=[
- ['271b265b-757c-4c23-8b05-84481ed39a10','W1','להתכונן (בית)','המסך הראשי. רצועת קול מתחת ל-header, שאלה פתוחה, הסשן הבא, ומשימות ברוחב מלא','להתכונן'],
- ['3eaee405-2035-4234-a713-00a02bfaa0a8','W2','לדבר (בית)','מסך חדש. שתי דרכי כניסה, סשן ארוך או רגע קצר, והיסטוריית שיחות מתחתן','לדבר'],
- ['673fbde6-0347-4f50-9573-0f66298f475b','W3','סשן קולי חי','מסך פוקוס. נוסף שעון, השהיה, וחזרה לטרנסקריפט העדכני','לדבר'],
- ['dc8a3ac7-7629-42b1-b343-c4a4155aa38a','W4','סיכום סשן','שלושה סעיפים ממוספרים במקום גליל אינסופי. כרטיסי משימה ברוחב מלא','לדבר'],
- ['ca093674-7b85-4cd0-a1c8-5be6a33f21ad','W5','מסך התובנה','המסך החסר החשוב ביותר. התובנה במלואה עם הראיות שמאחוריה','להתפתח'],
- ['dd6bf34f-f2ec-4262-b91d-1730bb7e2ec0','W6','להתפתח (בית)','מחליף את You. פאטרן, תובנות, עקרונות. בלי מונים ובלי רצף ימים','להתפתח'],
- ['324eb3db-c36d-4346-b6ba-4e4525004a64','W7','תפריט המבורגר','כל ההגדרות. השקט והיוזמות הם הפריט הראשון, לא האחרון','המבורגר'],
- ['764a5adc-3146-4ed9-8321-aef91c06f94a','W8','רצועת קול היועץ','שלושה מצבים: פתוחה, מקופלת, ואפשרויות ההשתקה','רכיב'],
- ['c15dbdfa-fa7d-4779-a309-d058ae0092fd','W9','בחירת יועץ','תיקון באג הפריסה. הטקסט רץ על רוחב הכרטיס המלא','אונבורדינג'],
- ['c2a7fadf-5327-4ab8-b4ec-b45489dfd26e','W10','מצב ריק','מחליף את שלוש קופסאות הרפאים. אומר מה יקרה ומתי','להתפתח'],
- ['bcbfa245-efcf-4110-8cef-6d182e7ff1e2','W11','היסטוריה','דקדוק אחד לכל השורות, סינון וקיבוץ. רגע באורך אפס מסומן כלא הושלם','לדבר',2],
- ['2755bbd8-a253-4257-a8a3-0ee87a880d38','W12','יוזמות ושקט','הבלם שכבר קיים באפליקציה, נגיש גם מהרצועה עצמה. נוספה השהיה קצרה','המבורגר',2],
- ['bbaf4ab2-ece7-40a1-b364-083cd16efd89','W13','התוכנית שלך','המונה הופך למד התקדמות. הפאטרן הראשון צף בערך כשנגמרת החבילה החינמית','המבורגר',2],
- ['b6e6a067-6a06-466e-9694-af8dc9d433c0','W14','קביעת סשן','יוצא מההגדרות והופך לגיליון תחתון בתוך להתכונן','להתכונן',2]
+ ['hf_20260816_151544_cac02beb-fd99-4362-9a33-714f8561163d','W1','להתכונן',
+  'המסך הראשי. רצועת הקול מתחת ל-header, שאלה פתוחה, הכרטיס של הפעם הקודמת עם תג, ומשימות ברוחב מלא',['להתכונן','תג חדש']],
+ ['hf_20260816_151544_aab5fde8-4aad-4bf6-89c7-07fedc75e87d','W2','לדבר',
+  'כניסה אחת בלבד. אין בחירה בין סשן לרגע. מתחת, שיחות אחרונות עם תג לכל אחת',['לדבר','שונה מהיסוד']],
+ ['hf_20260816_151544_84d4b764-da9d-47e2-8601-e3cb226e77b5','W3','שיחה חיה',
+  'מסך פוקוס. נוספו שעון, השהיה, וחזרה לטרנסקריפט. התג מופיע ליד השעון עם שורה שמסבירה מה קרה',['לדבר','תג חדש']],
+ ['hf_20260816_151544_bb6deb21-ded1-4583-ad44-b03e8baab5c5','W4','סיכום שיחה',
+  'שלושה סעיפים ממוספרים במקום גליל אינסופי. כרטיסי משימה ברוחב מלא, מכניקה אחת',['לדבר']],
+ ['hf_20260816_151544_b3817633-8a83-4866-8ce8-a09ef375b577','W5','תובנה',
+  'המסך שהיה הכי חסר. התובנה במלואה, והראיות שמאחוריה עם תג לכל אחת',['להתפתח','מסך חדש']],
+ ['hf_20260816_151544_f911c900-2e67-47e2-9038-6a2b6df64e03','W6','להתפתח',
+  'מחליף את You. פאטרן, תובנות, ה-Toolkit כסעיף, ועקרונות. בלי מונים ובלי רצף ימים',['להתפתח']],
+ ['hf_20260816_151544_e9f1a08c-432c-4756-a0db-d230b1f20564','W7','המבורגר',
+  'כל ההגדרות. יוזמות ושקט הם הפריט הראשון, לא האחרון',['המבורגר']],
+ ['hf_20260816_151544_46748bad-fd1d-4485-9bfa-f08069b3f5e4','W8','רצועת קול היועץ',
+  'שלושה מצבים: פתוחה, מקופלת, ואפשרויות ההשתקה. נוספה השהיה קצרה',['רכיב']],
+ ['hf_20260816_151544_69a45896-c8e7-4810-8975-146bef5751ff','W9','בחירת יועץ',
+  'אקורדיון. סגור וקומפקטי כברירת מחדל, נפתח לפרטים. שורת מחץ בראש המסך',['אונבורדינג','שונה מהיסוד']],
+ ['hf_20260816_151544_8196bf7a-7fda-4a9b-8b09-5f2819f0b051','W10','מצב ריק',
+  'מחליף את שלוש קופסאות הרפאים. אומר מה יקרה, מתי, ולמה לא ננחש',['להתפתח']],
+ ['hf_20260816_151544_8e971e66-5ece-497d-8150-bb1d4e7c2f17','W11','כל השיחות',
+  'דקדוק אחד לכל השורות, תג לכל שיחה, סינון וקיבוץ. רגע ריק מסומן כלא הושלם',['לדבר','תג חדש']],
+ ['hf_20260816_151544_fe4dc0a5-ce6f-497f-8964-9736230c7bff','W12','יוזמות ושקט',
+  'הבלם שכבר קיים באפליקציה, נגיש גם מהרצועה. נוספה השהיה של שעתיים',['המבורגר']],
+ ['hf_20260816_151600_aea26a94-dbc6-4160-a6f9-d58d66b998b2','W13','התוכנית',
+  'המונה הופך למד התקדמות. Stars ירד. פורמט מחיר אחיד',['המבורגר']],
+ ['hf_20260816_151559_2cc269d3-9270-486d-9eae-24291ef8a668','W14','קביעת זמן',
+  'גיליון תחתון בתוך להתכונן. בלי בורר אורך, כי המערכת מחליטה',['להתכונן','שונה מהיסוד']]
 ];
-document.getElementById('g').innerHTML = S.map(([id,n,t,d,a,a2])=>
-`<figure><img loading="lazy" src="${(a2===2?B2:B1)}${id}.png" alt="${t}">
-<figcaption><span class="n">${n}</span><div class="t">${t}</div><div class="d">${d}</div><span class="area">${a}</span></figcaption></figure>`).join('');
+document.getElementById('g').innerHTML = S.map(([f,n,t,d,tags])=>
+`<figure><img loading="lazy" src="${B}${f}.png" alt="${t}">
+<figcaption><span class="n">${n}</span><div class="t">${t}</div><div class="d">${d}</div>
+<div class="tags">${tags.map(x=>`<span class="tag${/שונה|חדש/.test(x)?' new':''}">${x}</span>`).join('')}</div>
+</figcaption></figure>`).join('');
+
+const lb=document.getElementById('lb');
+document.getElementById('g').addEventListener('click',e=>{
+  if(e.target.tagName!=='IMG')return;
+  lb.querySelector('img').src=e.target.src; lb.classList.add('on');
+});
+lb.addEventListener('click',()=>lb.classList.remove('on'));
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') lb.classList.remove('on'); });
 </script>
 </body>
 </html>
