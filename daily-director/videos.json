@@ -1,6 +1,62 @@
 {
  "days": [
   {
+   "date": "2026-08-14",
+   "ideas": [
+    {
+     "id": "2026-08-14-1",
+     "world": "סרטוני תחרויות",
+     "color": "#71F73C",
+     "hook": "אישה בת שמונים מרכיבה כיסא נדנדה תאום לכיסא הישן שלה. בסוף היא יושבת, והכיסא הריק מתחיל לנדנד לבד.",
+     "concept": "אישה מבוגרת מרכיבה בעצמה כיסא נדנדה חדש מארגז שטוח, זהה לכיסא הישן שעומד לצידה כל חייה. המצלמה נעולה לגמרי מהשנייה הראשונה עד האחרונה, בלי תזוזה אחת. שנים של הרגל נראות בתנועות הידיים המדויקות שלה עם המברג. בשוט האחרון היא יושבת בכיסא הישן, מביטה בכיסא החדש הריק, והוא נותן נדנוד איטי אחד בלבד, באוויר דומם לגמרי כדי שלא יקרא כרוח.",
+     "execution": "שלוש דקות ושלושים וחמש שניות, 16:9, Higgsfield: Nano Banana Pro לפריימים עם שלד דמות (character sheet) לאישה כדי לשמור זהות לאורך כל השוטים, Kling 3 std לתנועה עדינה בלבד. זווית אחת קבועה לגמרי לכל אורך הסרט, שום תזוזת מצלמה. שקט מלא, בלי קריינות ובלי דיאלוג, רק אמביינט מרפסת עמום. הרגע העל טבעי היחיד שמור לשוט האחרון בלבד.",
+     "why": "אסטנה אושרה היום שוב על 31.8, אותה הארכה מ-15.8 שכבר הייתה ידועה, והיגספילד סוגר 3.9, כשלושה שבועות מהיום. זיכרון ואובדן מדורג ראשון בפועל בין הז'אנרים שזכו, לפי הניתוח מ-11.8, וזה הרעיון שאייל עצמו יזם ב-12.8 כהמשך ריאליסטי-מאגי נפרד מההוראות, שטרם נכתב ככרטיס.",
+     "competition": "Higgsfield Global Film Festival",
+     "srcUrl": "https://aaiff.ai/",
+     "srcLabel": "Astana AI Film Festival, אומת היום מול האתר הרשמי: דדליין 31.8, אורך מינימום שלוש דקות",
+     "prompts": {
+      "video": "Photorealistic cinematic style, warm late-afternoon Mediterranean light, sand cream and soft grey-teal palette, visible 35mm film grain, fixed locked-off wide shot on a quiet covered porch, one continuous unbroken take, an elderly woman around eighty years old with a weathered asymmetric face sits in a worn wooden rocking chair, beside her an identical brand-new matching rocking chair sits empty in soft focus, completely still air with no wind, after a long silent pause the empty chair gives exactly one slow deliberate rocking motion entirely on its own then settles back to stillness, no camera movement at any point, 16:9",
+      "script": "פתח לי את רעיון הווידאו \"הכיסא השני\" לסטוריבורד מלא: לוגליין, סינופסיס של 5 עד 7 פסקאות, שוט ליסט של 14 עד 18 שוטים לשלוש דקות ושלושים וחמש שניות, ולכל שוט משך, תנועת מצלמה ושני פרומפטים. אילוצים מחייבים: מצלמה נעולה לחלוטין לכל אורך הסרט בלי תזוזה אחת, דמות אחת בלבד בפריים, אפס דיאלוג ואפס קריינות, שקט מלא עם אמביינט בלבד, הרגע העל טבעי היחיד שמור לשוט האחרון בלבד ומצולם באוויר דומם לגמרי כדי שלא יקרא כרוח. סגנון ריאליסטי צילומי, 16:9, שלוש דקות ושלושים וחמש שניות, יעד: Higgsfield Global Film Festival שסוגר 3.9 וגם Astana AI Film Festival שסוגרת 31.8.",
+      "image": "Photorealistic cinematic still, warm late-afternoon Mediterranean light, sand cream and soft grey-teal palette, visible film grain, elderly woman around eighty years old with a weathered asymmetric face and thin silver hair, sitting quietly on a covered porch beside two wooden rocking chairs, one worn with a soft cushion and one brand new and empty, medium wide contemplative composition, generous negative space upper frame for titling, no text",
+      "raw": "הוק: אישה בת שמונים מרכיבה כיסא נדנדה תאום לכיסא הישן שלה, בסוף היא יושבת והכיסא הריק מתחיל לנדנד לבד\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, סוגר 3.9, וגם Astana AI Film Festival, סוגרת 31.8\nקונספט: אישה מבוגרת מרכיבה לבד כיסא נדנדה חדש זהה לכיסא הישן שלצידה, מצלמה נעולה לגמרי, בשוט האחרון הכיסא החדש נותן נדנוד איטי אחד לבד באוויר דומם\nביצוע: שלוש דקות ושלושים וחמש שניות, 16:9, Nano Banana Pro עם שלד דמות ו-Kling 3 std, מצלמה קבועה אחת, שקט מלא\nלמה עכשיו: אסטנה אושרה היום שוב על 31.8, היגספילד סוגר 3.9, זיכרון ואובדן מדורג ראשון בפועל, הרעיון שאייל יזם ב-12.8 כהמשך להוראות טרם נכתב ככרטיס"
+     }
+    },
+    {
+     "id": "2026-08-14-2",
+     "world": "סרטוני תחרויות",
+     "color": "#71F73C",
+     "hook": "שלושים שנה סבא תיעד את בניית הסוכה על אותה מצלמת וידאו. השנה הנכד בונה אותה לבד, והמצלמה הישנה עדיין מנגנת לידו את מה שהוא צילם.",
+     "concept": "נכד מרכיב לבד את סוכת המשפחה באותה פינת מרפסת שבה נבנתה שלושים שנה ברציפות. על מצלמת וידאו ביתית ישנה שמונחת לידו על השולחן, עם מסך פתוח קטן, מתנגנות קלטות מהעבר, ובהן סבא המנוח מתעד את אותה בנייה בעצמו, בקולו, בעברית. שתי הדמויות לא נמצאות באותו זמן ולא מדברות זו עם זו, רק הקול הישן מלווה את הבנייה החדשה. בשוט האחרון, כשהסוכה מוכנה, הנכד לוקח את המצלמה, מכבה את הקלטת, והופך אותה החוצה כדי לצלם בעצמו את מה שבנה, בפעם הראשונה בתפקיד המתעד.",
+     "execution": "שלוש דקות וחמישים שניות, 16:9, Higgsfield: Nano Banana Pro לפריימים עם שלד דמות נפרד לנכד ולסבא (הסבא מופיע רק בתוך מסך המצלמה, בטקסטורת VHS גרעינית ונפרדת מהתאורה הראשית), Kling 3 std לתנועה. מצלמה כמעט קבועה עם דריפט קל בלבד בפינת מרפסת אחת, בלי דיאלוג מסונכרן בין הדמויות, קול הסבא בעברית מהקלטת הישנה בלבד, סאונד אמביינט של פטישים ורוח.",
+     "why": "אסטנה אושרה היום שוב על 31.8 והיגספילד סוגר 3.9. פורמט הווידאו הביתי המשובץ בתוך הפריים עצמו עוד לא עוגן בכרטיס בחודש הזה, שמונת הכרטיסים עד כה השתמשו במצלמת אבטחה, מודעה, קריינות טבע וקול הוראות, אז זה פער פורמט אמיתי, וגם זה מדגים לוקיישן ישראלי אותנטי של חג הסוכות שהופך לנכס לפי הניתוח על קריינות לא אנגלית כסימן אותנטיות.",
+     "competition": "Higgsfield Global Film Festival",
+     "srcUrl": "https://higgsfield.ai/contests/higgsfield-global-film-festival",
+     "srcLabel": "Higgsfield Global Film Festival, סוגר 3.9, אומת מול העמוד הרשמי; Astana AAIFF אומת היום מול aaiff.ai על 31.8",
+     "prompts": {
+      "video": "Photorealistic cinematic style, warm early-evening Mediterranean light fading to dusk, sand cream and soft teal palette blending into a small cooler blue screen glow, visible 35mm film grain, mostly locked camera with only a slow held breathing drift, narrow apartment balcony corner, a man in his late twenties kneels assembling wooden sukkah panels alone, beside him on a small table an old analog camcorder rests propped open with its flip screen glowing, playing grainy desaturated VHS-textured footage of an older man building the same structure years earlier, no synced dialogue between the two men, only ambient hammering and wind, 16:9",
+      "script": "פתח לי את רעיון הווידאו \"הקלטת הישנה\" לסטוריבורד מלא: לוגליין, סינופסיס של 5 עד 7 פסקאות, שוט ליסט של 15 עד 19 שוטים לשלוש דקות וחמישים שניות, ולכל שוט משך, תנועת מצלמה ושני פרומפטים. אילוצים מחייבים: מיקום יחיד, פינת מרפסת אחת, אפס דיאלוג מסונכרן בין הנכד לסבא, קול הסבא מגיע רק מתוך מסך המצלמה הישנה בעברית, אפס הליכה של גוף שלם, אפס המונים, אפס רכבים, פורמט וידאו ביתי משובץ בתוך הפריים. סגנון ריאליסטי צילומי, 16:9, שלוש דקות וחמישים שניות, יעד: Higgsfield Global Film Festival שסוגר 3.9 וגם Astana AI Film Festival שסוגרת 31.8.",
+      "image": "Photorealistic cinematic still, warm early-evening Mediterranean light, sand cream and soft teal palette, visible film grain, young man in his late twenties kneeling on an apartment balcony assembling wooden sukkah panels, beside him a small analog camcorder propped open on a table with its flip screen glowing with grainy archival footage, shallow depth of field, generous negative space, no text",
+      "raw": "הוק: שלושים שנה סבא תיעד את בניית הסוכה על אותה מצלמת וידאו, השנה הנכד בונה אותה לבד והמצלמה הישנה עדיין מנגנת לידו את מה שהוא צילם\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, סוגר 3.9, וגם Astana AI Film Festival, סוגרת 31.8\nקונספט: נכד מרכיב לבד סוכה באותה פינת מרפסת שנבנתה בה שלושים שנה, מצלמת וידאו ישנה מנגנת קלטות של הסבא המנוח מבצע את אותה בנייה, בשוט האחרון הנכד הופך את המצלמה לצלם בעצמו\nביצוע: שלוש דקות וחמישים שניות, 16:9, Nano Banana Pro עם שלד דמות נפרד לנכד ולסבא, Kling 3 std, מצלמה כמעט קבועה, קול הסבא בעברית מהקלטת בלבד\nלמה עכשיו: אסטנה 31.8 והיגספילד 3.9 אושרו היום, פורמט הווידאו הביתי המשובץ עוד לא נוצל החודש, זווית ישראלית אותנטית של חג הסוכות"
+     }
+    }
+   ],
+   "watch": [
+    {
+     "title": "Astana AI Film Festival extends its submission deadline",
+     "desc": "אישור עצמאי לדדליין 31.8 שכבר היה בקובץ, פלוס נתון חדש: מעל 1,500 הגשות מ-90 מדינות כבר בפנים",
+     "meta": "Qazinform · אוגוסט 2026",
+     "url": "https://qazinform.com/news/astana-ai-film-festival-extends-its-submission-deadline-0f7a55"
+    },
+    {
+     "title": "Anthropic launches Claude Design",
+     "desc": "כלי פרומפט לפרוטוטייפ מבית אנתרופיק, לא מתחרה בפיגמה על מעצבים אלא פונה למי שאף פעם לא היה מעצב",
+     "meta": "VentureBeat · 14.8",
+     "url": "https://venturebeat.com/technology/anthropic-just-launched-claude-design-an-ai-tool-that-turns-prompts-into-prototypes-and-challenges-figma"
+    }
+   ],
+   "dateLabel": "יום שישי, 14 באוגוסט"
+  },
+  {
    "date": "2026-08-13",
    "ideas": [
     {
