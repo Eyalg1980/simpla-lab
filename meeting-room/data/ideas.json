@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-14",
+ "updated": "2026-08-16",
  "ideas": [
   {
    "id": "I-2026-0231",
@@ -225,9 +225,9 @@
    "evidence": "אתר השולחן העגול נבנה ב-2.8, מצגת שלב אחר שלב התבקשה לפגישת היישור באותו יום, וחבילת שיווק שלמה לצוות ג'ון ברייס עוד ממתינה, הכל מאותו סילבוס",
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pitched",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-08-09"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0255",
@@ -346,9 +346,9 @@
    "evidence": null,
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pitched",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-08-09"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0263",
@@ -388,9 +388,9 @@
    "evidence": null,
    "lesson": "UI/UX, שיעור תעדוף MoSCoW",
    "sourceInboxId": null,
-   "status": "pitched",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-08-09"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0266",
@@ -528,9 +528,9 @@
    "evidence": "תדריך חמש שורות אחרי כל מפגש הוגדר כשגרה קבועה בלוח המשימות, ובוצע בפועל אחרי מפגש 1 ומפגש 2 בקורס 45900 וגם אחרי הצפייה הראשונה מתוך עשרים בהקלטות זאביק",
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-08-11"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0276",
@@ -542,9 +542,9 @@
    "evidence": "סטטוס 9.8 בקורס 45900: חמש מצגות גוגל סלايдס פעילות, מתוכן הרספונסיבית והמיקרוקופי ממתינות כבר מעל שבוע ופיגמה וויב יושבת כגיבוי בלי תאריך",
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-08-11"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0277",
@@ -556,9 +556,9 @@
    "evidence": null,
    "lesson": "UI/UX 45900, שיעור עקרונות שימושיות ועשר ההיוריסטיקות של נילסן",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-08-11"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0278",
@@ -570,9 +570,9 @@
    "evidence": null,
    "lesson": "UI/UX 45900, שיעור רספונסיביות ונקודות שבירה",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-08-11"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0279",
@@ -587,9 +587,9 @@
    "evidence": null,
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-08-12"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0280",
@@ -601,9 +601,9 @@
    "evidence": "בדק תרגילים בנפרד לפחות לשלושה תלמידים בקורס UI/UX החודש: וונסה, שחק וראמיז, כל אחד במעקב נפרד משלו",
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-08-12"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0281",
@@ -615,9 +615,9 @@
    "evidence": null,
    "lesson": "UI/UX 45900, שיעור 1, מצגת UX Writing",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-08-12"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0282",
@@ -629,9 +629,9 @@
    "evidence": null,
    "lesson": "UI/UX 45900, שיעור גיבוי Figma Weave",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-08-12"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0283",
@@ -646,9 +646,9 @@
    "evidence": null,
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "pitched",
    "snoozes": 0,
-   "touchedAt": "2026-08-13"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0284",
@@ -660,9 +660,9 @@
    "evidence": null,
    "lesson": "אבטיפוס באינטראקציה, סילבוס AI Product Design & UX/UI",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-08-13"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0285",
@@ -674,9 +674,9 @@
    "evidence": null,
    "lesson": "הפרויקט המתגלגל, שלושה מסלולים סגורים, סילבוס מיישם AI ואוטומציה",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-08-13"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0286",
@@ -688,9 +688,9 @@
    "evidence": "בין 11 ל-13.8 שלושה סטוריבורדים ברצף הצהירו משך לא נכון: ההוראות 3:20 מול 4:10 בפועל, השכן 3:30 מול 4:10 בפועל, מיאו 2:40 מול 3:48 בפועל, וכל פעם רק סיכום ידני של טבלת השוטים חשף את הטעות",
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "pitched",
    "snoozes": 0,
-   "touchedAt": "2026-08-14"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0287",
@@ -702,9 +702,9 @@
    "evidence": "ב-11.8 שני סשנים כתבו במקביל ל-storyboards/the-instructions/ ול-storyboards/the-neighbour/, מה שיצר קונפליקט add/add ומזהה רעיון כפול בvideos.json שתוקן ידנית",
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "pitched",
    "snoozes": 0,
-   "touchedAt": "2026-08-14"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0288",
@@ -716,9 +716,9 @@
    "evidence": null,
    "lesson": "מודול 1 היכרות, שיעור 1, מיישם AI ואוטומציה (53500)",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-08-14"
+   "touchedAt": "2026-08-16"
   },
   {
    "id": "I-2026-0289",
@@ -730,9 +730,71 @@
    "evidence": null,
    "lesson": "מודול 6 בניית אוטומציות, שיעור 23, מיישם AI ואוטומציה (53500)",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-08-14"
+   "touchedAt": "2026-08-16"
+  },
+  {
+   "id": "I-2026-0290",
+   "title": "בודק סקילים",
+   "line": "מדביקים SKILL.md, מקבלים בדיקה מול שישה המרכיבים שאתה מלמד",
+   "advisor": "visionary",
+   "createdAt": "2026-08-16",
+   "capability": {
+    "name": "Figma skills for MCP (בטא)",
+    "releasedAt": "2026-08-14"
+   },
+   "evidence": null,
+   "lesson": null,
+   "sourceInboxId": null,
+   "status": "rejected",
+   "snoozes": 0,
+   "touchedAt": "2026-08-16"
+  },
+  {
+   "id": "I-2026-0291",
+   "title": "פרוטוטייפ מהפגישה",
+   "line": "רשימת דרישות מפגישת לקוח נכנסת, פרוטוטייפ קליק דרך יוצא",
+   "advisor": "visionary",
+   "createdAt": "2026-08-16",
+   "capability": {
+    "name": "Claude Design (research preview)",
+    "releasedAt": "2026-08-14"
+   },
+   "evidence": null,
+   "lesson": null,
+   "sourceInboxId": null,
+   "status": "rejected",
+   "snoozes": 0,
+   "touchedAt": "2026-08-16"
+  },
+  {
+   "id": "I-2026-0292",
+   "title": "לוח שישה מרכיבים",
+   "line": "ממלאים שישה תאים של אנטומיית סקיל, ומקבלים קובץ SKILL.md תקין בצד",
+   "advisor": "teacher",
+   "createdAt": "2026-08-16",
+   "capability": null,
+   "evidence": null,
+   "lesson": "מיישם AI ואוטומציה, אנטומיית הסקיל",
+   "sourceInboxId": null,
+   "status": "rejected",
+   "snoozes": 0,
+   "touchedAt": "2026-08-16"
+  },
+  {
+   "id": "I-2026-0293",
+   "title": "בורר פלטה מונחה",
+   "line": "בוחרים מטרת מסך, מקבלים שלוש פלטות עם ההסבר הפסיכולוגי שילמד בשיעור",
+   "advisor": "teacher",
+   "createdAt": "2026-08-16",
+   "capability": null,
+   "evidence": null,
+   "lesson": "עיצוב מוצר UI/UX, שיעור פסיכולוגיית הצבע",
+   "sourceInboxId": null,
+   "status": "rejected",
+   "snoozes": 0,
+   "touchedAt": "2026-08-16"
   }
  ]
 }
