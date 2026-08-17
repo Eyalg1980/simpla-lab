@@ -136,10 +136,10 @@
    "B": "ok",
    "C": "ok"
   },
-  "durationMin": 24,
+  "durationMin": 21,
   "webSearches": 4,
   "webFetches": 5,
-  "commits": 4,
+  "commits": 5,
   "notes": "clean; Monday light competitions pass only (not Sun/Wed): closed xprize-future-vision (deadline 15.8 passed), reverified higgsfield-adathon 24.8 via adweek.com since higgsfield.ai/contests itself hit PROVENANCE_REQUIRED; both new Director ideas are contest-mode (3-3.5min, morning bread + last pencil museum, both target GFF+Astana, checked against the round-1 18-hook bank, no duplicates); post pillars researched today: Figma Weave (AI credit controls, 5.8) and UX+AI general (Claude text watermark, 15.8), teaching pillar pulled from standing pool (PRD-to-screens exercise, no web research); meeting-room daily run added 6 ideas (2 per advisor), auto-archive swept 0 pool ideas (none existed); visionary capability for the second idea (Claude Code cross-session @ messaging, 14.8) reused for both a meeting-room idea and grounded in the real git-parallel-session friction seen this run; live verify done via fresh clone, WebFetch not attempted for it given today's PROVENANCE_REQUIRED hit"
  }
 ]
