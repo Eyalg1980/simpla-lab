@@ -1,6 +1,55 @@
 {
  "days": [
   {
+   "date": "2026-08-17",
+   "ideas": [
+    {
+     "id": "2026-08-17-1",
+     "world": "סרטוני תחרויות",
+     "color": "#71F73C",
+     "hook": "כל בוקר בשש ורבע מישהו משאיר כיכר לחם טרייה על סף הדלת שלה, והיא בטוחה שזה עדיין בעלה.",
+     "concept": "מצלמת אבטחה של הבניין מתעדת חודשים של מסירות בוקר חשאיות אל דלת אחת, בסגנון קריינות סרט טבע בעברית שמתארת יצור ביישן שלעולם לא נתפס במלואו. מי שמשאיר את הלחם הוא שכן שאיבד את אשתו לפני שנתיים והחליט לא לדבר על זה, רק לעשות. בסוף הסרט הדלת נפתחת רגע מוקדם מהרגיל, כמעט תופסת אותו, והוא נעלם מהפריים בשבריר שנייה. היא מרימה את הלחם, מסתכלת רגע ארוך מדי במסדרון הריק, ומשהו במבט שלה משתנה. היא לא יודעת מי, אבל היא כבר לא חושבת שזה רוח רפאים.",
+     "execution": "3.5 דקות, פורמט אחד קבוע: מצלמת אבטחה בזווית עליונה על מסדרון קומה אחת בבניין מגורים, גוון אפור כחלחל אותנטי לפוטג' אבטחה עם timestamp דיסקרטי בפינה. Higgsfield Cinema Studio לרצף המסדרון הקבוע והתנועה החוזרת, Kling 3 לתקריב היחיד על הדלת נפתחת ועל הבעת הפנים שלה, בלי HeyGen כי אין דיאלוג. קריינות עברית מלאה בסגנון סרט טבע בריטי מתורגם, בלי מוזיקה עד השנייה האחרונה. יחס 9:16 לרשתות, 16:9 לתחרות.",
+     "why": "שתי התחרויות הגדולות סוגרות תוך פחות משלושה שבועות, ושתיהן מחפשות בדיוק את הסוג הזה של סיפור אינטימי במקום אחד עם סוף שהוא שינוי קטן במודעות, לא טוויסט.",
+     "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+     "srcUrl": "https://higgsfield.ai/contests/higgsfield-global-film-festival",
+     "srcLabel": "Higgsfield Global Film Festival, דף התחרות",
+     "prompts": {
+      "video": "Photoreal top-down security camera footage, muted blue-grey CCTV color grade with a discreet timestamp overlay, fixed static angle on a quiet residential hallway floor at 6:15am with Mediterranean warm light creeping in from a stairwell window, an elderly woman's door slightly ajar as a man's hand places a fresh cloth-wrapped loaf of bread on the doormat then withdraws quickly out of frame, locked camera with no handheld movement, soft warm morning light mixing with cool CCTV grain, tender and quietly suspenseful mood, sand cream and soft teal accents bleeding into the grey surveillance palette, 16:9",
+      "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם \"הלחם של הבוקר\": מצלמת אבטחה בבניין מתעדת חודשים של מישהו שמשאיר כל בוקר לחם טרי על סף דלת של אישה מבוגרת שחושבת שזה בעלה המנוח. תפתח לי אותו לתסריט מלא: לוגליין אחת, קריינות עברית מתוזמנת שנייה אחר שנייה לאורך 3.5 דקות בסגנון סרט טבע, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפט ג'נרציה מוכן לכל שוט בנפרד. שמור על מיקום יחיד, בלי דיאלוג מסונכרן, ובלי שום שוט שדורש הליכה של גוף מלא.",
+      "image": "Photoreal top-down security camera still, muted blue-grey CCTV grade with a discreet timestamp corner overlay, a fresh cloth-wrapped loaf of bread resting on a worn doormat outside a slightly open apartment door, warm early morning light spilling across the hallway floor from a stairwell window, soft shadow of a hand just leaving frame at the edge, quiet and tender mood, sand cream and soft teal tones within the grey surveillance palette, no text",
+      "raw": "כל בוקר בשש ורבע מישהו משאיר כיכר לחם טרייה על סף הדלת שלה, והיא בטוחה שזה עדיין בעלה.\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, וגם Astana AI Film Festival\nקונספט: מצלמת אבטחה של הבניין מתעדת חודשים של מסירות בוקר חשאיות, בסגנון קריינות סרט טבע בעברית. מי שמשאיר את הלחם הוא שכן שאיבד את אשתו לפני שנתיים. בסוף היא כמעט תופסת אותו, מרימה את הלחם, ומשהו במבט שלה משתנה.\nביצוע: 3.5 דקות, מצלמת אבטחה קבועה במסדרון אחד, Higgsfield Cinema Studio לרצף הקבוע, Kling 3 לתקריב הדלת, קריינות עברית מלאה, יחס 9:16 ו-16:9.\nלמה עכשיו: שתי התחרויות סוגרות תוך פחות משלושה שבועות ומחפשות בדיוק סיפור אינטימי במקום אחד עם סוף שהוא שינוי קטן במודעות."
+     }
+    },
+    {
+     "id": "2026-08-17-2",
+     "world": "סרטוני תחרויות",
+     "color": "#71F73C",
+     "hook": "בשנת 2071 יש מוזיאון עם מוצג אחד: עיפרון אמיתי, והמדריכה עדיין לא הצליחה להסביר לאף ילד למה מישהו כתב ביד.",
+     "concept": "אודיו גייד של מוזיאון עתידי, קריינות עברית יבשה וטכנית כמו שלט תערוכה שמדבר, מלווה קבוצה קטנה של שלושה ילדים וסבתא מבוגרת דרך אולם ריק כמעט לגמרי, שבו מוצג יחיד מואר: עיפרון עץ מקורי בתוך ויטרינה. הקריינית, שהיא בעצם קול המוזיאון עצמו, מסבירה בטון מדעי איך בני אדם פעם החזיקו כלי עץ ביד וגירדו איתו סימנים על נייר, פרקטיקה שנעלמה כליל. אחת הילדות, בלי לשים לב לכללים, פותחת את הוויטרינה, לוקחת את העיפרון, ומתחילה לגרד איתו את שמה באבק שעל הרצפה, בלי שאף אחד לימד אותה איך. הסבתא נעצרת ומביטה. הקריינות נעצרת לרגע ראשון בכל הסרט.",
+     "execution": "3 דקות, מיקום יחיד קבוע: אולם תצוגה מוזיאוני עם ויטרינה מוארת במרכז. Higgsfield Cinema Studio לתנועת מצלמה איטית סביב הוויטרינה ולתאורת האולם העתידית, Nano Banana לפריים הפתיחה הסטטי של העיפרון בוויטרינה, Kling 3 לתקריב היד הקטנה גוררת את העיפרון באבק. קריינות עברית טכנית קבועה שנעצרת פעם אחת בלבד בסוף, בלי מוזיקה עד השנייה האחרונה. יחס 16:9 לתחרות, 9:16 לרשתות.",
+     "why": "שתי התחרויות הגדולות מחפשות ז'אנר מושגי לצד סיפורי זיכרון וקרבה, וזה בדיוק סרט מושגי שיושב על מיקום יחיד עם קריינות עברית ופרוטגוניסט לא אנושי, הקריינית שהיא המוזיאון עצמו.",
+     "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+     "srcUrl": "https://aaiff.ai/",
+     "srcLabel": "Astana AI Film Festival, אתר רשמי",
+     "prompts": {
+      "video": "Photoreal near-future museum exhibition hall, minimal architecture, warm Mediterranean-toned ambient lighting mixed with cool museum spotlighting, slow orbiting camera move around a single illuminated glass vitrine displaying one wooden pencil at the center of an otherwise empty room, a small child crouching beside the vitrine reaching in and dragging the pencil through a thin layer of dust on the floor, an elderly woman standing quietly behind her, sand cream and soft teal palette with warm gold highlight on the vitrine glass, hopeful and quietly reverent mood, 16:9",
+      "script": "אני אייל גרשון, מייסד סימפלה. יש לי רעיון לסרט תחרות בשם \"העיפרון האחרון\": מוזיאון עתידי עם מוצג יחיד, עיפרון אמיתי, וקריינות עברית טכנית שמסבירה לילדים תופעה שנעלמה, עד שילדה לוקחת את העיפרון ומתחילה לכתוב איתו באבק. תפתח לי אותו לתסריט מלא: לוגליין אחת, קריינות עברית מתוזמנת שנייה אחר שנייה לאורך 3 דקות, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפט ג'נרציה מוכן לכל שוט בנפרד. מיקום יחיד, בלי דיאלוג מסונכרן, בלי המונים, בלי הליכה של גוף מלא.",
+      "image": "Photoreal near-future museum vitrine glowing softly at the center of an empty minimal exhibition hall, a single wooden pencil resting on a velvet cushion inside the glass case, warm gold spotlight against a sand cream and soft teal ambient room, elegant museum placard blur in the foreground, hopeful and quietly reverent mood, no text",
+      "raw": "בשנת 2071 יש מוזיאון עם מוצג אחד: עיפרון אמיתי, והמדריכה עדיין לא הצליחה להסביר לאף ילד למה מישהו כתב ביד.\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, וגם Astana AI Film Festival\nקונספט: אודיו גייד של מוזיאון עתידי מלווה קבוצה קטנה דרך אולם עם מוצג יחיד, עיפרון. ילדה לוקחת אותו ומתחילה לכתוב באבק בלי שלימדו אותה. הקריינות נעצרת לרגע ראשון בסרט.\nביצוע: 3 דקות, מיקום יחיד, Higgsfield Cinema Studio לתנועת המצלמה, Kling 3 לתקריב היד, קריינות עברית טכנית קבועה, יחס 16:9 ו-9:16.\nלמה עכשיו: שתי התחרויות מחפשות ז'אנר מושגי, וזה יושב על מיקום יחיד עם קריינות עברית ופרוטגוניסט לא אנושי."
+     }
+    }
+   ],
+   "articles": [
+    {
+     "title": "Higgsfield Adathon, אימות דדליין",
+     "desc": "כתבת ההשקה הרשמית של אדוויק מאשרת שוב שהדדליין הוא 24.8.2026, שבוע קדימה.",
+     "meta": "Adweek · 17.8",
+     "url": "https://www.adweek.com/creativity/higgsfield-ai-launches-85000-adathon-contest-in-partnership-with-adweek/"
+    }
+   ]
+  },
+  {
    "date": "2026-08-16",
    "ideas": [
     {
