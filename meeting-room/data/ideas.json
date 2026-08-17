@@ -1,6 +1,96 @@
 {
- "updated": "2026-08-16",
+ "updated": "2026-08-17",
  "ideas": [
+  {
+   "id": "I-2026-0294",
+   "title": "תקציב לפי תלמיד",
+   "line": "מגבלת AI אישית לכל תלמיד בסדנה, לא תקרה משותפת שנגמרת באמצע",
+   "advisor": "visionary",
+   "createdAt": "2026-08-17",
+   "capability": {
+    "name": "Figma Custom credit limit, מגבלת קרדיטים אישית לחבר צוות ב-AI",
+    "releasedAt": "2026-08-05"
+   },
+   "evidence": null,
+   "lesson": null,
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-08-17"
+  },
+  {
+   "id": "I-2026-0295",
+   "title": "התרעה בין סוכנים",
+   "line": "לפני שכל מנוע יומי דוחף, הוא מזעיק בהודעת @ את הסוכנים המקבילים כדי שלא יתנגשו על אותו commit",
+   "advisor": "visionary",
+   "createdAt": "2026-08-17",
+   "capability": {
+    "name": "Claude Code, הודעות חוצות-סשן דרך אזכור @",
+    "releasedAt": "2026-08-14"
+   },
+   "evidence": null,
+   "lesson": null,
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-08-17"
+  },
+  {
+   "id": "I-2026-0296",
+   "title": "הצעת מחיר בלחיצה",
+   "line": "פותח את התבנית האחרונה, מחליף לקוח וסכום, בלי לשכפל קובץ ידנית בכל פעם",
+   "advisor": "pain",
+   "createdAt": "2026-08-17",
+   "capability": null,
+   "evidence": "לפחות פעמיים שכפלת ידנית קובץ הצעת מחיר קיים (gogeek-proposal-v1.pptx) ושינית שם לקוח וסכומים, לאחרונה עבור Cross Diamond ב-29.7",
+   "lesson": null,
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-08-17"
+  },
+  {
+   "id": "I-2026-0297",
+   "title": "סימון קבוצתי",
+   "line": "מסמן כמה משימות בבת אחת כבוצע, לא בקשת הסרה נפרדת לכל אחת",
+   "advisor": "pain",
+   "createdAt": "2026-08-17",
+   "capability": null,
+   "evidence": "ב-10.8 בלבד הסרת בעצמך חמש משימות נפרדות מהלוח בזו אחר זו: מצגת מכירות, מסמך תהליך ופרומפטים, מיקי, סקיל בונה האתרים, מעקב קרוס דיאמונד",
+   "lesson": null,
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-08-17"
+  },
+  {
+   "id": "I-2026-0298",
+   "title": "כלי סותר את עצמו",
+   "line": "מסך שמתריע כששני שיעורים מתייגים את אותו כלי צבע אחרת, מנוי מול חינם",
+   "advisor": "teacher",
+   "createdAt": "2026-08-17",
+   "capability": null,
+   "evidence": null,
+   "lesson": "קורס UI/UX 45900, שיעור 04 (קטלוג הפרומפטים) מול שיעור 05 (כלי צבע)",
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-08-17"
+  },
+  {
+   "id": "I-2026-0299",
+   "title": "שתי פלטות זו לצד זו",
+   "line": "מסך שמראה בזמן אמת את הפלטה מההשראה לצד ההצעה של קלוד, לפני שהתלמיד בוחר כיוון",
+   "advisor": "teacher",
+   "createdAt": "2026-08-17",
+   "capability": null,
+   "evidence": null,
+   "lesson": "קורס UI/UX 45900, שלב 6 בתרגיל המתגלגל (השפה הויזואלית)",
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-08-17"
+  },
   {
    "id": "I-2026-0231",
    "title": "סטייטים",
