@@ -154,5 +154,18 @@
     "webFetches": 6,
     "commits": 3,
     "notes": "Figma Weave Timeline idea sourced from help.weavy.ai (verified) plus corroborating team LinkedIn posts, exact launch date approximate; contest-mode videos both target Higgsfield GFF + Astana; meeting-room pain idea used 1 real evidence line, no fresh unconsumed inbox items so only 1 pain idea filed"
+  },
+  {
+    "date": "2026-08-19",
+    "parts": {
+      "A": "ok",
+      "B": "ok",
+      "C": "ok"
+    },
+    "durationMin": 28,
+    "webSearches": 6,
+    "webFetches": 8,
+    "commits": 4,
+    "notes": "Wednesday full competition sweep: Higgsfield GFF (3.9) and Astana (31.8) deadlines both re-verified direct on their own sites, unchanged; aifilmcontests.com sweep surfaced ~45 more festivals, added 3 curated new ones (SVAIFF, AI Film & Ads Awards Venice, New Technologies AIFF) as tracked/unverified pending direct site checks; post pillars researched: Figma Weave (Recommended Resources, 17.8) and UX+AI (AI labeling/agent trust disclosure, 17.8), teaching pillar from standing pool (Boaron prompt-vs-skill framing, me cross); 2 of 5 research fetches used for deadline reverification, all live; meeting-room daily run added 5 ideas (2 visionary, 1 pain, 2 teacher), auto-archive swept 0 (no pool idea older than 14 days); live verify: all 3 WebFetch calls denied PROVENANCE_REQUIRED (unattended run), confirmed instead via fresh clone of both repos"
   }
 ]
