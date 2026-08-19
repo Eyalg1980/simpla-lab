@@ -1,5 +1,5 @@
 {
-  "updated": "18.8.2026",
+  "updated": "19.8.2026",
   "competitions": [
     {
       "id": "higgsfield-gff",
@@ -45,6 +45,57 @@
           "hook": "The Wireframe Dreams",
           "concept": "וידאו ארט: וויירפריים שחולם בלילה על הגרסאות הצבעוניות שלו. עולם ה-UI שלך כחומר קולנועי, אף מגיש אחר לא מגיע מהזווית הזאת.",
           "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/wireframe-dreams/"
+        }
+      ]
+    },
+    {
+      "id": "svaiff-2026",
+      "name": "Silicon Valley AI Film Festival (SVAIFF)",
+      "org": "SVAIFF",
+      "theme": "סרטי AI קצרים, זירה מוטה קהילת הייטק וחדשנות",
+      "deadline": "31.8.2026, לפי מצטבר aifilmcontests.com, לאמת מול svaiff.com",
+      "prize": "לא אומת עדיין",
+      "url": "https://www.svaiff.com/",
+      "status": "מעקב",
+      "notes": "נמצא בסריקה מ-19.8 דרך aifilmcontests.com. שים לב: כתבות מ-Stanford Daily ומ-West Hollywood Weekly מתארות אירוע פתיחה שכבר התקיים בסן חוזה בינואר 2026, כך שלא ברור אם מדובר במחזור נוסף עם דדליין חדש או בליסטינג לא מעודכן. לא להגיש לפני אימות ישיר מול svaiff.com.",
+      "ideas": [
+        {
+          "hook": "ביוגרפיה של אובייקט: הלוח החכם",
+          "concept": "פרק בסדרה על הלוח החכם בכיתה, מזווית ישראלית, עם דגש UX איך מורה מתווכת בין הטכנולוגיה לתלמידים. מתאים לזירה מוטת חדשנות והייטק."
+        }
+      ]
+    },
+    {
+      "id": "ai-ads-venice-2026",
+      "name": "AI Film & Ads Awards Venice 2026",
+      "org": "AI Film & Ads Awards",
+      "theme": "פרסומות וסרטים קצרים שנוצרו ב-AI",
+      "deadline": "26.8.2026, לפי מצטבר aifilmcontests.com, לאמת מול האתר הרשמי",
+      "prize": "לא אומת עדיין",
+      "url": "https://aifilmcontests.com/contests/ai-film-ads-awards-venice-2026",
+      "status": "מעקב",
+      "notes": "נמצא בסריקה מ-19.8. זירת פרסומות מתאימה לזווית השיווקית שאייל מלמד. לאמת תנאי אורך מינימלי לפני הגשה, כי זירת פרסומות לפעמים מוגבלת לספוט קצר ולא לסרט 3 עד 4 דקות.",
+      "ideas": [
+        {
+          "hook": "פרסומת קליי לכלי AI ישראלי",
+          "concept": "ספוט קליי קצר שממחיש כלי AI ישראלי בשפת הפלסטלינה של הבית, אם תנאי האורך יאפשרו. אם לא, הרעיון עובר לאדתון של היגספילד במקום."
+        }
+      ]
+    },
+    {
+      "id": "new-tech-aiff-2026",
+      "name": "New Technologies AI Film Festival",
+      "org": "New Technologies AI Film Festival",
+      "theme": "סרטי AI, דגש טכנולוגיה וחדשנות",
+      "deadline": "1.9.2026, לפי מצטבר aifilmcontests.com, לאמת מול האתר הרשמי",
+      "prize": "לא אומת עדיין",
+      "url": "https://aifilmcontests.com/",
+      "status": "מעקב",
+      "notes": "נמצא בסריקה מ-19.8 דרך המצטבר, טרם אותר אתר רשמי עצמאי לאימות ישיר. לבדוק שוב בסריקה המלאה הבאה ביום ראשון.",
+      "ideas": [
+        {
+          "hook": "ביוגרפיה של אובייקט: הפרומפט הראשון",
+          "concept": "סרט קצר על הרגע שבו מעצב מקליד פרומפט ראשון בחייו, מזווית מדריך UX. מתאים לדגש הטכנולוגי של התחרות ולנרטיב ההוראה של אייל."
         }
       ]
     },

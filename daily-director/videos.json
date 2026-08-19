@@ -1,6 +1,62 @@
 {
   "days": [
     {
+      "date": "2026-08-19",
+      "dateLabel": "יום רביעי, 19 באוגוסט",
+      "ideas": [
+        {
+          "id": "2026-08-19-1",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "מכונת מזל צהובה בפינת פארק הגנים בתל אביב עדיין מדפיסה פתק לאותו ילד, רק שהוא כבר בן שלושים ושתיים.",
+          "concept": "מכונת מזל ישנה עומדת בפינת פארק עשרים שנה, אותה מנגינה מתכתית כשמכניסים מטבע. ילד שהתמכר אליה בגיל שבע חוזר אליה כל יום ראשון גם היום, מטבע אחד, פתק שהוא כבר יודע בעל פה. מונטאז' תצלומים וקטעי טלפון ישנים מראה אותו גדל ליד אותה מכונה שלא זזה סנטימטר, שנה אחר שנה. בפעם האחרונה שהוא מכניס מטבע, לראשונה מזה עשרים שנה, יוצא פתק אחר.",
+          "execution": "3.5 דקות, מיקום יחיד קבוע, פינת הפארק. מונטאז' תצלומים ופריימים ישנים ב-Higgsfield Cinema Studio ליצירת רצף שנים שמזדקן את הדמות באותו קאדר, Nano Banana לשמירת עקביות הפנים בין השנים. קריינות עברית מינימלית או שקט מלא, בלי דיאלוג מסונכרן, בלי HeyGen. יחס 16:9 לתחרות, 9:16 לרשתות.",
+          "why": "אסטנה סוגרת בעוד שתים עשרה יום, כמו היגספילד היא פוסלת אוטומטית כל דבר מתחת לשלוש דקות. הרעיון מחזיק שלוש דקות בלי מאמץ כי הזמן עצמו הוא הסיפור: מיקום אחד, גיבור לא אנושי, ואהבה לא סימטרית בין ילד למכונה שלא יודעת שהוא גדל.",
+          "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+          "srcUrl": "https://higgsfield.ai/contests/higgsfield-global-film-festival",
+          "srcLabel": "Higgsfield Global Film Festival, דף התחרות",
+          "prompts": {
+            "video": "Photoreal cinematic footage in warm Mediterranean daylight, sand cream and soft teal palette, a battered yellow vintage fortune-telling machine standing in the corner of an Israeli public park, static wide shot slowly dissolving through a photo-montage sequence of the same corner across twenty years, seasons and light changing while the machine stays fixed, a boy growing into a man appears briefly in each dissolve inserting a coin, hopeful nostalgic mood, shallow depth of field, gentle handheld texture on the modern-day shots, 16:9",
+            "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם \"הפתק האחרון\": מכונת מזל ישנה בפינת פארק שילד חוזר אליה כל יום ראשון עשרים שנה, ובפעם האחרונה יוצא ממנה פתק אחר לראשונה. תפתח לי אותו לתסריט מלא: לוגליין אחת, לוח זמנים מדויק ל-3.5 דקות עם מונטאז' שנים בקאדר יחיד, קריינות עברית מינימלית או שקט, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפט ג'נרציה מוכן לכל שוט בנפרד. שמור על מיקום יחיד, בלי המונים, ובלי שום שוט שדורש הליכה של גוף מלא.",
+            "image": "Photoreal still in warm Mediterranean daylight, sand cream and soft teal palette, a battered yellow vintage fortune-telling machine standing alone in the corner of an Israeli public park, a small printed paper slip mid-ejection from its slot, worn brass coin door, dappled afternoon light through nearby trees, nostalgic and quiet mood, shallow depth of field, no text",
+            "raw": "מכונת מזל צהובה בפינת פארק בתל אביב עדיין מדפיסה פתק לאותו ילד, רק שהוא כבר בן שלושים ושתיים.\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, וגם Astana AI Film Festival\nקונספט: מונטאז' תצלומים מראה ילד חוזר למכונת מזל בפארק כל יום ראשון עשרים שנה. בפעם האחרונה יוצא פתק אחר לראשונה.\nביצוע: 3.5 דקות, מיקום יחיד, Higgsfield Cinema Studio למונטאז' השנים, Nano Banana לעקביות הפנים, קריינות מינימלית או שקט, יחס 16:9 ו-9:16.\nלמה עכשיו: אסטנה סוגרת בעוד שתים עשרה יום ופוסלת אוטומטית סרטים קצרים משלוש דקות, בדיוק כמו היגספילד."
+          }
+        },
+        {
+          "id": "2026-08-19-2",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "הנציגה היחידה שנשארה במוקד שירות ישן מזהה כל מתקשר לפי קצב הנשימה שלו, עוד לפני שהוא אומר מילה.",
+          "concept": "תיעוד מוקומנטרי של יום עבודה במוקד שירות שכמעט התרוקן, שולחן אחד עדיין דלוק. נציגה ותיקה עונה לשיחות, ולפני שהמתקשר מספיק לדבר היא כבר יודעת מי זה. מתקשר קבוע חוזר כל שבוע רק כדי לשמוע את מוזיקת ההמתנה, לא לפתור שום דבר. בסוף מתגלה שהוא ממשיך להתקשר למספר הישן של אשתו המנוחה, שהמערכת מעולם לא עדכנה, וזו בדיוק השיר שאהבו לרקוד עליו.",
+          "execution": "3.5 דקות, מיקום יחיד, עמדת המוקד. מסגרת מוקומנטרי, מצלמה כתפית עדינה בין הפנים לטלפון, Higgsfield Cinema Studio לתאורת הניאון הישנה של משרד ריק, HeyGen ליצירת דמות הנציגה עם דיבור עברי טבעי בציטוטים קצרים, המתקשר נשאר קול בלבד בלי דיאלוג מסונכרן. יחס 16:9 לתחרות.",
+          "why": "שני היעדים סוגרים כמעט באותו שבוע, וזה רעיון שיושב על ארבעה מנגנוני זכייה בבת אחת: פורמט מוקומנטרי מושאל, מיקום אחד, דמות מבוגרת, וסיום שהוא שינוי קטן במודעות ולא פאנץ'.",
+          "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+          "srcUrl": "https://aaiff.ai/",
+          "srcLabel": "Astana AI Film Festival, דף הבית",
+          "prompts": {
+            "video": "Photoreal mockumentary-style footage, muted office fluorescent lighting fading into warm practical desk-lamp glow, a nearly empty old call-center floor with rows of dark unused desks and one lit workstation, a middle-aged female operator with headset answering calls, gentle handheld camera drifting slowly between her face and the phone, soft melancholic hopeful mood, sand cream and soft teal accents within the muted office palette, shallow depth of field, 16:9",
+            "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם \"קו המתנה\": מוקומנטרי על נציגת שירות ותיקה במוקד שכמעט התרוקן, שמזהה כל מתקשר לפי הנשימה, ובסוף מתגלה שאחד המתקשרים הקבועים ממשיך להתקשר למספר הישן של אשתו המנוחה רק כדי לשמוע את מוזיקת ההמתנה. תפתח לי אותו לתסריט מלא: לוגליין אחת, לוח זמנים מדויק ל-3.5 דקות במסגרת מוקומנטרי, קריינות או ציטוטים עבריים קצרים בלי דיאלוג מסונכרן עם המתקשר, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפט ג'נרציה מוכן לכל שוט בנפרד. שמור על מיקום יחיד, בלי המונים, ובלי שום שוט שדורש הליכה של גוף מלא.",
+            "image": "Photoreal mockumentary-style still, muted office fluorescent lighting fading into warm desk-lamp glow, a middle-aged female call-center operator with headset sitting alone at the one lit workstation in an otherwise dark empty office floor, rows of unused desks fading into shadow behind her, soft melancholic mood, sand cream and soft teal accents, shallow depth of field, no text",
+            "raw": "הנציגה היחידה שנשארה במוקד שירות ישן מזהה כל מתקשר לפי הנשימה שלו, עוד לפני שהוא אומר מילה.\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, וגם Astana AI Film Festival\nקונספט: מוקומנטרי על נציגה ותיקה במוקד שירות כמעט ריק. מתקשר קבוע חוזר רק לשמוע את מוזיקת ההמתנה. מתגלה שהוא מתקשר למספר הישן של אשתו המנוחה.\nביצוע: 3.5 דקות, מיקום יחיד, Higgsfield Cinema Studio לתאורה, HeyGen לדמות הנציגה, המתקשר קול בלבד, יחס 16:9.\nלמה עכשיו: שני היעדים סוגרים כמעט באותו שבוע, והרעיון יושב על ארבעה מנגנוני זכייה בבת אחת."
+          }
+        }
+      ],
+      "articles": [
+        {
+          "title": "Higgsfield News, August 2026 (Startup Edition)",
+          "desc": "סיכום שבועי של מה שקורה אצל היגספילד, טוב בתור בדיקה מהירה לפני שכותבים רעיון תחרות חדש.",
+          "meta": "Mean.ceo · 2026",
+          "url": "https://blog.mean.ceo/higgsfield-news-august-2026/"
+        },
+        {
+          "title": "AI Film Contests, מפה חיה של כל התחרויות הפתוחות",
+          "desc": "רשימה מעודכנת של עשרות תחרויות AI פתוחות מעבר להיגספילד ואסטנה, טובה לסריקה שבועית.",
+          "meta": "aifilmcontests.com · 2026",
+          "url": "https://aifilmcontests.com/"
+        }
+      ]
+    },
+    {
       "date": "2026-08-18",
       "dateLabel": "יום שלישי, 18 באוגוסט",
       "ideas": [
