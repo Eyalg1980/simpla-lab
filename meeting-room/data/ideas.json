@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-18",
+  "updated": "2026-08-19",
   "ideas": [
     {
       "id": "I-2026-0294",
@@ -961,6 +961,82 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-08-18"
+    },
+    {
+      "id": "I-2026-0305",
+      "title": "תג אמון למדריך",
+      "line": "מסמן ספרייה או תבנית קורס אחת כמומלץ, והתג עולה אוטומטית אצל כל הסטודנטים בלי הסבר בעל פה בכל שיעור",
+      "advisor": "visionary",
+      "createdAt": "2026-08-19",
+      "capability": {
+        "name": "Figma Recommended Resources, סימון אדמין לספריות ותבניות מומלצות",
+        "releasedAt": "2026-08-17"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-19"
+    },
+    {
+      "id": "I-2026-0306",
+      "title": "גלריית סקילים אמיתיים",
+      "line": "מציג לכיתה גלריית סקילים שכבר פורסמו בקהילה בפועל, לא רק תיאוריה בסלايдס, וכל סטודנט יכול לרמיקס אחד ולהתחיל ממנו",
+      "advisor": "visionary",
+      "createdAt": "2026-08-19",
+      "capability": {
+        "name": "Figma Agent Skills community, מעל 50 סקילים לרמיקס",
+        "releasedAt": "2026-08-13"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-19"
+    },
+    {
+      "id": "I-2026-0307",
+      "title": "מנקה לוח אוטומטי",
+      "line": "עובר על הלוח ומציע מה לסגור ומה להוריד, לא עובר ידנית שורה שורה פעמיים בשבוע",
+      "advisor": "pain",
+      "createdAt": "2026-08-19",
+      "capability": null,
+      "evidence": "שני מעברים ידניים נפרדים על לוח המשימות תוך יומיים, 17.8 ו18.8, כל פעם סוגר וממיין סעיפים אחד אחד: ב17.8 מפגש הערב ותת-משימת וונסה, ב18.8 קרם שיזוף, הכנת המפגש וניסוח מחדש של משימת Backstage",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-19"
+    },
+    {
+      "id": "I-2026-0308",
+      "title": "מפגש בלי גאמה",
+      "line": "איך נראה על מסך הכיתה מפגש 9 שעדיין אין לו גאמה בכלל, ימים לפני שהוא מתקיים?",
+      "advisor": "teacher",
+      "createdAt": "2026-08-19",
+      "capability": null,
+      "evidence": null,
+      "lesson": "UI/UX 45900, מפגש 9, גאמה טרם נבנתה",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-19"
+    },
+    {
+      "id": "I-2026-0309",
+      "title": "פריסה בלי מדריך",
+      "line": "איך נראה על מסך הכיתה הרגע שסטודנט צריך לפרוס פרויקט במפגש 8, בלי שיש עדיין מדריך פריסה כתוב?",
+      "advisor": "teacher",
+      "createdAt": "2026-08-19",
+      "capability": null,
+      "evidence": null,
+      "lesson": "UI/UX 45900, מפגש 8, מדריך פריסה חסר",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-19"
     }
   ]
 }
