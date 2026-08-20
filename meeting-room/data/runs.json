@@ -1,171 +1,184 @@
 [
-  {
-    "date": "2026-08-03",
-    "parts": {
-      "A": "failed",
-      "B": "failed",
-      "C": "failed"
-    },
-    "durationMin": 40,
-    "webSearches": 10,
-    "webFetches": 10,
-    "commits": 2,
-    "notes": "content generated for all parts; git push denied by sandbox (GitHub write access not enabled for session, 403), nothing published; files delivered to Eyal in chat"
+ {
+  "date": "2026-08-03",
+  "parts": {
+   "A": "failed",
+   "B": "failed",
+   "C": "failed"
   },
-  {
-    "date": "2026-08-04",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 14,
-    "webSearches": 4,
-    "webFetches": 7,
-    "commits": 3,
-    "notes": "clean; 7th fetch was a cache-busting retry of live posts.json verification, research stayed at 3 fetches"
+  "durationMin": 40,
+  "webSearches": 10,
+  "webFetches": 10,
+  "commits": 2,
+  "notes": "content generated for all parts; git push denied by sandbox (GitHub write access not enabled for session, 403), nothing published; files delivered to Eyal in chat"
+ },
+ {
+  "date": "2026-08-04",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-06",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 22,
-    "webSearches": 5,
-    "webFetches": 5,
-    "commits": 3,
-    "notes": "clean; 2 of 5 fetches denied with PROVENANCE_REQUIRED (unattended), live verify done via fresh clone; Thursday light competitions pass, no deadline inside 7 days"
+  "durationMin": 14,
+  "webSearches": 4,
+  "webFetches": 7,
+  "commits": 3,
+  "notes": "clean; 7th fetch was a cache-busting retry of live posts.json verification, research stayed at 3 fetches"
+ },
+ {
+  "date": "2026-08-06",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-07",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 15,
-    "webSearches": 6,
-    "webFetches": 6,
-    "commits": 2,
-    "notes": "clean; 3 of 6 fetches denied PROVENANCE_REQUIRED (figma.com, releasebot, figmalion); visionary brought 0 ideas, no fresh dated capability verifiable within budget; Friday light competitions pass, no deadline inside 7 days; live verify via clone"
+  "durationMin": 22,
+  "webSearches": 5,
+  "webFetches": 5,
+  "commits": 3,
+  "notes": "clean; 2 of 5 fetches denied with PROVENANCE_REQUIRED (unattended), live verify done via fresh clone; Thursday light competitions pass, no deadline inside 7 days"
+ },
+ {
+  "date": "2026-08-07",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-09",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 25,
-    "webSearches": 6,
-    "webFetches": 6,
-    "commits": 2,
-    "notes": "Sunday: weekly meeting W32 (35 reviewed, 3 pitches) + full comp sweep; 4 of 6 fetches denied (uxlift 403; aiuxdesign, xprize, filmfreeway provenance) so XPRIZE+AIMF 15.8 deadlines kept as previously verified, no new comps added; visionary 0 ideas, no verifiable dated capability; live verify via clone"
+  "durationMin": 15,
+  "webSearches": 6,
+  "webFetches": 6,
+  "commits": 2,
+  "notes": "clean; 3 of 6 fetches denied PROVENANCE_REQUIRED (figma.com, releasebot, figmalion); visionary brought 0 ideas, no fresh dated capability verifiable within budget; Friday light competitions pass, no deadline inside 7 days; live verify via clone"
+ },
+ {
+  "date": "2026-08-09",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-11",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 20,
-    "webSearches": 6,
-    "webFetches": 6,
-    "commits": 4,
-    "notes": "clean; visionary brought 0 ideas again, no fresh dated capability verifiable within budget (Figma Agent found but dated 20.5, too old); xprize deadline 15.8 re-verified live at futurevisionxprize.com/rules, aimf-la fetch blocked (PROVENANCE_REQUIRED) so kept as previously verified; live verify via fresh clone, not WebFetch"
+  "durationMin": 25,
+  "webSearches": 6,
+  "webFetches": 6,
+  "commits": 2,
+  "notes": "Sunday: weekly meeting W32 (35 reviewed, 3 pitches) + full comp sweep; 4 of 6 fetches denied (uxlift 403; aiuxdesign, xprize, filmfreeway provenance) so XPRIZE+AIMF 15.8 deadlines kept as previously verified, no new comps added; visionary 0 ideas, no verifiable dated capability; live verify via clone"
+ },
+ {
+  "date": "2026-08-11",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-12",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 30,
-    "webSearches": 3,
-    "webFetches": 6,
-    "commits": 4,
-    "notes": "clean; Wednesday full comp sweep via aifilmcontests.com surfaced ~50 more festivals but none verified individually on their own site within budget, none added; xprize+aimf 15.8 deadlines re-verified (xprize live, aimf cross-checked via aggregator, filmfreeway still unreachable); 1 of 6 fetches denied PROVENANCE_REQUIRED (aiuxdesign.guide); live verify blocked PROVENANCE_REQUIRED on all three sites, done via fresh clone instead"
+  "durationMin": 20,
+  "webSearches": 6,
+  "webFetches": 6,
+  "commits": 4,
+  "notes": "clean; visionary brought 0 ideas again, no fresh dated capability verifiable within budget (Figma Agent found but dated 20.5, too old); xprize deadline 15.8 re-verified live at futurevisionxprize.com/rules, aimf-la fetch blocked (PROVENANCE_REQUIRED) so kept as previously verified; live verify via fresh clone, not WebFetch"
+ },
+ {
+  "date": "2026-08-12",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-13",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 27,
-    "webSearches": 5,
-    "webFetches": 9,
-    "commits": 2,
-    "notes": "clean; research fetches 6 of 6 budget (figma release notes, aiuxdesign news, digg 403, figma weave tools doc, MCP MRTR spec, xprize rules PROVENANCE_REQUIRED); Thursday light comp pass only, xprize+aimf-la 15.8 both unverifiable today (PROVENANCE_REQUIRED / filmfreeway still blocked), kept as previously verified 12.8 unchanged; pain advisor brought 0 ideas (inbox empty, closest fresh evidence overlapped two already-rejected ideas so skipped rather than invent); visionary used MCP Multi Round-Trip Requests spec (28.7) as the dated capability; live verify via fresh clone, all 3 WebFetch calls denied PROVENANCE_REQUIRED (unattended run)"
+  "durationMin": 30,
+  "webSearches": 3,
+  "webFetches": 6,
+  "commits": 4,
+  "notes": "clean; Wednesday full comp sweep via aifilmcontests.com surfaced ~50 more festivals but none verified individually on their own site within budget, none added; xprize+aimf 15.8 deadlines re-verified (xprize live, aimf cross-checked via aggregator, filmfreeway still unreachable); 1 of 6 fetches denied PROVENANCE_REQUIRED (aiuxdesign.guide); live verify blocked PROVENANCE_REQUIRED on all three sites, done via fresh clone instead"
+ },
+ {
+  "date": "2026-08-13",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-14",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 25,
-    "webSearches": 6,
-    "webFetches": 6,
-    "commits": 3,
-    "notes": "clean; big find was Astana's 31.8 deadline reconfirmed via 2 independent sources (aaiff.ai + Qazinform, 1500+ submissions from 90 countries) plus Claude Design launch (VentureBeat) used for both a post idea and video why-now; xprize+aimf-la both close 15.8 tomorrow but were unreachable this run (PROVENANCE_REQUIRED / 404), kept as previously verified; visionary brought 0 ideas, no cleanly-dated capability verifiable within budget; Friday light competitions pass, no full sweep; pain/teacher ideas sourced entirely from existing memory evidence, no research spent; all 3 simpla-lab JSON files needed a 2-space to 1-space indent fix before first commit to avoid a full-file reformat diff, caught before push; live verify via fresh clone, WebFetch not attempted given consistent unattended PROVENANCE_REQUIRED history"
+  "durationMin": 27,
+  "webSearches": 5,
+  "webFetches": 9,
+  "commits": 2,
+  "notes": "clean; research fetches 6 of 6 budget (figma release notes, aiuxdesign news, digg 403, figma weave tools doc, MCP MRTR spec, xprize rules PROVENANCE_REQUIRED); Thursday light comp pass only, xprize+aimf-la 15.8 both unverifiable today (PROVENANCE_REQUIRED / filmfreeway still blocked), kept as previously verified 12.8 unchanged; pain advisor brought 0 ideas (inbox empty, closest fresh evidence overlapped two already-rejected ideas so skipped rather than invent); visionary used MCP Multi Round-Trip Requests spec (28.7) as the dated capability; live verify via fresh clone, all 3 WebFetch calls denied PROVENANCE_REQUIRED (unattended run)"
+ },
+ {
+  "date": "2026-08-14",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-16",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 27,
-    "webSearches": 6,
-    "webFetches": 11,
-    "commits": 5,
-    "notes": "Sunday: weekly meeting W33 (22 reviewed incl. 3 carried-over undecided pitches from W32, 3 new session-effort pitches) + full competition sweep. 2 of 8 research fetches denied by figma.com robots.txt (used help.figma.com and muz.li as alternates); Higgsfield GFF deadline re-verified 3.9 direct from higgsfield.ai despite a third-party aggregator wrongly showing 31.8. AIMF marked נסגר (date passed), XPRIZE kept open with ~4h left unverified. pain advisor added 0 daily ideas: inbox.json had no unconsumed items, and inventing evidence is against spec. 3 of 11 fetches were live-verify PROVENANCE_REQUIRED (unattended run), confirmed instead via fresh clone."
+  "durationMin": 25,
+  "webSearches": 6,
+  "webFetches": 6,
+  "commits": 3,
+  "notes": "clean; big find was Astana's 31.8 deadline reconfirmed via 2 independent sources (aaiff.ai + Qazinform, 1500+ submissions from 90 countries) plus Claude Design launch (VentureBeat) used for both a post idea and video why-now; xprize+aimf-la both close 15.8 tomorrow but were unreachable this run (PROVENANCE_REQUIRED / 404), kept as previously verified; visionary brought 0 ideas, no cleanly-dated capability verifiable within budget; Friday light competitions pass, no full sweep; pain/teacher ideas sourced entirely from existing memory evidence, no research spent; all 3 simpla-lab JSON files needed a 2-space to 1-space indent fix before first commit to avoid a full-file reformat diff, caught before push; live verify via fresh clone, WebFetch not attempted given consistent unattended PROVENANCE_REQUIRED history"
+ },
+ {
+  "date": "2026-08-16",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-17",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 21,
-    "webSearches": 4,
-    "webFetches": 5,
-    "commits": 5,
-    "notes": "clean; Monday light competitions pass only (not Sun/Wed): closed xprize-future-vision (deadline 15.8 passed), reverified higgsfield-adathon 24.8 via adweek.com since higgsfield.ai/contests itself hit PROVENANCE_REQUIRED; both new Director ideas are contest-mode (3-3.5min, morning bread + last pencil museum, both target GFF+Astana, checked against the round-1 18-hook bank, no duplicates); post pillars researched today: Figma Weave (AI credit controls, 5.8) and UX+AI general (Claude text watermark, 15.8), teaching pillar pulled from standing pool (PRD-to-screens exercise, no web research); meeting-room daily run added 6 ideas (2 per advisor), auto-archive swept 0 pool ideas (none existed); visionary capability for the second idea (Claude Code cross-session @ messaging, 14.8) reused for both a meeting-room idea and grounded in the real git-parallel-session friction seen this run; live verify done via fresh clone, WebFetch not attempted for it given today's PROVENANCE_REQUIRED hit"
+  "durationMin": 27,
+  "webSearches": 6,
+  "webFetches": 11,
+  "commits": 5,
+  "notes": "Sunday: weekly meeting W33 (22 reviewed incl. 3 carried-over undecided pitches from W32, 3 new session-effort pitches) + full competition sweep. 2 of 8 research fetches denied by figma.com robots.txt (used help.figma.com and muz.li as alternates); Higgsfield GFF deadline re-verified 3.9 direct from higgsfield.ai despite a third-party aggregator wrongly showing 31.8. AIMF marked נסגר (date passed), XPRIZE kept open with ~4h left unverified. pain advisor added 0 daily ideas: inbox.json had no unconsumed items, and inventing evidence is against spec. 3 of 11 fetches were live-verify PROVENANCE_REQUIRED (unattended run), confirmed instead via fresh clone."
+ },
+ {
+  "date": "2026-08-17",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-18",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 24,
-    "webSearches": 5,
-    "webFetches": 6,
-    "commits": 3,
-    "notes": "Figma Weave Timeline idea sourced from help.weavy.ai (verified) plus corroborating team LinkedIn posts, exact launch date approximate; contest-mode videos both target Higgsfield GFF + Astana; meeting-room pain idea used 1 real evidence line, no fresh unconsumed inbox items so only 1 pain idea filed"
+  "durationMin": 21,
+  "webSearches": 4,
+  "webFetches": 5,
+  "commits": 5,
+  "notes": "clean; Monday light competitions pass only (not Sun/Wed): closed xprize-future-vision (deadline 15.8 passed), reverified higgsfield-adathon 24.8 via adweek.com since higgsfield.ai/contests itself hit PROVENANCE_REQUIRED; both new Director ideas are contest-mode (3-3.5min, morning bread + last pencil museum, both target GFF+Astana, checked against the round-1 18-hook bank, no duplicates); post pillars researched today: Figma Weave (AI credit controls, 5.8) and UX+AI general (Claude text watermark, 15.8), teaching pillar pulled from standing pool (PRD-to-screens exercise, no web research); meeting-room daily run added 6 ideas (2 per advisor), auto-archive swept 0 pool ideas (none existed); visionary capability for the second idea (Claude Code cross-session @ messaging, 14.8) reused for both a meeting-room idea and grounded in the real git-parallel-session friction seen this run; live verify done via fresh clone, WebFetch not attempted for it given today's PROVENANCE_REQUIRED hit"
+ },
+ {
+  "date": "2026-08-18",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-19",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 28,
-    "webSearches": 6,
-    "webFetches": 8,
-    "commits": 4,
-    "notes": "Wednesday full competition sweep: Higgsfield GFF (3.9) and Astana (31.8) deadlines both re-verified direct on their own sites, unchanged; aifilmcontests.com sweep surfaced ~45 more festivals, added 3 curated new ones (SVAIFF, AI Film & Ads Awards Venice, New Technologies AIFF) as tracked/unverified pending direct site checks; post pillars researched: Figma Weave (Recommended Resources, 17.8) and UX+AI (AI labeling/agent trust disclosure, 17.8), teaching pillar from standing pool (Boaron prompt-vs-skill framing, me cross); 2 of 5 research fetches used for deadline reverification, all live; meeting-room daily run added 5 ideas (2 visionary, 1 pain, 2 teacher), auto-archive swept 0 (no pool idea older than 14 days); live verify: all 3 WebFetch calls denied PROVENANCE_REQUIRED (unattended run), confirmed instead via fresh clone of both repos"
-  }
+  "durationMin": 24,
+  "webSearches": 5,
+  "webFetches": 6,
+  "commits": 3,
+  "notes": "Figma Weave Timeline idea sourced from help.weavy.ai (verified) plus corroborating team LinkedIn posts, exact launch date approximate; contest-mode videos both target Higgsfield GFF + Astana; meeting-room pain idea used 1 real evidence line, no fresh unconsumed inbox items so only 1 pain idea filed"
+ },
+ {
+  "date": "2026-08-19",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
+  },
+  "durationMin": 28,
+  "webSearches": 6,
+  "webFetches": 8,
+  "commits": 4,
+  "notes": "Wednesday full competition sweep: Higgsfield GFF (3.9) and Astana (31.8) deadlines both re-verified direct on their own sites, unchanged; aifilmcontests.com sweep surfaced ~45 more festivals, added 3 curated new ones (SVAIFF, AI Film & Ads Awards Venice, New Technologies AIFF) as tracked/unverified pending direct site checks; post pillars researched: Figma Weave (Recommended Resources, 17.8) and UX+AI (AI labeling/agent trust disclosure, 17.8), teaching pillar from standing pool (Boaron prompt-vs-skill framing, me cross); 2 of 5 research fetches used for deadline reverification, all live; meeting-room daily run added 5 ideas (2 visionary, 1 pain, 2 teacher), auto-archive swept 0 (no pool idea older than 14 days); live verify: all 3 WebFetch calls denied PROVENANCE_REQUIRED (unattended run), confirmed instead via fresh clone of both repos"
+ },
+ {
+  "date": "2026-08-20",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
+  },
+  "durationMin": 22,
+  "webSearches": 4,
+  "webFetches": 5,
+  "commits": 4,
+  "notes": "clean; Thursday light competitions pass only: higgsfield-adathon 24.8 reverified live on higgsfield.ai, ai-ads-venice-2026 (26.8, within 7 days) skipped reverification this run due to budget, kept as scanned 19.8; post pillars researched: Figma Weave (MCP server now runs Weave tools, 11.8) and UX+AI (AI that pushes back research, 19.8), teaching pillar from standing pool/me cross (17.8 image-model classroom workflow, two-points-in-time format); meeting-room daily run added 6 ideas (2 per advisor), visionary used 2 dated Figma capabilities (Weave-via-MCP 11.8, in-Figma skill authoring 13.8), pain evidence pulled from real repeated memory facts (session debrief routine, student submission tracking), auto-archive swept 0 (no pool idea older than 14 days); live verify: WebFetch denied PROVENANCE_REQUIRED (unattended run) on posts.json, confirmed instead via fresh clone of both repos"
+ }
 ]
