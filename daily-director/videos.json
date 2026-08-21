@@ -4,6 +4,23 @@
       "date": "2026-08-21",
       "ideas": [
         {
+          "id": "2026-08-21-film-wolt",
+          "world": "תחרויות",
+          "color": "green",
+          "hook": "העיר שקפאה מוכן להגשה. שלושה ימים לאדתון, ופריט אחד עוד חוסם.",
+          "concept": "הספק-אד לוולט גמור: 56 שניות, עיר חימר שקפאה, ושליח אחד שמחזיר לה את הצבע רחוב אחרי רחוב. לבן זה קפוא, צבע זה חי, והשליח הוא מקור הצבע היחיד בעולם.",
+          "execution": "מאסטר v2 שנבנה היום. מדדתי את הקובץ הקודם ומצאתי שיא אמיתי של 0.35- dBTP, חם מספיק כדי להישבר כשפלטפורמה מקודדת מחדש, ואודיו מונו ב-44.1. תיקנתי לשיא 1.50- ולסטריאו ב-48 בנרמול לינארי, כדי לא לשטח את מעטפת הווליום הידנית. חתימת ה-MD5 של זרם הווידאו זהה לקובץ הקודם, כלומר התמונה לא קודדה מחדש.",
+          "why": "הדדליין הוא 24.8 בשעה 23:59 ET. ההצהרה, מסמך ההגשה, ה-SRT והפוסט מוכנים. הפריט היחיד שחוסם שליחה הוא אישור הרישיון המסחרי של הטרק Thunder in the Wind, וזה הסעיף שהכי מפיל הגשות בליגה הזאת.",
+          "competition": "Higgsfield Adathon",
+          "srcUrl": "https://higgsfield.ai/contests/adathon",
+          "srcLabel": "טופס ההגשה",
+          "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/wolt-frozen-city/",
+          "filmUrl": "https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/a82a19c5-a623-4781-bd6b-2d672aba389c.mp4",
+          "filmNote": "מאסטר הגשה v2, 56 שניות, 1080p, כתוביות אנגלית צרובות. אודיו מתוקן לסטריאו ולשיא 1.50- dBTP.",
+          "used": false,
+          "filmPoster": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20260805_195452_d9e903ee-6e8f-45cd-95c9-25061f8b1714.png"
+        },
+        {
           "id": "2026-08-21-1",
           "world": "סרטוני תחרויות",
           "color": "#71F73C",
@@ -874,7 +891,10 @@
             "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Hero frame of a miniature clay city street at dusk, every tiny clay figure frozen holding an empty plate, and at the center one small smiling clay delivery rider on a teal scooter with a glowing warm food bag, the only element in motion blur, cinematic composition with generous negative space at the top for titling added in edit, no text",
             "raw": "אדתון: פרסומת קליי של 45 שניות לוולט\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Adathon, דדליין 24.8, ספוט 30 עד 60 שניות למותג לבחירתך\nקונספט: עיר פלסטלינה קופאת כשמישהו רעב, שליח אחד מחזיר אותה לתנועה. וולט הוא המוצר שכל תוכנית ה-UX שלך בג'ון ברייס בנויה סביבו\nביצוע: פריימים ב-Nano Banana, הנפשה ב-Kling 3, 45 שניות, 16:9 ראשי וגרסת 9:16\nלמה עכשיו: פרס ראשון 50 אלף דולר בקרדיטים והכרזה על הבמה בברנדוויק אטלנטה 15 עד 17.9. אומת מול הכתבה של אדוויק"
           },
-          "storyboardUrl": "storyboards/wolt-frozen-city/"
+          "storyboardUrl": "storyboards/wolt-frozen-city/",
+          "filmUrl": "https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/a82a19c5-a623-4781-bd6b-2d672aba389c.mp4",
+          "filmNote": "מאסטר הגשה v2, 56 שניות, 1080p, כתוביות אנגלית צרובות. אודיו מתוקן לסטריאו ולשיא 1.50- dBTP.",
+          "filmPoster": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20260805_195452_d9e903ee-6e8f-45cd-95c9-25061f8b1714.png"
         },
         {
           "id": "2026-08-03-2",

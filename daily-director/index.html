@@ -122,6 +122,15 @@
   .big-btn.board{background:var(--green);color:var(--black);border:3px solid var(--black)}
   .big-btn:active{transform:scale(.985)}
 
+  /* Finished film, played inline in the card. A finished film is the only thing
+     on this screen you watch rather than copy, so it gets a real player and not
+     a link: on a phone, leaving the app to watch means never coming back. */
+  .film{margin:4px 0 14px;border:3px solid var(--black);border-radius:16px;overflow:hidden;background:#000;line-height:0}
+  /* aspect-ratio reserves the box before metadata arrives, so the card does not
+     jump when the player finally learns how tall it is. */
+  .film video{width:100%;height:auto;aspect-ratio:16/9;display:block;background:#000}
+  .film-cap{line-height:1.5;background:var(--green);color:var(--black);font-size:11.5px;font-weight:800;padding:8px 12px;border-top:3px solid var(--black)}
+
   h2{font-size:14px;font-weight:900;margin:22px 0 10px;display:flex;align-items:center;gap:8px}
   h2::after{content:"";flex:1;height:3px;background:var(--black);border-radius:2px}
   .art{display:block;text-decoration:none;color:inherit;background:var(--white);border:2px solid var(--black);border-radius:16px;padding:12px 15px;margin-bottom:9px}
@@ -421,6 +430,16 @@ function renderIdeas(data){
       html+='<div class="label">הקונספט</div><div class="angle">'+esc(idea.concept)+'</div>';
       html+='<div class="label">איך מבצעים</div><div class="angle">'+esc(idea.execution)+'</div>';
       html+='<div class="why"><b>למה עכשיו:</b> '+esc(idea.why)+'</div>';
+      /* filmUrl means the film is finished and watchable. It sits above the prompt
+         bank on purpose: once a film exists, watching it matters more than the
+         prompts that produced it. preload=metadata so a phone on cellular pays for
+         a poster frame and not for 35MB it may never play. */
+      if(idea.filmUrl){
+        html+='<div class="label">הסרט</div><div class="film">'+
+              '<video controls playsinline preload="metadata"'+(idea.filmPoster?' poster="'+esc(idea.filmPoster)+'"':'')+' src="'+esc(idea.filmUrl)+'"></video>'+
+              (idea.filmNote?'<div class="film-cap">'+esc(idea.filmNote)+'</div>':'')+
+              '</div>';
+      }
       /* The script button always runs through the shared prompt engine, so the
          four buttons and the big one below never drift apart. */
       const bank=Object.assign({},idea.prompts||{},{script:cmd});
