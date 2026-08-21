@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>המפה שלי, מזג</title>
+  <title>נומרולוגיה, מזג</title>
   <meta name="description" content="מזג, תחזית יומית ויזואלית שמאחדת אסטרולוגיה, נומרולוגיה, טארוט, אי צ׳ינג ואינטואיציה לתמונה אחת וטקסט אחד." />
   <link rel="icon" href="assets/icons/app-icon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,21 +20,72 @@
       <img class="app-header__logo" src="assets/images/logo-new.webp" alt="מזג" width="122" height="45" />
     </header>
 
-    <main class="content">
-      <h1 class="screen-title screen-title--large">המפה שלי</h1>
-      <p class="subtitle__lead" id="chart-lead">קריאה כללית, לא תחזית יומית</p>
-      <p class="subtitle__note">כל מה שכאן נגזר מתאריך הלידה שלך בחישוב פשוט, בלי ניחוש</p>
+    <main class="content content--article">
+      <a class="back-link" href="methods.html">
+        <span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></span>
+        <span>כל השיטות</span>
+      </a>
 
-      <div id="chart-empty">
-        <p class="body-copy">עוד לא הזנת תאריך לידה, ובלעדיו אין ממה לגזור.</p>
-        <a class="button-primary" href="profile.html">להזנת תאריך לידה</a>
+      <div class="method-hero method-hero--placeholder">
+        <img src="assets/icons/method-numerology.webp" alt="" width="88" height="88" />
       </div>
 
-      <div id="chart-result" hidden>
-        <ul class="chart-list" id="chart-list"></ul>
-        <p class="edit-mode-card__note">הקריאה הזו קבועה ולא משתנה מיום ליום. התחזית היומית היא זו שזזה.</p>
-        <a class="button-secondary" href="daily-forecast.html">לתחזית של היום</a>
-      </div>
+      <header class="article__head">
+        <span class="article__kicker">15% מהתחזית שלך</span>
+        <h1 class="screen-title screen-title--large">נומרולוגיה</h1>
+        <p class="article__essence">המספרים שמאחורי התאריך, שלך ושל היום</p>
+      </header>
+
+      <section class="article__section">
+        <h2 class="article__h2">מה זה</h2>
+        <p class="article__p">נומרולוגיה מצמצמת תאריכים ושמות למספר בודד, ומייחסת לכל מספר אופי. החישוב פשוט מספיק כדי שתוכלי לעשות אותו בעצמך על פתק, וזו אחת הסיבות שהיא שרדה.</p>
+      </section>
+
+      <section class="article__section">
+        <h2 class="article__h2">מאיפה זה מגיע</h2>
+        <p class="article__p">השורשים מיוחסים לפיתגורס במאה השישית לפני הספירה, שראה במספרים את המבנה של המציאות עצמה. השיטה בצורתה המוכרת היום התגבשה בתחילת המאה ה-20.</p>
+      </section>
+
+      <section class="article__section">
+        <h2 class="article__h2">מה זה קורא</h2>
+        <p class="article__p">מספר הדרך שלך מחובר מכל ספרות תאריך הלידה ומצומצם עד לספרה אחת, למעט 11, 22 ו-33 שנשארים כמו שהם. מולו נקרא המספר של התאריך היום.</p>
+      </section>
+
+      <section class="article__section">
+        <h2 class="article__h2">מה זה תורם לתחזית שלך</h2>
+        <p class="article__p">כשהמספר של היום נפגש עם מספר הדרך שלך, המפגש הזה מטה את התחזית לכיוון של פעולה או של המתנה. שני מספרים זהים מחזקים, ומספרים רחוקים יוצרים מתח.</p>
+        <div class="weight-bar">
+          <div class="weight-bar__track" role="img" aria-label="15 אחוז מהתחזית">
+            <div class="weight-bar__fill" style="inline-size: 15%"></div>
+          </div>
+          <span class="weight-bar__value">15%</span>
+        </div>
+      </section>
+
+      <section class="article__section">
+        <h2 class="article__h2">מונחים</h2>
+        <dl class="glossary">
+          <div class="glossary__item">
+            <dt class="glossary__term">מספר דרך</dt>
+            <dd class="glossary__def">המספר המרכזי שלך, מחושב מתאריך הלידה המלא</dd>
+          </div>
+          <div class="glossary__item">
+            <dt class="glossary__term">צמצום</dt>
+            <dd class="glossary__def">חיבור חוזר של ספרות עד שנשארת ספרה אחת</dd>
+          </div>
+          <div class="glossary__item">
+            <dt class="glossary__term">מספרי מאסטר</dt>
+            <dd class="glossary__def">11, 22 ו-33 לא מצומצמים, ונחשבים לעצימים יותר</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="article__section article__section--caution">
+        <h2 class="article__h2">מה זה לא</h2>
+        <p class="article__p">זו שיטה סמלית לגמרי. אותו מספר יוצא לכל מי שנולד באותו יום בעולם, ולכן היא לא יכולה להיות אישית באמת. אצלנו היא מכוונת ניסוח, לא קובעת תוכן.</p>
+      </section>
+
+      <a class="button-secondary" href="edit-mode.html">לשנות את המשקל של נומרולוגיה</a>
     </main>
   </div>
 
@@ -49,8 +100,8 @@
         <li><a href="index.html">פתיחה</a></li>
         <li><a href="explain.html">איך זה עובד</a></li>
         <li><a href="daily-forecast.html">התחזית היומית</a></li>
-        <li><a href="my-chart.html" aria-current="page">המפה שלי</a></li>
-        <li><a href="methods.html">השיטות</a></li>
+        <li><a href="my-chart.html">המפה שלי</a></li>
+        <li><a href="methods.html" aria-current="page">השיטות</a></li>
         <li><a href="archive.html">הארכיון שלי</a></li>
         <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
         <li><a href="edit-mode.html">מצב עריכה</a></li>

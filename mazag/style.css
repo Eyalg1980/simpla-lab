@@ -988,6 +988,366 @@ ul {
   width: 100%;
 }
 
+
+/* ---------- screen-reader only ---------- */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------- onboarding dialog ---------- */
+
+.onboard {
+  border: none;
+  padding: 0;
+  margin: 0;
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  background: none;
+}
+
+/* the dialog fills the viewport and pins the sheet to the bottom edge,
+   so it reads as a sheet rising rather than a box dropped at the top */
+.onboard[open] {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.onboard:not([open]) {
+  display: none;
+}
+
+.onboard__panel {
+  background-color: var(--color-surface-base);
+  width: min(100%, var(--screen-max));
+  max-height: 100dvh;
+  margin-inline: auto;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  overflow-y: auto;
+  border-start-start-radius: var(--radius-lg);
+  border-start-end-radius: var(--radius-lg);
+  /* rises from the bottom, the way a sheet should */
+  transform: translateY(var(--motion-lift));
+  opacity: 0;
+  transition:
+    transform var(--motion-base) var(--motion-ease),
+    opacity var(--motion-base) var(--motion-ease);
+}
+
+.onboard[open] .onboard__panel {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* the entry state for an element arriving from display:none.
+   an older browser ignores this and simply shows the sheet with no animation */
+@starting-style {
+  .onboard[open] .onboard__panel {
+    transform: translateY(var(--motion-lift));
+    opacity: 0;
+  }
+}
+
+.onboard::backdrop {
+  background: rgb(18 24 39 / 0.5);
+  opacity: 0;
+  transition:
+    opacity var(--motion-base) var(--motion-ease),
+    overlay var(--motion-base) allow-discrete,
+    display var(--motion-base) allow-discrete;
+}
+
+.onboard[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  .onboard[open]::backdrop { opacity: 0; }
+}
+
+.onboard__close {
+  align-self: flex-start;
+}
+
+.onboard__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  text-align: center;
+}
+
+.onboard__image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-base);
+}
+
+.onboard__title {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading-primary);
+  font-size: var(--font-size-h1);
+  color: var(--color-accent-deep);
+  margin: 0;
+}
+
+.onboard__body {
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.onboard__step .field {
+  text-align: start;
+}
+
+.onboard__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.onboard__actions {
+  display: flex;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.onboard__actions > * {
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+/* ---------- methods index ---------- */
+
+.method-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.method-card a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-base);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  text-decoration: none;
+  color: var(--color-text-primary);
+}
+
+.method-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.method-card__body {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.method-card__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.method-card__name {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading-primary);
+  font-size: var(--font-size-h2);
+}
+
+.method-card__pct {
+  font-weight: var(--font-weight-label);
+  color: var(--color-accent-deep);
+}
+
+.method-card__essence {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-caption);
+}
+
+/* ---------- a method article ---------- */
+
+.content--article {
+  align-items: stretch;
+  text-align: start;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: 44px;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body);
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.back-link svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+.method-hero {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-base);
+}
+
+/* used where no illustration has been generated for that method yet */
+.method-hero--placeholder {
+  aspect-ratio: 3 / 2;
+  background-color: var(--color-surface-raised);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.method-hero--placeholder img {
+  width: 88px;
+  height: 88px;
+  border-radius: var(--radius-full);
+}
+
+.article__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.article__head .screen-title {
+  text-align: start;
+}
+
+.article__kicker {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-label);
+}
+
+.article__essence {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-h2);
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading-secondary);
+  margin: 0;
+}
+
+.article__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+  padding-block-start: var(--space-md);
+  border-block-start: 1px solid var(--color-border-base);
+}
+
+.article__h2 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading-primary);
+  font-size: var(--font-size-h2);
+  color: var(--color-accent-deep);
+  margin: 0;
+}
+
+.article__p {
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* the honest-limits block is tinted so it cannot be skimmed past */
+.article__section--caution {
+  background-color: var(--color-status-error-bg);
+  border: 1px solid var(--color-status-error);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.article__section--caution .article__h2 {
+  color: var(--color-status-error);
+}
+
+.article__section--caution .article__p {
+  color: var(--color-text-primary);
+}
+
+.weight-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.weight-bar__track {
+  flex: 1 0 0;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-border-base);
+  overflow: hidden;
+}
+
+.weight-bar__fill {
+  height: 100%;
+  background-color: var(--color-accent-blue);
+  border-radius: var(--radius-full);
+}
+
+.weight-bar__value {
+  font-weight: var(--font-weight-label);
+  color: var(--color-accent-deep);
+}
+
+.glossary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin: 0;
+}
+
+.glossary__item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.glossary__term {
+  font-weight: var(--font-weight-label);
+}
+
+.glossary__def {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-caption);
+  margin: 0;
+}
+
 /* ============================================================
    שכבת תנועה
    ------------------------------------------------------------

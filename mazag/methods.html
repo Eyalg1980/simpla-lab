@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>המפה שלי, מזג</title>
+  <title>השיטות, מזג</title>
   <meta name="description" content="מזג, תחזית יומית ויזואלית שמאחדת אסטרולוגיה, נומרולוגיה, טארוט, אי צ׳ינג ואינטואיציה לתמונה אחת וטקסט אחד." />
   <link rel="icon" href="assets/icons/app-icon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,20 +21,86 @@
     </header>
 
     <main class="content">
-      <h1 class="screen-title screen-title--large">המפה שלי</h1>
-      <p class="subtitle__lead" id="chart-lead">קריאה כללית, לא תחזית יומית</p>
-      <p class="subtitle__note">כל מה שכאן נגזר מתאריך הלידה שלך בחישוב פשוט, בלי ניחוש</p>
+      <h1 class="screen-title screen-title--large">שש השיטות</h1>
+      <p class="subtitle__lead">מה כל אחת מהן, מאיפה היא באה, וכמה היא שוקלת אצלך</p>
 
-      <div id="chart-empty">
-        <p class="body-copy">עוד לא הזנת תאריך לידה, ובלעדיו אין ממה לגזור.</p>
-        <a class="button-primary" href="profile.html">להזנת תאריך לידה</a>
-      </div>
+      <ul class="method-cards">
+        <li class="method-card">
+          <a href="method-astrology.html">
+            <img class="method-card__icon" src="assets/icons/method-astrology.webp" alt="" width="44" height="44" />
+            <span class="method-card__body">
+              <span class="method-card__head">
+                <span class="method-card__name">אסטרולוגיה</span>
+                <span class="method-card__pct">50%</span>
+              </span>
+              <span class="method-card__essence">המפה של השמיים ברגע שנולדת, ומה שקורה בהם היום</span>
+            </span>
+          </a>
+        </li>
+        <li class="method-card">
+          <a href="method-numerology.html">
+            <img class="method-card__icon" src="assets/icons/method-numerology.webp" alt="" width="44" height="44" />
+            <span class="method-card__body">
+              <span class="method-card__head">
+                <span class="method-card__name">נומרולוגיה</span>
+                <span class="method-card__pct">15%</span>
+              </span>
+              <span class="method-card__essence">המספרים שמאחורי התאריך, שלך ושל היום</span>
+            </span>
+          </a>
+        </li>
+        <li class="method-card">
+          <a href="method-tarot.html">
+            <img class="method-card__icon" src="assets/icons/method-tarot.webp" alt="" width="44" height="44" />
+            <span class="method-card__body">
+              <span class="method-card__head">
+                <span class="method-card__name">טארוט</span>
+                <span class="method-card__pct">13%</span>
+              </span>
+              <span class="method-card__essence">קלף אחד ביום, כתמונה שמזמינה מחשבה</span>
+            </span>
+          </a>
+        </li>
+        <li class="method-card">
+          <a href="method-iching.html">
+            <img class="method-card__icon" src="assets/icons/method-iching.webp" alt="" width="44" height="44" />
+            <span class="method-card__body">
+              <span class="method-card__head">
+                <span class="method-card__name">אי צ׳ינג</span>
+                <span class="method-card__pct">9%</span>
+              </span>
+              <span class="method-card__essence">ספר סיני עתיק שכל כולו עוסק בתזמון ובשינוי</span>
+            </span>
+          </a>
+        </li>
+        <li class="method-card">
+          <a href="method-runes.html">
+            <img class="method-card__icon" src="assets/icons/method-runes.webp" alt="" width="44" height="44" />
+            <span class="method-card__body">
+              <span class="method-card__head">
+                <span class="method-card__name">רונות</span>
+                <span class="method-card__pct">7%</span>
+              </span>
+              <span class="method-card__essence">אלפבית נורדי עתיק שנקרא גם כסדרה של סימנים</span>
+            </span>
+          </a>
+        </li>
+        <li class="method-card">
+          <a href="method-intuition.html">
+            <img class="method-card__icon" src="assets/icons/method-intuition.webp" alt="" width="44" height="44" />
+            <span class="method-card__body">
+              <span class="method-card__head">
+                <span class="method-card__name">אינטואיציה</span>
+                <span class="method-card__pct">6%</span>
+              </span>
+              <span class="method-card__essence">המשקל שנשמר בכוונה למה שלא נכנס לנוסחה</span>
+            </span>
+          </a>
+        </li>
+      </ul>
 
-      <div id="chart-result" hidden>
-        <ul class="chart-list" id="chart-list"></ul>
-        <p class="edit-mode-card__note">הקריאה הזו קבועה ולא משתנה מיום ליום. התחזית היומית היא זו שזזה.</p>
-        <a class="button-secondary" href="daily-forecast.html">לתחזית של היום</a>
-      </div>
+      <p class="edit-mode-card__note">המשקולות ניתנות לשינוי במצב עריכה, והשינוי חל על התחזית הבאה.</p>
+      <a class="button-secondary" href="edit-mode.html">לשינוי המשקולות</a>
     </main>
   </div>
 
@@ -49,8 +115,8 @@
         <li><a href="index.html">פתיחה</a></li>
         <li><a href="explain.html">איך זה עובד</a></li>
         <li><a href="daily-forecast.html">התחזית היומית</a></li>
-        <li><a href="my-chart.html" aria-current="page">המפה שלי</a></li>
-        <li><a href="methods.html">השיטות</a></li>
+        <li><a href="my-chart.html">המפה שלי</a></li>
+        <li><a href="methods.html" aria-current="page">השיטות</a></li>
         <li><a href="archive.html">הארכיון שלי</a></li>
         <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
         <li><a href="edit-mode.html">מצב עריכה</a></li>

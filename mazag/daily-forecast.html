@@ -139,6 +139,7 @@
         <li><a href="explain.html">איך זה עובד</a></li>
         <li><a href="daily-forecast.html" aria-current="page">התחזית היומית</a></li>
         <li><a href="my-chart.html">המפה שלי</a></li>
+        <li><a href="methods.html">השיטות</a></li>
         <li><a href="archive.html">הארכיון שלי</a></li>
         <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
         <li><a href="edit-mode.html">מצב עריכה</a></li>
@@ -147,6 +148,51 @@
         <li><a href="guest-view.html">צפייה מקישור</a></li>
       </ul>
     </nav>
+  </dialog>
+
+
+  <!-- אונבורדינג: dialog אמיתי, נפתח פעם אחת בביקור הראשון וגם מהתפריט -->
+  <dialog class="onboard" id="onboarding" aria-labelledby="onboard-heading">
+    <div class="onboard__panel">
+      <button type="button" class="icon-button onboard__close" id="onboard-skip" aria-label="דלגי על ההיכרות">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <h1 class="visually-hidden" id="onboard-heading">היכרות עם מזג</h1>
+
+        <section class="onboard__step" data-step="0">
+          <img class="onboard__image" src="assets/images/onboard-what.webp" alt="קלף מעוטר מונח על נייר עתיק לצד מצפן פליז וזר לבנדר יבש" width="342" height="228" />
+          <h2 class="onboard__title">תמונה אחת וטקסט אחד, כל בוקר</h2>
+          <p class="onboard__body">במקום להתלבט בין שיטות ולפתוח חמש אפליקציות, את מקבלת תחזית אחת. תמונה שאפשר לשמור, ופסקה קצרה לקרוא בדרך.</p>
+        </section>
+        <section class="onboard__step" data-step="1" hidden>
+          <img class="onboard__image" src="assets/images/onboard-how.webp" alt="שישה סמלים עתיקים מסודרים במעגל, וקווי זהב מתכנסים מהם אל נקודה אחת במרכז" width="342" height="228" />
+          <h2 class="onboard__title">שש שיטות שמתמזגות לקול אחד</h2>
+          <p class="onboard__body">אסטרולוגיה, נומרולוגיה, טארוט, אי צ׳ינג, רונות ואינטואיציה. לכל אחת משקל משלה, ואת תמיד יכולה לראות אותו, להבין למה, ולשנות אותו.</p>
+        </section>
+
+        <section class="onboard__step" data-step="2" hidden>
+          <h2 class="onboard__title">תאריך הלידה הופך את זה לשלך</h2>
+          <p class="onboard__body">בלי תאריך לידה התחזית נשארת כללית. עם תאריך, אנחנו מחשבים את מזל השמש, מספר הדרך וקלף הלידה שלך.</p>
+          <div class="field">
+            <label class="field__label" for="onboard-birth">תאריך לידה</label>
+            <input class="field__input" type="date" id="onboard-birth" name="birth" max="2026-12-31" min="1900-01-01" />
+            <p class="field__help">נשמר במכשיר שלך בלבד. אפשר לדלג ולהוסיף אחר כך.</p>
+          </div>
+        </section>
+
+      <div class="onboard__footer">
+        <div class="dots" role="tablist" aria-label="שלבי ההיכרות">
+          <button type="button" class="dots__item" role="tab" aria-selected="true" aria-label="שלב 1"><span></span></button>
+          <button type="button" class="dots__item" role="tab" aria-selected="false" aria-label="שלב 2"><span></span></button>
+          <button type="button" class="dots__item" role="tab" aria-selected="false" aria-label="שלב 3"><span></span></button>
+        </div>
+        <div class="onboard__actions">
+          <button type="button" class="button-secondary" id="onboard-back" hidden>חזרה</button>
+          <button type="button" class="button-primary" id="onboard-next">המשך</button>
+        </div>
+      </div>
+    </div>
   </dialog>
 
   <!-- אזור הודעות: קורא מסך שומע כל אישור, גם כשהוא רק ויזואלי -->

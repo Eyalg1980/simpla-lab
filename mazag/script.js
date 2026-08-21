@@ -207,6 +207,84 @@
     }, 1800);
   }
 
+  /* ---------- onboarding ----------
+     Opens once on the first visit, and any time from the menu. It is a real
+     <dialog>, so focus trapping and Escape come for free. The last step is the
+     birth date rather than another picture, because ending onboarding on an
+     action beats ending it on a close button. */
+
+  var SEEN_KEY = "mazag.onboarded";
+
+  function setupOnboarding() {
+    var dialog = document.getElementById("onboarding");
+    if (!dialog || typeof dialog.showModal !== "function") return;
+
+    var steps = Array.prototype.slice.call(dialog.querySelectorAll(".onboard__step"));
+    var dots = Array.prototype.slice.call(dialog.querySelectorAll(".dots__item"));
+    var next = document.getElementById("onboard-next");
+    var back = document.getElementById("onboard-back");
+    var skip = document.getElementById("onboard-skip");
+    var birth = document.getElementById("onboard-birth");
+    var current = 0;
+
+    function render() {
+      steps.forEach(function (s, i) { s.hidden = i !== current; });
+      dots.forEach(function (d, i) { d.setAttribute("aria-selected", i === current ? "true" : "false"); });
+      back.hidden = current === 0;
+      next.textContent = current === steps.length - 1 ? "בואי נתחיל" : "המשך";
+    }
+
+    function finish() {
+      try { window.localStorage.setItem(SEEN_KEY, "1"); } catch (e) { /* private window */ }
+      if (birth && birth.value && Mazag.read(birth.value)) {
+        var existing = Mazag.loadProfile() || {};
+        existing.birth = birth.value;
+        Mazag.saveProfile(existing);
+        dialog.close();
+        window.location.href = "my-chart.html";
+        return;
+      }
+      dialog.close();
+    }
+
+    next.addEventListener("click", function () {
+      if (current < steps.length - 1) { current++; render(); return; }
+      finish();
+    });
+
+    back.addEventListener("click", function () {
+      if (current > 0) { current--; render(); }
+    });
+
+    skip.addEventListener("click", function () {
+      try { window.localStorage.setItem(SEEN_KEY, "1"); } catch (e) { /* private window */ }
+      dialog.close();
+    });
+
+    dots.forEach(function (d, i) {
+      d.addEventListener("click", function () { current = i; render(); });
+    });
+
+    render();
+
+    // open on the first visit of the welcome screen, or on demand from anywhere
+    var seen;
+    try { seen = window.localStorage.getItem(SEEN_KEY); } catch (e) { seen = "1"; }
+    var isWelcome = document.querySelector(".brand-block");
+    var asked = window.location.search.indexOf("onboarding=1") > -1;
+
+    if (asked || (!seen && isWelcome)) dialog.showModal();
+
+    var opener = document.getElementById("open-onboarding");
+    if (opener) {
+      opener.addEventListener("click", function (event) {
+        event.preventDefault();
+        current = 0; render();
+        dialog.showModal();
+      });
+    }
+  }
+
   /* ---------- the breakdown panel on the forecast ----------
      Expanded with grid-template-rows 0fr to 1fr rather than height,
      because height is not animatable without forcing a layout pass. */
@@ -335,6 +413,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     setupNavDrawer();
+    setupOnboarding();
     setupCardRouting();
     setupForecastActions();
     setupBreakdown();
