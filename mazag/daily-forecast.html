@@ -39,6 +39,83 @@
         </button>
       </div>
 
+      <!-- ההרחבה: מי תרם מה לתחזית של היום. סגורה כברירת מחדל,
+           כי המסך הזה נועד קודם כל לתמונה ולטקסט -->
+      <div class="breakdown">
+        <button type="button" class="breakdown__toggle" id="breakdown-toggle"
+                aria-expanded="false" aria-controls="breakdown-panel">
+          <span>ממה מורכבת התחזית של היום</span>
+          <span class="breakdown__chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </button>
+        <div class="breakdown__panel" id="breakdown-panel">
+          <div class="breakdown__inner">
+            <ul class="breakdown__list">
+              <li class="breakdown__row">
+                <img class="breakdown__icon" src="assets/icons/method-astrology.webp" alt="" width="28" height="28" />
+                <div class="breakdown__body">
+                  <div class="breakdown__head">
+                    <span class="breakdown__name">אסטרולוגיה</span>
+                    <span class="breakdown__pct">50%</span>
+                  </div>
+                  <p class="breakdown__why">מיקום השמש והירח היום מול מפת הלידה שלך</p>
+                </div>
+              </li>
+              <li class="breakdown__row">
+                <img class="breakdown__icon" src="assets/icons/method-numerology.webp" alt="" width="28" height="28" />
+                <div class="breakdown__body">
+                  <div class="breakdown__head">
+                    <span class="breakdown__name">נומרולוגיה</span>
+                    <span class="breakdown__pct">15%</span>
+                  </div>
+                  <p class="breakdown__why">המספר של התאריך היום מול מספר הדרך שלך</p>
+                </div>
+              </li>
+              <li class="breakdown__row">
+                <img class="breakdown__icon" src="assets/icons/method-tarot.webp" alt="" width="28" height="28" />
+                <div class="breakdown__body">
+                  <div class="breakdown__head">
+                    <span class="breakdown__name">טארוט</span>
+                    <span class="breakdown__pct">13%</span>
+                  </div>
+                  <p class="breakdown__why">הקלף שנשלף לך היום, ומה שהוא מדגיש</p>
+                </div>
+              </li>
+              <li class="breakdown__row">
+                <img class="breakdown__icon" src="assets/icons/method-iching.webp" alt="" width="28" height="28" />
+                <div class="breakdown__body">
+                  <div class="breakdown__head">
+                    <span class="breakdown__name">אי צ׳ינג</span>
+                    <span class="breakdown__pct">9%</span>
+                  </div>
+                  <p class="breakdown__why">ההקסגרמה שעלתה, ומה שהיא אומרת על התזמון</p>
+                </div>
+              </li>
+              <li class="breakdown__row">
+                <span class="breakdown__icon breakdown__icon--placeholder" aria-hidden="true"></span>
+                <div class="breakdown__body">
+                  <div class="breakdown__head">
+                    <span class="breakdown__name">רונות</span>
+                    <span class="breakdown__pct">7%</span>
+                  </div>
+                  <p class="breakdown__why">הרונה שנמשכה, וכיוון הפעולה שהיא מציעה</p>
+                </div>
+              </li>
+              <li class="breakdown__row">
+                <img class="breakdown__icon" src="assets/icons/method-intuition.webp" alt="" width="28" height="28" />
+                <div class="breakdown__body">
+                  <div class="breakdown__head">
+                    <span class="breakdown__name">אינטואיציה</span>
+                    <span class="breakdown__pct">6%</span>
+                  </div>
+                  <p class="breakdown__why">משקל קטן ששמור לתחושה שלא נכנסת לנוסחה</p>
+                </div>
+              </li>
+            </ul>
+            <p class="breakdown__note">אפשר לשנות את המשקולות במצב עריכה. השינוי חל על התחזית הבאה.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="content__spacer"></div>
 
       <hr class="divider" />
@@ -60,11 +137,13 @@
       <ul class="nav-drawer__list">
         <li><a href="index.html">פתיחה</a></li>
         <li><a href="explain.html">איך זה עובד</a></li>
-        <li><a href="splash.html">מסך טעינה</a></li>
         <li><a href="daily-forecast.html" aria-current="page">התחזית היומית</a></li>
+        <li><a href="my-chart.html">המפה שלי</a></li>
         <li><a href="archive.html">הארכיון שלי</a></li>
         <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
         <li><a href="edit-mode.html">מצב עריכה</a></li>
+        <li><a href="profile.html">הפרופיל שלי</a></li>
+        <li><a href="splash.html">מסך טעינה</a></li>
         <li><a href="guest-view.html">צפייה מקישור</a></li>
       </ul>
     </nav>
@@ -73,6 +152,7 @@
   <!-- אזור הודעות: קורא מסך שומע כל אישור, גם כשהוא רק ויזואלי -->
   <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>
 
+  <script src="astro.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

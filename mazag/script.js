@@ -207,10 +207,139 @@
     }, 1800);
   }
 
+  /* ---------- the breakdown panel on the forecast ----------
+     Expanded with grid-template-rows 0fr to 1fr rather than height,
+     because height is not animatable without forcing a layout pass. */
+
+  function setupBreakdown() {
+    var toggle = document.getElementById("breakdown-toggle");
+    var panel = document.getElementById("breakdown-panel");
+    if (!toggle || !panel) return;
+
+    toggle.addEventListener("click", function () {
+      var open = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", open ? "false" : "true");
+      panel.dataset.open = open ? "false" : "true";
+    });
+  }
+
+  /* ---------- profile: the birth date ---------- */
+
+  function setupProfile() {
+    var form = document.getElementById("profile-form");
+    if (!form) return;
+
+    var name = document.getElementById("profile-name");
+    var birth = document.getElementById("profile-birth");
+    var error = document.getElementById("birth-error");
+    var clear = document.getElementById("profile-clear");
+
+    var saved = Mazag.loadProfile();
+    if (saved) {
+      if (saved.name) name.value = saved.name;
+      if (saved.birth) birth.value = saved.birth;
+    }
+
+    function showError(message) {
+      error.textContent = message;
+      error.hidden = false;
+      birth.setAttribute("aria-invalid", "true");
+    }
+
+    function clearError() {
+      error.hidden = true;
+      birth.removeAttribute("aria-invalid");
+    }
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      clearError();
+
+      if (!birth.value) return showError("צריך תאריך לידה כדי לחשב משהו אמיתי.");
+
+      var reading = Mazag.read(birth.value);
+      if (!reading) return showError("התאריך הזה לא נראה תקין. אפשר לנסות שוב?");
+
+      var year = Number(birth.value.slice(0, 4));
+      var now = new Date().getFullYear();
+      if (year < 1900 || year > now) return showError("שנת הלידה צריכה להיות בין 1900 להיום.");
+
+      var ok = Mazag.saveProfile({ name: name.value.trim(), birth: birth.value });
+      if (!ok) return showError("לא הצלחנו לשמור במכשיר. אם הדפדפן במצב פרטי, זו הסיבה.");
+
+      toast("נשמר. אפשר לראות את המפה שלך");
+      window.setTimeout(function () { window.location.href = "my-chart.html"; }, 900);
+    });
+
+    if (clear) {
+      clear.addEventListener("click", function () {
+        Mazag.saveProfile({});
+        name.value = "";
+        birth.value = "";
+        clearError();
+        toast("הפרטים נמחקו מהמכשיר");
+      });
+    }
+  }
+
+  /* ---------- my chart: the general reading ---------- */
+
+  function setupChart() {
+    var empty = document.getElementById("chart-empty");
+    var result = document.getElementById("chart-result");
+    var list = document.getElementById("chart-list");
+    var lead = document.getElementById("chart-lead");
+    if (!empty || !result || !list) return;
+
+    var profile = Mazag.loadProfile();
+    var reading = profile && profile.birth ? Mazag.read(profile.birth) : null;
+    if (!reading) return;   // the empty state is already the default in the markup
+
+    empty.hidden = true;
+    result.hidden = false;
+    if (lead) {
+      lead.textContent = profile.name
+        ? profile.name + ", זו הקריאה הכללית שלך לפי " + reading.pretty
+        : "קריאה כללית לפי " + reading.pretty;
+    }
+
+    var rows = [
+      { icon: "assets/icons/method-astrology.webp", kicker: "אסטרולוגיה",
+        title: "מזל " + reading.sign.he, meta: "יסוד " + reading.sign.element, text: reading.sign.text },
+      { icon: "assets/icons/method-numerology.webp", kicker: "נומרולוגיה",
+        title: "מספר " + reading.lifePath.number, meta: "מספר הדרך שלך", text: reading.lifePath.text },
+      { icon: "assets/icons/method-tarot.webp", kicker: "טארוט",
+        title: reading.card.name, meta: "קלף לידה " + reading.card.number, text: reading.card.text },
+      { icon: null, kicker: "אסטרולוגיה סינית",
+        title: "שנת ה" + reading.chinese.animal, meta: String(reading.chinese.year), text: reading.chinese.text }
+    ];
+
+    list.innerHTML = "";
+    rows.forEach(function (r) {
+      var li = document.createElement("li");
+      li.className = "chart-card";
+      var badge = r.icon
+        ? '<img class="chart-card__icon" src="' + r.icon + '" alt="" width="44" height="44" />'
+        : '<span class="chart-card__icon chart-card__icon--placeholder" aria-hidden="true"></span>';
+      li.innerHTML =
+        badge +
+        '<div class="chart-card__body">' +
+          '<span class="chart-card__kicker">' + r.kicker + "</span>" +
+          '<h2 class="chart-card__title">' + r.title + "</h2>" +
+          '<span class="chart-card__meta">' + r.meta + "</span>" +
+          '<p class="chart-card__text">' + r.text + "</p>" +
+        "</div>";
+      list.appendChild(li);
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     setupNavDrawer();
     setupCardRouting();
     setupForecastActions();
+    setupBreakdown();
+    setupProfile();
+    setupChart();
     setupWeights();
     setupArchive();
     setupSplash();

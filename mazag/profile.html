@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>מזג, התחזית שלך מכל העולמות</title>
+  <title>הפרופיל שלי, מזג</title>
   <meta name="description" content="מזג, תחזית יומית ויזואלית שמאחדת אסטרולוגיה, נומרולוגיה, טארוט, אי צ׳ינג ואינטואיציה לתמונה אחת וטקסט אחד." />
   <link rel="icon" href="assets/icons/app-icon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,15 +20,31 @@
       <img class="app-header__logo" src="assets/images/logo-new.webp" alt="מזג" width="122" height="45" />
     </header>
 
-    <main class="content content--centered">
-      <div class="brand-block">
-        <img class="brand-block__logo" src="assets/images/logo-vertical.webp" alt="מזג, התחזית שלך מכל העולמות" width="232" height="288" />
-        <p class="lead">כל בוקר, תמונה אחת וטקסט אחד. בלי להתלבט בין שיטות.</p>
-      </div>
+    <main class="content">
+      <h1 class="screen-title screen-title--large">הפרופיל שלי</h1>
+      <p class="subtitle__lead">תאריך הלידה הוא מה שהופך את התחזית לשלך ולא לכללית</p>
 
-      <div class="content__spacer"></div>
+      <form class="form" id="profile-form" novalidate>
+        <div class="field">
+          <label class="field__label" for="profile-name">איך לקרוא לך</label>
+          <input class="field__input" type="text" id="profile-name" name="name"
+                 autocomplete="given-name" placeholder="מאיה" />
+        </div>
 
-      <a class="button-primary" href="explain.html">המשך</a>
+        <div class="field">
+          <label class="field__label" for="profile-birth">תאריך לידה</label>
+          <input class="field__input" type="date" id="profile-birth" name="birth"
+                 required max="2026-12-31" min="1900-01-01"
+                 aria-describedby="birth-help" />
+          <p class="field__help" id="birth-help">נשמר במכשיר שלך בלבד. אפשר למחוק בכל רגע.</p>
+          <p class="form-error" id="birth-error" role="alert" hidden></p>
+        </div>
+
+        <div class="content__spacer"></div>
+
+        <button type="submit" class="button-primary">שמרי והמשיכי</button>
+        <button type="button" class="button-secondary button-secondary--quiet" id="profile-clear">מחקי את הפרטים שלי</button>
+      </form>
     </main>
   </div>
 
@@ -40,14 +56,14 @@
       </button>
       <h2 class="nav-drawer__title">מזג</h2>
       <ul class="nav-drawer__list">
-        <li><a href="index.html" aria-current="page">פתיחה</a></li>
+        <li><a href="index.html">פתיחה</a></li>
         <li><a href="explain.html">איך זה עובד</a></li>
         <li><a href="daily-forecast.html">התחזית היומית</a></li>
         <li><a href="my-chart.html">המפה שלי</a></li>
         <li><a href="archive.html">הארכיון שלי</a></li>
         <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
         <li><a href="edit-mode.html">מצב עריכה</a></li>
-        <li><a href="profile.html">הפרופיל שלי</a></li>
+        <li><a href="profile.html" aria-current="page">הפרופיל שלי</a></li>
         <li><a href="splash.html">מסך טעינה</a></li>
         <li><a href="guest-view.html">צפייה מקישור</a></li>
       </ul>

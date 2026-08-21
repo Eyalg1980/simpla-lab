@@ -31,10 +31,10 @@
           <div class="method-row__body">
             <div class="method-row__header">
               <span class="method-row__name">אסטרולוגיה</span>
-              <output class="method-row__pct" for="m0">25%</output>
+              <output class="method-row__pct" for="m0">50%</output>
             </div>
             <input class="method-row__range" type="range" id="m0" name="m0"
-                   min="0" max="50" step="5" value="25"
+                   min="0" max="70" step="1" value="50"
                    aria-label="משקל עבור אסטרולוגיה" />
           </div>
         </li>
@@ -43,10 +43,10 @@
           <div class="method-row__body">
             <div class="method-row__header">
               <span class="method-row__name">נומרולוגיה</span>
-              <output class="method-row__pct" for="m1">20%</output>
+              <output class="method-row__pct" for="m1">15%</output>
             </div>
             <input class="method-row__range" type="range" id="m1" name="m1"
-                   min="0" max="50" step="5" value="20"
+                   min="0" max="70" step="1" value="15"
                    aria-label="משקל עבור נומרולוגיה" />
           </div>
         </li>
@@ -55,10 +55,10 @@
           <div class="method-row__body">
             <div class="method-row__header">
               <span class="method-row__name">טארוט</span>
-              <output class="method-row__pct" for="m2">20%</output>
+              <output class="method-row__pct" for="m2">13%</output>
             </div>
             <input class="method-row__range" type="range" id="m2" name="m2"
-                   min="0" max="50" step="5" value="20"
+                   min="0" max="70" step="1" value="13"
                    aria-label="משקל עבור טארוט" />
           </div>
         </li>
@@ -67,10 +67,10 @@
           <div class="method-row__body">
             <div class="method-row__header">
               <span class="method-row__name">אי צ׳ינג</span>
-              <output class="method-row__pct" for="m3">15%</output>
+              <output class="method-row__pct" for="m3">9%</output>
             </div>
             <input class="method-row__range" type="range" id="m3" name="m3"
-                   min="0" max="50" step="5" value="15"
+                   min="0" max="70" step="1" value="9"
                    aria-label="משקל עבור אי צ׳ינג" />
           </div>
         </li>
@@ -79,10 +79,10 @@
           <div class="method-row__body">
             <div class="method-row__header">
               <span class="method-row__name">רונות</span>
-              <output class="method-row__pct" for="m4">10%</output>
+              <output class="method-row__pct" for="m4">7%</output>
             </div>
             <input class="method-row__range" type="range" id="m4" name="m4"
-                   min="0" max="50" step="5" value="10"
+                   min="0" max="70" step="1" value="7"
                    aria-label="משקל עבור רונות" />
           </div>
         </li>
@@ -91,10 +91,10 @@
           <div class="method-row__body">
             <div class="method-row__header">
               <span class="method-row__name">אינטואיציה</span>
-              <output class="method-row__pct" for="m5">10%</output>
+              <output class="method-row__pct" for="m5">6%</output>
             </div>
             <input class="method-row__range" type="range" id="m5" name="m5"
-                   min="0" max="50" step="5" value="10"
+                   min="0" max="70" step="1" value="6"
                    aria-label="משקל עבור אינטואיציה" />
           </div>
         </li>
@@ -122,11 +122,13 @@
       <ul class="nav-drawer__list">
         <li><a href="index.html">פתיחה</a></li>
         <li><a href="explain.html">איך זה עובד</a></li>
-        <li><a href="splash.html">מסך טעינה</a></li>
         <li><a href="daily-forecast.html">התחזית היומית</a></li>
+        <li><a href="my-chart.html">המפה שלי</a></li>
         <li><a href="archive.html">הארכיון שלי</a></li>
         <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
         <li><a href="edit-mode.html" aria-current="page">מצב עריכה</a></li>
+        <li><a href="profile.html">הפרופיל שלי</a></li>
+        <li><a href="splash.html">מסך טעינה</a></li>
         <li><a href="guest-view.html">צפייה מקישור</a></li>
       </ul>
     </nav>
@@ -135,6 +137,7 @@
   <!-- אזור הודעות: קורא מסך שומע כל אישור, גם כשהוא רק ויזואלי -->
   <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>
 
+  <script src="astro.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

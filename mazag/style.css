@@ -120,6 +120,12 @@ ul {
   outline-offset: 2px;
 }
 
+/* A later `display` rule silently beats the hidden attribute, which is how an
+   empty state ends up sitting on top of its own results. This puts it back. */
+[hidden] {
+  display: none !important;
+}
+
 /* ---------- layout shell ---------- */
 
 .screen {
@@ -744,6 +750,242 @@ ul {
   .screen {
     border-inline: 1px solid var(--color-border-base);
   }
+}
+
+/* ---------- forms ---------- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+  flex: 1 0 auto;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  width: 100%;
+}
+
+.field__label {
+  font-weight: var(--font-weight-label);
+  font-size: var(--font-size-body);
+}
+
+.field__input {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-base);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  min-height: 44px;
+  width: 100%;
+  transition: border-color var(--motion-fast) var(--motion-ease);
+}
+
+.field__input:focus-visible {
+  outline: 2px solid var(--color-accent-deep);
+  outline-offset: 2px;
+}
+
+.field__input[aria-invalid="true"] {
+  border-color: var(--color-status-error);
+}
+
+.field__help {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+  margin: 0;
+}
+
+/* ---------- the breakdown on the forecast ---------- */
+
+.breakdown {
+  width: 100%;
+  border: 1px solid var(--color-border-base);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface-raised);
+  overflow: hidden;
+}
+
+.breakdown__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  width: 100%;
+  min-height: 44px;
+  padding: var(--space-sm) var(--space-md);
+  background: none;
+  border: none;
+  color: var(--color-text-primary);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-label);
+  text-align: start;
+}
+
+.breakdown__chevron svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  /* the arrow turns to point at the open panel */
+  transition: transform var(--motion-base) var(--motion-ease);
+}
+
+.breakdown__toggle[aria-expanded="true"] .breakdown__chevron svg {
+  transform: rotate(180deg);
+}
+
+/* 0fr to 1fr is how you animate an open and close without touching height */
+.breakdown__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--motion-base) var(--motion-ease);
+}
+
+.breakdown__panel[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.breakdown__inner {
+  overflow: hidden;   /* required by the grid-rows technique */
+}
+
+.breakdown__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: 0 var(--space-md) var(--space-md);
+}
+
+.breakdown__row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.breakdown__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.breakdown__icon--placeholder {
+  background-color: var(--color-accent-base);
+  display: block;
+}
+
+.breakdown__body {
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.breakdown__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.breakdown__name {
+  font-weight: var(--font-weight-label);
+}
+
+.breakdown__pct {
+  font-weight: var(--font-weight-label);
+  color: var(--color-accent-deep);
+}
+
+.breakdown__why {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-caption);
+  margin: 0;
+}
+
+.breakdown__note {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+  margin: 0;
+  padding: 0 var(--space-md) var(--space-md);
+}
+
+/* ---------- my chart ---------- */
+
+.chart-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.chart-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-base);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+}
+
+.chart-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.chart-card__icon--placeholder {
+  background-color: var(--color-accent-base);
+  display: block;
+}
+
+.chart-card__body {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.chart-card__kicker {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-label);
+}
+
+.chart-card__title {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading-primary);
+  font-size: var(--font-size-h2);
+  color: var(--color-accent-deep);
+  margin: 0;
+}
+
+.chart-card__meta {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+}
+
+.chart-card__text {
+  color: var(--color-text-secondary);
+  margin: var(--space-xs) 0 0;
+}
+
+#chart-empty,
+#chart-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
 }
 
 /* ============================================================

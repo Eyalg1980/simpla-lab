@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>מזג, התחזית שלך מכל העולמות</title>
+  <title>המפה שלי, מזג</title>
   <meta name="description" content="מזג, תחזית יומית ויזואלית שמאחדת אסטרולוגיה, נומרולוגיה, טארוט, אי צ׳ינג ואינטואיציה לתמונה אחת וטקסט אחד." />
   <link rel="icon" href="assets/icons/app-icon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,15 +20,21 @@
       <img class="app-header__logo" src="assets/images/logo-new.webp" alt="מזג" width="122" height="45" />
     </header>
 
-    <main class="content content--centered">
-      <div class="brand-block">
-        <img class="brand-block__logo" src="assets/images/logo-vertical.webp" alt="מזג, התחזית שלך מכל העולמות" width="232" height="288" />
-        <p class="lead">כל בוקר, תמונה אחת וטקסט אחד. בלי להתלבט בין שיטות.</p>
+    <main class="content">
+      <h1 class="screen-title screen-title--large">המפה שלי</h1>
+      <p class="subtitle__lead" id="chart-lead">קריאה כללית, לא תחזית יומית</p>
+      <p class="subtitle__note">כל מה שכאן נגזר מתאריך הלידה שלך בחישוב פשוט, בלי ניחוש</p>
+
+      <div id="chart-empty">
+        <p class="body-copy">עוד לא הזנת תאריך לידה, ובלעדיו אין ממה לגזור.</p>
+        <a class="button-primary" href="profile.html">להזנת תאריך לידה</a>
       </div>
 
-      <div class="content__spacer"></div>
-
-      <a class="button-primary" href="explain.html">המשך</a>
+      <div id="chart-result" hidden>
+        <ul class="chart-list" id="chart-list"></ul>
+        <p class="edit-mode-card__note">הקריאה הזו קבועה ולא משתנה מיום ליום. התחזית היומית היא זו שזזה.</p>
+        <a class="button-secondary" href="daily-forecast.html">לתחזית של היום</a>
+      </div>
     </main>
   </div>
 
@@ -40,10 +46,10 @@
       </button>
       <h2 class="nav-drawer__title">מזג</h2>
       <ul class="nav-drawer__list">
-        <li><a href="index.html" aria-current="page">פתיחה</a></li>
+        <li><a href="index.html">פתיחה</a></li>
         <li><a href="explain.html">איך זה עובד</a></li>
         <li><a href="daily-forecast.html">התחזית היומית</a></li>
-        <li><a href="my-chart.html">המפה שלי</a></li>
+        <li><a href="my-chart.html" aria-current="page">המפה שלי</a></li>
         <li><a href="archive.html">הארכיון שלי</a></li>
         <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
         <li><a href="edit-mode.html">מצב עריכה</a></li>
