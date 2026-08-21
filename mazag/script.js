@@ -169,6 +169,15 @@
       range.addEventListener("input", render);
     });
 
+    // הגרירה פתוחה לכולם. רק השמירה תלויה במנוי, ולכן רק היא מתחלפת כאן
+    var lock = document.getElementById("weights-lock");
+    var controls = document.getElementById("weights-controls");
+    var pro = Mazag.isPro();
+    if (lock && controls && !pro) {
+      lock.hidden = false;
+      controls.hidden = true;
+    }
+
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       var button = form.querySelector("button[type=submit]");
@@ -180,6 +189,38 @@
         button.removeAttribute("aria-busy");
         toast("המשקולות נשמרו, הן יחולו על התחזית הבאה");
       }, 700);
+    });
+
+    render();
+  }
+
+  /* ---------- subscription: one flag, two faces ---------- */
+
+  function setupPlan() {
+    var toggle = document.getElementById("plan-toggle");
+    if (!toggle) return;
+
+    var badge = document.getElementById("plan-badge");
+    var title = document.getElementById("plan-title");
+    var note  = document.getElementById("plan-note");
+    var card  = document.getElementById("plan-status");
+
+    function render() {
+      var pro = Mazag.isPro();
+      if (card) card.classList.toggle("plan-card--pro", pro);
+      badge.textContent = pro ? "מנוי פעיל" : "מצב נוכחי";
+      title.textContent = pro ? "מנוי מזג" : "חשבון חינם";
+      note.textContent = pro
+        ? "השליטה במשקולות פתוחה. אפשר לשנות, לשמור, ולחזור אחורה."
+        : "את רואה את התחזית ואת המשקולות, ואת יכולה לגרור אותן ולראות מה קורה. השמירה סגורה.";
+      toggle.textContent = pro ? "ביטול המנוי לבדיקה" : "הפעלת מנוי לבדיקה";
+    }
+
+    toggle.addEventListener("click", function () {
+      var ok = Mazag.setPro(!Mazag.isPro());
+      if (!ok) return toast("לא הצלחנו לשמור במכשיר. אם הדפדפן במצב פרטי, זו הסיבה.");
+      render();
+      toast(Mazag.isPro() ? "המנוי פעיל, מסך המשקולות פתוח" : "המנוי בוטל");
     });
 
     render();
@@ -241,7 +282,7 @@
         existing.birth = birth.value;
         Mazag.saveProfile(existing);
         dialog.close();
-        window.location.href = "my-chart.html";
+        window.location.href = "profile.html";
         return;
       }
       dialog.close();
@@ -251,6 +292,23 @@
       if (current < steps.length - 1) { current++; render(); return; }
       finish();
     });
+
+    /* the extra-details link must not throw away a date already typed, and must
+       not leave onboarding armed to reopen on the next screen */
+    var more = document.getElementById("onboard-more");
+    if (more) {
+      more.addEventListener("click", function (event) {
+        event.preventDefault();
+        try { window.localStorage.setItem(SEEN_KEY, "1"); } catch (e) { /* private window */ }
+        if (birth && birth.value && Mazag.read(birth.value)) {
+          var existing = Mazag.loadProfile() || {};
+          existing.birth = birth.value;
+          Mazag.saveProfile(existing);
+        }
+        dialog.close();
+        window.location.href = "profile.html#details";
+      });
+    }
 
     back.addEventListener("click", function () {
       if (current > 0) { current--; render(); }
@@ -301,22 +359,103 @@
     });
   }
 
-  /* ---------- profile: the birth date ---------- */
+  /* ---------- the personal reading, shared by the profile and the chart ---------- */
+
+  /* the astrology and the chinese rows now carry the drawing for that exact sign
+     and that exact animal, instead of one generic icon standing in for twelve */
+  function chartRows(reading) {
+    return [
+      { icon: "assets/icons/sign-" + reading.sign.key + ".webp", kicker: "אסטרולוגיה",
+        title: "מזל " + reading.sign.he, meta: "יסוד " + reading.sign.element, text: reading.sign.text },
+      { icon: "assets/icons/method-numerology.webp", kicker: "נומרולוגיה",
+        title: "מספר " + reading.lifePath.number, meta: "מספר הדרך שלך", text: reading.lifePath.text },
+      { icon: "assets/icons/method-tarot.webp", kicker: "טארוט",
+        title: reading.card.name, meta: "קלף לידה " + reading.card.number, text: reading.card.text },
+      { icon: "assets/icons/cy-" + reading.chinese.key + ".webp", kicker: "אסטרולוגיה סינית",
+        title: "שנת ה" + reading.chinese.animal, meta: String(reading.chinese.year), text: reading.chinese.text }
+    ];
+  }
+
+  function renderChart(list, reading) {
+    list.innerHTML = "";
+    chartRows(reading).forEach(function (r) {
+      var li = document.createElement("li");
+      li.className = "chart-card";
+      var badge = r.icon
+        ? '<img class="chart-card__icon" src="' + r.icon + '" alt="" width="44" height="44" />'
+        : '<span class="chart-card__icon chart-card__icon--placeholder" aria-hidden="true"></span>';
+      li.innerHTML =
+        badge +
+        '<div class="chart-card__body">' +
+          '<span class="chart-card__kicker">' + r.kicker + "</span>" +
+          '<h2 class="chart-card__title">' + r.title + "</h2>" +
+          '<span class="chart-card__meta">' + r.meta + "</span>" +
+          '<p class="chart-card__text">' + r.text + "</p>" +
+        "</div>";
+      list.appendChild(li);
+    });
+  }
+
+  /* ---------- profile: two tabs, but only once there is something to show ---------- */
 
   function setupProfile() {
     var form = document.getElementById("profile-form");
     if (!form) return;
 
-    var name = document.getElementById("profile-name");
+    var name  = document.getElementById("profile-name");
     var birth = document.getElementById("profile-birth");
+    var time  = document.getElementById("profile-time");
+    var place = document.getElementById("profile-place");
     var error = document.getElementById("birth-error");
     var clear = document.getElementById("profile-clear");
 
-    var saved = Mazag.loadProfile();
-    if (saved) {
-      if (saved.name) name.value = saved.name;
-      if (saved.birth) birth.value = saved.birth;
+    var tabs        = document.getElementById("profile-tabs");
+    var tabForecast = document.getElementById("tab-forecast");
+    var tabDetails  = document.getElementById("tab-details");
+    var panForecast = document.getElementById("panel-forecast");
+    var panDetails  = document.getElementById("panel-details");
+    var chartList   = document.getElementById("profile-chart-list");
+    var lead        = document.getElementById("profile-lead");
+
+    function showTab(which) {
+      var wantForecast = which === "forecast";
+      tabForecast.classList.toggle("is-active", wantForecast);
+      tabDetails.classList.toggle("is-active", !wantForecast);
+      tabForecast.setAttribute("aria-selected", String(wantForecast));
+      tabDetails.setAttribute("aria-selected", String(!wantForecast));
+      panForecast.hidden = !wantForecast;
+      panDetails.hidden = wantForecast;
     }
+
+    /* the tabs only earn their place once a birth date exists, because before
+       that the forecast tab would open onto nothing */
+    function refresh(preferred) {
+      var saved = Mazag.loadProfile() || {};
+      var reading = saved.birth ? Mazag.read(saved.birth) : null;
+      if (!reading) {
+        tabs.hidden = true;
+        panForecast.hidden = true;
+        panDetails.hidden = false;
+        return;
+      }
+      renderChart(chartList, reading);
+      if (lead) {
+        lead.textContent = saved.name
+          ? saved.name + ", זו הקריאה הכללית שלך לפי " + reading.pretty
+          : "קריאה כללית לפי " + reading.pretty;
+      }
+      tabs.hidden = false;
+      showTab(preferred || (location.hash === "#details" ? "details" : "forecast"));
+    }
+
+    var saved = Mazag.loadProfile() || {};
+    if (saved.name)  name.value  = saved.name;
+    if (saved.birth) birth.value = saved.birth;
+    if (saved.time && time)   time.value  = saved.time;
+    if (saved.place && place) place.value = saved.place;
+
+    tabForecast.addEventListener("click", function () { showTab("forecast"); });
+    tabDetails.addEventListener("click", function () { showTab("details"); });
 
     function showError(message) {
       error.textContent = message;
@@ -342,11 +481,17 @@
       var now = new Date().getFullYear();
       if (year < 1900 || year > now) return showError("שנת הלידה צריכה להיות בין 1900 להיום.");
 
-      var ok = Mazag.saveProfile({ name: name.value.trim(), birth: birth.value });
+      var ok = Mazag.saveProfile({
+        name:  name.value.trim(),
+        birth: birth.value,
+        time:  time ? time.value : "",
+        place: place ? place.value.trim() : ""
+      });
       if (!ok) return showError("לא הצלחנו לשמור במכשיר. אם הדפדפן במצב פרטי, זו הסיבה.");
 
-      toast("נשמר. אפשר לראות את המפה שלך");
-      window.setTimeout(function () { window.location.href = "my-chart.html"; }, 900);
+      toast("נשמר");
+      refresh("forecast");
+      panForecast.scrollIntoView({ block: "start", behavior: "smooth" });
     });
 
     if (clear) {
@@ -354,19 +499,24 @@
         Mazag.saveProfile({});
         name.value = "";
         birth.value = "";
+        if (time) time.value = "";
+        if (place) place.value = "";
         clearError();
+        refresh("details");
         toast("הפרטים נמחקו מהמכשיר");
       });
     }
+
+    refresh();
   }
 
-  /* ---------- my chart: the general reading ---------- */
+  /* ---------- my chart: the same reading, on its own screen ---------- */
 
   function setupChart() {
-    var empty = document.getElementById("chart-empty");
+    var empty  = document.getElementById("chart-empty");
     var result = document.getElementById("chart-result");
-    var list = document.getElementById("chart-list");
-    var lead = document.getElementById("chart-lead");
+    var list   = document.getElementById("chart-list");
+    var lead   = document.getElementById("chart-lead");
     if (!empty || !result || !list) return;
 
     var profile = Mazag.loadProfile();
@@ -380,35 +530,7 @@
         ? profile.name + ", זו הקריאה הכללית שלך לפי " + reading.pretty
         : "קריאה כללית לפי " + reading.pretty;
     }
-
-    var rows = [
-      { icon: "assets/icons/method-astrology.webp", kicker: "אסטרולוגיה",
-        title: "מזל " + reading.sign.he, meta: "יסוד " + reading.sign.element, text: reading.sign.text },
-      { icon: "assets/icons/method-numerology.webp", kicker: "נומרולוגיה",
-        title: "מספר " + reading.lifePath.number, meta: "מספר הדרך שלך", text: reading.lifePath.text },
-      { icon: "assets/icons/method-tarot.webp", kicker: "טארוט",
-        title: reading.card.name, meta: "קלף לידה " + reading.card.number, text: reading.card.text },
-      { icon: null, kicker: "אסטרולוגיה סינית",
-        title: "שנת ה" + reading.chinese.animal, meta: String(reading.chinese.year), text: reading.chinese.text }
-    ];
-
-    list.innerHTML = "";
-    rows.forEach(function (r) {
-      var li = document.createElement("li");
-      li.className = "chart-card";
-      var badge = r.icon
-        ? '<img class="chart-card__icon" src="' + r.icon + '" alt="" width="44" height="44" />'
-        : '<span class="chart-card__icon chart-card__icon--placeholder" aria-hidden="true"></span>';
-      li.innerHTML =
-        badge +
-        '<div class="chart-card__body">' +
-          '<span class="chart-card__kicker">' + r.kicker + "</span>" +
-          '<h2 class="chart-card__title">' + r.title + "</h2>" +
-          '<span class="chart-card__meta">' + r.meta + "</span>" +
-          '<p class="chart-card__text">' + r.text + "</p>" +
-        "</div>";
-      list.appendChild(li);
-    });
+    renderChart(list, reading);
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -420,6 +542,7 @@
     setupProfile();
     setupChart();
     setupWeights();
+    setupPlan();
     setupArchive();
     setupSplash();
   });

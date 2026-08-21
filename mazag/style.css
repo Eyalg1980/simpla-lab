@@ -1348,6 +1348,137 @@ ul {
   margin: 0;
 }
 
+
+/* ---------- profile tabs ---------- */
+
+.tab-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.tab-panel[hidden] { display: none; }
+
+.form-section-note {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+  margin: 0;
+  padding-block-start: var(--space-sm);
+  border-block-start: 1px solid var(--color-border-base);
+}
+
+.onboard__more {
+  align-self: center;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ---------- the paywall, kept quiet on purpose ---------- */
+
+.lock-banner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-base);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+}
+
+.lock-banner[hidden] { display: none; }
+
+.lock-banner__text {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-caption);
+}
+
+.plan-card {
+  width: 100%;
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-base);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+/* an active plan is marked by the accent border, not by a colour swap, so the
+   card stays readable in both themes */
+.plan-card--pro {
+  border-color: var(--color-accent-deep);
+  border-width: 2px;
+}
+
+.plan-card__badge {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-label);
+  color: var(--color-text-muted);
+}
+
+.plan-card__title {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading-primary);
+  font-size: var(--font-size-h2);
+  color: var(--color-accent-deep);
+  margin: 0;
+}
+
+.plan-card__note {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.plan-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding-block: var(--space-sm);
+  border-block-end: 1px solid var(--color-border-base);
+}
+
+.plan-row:last-child { border-block-end: none; }
+
+.plan-row__what {
+  flex: 1 0 0;
+  min-width: 0;
+  color: var(--color-text-primary);
+}
+
+.plan-row__free,
+.plan-row__pro {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-label);
+  white-space: nowrap;
+  border-radius: var(--radius-full);
+  padding-inline: var(--space-sm);
+  padding-block: 2px;
+}
+
+.plan-row__free {
+  color: var(--color-status-success);
+  background-color: var(--color-status-success-bg);
+}
+
+.plan-row__pro {
+  color: var(--color-text-inverse);
+  background-color: var(--color-accent-deep);
+}
+
 /* ============================================================
    שכבת תנועה
    ------------------------------------------------------------

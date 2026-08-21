@@ -22,29 +22,59 @@
 
     <main class="content">
       <h1 class="screen-title screen-title--large">הפרופיל שלי</h1>
-      <p class="subtitle__lead">תאריך הלידה הוא מה שהופך את התחזית לשלך ולא לכללית</p>
+      <p class="subtitle__lead" id="profile-lead">תאריך הלידה הוא מה שהופך את התחזית לשלך ולא לכללית</p>
 
-      <form class="form" id="profile-form" novalidate>
-        <div class="field">
-          <label class="field__label" for="profile-name">איך לקרוא לך</label>
-          <input class="field__input" type="text" id="profile-name" name="name"
-                 autocomplete="given-name" placeholder="מאיה" />
-        </div>
+      <!-- הטאבים מופיעים רק אחרי שיש תאריך לידה, כי לפני זה אין תחזית להראות -->
+      <div class="tabs" id="profile-tabs" hidden>
+        <button type="button" class="tabs__item is-active" id="tab-forecast" data-panel="panel-forecast">תחזית</button>
+        <button type="button" class="tabs__item" id="tab-details" data-panel="panel-details">פרטים</button>
+      </div>
 
-        <div class="field">
-          <label class="field__label" for="profile-birth">תאריך לידה</label>
-          <input class="field__input" type="date" id="profile-birth" name="birth"
-                 required max="2026-12-31" min="1900-01-01"
-                 aria-describedby="birth-help" />
-          <p class="field__help" id="birth-help">נשמר במכשיר שלך בלבד. אפשר למחוק בכל רגע.</p>
-          <p class="form-error" id="birth-error" role="alert" hidden></p>
-        </div>
+      <section class="tab-panel" id="panel-forecast" hidden>
+        <ul class="chart-list" id="profile-chart-list"></ul>
+        <p class="edit-mode-card__note">הקריאה הזו קבועה ולא זזה מיום ליום. מה שזז הוא התחזית היומית.</p>
+        <a class="button-secondary" href="daily-forecast.html">לתחזית של היום</a>
+      </section>
 
-        <div class="content__spacer"></div>
+      <section class="tab-panel" id="panel-details">
+        <form class="form" id="profile-form" novalidate>
+          <div class="field">
+            <label class="field__label" for="profile-name">איך לקרוא לך</label>
+            <input class="field__input" type="text" id="profile-name" name="name"
+                   autocomplete="given-name" placeholder="מאיה" />
+          </div>
 
-        <button type="submit" class="button-primary">שמרי והמשיכי</button>
-        <button type="button" class="button-secondary button-secondary--quiet" id="profile-clear">מחקי את הפרטים שלי</button>
-      </form>
+          <div class="field">
+            <label class="field__label" for="profile-birth">תאריך לידה</label>
+            <input class="field__input" type="date" id="profile-birth" name="birth"
+                   required max="2026-12-31" min="1900-01-01"
+                   aria-describedby="birth-help" />
+            <p class="field__help" id="birth-help">נשמר במכשיר שלך בלבד. אפשר למחוק בכל רגע.</p>
+            <p class="form-error" id="birth-error" role="alert" hidden></p>
+          </div>
+
+          <p class="form-section-note">שני השדות הבאים לא חובה. הם מדייקים את החלק האסטרולוגי, ובלעדיהם התחזית עדיין עובדת.</p>
+
+          <div class="field">
+            <label class="field__label" for="profile-time">שעת לידה</label>
+            <input class="field__input" type="time" id="profile-time" name="time"
+                   aria-describedby="time-help" />
+            <p class="field__help" id="time-help">קובעת את מזל האופק ואת מיקומי הבתים</p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="profile-place">מקום לידה</label>
+            <input class="field__input" type="text" id="profile-place" name="place"
+                   autocomplete="off" placeholder="חיפה" aria-describedby="place-help" />
+            <p class="field__help" id="place-help">קובע את קו האורך והרוחב לחישוב</p>
+          </div>
+
+          <div class="content__spacer"></div>
+
+          <button type="submit" class="button-primary">שמרי והמשיכי</button>
+          <button type="button" class="button-secondary button-secondary--quiet" id="profile-clear">מחקי את הפרטים שלי</button>
+        </form>
+      </section>
     </main>
   </div>
 
@@ -65,6 +95,7 @@
         <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
         <li><a href="edit-mode.html">מצב עריכה</a></li>
         <li><a href="profile.html" aria-current="page">הפרופיל שלי</a></li>
+        <li><a href="subscription.html">המנוי שלי</a></li>
         <li><a href="splash.html">מסך טעינה</a></li>
         <li><a href="guest-view.html">צפייה מקישור</a></li>
       </ul>
@@ -100,6 +131,7 @@
             <input class="field__input" type="date" id="onboard-birth" name="birth" max="2026-12-31" min="1900-01-01" />
             <p class="field__help">נשמר במכשיר שלך בלבד. אפשר לדלג ולהוסיף אחר כך.</p>
           </div>
+          <a class="text-link onboard__more" href="profile.html#details" id="onboard-more">מילוי פרטים נוספים</a>
         </section>
 
       <div class="onboard__footer">

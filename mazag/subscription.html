@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>אינטואיציה, מזג</title>
+  <title>המנוי שלי, מזג</title>
   <meta name="description" content="מזג, תחזית יומית ויזואלית שמאחדת אסטרולוגיה, נומרולוגיה, טארוט, אי צ׳ינג ואינטואיציה לתמונה אחת וטקסט אחד." />
   <link rel="icon" href="assets/icons/app-icon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,66 +20,55 @@
       <img class="app-header__logo" src="assets/images/logo-new.webp" alt="מזג" width="122" height="45" />
     </header>
 
-    <main class="content content--article">
-      <a class="back-link" href="methods.html">
-        <span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></span>
-        <span>כל השיטות</span>
-      </a>
+    <main class="content">
+      <h1 class="screen-title screen-title--large">המנוי שלי</h1>
+      <p class="subtitle__lead">התחזית עצמה חינם. מה שהמנוי פותח הוא השליטה על איך היא מורכבת</p>
 
-      <img class="method-hero" src="assets/images/method-intuition-hero.webp" alt="איור בסגנון עתיק עבור אינטואיציה" width="342" height="228" />
+      <div class="plan-card" id="plan-status">
+        <span class="plan-card__badge" id="plan-badge">מצב נוכחי</span>
+        <h2 class="plan-card__title" id="plan-title">חשבון חינם</h2>
+        <p class="plan-card__note" id="plan-note">את רואה את התחזית ואת המשקולות, ואת יכולה לגרור אותן ולראות מה קורה. השמירה סגורה.</p>
+      </div>
 
-      <header class="article__head">
-        <span class="article__kicker">6% מהתחזית שלך</span>
-        <h1 class="screen-title screen-title--large">אינטואיציה</h1>
-        <p class="article__essence">המשקל שנשמר בכוונה למה שלא נכנס לנוסחה</p>
-      </header>
+      <ul class="plan-list">
+        <li class="plan-row">
+          <span class="plan-row__what">התחזית היומית, התמונה והטקסט</span>
+          <span class="plan-row__free">חינם</span>
+        </li>
+        <li class="plan-row">
+          <span class="plan-row__what">דפי ההסבר של שש השיטות</span>
+          <span class="plan-row__free">חינם</span>
+        </li>
+        <li class="plan-row">
+          <span class="plan-row__what">המפה האישית לפי תאריך הלידה</span>
+          <span class="plan-row__free">חינם</span>
+        </li>
+        <li class="plan-row">
+          <span class="plan-row__what">הארכיון של התחזיות שלך</span>
+          <span class="plan-row__free">חינם</span>
+        </li>
+        <li class="plan-row plan-row--pro">
+          <span class="plan-row__what">שמירת משקולות משלך לכל שיטה</span>
+          <span class="plan-row__pro">מנוי</span>
+        </li>
+        <li class="plan-row plan-row--pro">
+          <span class="plan-row__what">כמה סטים של משקולות למצבים שונים</span>
+          <span class="plan-row__pro">מנוי</span>
+        </li>
+        <li class="plan-row plan-row--pro">
+          <span class="plan-row__what">היסטוריית השינויים והחזרה אחורה</span>
+          <span class="plan-row__pro">מנוי</span>
+        </li>
+      </ul>
 
-      <section class="article__section">
-        <h2 class="article__h2">מה זה</h2>
-        <p class="article__p">זו לא שיטה עתיקה, וזה בכוונה. שישה אחוזים מהתחזית נשארים בלי חישוב, כמרווח לניסוח, לבחירת הדימוי ולתחושה הכללית של היום.</p>
-      </section>
+      <p class="subtitle__note">המחיר עדיין לא נקבע. הכפתור כאן מדמה מנוי פעיל כדי שאפשר יהיה לראות את שני המצבים.</p>
 
-      <section class="article__section">
-        <h2 class="article__h2">מאיפה זה מגיע</h2>
-        <p class="article__p">המרכיב הזה נוסף על ידינו ולא נלקח משום מסורת. הוא קיים כי תחזית שמורכבת מחישוב בלבד נקראת כמו דוח, ולא כמו משהו שנכתב לאדם.</p>
-      </section>
+      <div class="content__spacer"></div>
 
-      <section class="article__section">
-        <h2 class="article__h2">מה זה קורא</h2>
-        <p class="article__p">הוא לא קורא נתון. הוא משפיע על הבחירה של המילים, על אורך הפסקה ועל הדימוי שנבחר.</p>
-      </section>
-
-      <section class="article__section">
-        <h2 class="article__h2">מה זה תורם לתחזית שלך</h2>
-        <p class="article__p">זה מה שגורם לשתי תחזיות עם בדיוק אותם נתונים להישמע קצת אחרת. בלעדיו כל הימים היו מרגישים אותו דבר.</p>
-        <div class="weight-bar">
-          <div class="weight-bar__track" role="img" aria-label="6 אחוז מהתחזית">
-            <div class="weight-bar__fill" style="inline-size: 6%"></div>
-          </div>
-          <span class="weight-bar__value">6%</span>
-        </div>
-      </section>
-
-      <section class="article__section">
-        <h2 class="article__h2">מונחים</h2>
-        <dl class="glossary">
-          <div class="glossary__item">
-            <dt class="glossary__term">מרווח פרשנות</dt>
-            <dd class="glossary__def">החלק שלא נקבע על ידי נתון אלא על ידי ניסוח</dd>
-          </div>
-          <div class="glossary__item">
-            <dt class="glossary__term">בחירת דימוי</dt>
-            <dd class="glossary__def">ההחלטה איזו תמונה מלווה את הטקסט של היום</dd>
-          </div>
-        </dl>
-      </section>
-
-      <section class="article__section article__section--caution">
-        <h2 class="article__h2">מה זה לא</h2>
-        <p class="article__p">זה החלק הכי פחות שקוף מבין השישה, ובדיוק בגלל זה נתנו לו את המשקל הקטן ביותר. ככל שהחלק הזה גדל, כך קשה יותר להסביר מאיפה התחזית הגיעה.</p>
-      </section>
-
-      <a class="button-secondary" href="edit-mode.html">לשנות את המשקל של אינטואיציה</a>
+      <div class="controls">
+        <button type="button" class="button-primary" id="plan-toggle">הפעלת מנוי לבדיקה</button>
+        <a class="button-secondary button-secondary--quiet" href="edit-mode.html">למסך המשקולות</a>
+      </div>
     </main>
   </div>
 
@@ -95,12 +84,12 @@
         <li><a href="explain.html">איך זה עובד</a></li>
         <li><a href="daily-forecast.html">התחזית היומית</a></li>
         <li><a href="my-chart.html">המפה שלי</a></li>
-        <li><a href="methods.html" aria-current="page">השיטות</a></li>
+        <li><a href="methods.html">השיטות</a></li>
         <li><a href="archive.html">הארכיון שלי</a></li>
         <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
         <li><a href="edit-mode.html">מצב עריכה</a></li>
         <li><a href="profile.html">הפרופיל שלי</a></li>
-        <li><a href="subscription.html">המנוי שלי</a></li>
+        <li><a href="subscription.html" aria-current="page">המנוי שלי</a></li>
         <li><a href="splash.html">מסך טעינה</a></li>
         <li><a href="guest-view.html">צפייה מקישור</a></li>
       </ul>

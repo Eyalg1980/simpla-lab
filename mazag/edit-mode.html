@@ -102,9 +102,16 @@
 
         <p class="edit-mode-card__note">השינויים יחולו על התחזית הבאה, לא על זו שכבר ראית היום.</p>
 
+        <!-- הגרירה פתוחה לכולם בכוונה. מה שסגור הוא השמירה, כדי שאפשר יהיה
+             להרגיש את הערך לפני שמחליטים לשלם עליו -->
+        <div class="lock-banner" id="weights-lock" hidden>
+          <p class="lock-banner__text">אפשר לגרור ולראות איך זה משנה את התמונה. שמירת המשקולות פתוחה למנויים.</p>
+          <a class="button-primary" href="subscription.html">לפתיחת השליטה במשקולות</a>
+        </div>
+
         <div class="content__spacer"></div>
 
-        <div class="controls">
+        <div class="controls" id="weights-controls">
           <a class="button-secondary" href="behind-the-scenes.html">בטל</a>
           <button type="submit" class="button-primary">שמור שינויים</button>
         </div>
@@ -129,6 +136,7 @@
         <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
         <li><a href="edit-mode.html" aria-current="page">מצב עריכה</a></li>
         <li><a href="profile.html">הפרופיל שלי</a></li>
+        <li><a href="subscription.html">המנוי שלי</a></li>
         <li><a href="splash.html">מסך טעינה</a></li>
         <li><a href="guest-view.html">צפייה מקישור</a></li>
       </ul>
@@ -164,6 +172,7 @@
             <input class="field__input" type="date" id="onboard-birth" name="birth" max="2026-12-31" min="1900-01-01" />
             <p class="field__help">נשמר במכשיר שלך בלבד. אפשר לדלג ולהוסיף אחר כך.</p>
           </div>
+          <a class="text-link onboard__more" href="profile.html#details" id="onboard-more">מילוי פרטים נוספים</a>
         </section>
 
       <div class="onboard__footer">

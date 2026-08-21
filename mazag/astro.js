@@ -96,23 +96,23 @@ var Mazag = (function () {
   /* ---------- Chinese zodiac ---------- */
 
   var ANIMALS = [
-    ["עכבר", "פיקחות ותושייה, קוראת מצבים מהר"],
-    ["שור", "סבלנות ועקשנות, מסיימת מה שהתחילה"],
-    ["נמר", "אומץ ותנופה, לא אוהבת גבולות"],
-    ["ארנב", "עדינות וזהירות, נמנעת מעימות"],
-    ["דרקון", "נוכחות גדולה, מושכת תשומת לב"],
-    ["נחש", "חוכמה שקטה, שומרת קלפים קרוב"],
-    ["סוס", "חופש ותנועה, קשה לה לשבת במקום"],
-    ["עז", "רכות ויצירתיות, צריכה סביבה בטוחה"],
-    ["קוף", "שנינות והמצאה, פותרת בדרכים לא צפויות"],
-    ["תרנגול", "דיוק וכנות, אומרת את זה כמו שזה"],
-    ["כלב", "נאמנות וצדק, לוקחת דברים ללב"],
-    ["חזיר", "נדיבות ותום, נותנת בלי לספור"]
+    ["עכבר", "פיקחות ותושייה, קוראת מצבים מהר", "rat"],
+    ["שור", "סבלנות ועקשנות, מסיימת מה שהתחילה", "ox"],
+    ["נמר", "אומץ ותנופה, לא אוהבת גבולות", "tiger"],
+    ["ארנב", "עדינות וזהירות, נמנעת מעימות", "rabbit"],
+    ["דרקון", "נוכחות גדולה, מושכת תשומת לב", "dragon"],
+    ["נחש", "חוכמה שקטה, שומרת קלפים קרוב", "snake"],
+    ["סוס", "חופש ותנועה, קשה לה לשבת במקום", "horse"],
+    ["עז", "רכות ויצירתיות, צריכה סביבה בטוחה", "goat"],
+    ["קוף", "שנינות והמצאה, פותרת בדרכים לא צפויות", "monkey"],
+    ["תרנגול", "דיוק וכנות, אומרת את זה כמו שזה", "rooster"],
+    ["כלב", "נאמנות וצדק, לוקחת דברים ללב", "dog"],
+    ["חזיר", "נדיבות ותום, נותנת בלי לספור", "pig"]
   ];
 
   function chineseZodiac(year) {
     var idx = ((year - 2020) % 12 + 12) % 12;
-    return { animal: ANIMALS[idx][0], text: ANIMALS[idx][1], year: year };
+    return { animal: ANIMALS[idx][0], text: ANIMALS[idx][1], key: ANIMALS[idx][2], year: year };
   }
 
   /* ---------- tarot birth card ---------- */
@@ -197,10 +197,33 @@ var Mazag = (function () {
     }
   }
 
+  /* ---------- subscription flag ----------
+     אין כאן חיוב אמיתי. זהו דגל מקומי שמדמה מנוי פעיל, כדי שאפשר יהיה
+     לבדוק את שני מצבי המסך בלי שרת ובלי ספק תשלומים. */
+
+  var PRO_KEY = "mazag.pro";
+
+  function isPro() {
+    try { return window.localStorage.getItem(PRO_KEY) === "1"; }
+    catch (e) { return false; }
+  }
+
+  function setPro(on) {
+    try {
+      if (on) window.localStorage.setItem(PRO_KEY, "1");
+      else window.localStorage.removeItem(PRO_KEY);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
   return {
     read: read,
     loadProfile: loadProfile,
     saveProfile: saveProfile,
+    isPro: isPro,
+    setPro: setPro,
     reduceNumber: reduceNumber
   };
 })();
