@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מצב עריכה, מזג</title>
+  <meta name="description" content="מזג, תחזית יומית ויזואלית שמאחדת אסטרולוגיה, נומרולוגיה, טארוט, אי צ׳ינג ואינטואיציה לתמונה אחת וטקסט אחד." />
+  <link rel="icon" href="assets/icons/app-icon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;600&family=Assistant:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="screen">
+    <header class="app-header">
+      <button type="button" class="icon-button" id="menu-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-drawer" aria-label="פתח תפריט">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      </button>
+      <img class="app-header__logo" src="assets/images/logo-new.webp" alt="מזג" width="122" height="45" />
+    </header>
+
+    <main class="content">
+      <h1 class="screen-title screen-title--large">מצב עריכה</h1>
+      <p class="subtitle__lead">גררי כדי לשנות את המשקל של כל שיטה</p>
+
+      <form id="weights-form">
+        <ul class="method-list">
+        <li class="method-row">
+          <img class="method-row__icon" src="assets/icons/method-astrology.webp" alt="" width="36" height="36" />
+          <div class="method-row__body">
+            <div class="method-row__header">
+              <span class="method-row__name">אסטרולוגיה</span>
+              <output class="method-row__pct" for="m0">25%</output>
+            </div>
+            <input class="method-row__range" type="range" id="m0" name="m0"
+                   min="0" max="50" step="5" value="25"
+                   aria-label="משקל עבור אסטרולוגיה" />
+          </div>
+        </li>
+        <li class="method-row">
+          <img class="method-row__icon" src="assets/icons/method-numerology.webp" alt="" width="36" height="36" />
+          <div class="method-row__body">
+            <div class="method-row__header">
+              <span class="method-row__name">נומרולוגיה</span>
+              <output class="method-row__pct" for="m1">20%</output>
+            </div>
+            <input class="method-row__range" type="range" id="m1" name="m1"
+                   min="0" max="50" step="5" value="20"
+                   aria-label="משקל עבור נומרולוגיה" />
+          </div>
+        </li>
+        <li class="method-row">
+          <img class="method-row__icon" src="assets/icons/method-tarot.webp" alt="" width="36" height="36" />
+          <div class="method-row__body">
+            <div class="method-row__header">
+              <span class="method-row__name">טארוט</span>
+              <output class="method-row__pct" for="m2">20%</output>
+            </div>
+            <input class="method-row__range" type="range" id="m2" name="m2"
+                   min="0" max="50" step="5" value="20"
+                   aria-label="משקל עבור טארוט" />
+          </div>
+        </li>
+        <li class="method-row">
+          <img class="method-row__icon" src="assets/icons/method-iching.webp" alt="" width="36" height="36" />
+          <div class="method-row__body">
+            <div class="method-row__header">
+              <span class="method-row__name">אי צ׳ינג</span>
+              <output class="method-row__pct" for="m3">15%</output>
+            </div>
+            <input class="method-row__range" type="range" id="m3" name="m3"
+                   min="0" max="50" step="5" value="15"
+                   aria-label="משקל עבור אי צ׳ינג" />
+          </div>
+        </li>
+        <li class="method-row">
+          <span class="method-row__icon method-row__icon--placeholder" aria-hidden="true"></span>
+          <div class="method-row__body">
+            <div class="method-row__header">
+              <span class="method-row__name">רונות</span>
+              <output class="method-row__pct" for="m4">10%</output>
+            </div>
+            <input class="method-row__range" type="range" id="m4" name="m4"
+                   min="0" max="50" step="5" value="10"
+                   aria-label="משקל עבור רונות" />
+          </div>
+        </li>
+        <li class="method-row">
+          <img class="method-row__icon" src="assets/icons/method-intuition.webp" alt="" width="36" height="36" />
+          <div class="method-row__body">
+            <div class="method-row__header">
+              <span class="method-row__name">אינטואיציה</span>
+              <output class="method-row__pct" for="m5">10%</output>
+            </div>
+            <input class="method-row__range" type="range" id="m5" name="m5"
+                   min="0" max="50" step="5" value="10"
+                   aria-label="משקל עבור אינטואיציה" />
+          </div>
+        </li>
+        </ul>
+
+        <p class="edit-mode-card__note">השינויים יחולו על התחזית הבאה, לא על זו שכבר ראית היום.</p>
+
+        <div class="content__spacer"></div>
+
+        <div class="controls">
+          <a class="button-secondary" href="behind-the-scenes.html">בטל</a>
+          <button type="submit" class="button-primary">שמור שינויים</button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <!-- ניווט: dialog אמיתי, כדי לקבל לכידת פוקוס, Escape וסגירה נכונה בלי לכתוב אותן ביד -->
+  <dialog class="nav-drawer" id="nav-drawer" aria-label="ניווט ראשי">
+    <nav class="nav-drawer__panel">
+      <button type="button" class="icon-button nav-drawer__close" id="menu-close" aria-label="סגור תפריט">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+      <h2 class="nav-drawer__title">מזג</h2>
+      <ul class="nav-drawer__list">
+        <li><a href="index.html">פתיחה</a></li>
+        <li><a href="explain.html">איך זה עובד</a></li>
+        <li><a href="splash.html">מסך טעינה</a></li>
+        <li><a href="daily-forecast.html">התחזית היומית</a></li>
+        <li><a href="archive.html">הארכיון שלי</a></li>
+        <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
+        <li><a href="edit-mode.html" aria-current="page">מצב עריכה</a></li>
+        <li><a href="guest-view.html">צפייה מקישור</a></li>
+      </ul>
+    </nav>
+  </dialog>
+
+  <!-- אזור הודעות: קורא מסך שומע כל אישור, גם כשהוא רק ויזואלי -->
+  <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

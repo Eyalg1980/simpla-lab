@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מזג</title>
+  <meta name="description" content="מזג, תחזית יומית ויזואלית שמאחדת אסטרולוגיה, נומרולוגיה, טארוט, אי צ׳ינג ואינטואיציה לתמונה אחת וטקסט אחד." />
+  <link rel="icon" href="assets/icons/app-icon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;600&family=Assistant:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="screen">
+    <header class="app-header">
+      <button type="button" class="icon-button" id="menu-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-drawer" aria-label="פתח תפריט">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      </button>
+      <img class="app-header__logo" src="assets/images/logo-new.webp" alt="מזג" width="122" height="45" />
+    </header>
+
+    <main class="content content--centered content--raised">
+      <img class="splash__logo" src="assets/images/logo-new.webp" alt="מזג" width="240" height="88" />
+      <p class="splash__date">שלישי, 21.05.2025</p>
+      <div class="splash__loader" role="status" aria-label="טוען את התחזית">
+        <span></span><span></span><span></span>
+      </div>
+      <noscript><a class="text-link-plain" href="daily-forecast.html">המשיכי לתחזית</a></noscript>
+    </main>
+  </div>
+
+  <!-- ניווט: dialog אמיתי, כדי לקבל לכידת פוקוס, Escape וסגירה נכונה בלי לכתוב אותן ביד -->
+  <dialog class="nav-drawer" id="nav-drawer" aria-label="ניווט ראשי">
+    <nav class="nav-drawer__panel">
+      <button type="button" class="icon-button nav-drawer__close" id="menu-close" aria-label="סגור תפריט">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+      <h2 class="nav-drawer__title">מזג</h2>
+      <ul class="nav-drawer__list">
+        <li><a href="index.html">פתיחה</a></li>
+        <li><a href="explain.html">איך זה עובד</a></li>
+        <li><a href="splash.html" aria-current="page">מסך טעינה</a></li>
+        <li><a href="daily-forecast.html">התחזית היומית</a></li>
+        <li><a href="archive.html">הארכיון שלי</a></li>
+        <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
+        <li><a href="edit-mode.html">מצב עריכה</a></li>
+        <li><a href="guest-view.html">צפייה מקישור</a></li>
+      </ul>
+    </nav>
+  </dialog>
+
+  <!-- אזור הודעות: קורא מסך שומע כל אישור, גם כשהוא רק ויזואלי -->
+  <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

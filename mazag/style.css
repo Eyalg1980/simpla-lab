@@ -1,0 +1,1104 @@
+/* ============================================================
+   מזג — style.css
+   Every value below comes from a custom property in :root, and
+   those properties mirror the Figma variable collections
+   one-to-one (color, typography, spacing, radius).
+   No magic numbers in the rules.
+   ============================================================ */
+
+:root {
+  /* color/surface */
+  --color-surface-base: #faf6f3;
+  --color-surface-raised: #f2ede6;
+  --color-surface-dark: #121827;
+
+  /* color/border */
+  --color-border-base: #dcceb7;
+
+  /* color/accent */
+  --color-accent-base: #a1937a;
+  --color-accent-deep: #3c2f26;
+  --color-accent-blue: #b4b0ca;
+  --color-accent-pink: #e0a5a4;
+  --color-accent-navy: #212839;
+
+  /* color/text */
+  --color-text-primary: #171f1c;
+  --color-text-secondary: #5e564b;
+  --color-text-muted: #8a816f;
+  --color-text-inverse: #faf6f3;
+
+  /* color/status */
+  --color-status-success: #3e7d5c;
+  --color-status-success-bg: #e7efe6;
+  --color-status-error: #b5453f;
+  --color-status-error-bg: #f5e8e6;
+
+  /* typography/family */
+  --font-family-heading: "Frank Ruhl Libre", Georgia, serif;
+  --font-family-body: "Assistant", Arial, sans-serif;
+
+  /* typography/weight */
+  --font-weight-heading-primary: 600;
+  --font-weight-heading-secondary: 500;
+  --font-weight-body: 400;
+  --font-weight-label: 600;
+
+  /* typography/size */
+  --font-size-h1: 28px;
+  --font-size-h2: 20px;
+  --font-size-body: 16px;
+  --font-size-caption: 13px;
+
+  /* spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
+
+  /* layout, derived from the Figma frame width */
+  --screen-max: 480px;
+  --header-height: 78px;
+  --icon-size: 24px;
+  --method-icon-size: 36px;
+  --action-size: 82px;
+}
+
+/* ---------- reset ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-surface-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-body);
+  font-size: var(--font-size-body);
+  line-height: 1.5;
+  min-width: 320px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-base);
+  outline-offset: 2px;
+}
+
+/* ---------- layout shell ---------- */
+
+.screen {
+  max-width: var(--screen-max);
+  margin-inline: auto;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface-base);
+}
+
+.app-header {
+  background-color: var(--color-surface-raised);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--space-lg);
+  padding-block: var(--space-md);
+  min-height: var(--header-height);
+  flex-shrink: 0;
+}
+
+.app-header__logo {
+  height: 45px;
+  width: auto;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: var(--space-xs);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-navy);
+  border-radius: var(--radius-sm);
+}
+
+.icon-button svg {
+  width: 30px;
+  height: 30px;
+  stroke: currentColor;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  width: 100%;
+  flex: 1 0 auto;
+}
+
+.content--centered {
+  justify-content: center;
+}
+
+.content--raised {
+  background-color: var(--color-surface-raised);
+}
+
+/* pushes whatever follows it to the bottom of the screen */
+.content__spacer {
+  flex: 1 1 auto;
+  min-height: var(--space-md);
+  width: 100%;
+}
+
+/* ---------- nav drawer ----------
+   The box and the motion for this live together in the motion layer at the
+   bottom of this file, because it is a <dialog> and its open state,
+   backdrop and entry transition are one unit. Only the inner typography
+   and list styling stay here. */
+
+.nav-drawer__title {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading-primary);
+  font-size: var(--font-size-h2);
+  margin: 0;
+}
+
+.nav-drawer__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.nav-drawer__list a {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-label);
+}
+
+.nav-drawer__list a[aria-current="page"] {
+  background-color: var(--color-surface-base);
+  border: 1px solid var(--color-border-base);
+}
+
+.nav-drawer__close {
+  align-self: flex-end;
+}
+
+/* ---------- typography helpers ---------- */
+
+.screen-title {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading-primary);
+  font-size: var(--font-size-h2);
+  text-align: center;
+  margin: 0;
+}
+
+.screen-title--large {
+  font-size: var(--font-size-h1);
+  color: var(--color-accent-deep);
+}
+
+.lead {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading-secondary);
+  font-size: var(--font-size-h2);
+  color: var(--color-accent-deep);
+  text-align: center;
+  margin: 0;
+}
+
+.body-copy {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body);
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
+.subtitle__lead {
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
+.subtitle__note {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
+/* ---------- buttons ---------- */
+
+.button-primary {
+  background-color: var(--color-surface-dark);
+  color: var(--color-text-inverse);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--space-md) var(--space-lg);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-label);
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+
+.button-secondary {
+  background-color: var(--color-surface-base);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-base);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md) var(--space-lg);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-label);
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+
+/* the entry into edit mode is deliberately quiet, it is not a core path */
+.button-secondary--quiet {
+  background: none;
+  border-color: transparent;
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-body);
+  text-decoration: underline;
+  text-underline-offset: var(--space-xs);
+}
+
+.text-link-plain {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body);
+  text-decoration: none;
+  padding: var(--space-xs);
+}
+
+/* ---------- cards ---------- */
+
+.card {
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-accent-base);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+  text-align: start;
+}
+
+.card__title {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading-secondary);
+  font-size: var(--font-size-h2);
+  margin: 0;
+}
+
+.card__body {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body);
+  margin: 0;
+}
+
+/* ---------- onboarding ---------- */
+
+.brand-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.brand-block__logo {
+  width: 232px;
+  height: auto;
+}
+
+.dots {
+  display: flex;
+  gap: var(--space-xs);
+  align-items: center;
+}
+
+/* The dot itself is the inner <span>; the button around it only carries the
+   44x44 touch target. Both are defined in the motion layer below. */
+.dots__item {
+  border: none;
+}
+
+/* ---------- splash ---------- */
+
+.splash__logo {
+  width: 240px;
+  height: auto;
+}
+
+.splash__date {
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.splash__loader {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.splash__loader span {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-base);
+}
+
+.splash__loader span:nth-child(2) {
+  opacity: 0.6;
+}
+
+.splash__loader span:nth-child(3) {
+  opacity: 0.3;
+}
+
+/* ---------- daily forecast ---------- */
+
+.forecast__date {
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-label);
+  margin: 0;
+}
+
+.hero-card {
+  width: 244px;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-base);
+}
+
+.hero-card--small {
+  width: 206px;
+}
+
+.actions-row {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: center;
+  justify-content: center;
+}
+
+.action-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-text-primary);
+}
+
+.action-button__surface {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--action-size);
+  height: 70px;
+  background-color: var(--color-surface-base);
+  border: 1px solid var(--color-border-base);
+  border-radius: var(--radius-lg);
+}
+
+.action-button__label {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-label);
+}
+
+.action-button svg {
+  width: 30px;
+  height: 30px;
+}
+
+.action-button[aria-pressed="true"] svg {
+  fill: var(--color-status-error);
+  stroke: var(--color-status-error);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-border-base);
+  border: none;
+  margin: 0;
+}
+
+.behind-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-label);
+  text-decoration: none;
+}
+
+.behind-link svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+/* ---------- archive ---------- */
+
+.tabs {
+  display: flex;
+  gap: var(--space-sm);
+  width: 100%;
+  overflow-x: auto;
+  padding-block-end: var(--space-xs);
+}
+
+.tabs__item {
+  background-color: var(--color-surface-base);
+  border: 1px solid var(--color-border-base);
+  border-radius: var(--radius-full);
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-label);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tabs__item.is-active {
+  background-color: var(--color-surface-dark);
+  border-color: var(--color-surface-dark);
+  color: var(--color-text-inverse);
+}
+
+.archive {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.archive__item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  text-decoration: none;
+}
+
+.archive__item img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-base);
+}
+
+.archive__date {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+}
+
+.archive__empty {
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin: 0;
+  padding: var(--space-lg);
+}
+
+/* ---------- method weights, shared by behind-the-scenes and edit mode ---------- */
+
+.method-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.method-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-base);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
+  width: 100%;
+}
+
+.method-row__icon {
+  width: var(--method-icon-size);
+  height: var(--method-icon-size);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.method-row__icon--placeholder {
+  background-color: var(--color-accent-base);
+  display: block;
+}
+
+.method-row__body {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.method-row__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.method-row__name {
+  font-weight: var(--font-weight-body);
+}
+
+.method-row__pct {
+  font-weight: var(--font-weight-label);
+}
+
+.method-row__track {
+  height: 6px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-border-base);
+  overflow: hidden;
+}
+
+.method-row__fill {
+  height: 100%;
+  background-color: var(--color-accent-blue);
+  border-radius: var(--radius-full);
+}
+
+.method-row__lock {
+  flex-shrink: 0;
+  color: var(--color-text-primary);
+}
+
+.method-row__lock svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+/* real range input, styled to match the read-only meter above */
+
+.method-row__range {
+  --travelled: 0%;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: var(--radius-full);
+  /* the track is painted here rather than on ::-webkit-slider-runnable-track,
+     so the filled portion matches the read-only meter on the previous screen */
+  background-image: linear-gradient(
+    to left,
+    var(--color-accent-blue) 0 var(--travelled),
+    var(--color-border-base) var(--travelled) 100%
+  );
+  background-color: var(--color-border-base);
+  margin: var(--space-xs) 0;
+}
+
+.method-row__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: var(--space-md);
+  height: var(--space-md);
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-base);
+  border: 2px solid var(--color-accent-blue);
+  cursor: pointer;
+}
+
+.method-row__range::-moz-range-thumb {
+  width: var(--space-md);
+  height: var(--space-md);
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-base);
+  border: 2px solid var(--color-accent-blue);
+  cursor: pointer;
+}
+
+.edit-mode-card__note {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+  text-align: center;
+  margin: var(--space-md) 0 0;
+}
+
+#weights-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.controls {
+  display: flex;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.controls > * {
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+/* ---------- guest route ---------- */
+
+.install-banner {
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-base);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  text-align: center;
+}
+
+.install-banner__title {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading-secondary);
+  font-size: var(--font-size-h2);
+  margin: 0;
+}
+
+.install-banner__note {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+  margin: 0;
+}
+
+/* ---------- narrow phones ---------- */
+
+@media (max-width: 359px) {
+  .content {
+    padding: var(--space-md);
+  }
+
+  .actions-row {
+    gap: var(--space-lg);
+  }
+}
+
+@media (min-width: 480px) {
+  .screen {
+    border-inline: 1px solid var(--color-border-base);
+  }
+}
+
+/* ============================================================
+   שכבת תנועה
+   ------------------------------------------------------------
+   הגזירה מהסטייל גייד של מזג:
+     רדיוס פינות  --radius-lg = 16px, מעל 13     = 3
+     טיפוגרפיה    Frank Ruhl Libre, סריף         = 4
+     פלטה         פרגמנט עמום, שלושה גוונים ומעלה = 3
+     קטגוריה      ריטואל יומי מונחה תמונה         = 4
+   סכום 14, ממוצע 3.5, ולכן הארכיטיפ הוא "יוקרתי ואיטי".
+   המשמעות: מעברים ארוכים, האטה עמוקה בסוף, ותנועה אנכית גדולה.
+   ============================================================ */
+
+:root {
+  /* משכים, לפי הארכיטיפ היוקרתי */
+  --motion-press: 120ms;  /* לחיצה חייבת להיות מיידית, ולכן קצרה מ-fast */
+  --motion-fast: 200ms;
+  --motion-base: 480ms;
+  --motion-slow: 700ms;
+
+  /* האטה עמוקה: מתחיל מהר ונרגע לאט, זה מה שנותן את התחושה המכובדת */
+  --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* תנועה */
+  --motion-lift: 16px;
+  --motion-scale: 1.01;
+  --motion-stagger: 90ms;
+
+  /* כיוון: הפרויקט כולו RTL, ומגירה נכנסת מימין */
+  --dir: 1;
+}
+
+[dir="rtl"] {
+  --dir: -1;
+}
+
+/* ---------- מצבים משותפים לכל אלמנט לחיץ ---------- */
+
+.button-primary,
+.button-secondary,
+.icon-button,
+.action-button,
+.tabs__item,
+.dots__item,
+.behind-link,
+.text-link-plain,
+.nav-drawer__list a,
+.archive__item a {
+  /* רק transform ו-opacity, כדי שלא תהיה חישוב פריסה מחדש */
+  transition:
+    transform var(--motion-fast) var(--motion-ease),
+    opacity var(--motion-fast) var(--motion-ease);
+}
+
+/* hover רק במכשירים עם עכבר, אחרת הוא נתקע אחרי מגע */
+@media (hover: hover) {
+  .button-primary:hover,
+  .button-secondary:hover,
+  .action-button:hover,
+  .tabs__item:hover,
+  .behind-link:hover,
+  .nav-drawer__list a:hover,
+  .archive__item a:hover {
+    transform: translateY(calc(var(--motion-lift) * -0.25));
+  }
+
+  .icon-button:hover,
+  .text-link-plain:hover {
+    opacity: 0.7;
+  }
+
+  .archive__item a:hover img {
+    transform: scale(var(--motion-scale));
+  }
+}
+
+/* לחיצה: קצרה בכוונה, מעבר איטי בלחיצה מרגיש תקול */
+.button-primary:active,
+.button-secondary:active,
+.icon-button:active,
+.action-button:active,
+.tabs__item:active,
+.dots__item:active,
+.behind-link:active,
+.nav-drawer__list a:active,
+.archive__item a:active {
+  transform: translateY(0) scale(0.98);
+  transition-duration: var(--motion-press);
+}
+
+/* טבעת פוקוס אמיתית בכל עצירת Tab. בלי זה אי אפשר לנווט במקלדת */
+.button-primary:focus-visible,
+.button-secondary:focus-visible,
+.icon-button:focus-visible,
+.action-button:focus-visible,
+.tabs__item:focus-visible,
+.dots__item:focus-visible,
+.behind-link:focus-visible,
+.text-link-plain:focus-visible,
+.nav-drawer__list a:focus-visible,
+.archive__item a:focus-visible,
+.method-row__range:focus-visible {
+  outline: 2px solid var(--color-accent-deep);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* מושבת: בלי hover, בלי תנועה, וסמן שמסביר למה אי אפשר ללחוץ */
+.button-primary[aria-disabled="true"],
+.button-secondary[aria-disabled="true"],
+.action-button:disabled,
+.tabs__item:disabled,
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  pointer-events: none;
+}
+
+/* טעינה: הרוחב ננעל כדי שהפריסה לא תקפוץ בזמן השמירה */
+.button-primary[aria-busy="true"] {
+  color: transparent;
+  pointer-events: none;
+  position: relative;
+}
+
+.button-primary[aria-busy="true"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: var(--space-md);
+  height: var(--space-md);
+  border: 2px solid var(--color-text-inverse);
+  border-top-color: transparent;
+  border-radius: var(--radius-full);
+  animation: spin var(--motion-slow) linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- יעדי מגע: אף אלמנט לחיץ לא קטן מ-44 על 44 ---------- */
+
+.icon-button,
+.tabs__item,
+.action-button__surface,
+.behind-link,
+.text-link-plain {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.behind-link,
+.text-link-plain {
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* הנקודה נשארת קטנה ויזואלית, אבל שטח הלחיצה סביבה מלא */
+.dots__item {
+  width: 44px;
+  height: 44px;
+  background: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.dots__item > span {
+  width: var(--space-sm);
+  height: var(--space-sm);
+  border-radius: var(--radius-full);
+  background-color: var(--color-border-base);
+  transition: background-color var(--motion-fast) var(--motion-ease);
+}
+
+.dots__item[aria-selected="true"] > span {
+  background-color: var(--color-accent-deep);
+}
+
+/* הסליידר: הפס נשאר 6 פיקסלים, שטח המגע סביבו 44 */
+.method-row__range {
+  height: 44px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 6px;
+  margin: 0;
+}
+
+.archive__item img {
+  transition: transform var(--motion-base) var(--motion-ease);
+}
+
+/* ---------- כניסת מסך ---------- */
+
+@keyframes enter {
+  from { opacity: 0; transform: translateY(var(--motion-lift)); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* המסך נכנס פעם אחת בטעינה, בקצב האיטי שמתאים לרגע של בוקר */
+.content > * {
+  animation: enter var(--motion-base) var(--motion-ease) both;
+}
+
+/* סטאגר: כל פריט מחכה עוד 90ms, עד שמונה פריטים ואז כולם יחד */
+.method-list > *,
+.archive > * {
+  animation: enter var(--motion-base) var(--motion-ease) both;
+}
+
+.method-list > :nth-child(1), .archive > :nth-child(1) { animation-delay: calc(var(--motion-stagger) * 0); }
+.method-list > :nth-child(2), .archive > :nth-child(2) { animation-delay: calc(var(--motion-stagger) * 1); }
+.method-list > :nth-child(3), .archive > :nth-child(3) { animation-delay: calc(var(--motion-stagger) * 2); }
+.method-list > :nth-child(4), .archive > :nth-child(4) { animation-delay: calc(var(--motion-stagger) * 3); }
+.method-list > :nth-child(5), .archive > :nth-child(5) { animation-delay: calc(var(--motion-stagger) * 4); }
+.method-list > :nth-child(6), .archive > :nth-child(6) { animation-delay: calc(var(--motion-stagger) * 5); }
+.method-list > :nth-child(7), .archive > :nth-child(7) { animation-delay: calc(var(--motion-stagger) * 6); }
+/* מהפריט השמיני והלאה כולם מופיעים יחד, כדי שהאחרון לא יחכה שתי שניות */
+.method-list > :nth-child(n + 8), .archive > :nth-child(n + 8) { animation-delay: calc(var(--motion-stagger) * 7); }
+
+/* התמונה הגדולה נכנסת לאט יותר, היא הרגע העיקרי במסך */
+.hero-card {
+  animation: enter var(--motion-slow) var(--motion-ease) both;
+}
+
+/* ---------- המגירה ---------- */
+
+.nav-drawer {
+  border: none;
+  padding: 0;
+  margin: 0;
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  background: none;
+  overflow: hidden;
+}
+
+.nav-drawer:not([open]) {
+  display: none;
+}
+
+.nav-drawer__panel {
+  background-color: var(--color-surface-raised);
+  width: 280px;
+  height: 100%;
+  margin-inline-start: auto;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  overflow-y: auto;
+  /* נכנסת מהצד ההתחלתי של הכיוון, כלומר מימין בעברית */
+  transform: translateX(calc(100% * var(--dir)));
+  transition: transform var(--motion-base) var(--motion-ease);
+}
+
+.nav-drawer[open] .nav-drawer__panel {
+  transform: translateX(0);
+}
+
+/* @starting-style הוא מצב ההתחלה של אלמנט שנכנס מ-display:none.
+   בלעדיו המגירה פשוט תקפוץ למקום. דפדפן ישן מתעלם ומציג בלי אנימציה. */
+@starting-style {
+  .nav-drawer[open] .nav-drawer__panel {
+    transform: translateX(calc(100% * var(--dir)));
+  }
+}
+
+.nav-drawer::backdrop {
+  background: rgb(18 24 39 / 0.45);
+  opacity: 0;
+  transition:
+    opacity var(--motion-base) var(--motion-ease),
+    overlay var(--motion-base) allow-discrete,
+    display var(--motion-base) allow-discrete;
+}
+
+.nav-drawer[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  .nav-drawer[open]::backdrop { opacity: 0; }
+}
+
+/* ---------- הודעת אישור, רגע התגמול ---------- */
+
+.toast-region {
+  position: fixed;
+  inset-block-end: var(--space-lg);
+  inset-inline: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 30;
+}
+
+.toast {
+  background-color: var(--color-surface-dark);
+  color: var(--color-text-inverse);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-label);
+  animation: enter var(--motion-fast) var(--motion-ease) both;
+}
+
+/* ---------- מצב שגיאה ---------- */
+
+/* הודעת שגיאה מופיעה מיד ובלי תנועה: המשתמשת כבר תקועה, לא מנפישים לה את הפתרון */
+.form-error {
+  background-color: var(--color-status-error-bg);
+  color: var(--color-status-error);
+  border: 1px solid var(--color-status-error);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-caption);
+  width: 100%;
+  text-align: center;
+  animation: none;
+}
+
+/* ---------- העדפת תנועה מופחתת ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    /* התנועה יורדת לאפס, אבל ההעמעום נשאר: קפיצה חדה בלי פידבק גרועה יותר */
+    --motion-lift: 0px;
+    --motion-scale: 1;
+    --motion-stagger: 0ms;
+    --motion-press: 60ms;
+    --motion-fast: 90ms;
+    --motion-base: 120ms;
+    --motion-slow: 160ms;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+  .button-primary[aria-busy="true"]::after {
+    animation: none;
+    border-top-color: currentColor;
+    opacity: 0.5;
+  }
+}

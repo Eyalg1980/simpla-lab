@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>איך זה עובד, מזג</title>
+  <meta name="description" content="מזג, תחזית יומית ויזואלית שמאחדת אסטרולוגיה, נומרולוגיה, טארוט, אי צ׳ינג ואינטואיציה לתמונה אחת וטקסט אחד." />
+  <link rel="icon" href="assets/icons/app-icon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;600&family=Assistant:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="screen">
+    <header class="app-header">
+      <button type="button" class="icon-button" id="menu-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-drawer" aria-label="פתח תפריט">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      </button>
+      <img class="app-header__logo" src="assets/images/logo-new.webp" alt="מזג" width="122" height="45" />
+    </header>
+
+    <main class="content">
+      <h1 class="screen-title screen-title--large">איך זה עובד</h1>
+
+      <div class="card">
+        <h2 class="card__title">מאחדים במקום לפצל</h2>
+        <p class="card__body">אנחנו מאחדים כמה שיטות תחזית לתמונה אחת וטקסט אחד, כדי שלא תצטרכי להתלבט בין שיטות.</p>
+      </div>
+      <div class="card">
+        <h2 class="card__title">בלי הבטחות גדולות</h2>
+        <p class="card__body">זו לא אמת אובייקטיבית וגם לא ניבוי. זו זווית התבוננות אחת על היום שלך, ואת מחליטה מה לעשות איתה.</p>
+      </div>
+
+      <div class="dots" role="tablist" aria-label="שלבי ההיכרות">
+        <button type="button" class="dots__item" role="tab" aria-selected="true" aria-label="שלב 1"><span></span></button>
+        <button type="button" class="dots__item" role="tab" aria-selected="false" aria-label="שלב 2"><span></span></button>
+      </div>
+
+      <div class="content__spacer"></div>
+
+      <a class="button-primary" href="daily-forecast.html">המשך</a>
+      <a class="button-secondary" href="daily-forecast.html">דלגי, קחי אותי ישר לתחזית</a>
+    </main>
+  </div>
+
+  <!-- ניווט: dialog אמיתי, כדי לקבל לכידת פוקוס, Escape וסגירה נכונה בלי לכתוב אותן ביד -->
+  <dialog class="nav-drawer" id="nav-drawer" aria-label="ניווט ראשי">
+    <nav class="nav-drawer__panel">
+      <button type="button" class="icon-button nav-drawer__close" id="menu-close" aria-label="סגור תפריט">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+      <h2 class="nav-drawer__title">מזג</h2>
+      <ul class="nav-drawer__list">
+        <li><a href="index.html">פתיחה</a></li>
+        <li><a href="explain.html" aria-current="page">איך זה עובד</a></li>
+        <li><a href="splash.html">מסך טעינה</a></li>
+        <li><a href="daily-forecast.html">התחזית היומית</a></li>
+        <li><a href="archive.html">הארכיון שלי</a></li>
+        <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
+        <li><a href="edit-mode.html">מצב עריכה</a></li>
+        <li><a href="guest-view.html">צפייה מקישור</a></li>
+      </ul>
+    </nav>
+  </dialog>
+
+  <!-- אזור הודעות: קורא מסך שומע כל אישור, גם כשהוא רק ויזואלי -->
+  <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
