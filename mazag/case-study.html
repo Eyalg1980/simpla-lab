@@ -9,39 +9,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;600&family=Assistant:wght@400;600&display=swap" rel="stylesheet" />
-  <meta name="theme-color" content="#faf6f3" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#121827" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" />
   <style>
     /* הקייס סטאדי נושא את שפת המוצר שהוא מתאר, ולכן האסימונים כאן זהים
-       לאלו של האפליקציה. הפריסה שונה, כי מסמך ארוך הוא לא מסך טלפון. */
+       לאלו של האפליקציה. שני הבדלים מכוונים: הרקע לבן ולא קרם, כי זה
+       מסמך ולא מסך, והכרטיסים נשארים בקרם כדי שהחומר עצמו ישמור על
+       החום של המוצר. אין כאן מצב כהה, בכוונה. */
     :root {
-      --surface: #faf6f3;
-      --raised: #f2ede6;
+      --surface: #ffffff;
+      --raised: #faf6f3;
       --border: #dcceb7;
       --accent: #3c2f26;
       --accent-blue: #b4b0ca;
       --accent-pink: #e0a5a4;
       --text: #171f1c;
       --text-2: #5e564b;
-      --text-3: #8a816f;
+      --text-3: #736a58;   /* הוכהה מ-#8a816f. על רקע לבן הישן הגיע ל-3.6 בלבד */
       --heading: "Frank Ruhl Libre", Georgia, serif;
       --body: "Assistant", Arial, sans-serif;
       --measure: 34rem;
       --wide: 62rem;
       color-scheme: light;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --surface: #121827;
-        --raised: #1b2233;
-        --border: #313b52;
-        --accent: #dcc9a4;
-        --text: #ece7dd;
-        --text-2: #b9b1a2;
-        --text-3: #9a9284;
-        color-scheme: dark;
-      }
     }
 
     * { box-sizing: border-box; }
@@ -213,13 +201,6 @@
       vertical-align: middle;
     }
 
-    @media (prefers-color-scheme: dark) {
-      .journey .score--low  { color: #e7938c; background-color: #2c1a19; }
-      .journey .score--high { color: #7cc79f; background-color: #17281f; }
-      .journey li.is-removed { border-color: #6b3c39; }
-      .journey .removed-tag { color: #e7938c; border-color: #6b3c39; }
-    }
-
     .assumptions { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 0.75rem; }
     .assumptions li {
       border: 1px solid var(--border); border-radius: 14px; padding: 1rem 1.1rem;
@@ -262,11 +243,6 @@
     .jnote { margin: 0.9rem 0 0; padding-block-start: 0.75rem; border-block-start: 1px solid var(--border);
       font-size: 0.85rem; color: var(--text-2); }
 
-    @media (prefers-color-scheme: dark) {
-      .jd--low, .jv--low { fill: #e7938c; }
-      .ja { opacity: 0.22; }
-    }
-
     /* ---------- מפות אמפתיה ---------- */
     .emaps { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); margin-block-start: 1.5rem; }
     .emap { border: 1px solid var(--border); border-radius: 14px; background-color: var(--raised); padding: 1rem 1.1rem 1.15rem; }
@@ -302,11 +278,6 @@
     }
     .sticky-note cite { display: block; margin-block-start: 0.5rem; font-family: var(--body);
       font-size: 0.8rem; font-style: normal; color: #7a6a4f; }
-    @media (prefers-color-scheme: dark) {
-      .sticky-note { background-color: #3a3520; border-color: #5c5433; color: #f0e8cf; }
-      .sticky-note cite { color: #bcae86; }
-    }
-
     /* ---------- גלריה מתרחבת ---------- */
     .gallery { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin-block-start: 1.5rem; }
     .gallery button {

@@ -10,48 +10,39 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;600&family=Assistant:wght@400;600&display=swap" rel="stylesheet" />
-  <meta name="theme-color" content="#faf6f3" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#121827" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#121827" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="מזג · תחזית יומית אחת, במקום חמש" />
   <meta property="og:description" content="שש שיטות מתמזגות לתמונה אחת וטקסט אחד בכל בוקר." />
   <meta property="og:locale" content="he_IL" />
   <style>
     /* דף הנחיתה נושא את אסימוני המוצר עצמו. הפריסה שונה, כי דף שיווקי
-       הוא מסמך רחב ולא מסך טלפון. */
+       הוא מסמך רחב ולא מסך טלפון.
+       דף הנחיתה כהה תמיד, בלי קשר להגדרת המכשיר ובלי מתג. באפליקציה
+       עצמה ברירת המחדל הפוכה, בהיר, ושם יש מתג. */
     :root {
-      --surface: #faf6f3;
-      --raised: #f2ede6;
-      --border: #dcceb7;
-      --accent: #3c2f26;
+      --surface: #121827;
+      --raised: #1b2233;
+      --border: #313b52;
+      --accent: #dcc9a4;
       --blue: #b4b0ca;
       --pink: #e0a5a4;
-      --navy: #121827;
-      --text: #171f1c;
-      --text-2: #5e564b;
-      --text-3: #8a816f;
-      --on-dark: #faf6f3;
+      --navy: #0b1018;
+      --text: #ece7dd;
+      --text-2: #b9b1a2;
+      --text-3: #9a9284;
+
+      /* בלוק מודגש על דף כהה חייב להיות בהיר מהדף ולא כהה ממנו.
+         שני האסימונים האלה לא מתהפכים לעולם, וזו כל הנקודה: כפתור
+         שצבוע ב"כהה" על דף כהה הוא כפתור בלתי נראה. */
+      --emph: #dcc9a4;
+      --on-emph: #121827;
+
       --heading: "Frank Ruhl Libre", Georgia, serif;
       --body: "Assistant", Arial, sans-serif;
       --measure: 34rem;
       --wide: 64rem;
-      color-scheme: light;
-    }
-
-    /* אין כאן מתג, ולכן דף שיווקי כן הולך אחרי הגדרת המכשיר.
-       באפליקציה עצמה ברירת המחדל היא בהיר, ושם יש מתג. */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --surface: #121827;
-        --raised: #1b2233;
-        --border: #313b52;
-        --accent: #dcc9a4;
-        --navy: #0b1018;
-        --text: #ece7dd;
-        --text-2: #b9b1a2;
-        --text-3: #9a9284;
-        color-scheme: dark;
-      }
+      color-scheme: dark;
     }
 
     * { box-sizing: border-box; }
@@ -148,7 +139,7 @@
       min-height: 48px; padding-inline: 1.4rem; border-radius: 999px;
       text-decoration: none; font: inherit; font-weight: 600; cursor: pointer; border: 1px solid transparent;
     }
-    .btn--primary { background-color: var(--navy); color: var(--on-dark); }
+    .btn--primary { background-color: var(--emph); color: var(--on-emph); }
     .btn--quiet { background: none; color: var(--accent); border-color: var(--border); }
     .btn[hidden] { display: none; }
     .note { font-size: 0.85rem; color: var(--text-3); margin-block-start: 0.85rem; }
@@ -168,7 +159,7 @@
     .steps .n {
       display: inline-flex; align-items: center; justify-content: center;
       width: 1.9rem; height: 1.9rem; border-radius: 999px; margin-block-end: 0.75rem;
-      background-color: var(--navy); color: var(--on-dark);
+      background-color: var(--emph); color: var(--on-emph);
       font-family: var(--heading); font-size: 0.9rem; font-weight: 600;
     }
     .steps p { margin: 0; font-size: 0.94rem; }
@@ -221,7 +212,8 @@
 
   <header class="top">
     <div class="wrap">
-      <img src="assets/images/logo-new.webp" alt="מזג" width="122" height="45" id="lp-logo" />
+      <!-- הדף כהה תמיד, ולכן הלוגו הלבן קבוע בתגית ואין סקריפט שמחליף אותו -->
+      <img src="assets/images/logo-new-dark.webp" alt="מזג" width="122" height="45" />
       <a href="case-study.html">איך זה נבנה</a>
     </div>
   </header>
@@ -447,19 +439,6 @@
   </footer>
 
   <script>
-    /* הלוגו הוא תמונה, ו-CSS לא מחליף src. אין כאן מתג, ולכן ההחלפה
-       הולכת אחרי הגדרת המכשיר בלבד */
-    (function () {
-      var media = window.matchMedia("(prefers-color-scheme: dark)");
-      var logo = document.getElementById("lp-logo");
-      function paint() {
-        var want = media.matches ? "assets/images/logo-new-dark.webp" : "assets/images/logo-new.webp";
-        if (logo && logo.getAttribute("src") !== want) logo.setAttribute("src", want);
-      }
-      if (media.addEventListener) media.addEventListener("change", paint);
-      paint();
-    })();
-
     /* כפתור ההתקנה מוצג רק אם הדפדפן באמת מאפשר התקנה. אחרת הוא לא קיים,
        כדי שלא נבטיח פעולה שלא תעבוד */
     (function () {
