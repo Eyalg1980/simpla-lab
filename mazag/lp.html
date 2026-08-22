@@ -101,6 +101,46 @@
     .fan img:nth-child(2) { transform: translateY(-1.25rem); }
     @media (prefers-reduced-motion: reduce) { .fan img:nth-child(2) { transform: none; } }
 
+    /* ---------- וידאו סקראבינג ----------
+       המסלול ארוך, הבמה דביקה בתוכו. הגלילה בתוך המסלול היא ציר הזמן
+       של הסרטון, ולכן הסרטון לא מתנגן לבד אף פעם */
+    .scrub { padding: 0; border-block-start: 1px solid var(--border); }
+    .scrub__track { position: relative; height: 280vh; }
+    /* שתי שורות ולא שכבות. הכיתוב מקבל שורה משלו, ולכן הוא לא יושב
+       אף פעם על סמל שנע בקצה התחתון של המסלול */
+    .scrub__stage {
+      position: sticky; top: 0; height: 100vh; height: 100svh;
+      display: grid; grid-template-rows: 1fr auto; overflow: hidden;
+      background-color: #0b1018;                  /* אותו צבע כמו שולי הסרטון */
+    }
+    /* contain ולא cover. הסמלים יושבים בקצוות המסלול, ו-cover היה חותך
+       אותם ברגע שיחס המסך לא זהה ליחס הסרטון */
+    .scrub__stage video { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+    .scrub__still { display: none; width: 100%; height: auto; }
+    .scrub__cap {
+      text-align: center; padding: 0.5rem 1.5rem clamp(1.5rem, 5vh, 3rem);
+      pointer-events: none;
+    }
+    .scrub__cap p {
+      margin: 0 auto; max-width: 26rem; color: #ece7dd;
+      font-family: var(--heading); font-size: clamp(1.05rem, 3vw, 1.6rem); line-height: 1.4;
+      text-shadow: 0 2px 18px rgb(8 11 18 / 0.75);
+    }
+    .scrub__hint {
+      position: absolute; inset-inline: 0; top: clamp(1.2rem, 4vh, 2.5rem);
+      text-align: center; font-size: 0.8rem; letter-spacing: 0.08em;
+      color: rgb(236 231 221 / 0.62); pointer-events: none;
+    }
+    /* מי שביקש פחות תנועה מקבל את הפריים האחרון, בלי מסלול ובלי דביקות */
+    @media (prefers-reduced-motion: reduce) {
+      .scrub__track { height: auto; }
+      .scrub__stage { position: static; height: auto; }
+      .scrub__stage video { display: none; }
+      .scrub__still { display: block; }
+      .scrub__cap { position: static; padding-block: 1.25rem; background-color: var(--navy); }
+      .scrub__hint { display: none; }
+    }
+
     /* ---------- buttons ---------- */
     .ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; }
     .btn {
@@ -215,6 +255,19 @@
       </div>
     </section>
 
+    <section class="scrub" id="scrub" aria-label="הקלף נחשף">
+      <div class="scrub__track" id="scrub-track">
+        <div class="scrub__stage">
+          <p class="scrub__hint" aria-hidden="true">גללי כדי לחשוף</p>
+          <video id="scrub-video" muted playsinline preload="auto" disablepictureinpicture
+                 aria-hidden="true" tabindex="-1"></video>
+          <img class="scrub__still" id="scrub-still" alt="קלף התחזית אחרי החשיפה, מוקף בסמלי שש השיטות" />
+          <div class="scrub__cap">
+            <p>שש השיטות מקיפות את הקלף, ואז נכנסות אליו. מה שנשאר הוא תחזית אחת.</p>
+          </div>
+        </div>
+      </div>
+    </section>
     <section>
       <div class="wrap col">
         <h2>הבעיה היא לא מחסור, היא עודף</h2>
@@ -437,6 +490,77 @@
       if (window.matchMedia("(display-mode: standalone)").matches && note) {
         note.textContent = "מזג כבר מותקנת אצלך.";
       }
+    })();
+
+    /* ---------- וידאו סקראבינג ----------
+       הסרטון לא מתנגן. הגלילה בתוך המסלול היא זו שמזיזה את currentTime,
+       ולכן הוא חייב להיות קודד עם כל פריים כפריים מפתח. הוא כזה. */
+    (function () {
+      var track = document.getElementById("scrub-track");
+      var video = document.getElementById("scrub-video");
+      var still = document.getElementById("scrub-still");
+      if (!track || !video) return;
+
+      var wide = window.matchMedia("(min-aspect-ratio: 1/1)").matches;
+      var base = wide ? "desktop" : "mobile";
+      var poster = "assets/video/reveal-poster-" + base + ".webp";
+      if (still) still.setAttribute("src", poster);
+
+      var calm = window.matchMedia("(prefers-reduced-motion: reduce)");
+      if (calm.matches) return;                       /* התמונה הסטטית מספיקה */
+
+      video.setAttribute("poster", poster);
+      video.setAttribute("src", "assets/video/reveal-" + base + ".mp4");
+
+      var dur = 0, target = 0, shown = -1, running = false, primed = false;
+
+      video.addEventListener("loadedmetadata", function () {
+        dur = video.duration || 0;
+        prime();
+        measure();
+      });
+
+      /* ספארי ואייפון לא מרשים חיפוש לפני שהיה ניגון אחד. ניגון קצר
+         ומושתק פותח את הדלת, ואז מיד עוצרים */
+      function prime() {
+        if (primed) return;
+        primed = true;
+        var p = video.play();
+        if (p && p.then) p.then(function () { video.pause(); video.currentTime = 0; })
+                         .catch(function () { /* אין הרשאה, החיפוש בדרך כלל עדיין עובד */ });
+        else { try { video.pause(); } catch (e) {} }
+      }
+
+      function measure() {
+        if (!dur) return;
+        var r = track.getBoundingClientRect();
+        var span = r.height - window.innerHeight;
+        if (span <= 0) return;
+        var p = (0 - r.top) / span;
+        p = p < 0 ? 0 : (p > 1 ? 1 : p);
+        target = p * (dur - 0.02);
+        if (!running) { running = true; requestAnimationFrame(step); }
+      }
+
+      /* קפיצה ישירה נראית קופצנית מול גלילת אינרציה, ולכן מתקרבים
+         אל היעד בהדרגה. הפרש קטן מפריים אחד לא שווה בקשת חיפוש */
+      function step() {
+        /* קוראים מהמצב שלנו ולא מהאלמנט, כי חיפוש לא מסתיים מיד
+           ו-currentTime עדיין יחזיר את הערך הישן ויתקע את ההחלקה */
+        var cur = shown < 0 ? video.currentTime : shown;
+        var next = cur + (target - cur) * 0.28;
+        if (Math.abs(target - cur) < 0.02) { next = target; running = false; }
+        if (Math.abs(next - shown) > 0.016) {
+          shown = next;
+          try { video.currentTime = next; } catch (e) {}
+        }
+        if (running) requestAnimationFrame(step);
+      }
+
+      addEventListener("scroll", measure, { passive: true });
+      addEventListener("resize", measure);
+      document.addEventListener("touchstart", prime, { passive: true, once: true });
+      measure();
     })();
 
     if ("serviceWorker" in navigator) {

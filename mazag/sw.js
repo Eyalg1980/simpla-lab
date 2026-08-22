@@ -8,7 +8,7 @@
    הגרסה בשם המטמון היא מה שמפעיל ניקוי. כל שינוי ברשימה מחייב להעלות אותה,
    אחרת דפדפן שכבר ביקר יישאר עם הישן. */
 
-var VERSION = "mazag-v1";
+var VERSION = "mazag-v2";
 var DOC_CACHE = VERSION + "-doc";
 var ASSET_CACHE = VERSION + "-asset";
 
@@ -59,6 +59,10 @@ self.addEventListener("fetch", function (event) {
   var url = new URL(req.url);
   /* גופני גוגל וכל מקור חיצוני נשארים באחריות הדפדפן */
   if (url.origin !== self.location.origin) return;
+
+  /* וידאו יוצא מהחישוב לגמרי. הדפדפן מבקש אותו בטווחים, ותשובת 206
+     ששמורה במטמון ומוגשת שוב כאילו היא תשובה מלאה שוברת את הנגן */
+  if (/\.(mp4|webm|m4v)$/.test(url.pathname) || req.headers.has("range")) return;
 
   if (isAsset(url)) {
     event.respondWith(
