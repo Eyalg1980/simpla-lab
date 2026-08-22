@@ -238,6 +238,75 @@
       background-color: var(--raised);
     }
 
+
+    /* ---------- ארבע מפות המסע ---------- */
+    .jmaps { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); margin-block-start: 1.5rem; }
+    .jmap { border: 1px solid var(--border); border-radius: 14px; background-color: var(--raised); padding: 1rem 1.1rem 1.15rem; }
+    .jmap header { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
+    .jmap h4 { margin: 0 0 0.75rem; font-family: var(--heading); font-size: 1.05rem; color: var(--text); }
+    .jchart { display: block; width: 100%; height: auto; overflow: visible; min-height: 170px; }
+    .jg { stroke: var(--border); stroke-width: 1; }
+    .jt, .jn { fill: var(--text-3); font-size: 11px; font-family: var(--body); text-anchor: middle; }
+    .jt { text-anchor: start; }
+    .ja { fill: var(--accent-blue); opacity: 0.16; }
+    .jl { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .jd { fill: var(--accent); }
+    .jd--low { fill: #b5453f; }
+    .jv { fill: var(--text-2); font-size: 12px; font-weight: 600; font-family: var(--body); text-anchor: middle; }
+    .jv--low { fill: #b5453f; }
+    .jlegend { list-style: none; margin: 0.75rem 0 0; padding: 0; display: grid; gap: 0.3rem; }
+    .jlegend li { display: grid; grid-template-columns: 1.3rem 1fr; gap: 0.5rem; align-items: baseline; }
+    .jn-num { font-size: 0.75rem; font-weight: 600; color: var(--text-3); text-align: center; }
+    .jn-body b { font-size: 0.88rem; color: var(--text); font-weight: 600; }
+    .jn-body span { display: block; font-size: 0.8rem; color: var(--text-2); }
+    .jnote { margin: 0.9rem 0 0; padding-block-start: 0.75rem; border-block-start: 1px solid var(--border);
+      font-size: 0.85rem; color: var(--text-2); }
+
+    @media (prefers-color-scheme: dark) {
+      .jd--low, .jv--low { fill: #e7938c; }
+      .ja { opacity: 0.22; }
+    }
+
+    /* ---------- מפות אמפתיה ---------- */
+    .emaps { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); margin-block-start: 1.5rem; }
+    .emap { border: 1px solid var(--border); border-radius: 14px; background-color: var(--raised); padding: 1rem 1.1rem 1.15rem; }
+    .emap h4 { margin: 0 0 0.75rem; font-family: var(--heading); font-size: 1.05rem; color: var(--text); }
+    .equad { display: grid; gap: 0.75rem; }
+    .equad section { border-block-start: 1px solid var(--border); padding-block-start: 0.6rem; }
+    .equad h5 { margin: 0 0 0.3rem; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.04em; color: var(--text-3); }
+    .equad p { margin: 0 0 0.3rem; font-size: 0.87rem; color: var(--text-2); }
+    .equad p:last-child { margin-block-end: 0; }
+    .equad q { color: var(--text); font-style: normal; }
+
+    /* ---------- לוח ההשראה ---------- */
+    .insp { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: 0.7rem; }
+    .insp li {
+      display: grid; grid-template-columns: 1fr auto 1fr; gap: 0.8rem; align-items: center;
+      border: 1px solid var(--border); border-radius: 12px; background-color: var(--raised);
+      padding: 0.75rem 0.9rem; font-size: 0.9rem;
+    }
+    .insp .from { color: var(--text); }
+    .insp .arrow { color: var(--text-3); font-size: 0.9rem; }
+    .insp .to { color: var(--text-2); }
+    @media (max-width: 34rem) {
+      .insp li { grid-template-columns: 1fr; gap: 0.25rem; }
+      .insp .arrow { display: none; }
+      .insp .to::before { content: "נעשה "; color: var(--text-3); }
+    }
+
+    .sticky-note {
+      background-color: #fdf6d8; border: 1px solid #e3d59a; border-radius: 10px;
+      padding: 1rem 1.15rem; margin: 1.5rem 0; color: #3c2f26;
+      font-family: var(--heading); font-size: 1.02rem; line-height: 1.5;
+      box-shadow: 0 2px 10px rgb(60 47 38 / 0.08);
+    }
+    .sticky-note cite { display: block; margin-block-start: 0.5rem; font-family: var(--body);
+      font-size: 0.8rem; font-style: normal; color: #7a6a4f; }
+    @media (prefers-color-scheme: dark) {
+      .sticky-note { background-color: #3a3520; border-color: #5c5433; color: #f0e8cf; }
+      .sticky-note cite { color: #bcae86; }
+    }
+
     /* ---------- גלריה מתרחבת ---------- */
     .gallery { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin-block-start: 1.5rem; }
     .gallery button {
@@ -407,43 +476,106 @@
         <div class="col">
           <div class="step-head"><span class="step-num">3</span><h3>מפות מסע לקוח</h3></div>
           <p>
-            ארבע מפות מסע: מאיה וטל, לכל אחת "כניסה יומית" ו"אונבורדינג ראשוני".
-            למטה השלבים המאוחדים, עם הציונים הרגשיים <strong>כפי שתועדו בפועל</strong>.
-            שלב בלי ציון הוא שלב שלא נמדד, ולא שלב שיצא ניטרלי.
+            ארבע מפות: שתי פרסונות, ולכל אחת "אונבורדינג ראשוני" ו"כניסה יומית".
+            כל ציון בגרפים למטה הועתק מלוח ה-FigJam כפי שהוא.
+            <strong>שום נקודה לא הושלמה בהערכה</strong>, ואף מפה לא יושרה כדי להיראות טוב יותר.
           </p>
+        </div>
 
-          <ol class="journey">
-            <li><span class="n">1</span><span class="what">כניסה ראשונה
-              <span class="why">מאיה נכנסת ישירות. טל מקבלת קישור מאדם קרוב, ואין לה נתיב שלא עובר אונבורדינג מלא</span></span>
-              <span class="score score--none">לא נמדד</span></li>
-            <li><span class="n">2</span><span class="what">Welcome והסבר קצר
-              <span class="why">אצל טל: אדישות מנומסת, לא עוינות. צריך להיות קצר וניתן לדילוג</span></span>
-              <span class="score score--low">3 · טל</span></li>
-            <li class="is-removed"><span class="n">3</span><span class="what">דירוג אמון לכל שיטה<span class="removed-tag">הוסר</span>
-              <span class="why">נקודת השפל הרגשית החדה ביותר בשני מסעות האונבורדינג. הוסר לחלוטין</span></span>
-              <span class="score score--low">2 · 1.5</span></li>
-            <li><span class="n">4</span><span class="what">טעינת התחזית
-              <span class="why">סיכון נטישה אצל טל, סיכון לשבירת רגע הטקס אצל מאיה</span></span>
-              <span class="score score--none">לא נמדד</span></li>
-            <li><span class="n">5</span><span class="what">צפייה בתמונת התחזית
-              <span class="why">השיא הרגשי החיובי במסע של מאיה. "משיכה חזותית"</span></span>
-              <span class="score score--high">5 · מאיה</span></li>
-            <li><span class="n">6</span><span class="what">קריאת הטקסט המשוקלל
-              <span class="why">"אני יודעת שזה משפט גנרי שיכול להתאים לכל אחד, אבל זה עבד עליי"</span></span>
-              <span class="score score--low">2 · מאיה</span></li>
-            <li><span class="n">7</span><span class="what">שמירה ושיתוף
-              <span class="why">שיא חיובי נוסף אצל מאיה. אצל טל: קריאה של שניות בודדות, לעתים בלי תגובה</span></span>
-              <span class="score score--none">לא מוספר</span></li>
-            <li><span class="n">8</span><span class="what">סגירה וחזרה למחר
-              <span class="why">"אפילו לא הרגשתי חסר משהו" אחרי הפסקה של שבועיים עד שלושה</span></span>
-              <span class="score score--none">לא נמדד</span></li>
-          </ol>
+        <div class="jmaps">
+        <article class="jmap" id="jmap-maya-onboarding">
+          <header>
+            <h4>מאיה · אונבורדינג ראשוני</h4>
+          </header>
+          <svg viewBox="0 0 560 265" class="jchart" role="img" aria-label="מפת מסע, מאיה, אונבורדינג ראשוני"><line x1="34" y1="211.0" x2="526" y2="211.0" class="jg" /><text x="534" y="215.0" class="jt">1</text><line x1="34" y1="120.5" x2="526" y2="120.5" class="jg" /><text x="534" y="124.5" class="jt">3</text><line x1="34" y1="30.0" x2="526" y2="30.0" class="jg" /><text x="534" y="34.0" class="jt">5</text><path d="M526.0,75.2 L427.6,97.9 L329.2,165.8 L230.8,120.5 L132.4,75.2 L34.0,75.2 L34.0,211.0 L526.0,211.0 Z" class="ja" /><path d="M526.0,75.2 L427.6,97.9 L329.2,165.8 L230.8,120.5 L132.4,75.2 L34.0,75.2" class="jl" /><circle cx="526.0" cy="75.2" r="5" class="jd" /><text x="526.0" y="62.2" class="jv">4</text><circle cx="427.6" cy="97.9" r="5" class="jd" /><text x="427.6" y="84.9" class="jv">3.5</text><circle cx="329.2" cy="165.8" r="6" class="jd jd--low" /><text x="329.2" y="152.8" class="jv jv--low">2</text><circle cx="230.8" cy="120.5" r="5" class="jd" /><text x="230.8" y="107.5" class="jv">3</text><circle cx="132.4" cy="75.2" r="5" class="jd" /><text x="132.4" y="62.2" class="jv">4</text><circle cx="34.0" cy="75.2" r="5" class="jd" /><text x="34.0" y="62.2" class="jv">4</text><text x="526.0" y="237" class="jn">1</text><text x="427.6" y="237" class="jn">2</text><text x="329.2" y="237" class="jn">3</text><text x="230.8" y="237" class="jn">4</text><text x="132.4" y="237" class="jn">5</text><text x="34.0" y="237" class="jn">6</text></svg>
+          <ol class="jlegend"><li><span class="jn-num">1</span><span class="jn-body"><b>פתיחה ראשונה</b><span>ציפייה סקרנית · 4</span></span></li><li><span class="jn-num">2</span><span class="jn-body"><b>הסבר קצר על הרעיון</b><span>עניין זהיר · 3.5</span></span></li><li><span class="jn-num">3</span><span class="jn-body"><b>דירוג אמון לכל שיטה</b><span>התלבטות מתמשכת · 2</span></span></li><li><span class="jn-num">4</span><span class="jn-body"><b>בניית המשקולות</b><span>ציפייה · 3</span></span></li><li><span class="jn-num">5</span><span class="jn-body"><b>מסך התחזית הראשונה</b><span>סיפוק זהיר · 4</span></span></li><li><span class="jn-num">6</span><span class="jn-body"><b>סיום אונבורדינג</b><span>אימוץ הרגל חדש · 4</span></span></li></ol>
+          <p class="jnote">הדירוג הוא הבור. שימי לב שהוא יושב בין שני שלבים חיוביים, וזה בדיוק מה שהופך אותו לבולט</p>
+        </article>
+        <article class="jmap" id="jmap-tal-onboarding">
+          <header>
+            <h4>טל · אונבורדינג ראשוני</h4>
+          </header>
+          <svg viewBox="0 0 560 265" class="jchart" role="img" aria-label="מפת מסע, טל, אונבורדינג ראשוני"><line x1="34" y1="211.0" x2="526" y2="211.0" class="jg" /><text x="534" y="215.0" class="jt">1</text><line x1="34" y1="120.5" x2="526" y2="120.5" class="jg" /><text x="534" y="124.5" class="jt">3</text><line x1="34" y1="30.0" x2="526" y2="30.0" class="jg" /><text x="534" y="34.0" class="jt">5</text><path d="M526.0,120.5 L427.6,120.5 L329.2,188.4 L230.8,165.8 L132.4,143.1 L34.0,120.5 L34.0,211.0 L526.0,211.0 Z" class="ja" /><path d="M526.0,120.5 L427.6,120.5 L329.2,188.4 L230.8,165.8 L132.4,143.1 L34.0,120.5" class="jl" /><circle cx="526.0" cy="120.5" r="5" class="jd" /><text x="526.0" y="107.5" class="jv">3</text><circle cx="427.6" cy="120.5" r="5" class="jd" /><text x="427.6" y="107.5" class="jv">3</text><circle cx="329.2" cy="188.4" r="6" class="jd jd--low" /><text x="329.2" y="175.4" class="jv jv--low">1.5</text><circle cx="230.8" cy="165.8" r="5" class="jd" /><text x="230.8" y="152.8" class="jv">2</text><circle cx="132.4" cy="143.1" r="5" class="jd" /><text x="132.4" y="130.1" class="jv">2.5</text><circle cx="34.0" cy="120.5" r="5" class="jd" /><text x="34.0" y="107.5" class="jv">3</text><text x="526.0" y="237" class="jn">1</text><text x="427.6" y="237" class="jn">2</text><text x="329.2" y="237" class="jn">3</text><text x="230.8" y="237" class="jn">4</text><text x="132.4" y="237" class="jn">5</text><text x="34.0" y="237" class="jn">6</text></svg>
+          <ol class="jlegend"><li><span class="jn-num">1</span><span class="jn-body"><b>פתיחה ראשונה</b><span>סקרנות חולפת · 3</span></span></li><li><span class="jn-num">2</span><span class="jn-body"><b>הסבר קצר על הרעיון</b><span>אדישות מנומסת · 3</span></span></li><li><span class="jn-num">3</span><span class="jn-body"><b>דירוג אמון לכל שיטה</b><span>תקיעות ואי נוחות · 1.5</span></span></li><li><span class="jn-num">4</span><span class="jn-body"><b>בניית המשקולות</b><span>אדישות · 2</span></span></li><li><span class="jn-num">5</span><span class="jn-body"><b>מסך התחזית הראשונה</b><span>ספקנות ותהייה · 2.5</span></span></li><li><span class="jn-num">6</span><span class="jn-body"><b>סיום אונבורדינג</b><span>נכונות לנסות עוד קצת · 3</span></span></li></ol>
+          <p class="jnote">אותו שלב, אצל פרסונה אחרת, יורד עוד יותר. שני מסעות עצמאיים שמצביעים על אותה נקודה</p>
+        </article>
+        <article class="jmap" id="jmap-maya-daily">
+          <header>
+            <h4>מאיה · כניסה יומית</h4>
+          </header>
+          <svg viewBox="0 0 560 265" class="jchart" role="img" aria-label="מפת מסע, מאיה, כניסה יומית"><line x1="34" y1="211.0" x2="526" y2="211.0" class="jg" /><text x="534" y="215.0" class="jt">1</text><line x1="34" y1="120.5" x2="526" y2="120.5" class="jg" /><text x="534" y="124.5" class="jt">3</text><line x1="34" y1="30.0" x2="526" y2="30.0" class="jg" /><text x="534" y="34.0" class="jt">5</text><path d="M526.0,75.2 L427.6,75.2 L329.2,30.0 L230.8,165.8 L132.4,75.2 L34.0,75.2 L34.0,211.0 L526.0,211.0 Z" class="ja" /><path d="M526.0,75.2 L427.6,75.2 L329.2,30.0 L230.8,165.8 L132.4,75.2 L34.0,75.2" class="jl" /><circle cx="526.0" cy="75.2" r="5" class="jd" /><text x="526.0" y="62.2" class="jv">4</text><circle cx="427.6" cy="75.2" r="5" class="jd" /><text x="427.6" y="62.2" class="jv">4</text><circle cx="329.2" cy="30.0" r="5" class="jd" /><text x="329.2" y="17.0" class="jv">5</text><circle cx="230.8" cy="165.8" r="6" class="jd jd--low" /><text x="230.8" y="152.8" class="jv jv--low">2</text><circle cx="132.4" cy="75.2" r="5" class="jd" /><text x="132.4" y="62.2" class="jv">4</text><circle cx="34.0" cy="75.2" r="5" class="jd" /><text x="34.0" y="62.2" class="jv">4</text><text x="526.0" y="237" class="jn">1</text><text x="427.6" y="237" class="jn">2</text><text x="329.2" y="237" class="jn">3</text><text x="230.8" y="237" class="jn">4</text><text x="132.4" y="237" class="jn">5</text><text x="34.0" y="237" class="jn">6</text></svg>
+          <ol class="jlegend"><li><span class="jn-num">1</span><span class="jn-body"><b>פתיחת האפליקציה</b><span>שגרתיות ונחת · 4</span></span></li><li><span class="jn-num">2</span><span class="jn-body"><b>טעינת התחזית</b><span>ציפייה קלה · 4</span></span></li><li><span class="jn-num">3</span><span class="jn-body"><b>צפייה בתמונה</b><span>משיכה חזותית · 5</span></span></li><li><span class="jn-num">4</span><span class="jn-body"><b>קריאת הטקסט המשוקלל</b><span>ספק ואי ודאות · 2</span></span></li><li><span class="jn-num">5</span><span class="jn-body"><b>שמירה או שיתוף</b><span>סיפוק וחיבור · 4</span></span></li><li><span class="jn-num">6</span><span class="jn-body"><b>סגירת האפליקציה</b><span>שביעות רצון שקטה · 4</span></span></li></ol>
+          <p class="jnote">השיא והשפל צמודים זה לזה: התמונה מקבלת 5, והטקסט מיד אחריה מקבל 2. זה כל המוצר בשתי נקודות</p>
+        </article>
+        <article class="jmap" id="jmap-tal-daily">
+          <header>
+            <h4>טל · כניסה יומית</h4>
+          </header>
+          <svg viewBox="0 0 560 265" class="jchart" role="img" aria-label="מפת מסע, טל, כניסה יומית"><line x1="34" y1="211.0" x2="526" y2="211.0" class="jg" /><text x="534" y="215.0" class="jt">1</text><line x1="34" y1="120.5" x2="526" y2="120.5" class="jg" /><text x="534" y="124.5" class="jt">3</text><line x1="34" y1="30.0" x2="526" y2="30.0" class="jg" /><text x="534" y="34.0" class="jt">5</text><path d="M526.0,120.5 L427.6,165.8 L329.2,120.5 L230.8,188.4 L132.4,165.8 L34.0,120.5 L34.0,211.0 L526.0,211.0 Z" class="ja" /><path d="M526.0,120.5 L427.6,165.8 L329.2,120.5 L230.8,188.4 L132.4,165.8 L34.0,120.5" class="jl" /><circle cx="526.0" cy="120.5" r="5" class="jd" /><text x="526.0" y="107.5" class="jv">3</text><circle cx="427.6" cy="165.8" r="5" class="jd" /><text x="427.6" y="152.8" class="jv">2</text><circle cx="329.2" cy="120.5" r="5" class="jd" /><text x="329.2" y="107.5" class="jv">3</text><circle cx="230.8" cy="188.4" r="6" class="jd jd--low" /><text x="230.8" y="175.4" class="jv jv--low">1.5</text><circle cx="132.4" cy="165.8" r="5" class="jd" /><text x="132.4" y="152.8" class="jv">2</text><circle cx="34.0" cy="120.5" r="5" class="jd" /><text x="34.0" y="107.5" class="jv">3</text><text x="526.0" y="237" class="jn">1</text><text x="427.6" y="237" class="jn">2</text><text x="329.2" y="237" class="jn">3</text><text x="230.8" y="237" class="jn">4</text><text x="132.4" y="237" class="jn">5</text><text x="34.0" y="237" class="jn">6</text></svg>
+          <ol class="jlegend"><li><span class="jn-num">1</span><span class="jn-body"><b>קבלת הפניה מאדם קרוב</b><span>אדישות קלה · 3</span></span></li><li><span class="jn-num">2</span><span class="jn-body"><b>פתיחת האפליקציה</b><span>חוסר עניין · 2</span></span></li><li><span class="jn-num">3</span><span class="jn-body"><b>טעינת התחזית</b><span>ניטרלי · 3</span></span></li><li><span class="jn-num">4</span><span class="jn-body"><b>צפייה מהירה בתמונה ובטקסט</b><span>שיפוט מהיר וניתוק · 1.5</span></span></li><li><span class="jn-num">5</span><span class="jn-body"><b>החלטה אם להתעניין</b><span>אדישות והכרעה מהירה · 2</span></span></li><li><span class="jn-num">6</span><span class="jn-body"><b>סגירת האפליקציה</b><span>שעשוע קליל חולף · 3</span></span></li></ol>
+          <p class="jnote">המסע היחיד שמתחיל מחוץ לאפליקציה. הקישור מאדם קרוב הוא נקודת המגע הראשונה, ומכאן נולד מסלול האורח</p>
+        </article>
+        </div>
 
+        <div class="col">
           <p>
-            המפות עשו כאן משהו ששום סקר לא היה עושה: הן הראו ששלב שהיה כתוב בבריף
-            כפיצ'ר הוא בעצם <strong>הבור הכי עמוק בכל המסע</strong>, ושהוא נמצא בדיוק
-            במקום שבו המשתמשת הכי פחות מחויבת.
+            ארבע מפות עצמאיות הן לא ארבעה עותקים של אותה תובנה. הן ארבע זוויות,
+            והדבר היחיד שחוזר בשתיים מהן במקום זהה הוא <strong>דירוג האמון</strong>:
+            2 אצל מאיה, 1.5 אצל טל, בשני המקרים הבור העמוק ביותר במסע.
+            כשאותה נקודה נופלת פעמיים בשני מסעות שנבנו בנפרד, זו כבר לא תחושה.
           </p>
+        </div>
+
+        <div class="col">
+          <div class="step-head"><span class="step-num">3.5</span><h3>מפות אמפתיה</h3></div>
+          <p>
+            לפני המסעות נבנו שתי מפות אמפתיה. הן לא סיפקו את הדרמה של הגרפים,
+            אבל הן זו שהסבירה למה השפל קורה.
+          </p>
+        </div>
+
+        <div class="emaps">
+          <article class="emap">
+            <h4>מאיה כהן · מונעת מטקסיות</h4>
+            <div class="equad">
+              <section><h5>אומרת</h5>
+                <p><q>זה כמו לבדוק את הטמפרטורה בחוץ, פשוט חלק מהשגרה</q></p>
+                <p><q>הטקסט הוא כמו הערת שוליים</q></p></section>
+              <section><h5>חושבת</h5>
+                <p><q>אני יודעת שזה משפט גנרי, אבל זה עבד עליי</q></p>
+                <p><q>את בטוחה?</q> הקול הפנימי שנשאר ברקע</p></section>
+              <section><h5>עושה</h5>
+                <p>ממשיכה בטקס גם כשהיא מודעת שהתוכן גנרי</p>
+                <p>שומרת ומשתפת תמונות שמושכות אותה, כמעט בלי קשר לטקסט</p></section>
+              <section><h5>כאבים</h5>
+                <p>ריבוי מקורות סותרים יוצר רעש רקע שלא נפתר</p>
+                <p>תחזית טקסט בלבד מתאדה מהזיכרון תוך זמן קצר</p></section>
+              <section><h5>רווחים</h5>
+                <p>תמונה חזקה עוצרת גלילה ונחקקת בזיכרון</p>
+                <p>נוחות בלי מחויבות כספית או פונקציונלית כבדה</p></section>
+            </div>
+          </article>
+
+          <article class="emap">
+            <h4>טל אברהמי · צרכנות פסיבית</h4>
+            <div class="equad">
+              <section><h5>אומרת</h5>
+                <p><q>אני רוצה שדברים יעבדו כבר מההתחלה בלי שאני אצטרך 'לתכנת' אותם קודם</q></p>
+                <p><q>לא, תודה</q> כשמבקשים ממנה להתקין</p></section>
+              <section><h5>חושבת</h5>
+                <p><q>אני בוחרת להאמין למה שמתאים לי כרגע ומתעלמת מהשאר</q></p>
+                <p><q>לא בטוחה, זה יותר היה מכשול שהייתי צריכה לעבור</q></p></section>
+              <section><h5>עושה</h5>
+                <p>מסרבת בפירוש להתקין אפליקציה שמוצעת לה, גם בלחץ חוזר</p>
+                <p>אף פעם לא חוזרת להגדרות אחרי ההתקנה הראשונה</p></section>
+              <section><h5>כאבים</h5>
+                <p>כל חיכוך בכניסה, דירוג או הגדרות או בקשת נתונים, גורם לנטישה מיידית</p>
+                <p>תחושת חדירה לפרטיות כשמוצר מבקש יותר ממה שנראה הכרחי</p></section>
+              <section><h5>רווחים</h5>
+                <p>שעשוע קליל כשמקבלת תחזית מבן משפחה או חברה</p>
+                <p>אפשרות להתעלם או להתייחס בררנית, בלי מחויבות</p></section>
+            </div>
+          </article>
         </div>
 
         <div class="col">
@@ -463,6 +595,16 @@
             אבל גם לא היה לי מושג אם אני 'מתקדמת'."
             <cite>המזדמנת בין משימות, על אנלוגיה מאפליקציה אחרת</cite>
           </blockquote>
+
+          <p>
+            ההחלטה עצמה נרשמה על הלוח, במילים שלי, ליד המפות:
+          </p>
+
+          <div class="sticky-note">
+            "ברצוני לשנות את תהליך ה-ONBOARDING, שיהיה רק הסבר על האפליקציה,
+            ומאחורי הקלעים אני אבחר איך לדרג את המשקולות."
+            <cite>פתקית על לוח ה-FigJam, ליד מפות המסע</cite>
+          </div>
 
           <p>
             הדירוג לא נכשל כי הוא היה ארוך. הוא נכשל כי הוא <strong>דרש ידע שאין למשתמשת
@@ -555,7 +697,46 @@
         </div>
 
         <div class="col">
-          <div class="step-head"><span class="step-num">8</span><h3>מהוויירפריים למסך</h3></div>
+          <div class="step-head"><span class="step-num">8</span><h3>לוח ההשראה</h3></div>
+          <p>
+            לוח הרפרנסים לא היה אוסף תמונות יפות. לכל רפרנס נכתבה הערה שאומרת
+            <strong>מה בדיוק לקחת ממנו</strong>, ורק זה נלקח. למטה ההערות כפי שנכתבו,
+            וליד כל אחת מה שהיא הפכה להיות במוצר.
+          </p>
+
+          <ul class="insp">
+            <li><span class="from">"מטבעות עם המון פרטים וחריטות"</span>
+              <span class="arrow">←</span>
+              <span class="to">קווי הזהב והחריטה בכל 32 הכרטיסיות</span></li>
+            <li><span class="from">"סגנון אורנמנטי ומנדלה, על צבע אחד"</span>
+              <span class="arrow">←</span>
+              <span class="to">המסגרת הכפולה שחוזרת בכל כרטיסייה, זהה בכולן</span></li>
+            <li><span class="from">"רקע של קלף"</span>
+              <span class="arrow">←</span>
+              <span class="to">הקלף העתיק שהוא המשטח של כל איור במוצר</span></li>
+            <li><span class="from">"קונספט של כרטיסיות, דרך להציג אילוסטרציות"</span>
+              <span class="arrow">←</span>
+              <span class="to">הכרטיסייה כיחידת התוכן היומית, ומאוחר יותר גם כמאגר</span></li>
+            <li><span class="from">"האייקונים טובים: חופשיים, משוחררים, כתב יד אייקוני"</span>
+              <span class="arrow">←</span>
+              <span class="to">24 האייקונים המצוירים ביד, מזלות וחיות סיניות</span></li>
+            <li><span class="from">"צבעוניות טובה"</span>
+              <span class="arrow">←</span>
+              <span class="to">כחול אבק, ורוד דהוי, אוקר וזהב פליז. אלה כל הצבעים שיש</span></li>
+            <li><span class="from">"גם הפונט וגם הצורות וגם השחור לבן טוב פה"</span>
+              <span class="arrow">←</span>
+              <span class="to">פרנק רוהל לכותרות מול אסיסטנט לגוף, ניגוד סריף מול סנס</span></li>
+          </ul>
+
+          <p class="pull">
+            הערה על רפרנס שאומרת "יפה" לא שווה כלום. הערה שאומרת
+            "האייקונים טובים כי הם משוחררים וכתב יד" היא הוראת עבודה,
+            ואפשר לבדוק חודש אחר כך אם קיימת אותה.
+          </p>
+        </div>
+
+        <div class="col">
+          <div class="step-head"><span class="step-num">9</span><h3>מהוויירפריים למסך</h3></div>
           <p>לחיצה על כל תמונה פותחת אותה בגודל מלא.</p>
         </div>
 
@@ -580,10 +761,14 @@
 
         <div class="col">
           <div class="missing">
-            <b>מה שעוד לא כאן.</b> לוח ה-FigJam המלא (פרסונות, מפות אמפתיה, ארבע מפות המסע
-            ו-Sitemap) ולוח ההשראה קיימים כשני קבצי PDF כבדים בדרייב, ולא הצלחתי למשוך אותם
-            לכאן. השלבים למעלה נכתבו מתוך התוכן שלהם, אבל התמונות עצמן חסרות.
-            ברגע שהקבצים יגיעו, כל אחד מהם ייכנס לגלריה הזו ליד השלב שלו.
+            <b>מה שנבנה מחדש ומה שעדיין חסר.</b> ארבע מפות המסע, שתי מפות האמפתיה
+            והערות לוח ההשראה כאן הן <b>הנתונים האמיתיים מהלוחות</b>, שנבנו מחדש כגרפים
+            וכרטיסים במקום כצילומי מסך. צילום של לוח FigJam בלתי קריא בטלפון,
+            והנתונים מאחוריו קטנים מספיק כדי לצייר אותם נכון.
+            מה שעדיין חסר הוא <b>תמונות הרפרנס עצמן</b> מלוח ההשראה, ופריסת הלוחות
+            כפי שהם. שניהם קיימים כקבצי PDF כבדים בדרייב שלא הצלחתי למשוך לכאן.
+            כדי להוסיף אותם, צריך את קישור לוח ה-FigJam, ואז אפשר לייצא כל פרסונה
+            וכל מפה כתמונה נקייה בנפרד.
           </div>
         </div>
       </section>
