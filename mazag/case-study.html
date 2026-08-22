@@ -202,8 +202,10 @@
     .journey .score--none { color: var(--text-3); background-color: transparent; border: 1px dashed var(--border); }
     .journey li.is-removed { opacity: 0.95; border-color: #d9a8a4; }
     .journey li.is-removed .what { text-decoration: line-through; text-decoration-color: var(--text-3); }
-    /* הקו החוצה שייך לכותרת השלב בלבד. ההסבר למה הוא הוסר חייב להישאר קריא */
-    .journey li.is-removed .why { text-decoration: none; }
+    /* הקו החוצה שייך לכותרת השלב בלבד. קישוט טקסט מתפשט לצאצאים בזרימה
+       ואי אפשר לבטל אותו מלמטה, ולכן ההסבר הופך ל-inline-block, שהוא קופסה
+       אטומית ולכן לא מקבל את הקו כלל */
+    .journey li.is-removed .why { display: inline-block; width: 100%; text-decoration: none; }
     .journey .removed-tag {
       display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em;
       color: #b5453f; border: 1px solid #d9a8a4; border-radius: 999px;
