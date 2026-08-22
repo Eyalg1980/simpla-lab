@@ -28,6 +28,11 @@
   --color-text-muted: #8a816f;
   --color-text-inverse: #faf6f3;
 
+  /* משטח שנועד להיות כהה מהדף, והטקסט שקריא עליו. אלה לא היפוך של הדף,
+     ולכן הם לא מתהפכים במצב כהה: כפתור ראשי נשאר כהה עם טקסט לבן */
+  --color-inverse-surface: #121827;
+  --color-on-inverse: #faf6f3;
+
   /* color/status */
   --color-status-success: #3e7d5c;
   --color-status-success-bg: #e7efe6;
@@ -282,8 +287,8 @@ ul {
 /* ---------- buttons ---------- */
 
 .button-primary {
-  background-color: var(--color-surface-dark);
-  color: var(--color-text-inverse);
+  background-color: var(--color-inverse-surface);
+  color: var(--color-on-inverse);
   border: none;
   border-radius: var(--radius-lg);
   padding: var(--space-md) var(--space-lg);
@@ -524,9 +529,9 @@ ul {
 }
 
 .tabs__item.is-active {
-  background-color: var(--color-surface-dark);
-  border-color: var(--color-surface-dark);
-  color: var(--color-text-inverse);
+  background-color: var(--color-inverse-surface);
+  border-color: var(--color-inverse-surface);
+  color: var(--color-on-inverse);
 }
 
 .archive {
@@ -1494,38 +1499,11 @@ ul {
    מצב כהה
    רק אסימוני הצבע מוגדרים מחדש. כל שאר המערכת, המרווחים,
    הרדיוסים והטיפוגרפיה, זהה בשני המצבים.
-   שלושה מצבים ולא שניים: בחירה מפורשת מסמנת data-theme על השורש,
-   וברירת המחדל היא הגדרת המכשיר, שלא מסמנת כלום.
+
+   אין כאן prefers-color-scheme בכוונה. ברירת המחדל של המוצר היא בהיר,
+   ולכן מכשיר שמוגדר כהה לא הופך את האפליקציה לכהה מעצמו. הבחירה
+   "מערכת" נפתרת ב-JS ומסמנת data-theme בעצמה, כך שיש מקור אמת אחד.
    ============================================================ */
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-
-    --color-surface-base: #121827;
-    --color-surface-raised: #1b2233;
-    --color-surface-dark: #0b1018;
-
-    --color-border-base: #313b52;
-
-    --color-accent-base: #a1937a;
-    /* החום העמוק הופך לזהב קלף, כדי שהכותרות יישארו החלק הכי בולט */
-    --color-accent-deep: #dcc9a4;
-    --color-accent-blue: #b4b0ca;
-    --color-accent-pink: #e0a5a4;
-    --color-accent-navy: #0b1018;
-
-    --color-text-primary: #ece7dd;
-    --color-text-secondary: #b9b1a2;
-    --color-text-muted: #9a9284;
-    --color-text-inverse: #121827;
-
-    --color-status-success: #7cc79f;
-    --color-status-success-bg: #17281f;
-    --color-status-error: #e7938c;
-    --color-status-error-bg: #2c1a19;
-  }
-}
 
 :root[data-theme="dark"] {
   color-scheme: dark;
@@ -1537,6 +1515,7 @@ ul {
   --color-border-base: #313b52;
 
   --color-accent-base: #a1937a;
+  /* החום העמוק הופך לזהב קלף, כדי שהכותרות יישארו החלק הכי בולט */
   --color-accent-deep: #dcc9a4;
   --color-accent-blue: #b4b0ca;
   --color-accent-pink: #e0a5a4;
@@ -1546,6 +1525,11 @@ ul {
   --color-text-secondary: #b9b1a2;
   --color-text-muted: #9a9284;
   --color-text-inverse: #121827;
+
+  /* המשטח שנועד להיות כהה מהדף מורם כאן ולא מושפל, אחרת כפתור ראשי
+     נעלם בתוך הרקע. הטקסט שעליו נשאר לבן בשני המצבים */
+  --color-inverse-surface: #2b3550;
+  --color-on-inverse: #faf6f3;
 
   --color-status-success: #7cc79f;
   --color-status-success-bg: #17281f;
@@ -1559,14 +1543,6 @@ ul {
 :root[data-theme="dark"] .method-hero,
 :root[data-theme="dark"] .onboard__image {
   box-shadow: 0 0 0 1px var(--color-border-base), 0 12px 32px rgb(0 0 0 / 0.45);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .hero-card,
-  :root:not([data-theme="light"]) .method-hero,
-  :root:not([data-theme="light"]) .onboard__image {
-    box-shadow: 0 0 0 1px var(--color-border-base), 0 12px 32px rgb(0 0 0 / 0.45);
-  }
 }
 
 /* ---------- בורר ערכת הנושא בתפריט ---------- */
@@ -1979,7 +1955,7 @@ button:disabled {
   margin: auto;
   width: var(--space-md);
   height: var(--space-md);
-  border: 2px solid var(--color-text-inverse);
+  border: 2px solid var(--color-on-inverse);
   border-top-color: transparent;
   border-radius: var(--radius-full);
   animation: spin var(--motion-slow) linear infinite;
@@ -2152,8 +2128,8 @@ button:disabled {
 }
 
 .toast {
-  background-color: var(--color-surface-dark);
-  color: var(--color-text-inverse);
+  background-color: var(--color-inverse-surface);
+  color: var(--color-on-inverse);
   padding: var(--space-sm) var(--space-lg);
   border-radius: var(--radius-full);
   font-size: var(--font-size-body);

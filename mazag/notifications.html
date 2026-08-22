@@ -15,10 +15,14 @@
   <meta name="theme-color" content="#121827" media="(prefers-color-scheme: dark)" />
   <script>
     /* רץ לפני הציור הראשון. בלי זה המסך נצבע בהיר ורק אז מתהפך */
+    /* רץ לפני הציור הראשון. ברירת המחדל היא בהיר, ולכן מכשיר שמוגדר כהה
+       לא הופך את האפליקציה לכהה מעצמו. רק בחירה מפורשת עושה זאת */
     try {
-      var t = localStorage.getItem("mazag.theme");
-      if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
-    } catch (e) { /* חלון פרטי */ }
+      var c = localStorage.getItem("mazag.theme") || "light";
+      var dark = c === "dark" ||
+        (c === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+      document.documentElement.dataset.theme = dark ? "dark" : "light";
+    } catch (e) { document.documentElement.dataset.theme = "light"; }
   </script>
 </head>
 <body>

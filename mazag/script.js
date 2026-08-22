@@ -292,52 +292,49 @@
 
   function setupTheme() {
     var items = Array.prototype.slice.call(document.querySelectorAll("[data-theme-choice]"));
-    if (!items.length) return;
-
-    function current() {
-      try { return localStorage.getItem(THEME_KEY) || "system"; }
-      catch (e) { return "system"; }
-    }
-
     var media = window.matchMedia("(prefers-color-scheme: dark)");
 
-    /* הלוגו הוא תמונה, ו-CSS לא מחליף src. גרסה כהה בלבד תיפול על המצב
+    /* ברירת המחדל היא בהיר ולא מערכת. מכשיר שמוגדר כהה מקבל כהה רק אם
+       המשתמשת בחרה בכך במפורש, או בחרה במפורש ללכת אחרי המכשיר */
+    function choice() {
+      try { return localStorage.getItem(THEME_KEY) || "light"; }
+      catch (e) { return "light"; }
+    }
+
+    function resolved() {
+      var c = choice();
+      return (c === "dark" || (c === "system" && media.matches)) ? "dark" : "light";
+    }
+
+    /* הלוגו הוא תמונה, ו-CSS לא מחליף src. גרסה לבנה בלבד תיפול על המצב
        הידני, ולכן ההחלפה נעשית כאן ומכסה את שלושת המצבים */
-    function paintLogos() {
-      var dark = document.documentElement.dataset.theme === "dark" ||
-                 (!document.documentElement.dataset.theme && media.matches);
-      var want = dark ? "assets/images/logo-new-dark.webp" : "assets/images/logo-new.webp";
+    function paint() {
+      var mode = resolved();
+      document.documentElement.dataset.theme = mode;
+      var want = mode === "dark" ? "assets/images/logo-new-dark.webp" : "assets/images/logo-new.webp";
       Array.prototype.forEach.call(
         document.querySelectorAll(".app-header__logo, .splash__logo"),
         function (img) { if (img.getAttribute("src") !== want) img.setAttribute("src", want); });
-    }
-
-    function apply(choice) {
-      if (choice === "system") delete document.documentElement.dataset.theme;
-      else document.documentElement.dataset.theme = choice;
+      var c = choice();
       items.forEach(function (b) {
-        var on = b.dataset.themeChoice === choice;
+        var on = b.dataset.themeChoice === c;
         b.classList.toggle("is-active", on);
         b.setAttribute("aria-pressed", String(on));
       });
-      paintLogos();
     }
-
-    /* שינוי ההגדרה במכשיר בזמן שהאפליקציה פתוחה */
-    if (media.addEventListener) media.addEventListener("change", paintLogos);
 
     items.forEach(function (b) {
       b.addEventListener("click", function () {
-        var choice = b.dataset.themeChoice;
-        try {
-          if (choice === "system") localStorage.removeItem(THEME_KEY);
-          else localStorage.setItem(THEME_KEY, choice);
-        } catch (e) { /* חלון פרטי, המצב עדיין יחול עד הרענון */ }
-        apply(choice);
+        try { localStorage.setItem(THEME_KEY, b.dataset.themeChoice); }
+        catch (e) { /* חלון פרטי, המצב עדיין יחול עד הרענון */ }
+        paint();
       });
     });
 
-    apply(current());
+    /* שינוי ההגדרה במכשיר משנה כלום אלא אם נבחר "מערכת" */
+    if (media.addEventListener) media.addEventListener("change", paint);
+
+    paint();
   }
 
   /* ---------- which card is on show ----------
