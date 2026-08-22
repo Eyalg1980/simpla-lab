@@ -223,6 +223,67 @@
     render();
   }
 
+  /* ---------- קול ----------
+     מסונתז ולא מוקלט. שלושה צלילים קצרים לא מצדיקים שלושה קבצים ועוד
+     בקשות רשת, וסינתזה גם נותנת שליטה מלאה על העדינות שהמותג דורש.
+     כבוי כברירת מחדל: צליל שנפתח לבד בבוקר הוא סיבה מוכרת להסרה. */
+
+  var SOUND_KEY = "mazag.sound";
+  var audioCtx = null;
+
+  function soundOn() {
+    try { return localStorage.getItem(SOUND_KEY) === "1"; } catch (e) { return false; }
+  }
+
+  function ctx() {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return null;
+    if (!audioCtx) audioCtx = new AC();
+    /* דפדפנים משהים את ההקשר עד למחווה של המשתמשת */
+    if (audioCtx.state === "suspended") audioCtx.resume();
+    return audioCtx;
+  }
+
+  /* גל סינוס יחיד עם דעיכה מעריכית. בלי התקפה חדה, שלא יישמע כמו התראה */
+  function tone(freq, seconds, gain) {
+    var c = ctx();
+    if (!c) return;
+    var osc = c.createOscillator();
+    var amp = c.createGain();
+    osc.type = "sine";
+    osc.frequency.value = freq;
+    amp.gain.setValueAtTime(0, c.currentTime);
+    amp.gain.linearRampToValueAtTime(gain, c.currentTime + 0.02);
+    amp.gain.exponentialRampToValueAtTime(0.0001, c.currentTime + seconds);
+    osc.connect(amp); amp.connect(c.destination);
+    osc.start(); osc.stop(c.currentTime + seconds + 0.02);
+  }
+
+  /* שלושה צלילים, ולא יותר. כל אחד קשור לפעולה אחת */
+  var SOUNDS = {
+    reveal: function () { tone(392, 0.7, 0.05); window.setTimeout(function () { tone(587.33, 0.9, 0.035); }, 110); },
+    save:   function () { tone(523.25, 0.35, 0.05); },
+    tick:   function () { tone(880, 0.08, 0.025); }
+  };
+
+  function play(name) {
+    if (!soundOn()) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var fn = SOUNDS[name];
+    if (fn) { try { fn(); } catch (e) { /* הקשר חסום, לא שווה להפיל מסך בגלל צליל */ } }
+  }
+
+  function setupSound() {
+    var box = document.getElementById("sound-toggle");
+    if (!box) return;
+    box.checked = soundOn();
+    box.addEventListener("change", function () {
+      try { localStorage.setItem(SOUND_KEY, box.checked ? "1" : "0"); } catch (e) { /* חלון פרטי */ }
+      if (box.checked) play("tick");
+      toast(box.checked ? "צליל פועל" : "צליל כבוי");
+    });
+  }
+
   /* ---------- ערכת נושא ----------
      שלושה מצבים. מערכת היא ברירת המחדל ולא מסמנת כלום על השורש, ולכן
      שינוי ההגדרה במכשיר משתקף מיד בלי שהאפליקציה צריכה לדעת עליו. */
@@ -303,20 +364,66 @@
     var text = document.getElementById("forecast-text");
     if (!hero || !text) return;
 
-    var when = requestedDate();
-    var card = Mazag.dayCard(when);
+    var skeleton = document.getElementById("forecast-skeleton");
+    var skelText = document.getElementById("forecast-skeleton-text");
+    var errorBox = document.getElementById("forecast-error");
+    var guestErr = document.getElementById("guest-error");
+    var why = document.getElementById("card-why");
+    var stamp = document.querySelector(".forecast__date");
 
-    hero.src = card.image;
+    function reveal() {
+      play("reveal");
+      if (skeleton) skeleton.hidden = true;
+      if (skelText) skelText.hidden = true;
+      hero.hidden = false;
+      text.hidden = false;
+    }
+
+    function fail(box) {
+      if (skeleton) skeleton.hidden = true;
+      if (skelText) skelText.hidden = true;
+      hero.hidden = true;
+      text.hidden = true;
+      if (why) why.hidden = true;
+      if (box) box.hidden = false;
+    }
+
+    /* התאריך ידוע תמיד, גם כשהתחזית עוד לא, ולכן הוא נכתב לפני כל יציאה
+       מוקדמת. אחרת מצב הטעינה מציג תאריך דמה מה-HTML */
+    if (stamp) stamp.textContent = hebrewDate(new Date());
+
+    /* מצבים נגישים לבדיקה, ולא רק לתיאור במסמך */
+    var forced = /[?&]state=(loading|error)/.exec(window.location.search);
+    if (forced && forced[1] === "loading") return;          // השלד נשאר
+    if (forced && forced[1] === "error") return fail(errorBox || guestErr);
+
+    /* קישור עם תאריך שאינו תאריך הוא הכשל האמיתי היחיד כאן, וכך הוא נראה */
+    var raw = /[?&]date=([^&]+)/.exec(window.location.search);
+    var when;
+    if (raw) {
+      var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(decodeURIComponent(raw[1]));
+      when = m ? new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]), 12, 0, 0) : null;
+      if (!when || isNaN(when.getTime())) return fail(guestErr || errorBox);
+    } else {
+      when = new Date();
+    }
+
+    var card;
+    try { card = Mazag.dayCard(when); }
+    catch (e) { return fail(errorBox || guestErr); }
+    if (!card) return fail(errorBox || guestErr);
+
     hero.alt = card.alt;
     text.textContent = card.text;
-
-    var stamp = document.querySelector(".forecast__date");
     if (stamp) stamp.textContent = hebrewDate(when);
-
-    // the breakdown panel names the reason, so it must agree with the picture
-    var why = document.getElementById("card-why");
     if (why) why.textContent = "הירח היום ב" + card.phaseHe + ", ביסוד " + card.elementHe +
       ". מספר היום " + card.dayNumber + ".";
+
+    /* השלד יורד רק כשיש באמת מה להראות, ולא כשהקוד סיים לרוץ */
+    hero.addEventListener("load", reveal, { once: true });
+    hero.addEventListener("error", function () { fail(errorBox || guestErr); }, { once: true });
+    hero.src = card.image;
+    if (hero.complete && hero.naturalWidth) reveal();
   }
 
   /* ---------- save and share on the forecast screen ---------- */
@@ -331,6 +438,7 @@
         save.setAttribute("aria-pressed", pressed ? "false" : "true");
         var label = save.querySelector(".action-button__label");
         if (label) label.textContent = pressed ? "שמור" : "נשמר";
+        if (!pressed) play("save");
         toast(pressed ? "הוסר מהארכיון" : "נשמר בארכיון שלך");
       });
     }
@@ -447,9 +555,13 @@
   function setupArchive() {
     var grid = document.getElementById("archive-grid");
     var empty = document.getElementById("archive-empty");
+    var skeleton = document.getElementById("archive-skeleton");
     if (!grid || !empty) return;
 
+    function done() { if (skeleton) skeleton.hidden = true; grid.hidden = false; }
+
     if (window.location.search.indexOf("state=empty") > -1) {
+      if (skeleton) skeleton.hidden = true;
       grid.hidden = true;
       empty.hidden = false;
       return;
@@ -472,6 +584,7 @@
         '</li>';
     }
     grid.innerHTML = html;
+    done();
   }
 
   function pad(n) { return n < 10 ? "0" + n : String(n); }
@@ -773,6 +886,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     setupNavDrawer();
     setupTheme();
+    setupSound();
     setupOnboarding();
     setupCardRouting();
     setupForecastActions();

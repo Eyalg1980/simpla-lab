@@ -33,13 +33,24 @@
     <main class="content">
       <p class="forecast__date">שלישי, 21.05.2025</p>
 
-      <img class="hero-card" id="hero-card" src="assets/images/card-the-star.webp"
-           alt="קלף הכוכב: אישה כורעת ומוזגת מים אל בריכה תחת כוכב זהב גדול" width="244" height="364" />
+      <!-- השלד אמיתי ולא הדגמה: הוא יורד ברגע שהתמונה של היום פוענחה -->
+      <div class="skeleton skeleton--card" id="forecast-skeleton" aria-hidden="true"></div>
 
-      <p class="body-copy" id="forecast-text">היום מזמין אותך לעצור לרגע ולהקשיב למה שמתרחש בפנים. שיחה קצרה או סימן מקרי יכולים לכוון אותך נכון. סמכי על התחושות שלך, הן יודעות.</p>
+      <img class="hero-card" id="hero-card" src="assets/images/card-the-star.webp"
+           alt="קלף הכוכב: אישה כורעת ומוזגת מים אל בריכה תחת כוכב זהב גדול" width="244" height="364" hidden />
+
+      <p class="body-copy" id="forecast-text" hidden></p>
+
+      <div class="skeleton skeleton--line" id="forecast-skeleton-text" aria-hidden="true"></div>
 
       <!-- למה דווקא הכרטיסייה הזו. המסך הזה מתחייב להסביר, ולכן הסיבה גלויה -->
       <p class="forecast__why" id="card-why"></p>
+
+      <div class="state-block" id="forecast-error" hidden role="alert">
+        <h2 class="state-block__title">לא הצלחנו להרכיב את התחזית</h2>
+        <p class="state-block__note">התאריך במכשיר נראה לא תקין, ובלעדיו אין ממה לגזור את היום.</p>
+        <button type="button" class="button-primary" onclick="window.location.reload()">נסי שוב</button>
+      </div>
 
       <div class="actions-row">
         <button type="button" class="action-button" id="save-btn" aria-pressed="false">
@@ -148,19 +159,32 @@
       </button>
       <h2 class="nav-drawer__title">מזג</h2>
       <ul class="nav-drawer__list">
-        <li><a href="index.html">פתיחה</a></li>
-        <li><a href="explain.html">איך זה עובד</a></li>
-        <li><a href="daily-forecast.html" aria-current="page">התחזית היומית</a></li>
-        <li><a href="my-chart.html">המפה שלי</a></li>
-        <li><a href="methods.html">השיטות</a></li>
-        <li><a href="archive.html">הארכיון שלי</a></li>
-        <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
-        <li><a href="edit-mode.html">מצב עריכה</a></li>
-        <li><a href="profile.html">הפרופיל שלי</a></li>
-        <li><a href="subscription.html">המנוי שלי</a></li>
-        <li><a href="notifications.html">התראות</a></li>
-        <li><a href="splash.html">מסך טעינה</a></li>
-        <li><a href="guest-view.html">צפייה מקישור</a></li>
+        <li class="nav-group">
+          <h3 class="nav-group__title">היום</h3>
+        </li>
+          <li><a href="daily-forecast.html" aria-current="page">התחזית היומית</a></li>
+          <li><a href="archive.html">הארכיון שלי</a></li>
+        <li class="nav-group">
+          <h3 class="nav-group__title">להבין</h3>
+        </li>
+          <li><a href="methods.html">השיטות</a></li>
+          <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
+          <li><a href="edit-mode.html">מצב עריכה</a></li>
+          <li><a href="explain.html">איך זה עובד</a></li>
+        <li class="nav-group">
+          <h3 class="nav-group__title">שלי</h3>
+        </li>
+          <li><a href="profile.html">הפרופיל שלי</a></li>
+          <li><a href="my-chart.html">המפה שלי</a></li>
+          <li><a href="notifications.html">התראות</a></li>
+          <li><a href="subscription.html">המנוי שלי</a></li>
+        <li class="nav-group">
+          <h3 class="nav-group__title">מסכי הדגמה</h3>
+        </li>
+          <li><a href="index.html">פתיחה</a></li>
+          <li><a href="splash.html">מסך טעינה</a></li>
+          <li><a href="guest-view.html">צפייה מקישור</a></li>
+          <li><a href="offline.html">אין חיבור</a></li>
       </ul>
 
       <div class="nav-drawer__prefs">
@@ -170,6 +194,14 @@
           <button type="button" class="theme-switch__item" data-theme-choice="light">בהיר</button>
           <button type="button" class="theme-switch__item" data-theme-choice="dark">כהה</button>
         </div>
+
+        <label class="pref-toggle">
+          <span class="pref-toggle__body">
+            <span class="pref-toggle__title">צליל</span>
+            <span class="pref-toggle__note">צלילים קצרים בשמירה ובפתיחת התחזית. כבוי כברירת מחדל</span>
+          </span>
+          <input type="checkbox" id="sound-toggle" />
+        </label>
       </div>
     </nav>
   </dialog>

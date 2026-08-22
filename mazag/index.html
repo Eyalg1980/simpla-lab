@@ -50,19 +50,32 @@
       </button>
       <h2 class="nav-drawer__title">מזג</h2>
       <ul class="nav-drawer__list">
-        <li><a href="index.html" aria-current="page">פתיחה</a></li>
-        <li><a href="explain.html">איך זה עובד</a></li>
-        <li><a href="daily-forecast.html">התחזית היומית</a></li>
-        <li><a href="my-chart.html">המפה שלי</a></li>
-        <li><a href="methods.html">השיטות</a></li>
-        <li><a href="archive.html">הארכיון שלי</a></li>
-        <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
-        <li><a href="edit-mode.html">מצב עריכה</a></li>
-        <li><a href="profile.html">הפרופיל שלי</a></li>
-        <li><a href="subscription.html">המנוי שלי</a></li>
-        <li><a href="notifications.html">התראות</a></li>
-        <li><a href="splash.html">מסך טעינה</a></li>
-        <li><a href="guest-view.html">צפייה מקישור</a></li>
+        <li class="nav-group">
+          <h3 class="nav-group__title">היום</h3>
+        </li>
+          <li><a href="daily-forecast.html">התחזית היומית</a></li>
+          <li><a href="archive.html">הארכיון שלי</a></li>
+        <li class="nav-group">
+          <h3 class="nav-group__title">להבין</h3>
+        </li>
+          <li><a href="methods.html">השיטות</a></li>
+          <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
+          <li><a href="edit-mode.html">מצב עריכה</a></li>
+          <li><a href="explain.html">איך זה עובד</a></li>
+        <li class="nav-group">
+          <h3 class="nav-group__title">שלי</h3>
+        </li>
+          <li><a href="profile.html">הפרופיל שלי</a></li>
+          <li><a href="my-chart.html">המפה שלי</a></li>
+          <li><a href="notifications.html">התראות</a></li>
+          <li><a href="subscription.html">המנוי שלי</a></li>
+        <li class="nav-group">
+          <h3 class="nav-group__title">מסכי הדגמה</h3>
+        </li>
+          <li><a href="index.html" aria-current="page">פתיחה</a></li>
+          <li><a href="splash.html">מסך טעינה</a></li>
+          <li><a href="guest-view.html">צפייה מקישור</a></li>
+          <li><a href="offline.html">אין חיבור</a></li>
       </ul>
 
       <div class="nav-drawer__prefs">
@@ -72,6 +85,14 @@
           <button type="button" class="theme-switch__item" data-theme-choice="light">בהיר</button>
           <button type="button" class="theme-switch__item" data-theme-choice="dark">כהה</button>
         </div>
+
+        <label class="pref-toggle">
+          <span class="pref-toggle__body">
+            <span class="pref-toggle__title">צליל</span>
+            <span class="pref-toggle__note">צלילים קצרים בשמירה ובפתיחת התחזית. כבוי כברירת מחדל</span>
+          </span>
+          <input type="checkbox" id="sound-toggle" />
+        </label>
       </div>
     </nav>
   </dialog>
