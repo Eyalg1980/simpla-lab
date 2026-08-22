@@ -22,6 +22,10 @@
   --color-accent-pink: #e0a5a4;
   --color-accent-navy: #212839;
 
+  /* accent-navy הוא שם של צבע, לא של תפקיד, ולכן במצב כהה הוא נעשה
+     כהה עוד יותר. אייקון חייב תפקיד: "הצבע שקריא על הדף", וזה מתהפך. */
+  --color-icon: #212839;
+
   /* color/text */
   --color-text-primary: #171f1c;
   --color-text-secondary: #5e564b;
@@ -165,7 +169,7 @@ ul {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-accent-navy);
+  color: var(--color-icon);
   border-radius: var(--radius-sm);
 }
 
@@ -1520,6 +1524,7 @@ ul {
   --color-accent-blue: #b4b0ca;
   --color-accent-pink: #e0a5a4;
   --color-accent-navy: #0b1018;
+  --color-icon: #ece7dd;
 
   --color-text-primary: #ece7dd;
   --color-text-secondary: #b9b1a2;
