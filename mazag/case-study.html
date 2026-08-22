@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מזג · קייס סטאדי · אייל גרשון</title>
+  <meta name="description" content="איך שש שיטות ניחוש שונות הפכו לתמונה אחת וטקסט אחד ליום, ולמה זו הייתה בעיית אינדוקס ולא בעיית עיצוב." />
+  <link rel="icon" href="assets/icons/app-icon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;600&family=Assistant:wght@400;600&display=swap" rel="stylesheet" />
+  <meta name="theme-color" content="#faf6f3" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#121827" media="(prefers-color-scheme: dark)" />
+  <style>
+    /* הקייס סטאדי נושא את שפת המוצר שהוא מתאר, ולכן האסימונים כאן זהים
+       לאלו של האפליקציה. הפריסה שונה, כי מסמך ארוך הוא לא מסך טלפון. */
+    :root {
+      --surface: #faf6f3;
+      --raised: #f2ede6;
+      --border: #dcceb7;
+      --accent: #3c2f26;
+      --accent-blue: #b4b0ca;
+      --accent-pink: #e0a5a4;
+      --text: #171f1c;
+      --text-2: #5e564b;
+      --text-3: #8a816f;
+      --heading: "Frank Ruhl Libre", Georgia, serif;
+      --body: "Assistant", Arial, sans-serif;
+      --measure: 34rem;
+      --wide: 62rem;
+      color-scheme: light;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface: #121827;
+        --raised: #1b2233;
+        --border: #313b52;
+        --accent: #dcc9a4;
+        --text: #ece7dd;
+        --text-2: #b9b1a2;
+        --text-3: #9a9284;
+        color-scheme: dark;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background-color: var(--surface);
+      color: var(--text);
+      font-family: var(--body);
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .wrap { width: min(100% - 2.5rem, var(--wide)); margin-inline: auto; }
+    .col  { width: min(100%, var(--measure)); }
+
+    header.top {
+      border-block-end: 1px solid var(--border);
+      padding-block: 1rem;
+    }
+    header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    header.top a { color: var(--text-2); text-decoration: none; font-size: 0.9rem; }
+    header.top a:hover { color: var(--accent); }
+    .brand { font-family: var(--heading); font-weight: 600; font-size: 1.15rem; color: var(--text); }
+
+    .hero { padding-block: clamp(3rem, 9vw, 6rem) 2rem; }
+    .kicker {
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em;
+      color: var(--text-3); margin: 0 0 0.75rem;
+    }
+    h1 {
+      font-family: var(--heading); font-weight: 600;
+      font-size: clamp(2.1rem, 6vw, 3.4rem); line-height: 1.15;
+      margin: 0 0 1rem; color: var(--text);
+    }
+    .lede { font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: var(--text-2); margin: 0; max-width: var(--measure); }
+
+    .facts {
+      display: grid; gap: 1px; background-color: var(--border);
+      border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+      grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+      margin-block: 2.5rem;
+    }
+    .facts div { background-color: var(--raised); padding: 1rem 1.15rem; }
+    .facts dt { font-size: 0.78rem; color: var(--text-3); font-weight: 600; letter-spacing: 0.04em; }
+    .facts dd { margin: 0.35rem 0 0; font-family: var(--heading); font-size: 1.05rem; }
+
+    section { padding-block: clamp(2rem, 5vw, 3.5rem); }
+    section + section { border-block-start: 1px solid var(--border); }
+
+    h2 {
+      font-family: var(--heading); font-weight: 600;
+      font-size: clamp(1.5rem, 3.6vw, 2rem); line-height: 1.25;
+      margin: 0 0 1rem; color: var(--accent);
+    }
+    h3 {
+      font-family: var(--heading); font-weight: 500;
+      font-size: 1.2rem; margin: 2rem 0 0.5rem; color: var(--text);
+    }
+    p { margin: 0 0 1rem; color: var(--text-2); }
+    p strong { color: var(--text); font-weight: 600; }
+
+    .pull {
+      font-family: var(--heading); font-size: clamp(1.25rem, 3vw, 1.6rem);
+      line-height: 1.4; color: var(--text); margin: 2rem 0;
+      padding-inline-start: 1.1rem; border-inline-start: 3px solid var(--accent-pink);
+      max-width: var(--measure);
+    }
+
+    figure { margin: 2rem 0 0; }
+    figure img {
+      display: block; width: 100%; height: auto;
+      border: 1px solid var(--border); border-radius: 14px;
+      background-color: var(--raised);
+    }
+    figcaption { margin-block-start: 0.65rem; font-size: 0.85rem; color: var(--text-3); }
+
+    .shots { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+    .shots img { border-radius: 12px; }
+
+    .grid-cards { display: grid; gap: 0.6rem; grid-template-columns: repeat(4, 1fr); max-width: 30rem; }
+    .grid-cards img { border-radius: 8px; }
+
+    table { width: 100%; border-collapse: collapse; margin-block: 1.5rem; font-size: 0.93rem; }
+    th, td { text-align: start; padding: 0.6rem 0.7rem; border-block-end: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--text-3); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.03em; }
+    td { color: var(--text-2); }
+    td:first-child { color: var(--text); font-weight: 600; }
+    .scroller { overflow-x: auto; }
+
+    ul { margin: 0 0 1rem; padding-inline-start: 1.2rem; color: var(--text-2); }
+    li { margin-block-end: 0.5rem; }
+    li strong { color: var(--text); }
+
+    .cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      min-height: 44px; padding-inline: 1.2rem;
+      background-color: var(--accent); color: var(--surface);
+      border-radius: 999px; text-decoration: none; font-weight: 600;
+    }
+    .cta--quiet { background: none; color: var(--accent); border: 1px solid var(--border); }
+    .ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block-start: 1.5rem; }
+
+    footer.bottom { border-block-start: 1px solid var(--border); padding-block: 2.5rem 4rem; color: var(--text-3); font-size: 0.9rem; }
+
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top">
+    <div class="wrap">
+      <span class="brand">אייל גרשון</span>
+      <a href="index.html">למוצר החי</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <div class="hero">
+        <p class="kicker">קייס סטאדי · מוצר מובייל · עיצוב ובנייה</p>
+        <h1>מזג</h1>
+        <p class="lede">
+          שש שיטות ניחוש שונות, תמונה אחת וטקסט אחד בכל בוקר.
+          הבעיה הקשה כאן לא הייתה איך זה נראה, אלא איך בוחרים מה להראות.
+        </p>
+
+        <dl class="facts">
+          <div><dt>תפקיד</dt><dd>מוצר, עיצוב ופיתוח</dd></div>
+          <div><dt>מצב</dt><dd>אב טיפוס חי</dd></div>
+          <div><dt>מסכים</dt><dd>20</dd></div>
+          <div><dt>מאגר</dt><dd>32 כרטיסיות, 24 אייקונים</dd></div>
+        </dl>
+
+        <figure>
+          <div class="shots">
+            <img src="assets/images/card-full-water.webp" alt="כרטיסיית ירח מלא ביסוד מים: ירח שלם משתקף באגם דומם" width="496" height="740" />
+            <img src="assets/images/card-new-fire.webp" alt="כרטיסיית מולד ביסוד אש: ניצוץ יחיד בחושך" width="496" height="740" />
+            <img src="assets/images/card-full-earth.webp" alt="כרטיסיית ירח מלא ביסוד אדמה: שולחן קציר עמוס" width="496" height="740" />
+          </div>
+          <figcaption>שלוש מתוך שלושים ושתיים הכרטיסיות. השורה בגיליון היא מופע הירח, העמודה היא היסוד.</figcaption>
+        </figure>
+      </div>
+
+      <section>
+        <div class="col">
+          <h2>הבעיה</h2>
+          <p>
+            מי שמתעניין בתחזיות יומיות לא סובל ממחסור. הוא סובל מעודף.
+            אסטרולוגיה אומרת דבר אחד, נומרולוגיה דבר שני, טארוט שלישי,
+            ולפעמים הם סותרים. התוצאה היא בוקר שמתחיל בהתלבטות בין חמש אפליקציות
+            במקום ברגע אחד של התבוננות.
+          </p>
+          <p>
+            הבקשה הייתה פשוטה לניסוח וקשה לביצוע: <strong>תחזית אחת ליום.</strong>
+            תמונה שאפשר לשמור, ופסקה קצרה לקרוא בדרך.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="col">
+          <h2>ההחלטה שקבעה הכל</h2>
+          <p>
+            שש שיטות שמתמזגות לקול אחד יכולות להיות שני דברים שונים לגמרי.
+            הן יכולות להיות קופסה שחורה שפולטת משפט, או מנגנון גלוי שאפשר להבין
+            ולשנות. בחרתי בשני, ומכאן נגזר כמעט כל השאר.
+          </p>
+          <p>
+            לכל שיטה יש משקל מספרי, המשקלים תמיד מסתכמים במאה,
+            ויש מסך שמראה בדיוק כמה כל שיטה תרמה לתחזית של היום.
+            <strong>אסטרולוגיה מקבלת חמישים אחוז כברירת מחדל</strong>, כי היא היחידה
+            שקוראת את מפת הלידה של המשתמשת עצמה ולכן היא הקלט הכי אישי שיש.
+          </p>
+
+          <p class="pull">
+            ברגע שהחלטתי שהמנגנון גלוי, כל מסך במוצר חייב להיות מסוגל להסביר את עצמו.
+            זה מה שהפך את זה מבעיית עיצוב לבעיית ארכיטקטורה.
+          </p>
+
+          <p>
+            הגילוי הזה גם פתר את שאלת המודל העסקי. אם המשקולות הן הלב של המוצר,
+            אז מה שמוכרים הוא לא הגישה לתחזית אלא <strong>השליטה בה</strong>.
+            התחזית חינם, שמירת משקולות משלך היא מנוי. במסך העריכה השארתי את הגרירה
+            פתוחה לכולם ונעלתי רק את השמירה, כי סליידר מת לא מוכר כלום
+            וסליידר שאפשר להזיז מוכר את עצמו.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="col">
+          <h2>הבעיה האמיתית: אינדוקס, לא ציור</h2>
+          <p>
+            כשהגעתי למאגר התמונות התברר שהשאלה "איזה ציור מתאים ליום הזה"
+            היא לא שאלה אסתטית. ספרתי כמה מצבים שונים כל שיטה מייצרת ביום נתון:
+            שנים עשר מזלות ירח, שמונה מופעים, תשעה מספרי יום, עשרים ושתיים ארקנות,
+            שישים וארבע הקסגרמות, עשרים וארבע רונות.
+          </p>
+          <p>
+            מכפלת המצבים היא מיליוני צירופים. <strong>שום מאגר תמונות לא מכסה את זה.</strong>
+            כלומר התמונה לא יכולה להיות מאונדקסת על הצירוף, והטקסט הוא זה שחייב לשאת אותו.
+          </p>
+
+          <h3>מה שמצאתי כשהצלבתי את השיטות</h3>
+          <p>
+            הצלבתי את המשמעויות המסורתיות של ארבע השיטות המחזוריות וגיליתי משהו
+            שלא ציפיתי לו. הארקנות בטארוט בנויות כקשת אחת. ההקסגרמות מתקבצות
+            לסוגי תנועה. הרונות מתקבצות גם הן. נומרולוגיה אחת עד תשע היא במפורש קשת.
+            ארבע מתוך שש השיטות הן <strong>אותה קשת בשפות שונות</strong>.
+          </p>
+          <p>
+            המכנה המשותף השני הוא הטון, ואותו נותנים ארבעת היסודות.
+            מכאן נגזרה הטקסונומיה: שני צירים ולא שישה.
+            מיקום בקשת כפול טון, שמונה כפול ארבע, שלושים ושתיים כרטיסיות.
+          </p>
+
+          <figure>
+            <div class="grid-cards">
+              <img src="assets/images/thumb-new-fire.webp" alt="מולד באש" width="186" height="278" loading="lazy" />
+              <img src="assets/images/thumb-new-earth.webp" alt="מולד באדמה" width="186" height="278" loading="lazy" />
+              <img src="assets/images/thumb-new-air.webp" alt="מולד באוויר" width="186" height="278" loading="lazy" />
+              <img src="assets/images/thumb-new-water.webp" alt="מולד במים" width="186" height="278" loading="lazy" />
+              <img src="assets/images/thumb-full-fire.webp" alt="מלא באש" width="186" height="278" loading="lazy" />
+              <img src="assets/images/thumb-full-earth.webp" alt="מלא באדמה" width="186" height="278" loading="lazy" />
+              <img src="assets/images/thumb-full-air.webp" alt="מלא באוויר" width="186" height="278" loading="lazy" />
+              <img src="assets/images/thumb-full-water.webp" alt="מלא במים" width="186" height="278" loading="lazy" />
+              <img src="assets/images/thumb-balsamic-fire.webp" alt="סהר מתרוקן באש" width="186" height="278" loading="lazy" />
+              <img src="assets/images/thumb-balsamic-earth.webp" alt="סהר מתרוקן באדמה" width="186" height="278" loading="lazy" />
+              <img src="assets/images/thumb-balsamic-air.webp" alt="סהר מתרוקן באוויר" width="186" height="278" loading="lazy" />
+              <img src="assets/images/thumb-balsamic-water.webp" alt="סהר מתרוקן במים" width="186" height="278" loading="lazy" />
+            </div>
+            <figcaption>שלוש שורות מתוך שמונה. אותו רגע בקשת, ארבעה טונים: ניצוץ מול זרע מול נשיפה מול טיפה.</figcaption>
+          </figure>
+
+          <h3>הרווח האמיתי היה בטקסט</h3>
+          <p>
+            הטקסט מתחת לכרטיסייה לא נכתב שלושים ושתיים פעם. הוא מורכב משתי פסוקיות,
+            אחת לקשת ואחת לטון. <strong>שנים עשר קטעים כתובים מייצרים שלושים ושתיים שורות עקביות.</strong>
+            קופירייטר כותב שנים עשר במקום שלושים ושתיים, וכל שורה עדיין נשמעת כאילו נכתבה במיוחד.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="col">
+          <h2>מה שהתגלה רק אחרי הבנייה</h2>
+          <p>
+            הרצתי את מנוע הבחירה קדימה על מאה ועשרים ימים וספרתי שני דברים:
+            כמה מהכרטיסיות בכלל נכנסות לשימוש, וכמה פעמים היום בוחר את מה שאתמול בחר.
+          </p>
+          <p>
+            התוצאה: כל שלושים ושתיים הכרטיסיות נכנסות לשימוש, אבל
+            <strong>בארבעים ושלושה אחוז מהימים התמונה זהה לזו של אתמול.</strong>
+            זה נכון עניינית, הירח באמת מחזיק מופע כארבעה ימים ומזל כיומיים וחצי,
+            אבל קריאה שחוזרת מילה במילה נראית שבורה.
+          </p>
+          <p>
+            הפיתוי היה לזייף: להוסיף רעש לאינדקס כדי שהתמונה תתחלף.
+            לא עשיתי את זה, כי המוצר מתחייב להסביר את עצמו ורעש אקראי הוא בדיוק
+            מה שאי אפשר להסביר. במקום זה הוספתי פסוקית שלישית שנגזרת ממספר היום
+            האוניברסלי, שמתחלף כל יום. אחרי השינוי: אפס קריאות עוקבות זהות
+            על פני מאה ועשרים יום, והתמונה נשארה כנה.
+          </p>
+
+          <p class="pull">
+            כשמדד יוצא גרוע, יש שתי אפשרויות: לתקן את המנגנון או לתקן את המדד.
+            כאן המנגנון היה נכון והתצוגה הייתה חסרה, ולכן התיקון נכנס לטקסט ולא לאינדקס.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="col">
+          <h2>ארבע טעויות, ומה שהן לימדו</h2>
+          <p>
+            כל ארבע הטעויות המשמעותיות בפרויקט היו מאותה משפחה:
+            <strong>הנחתי מבנה במקום למדוד אותו.</strong>
+          </p>
+        </div>
+
+        <div class="scroller">
+          <table>
+            <thead>
+              <tr><th>מה קרה</th><th>השורש</th><th>מה שנשאר</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>כרטיסיות בפרופורציה שגויה</td>
+                <td>קיבלתי איור בפרופורציה 1:2.15 והעיצוב דרש 1:1.49</td>
+                <td>גאומטריה לא מתקנת ציור שגוי. מתיחה מעוותת פנים, חיתוך מוריד את פס הכותרת. רק ייצור מחדש</td>
+              </tr>
+              <tr>
+                <td>אייקונים נחתכו מוסטים</td>
+                <td>חתכתי רשת 4 על 3 על כל הקנבס, כולל שוליי הנייר, והמודל לא צייר על הרשת המתמטית</td>
+                <td>קודם חיתוך עד לציור, ואז התאמת הרשת ברגרסיה על מרכזי הציורים. הציורים מגלים את הרשת</td>
+              </tr>
+              <tr>
+                <td>זיהוי מסגרת נתפס על צל</td>
+                <td>חיפשתי את השורה הכהה ביותר, וצל הנייר כהה יותר מקו הסרגל</td>
+                <td>הפרדה לפי עובי משיכה ולא לפי כהות</td>
+              </tr>
+              <tr>
+                <td>כמעט הזמנתי אצווה במחיר שגוי</td>
+                <td>תחשיב המחיר תמחר את המודל שביקשתי, והפלטפורמה הגישה מודל אחר יקר פי שישה</td>
+                <td>תמונת בדיקה אחת והפרש יתרה לפני כל אצווה</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col">
+          <h3>ותובנה שהיא שיטה ולא טעות</h3>
+          <p>
+            <strong>בודקים נכס במסכה שהוא באמת לובש.</strong> אייקון ריבועי שנראה נקי
+            בדפדפן קבצים יכול לקבל קו שחוצה אותו ברגע שמסכה עגולה בגודל 44 פיקסל
+            נוחתת עליו. שלושה סבבי תיקון על מאגר האייקונים נתפסו רק כי בניתי את
+            גיליון הבדיקה עם המסכה האמיתית ולא עם הקבצים.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="col">
+          <h2>מה נבנה בפועל</h2>
+          <ul>
+            <li><strong>מערכת עיצוב בפיגמה</strong> עם ארבעה אוספי משתנים, שני מודים לצבע, וקומפוננטות רוחב גמיש</li>
+            <li><strong>עשרים מסכים</strong>, כולם RTL, מובייל תחילה, נגישים במקלדת</li>
+            <li><strong>מנוע חישוב דטרמיניסטי</strong> בצד הלקוח: מזל שמש, מספר דרך, זודיאק סיני, קלף לידה, מופע ירח ומזל ירח. אומת מול מולדים וירחים מלאים ידועים</li>
+            <li><strong>מאגר של 32 כרטיסיות ו-24 אייקונים</strong> באותה שפה חזותית</li>
+            <li><strong>מצב כהה</strong> בשלושה מצבים, עם ניגודיות שנמדדה ולא הוערכה</li>
+            <li><strong>אפליקציה שניתנת להתקנה</strong> עם עבודה אופליין ותזכורת יומית מקומית</li>
+          </ul>
+
+          <div class="ctas">
+            <a class="cta" href="index.html">לפתוח את המוצר</a>
+            <a class="cta cta--quiet" href="behind-the-scenes.html">למסך שמסביר את המנגנון</a>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="col">
+          <h2>מה שהייתי עושה אחרת</h2>
+          <p>
+            <strong>הייתי מודד את קצב החזרה לפני שמייצר את התמונות.</strong>
+            הבדיקה של ארבעים ושלושה אחוז חזרה לקחה שלוש שורות קוד, ואפשר היה
+            להריץ אותה על הטקסונומיה לפני שהוזמנה תמונה אחת. היא לא הייתה משנה
+            את ההחלטה, אבל היא הייתה משנה את סדר העבודה.
+          </p>
+          <p>
+            <strong>והייתי מגדיר את מצבי הביניים ביחד עם המסך ולא אחריו.</strong>
+            מצבי טעינה, ריקנות ושגיאה היו מוגדרים במסמך מההתחלה ונבנו בסוף,
+            וזה החוב היחיד שהמשיך לגרור את עצמו לאורך כל הפרויקט.
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="bottom">
+    <div class="wrap">
+      <p>מזג · אב טיפוס חי · אייל גרשון</p>
+    </div>
+  </footer>
+
+</body>
+</html>
