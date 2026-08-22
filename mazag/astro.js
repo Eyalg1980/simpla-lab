@@ -175,6 +175,132 @@ var Mazag = (function () {
     };
   }
 
+
+  /* ---------- the day card: where the day sits on the arc, and in what tone ----------
+
+     ארבע מתוך שש השיטות הן אותה קשת בשפות שונות, ולכן התמונה מאונדקסת על שני
+     צירים בלבד: מיקום בקשת (מופע הירח, שמונה) וטון (יסוד מזל הירח, ארבעה).
+     שלושים ושתיים כרטיסיות מכסות כל יום, והצירוף המלא של שש השיטות נישא בטקסט.
+     הכל נגזר מהתאריך לבדו, ולכן מסך הצפייה מקישור עובד בלי תאריך לידה. */
+
+  var PHASES = [
+    ["new",              "מולד",           "יום להתחיל בו משהו"],
+    ["waxing-crescent",  "סהר מתמלא",      "משהו קטן כבר זז"],
+    ["first-quarter",    "רבע ראשון",      "יש כאן החלטה שדוחה את עצמה"],
+    ["waxing-gibbous",   "גיבוז מתמלא",    "כמעט, וזה בדיוק החלק שדורש סבלנות"],
+    ["full",             "מלא",            "משהו מגיע לשיא"],
+    ["waning-gibbous",   "גיבוז מתרוקן",   "מה שנאסף מבקש שיחלקו אותו"],
+    ["last-quarter",     "רבע אחרון",      "יום לשחרר בו משהו"],
+    ["balsamic",         "סהר מתרוקן",     "לא צריך למלא את היום הזה"]
+  ];
+
+  var TONES = [
+    ["fire",  "אש",    "ומשהו בך כבר רץ קדימה"],
+    ["earth", "אדמה",  "ובקצב שאפשר לעמוד בו"],
+    ["air",   "אוויר", "וזה יסתדר קודם במילים"],
+    ["water", "מים",   "וזה יורגש לפני שיובן"]
+  ];
+
+
+  /* מספר היום האוניברסלי, שמתחלף כל יום ולכן שובר כל חזרה */
+  var DAY_ACCENT = {
+    1:  "המספר של היום הוא אחת, וזה תמיד מתחיל בצעד שאת עושה ראשונה.",
+    2:  "המספר של היום הוא שתיים, ורוב מה שיקרה יקרה מול מישהו אחר.",
+    3:  "המספר של היום הוא שלוש, ומה שלא ייאמר היום יישאר תקוע.",
+    4:  "המספר של היום הוא ארבע, ודברים משתלמים כשעושים אותם בסדר.",
+    5:  "המספר של היום הוא חמש, ומשהו בתוכנית כנראה יזוז.",
+    6:  "המספר של היום הוא שש, ומישהו קרוב צריך יותר תשומת לב מהרגיל.",
+    7:  "המספר של היום הוא שבע, ושווה לשמור חלק מהיום רק לעצמך.",
+    8:  "המספר של היום הוא שמונה, ויש כאן הזדמנות להחליט במקום להתלבט.",
+    9:  "המספר של היום הוא תשע, וזה יום טוב לסגור מעגל שנשאר פתוח.",
+    11: "המספר של היום הוא אחת עשרה, מספר מאסטר, והתחושות היום חדות מהרגיל.",
+    22: "המספר של היום הוא עשרים ושתיים, מספר מאסטר, ומה שנבנה היום מחזיק לאורך זמן.",
+    33: "המספר של היום הוא שלושים ושלוש, מספר מאסטר, ומה שנותנים היום חוזר מוגדל."
+  };
+
+  var RAD = Math.PI / 180;
+
+  function julianDay(date) {
+    return date.getTime() / 86400000 + 2440587.5;
+  }
+
+  /* Meeus, truncated. About a fifth of a degree, which is far inside the 30
+     degrees a sign spans and the 45 degrees a phase spans. */
+  function moonLongitude(T) {
+    var Lp = 218.3164477 + 481267.88123421 * T;
+    var D  = 297.8501921 + 445267.1114034  * T;
+    var M  = 357.5291092 + 35999.0502909   * T;
+    var Mp = 134.9633964 + 477198.8675055  * T;
+    var lon = Lp
+      + 6.289 * Math.sin(Mp * RAD)
+      - 1.274 * Math.sin((2 * D - Mp) * RAD)
+      + 0.658 * Math.sin(2 * D * RAD)
+      - 0.186 * Math.sin(M * RAD)
+      - 0.059 * Math.sin((2 * Mp - 2 * D) * RAD)
+      - 0.057 * Math.sin((Mp - 2 * D + M) * RAD)
+      + 0.053 * Math.sin((Mp + 2 * D) * RAD)
+      + 0.046 * Math.sin((2 * D - M) * RAD)
+      - 0.041 * Math.sin((Mp - M) * RAD)
+      - 0.035 * Math.sin(D * RAD)
+      - 0.031 * Math.sin((Mp + M) * RAD);
+    return ((lon % 360) + 360) % 360;
+  }
+
+  function sunLongitude(d) {
+    var g = (357.528 + 0.9856003 * d) * RAD;
+    var lon = 280.460 + 0.9856474 * d + 1.915 * Math.sin(g) + 0.020 * Math.sin(2 * g);
+    return ((lon % 360) + 360) % 360;
+  }
+
+  function dayCard(date) {
+    var when = date || new Date();
+    var jd = julianDay(when);
+    var d = jd - 2451545.0;
+    var T = d / 36525;
+
+    var moon = moonLongitude(T);
+    var sun = sunLongitude(d);
+
+    /* the phase is the angle the moon has opened up on the sun, binned into
+       eight. the bins are centred, so a full moon reads as full and not as the
+       edge of two buckets. */
+    var angle = ((moon - sun) % 360 + 360) % 360;
+    var phaseIdx = Math.floor(((angle + 22.5) % 360) / 45);
+
+    /* the tone is the element of the sign the moon is standing in. aries is
+       fire and the elements repeat every four signs, so the sign index is the
+       tone index. */
+    var signIdx = Math.floor(moon / 30);
+    var toneIdx = signIdx % 4;
+
+    var p = PHASES[phaseIdx], t = TONES[toneIdx];
+    var key = p[0] + "-" + t[0];
+
+    /* the two axes that pick the picture both move slowly: the moon holds a
+       phase bin for about four days and a sign for about two and a half, so on
+       roughly two days in five the picture is yesterday's. that is honest, the
+       arc really has not moved. what must not repeat is the reading, so the day
+       number, which does change every single day, carries the third clause. */
+    var dayNum = reduceNumber(digitSum(
+      when.getFullYear() * 10000 + (when.getMonth() + 1) * 100 + when.getDate()));
+    var accent = DAY_ACCENT[dayNum] || DAY_ACCENT[9];
+
+    return {
+      dayNumber: dayNum,
+      accent: accent,
+      key: key,
+      phase: p[0], phaseHe: p[1],
+      element: t[0], elementHe: t[1],
+      signIndex: signIdx,
+      angle: angle,
+      text: p[2] + ", " + t[2] + ". " + accent,
+      headline: p[2] + ", " + t[2],
+      image: "assets/images/card-" + key + ".webp",
+      thumb: "assets/images/thumb-" + key + ".webp",
+      alt: "כרטיסיית " + p[1] + " ביסוד " + t[1]
+    };
+  }
+
   /* ---------- stored profile ---------- */
 
   var KEY = "mazag.profile";
@@ -220,6 +346,7 @@ var Mazag = (function () {
 
   return {
     read: read,
+    dayCard: dayCard,
     loadProfile: loadProfile,
     saveProfile: saveProfile,
     isPro: isPro,

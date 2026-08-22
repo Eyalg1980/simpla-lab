@@ -58,49 +58,43 @@
   }
 
   /* ---------- which card is on show ----------
-     The archive links to daily-forecast.html?card=the-moon and similar, so
-     one forecast page serves every day in the archive instead of nine
-     near-identical files. Without the parameter it falls back to the star. */
+     By default the forecast shows the card the date itself selects: where the
+     day sits on the arc, and in what tone. The archive links back with
+     ?date=YYYY-MM-DD so one forecast page serves every day in the archive
+     instead of a file per day. */
 
-  var CARDS = {
-    "the-star": {
-      alt: "קלף הכוכב: אישה כורעת ומוזגת מים אל בריכה תחת כוכב זהב גדול",
-      text: "היום מזמין אותך לעצור לרגע ולהקשיב למה שמתרחש בפנים. שיחה קצרה או סימן מקרי יכולים לכוון אותך נכון. סמכי על התחושות שלך, הן יודעות."
-    },
-    "the-moon": {
-      alt: "קלף הירח: סהר מעל שני מגדלים ושביל שמתפתל אל האופק",
-      text: "לא הכל צריך להיות ברור היום. יש דברים שמתבהרים רק אחרי שנותנים להם ללכת בשקט. אם משהו מרגיש עמום, זה בסדר לחכות איתו יום נוסף."
-    },
-    "the-sun": {
-      alt: "קלף השמש: שמש זהובה עם פנים מעל גן חמניות וילד על סוס לבן",
-      text: "יום נדיב במיוחד. מה שתתחילי בו הבוקר ייקח אותך רחוק יותר משנדמה לך. אל תקטיני את השמחה הקטנה שתגיע, היא הסימן."
-    },
-    "the-priestess": {
-      alt: "קלף הכוהנת: אישה עוטת גלימה יושבת בין שני עמודים עם סהר לרגליה",
-      text: "את יודעת את התשובה כבר עכשיו, גם אם עוד לא ניסחת אותה במילים. היום כדאי להקשיב פנימה לפני שמבקשים עצה מבחוץ."
-    },
-    "the-wheel": {
-      alt: "קלף הגלגל: גלגל זהב עם סמלי מזלות מרחף בין עננים",
-      text: "משהו זז היום בלי שביקשת. במקום להיאבק בכיוון, שווה לבדוק לאן הוא מוביל. לפעמים שינוי קטן בתזמון פותח דלת שלמה."
-    },
-    "the-hermit": {
-      alt: "קלף הנזיר: דמות עטופה גלימה על רכס מושלג אוחזת פנס זהב",
-      text: "היום מבקש קצת מרחב לבד. לא בריחה, אלא רגע של שקט שבו את שומעת את עצמך. אור אחד קטן מספיק כדי לראות את הצעד הבא."
-    }
-  };
+  function hebrewDate(d) {
+    var days = ["ראשון","שני","שלישי","רביעי","חמישי","שישי","שבת"];
+    function two(n) { return n < 10 ? "0" + n : String(n); }
+    return days[d.getDay()] + ", " + two(d.getDate()) + "." + two(d.getMonth() + 1) + "." + d.getFullYear();
+  }
+
+  function requestedDate() {
+    var m = /[?&]date=(\d{4})-(\d{2})-(\d{2})/.exec(window.location.search);
+    if (!m) return new Date();
+    var d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]), 12, 0, 0);
+    return isNaN(d.getTime()) ? new Date() : d;
+  }
 
   function setupCardRouting() {
     var hero = document.getElementById("hero-card");
     var text = document.getElementById("forecast-text");
     if (!hero || !text) return;
 
-    var match = /[?&]card=([a-z-]+)/.exec(window.location.search);
-    var key = match && CARDS[match[1]] ? match[1] : null;
-    if (!key) return;
+    var when = requestedDate();
+    var card = Mazag.dayCard(when);
 
-    hero.src = "assets/images/card-" + key + ".webp";
-    hero.alt = CARDS[key].alt;
-    text.textContent = CARDS[key].text;
+    hero.src = card.image;
+    hero.alt = card.alt;
+    text.textContent = card.text;
+
+    var stamp = document.querySelector(".forecast__date");
+    if (stamp) stamp.textContent = hebrewDate(when);
+
+    // the breakdown panel names the reason, so it must agree with the picture
+    var why = document.getElementById("card-why");
+    if (why) why.textContent = "הירח היום ב" + card.phaseHe + ", ביסוד " + card.elementHe +
+      ". מספר היום " + card.dayNumber + ".";
   }
 
   /* ---------- save and share on the forecast screen ---------- */
@@ -236,8 +230,29 @@
     if (window.location.search.indexOf("state=empty") > -1) {
       grid.hidden = true;
       empty.hidden = false;
+      return;
     }
+
+    // built from the same engine the forecast uses, so a tile always opens the
+    // card it shows. a hand written list would drift the first time a card moved.
+    var today = new Date();
+    var html = "";
+    for (var i = 0; i < 12; i++) {
+      var d = new Date(today.getFullYear(), today.getMonth(), today.getDate() - i, 12, 0, 0);
+      var card = Mazag.dayCard(d);
+      var iso = d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+      html +=
+        '<li class="archive__item">' +
+          '<a href="daily-forecast.html?date=' + iso + '">' +
+            '<img class="archive__thumb" src="' + card.thumb + '" alt="' + card.alt + '" width="93" height="139" loading="lazy" />' +
+            '<span class="archive__date">' + pad(d.getDate()) + "." + pad(d.getMonth() + 1) + "." + String(d.getFullYear()).slice(2) + '</span>' +
+          '</a>' +
+        '</li>';
+    }
+    grid.innerHTML = html;
   }
+
+  function pad(n) { return n < 10 ? "0" + n : String(n); }
 
   /* ---------- splash: hands off to the forecast on its own ---------- */
 

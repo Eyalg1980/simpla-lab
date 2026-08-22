@@ -1479,6 +1479,16 @@ ul {
   background-color: var(--color-accent-deep);
 }
 
+
+.forecast__why {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+  margin: 0;
+  text-align: center;
+}
+
+.forecast__why:empty { display: none; }
+
 /* ============================================================
    שכבת תנועה
    ------------------------------------------------------------
