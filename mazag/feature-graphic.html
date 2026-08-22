@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="assets/fonts/fonts.css" />
+<style>
+  /* גרפיקת הפיצ'ר של גוגל פליי: 1024x500 בדיוק, בלי שקיפות.
+     גוגל חותכת אותה ליחסים שונים בכל מקום שבו היא מוצגת, ולכן כל מה
+     שחייב להישאר קריא יושב במרכז ולא בקצוות. */
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1024px; height: 500px; overflow: hidden; }
+  body {
+    background: radial-gradient(120% 100% at 30% 40%, #1b2233 0%, #121827 45%, #0b1018 100%);
+    color: #ece7dd;
+    font-family: 'Assistant', Arial, sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    align-items: center;
+  }
+  .stars { position: absolute; inset: 0; pointer-events: none; }
+  .copy { padding-inline-start: 72px; padding-inline-end: 16px; position: relative; }
+  .logo { height: 62px; width: auto; display: block; margin-block-end: 26px; }
+  h1 {
+    font-family: 'Frank Ruhl Libre', Georgia, serif;
+    font-weight: 600; font-size: 50px; line-height: 1.16;
+    color: #ece7dd; margin-block-end: 16px; letter-spacing: -0.01em;
+  }
+  p { font-size: 21px; line-height: 1.5; color: #b9b1a2; max-width: 26ch; }
+  .rule { width: 62px; height: 3px; background: #dcc9a4; border-radius: 3px; margin-block: 22px 20px; }
+  /* מיקום פיזי ולא לוגי. inset-inline-start בעמוד RTL נמדד מימין,
+     והכרטיסים ברחו אל מחוץ לקנבס */
+  .fan { position: relative; height: 500px; }
+  .fan img {
+    position: absolute; width: 158px; height: auto; border-radius: 11px;
+    box-shadow: 0 16px 40px rgb(0 0 0 / 0.55), 0 0 0 1px rgb(220 201 164 / 0.22);
+  }
+  .fan img:nth-child(1) { top: 132px; left: 52px;  transform: rotate(-10deg); }
+  .fan img:nth-child(2) { top: 110px; left: 160px; transform: rotate(0deg); z-index: 2; }
+  .fan img:nth-child(3) { top: 132px; left: 268px; transform: rotate(10deg); }
+</style>
+</head>
+<body>
+  <svg class="stars" viewBox="0 0 1024 500" aria-hidden="true"><g fill="#cfd6ea" id="s"></g></svg>
+
+  <div class="copy">
+    <img class="logo" src="assets/images/logo-new-dark.webp" alt="מזג" />
+    <h1>תחזית אחת,<br />במקום חמש</h1>
+    <div class="rule"></div>
+    <p>שש שיטות מתמזגות לתמונה אחת וטקסט אחד, כל בוקר.</p>
+  </div>
+
+  <div class="fan">
+    <img src="assets/images/thumb-new-fire.webp" alt="" />
+    <img src="assets/images/thumb-full-water.webp" alt="" />
+    <img src="assets/images/thumb-full-earth.webp" alt="" />
+  </div>
+
+<script>
+  /* כוכבים דטרמיניסטיים, כדי שכל בנייה מחדש תיתן בדיוק אותה תמונה */
+  (function () {
+    var g = document.getElementById("s"), seed = 20260822, out = "";
+    function r() { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; }
+    for (var i = 0; i < 130; i++) {
+      var x = r() * 1024, y = r() * 500, rad = 0.6 + r() * 1.5, o = 0.12 + r() * 0.45;
+      out += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + rad.toFixed(2) + '" opacity="' + o.toFixed(2) + '"/>';
+    }
+    g.innerHTML = out;
+  })();
+</script>
+</body>
+</html>

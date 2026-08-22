@@ -1,0 +1,50 @@
+{
+  "packageId": "com.simpla.mazag",
+  "host": "REPLACE_WITH_DOMAIN",
+  "name": "מזג",
+  "launcherName": "מזג",
+  "display": "standalone",
+  "themeColor": "#121827",
+  "themeColorDark": "#0b1018",
+  "navigationColor": "#121827",
+  "navigationColorDark": "#0b1018",
+  "navigationDividerColor": "#313b52",
+  "navigationDividerColorDark": "#313b52",
+  "backgroundColor": "#faf6f3",
+  "enableNotifications": true,
+  "startUrl": "/index.html",
+  "iconUrl": "https://REPLACE_WITH_DOMAIN/assets/icons/app-icon-512.png",
+  "maskableIconUrl": "https://REPLACE_WITH_DOMAIN/assets/icons/app-icon-maskable-512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "./android.keystore",
+    "alias": "mazag"
+  },
+  "appVersionName": "1.0.0",
+  "appVersionCode": 1,
+  "shortcuts": [
+    {
+      "name": "התחזית של היום",
+      "shortName": "היום",
+      "url": "/daily-forecast.html",
+      "chosenIconUrl": "https://REPLACE_WITH_DOMAIN/assets/icons/app-icon-192.png"
+    },
+    {
+      "name": "הארכיון שלי",
+      "shortName": "ארכיון",
+      "url": "/archive.html",
+      "chosenIconUrl": "https://REPLACE_WITH_DOMAIN/assets/icons/app-icon-192.png"
+    }
+  ],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://REPLACE_WITH_DOMAIN/manifest.webmanifest",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": { "enabled": false },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://REPLACE_WITH_DOMAIN/",
+  "minSdkVersion": 21,
+  "orientation": "portrait"
+}

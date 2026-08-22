@@ -8,7 +8,7 @@
    הגרסה בשם המטמון היא מה שמפעיל ניקוי. כל שינוי ברשימה מחייב להעלות אותה,
    אחרת דפדפן שכבר ביקר יישאר עם הישן. */
 
-var VERSION = "mazag-v2";
+var VERSION = "mazag-v3";
 var DOC_CACHE = VERSION + "-doc";
 var ASSET_CACHE = VERSION + "-asset";
 
@@ -24,7 +24,12 @@ var PRECACHE = [
   "./astro.js",
   "./manifest.webmanifest",
   "./assets/images/logo-new.webp",
-  "./assets/icons/app-icon-192.png"
+  "./assets/icons/app-icon-192.png",
+  "./assets/fonts/fonts.css",
+  "./assets/fonts/assistant-hebrew-400-normal.woff2",
+  "./assets/fonts/assistant-hebrew-600-normal.woff2",
+  "./assets/fonts/frank-ruhl-libre-hebrew-500-normal.woff2",
+  "./assets/fonts/frank-ruhl-libre-hebrew-600-normal.woff2"
 ];
 
 self.addEventListener("install", function (event) {
@@ -57,7 +62,8 @@ self.addEventListener("fetch", function (event) {
   if (req.method !== "GET") return;
 
   var url = new URL(req.url);
-  /* גופני גוגל וכל מקור חיצוני נשארים באחריות הדפדפן */
+  /* מקור חיצוני נשאר באחריות הדפדפן. מאז שהגופנים מוגשים מכאן,
+     אין בכלל מקור חיצוני */
   if (url.origin !== self.location.origin) return;
 
   /* וידאו יוצא מהחישוב לגמרי. הדפדפן מבקש אותו בטווחים, ותשובת 206

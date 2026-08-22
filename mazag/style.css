@@ -2184,3 +2184,43 @@ button:disabled {
     opacity: 0.5;
   }
 }
+
+/* ============================================================
+   טקסט משפטי ארוך: פרטיות, תנאים. מסמך ולא מסך, ולכן מידה
+   נוחה לקריאה ורווחים גדולים יותר מאשר בשאר האפליקציה
+   ============================================================ */
+
+.prose {
+  margin-block-start: var(--space-lg);
+  color: var(--color-text-secondary);
+}
+
+.prose__lead {
+  font-family: var(--font-family-heading);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  border-inline-start: 3px solid var(--color-accent-base);
+  padding-inline-start: var(--space-md);
+  margin-block-end: var(--space-lg);
+}
+
+.prose h2 {
+  font-family: var(--font-family-heading);
+  font-size: 1.1rem;
+  color: var(--color-accent-deep);
+  margin-block: var(--space-lg) var(--space-xs);
+}
+
+.prose p { margin-block: 0 var(--space-md); line-height: 1.7; }
+
+.prose__list {
+  margin-block: 0 var(--space-md);
+  padding-inline-start: var(--space-md);
+  display: grid;
+  gap: var(--space-xs);
+  line-height: 1.6;
+}
+
+.prose__list b { color: var(--color-text-primary); font-weight: var(--font-weight-label); }
+.prose a { color: var(--color-accent-deep); }

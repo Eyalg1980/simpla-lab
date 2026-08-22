@@ -843,14 +843,26 @@
 
     if (clear) {
       clear.addEventListener("click", function () {
-        Mazag.saveProfile({});
+        /* מדיניות הפרטיות מבטיחה מחיקה של כל מה שנשמר, ולכן הכפתור הזה
+           מוחק את כל מרחב השמות של האפליקציה ולא רק את הפרופיל.
+           איסוף המפתחות קודם, ומחיקה אחר כך: מחיקה תוך כדי מעבר על
+           localStorage מזיזה את האינדקסים ומדלגת על מפתחות. */
+        try {
+          var keys = [];
+          for (var i = 0; i < window.localStorage.length; i++) {
+            var k = window.localStorage.key(i);
+            if (k && k.indexOf("mazag.") === 0) keys.push(k);
+          }
+          keys.forEach(function (k) { window.localStorage.removeItem(k); });
+        } catch (e) { /* חלון פרטי או אחסון חסום */ }
+
         name.value = "";
         birth.value = "";
         if (time) time.value = "";
         if (place) place.value = "";
         clearError();
         refresh("details");
-        toast("הפרטים נמחקו מהמכשיר");
+        toast("הכל נמחק מהמכשיר");
       });
     }
 

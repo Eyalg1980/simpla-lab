@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>אינטואיציה, מזג</title>
-  <meta name="description" content="מזג, תחזית יומית ויזואלית שמאחדת אסטרולוגיה, נומרולוגיה, טארוט, אי צ׳ינג ואינטואיציה לתמונה אחת וטקסט אחד." />
+  <title>פרטיות, מזג</title>
+  <meta name="description" content="מדיניות הפרטיות של מזג. כל מה שהאפליקציה שומרת נשמר במכשיר שלך בלבד, ואין שרת שמקבל אותו." />
   <link rel="icon" href="assets/icons/app-icon.png" type="image/png" />
   <link rel="stylesheet" href="assets/fonts/fonts.css" />
   <link rel="stylesheet" href="style.css" />
@@ -23,6 +23,7 @@
     } catch (e) { document.documentElement.dataset.theme = "light"; }
   </script>
 </head>
+
 <body>
   <div class="screen">
     <header class="app-header">
@@ -32,70 +33,86 @@
       <img class="app-header__logo" src="assets/images/logo-new.webp" alt="מזג" width="122" height="45" />
     </header>
 
-    <main class="content content--article">
-      <a class="back-link" href="methods.html">
-        <span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></span>
-        <span>כל השיטות</span>
-      </a>
+    <main class="content">
+      <h1 class="screen-title screen-title--large">פרטיות</h1>
+      <p class="subtitle__lead">גרסה 1.0, בתוקף מ-22 באוגוסט 2026</p>
 
-      <img class="method-hero" src="assets/images/method-intuition-hero.webp" alt="איור בסגנון עתיק עבור אינטואיציה" width="342" height="228" />
+      <div class="prose">
+        <p class="prose__lead">
+          מזג לא אוספת עליך מידע. אין לה שרת שיכול לקבל מידע, ואין לה חשבון משתמש.
+          כל מה שהיא שומרת נשמר בזיכרון המקומי של המכשיר שלך, ונשאר שם.
+        </p>
 
-      <header class="article__head">
-        <span class="article__kicker">6% מהתחזית שלך</span>
-        <h1 class="screen-title screen-title--large">אינטואיציה</h1>
-        <p class="article__essence">המשקל שנשמר בכוונה למה שלא נכנס לנוסחה</p>
-      </header>
+        <h2>מה נשמר, ואיפה</h2>
+        <p>
+          האפליקציה שומרת את הפריטים הבאים באחסון המקומי של הדפדפן או של האפליקציה
+          במכשיר שלך (<span dir="ltr">localStorage</span>):
+        </p>
+        <ul class="prose__list">
+          <li><b>תאריך לידה.</b> נדרש לחישוב האסטרולוגי והנומרולוגי. זה השדה היחיד שהאפליקציה מבקשת כדי לעבוד.</li>
+          <li><b>שם, שעת לידה ומקום לידה.</b> אופציונליים לגמרי. הם מדייקים את מזל האופק ואת מיקומי הבתים. בלעדיהם התחזית עדיין עובדת.</li>
+          <li><b>המשקולות שקבעת</b> לשש שיטות התחזית.</li>
+          <li><b>העדפות תצוגה:</b> בהיר או כהה, וצליל דלוק או כבוי.</li>
+          <li><b>שעת התזכורת</b> שבחרת, אם הפעלת תזכורת.</li>
+          <li><b>סימונים תפעוליים:</b> האם כבר עברת אונבורדינג, והאם סגרת את הצעת ההתקנה.</li>
+        </ul>
 
-      <section class="article__section">
-        <h2 class="article__h2">מה זה</h2>
-        <p class="article__p">זו לא שיטה עתיקה, וזה בכוונה. שישה אחוזים מהתחזית נשארים בלי חישוב, כמרווח לניסוח, לבחירת הדימוי ולתחושה הכללית של היום.</p>
-      </section>
+        <h2>מה לא נשמר, ומה לא נשלח</h2>
+        <ul class="prose__list">
+          <li>אין שרת. האפליקציה לא שולחת שום דבר לשום מקום, ואין לנו עותק של המידע שלך. גם לא בהצפנה, גם לא באופן אנונימי.</li>
+          <li>אין חשבון משתמש, אין הרשמה ואין סיסמה.</li>
+          <li>אין מעקב, אין אנליטיקה, אין פיקסלים ואין <span dir="ltr">SDK</span> של צד שלישי.</li>
+          <li>אין פרסומות ואין מזהי פרסום.</li>
+          <li>אין מיקום. מקום הלידה, אם הזנת אותו, הוא טקסט שאתה מקליד, ולא קריאה מחיישן המיקום.</li>
+          <li>אין גישה לאנשי קשר, למצלמה, למיקרופון או לתמונות.</li>
+        </ul>
 
-      <section class="article__section">
-        <h2 class="article__h2">מאיפה זה מגיע</h2>
-        <p class="article__p">המרכיב הזה נוסף על ידינו ולא נלקח משום מסורת. הוא קיים כי תחזית שמורכבת מחישוב בלבד נקראת כמו דוח, ולא כמו משהו שנכתב לאדם.</p>
-      </section>
+        <h2>מה כן יוצא החוצה</h2>
+        <p>
+          דבר אחד בלבד, והוא לא נוגע במידע שלך: <b>ההורדה הראשונה של האפליקציה עצמה</b>,
+          כלומר הקוד, התמונות והגופנים, מהשרת שמארח אותה. בדיוק כמו כניסה לכל אתר.
+          אחרי ההורדה הראשונה האפליקציה עובדת גם בלי חיבור לאינטרנט.
+        </p>
+        <p>
+          הגופנים מוגשים מהשרת שלנו ולא מ-<span dir="ltr">Google Fonts</span>. זה מכוון:
+          בקשה לגופן משרת חיצוני חושפת לו את כתובת ה-<span dir="ltr">IP</span> שלך,
+          וזו הייתה הפנייה החיצונית האחרונה שנשארה כאן. היא הוסרה.
+        </p>
 
-      <section class="article__section">
-        <h2 class="article__h2">מה זה קורא</h2>
-        <p class="article__p">הוא לא קורא נתון. הוא משפיע על הבחירה של המילים, על אורך הפסקה ועל הדימוי שנבחר.</p>
-      </section>
+        <h2>התראות</h2>
+        <p>
+          התזכורת היומית היא מקומית. היא מופעלת על ידי האפליקציה עצמה כשהיא פתוחה והשעה הגיעה,
+          ולא על ידי שרת שדוחף הודעה. המשמעות המעשית: אין לנו אסימון התראות שלך ואין דרך שנשלח
+          לך משהו. המשמעות הנוספת: כשהאפליקציה סגורה לגמרי, התזכורת לא תגיע.
+          זה כתוב גם בתוך מסך ההתראות עצמו.
+        </p>
 
-      <section class="article__section">
-        <h2 class="article__h2">מה זה תורם לתחזית שלך</h2>
-        <p class="article__p">זה מה שגורם לשתי תחזיות עם בדיוק אותם נתונים להישמע קצת אחרת. בלעדיו כל הימים היו מרגישים אותו דבר.</p>
-        <div class="weight-bar">
-          <div class="weight-bar__track" role="img" aria-label="6 אחוז מהתחזית">
-            <div class="weight-bar__fill" style="inline-size: 6%"></div>
-          </div>
-          <span class="weight-bar__value">6%</span>
-        </div>
-      </section>
+        <h2>מחיקה</h2>
+        <p>
+          במסך <a href="profile.html">הפרופיל שלי</a>, בטאב "פרטים", יש כפתור שמוחק את כל מה שנשמר.
+          לא רק את הפרופיל: גם המשקולות, שעת התזכורת והעדפות התצוגה. מיידית, בלי אישור נוסף.
+          מחיקת האפליקציה מהמכשיר מוחקת גם היא את הכל. אין מה לבקש מאיתנו כדי למחוק, כי אין לנו מה למחוק.
+        </p>
 
-      <section class="article__section">
-        <h2 class="article__h2">מונחים</h2>
-        <dl class="glossary">
-          <div class="glossary__item">
-            <dt class="glossary__term">מרווח פרשנות</dt>
-            <dd class="glossary__def">החלק שלא נקבע על ידי נתון אלא על ידי ניסוח</dd>
-          </div>
-          <div class="glossary__item">
-            <dt class="glossary__term">בחירת דימוי</dt>
-            <dd class="glossary__def">ההחלטה איזו תמונה מלווה את הטקסט של היום</dd>
-          </div>
-        </dl>
-      </section>
+        <h2>ילדים</h2>
+        <p>
+          האפליקציה לא מיועדת לילדים מתחת לגיל 13 ולא אוספת מהם מידע, כפי שהיא לא אוספת מאף אחד.
+        </p>
 
-      <section class="article__section article__section--caution">
-        <h2 class="article__h2">מה זה לא</h2>
-        <p class="article__p">זה החלק הכי פחות שקוף מבין השישה, ובדיוק בגלל זה נתנו לו את המשקל הקטן ביותר. ככל שהחלק הזה גדל, כך קשה יותר להסביר מאיפה התחזית הגיעה.</p>
-      </section>
+        <h2>שינויים במדיניות</h2>
+        <p>
+          אם המדיניות תשתנה, התאריך בראש העמוד יתעדכן. שינוי מהותי, למשל הוספת שרת שמחשב תחזיות,
+          יוצג בתוך האפליקציה ולא רק כאן.
+        </p>
 
-      <a class="button-secondary" href="edit-mode.html">לשנות את המשקל של אינטואיציה</a>
+        <h2>יצירת קשר</h2>
+        <p>
+          לשאלות בנושא פרטיות: <a href="mailto:eyalg333@gmail.com">eyalg333@gmail.com</a>
+        </p>
+      </div>
     </main>
   </div>
 
-  <!-- ניווט: dialog אמיתי, כדי לקבל לכידת פוקוס, Escape וסגירה נכונה בלי לכתוב אותן ביד -->
   <dialog class="nav-drawer" id="nav-drawer" aria-label="ניווט ראשי">
     <nav class="nav-drawer__panel">
       <button type="button" class="icon-button nav-drawer__close" id="menu-close" aria-label="סגור תפריט">
@@ -111,7 +128,7 @@
         <li class="nav-group">
           <h3 class="nav-group__title">להבין</h3>
         </li>
-          <li><a href="methods.html" aria-current="page">השיטות</a></li>
+          <li><a href="methods.html">השיטות</a></li>
           <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
           <li><a href="edit-mode.html">מצב עריכה</a></li>
           <li><a href="explain.html">איך זה עובד</a></li>
@@ -122,7 +139,7 @@
           <li><a href="my-chart.html">המפה שלי</a></li>
           <li><a href="notifications.html">התראות</a></li>
           <li><a href="subscription.html">המנוי שלי</a></li>
-          <li><a href="privacy.html">פרטיות</a></li>
+          <li><a href="privacy.html" aria-current="page">פרטיות</a></li>
         <li class="nav-group">
           <h3 class="nav-group__title">מסכי הדגמה</h3>
         </li>
