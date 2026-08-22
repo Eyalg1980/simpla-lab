@@ -57,6 +57,228 @@
     }, 2400);
   }
 
+  /* ---------- התקנה ----------
+     beforeinstallprompt נורה פעם אחת ולא ניתן להפעלה מחדש, ולכן האירוע
+     נשמר ומוגש למשתמשת ברגע שנוח לה ולא ברגע שנוח לדפדפן. */
+
+  var deferredInstall = null;
+
+  function setupInstall() {
+    var box = document.getElementById("install-prompt");
+    if (!box) return;
+
+    var accept = document.getElementById("install-accept");
+    var dismiss = document.getElementById("install-dismiss");
+    var KEY = "mazag.install-dismissed";
+
+    function dismissed() {
+      try { return localStorage.getItem(KEY) === "1"; } catch (e) { return false; }
+    }
+
+    window.addEventListener("beforeinstallprompt", function (event) {
+      event.preventDefault();
+      deferredInstall = event;
+      if (!dismissed()) box.hidden = false;
+    });
+
+    accept.addEventListener("click", function () {
+      box.hidden = true;
+      if (!deferredInstall) return;
+      deferredInstall.prompt();
+      deferredInstall.userChoice.then(function (choice) {
+        if (choice.outcome === "accepted") toast("מזג הותקנה");
+        deferredInstall = null;
+      });
+    });
+
+    dismiss.addEventListener("click", function () {
+      box.hidden = true;
+      try { localStorage.setItem(KEY, "1"); } catch (e) { /* חלון פרטי */ }
+    });
+
+    /* כבר מותקנת: אין מה להציע */
+    if (window.matchMedia("(display-mode: standalone)").matches) box.hidden = true;
+  }
+
+  /* ---------- התראות ----------
+     תזכורת מקומית. הדפדפן לא מתזמן התראה עתידית בלי שרת, ולכן ההגדרה
+     נשמרת והבדיקה נעשית בכל פתיחה של האפליקציה. מה שזה לא עושה נאמר
+     במפורש במסך, כדי שלא תישבר הבטחה. */
+
+  var NOTIFY_KEY = "mazag.notify";
+
+  function loadNotify() {
+    try { return JSON.parse(localStorage.getItem(NOTIFY_KEY) || "null"); }
+    catch (e) { return null; }
+  }
+
+  function saveNotify(v) {
+    try { localStorage.setItem(NOTIFY_KEY, JSON.stringify(v)); return true; }
+    catch (e) { return false; }
+  }
+
+  function notifyBody() {
+    var cfg = loadNotify();
+    if (cfg && cfg.style === "teaser" && window.Mazag) {
+      return Mazag.dayCard(new Date()).headline;
+    }
+    return "התחזית של היום מחכה לך";
+  }
+
+  /* נקראת בכל טעינה של כל מסך: אם הגיעה השעה והיום עוד לא קיבל תזכורת, שולחת */
+  function runDueNotification() {
+    var cfg = loadNotify();
+    if (!cfg || !cfg.on) return;
+    if (!("Notification" in window) || Notification.permission !== "granted") return;
+
+    var now = new Date();
+    var today = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
+    if (cfg.lastSent === today) return;
+
+    var parts = String(cfg.time || "07:30").split(":");
+    var due = new Date(now.getFullYear(), now.getMonth(), now.getDate(),
+                       Number(parts[0]) || 7, Number(parts[1]) || 30, 0);
+    if (now < due) return;
+
+    if (navigator.serviceWorker && navigator.serviceWorker.ready) {
+      navigator.serviceWorker.ready.then(function (reg) {
+        if (reg.active) reg.active.postMessage({ type: "mazag-notify", body: notifyBody() });
+      });
+    }
+    cfg.lastSent = today;
+    saveNotify(cfg);
+  }
+
+  function setupNotifications() {
+    var enable = document.getElementById("notify-enable");
+    if (!enable) return;
+
+    var time = document.getElementById("notify-time");
+    var test = document.getElementById("notify-test");
+    var state = document.getElementById("notify-state");
+    var styles = Array.prototype.slice.call(document.querySelectorAll("[name=notify-style]"));
+
+    var cfg = loadNotify() || { on: false, time: "07:30", style: "quiet" };
+    time.value = cfg.time;
+    styles.forEach(function (r) { r.checked = r.value === cfg.style; });
+
+    function render() {
+      if (!("Notification" in window)) {
+        state.textContent = "הדפדפן הזה לא תומך בהתראות.";
+        enable.disabled = true;
+        return;
+      }
+      if (Notification.permission === "denied") {
+        state.textContent = "ההתראות חסומות בהגדרות הדפדפן, וצריך לפתוח אותן שם.";
+        enable.disabled = true;
+        return;
+      }
+      if (Notification.permission === "granted" && cfg.on) {
+        state.textContent = "התזכורת פעילה לשעה " + cfg.time + ".";
+        enable.textContent = "כיבוי התזכורת";
+        return;
+      }
+      state.textContent = "התזכורת כבויה.";
+      enable.textContent = "הפעלת תזכורת";
+    }
+
+    function collect() {
+      cfg.time = time.value || "07:30";
+      var picked = styles.filter(function (r) { return r.checked; })[0];
+      cfg.style = picked ? picked.value : "quiet";
+    }
+
+    enable.addEventListener("click", function () {
+      collect();
+      if (cfg.on) {
+        cfg.on = false;
+        saveNotify(cfg);
+        render();
+        return toast("התזכורת כובתה");
+      }
+      Notification.requestPermission().then(function (result) {
+        if (result !== "granted") { render(); return toast("בלי הרשאה אין תזכורת"); }
+        cfg.on = true;
+        saveNotify(cfg);
+        render();
+        toast("התזכורת פעילה");
+      });
+    });
+
+    test.addEventListener("click", function () {
+      collect(); saveNotify(cfg);
+      if (!("Notification" in window)) return toast("הדפדפן הזה לא תומך בהתראות");
+      Notification.requestPermission().then(function (result) {
+        if (result !== "granted") return toast("בלי הרשאה אין תזכורת");
+        navigator.serviceWorker.ready.then(function (reg) {
+          if (reg.active) reg.active.postMessage({ type: "mazag-notify", body: notifyBody() });
+        });
+      });
+    });
+
+    [time].concat(styles).forEach(function (el) {
+      el.addEventListener("change", function () { collect(); saveNotify(cfg); render(); });
+    });
+
+    render();
+  }
+
+  /* ---------- ערכת נושא ----------
+     שלושה מצבים. מערכת היא ברירת המחדל ולא מסמנת כלום על השורש, ולכן
+     שינוי ההגדרה במכשיר משתקף מיד בלי שהאפליקציה צריכה לדעת עליו. */
+
+  var THEME_KEY = "mazag.theme";
+
+  function setupTheme() {
+    var items = Array.prototype.slice.call(document.querySelectorAll("[data-theme-choice]"));
+    if (!items.length) return;
+
+    function current() {
+      try { return localStorage.getItem(THEME_KEY) || "system"; }
+      catch (e) { return "system"; }
+    }
+
+    var media = window.matchMedia("(prefers-color-scheme: dark)");
+
+    /* הלוגו הוא תמונה, ו-CSS לא מחליף src. גרסה כהה בלבד תיפול על המצב
+       הידני, ולכן ההחלפה נעשית כאן ומכסה את שלושת המצבים */
+    function paintLogos() {
+      var dark = document.documentElement.dataset.theme === "dark" ||
+                 (!document.documentElement.dataset.theme && media.matches);
+      var want = dark ? "assets/images/logo-new-dark.webp" : "assets/images/logo-new.webp";
+      Array.prototype.forEach.call(
+        document.querySelectorAll(".app-header__logo, .splash__logo"),
+        function (img) { if (img.getAttribute("src") !== want) img.setAttribute("src", want); });
+    }
+
+    function apply(choice) {
+      if (choice === "system") delete document.documentElement.dataset.theme;
+      else document.documentElement.dataset.theme = choice;
+      items.forEach(function (b) {
+        var on = b.dataset.themeChoice === choice;
+        b.classList.toggle("is-active", on);
+        b.setAttribute("aria-pressed", String(on));
+      });
+      paintLogos();
+    }
+
+    /* שינוי ההגדרה במכשיר בזמן שהאפליקציה פתוחה */
+    if (media.addEventListener) media.addEventListener("change", paintLogos);
+
+    items.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var choice = b.dataset.themeChoice;
+        try {
+          if (choice === "system") localStorage.removeItem(THEME_KEY);
+          else localStorage.setItem(THEME_KEY, choice);
+        } catch (e) { /* חלון פרטי, המצב עדיין יחול עד הרענון */ }
+        apply(choice);
+      });
+    });
+
+    apply(current());
+  }
+
   /* ---------- which card is on show ----------
      By default the forecast shows the card the date itself selects: where the
      day sits on the arc, and in what tone. The archive links back with
@@ -550,6 +772,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     setupNavDrawer();
+    setupTheme();
     setupOnboarding();
     setupCardRouting();
     setupForecastActions();
@@ -558,6 +781,9 @@
     setupChart();
     setupWeights();
     setupPlan();
+    setupInstall();
+    setupNotifications();
+    runDueNotification();
     setupArchive();
     setupSplash();
   });

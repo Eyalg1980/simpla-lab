@@ -10,6 +10,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;600&family=Assistant:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#faf6f3" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#121827" media="(prefers-color-scheme: dark)" />
+  <script>
+    /* רץ לפני הציור הראשון. בלי זה המסך נצבע בהיר ורק אז מתהפך */
+    try {
+      var t = localStorage.getItem("mazag.theme");
+      if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+    } catch (e) { /* חלון פרטי */ }
+  </script>
 </head>
 <body>
   <div class="screen">
@@ -122,9 +132,19 @@
         <li><a href="edit-mode.html">מצב עריכה</a></li>
         <li><a href="profile.html">הפרופיל שלי</a></li>
         <li><a href="subscription.html">המנוי שלי</a></li>
+        <li><a href="notifications.html">התראות</a></li>
         <li><a href="splash.html">מסך טעינה</a></li>
         <li><a href="guest-view.html">צפייה מקישור</a></li>
       </ul>
+
+      <div class="nav-drawer__prefs">
+        <p class="theme-switch__label" id="theme-label">מראה</p>
+        <div class="theme-switch" role="group" aria-labelledby="theme-label">
+          <button type="button" class="theme-switch__item" data-theme-choice="system">מערכת</button>
+          <button type="button" class="theme-switch__item" data-theme-choice="light">בהיר</button>
+          <button type="button" class="theme-switch__item" data-theme-choice="dark">כהה</button>
+        </div>
+      </div>
     </nav>
   </dialog>
 
@@ -177,7 +197,24 @@
   <!-- אזור הודעות: קורא מסך שומע כל אישור, גם כשהוא רק ויזואלי -->
   <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>
 
+  <!-- מוצג רק אם הדפדפן באמת מאפשר התקנה, ורק פעם אחת -->
+  <aside class="install-prompt" id="install-prompt" hidden>
+    <p class="install-prompt__text">אפשר להתקין את מזג על המסך הראשי ולפתוח אותה כמו אפליקציה</p>
+    <div class="install-prompt__actions">
+      <button type="button" class="button-secondary button-secondary--quiet" id="install-dismiss">לא עכשיו</button>
+      <button type="button" class="button-primary" id="install-accept">התקנה</button>
+    </div>
+  </aside>
+
   <script src="astro.js"></script>
   <script src="script.js"></script>
+  <script>
+    /* ההרשמה מחכה ל-load בכוונה, כדי שהיא לא תתחרה על רוחב פס עם המסך עצמו */
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("sw.js").catch(function () { /* file:// או דפדפן ישן */ });
+      });
+    }
+  </script>
 </body>
 </html>

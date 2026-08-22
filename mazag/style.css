@@ -1489,6 +1489,205 @@ ul {
 
 .forecast__why:empty { display: none; }
 
+
+/* ============================================================
+   מצב כהה
+   רק אסימוני הצבע מוגדרים מחדש. כל שאר המערכת, המרווחים,
+   הרדיוסים והטיפוגרפיה, זהה בשני המצבים.
+   שלושה מצבים ולא שניים: בחירה מפורשת מסמנת data-theme על השורש,
+   וברירת המחדל היא הגדרת המכשיר, שלא מסמנת כלום.
+   ============================================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --color-surface-base: #121827;
+    --color-surface-raised: #1b2233;
+    --color-surface-dark: #0b1018;
+
+    --color-border-base: #313b52;
+
+    --color-accent-base: #a1937a;
+    /* החום העמוק הופך לזהב קלף, כדי שהכותרות יישארו החלק הכי בולט */
+    --color-accent-deep: #dcc9a4;
+    --color-accent-blue: #b4b0ca;
+    --color-accent-pink: #e0a5a4;
+    --color-accent-navy: #0b1018;
+
+    --color-text-primary: #ece7dd;
+    --color-text-secondary: #b9b1a2;
+    --color-text-muted: #9a9284;
+    --color-text-inverse: #121827;
+
+    --color-status-success: #7cc79f;
+    --color-status-success-bg: #17281f;
+    --color-status-error: #e7938c;
+    --color-status-error-bg: #2c1a19;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-surface-base: #121827;
+  --color-surface-raised: #1b2233;
+  --color-surface-dark: #0b1018;
+
+  --color-border-base: #313b52;
+
+  --color-accent-base: #a1937a;
+  --color-accent-deep: #dcc9a4;
+  --color-accent-blue: #b4b0ca;
+  --color-accent-pink: #e0a5a4;
+  --color-accent-navy: #0b1018;
+
+  --color-text-primary: #ece7dd;
+  --color-text-secondary: #b9b1a2;
+  --color-text-muted: #9a9284;
+  --color-text-inverse: #121827;
+
+  --color-status-success: #7cc79f;
+  --color-status-success-bg: #17281f;
+  --color-status-error: #e7938c;
+  --color-status-error-bg: #2c1a19;
+}
+
+/* הכרטיסיות והאיורים מצוירים על קלף בהיר. במצב כהה הם בוהקים מול הרקע,
+   ולכן הם מקבלים מסגרת חמה שמרככת את המעבר במקום להיחתך בחדות */
+:root[data-theme="dark"] .hero-card,
+:root[data-theme="dark"] .method-hero,
+:root[data-theme="dark"] .onboard__image {
+  box-shadow: 0 0 0 1px var(--color-border-base), 0 12px 32px rgb(0 0 0 / 0.45);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero-card,
+  :root:not([data-theme="light"]) .method-hero,
+  :root:not([data-theme="light"]) .onboard__image {
+    box-shadow: 0 0 0 1px var(--color-border-base), 0 12px 32px rgb(0 0 0 / 0.45);
+  }
+}
+
+/* ---------- בורר ערכת הנושא בתפריט ---------- */
+
+.theme-switch {
+  display: flex;
+  gap: var(--space-xs);
+  width: 100%;
+  background-color: var(--color-surface-base);
+  border: 1px solid var(--color-border-base);
+  border-radius: var(--radius-full);
+  padding: var(--space-xs);
+}
+
+.theme-switch__label {
+  width: 100%;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-label);
+  margin-block-end: var(--space-xs);
+}
+
+.theme-switch__item {
+  flex: 1 0 0;
+  min-height: 44px;
+  border: none;
+  background: none;
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-label);
+  cursor: pointer;
+}
+
+.theme-switch__item.is-active {
+  background-color: var(--color-accent-deep);
+  color: var(--color-surface-base);
+}
+
+
+/* ---------- הצעת התקנה ---------- */
+
+.install-prompt {
+  position: fixed;
+  inset-inline: 0;
+  inset-block-end: 0;
+  z-index: 40;
+  width: min(100%, var(--screen-max));
+  margin-inline: auto;
+  background-color: var(--color-surface-raised);
+  border-block-start: 1px solid var(--color-border-base);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  /* אזור הבטיחות של המכשיר, אחרת הכפתור יושב מתחת לפס הניווט */
+  padding-block-end: calc(var(--space-md) + env(safe-area-inset-bottom, 0px));
+}
+
+.install-prompt[hidden] { display: none; }
+
+.install-prompt__text {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-caption);
+}
+
+.install-prompt__actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.install-prompt__actions > * { flex: 1 0 0; min-width: 0; }
+
+/* ---------- שורת בחירה ---------- */
+
+.radio-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  min-height: 44px;
+  padding-block: var(--space-sm);
+  cursor: pointer;
+}
+
+.radio-row input {
+  margin-block-start: 3px;
+  accent-color: var(--color-accent-deep);
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.radio-row__body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.radio-row__title { font-weight: var(--font-weight-label); }
+
+.radio-row__note {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-caption);
+}
+
+/* ---------- אזור ההעדפות במגירה ---------- */
+
+.nav-drawer__prefs {
+  width: 100%;
+  padding-block-start: var(--space-md);
+  border-block-start: 1px solid var(--color-border-base);
+}
+
+fieldset.field {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
 /* ============================================================
    שכבת תנועה
    ------------------------------------------------------------

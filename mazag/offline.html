@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>מאחורי הקלעים, מזג</title>
+  <title>אין חיבור, מזג</title>
   <meta name="description" content="מזג, תחזית יומית ויזואלית שמאחדת אסטרולוגיה, נומרולוגיה, טארוט, אי צ׳ינג ואינטואיציה לתמונה אחת וטקסט אחד." />
   <link rel="icon" href="assets/icons/app-icon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,95 +30,17 @@
       <img class="app-header__logo" src="assets/images/logo-new.webp" alt="מזג" width="122" height="45" />
     </header>
 
-    <main class="content">
-      <h1 class="screen-title screen-title--large">מאחורי הקלעים</h1>
-      <p class="subtitle__lead">כך אנחנו משקללים את התחזית שלך</p>
-      <p class="subtitle__note">המשקולות האלה משפיעות על התחזית הבאה</p>
-
-      <ul class="method-list">
-        <li class="method-row">
-          <img class="method-row__icon" src="assets/icons/method-astrology.webp" alt="" width="36" height="36" />
-          <div class="method-row__body">
-            <div class="method-row__header">
-              <span class="method-row__name">אסטרולוגיה</span>
-              <output class="method-row__pct" for="m0">50%</output>
-            </div>
-            <div class="method-row__track" role="img" aria-label="50 אחוז">
-              <div class="method-row__fill" style="inline-size: 50%"></div>
-            </div>
-          </div>
-          <span class="method-row__lock" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-        </li>
-        <li class="method-row">
-          <img class="method-row__icon" src="assets/icons/method-numerology.webp" alt="" width="36" height="36" />
-          <div class="method-row__body">
-            <div class="method-row__header">
-              <span class="method-row__name">נומרולוגיה</span>
-              <output class="method-row__pct" for="m1">15%</output>
-            </div>
-            <div class="method-row__track" role="img" aria-label="15 אחוז">
-              <div class="method-row__fill" style="inline-size: 15%"></div>
-            </div>
-          </div>
-          <span class="method-row__lock" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-        </li>
-        <li class="method-row">
-          <img class="method-row__icon" src="assets/icons/method-tarot.webp" alt="" width="36" height="36" />
-          <div class="method-row__body">
-            <div class="method-row__header">
-              <span class="method-row__name">טארוט</span>
-              <output class="method-row__pct" for="m2">13%</output>
-            </div>
-            <div class="method-row__track" role="img" aria-label="13 אחוז">
-              <div class="method-row__fill" style="inline-size: 13%"></div>
-            </div>
-          </div>
-          <span class="method-row__lock" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-        </li>
-        <li class="method-row">
-          <img class="method-row__icon" src="assets/icons/method-iching.webp" alt="" width="36" height="36" />
-          <div class="method-row__body">
-            <div class="method-row__header">
-              <span class="method-row__name">אי צ׳ינג</span>
-              <output class="method-row__pct" for="m3">9%</output>
-            </div>
-            <div class="method-row__track" role="img" aria-label="9 אחוז">
-              <div class="method-row__fill" style="inline-size: 9%"></div>
-            </div>
-          </div>
-          <span class="method-row__lock" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-        </li>
-        <li class="method-row">
-          <span class="method-row__icon method-row__icon--placeholder" aria-hidden="true"></span>
-          <div class="method-row__body">
-            <div class="method-row__header">
-              <span class="method-row__name">רונות</span>
-              <output class="method-row__pct" for="m4">7%</output>
-            </div>
-            <div class="method-row__track" role="img" aria-label="7 אחוז">
-              <div class="method-row__fill" style="inline-size: 7%"></div>
-            </div>
-          </div>
-          <span class="method-row__lock" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-        </li>
-        <li class="method-row">
-          <img class="method-row__icon" src="assets/icons/method-intuition.webp" alt="" width="36" height="36" />
-          <div class="method-row__body">
-            <div class="method-row__header">
-              <span class="method-row__name">אינטואיציה</span>
-              <output class="method-row__pct" for="m5">6%</output>
-            </div>
-            <div class="method-row__track" role="img" aria-label="6 אחוז">
-              <div class="method-row__fill" style="inline-size: 6%"></div>
-            </div>
-          </div>
-          <span class="method-row__lock" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-        </li>
-      </ul>
+    <main class="content content--centered">
+      <h1 class="screen-title screen-title--large">אין חיבור כרגע</h1>
+      <p class="subtitle__lead">התחזית של היום נטענת מהרשת, ובלי חיבור אין מה להראות</p>
+      <p class="body-copy">מה שכבר נטען נשמר במכשיר, אז תחזיות שראית קודם עדיין נפתחות מהארכיון.</p>
 
       <div class="content__spacer"></div>
 
-      <a class="button-secondary button-secondary--quiet" href="edit-mode.html">ערכי את המשקולות</a>
+      <div class="controls">
+        <button type="button" class="button-primary" onclick="window.location.reload()">נסי שוב</button>
+        <a class="button-secondary" href="archive.html">לארכיון</a>
+      </div>
     </main>
   </div>
 
@@ -136,7 +58,7 @@
         <li><a href="my-chart.html">המפה שלי</a></li>
         <li><a href="methods.html">השיטות</a></li>
         <li><a href="archive.html">הארכיון שלי</a></li>
-        <li><a href="behind-the-scenes.html" aria-current="page">מאחורי הקלעים</a></li>
+        <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
         <li><a href="edit-mode.html">מצב עריכה</a></li>
         <li><a href="profile.html">הפרופיל שלי</a></li>
         <li><a href="subscription.html">המנוי שלי</a></li>
