@@ -892,6 +892,19 @@
     renderChart(list, reading);
   }
 
+  /* ---------- אינדקס לסטאגר ----------
+     ה-CSS מחשב את ההשהיה מ- --i, וכאן הוא נכתב. הריצה היא אחרי
+     setupArchive כי הארכיון בונה את הפריטים שלו בזמן ריצה, ופריט
+     שנוצר אחרי הכתיבה היה נשאר בלי אינדקס ונכנס יחד עם הראשון. */
+  function setupStagger() {
+    var lists = document.querySelectorAll(".method-list, .method-cards, .archive:not(#archive-skeleton)");
+    Array.prototype.forEach.call(lists, function (list) {
+      Array.prototype.forEach.call(list.children, function (el, i) {
+        el.style.setProperty("--i", i);
+      });
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     setupNavDrawer();
     setupTheme();
@@ -909,5 +922,6 @@
     runDueNotification();
     setupArchive();
     setupSplash();
+    setupStagger();
   });
 })();

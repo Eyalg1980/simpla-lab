@@ -224,8 +224,12 @@ ul {
 }
 
 .nav-drawer__list a {
-  display: block;
-  padding: var(--space-sm) var(--space-md);
+  /* flex ולא block, כדי שהמינימום 44 יתמלא בטקסט ממורכז אנכית.
+     נמדד לפני: 40 פיקסלים, מתחת ליעד המגע */
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: var(--space-xs) var(--space-md);
   border-radius: var(--radius-md);
   text-decoration: none;
   color: var(--color-text-primary);
@@ -1872,13 +1876,47 @@ fieldset.field {
 .tabs__item,
 .dots__item,
 .behind-link,
+.text-link,
 .text-link-plain,
+.back-link,
 .nav-drawer__list a,
 .archive__item a {
-  /* רק transform ו-opacity, כדי שלא תהיה חישוב פריסה מחדש */
+  /* רק transform ו-opacity, כדי שלא יהיה חישוב פריסה מחדש */
   transition:
     transform var(--motion-fast) var(--motion-ease),
     opacity var(--motion-fast) var(--motion-ease);
+}
+
+/* שורות ומתגים שיושבים בתוך משטח: הם נצבעים ולא מורמים.
+   שתי תכונות לכל היותר, ולכן מי שלא נלחץ פנימה מקבל צבע בלבד */
+.theme-switch__item,
+.breakdown__toggle {
+  transition:
+    background-color var(--motion-fast) var(--motion-ease),
+    transform var(--motion-fast) var(--motion-ease);
+}
+
+.pref-toggle,
+.radio-row {
+  transition: background-color var(--motion-fast) var(--motion-ease);
+}
+
+/* ההדגשה נמשכת החוצה אל מעבר לטקסט ואז נמשכת בחזרה במרג'ין שלילי,
+   כדי שהרקע יקיף את השורה כולה בלי להזיז אף מילה ממקומה */
+/* התיבה עצמה גדלה ל-24, והתווית שעוטפת אותה היא 44 מלאים.
+   פגיעה ישירה בתיבה וגם פגיעה בכל מקום בשורה, שתיהן עובדות */
+.pref-toggle input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  accent-color: var(--color-accent-deep);
+}
+
+.pref-toggle,
+.radio-row {
+  border-radius: var(--radius-md);
+  padding-inline: var(--space-sm);
+  margin-inline: calc(var(--space-sm) * -1);
 }
 
 /* hover רק במכשירים עם עכבר, אחרת הוא נתקע אחרי מגע */
@@ -1894,8 +1932,31 @@ fieldset.field {
   }
 
   .icon-button:hover,
-  .text-link-plain:hover {
+  .text-link:hover,
+  .text-link-plain:hover,
+  .back-link:hover {
     opacity: 0.7;
+  }
+
+  /* אלה יושבים בתוך משטח ולא עליו, ולכן הם מוארים ולא מורמים.
+     הרמה של שורה בתוך רשימה נראית כמו תקלה ולא כמו תגובה.
+
+     שטיפה שקופה ולא צבע קבוע, וזו לא קפריזה: הניסיון הראשון היה
+     --color-surface-raised, וזה בדיוק הצבע של פאנל המגירה עצמו,
+     כלומר ההדגשה הייתה בלתי נראית שם. currentColor הוא צבע הטקסט,
+     ולכן השטיפה יוצאת כהה על רקע בהיר ובהירה על רקע כהה, ועובדת
+     על כל משטח בלי שנצטרך לדעת מה מתחתיה.
+     דפדפן בלי color-mix מקבל את הכלל הקודם ופשוט לא מדגיש. */
+  .theme-switch__item:not(.is-active):hover,
+  .pref-toggle:hover,
+  .radio-row:hover,
+  .breakdown__toggle:hover {
+    background-color: color-mix(in srgb, currentColor 9%, transparent);
+  }
+
+  /* השדה מסמן שאפשר להקליד בו, בלי לזוז */
+  .field__input:hover:not(:focus-visible) {
+    border-color: var(--color-accent-base);
   }
 
   .archive__item a:hover img {
@@ -1911,6 +1972,11 @@ fieldset.field {
 .tabs__item:active,
 .dots__item:active,
 .behind-link:active,
+.text-link:active,
+.text-link-plain:active,
+.back-link:active,
+.theme-switch__item:active,
+.breakdown__toggle:active,
 .nav-drawer__list a:active,
 .archive__item a:active {
   transform: translateY(0) scale(0.98);
@@ -1925,7 +1991,13 @@ fieldset.field {
 .tabs__item:focus-visible,
 .dots__item:focus-visible,
 .behind-link:focus-visible,
+.text-link:focus-visible,
 .text-link-plain:focus-visible,
+.back-link:focus-visible,
+.theme-switch__item:focus-visible,
+.breakdown__toggle:focus-visible,
+.pref-toggle:focus-within,
+.radio-row:focus-within,
 .nav-drawer__list a:focus-visible,
 .archive__item a:focus-visible,
 .method-row__range:focus-visible {
@@ -2037,21 +2109,21 @@ button:disabled {
   animation: enter var(--motion-base) var(--motion-ease) both;
 }
 
-/* סטאגר: כל פריט מחכה עוד 90ms, עד שמונה פריטים ואז כולם יחד */
+/* סטאגר: כל פריט מחכה עוד 90ms אחרי קודמו.
+   min(var(--i), 7) הוא התקרה: מהפריט השמיני והלאה כולם מופיעים יחד,
+   כדי שפריט מספר ארבעים לא יחכה שלוש שניות וחצי.
+   ה-  --i  נכתב מ-JS, ולכן כלל אחד מחליף כאן שמונה ולא צריך תחזוקה
+   כשמספר הפריטים ברשימה משתנה. */
 .method-list > *,
-.archive > * {
+.method-cards > *,
+.archive:not(#archive-skeleton) > * {
   animation: enter var(--motion-base) var(--motion-ease) both;
+  animation-delay: calc(var(--motion-stagger) * min(var(--i, 0), 7));
 }
 
-.method-list > :nth-child(1), .archive > :nth-child(1) { animation-delay: calc(var(--motion-stagger) * 0); }
-.method-list > :nth-child(2), .archive > :nth-child(2) { animation-delay: calc(var(--motion-stagger) * 1); }
-.method-list > :nth-child(3), .archive > :nth-child(3) { animation-delay: calc(var(--motion-stagger) * 2); }
-.method-list > :nth-child(4), .archive > :nth-child(4) { animation-delay: calc(var(--motion-stagger) * 3); }
-.method-list > :nth-child(5), .archive > :nth-child(5) { animation-delay: calc(var(--motion-stagger) * 4); }
-.method-list > :nth-child(6), .archive > :nth-child(6) { animation-delay: calc(var(--motion-stagger) * 5); }
-.method-list > :nth-child(7), .archive > :nth-child(7) { animation-delay: calc(var(--motion-stagger) * 6); }
-/* מהפריט השמיני והלאה כולם מופיעים יחד, כדי שהאחרון לא יחכה שתי שניות */
-.method-list > :nth-child(n + 8), .archive > :nth-child(n + 8) { animation-delay: calc(var(--motion-stagger) * 7); }
+/* השלד לא נכנס בהדרגה. הוא בדיוק מה שהמשתמשת ממתינה לו,
+   וסטאגר עליו רק מאריך את ההמתנה */
+#archive-skeleton > * { animation: none; }
 
 /* התמונה הגדולה נכנסת לאט יותר, היא הרגע העיקרי במסך */
 .hero-card {
@@ -2183,6 +2255,12 @@ button:disabled {
     border-top-color: currentColor;
     opacity: 0.5;
   }
+
+  /* הסטאגר מתבטל דרך הטוקן שכבר אופס למעלה, אבל ההשהיה המחושבת
+     נשארת בנוסחה. איפוס מפורש כדי שכל הרשימה תופיע יחד */
+  .method-list > *,
+  .method-cards > *,
+  .archive > * { animation-delay: 0ms; }
 }
 
 /* ============================================================
