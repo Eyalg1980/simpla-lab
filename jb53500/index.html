@@ -540,9 +540,63 @@ td b{color:var(--ink)}
 .erp .card .num{font-size:17px;line-height:1}
 @media print{.rail{display:none}}
 @media print{.rail{display:none}.mod-body,.stage-body{display:block!important}}
+/* =============== ACCESS GATE =============== */
+#gate{position:fixed;inset:0;z-index:9999;background:var(--navy);
+  display:flex;align-items:center;justify-content:center;padding:24px;overflow:auto}
+#gate.hidden{display:none}
+#gate::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(1100px 620px at 78% -12%,rgba(228,0,43,.34),transparent 62%),
+             radial-gradient(760px 520px at 6% 106%,rgba(42,64,144,.62),transparent 60%)}
+.gcard{position:relative;width:100%;max-width:480px;background:var(--paper);
+  border-radius:var(--radius);padding:38px 38px 32px;box-shadow:0 30px 70px -28px rgba(0,0,0,.65)}
+.gcard .gk{display:inline-block;background:var(--coral);color:#fff;font-family:'Poppins',sans-serif;
+  font-weight:700;font-size:11px;letter-spacing:.14em;padding:5px 11px;border-radius:99px;margin-bottom:18px}
+.gcard h2{font-size:29px;font-weight:900;color:var(--navy);line-height:1.2;margin-bottom:10px}
+.gcard .gp{font-size:15px;color:var(--ink-2);line-height:1.75;margin-bottom:24px}
+.gcard label{display:block;font-size:13px;font-weight:800;color:var(--ink);margin:0 0 7px}
+.gcard select,.gcard input{width:100%;padding:12px 14px;font:inherit;font-size:15px;
+  border:1.5px solid var(--line);border-radius:var(--radius-s);background:#fff;color:var(--ink);
+  margin-bottom:17px;transition:border-color .15s}
+.gcard select:focus,.gcard input:focus{outline:none;border-color:var(--coral)}
+.gcard input{letter-spacing:.06em}
+.gbtn{width:100%;padding:13px;border:0;border-radius:var(--radius-s);background:var(--coral);color:#fff;
+  font:inherit;font-size:16px;font-weight:800;cursor:pointer;transition:background .15s}
+.gbtn:hover{background:var(--red-dk)}
+.gerr{display:none;background:var(--coral-soft);border:1px solid #F6C4CD;color:var(--red-dk);
+  border-radius:var(--radius-s);padding:11px 14px;font-size:14px;font-weight:700;margin-bottom:16px}
+.gerr.on{display:block}
+.gfoot{margin-top:22px;padding-top:16px;border-top:2px dashed var(--dash);
+  font-size:12.5px;color:var(--ink-3);line-height:1.7}
+.who{margin-top:14px;padding-top:14px;border-top:2px dashed rgba(255,255,255,.22);
+  display:flex;align-items:center;justify-content:space-between;gap:8px}
+.who span{font-size:12px;color:rgba(255,255,255,.72)}
+.who b{color:#fff;font-weight:800}
+.who button{background:none;border:1px solid rgba(255,255,255,.32);color:rgba(255,255,255,.82);
+  border-radius:99px;padding:4px 11px;font:inherit;font-size:11.5px;cursor:pointer}
+.who button:hover{border-color:#fff;color:#fff}
+@media (max-width:700px){.gcard{padding:28px 22px 24px}.gcard h2{font-size:24px}}
 </style>
 </head>
 <body>
+<!-- ================= ACCESS GATE ================= -->
+<div id="gate">
+  <div class="gcard">
+    <span class="gk">JOHN BRYCE / MATRIX</span>
+    <h2>מיישם AI ואוטומציה<br>מק"ט 53500</h2>
+    <p class="gp">מרחב העבודה של הקורס: הסילבוס המלא, הפרויקט המתגלגל, מדריך לסטודנט, עזר למרקטינג וארכיון מושגים. בחרו את התפקיד שלכם והזינו את הקוד שקיבלתם.</p>
+    <div class="gerr" id="gerr"></div>
+    <label for="grole">אני</label>
+    <select id="grole">
+      <option value="lecturer">מרצה</option>
+      <option value="admin">מנהלה</option>
+      <option value="student">סטודנט</option>
+    </select>
+    <label for="gcode">קוד כניסה</label>
+    <input id="gcode" type="password" autocomplete="off" spellcheck="false" placeholder="הזינו את הקוד">
+    <button class="gbtn" id="gbtn">כניסה</button>
+    <div class="gfoot">לא קיבלתם קוד? פנו לרכזת הקורס או למרצה.</div>
+  </div>
+</div>
 <header class="mtop"><span class="k">JOHN BRYCE</span><h1>מיישם AI ואוטומציה</h1><span class="msec" id="msec">דף הבית</span></header>
 <div class="shell">
 <aside class="rail">
@@ -563,6 +617,7 @@ td b{color:var(--ink)}
   <div class="rail-foot">
     <b>גרסת סילבוס</b><br>אוגוסט 2026<br>
     <span style="opacity:.7">עודכן על ידי אייל גרשון, אסף פינקלשטיין ולירון חונן</span>
+    <div class="who"><span>מחובר כ<b id="whoami">מרצה</b></span><button id="logout" type="button">יציאה</button></div>
   </div>
 </aside>
 <main class="main"><div class="wrap">
@@ -1040,6 +1095,7 @@ td b{color:var(--ink)}
 <script>
 /* =============== NAV =============== */
 function setArea(target){
+  if(typeof ROLE!=='undefined' && ROLE && !allowed(target)) target=(ROLE_AREAS[ROLE]||['syllabus'])[0];
   document.querySelectorAll('#nav button').forEach(x=>x.classList.toggle('on',x.dataset.p===target));
   document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+target));
   const btn=document.querySelector('#nav button[data-p="'+target+'"]');
@@ -1473,6 +1529,72 @@ buildSections();
 wrapTables();
 window.addEventListener('resize',wrapTables);
 document.addEventListener('click',e=>{if(e.target.closest('.mod-head,.stage-head,.nav,.toolbar'))setTimeout(wrapTables,60);});
+
+/* =============== ACCESS GATE =============== */
+const ROLE_LABEL={lecturer:'מרצה',admin:'מנהלה',student:'סטודנט',owner:'מנהל מערכת'};
+const FULL=['home','syllabus','project','guide','teachers','marketing','glossary'];
+const ROLE_AREAS={lecturer:FULL,admin:FULL,owner:FULL,student:['syllabus','guide']};
+const CODES={lecturer:'AI2027',admin:'AI2027',student:'AI53500'};
+const MASTER='EyalGershon';
+const GKEY='jb53500.role';
+let ROLE=null;
+
+function store(v){ try{ v===null?localStorage.removeItem(GKEY):localStorage.setItem(GKEY,v); }catch(e){} }
+function stored(){ try{ return localStorage.getItem(GKEY); }catch(e){ return null; } }
+
+function allowed(area){ return (ROLE_AREAS[ROLE]||[]).indexOf(area)>-1; }
+
+function applyAccess(){
+  const list=ROLE_AREAS[ROLE]||[];
+  document.querySelectorAll('#nav button[data-p]').forEach(b=>{
+    b.style.display = list.indexOf(b.dataset.p)>-1 ? '' : 'none';
+  });
+  document.querySelectorAll('.qb[data-go],.pcard[data-go]').forEach(b=>{
+    b.style.display = list.indexOf(b.dataset.go)>-1 ? '' : 'none';
+  });
+  const w=document.getElementById('whoami');
+  if(w) w.textContent=ROLE_LABEL[ROLE]||'';
+  const cur=document.querySelector('.page.on');
+  const curId=cur?cur.id.replace('p-',''):'';
+  if(list.indexOf(curId)<0) setArea(list[0]);
+}
+
+function enterAs(role){
+  ROLE=role; store(role);
+  document.getElementById('gate').classList.add('hidden');
+  applyAccess();
+}
+
+function tryEnter(){
+  const sel=document.getElementById('grole').value;
+  const code=document.getElementById('gcode').value.trim();
+  const err=document.getElementById('gerr');
+  if(!code){ err.textContent='צריך להזין קוד כניסה.'; err.classList.add('on'); return; }
+  if(code===MASTER){ enterAs('owner'); return; }
+  if(code.toUpperCase()===CODES[sel]){ enterAs(sel); return; }
+  err.textContent='הקוד לא מתאים לתפקיד שנבחר. בדקו את הקוד ואת הבחירה בתפריט.';
+  err.classList.add('on');
+  document.getElementById('gcode').select();
+}
+
+document.getElementById('gbtn').addEventListener('click',tryEnter);
+document.getElementById('gcode').addEventListener('keydown',e=>{ if(e.key==='Enter') tryEnter(); });
+document.getElementById('grole').addEventListener('change',()=>{
+  document.getElementById('gerr').classList.remove('on');
+});
+document.getElementById('logout').addEventListener('click',()=>{
+  ROLE=null; store(null);
+  document.getElementById('gcode').value='';
+  document.getElementById('gerr').classList.remove('on');
+  document.getElementById('gate').classList.remove('hidden');
+  document.getElementById('gcode').focus();
+});
+
+(function(){
+  const saved=stored();
+  if(saved && ROLE_AREAS[saved]) enterAs(saved);
+  else setTimeout(()=>{ const c=document.getElementById('gcode'); if(c) c.focus(); },80);
+})();
 </script>
 </body>
 </html>
