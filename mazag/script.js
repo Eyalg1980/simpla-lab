@@ -361,6 +361,9 @@
     var text = document.getElementById("forecast-text");
     if (!hero || !text) return;
 
+    var flip = document.getElementById("card-flip");
+    var back = document.getElementById("card-reveal");
+    var heroAlt = "";
     var skeleton = document.getElementById("forecast-skeleton");
     var skelText = document.getElementById("forecast-skeleton-text");
     var errorBox = document.getElementById("forecast-error");
@@ -368,17 +371,61 @@
     var why = document.getElementById("card-why");
     var stamp = document.querySelector(".forecast__date");
 
+    /* ---------- ההיפוך ----------
+       מפתח אחד שומר את היום שבו הקלף כבר הופך. פתיחה חוזרת באותו יום
+       מגיעה ישר לפנים, כי הריטואל קורה פעם אחת ולא בכל כניסה. */
+    var FLIP_KEY = "mazag.flip";
+
+    function today() {
+      var d = new Date();
+      return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+    }
+
+    function alreadyFlipped() {
+      try { return window.localStorage.getItem(FLIP_KEY) === today(); }
+      catch (e) { return false; }          /* חלון פרטי: פשוט מתהפך שוב */
+    }
+
+    function markFlipped() {
+      try { window.localStorage.setItem(FLIP_KEY, today()); } catch (e) { /* חלון פרטי */ }
+    }
+
+    /* מעביר את הקלף למצב גלוי. instant=true מדלג על הסיבוב, וזה המצב
+       של פתיחה חוזרת ושל צפייה מקישור */
+    function showFace(instant) {
+      if (!flip) return;
+      /* המעבר יושב על .flip__inner ולא על העטיפה, ולכן כיבוי דרך
+         style של העטיפה לא היה עושה כלום. סימון על העטיפה וכלל
+         CSS שמכבה את המעבר בפנים הוא מה שבאמת עובד */
+      if (instant) flip.dataset.instant = "true";
+      flip.dataset.face = "front";
+      hero.alt = heroAlt;
+      hero.removeAttribute("aria-hidden");
+      if (back) {
+        back.setAttribute("aria-hidden", "true");
+        back.setAttribute("inert", "");     /* מוסתר ויזואלית, וגם יוצא ממסלול ה-Tab */
+      }
+      text.hidden = false;
+    }
+
     function reveal() {
       play("reveal");
       if (skeleton) skeleton.hidden = true;
       if (skelText) skelText.hidden = true;
-      hero.hidden = false;
-      text.hidden = false;
+      if (flip) {
+        flip.hidden = false;
+        if (alreadyFlipped()) showFace(true);
+      } else {
+        hero.hidden = false;                /* מסך בלי היפוך, למשל צפייה מקישור */
+        hero.alt = heroAlt;
+        text.hidden = false;
+      }
     }
 
     function fail(box) {
       if (skeleton) skeleton.hidden = true;
       if (skelText) skelText.hidden = true;
+      if (flip) flip.hidden = true;
       hero.hidden = true;
       text.hidden = true;
       if (why) why.hidden = true;
@@ -410,11 +457,25 @@
     catch (e) { return fail(errorBox || guestErr); }
     if (!card) return fail(errorBox || guestErr);
 
-    hero.alt = card.alt;
+    /* הטקסט החלופי נשמר ולא מוצמד עדיין. כל עוד הקלף הפוך, alt שמתאר
+       את הציור מסגיר לקורא מסך בדיוק את מה שהמסך מסתיר מהעין */
+    heroAlt = card.alt;
     text.textContent = card.text;
     if (stamp) stamp.textContent = hebrewDate(when);
     if (why) why.textContent = "הירח היום ב" + card.phaseHe + ", ביסוד " + card.elementHe +
       ". מספר היום " + card.dayNumber + ".";
+
+    /* הנגיעה שמהפכת. אין כאן בדיקה שהתמונה נטענה, כי הכפתור בכלל
+       לא מוצג לפני כן: השלד יורד רק אחרי אירוע ה-load של הפנים */
+    if (back) {
+      back.setAttribute("aria-label", "הקישי כדי להפוך את קלף היום");
+      back.addEventListener("click", function () {
+        if (flip.dataset.face === "front") return;
+        play("reveal");
+        showFace(false);
+        markFlipped();
+      });
+    }
 
     /* השלד יורד רק כשיש באמת מה להראות, ולא כשהקוד סיים לרוץ */
     hero.addEventListener("load", reveal, { once: true });

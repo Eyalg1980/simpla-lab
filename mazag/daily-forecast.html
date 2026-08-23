@@ -35,13 +35,25 @@
     <main class="content">
       <p class="forecast__date">שלישי, 21.05.2025</p>
 
-      <!-- השלד אמיתי ולא הדגמה: הוא יורד ברגע שהתמונה של היום פוענחה -->
+      <!-- השלד אמיתי ולא הדגמה: הוא יורד ברגע שגב הקלף פוענח, ואז
+           ההמתנה כבר לא מול מלבן אפור אלא מול קלף הפוך -->
       <div class="skeleton skeleton--card" id="forecast-skeleton" aria-hidden="true"></div>
 
-      <img class="hero-card" id="hero-card" src="assets/images/card-the-star.webp"
-           alt="קלף הכוכב: אישה כורעת ומוזגת מים אל בריכה תחת כוכב זהב גדול" width="244" height="364" hidden />
+      <!-- שני צדדים לאותו קלף. הגב הוא כפתור, כי הפיכת הקלף היא פעולה
+           של המשתמשת ולא משהו שקורה לה -->
+      <div class="flip" id="card-flip" data-face="back" hidden>
+        <div class="flip__inner">
+          <button type="button" class="flip__face flip__face--back" id="card-reveal">
+            <img src="assets/images/card-back.webp" alt="" width="244" height="364" />
+            <span class="flip__hint">הקישי כדי להפוך</span>
+          </button>
+          <img class="flip__face flip__face--front" id="hero-card"
+               alt="" width="244" height="364" aria-hidden="true" />
+        </div>
+      </div>
 
-      <p class="body-copy" id="forecast-text" hidden></p>
+      <!-- הקריאה מוכרזת כשהיא מגיעה, כדי שקורא מסך לא יפספס את הרגע -->
+      <p class="body-copy" id="forecast-text" aria-live="polite" hidden></p>
 
       <div class="skeleton skeleton--line" id="forecast-skeleton-text" aria-hidden="true"></div>
 

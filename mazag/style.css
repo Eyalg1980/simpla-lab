@@ -1854,6 +1854,13 @@ fieldset.field {
   /* האטה עמוקה: מתחיל מהר ונרגע לאט, זה מה שנותן את התחושה המכובדת */
   --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
 
+  /* היפוך הקלף מקבל עקומה משלו, וזו לא קפריזה אלא מדידה.
+     --motion-ease מסובבת 113 מעלות מתוך 180 ב-15 האחוזים הראשונים,
+     ואז נשארות 550ms של קלף שכמעט לא זז. העין רואה טשטוש ואז המתנה.
+     העקומה כאן מפזרת את הסיבוב על כל המשך: 8 מעלות ב-105ms,
+     54 ב-210, 131 ב-350. זה הופך את הסיבוב לדבר שאפשר לקרוא. */
+  --motion-flip: cubic-bezier(0.45, 0, 0.25, 1);
+
   /* תנועה */
   --motion-lift: 16px;
   --motion-scale: 1.01;
@@ -2095,6 +2102,142 @@ button:disabled {
 
 .archive__item img {
   transition: transform var(--motion-base) var(--motion-ease);
+}
+
+
+/* ============================================================
+   היפוך הקלף היומי
+
+   שני צדדים לאותו קלף, מסובבים במרחב. הגב הוא כפתור אמיתי ולא div,
+   כי כך ניווט מקלדת, מקש רווח ו-Enter מגיעים בחינם.
+   ============================================================ */
+
+.flip {
+  /* הפרספקטיבה יושבת על ההורה. בלעדיה הסיבוב שטוח לגמרי
+     ונראה כמו מעיכה אופקית ולא כמו קלף שמסתובב */
+  perspective: 1400px;
+  width: 244px;
+  max-width: 100%;
+  aspect-ratio: 244 / 364;
+  align-self: center;
+}
+
+.flip__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  /* rotateY(0) מפורש ולא none. בלי טרנספורם כרום לא פותח הקשר
+     תלת ממדי, ואז backface-visibility לא מסתיר כלום ושתי הפאות
+     מצוירות זו על זו. בלי השורה הזו האפקט פשוט לא עובד */
+  transform: rotateY(0deg);
+  transition: transform var(--motion-slow) var(--motion-flip);
+}
+
+/* הכיוון מוכפל ב---dir, ולכן בעברית הקלף מתהפך מימין */
+.flip[data-face="front"] .flip__inner {
+  transform: rotateY(calc(180deg * var(--dir)));
+}
+
+/* פתיחה חוזרת באותו יום: הקלף כבר גלוי, בלי סיבוב ובלי המתנה.
+   הריטואל קרה כבר הבוקר, ואין סיבה לגבות אותו שוב */
+.flip[data-instant="true"] .flip__inner { transition: none; }
+
+.flip__face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 1px solid var(--color-border-base);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: none;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;   /* ספארי עדיין רוצה את התחילית */
+}
+
+/* הפנים מסובבות מראש באותה זווית, כך שבסוף הסיבוב הן מיושרות אלינו */
+.flip__face--front {
+  transform: rotateY(calc(180deg * var(--dir)));
+}
+
+.flip__face img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* הגב הוא כפתור, ולכן הוא צריך להיראות לחיץ */
+.flip__face--back {
+  cursor: pointer;
+  display: block;
+}
+
+/* גב הקלף הוא קלף בהיר, ולכן הרמז עליו כהה. הניסיון הראשון היה
+   טקסט לבן עם צל, וזה נבלע לגמרי בקרם. הצבעים כאן קבועים ולא
+   אסימונים, כי הם יושבים על תמונה שלא מתהפכת בין מצבי התצוגה */
+.flip__hint {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: var(--space-md);
+  margin-inline: auto;
+  width: fit-content;
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-full);
+  background-color: rgb(250 246 243 / 0.92);
+  border: 1px solid rgb(60 47 38 / 0.14);
+  text-align: center;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-label);
+  color: #3c2f26;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .flip__face--back:hover {
+    /* הרמה קלה בלבד. הגב כבר מזמין נגיעה, ולא צריך יותר מזה */
+    transform: translateY(calc(var(--motion-lift) * -0.25));
+  }
+}
+
+.flip__face--back:focus-visible {
+  outline: 2px solid var(--color-accent-deep);
+  outline-offset: 3px;
+}
+
+.flip__face--back:active {
+  transform: scale(0.98);
+  transition-duration: var(--motion-press);
+}
+
+/* תנועה מופחתת: אין סיבוב בכלל. סיבוב הוא בדיוק מה שמשתמשת
+   רגישה לתנועה לא יכולה לספוג, ולכן כאן הפאות מוחלפות בהצלבה
+   קצרה. התלת ממד מכובה לגמרי, ולכן ההסתרה עוברת ל-opacity */
+@media (prefers-reduced-motion: reduce) {
+  .flip__inner {
+    transform-style: flat;
+    transform: none;
+    transition: none;
+  }
+  .flip[data-face="front"] .flip__inner { transform: none; }
+  .flip__face--front { transform: none; }
+  .flip__face {
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    transition: opacity var(--motion-base) var(--motion-ease);
+  }
+  .flip[data-face="back"]  .flip__face--front { opacity: 0; }
+  .flip[data-face="back"]  .flip__face--back  { opacity: 1; }
+  .flip[data-face="front"] .flip__face--front { opacity: 1; }
+  .flip[data-face="front"] .flip__face--back  { opacity: 0; }
+
+  /* opacity אפס עדיין בולע לחיצות. בלי השורה הזו הפנים השקופות
+     יושבות מעל הכפתור ואי אפשר להפוך את הקלף בכלל */
+  .flip[data-face="back"]  .flip__face--front,
+  .flip[data-face="front"] .flip__face--back { pointer-events: none; }
 }
 
 /* ---------- כניסת מסך ---------- */
