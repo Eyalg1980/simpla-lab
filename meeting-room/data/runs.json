@@ -9,7 +9,7 @@
     "durationMin": 28,
     "webSearches": 4,
     "webFetches": 10,
-    "commits": 3,
+    "commits": 4,
     "notes": "Sunday: weekly meeting W34 (31 reviewed incl. 3 carried-over undecided pitches from W33 dropped after 2 weeks with no stamp) + full competition sweep attempted. All 4 competition-site fetches (aiuxdesign.guide, aifilmcontests.com, aaiff.ai, higgsfield.ai/contests) denied PROVENANCE_REQUIRED, no new competitions added, existing deadlines kept as last verified with dated notes appended; 2 research fetches succeeded (releasebot.io/anthropic, learningnews.com) covering Part A teaching pillar (Erica Farmer/Training Journal, 21.8) and Part A UX+AI pillar plus Part C visionary capability (Anthropic Skills API GA + Browser/Computer Use GA, both 20.8); Figma Weave pillar from standing pool (mobbin-design-research skill, me cross); both new Director ideas are contest-mode (3:10 and 3:30, kiosk/newspaper and retired-lifeguard, checked against the round-1 18-hook bank and all daily hooks since 16.8, no duplicates), no worth-watching links added this run (fetch budget exhausted); meeting-room daily run added 6 ideas (2 per advisor); live verify: all 4 WebFetch calls denied PROVENANCE_REQUIRED (unattended run), confirmed instead via fresh clone of both repos, all four files correct."
   },
   {
