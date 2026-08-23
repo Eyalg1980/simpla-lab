@@ -1,6 +1,49 @@
 {
   "days": [
     {
+      "date": "2026-08-23",
+      "ideas": [
+        {
+          "id": "2026-08-23-1",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "בקיוסק בפינת הרחוב אותו עיתון מקופל מחכה לאותו לקוח כל בוקר, עשרים שנה אחרי שהוא הפסיק להגיע.",
+          "concept": "קיוסקאית בת שבעים בפינת רחוב בחיפה קונה כל בוקר במו ידיה עותק נוסף של אותו עיתון ומניחה אותו מקופל בקצה הדלפק, במקום המדויק שבו לקוח קבוע היה יושב לקרוא אותו לפני עשרים שנה. בראיון מבוים היא לא אומרת את שמו אף פעם, רק הוא. בשוט האחרון נכנס לקוח חדש, מרים בטעות בדיוק את העיתון הזה ומתחיל לשלם. היא כמעט עוצרת אותו, ואז, לראשונה, נותנת לו לקחת אותו.",
+          "execution": "3 דקות ו-10 שניות, מיקום יחיד, הקיוסק. פורמט ראיון מבוים במצלמה סטטית, חתוך לשוטים תיעודיים רחבים באותו חלל. Higgsfield Cinema Studio לראיון הארוך ולשוטי הרקע, Nano Banana Pro לעקביות הפנים המבוגרות והאסימטריות שלה בין כל השוטים, Kling 3 std לשוט התנועה היחיד בסוף, מסירת העיתון. קריינות עברית קצרה רק בתשובות הראיון, בלי דיאלוג מסונכרן בשום שוט אחר, בלי המונים, בלי הליכה של גוף מלא. יחס 16:9 לתחרות, 9:16 לרשתות.",
+          "why": "יושב כמעט על כל ששת מנגנוני הזכייה בבת אחת: פורמט ראיון מבוים, מיקום יחיד, פנים מבוגרות ואסימטריות, עברית בתשובות קצרות בלי דיאלוג מסונכרן, סיום שהוא שינוי קטן במודעות, ואהבה לא סימטרית כלפי לקוח שהפסיק להגיע. זיכרון ואובדן וקרבה הם הז'אנר המוביל בליגה, בדיוק שם זה יושב.",
+          "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+          "srcUrl": "https://aaiff.ai/",
+          "srcLabel": "Astana AI Film Festival, דף הבית",
+          "prompts": {
+            "video": "Photoreal staged-interview documentary footage, warm late-afternoon Mediterranean light through a small street kiosk window, sand cream and soft teal palette, an elderly woman behind a kiosk counter with one folded newspaper resting untouched at the counter's edge, static camera holding on her weathered asymmetric face as she speaks in short quiet bursts, melancholic restrained mood, shallow depth of field, 16:9",
+            "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם העיתון שמחכה: קיוסקאית בת שבעים בחיפה קונה כל בוקר עותק נוסף של אותו עיתון ומניחה אותו מקופל במקום שבו לקוח קבוע היה יושב לקרוא אותו, עד שהוא הפסיק להגיע לפני עשרים שנה, ובשוט האחרון לקוח חדש מרים בטעות את העיתון הזה והיא לראשונה נותנת לו לקחת אותו. תפתח לי אותו לתסריט מלא: לוגליין אחת, לוח זמנים מדויק ל-3:10 דקות בפורמט ראיון מבוים, קריינות עברית קצרה רק בתשובותיה, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפט ג'נרציה מוכן לכל שוט בנפרד. שמור על מיקום יחיד, בלי המונים, ובלי שום שוט שדורש הליכה של גוף מלא.",
+            "image": "Photoreal staged-interview still, warm late-afternoon Mediterranean light, sand cream and soft teal palette, a single folded newspaper resting at the edge of a small kiosk counter, an elderly woman's weathered hand nearby, quiet melancholic mood, shallow depth of field, no text",
+            "raw": "בקיוסק בפינת הרחוב אותו עיתון מקופל מחכה לאותו לקוח כל בוקר, עשרים שנה אחרי שהוא הפסיק להגיע.\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, וגם Astana AI Film Festival\nקונספט: קיוסקאית קונה כל בוקר עותק נוסף של אותו עיתון ומניחה אותו במקום שלקוח קבוע היה יושב, עד שלקוח חדש מרים אותו בטעות והיא לראשונה נותנת לו לקחת אותו.\nביצוע: 3:10 דקות, מיקום יחיד, פורמט ראיון מבוים, Higgsfield Cinema Studio ו-Nano Banana Pro לעקביות, עברית קצרה רק בתשובות, יחס 16:9 ו-9:16.\nלמה עכשיו: יושב כמעט על כל ששת מנגנוני הזכייה בבת אחת ועל הז'אנר המוביל בליגה, זיכרון ואובדן וקרבה."
+          },
+          "used": false
+        },
+        {
+          "id": "2026-08-23-2",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "כיסא המציל בחוף שנסגר עומד ריק חמש שנים, אבל כל בוקר בשש מישהו עדיין מטפס אליו.",
+          "concept": "מציל בדימוס מטפס כל בוקר לכיסא ההצלה בחוף קטן שנסגר לרחצה לפני חמש שנים, יושב שם עשרים דקות בדיוק, סורק מים שאין בהם אף שוחה, ויורד. פורמט תיעודי שקט, מצלמת אבטחה קבועה מזווית אחת שמתעדת אותו בוקר אחרי בוקר. בשוט האחרון, לראשונה, הוא קם מהכיסא באמצע התצפית, גופו זז לפני שהמוח מדביק, ואז הוא נעצר, מבין שאין שם באמת אף אחד, ויושב בחזרה.",
+          "execution": "3 דקות ו-30 שניות, מיקום יחיד, כיסא ההצלה והמים הריקים מולו. פורמט מצלמת אבטחה קבועה, מונטאז' של בקרים רבים בזווית אחת בלבד. Higgsfield Cinema Studio לרצף הבקרים, Nano Banana Pro לעקביות הדמות המבוגרת בין השוטים, Kling 3 std לשוט התנועה היחיד, חצי-קימה מהכיסא. שקט מוחלט חוץ מקול ים, בלי קריינות בכלל, בלי המונים, בלי הליכה של גוף מלא מעבר לתנועת הקימה החלקית. יחס 16:9 לתחרות, 9:16 לרשתות.",
+          "why": "יושב על פורמט מצלמת אבטחה מושאל, מיקום יחיד, שתיקה מלאה שלקחה פרס ראשון בליגה הזאת בעבר, גיבור מבוגר, וסיום שהוא שינוי קטן במודעות על זהות אחרי פרישה. זיכרון וקרבה לתפקיד שאבד הם בדיוק הז'אנר המוביל, בלי לגעת בהמונים או בהליכה שאסורים החודש.",
+          "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+          "srcUrl": "https://higgsfield.ai/contests/higgsfield-global-film-festival",
+          "srcLabel": "Higgsfield Global Film Festival, דף התחרות",
+          "prompts": {
+            "video": "Photoreal fixed security-camera documentary footage, single static wide angle, early dawn Mediterranean light over an empty closed beach, sand cream and soft teal palette, an elderly lifeguard climbing into an old lifeguard chair overlooking still empty water, no swimmers anywhere, quiet contemplative mood, time-lapse morning cuts, shallow depth of field, 16:9",
+            "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם המציל שנשאר: מציל בדימוס מטפס כל בוקר לכיסא ההצלה בחוף קטן שנסגר לפני חמש שנים, יושב עשרים דקות מדויקות וסורק מים ריקים, עד שבשוט האחרון הוא קם באמצע התצפית מתוך רפלקס ואז נעצר ויושב בחזרה. תפתח לי אותו לתסריט מלא: לוגליין אחת, לוח זמנים מדויק ל-3:30 דקות בפורמט מצלמת אבטחה קבועה עם מונטאז' בקרים, שקט מוחלט לאורך כל הסרט, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפט ג'נרציה מוכן לכל שוט בנפרד. שמור על מיקום יחיד, בלי המונים, ובלי שום שוט שדורש הליכה של גוף מלא.",
+            "image": "Photoreal fixed security-camera still, early dawn Mediterranean light, sand cream and soft teal palette, an empty lifeguard chair overlooking still empty water, no people in frame, quiet contemplative mood, shallow depth of field, no text",
+            "raw": "כיסא המציל בחוף שנסגר עומד ריק חמש שנים, אבל כל בוקר בשש מישהו עדיין מטפס אליו.\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, וגם Astana AI Film Festival\nקונספט: מציל בדימוס מטפס כל בוקר לכיסא ההצלה בחוף שנסגר, סורק מים ריקים עשרים דקות, עד שבשוט האחרון הוא קם מתוך רפלקס ונעצר.\nביצוע: 3:30 דקות, מיקום יחיד, מצלמת אבטחה קבועה, Higgsfield Cinema Studio ו-Nano Banana Pro לעקביות, שקט מוחלט, יחס 16:9 ו-9:16.\nלמה עכשיו: פורמט מצלמת אבטחה, שתיקה מלאה, גיבור מבוגר, וסיום שהוא שינוי קטן במודעות, בדיוק הז'אנר המוביל בליגה."
+          },
+          "used": false
+        }
+      ]
+    },
+    {
       "date": "2026-08-21",
       "ideas": [
         {

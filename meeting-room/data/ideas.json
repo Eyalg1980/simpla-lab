@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-21",
+  "updated": "2026-08-23",
   "ideas": [
     {
       "id": "I-2026-0316",
@@ -14,9 +14,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
-      "touchedAt": "2026-08-21"
+      "touchedAt": "2026-08-23"
     },
     {
       "id": "I-2026-0317",
@@ -59,9 +59,9 @@
       "evidence": "ב-11.8.2026 שתי ריצות קלוד נפרדות עבדו על אותו בריף תחרות במקביל, פעם אחת יצרו שני סטוריבורדים כפולים עם התנגשות add/add בגיט ומזהה רעיון כפול, ובאותו יום שוב יצרו שני סטים של תשעה עשר קליפים לאותו סרט (ההוראות) עם עלות קרדיטים כפולה של כשש מאות קרדיטים",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
-      "touchedAt": "2026-08-21"
+      "touchedAt": "2026-08-23"
     },
     {
       "id": "I-2026-0320",
@@ -73,9 +73,9 @@
       "evidence": null,
       "lesson": "קורס UI/UX 45900, שיעור 2 (24.8), דף נחיתה ווידאו סקראבינג",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
-      "touchedAt": "2026-08-21"
+      "touchedAt": "2026-08-23"
     },
     {
       "id": "I-2026-0321",
@@ -826,9 +826,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pitched",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-16"
+      "touchedAt": "2026-08-23"
     },
     {
       "id": "I-2026-0284",
@@ -868,9 +868,9 @@
       "evidence": "בין 11 ל-13.8 שלושה סטוריבורדים ברצף הצהירו משך לא נכון: ההוראות 3:20 מול 4:10 בפועל, השכן 3:30 מול 4:10 בפועל, מיאו 2:40 מול 3:48 בפועל, וכל פעם רק סיכום ידני של טבלת השוטים חשף את הטעות",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pitched",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-16"
+      "touchedAt": "2026-08-23"
     },
     {
       "id": "I-2026-0287",
@@ -882,9 +882,9 @@
       "evidence": "ב-11.8 שני סשנים כתבו במקביל ל-storyboards/the-instructions/ ול-storyboards/the-neighbour/, מה שיצר קונפליקט add/add ומזהה רעיון כפול בvideos.json שתוקן ידנית",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pitched",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-16"
+      "touchedAt": "2026-08-23"
     },
     {
       "id": "I-2026-0288",
@@ -1217,6 +1217,96 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-08-20"
+    },
+    {
+      "id": "I-2026-0322",
+      "title": "מדף הסקילים הפך ל-API",
+      "line": "כותבים סקיל פעם אחת, וכל מנוע קורא אותו ישירות דרך קריאת API, בלי להעתיק קובץ בין ריפואים",
+      "advisor": "visionary",
+      "createdAt": "2026-08-23",
+      "capability": {
+        "name": "Anthropic Skills API, זמינות כללית",
+        "releasedAt": "2026-08-20"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-23"
+    },
+    {
+      "id": "I-2026-0323",
+      "title": "הסוכן דופדפן במקום לתאר",
+      "line": "סוכן פותח דפדפן אמיתי ולוחץ, מקליד וגולל ברצף פעולות אחד, במקום שתתאר לו איפה הכפתור בפרומפט",
+      "advisor": "visionary",
+      "createdAt": "2026-08-23",
+      "capability": {
+        "name": "Anthropic Browser Use tool ו-Computer Use עם תורות רב-פעולה, GA",
+        "releasedAt": "2026-08-20"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-23"
+    },
+    {
+      "id": "I-2026-0324",
+      "title": "הסרת לקוח מסודרת",
+      "line": "לקוח יורד מהלוח בכמה מקומות בבת אחת, בלי לחשב ידנית מחדש אינדקסים של רשימה",
+      "advisor": "pain",
+      "createdAt": "2026-08-23",
+      "capability": null,
+      "evidence": "ב-19.8.2026 הורדת גם את Cross Diamond וגם את ברוני גז מהלוח באותו יום: הסרת המשימות, הסרת פריט מ-READY הודעות מוכנות (אינדקס 0), ומחזור אינדקסים ידני של הקישורים [0,1] [0,3] [0,4] ל-[0,0] [0,2] [0,3], וגם הסרה מרשימת מחכה ל",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-23"
+    },
+    {
+      "id": "I-2026-0325",
+      "title": "הודעה בשני ערוצים מתבנית אחת",
+      "line": "כותבים עדכון פעם אחת, ומקבלים גרסת מייל וגרסת וואטסאפ מוכנות בלי לנסח כל אחת בנפרד",
+      "advisor": "pain",
+      "createdAt": "2026-08-23",
+      "capability": null,
+      "evidence": "ב-17.8.2026 עדכון בדק בית אשקלון יצא כגרסת מייל וגרסת וואטסאפ נפרדות ל-READY, ואותו דפוס חוזר על עצמו בכל הודעה מוכנה שנכתבת ללוח",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-23"
+    },
+    {
+      "id": "I-2026-0326",
+      "title": "לוז מפגשים אישיים",
+      "line": "איך נראה על מסך המורה תיאום חמישה עשר מפגשי משוב אישיים בחלון של שלושה שבועות, בלי שראש השנה יתנגש באף אחד",
+      "advisor": "teacher",
+      "createdAt": "2026-08-23",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס UI/UX 45900, מפגשי משוב אישיים, חלון 25.8-16.9",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-23"
+    },
+    {
+      "id": "I-2026-0327",
+      "title": "מד השלמת ראיון קייס סטאדי",
+      "line": "איך התלמיד רואה על המסך אילו מהבלוקים בקייס סטאדי כבר ענה עליהם בראיון ואילו עוד ריקים",
+      "advisor": "teacher",
+      "createdAt": "2026-08-23",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס UI/UX 45900, מפגש קייס סטאדי (27.8/31.8), כלי case-study-builder שנמסר 21.8",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-23"
     }
   ]
 }
