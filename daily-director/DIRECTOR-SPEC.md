@@ -99,3 +99,19 @@ Two consequences to preserve:
 - **"העתק פרומפט"** on a competition idea: the full competition brief plus the idea, ending in the same storyboard deliverable. Verify the real submission terms on the competition site before writing, and correct the card if they differ.
 - **"פתח תסריט"** (black button, shown only while the idea has no `storyboardUrl`): produce a full breakdown in chat — logline, 45-90s script, shot list (per shot: duration, camera, action), and ready generation prompts per shot (name the model). Offer 2 style-test frames before the full set. Publish to `storyboards/` only if Eyal approves the result.
 - **The four prompt buttons**: pure clipboard copies of the `prompts` object. No Claude round trip needed, which is the point.
+
+## תחרויות שנבדקו ונפסלו, אין לחקור אותן שוב (סריקה ידנית 21 עד 23.8.2026)
+
+הרשימה נכתבה אחרי סריקה שקראה את התקנון בפועל של יותר משלושים תחרויות. **אל תסמוך על aifilmcontests.com בלי אימות ישיר:** הוא הציג ארבע תחרויות כפתוחות כשהדף שלהן אומר סגור, ונתן תאריכים שגויים לשתיים נוספות. כל תאריך שנכנס ל-competitions.json חייב לבוא מדף התחרות עצמה או מפילמפריוויי.
+
+**נסגרו, לא לפתוח מחדש:** Reply AI Film Festival (2.6), Jeju Global AI Film Contest (13.7), Naija AI Film Festival (8.7), Runway Big Ad Contest Vol. 2 (31.7), K-Culture AI Int'l Film Festival (5.8), AIMagica (15.8), Token AI Film Festival (14.8), AI Film Fest Monaco (25.4), HKBU Future Film Fest (25.6), WAIFF global (27.2), AI Film Awards Las Vegas, AIFF Dubai.
+
+**רצפת אורך מעל 56 שניות, כלומר פוסלות ספוט קצר:** AI Movie Awards / AIMA לונדון (רצפת דקה בקטגוריות הפרסומות), Sparknify Human vs AI (דקה עד 30 דקות), Bali International AI Film Festival (דקה עד שבע, וגם 85 דולר), TAIFF טורקיה (הדף החי הוא מהדורת 2024).
+
+**אוסרות סימנים מסחריים לא מורשים במפורש, ולכן אסור להגיש אליהן ספק-אד למותג אמיתי:** Chroma Awards, Artiver AI Art Awards, Runway Big Ad Contest (מותגים בדיוניים בלבד), AKOOL Creator Clash (מוצרים בדיוניים בלבד). זה הסינון החשוב ביותר ברשימה.
+
+**חוסמות יוצר ישראלי יחיד:** DAIFF של TBWA (מגישים מבוססי אוסטרליה בלבד), WAIFF Los Angeles (מגישים מבוססי ארצות הברית בלבד, וחבל כי יש לה קטגוריית פרסומות של 15 שניות עד שלוש דקות).
+
+**יקרות מדי:** AI Media Award ציריך, 40 פרנק הגשה ועוד 50 פרנק דמי טיפול לא מוחזרים. **חריג ששווה מייל אחד:** אם מתברר ש-50 הפרנק הם קנס ביטול ולא חיוב מראש, יש לה קטגוריית AI Advertising ודדליין 13.9 והיא קופצת לצמרת.
+
+**לא ניתנות לאימות:** AI Media Festival / AIMF LA (אין בכלל פרטי הגשה מפורסמים), IFFI Goa (הדף מתאר את מהדורת 2025), JIFF World AI Cinema (אין דמי הגשה ואין כללי אורך מפורסמים), AI Film Awards Cannes ו-AI Film & Ads Awards India (שני הדפים מחזירים 404).
