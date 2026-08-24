@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-23",
+  "updated": "2026-08-24",
   "ideas": [
     {
       "id": "I-2026-0316",
@@ -1307,6 +1307,96 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-08-23"
+    },
+    {
+      "id": "I-2026-0328",
+      "title": "שלושת הריווחים",
+      "line": "לוח חי שמראה את אותה שורת כרטיסים בשלושת מצבי הריווח החדשים, עם שם ה-CSS מתחת לכל אחד",
+      "advisor": "visionary",
+      "createdAt": "2026-08-24",
+      "capability": {
+        "name": "Figma Auto Layout responsive spacing, האפשרויות Around ו-Evenly לצד Between המשונה",
+        "releasedAt": "2026-08-21"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-24"
+    },
+    {
+      "id": "I-2026-0329",
+      "title": "גלישה מאוזנת",
+      "line": "בודק כותרות שמזהה איפה Balance ואיפה Pretty משנים את שבירת השורה, ומסמן את הכותרות שנשברות רע בעברית",
+      "advisor": "visionary",
+      "createdAt": "2026-08-24",
+      "capability": {
+        "name": "Figma text wrap options, Balance ו-Pretty ב-Slides, Buzz, Sites ובנכסי עיצוב",
+        "releasedAt": "2026-08-14"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-24"
+    },
+    {
+      "id": "I-2026-0330",
+      "title": "יומן אימות דדליינים",
+      "line": "לכל תחרות נשמר מי אימת את הדדליין, מאיזה מקור ומתי, וכרטיס שלא אומת שבועיים נצבע אדום",
+      "advisor": "pain",
+      "createdAt": "2026-08-24",
+      "capability": null,
+      "evidence": "runs.json מתעד שבריצת 23.8 כל ארבע שליפות אימות התחרויות נחסמו ולא נוסף אף אימות, וגם בריצת 24.8 שליפת דף התחרויות של היגספילד נחסמה ושתי תחרויות אומתו דרך חיפוש במקום דרך דף התחרות עצמה. competitions.json מחזיק כרגע 21 תחרויות, ושתיים מהן עם דדליין בתוך שבעה ימים נשארו עם אימות ישן בלי סימון",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-24"
+    },
+    {
+      "id": "I-2026-0331",
+      "title": "מד תקציב ריצה",
+      "line": "מונה חי של חיפושים ושליפות מול התקרה, שעוצר את הריצה כשהיא נגמרת במקום לגלות את זה בדיעבד",
+      "advisor": "pain",
+      "createdAt": "2026-08-24",
+      "capability": null,
+      "evidence": "runs.json מראה שתי ריצות רצופות, 21.8 ו-23.8, שרשמו 10 שליפות כל אחת מול תקרה מוצהרת של 6 בהוראות המשימה, כלומר חריגה של כמעט פי שניים פעמיים ברצף, ובשתיהן החריגה התגלתה רק בשלב כתיבת יומן הריצה בסוף",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-24"
+    },
+    {
+      "id": "I-2026-0332",
+      "title": "החלל הריק על המסך",
+      "line": "איך מראים בכיתה על מסך אחד למה אותה שורה נראית אחרת בשלושת מצבי הריווח, בלי שכל סטודנט יצייר אותה אחרת?",
+      "advisor": "teacher",
+      "createdAt": "2026-08-24",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס UI/UX 45900, השיעור על אוטו לייאאוט ומערכת הריווח",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-24"
+    },
+    {
+      "id": "I-2026-0333",
+      "title": "מוסקוב על מסך אחד",
+      "line": "איך מראים בכיתה שהמשפט זה חייב להיות ב-MVP הוא החלטה ולא תחושה, בלי להסביר את זה שוב במילים?",
+      "advisor": "teacher",
+      "createdAt": "2026-08-24",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס UI/UX 45900, המודול על תיעדוף MoSCoW ובניית MVP",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-24"
     }
   ]
 }

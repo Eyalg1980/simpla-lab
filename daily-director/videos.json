@@ -1,6 +1,47 @@
 {
   "days": [
     {
+      "date": "2026-08-24",
+      "ideas": [
+        {
+          "id": "2026-08-24-1",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "ארבעים שנה היא מקליטה קלטות לאחותה בחוץ לארץ. מאתיים קלטות מחכות במגירה, אף אחת לא נשלחה.",
+          "concept": "אישה בת שמונים ושתיים בדירה בבת ים מכינה תה, מוציאה קלטת ריקה, לוחצת רקורד ומספרת לאחותה על השבוע שלה. היא מספרת בפירוט עצום ונדיב, מה פרח במרפסת, מי מת בבניין, מה היא חשבה בשלוש בלילה. האחות הפסיקה לענות לפני עשרים שנה. בסוף היא מוציאה את הקלטת, כותבת עליה תאריך בכתב יד, ומכניסה אותה למגירה שבה מחכות עוד מאתיים, כולן מסומנות, אף אחת לא נשלחה. השוט האחרון הוא היד שסוגרת את המגירה ונשארת עליה רגע אחד יותר מדי.",
+          "execution": "3 דקות ו-20 שניות, מיקום יחיד, מטבח וסלון של אותה דירה. פורמט מושאל: מכתב קולי ביתי, כלומר כל הסרט הוא הקלטה אחת שהיא עצמה יוצרת, וזה מתיר מראש כל חספוס. Higgsfield Cinema Studio לשוטים הארוכים והסטטיים במטבח, Nano Banana Pro לעקביות הפנים המקומטות והאסימטריות שלה בין השוטים, Kling 3 std לשני שוטי התנועה היחידים, הכנת התה ופתיחת המגירה. קריינות עברית מלאה בקולה שלה מעל התמונה, בלי דיאלוג מסונכרן בשום שוט, בלי דמות שנייה בפריים, בלי הליכה של גוף מלא, בלי המונים. יחס 16:9 להגשה לתחרות, גרסת 9:16 לרשתות.",
+          "why": "יושב על כל ששת מנגנוני הזכייה: פורמט מושאל שמתיר פגמים, רעיון אחד במקום אחד עם דמות אחת וחזרה לאותה מגירה, קריינות עברית בלי דיאלוג מסונכרן, פנים מבוגרות ואסימטריות, סוף שהוא שינוי קטן במודעות ולא פאנץ', ואהבה לא סימטרית לגמרי, מישהי שממשיכה לדבר לצד שהפסיק לענות. זיכרון ואובדן וקרבה הוא הז'אנר שלוקח פרס ראשון, ובאורך הזה הוא נכנס גם לפסטיבל הגלובלי וגם לאסטנה.",
+          "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+          "srcUrl": "https://higgsfield.ai/global-film-festival",
+          "srcLabel": "Higgsfield Global Film Festival, דדליין 3.9.2026",
+          "prompts": {
+            "video": "Photoreal intimate domestic footage, warm late-afternoon Mediterranean light falling through a kitchen window, sand cream and soft teal palette, an eighty-two year old woman alone at a small kitchen table with a cassette recorder in front of her and a cup of tea beside it, static locked camera holding on her weathered asymmetric face as she speaks quietly and steadily to the machine, tender and unhurried mood, shallow depth of field, warm and human rather than cold, 16:9",
+            "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם הקלטות שלא נשלחו: אישה בת שמונים ושתיים בבת ים מקליטה כבר ארבעים שנה קלטות לאחותה בחוץ לארץ, מספרת לה בפירוט עצום על השבוע שלה, האחות הפסיקה לענות לפני עשרים שנה, ובסוף היא מסמנת את הקלטת בתאריך ומכניסה אותה למגירה שבה מחכות עוד מאתיים, כולן לא נשלחו. תפתח לי אותו לתסריט מלא: לוגליין אחת, לוח זמנים מדויק ל-3:20 דקות בפורמט מכתב קולי ביתי, קריינות עברית מלאה בקולה שלה בלבד, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפט ג'נרציה מוכן לכל שוט בנפרד עם שם המודל. ודא שסכום זמני השוטים שווה בדיוק למשך המוצהר. שמור על מיקום יחיד ודמות אחת, בלי דיאלוג מסונכרן, בלי דמות שנייה בפריים ובלי שוט שדורש הליכה של גוף מלא.",
+            "image": "Photoreal intimate domestic still, warm late-afternoon Mediterranean light through a kitchen window, sand cream and soft teal palette, an open drawer filled with rows of old audio cassettes each labelled by hand in faded ink, one weathered elderly hand resting on the drawer's edge, quiet tender melancholic mood, shallow depth of field, no text",
+            "raw": "ארבעים שנה היא מקליטה קלטות לאחותה בחוץ לארץ. מאתיים קלטות מחכות במגירה, אף אחת לא נשלחה.\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, וגם Astana AI Film Festival\nקונספט: אישה בת שמונים ושתיים בדירה בבת ים מכינה תה, לוחצת רקורד ומספרת לאחותה על השבוע שלה בפירוט נדיב. האחות הפסיקה לענות לפני עשרים שנה. בסוף היא מסמנת את הקלטת בתאריך ומכניסה אותה למגירה שבה מחכות עוד מאתיים, אף אחת לא נשלחה.\nביצוע: 3:20 דקות, מיקום יחיד, פורמט מכתב קולי ביתי. Cinema Studio לשוטים הסטטיים, Nano Banana Pro לעקביות הפנים, Kling 3 std לשני שוטי התנועה. קריינות עברית בקולה בלבד, בלי דיאלוג מסונכרן, בלי דמות שנייה, בלי הליכה של גוף מלא. 16:9 להגשה, 9:16 לרשתות.\nלמה עכשיו: ששת מנגנוני הזכייה בבת אחת, ז'אנר זיכרון ואובדן שלוקח פרס ראשון, ואורך שנכנס גם לגלובלי וגם לאסטנה."
+          }
+        },
+        {
+          "id": "2026-08-24-2",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "סרטון הדרכה לעובד חדש מוקרן בחדר ישיבות ריק כל יום שני בשמונה, ארבע שנים, לעובד שמעולם לא התקבל.",
+          "concept": "סרטון קליטה תאגידי בפלסטלינה, בדיוק בסגנון של סרטוני ההדרכה המנומסים ההם. קריין עברי חמים ומקצועי מראה לעובד החדש איפה המטבחון, איך מתחברים למערכת, למי פונים כשמשהו לא עובד. אף אחד לא בחדר. ככל שהסרטון מתקדם הקריינות מתחילה להוסיף פרטים שאף עובד לא צריך, מי שתה את הקפה האחרון, מתי החליפו את הנורה, כמה ימים עברו. בשוט האחרון הקריין מפסיק באמצע משפט, ואז שואל בשקט אם מישהו בכלל צופה. המסך ממשיך לרוץ.",
+          "execution": "3 דקות ו-30 שניות, מיקום יחיד, אותו משרד פלסטלינה. פורמט מושאל: סרטון הדרכה לעובדים חדשים, שמתיר מראש קיטוע, כרטיסי מעבר ותאורה שטוחה. שפה ויזואלית קליי, בית הסטודיו. Higgsfield Cinema Studio לשוטי החללים הריקים, Nano Banana Pro לעקביות האובייקטים בפלסטלינה בין השוטים, Kling 3 std לשלושת שוטי התנועה הקטנים בלבד, מכונת הקפה, הדלת שנפתחת לבד, המסך שממשיך לרוץ. קריינות עברית מלאה, גיבור לא אנושי לגמרי, אין דמות אנושית בפריים בכל הסרט. בלי המונים, בלי מכוניות, בלי הליכה. יחס 16:9 להגשה, 9:16 לרשתות.",
+          "why": "שלושה מנגנונים לפחות, וכאן חמישה: פורמט מושאל שמתיר את כל הפגמים של המודל, מיקום יחיד עם חזרה לאותו חדר ישיבות, קריינות עברית מלאה בלי דיאלוג מסונכרן, גיבור לא אנושי, וסוף שהוא שינוי קטן במודעות במקום פאנץ'. הקליי גם פותר לגמרי את בעיית עקביות הפנים, כי אין פנים בסרט. מסה מושגית עם סאטירה היא הליגה השנייה בדירוג, וזה ההימור המשלים לרעיון הראשון שיושב על זיכרון ואובדן.",
+          "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+          "srcUrl": "https://aaiff.ai/",
+          "srcLabel": "Astana AI Film Festival, דדליין מוארך 31.8.2026",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field. An empty clay meeting room with a small clay projector casting a pale rectangle of light onto a blank wall, clay chairs arranged neatly and completely unoccupied, dust drifting slowly through the projector beam, camera holds locked and static with only the light flickering, patient and quietly absurd mood, generous negative space at the top of the frame for later titling, 16:9",
+            "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם ההדרכה: סרטון קליטה תאגידי בפלסטלינה שמוקרן בחדר ישיבות ריק כל יום שני בשמונה, ארבע שנים, לעובד שמעולם לא התקבל. הקריין העברי מראה איפה המטבחון ואיך מתחברים למערכת, ואז מתחיל להוסיף פרטים שאף עובד לא צריך, מי שתה את הקפה האחרון וכמה ימים עברו, ובסוף עוצר באמצע משפט ושואל בשקט אם מישהו בכלל צופה. תפתח לי אותו לתסריט מלא: לוגליין אחת, לוח זמנים מדויק ל-3:30 דקות בפורמט סרטון הדרכה לעובדים חדשים, קריינות עברית מלאה, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפט ג'נרציה מוכן לכל שוט בנפרד עם שם המודל, הכל בשפה ויזואלית קליי. ודא שסכום זמני השוטים שווה בדיוק למשך המוצהר. בלי שום דמות אנושית בפריים, מיקום יחיד, בלי הליכה ובלי המונים.",
+            "image": "Claymation stop-motion still, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field. An empty clay meeting room seen straight on, neat rows of unoccupied clay chairs facing a blank wall lit by a pale rectangle from a small clay projector, one clay coffee cup left on the table going cold, quietly absurd and gently sad mood, no text",
+            "raw": "סרטון הדרכה לעובד חדש מוקרן בחדר ישיבות ריק כל יום שני בשמונה, ארבע שנים, לעובד שמעולם לא התקבל.\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, וגם Astana AI Film Festival\nקונספט: סרטון קליטה תאגידי בפלסטלינה. קריין עברי מנומס מראה איפה המטבחון ואיך מתחברים למערכת, ואף אחד לא בחדר. ככל שהסרטון מתקדם הקריינות מוסיפה פרטים שאף עובד לא צריך, ובסוף עוצרת באמצע משפט ושואלת בשקט אם מישהו בכלל צופה.\nביצוע: 3:30 דקות, מיקום יחיד, שפה ויזואלית קליי, פורמט סרטון הדרכה לעובדים חדשים. Cinema Studio לחללים הריקים, Nano Banana Pro לעקביות אובייקטי הפלסטלינה, Kling 3 std לשלושה שוטי תנועה בלבד. קריינות עברית מלאה, אפס דמויות אנושיות בפריים. 16:9 להגשה, 9:16 לרשתות.\nלמה עכשיו: חמישה ממנגנוני הזכייה, הקליי מנטרל לגמרי את בעיית עקביות הפנים, ומסה מושגית עם סאטירה היא הליגה השנייה בדירוג, כלומר ההימור המשלים לרעיון הראשון."
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-08-23",
       "ideas": [
         {

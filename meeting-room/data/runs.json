@@ -1,5 +1,18 @@
 [
   {
+    "date": "2026-08-24",
+    "parts": {
+      "A": "ok",
+      "B": "ok",
+      "C": "ok"
+    },
+    "durationMin": 24,
+    "webSearches": 5,
+    "webFetches": 6,
+    "commits": 2,
+    "notes": "Monday, no weekly meeting. STEP 0 push check passed (clone needed 2 attempts, first hit a transient 503 from the git proxy). Part A rotated: deep research on Figma Weave (Figma auto layout responsive spacing Around/Evenly, 21.8, via releasebot fetch) and UX+AI (Jim Nielsen sloppy-UI-as-security-risk plus Figma Sightlines, 20.8, via aiuxdesign.guide fetch); teaching pillar from the standing pool (10 Modern Web UX Behaviors, the max-two-behaviors golden rule) carrying the me cross to course 45900; format rotated to chida vizualit, not repeating yesterday's check-in nevua. Part B contest mode: 2 ideas at 3:20 and 3:30 (unsent cassettes to a sister, and a claymation onboarding video playing to an empty room), both checked against the round-1 18-hook bank and every daily hook since 11.8, no duplicates; both carry all four prompts, no Hebrew inside video/image. Monday means verify-only on competitions: GFF 3.9 confirmed via the official Higgsfield timeline announcement, Astana 31.8 confirmed as the extended deadline (was 15.8) via Kazinform 6.8; higgsfield.ai/contests fetch denied PROVENANCE_REQUIRED so Venice 26.8 and Japan 31.8 were left at their last verification with a dated note saying so. Part C daily run added 6 ideas (2 per advisor), both visionary ideas carry dated Figma capabilities verified this run (21.8 and 14.8), both pain ideas carry evidence read straight out of runs.json (blocked verification fetches on 23.8 and 24.8, and two consecutive runs logging 10 fetches against a cap of 6); auto-archive sweep found nothing, oldest pool idea is 17.8. Live verify by fresh clone after push."
+  },
+  {
     "date": "2026-08-23",
     "parts": {
       "A": "ok",
