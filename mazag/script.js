@@ -369,6 +369,7 @@
     var errorBox = document.getElementById("forecast-error");
     var guestErr = document.getElementById("guest-error");
     var why = document.getElementById("card-why");
+    var flipBack = document.getElementById("flip-back-btn");
     var stamp = document.querySelector(".forecast__date");
 
     /* ---------- ההיפוך ----------
@@ -390,22 +391,50 @@
       try { window.localStorage.setItem(FLIP_KEY, today()); } catch (e) { /* חלון פרטי */ }
     }
 
-    /* מעביר את הקלף למצב גלוי. instant=true מדלג על הסיבוב, וזה המצב
-       של פתיחה חוזרת ושל צפייה מקישור */
-    function showFace(instant) {
+    /* היפוך חזרה מוחק את הסימון ולא רק מסובב. אחרת רענון היה מחזיר את
+       הקלף לפנים, והכפתור היה קישוט ולא בחירה */
+    function clearFlipped() {
+      try { window.localStorage.removeItem(FLIP_KEY); } catch (e) { /* חלון פרטי */ }
+    }
+
+    /* מעביר את הקלף בין שני המצבים. instant=true מדלג על הסיבוב, וזה
+       המצב של פתיחה חוזרת ושל צפייה מקישור.
+       סימטרי בכוונה: כל מה שמצב אחד מדליק, השני מכבה */
+    function setFace(face, instant) {
       if (!flip) return;
+      var front = face === "front";
       /* המעבר יושב על .flip__inner ולא על העטיפה, ולכן כיבוי דרך
          style של העטיפה לא היה עושה כלום. סימון על העטיפה וכלל
          CSS שמכבה את המעבר בפנים הוא מה שבאמת עובד */
-      if (instant) flip.dataset.instant = "true";
-      flip.dataset.face = "front";
-      hero.alt = heroAlt;
-      hero.removeAttribute("aria-hidden");
-      if (back) {
-        back.setAttribute("aria-hidden", "true");
-        back.setAttribute("inert", "");     /* מוסתר ויזואלית, וגם יוצא ממסלול ה-Tab */
+      if (instant) {
+        flip.dataset.instant = "true";
+      } else if (flip.hasAttribute("data-instant")) {
+        flip.removeAttribute("data-instant");
+        void flip.offsetWidth;   /* בלי reflow הדפדפן מחשב את שני השינויים יחד ולא מנפיש */
       }
-      text.hidden = false;
+      flip.dataset.face = face;
+
+      /* כל עוד הקלף הפוך, alt שמתאר את הציור מסגיר לקורא מסך
+         בדיוק את מה שהמסך מסתיר מהעין */
+      hero.alt = front ? heroAlt : "";
+      if (front) hero.removeAttribute("aria-hidden");
+      else hero.setAttribute("aria-hidden", "true");
+
+      if (back) {
+        if (front) {
+          back.setAttribute("aria-hidden", "true");
+          back.setAttribute("inert", "");   /* מוסתר ויזואלית, וגם יוצא ממסלול ה-Tab */
+        } else {
+          back.removeAttribute("aria-hidden");
+          back.removeAttribute("inert");
+        }
+      }
+
+      text.hidden = !front;
+      /* שורת ההסבר נושאת את פאזת הירח ואת היסוד, כלומר חצי מהתחזית.
+         היא הייתה גלויה גם מול קלף הפוך, וזה הדליף את מה שהקלף מסתיר */
+      if (why) why.hidden = !front;
+      if (flipBack) flipBack.hidden = !front;
     }
 
     function reveal() {
@@ -414,7 +443,7 @@
       if (skelText) skelText.hidden = true;
       if (flip) {
         flip.hidden = false;
-        if (alreadyFlipped()) showFace(true);
+        setFace(alreadyFlipped() ? "front" : "back", true);
       } else {
         hero.hidden = false;                /* מסך בלי היפוך, למשל צפייה מקישור */
         hero.alt = heroAlt;
@@ -472,8 +501,21 @@
       back.addEventListener("click", function () {
         if (flip.dataset.face === "front") return;
         play("reveal");
-        showFace(false);
+        setFace("front", false);
         markFlipped();
+      });
+    }
+
+    /* ההיפוך ההפוך. אותה תנועה בכיוון השני, ולכן אותו עיתוי ואותה עקומה */
+    if (flipBack) {
+      flipBack.addEventListener("click", function () {
+        if (!flip || flip.dataset.face === "back") return;
+        play("reveal");
+        setFace("back", false);
+        clearFlipped();
+        /* הפוקוס יושב על כפתור שנעלם ברגע הזה, ובלי העברה מפורשת
+           הוא נופל ל-body והמקלדת מתחילה מחדש מראש הדף */
+        if (back) back.focus();
       });
     }
 
