@@ -219,7 +219,7 @@
 
 
     /* ---------- ארבע מפות המסע ---------- */
-    .jmaps { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); margin-block-start: 1.5rem; }
+    .jmaps { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr)); margin-block-start: 1.5rem; }
     .jmap { border: 1px solid var(--border); border-radius: 14px; background-color: var(--raised); padding: 1rem 1.1rem 1.15rem; }
     .jmap header { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
     .jmap h4 { margin: 0 0 0.75rem; font-family: var(--heading); font-size: 1.05rem; color: var(--text); }
@@ -242,7 +242,7 @@
       font-size: 0.85rem; color: var(--text-2); }
 
     /* ---------- מפות אמפתיה ---------- */
-    .emaps { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); margin-block-start: 1.5rem; }
+    .emaps { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr)); margin-block-start: 1.5rem; }
     .emap { border: 1px solid var(--border); border-radius: 14px; background-color: var(--raised); padding: 1rem 1.1rem 1.15rem; }
     .emap h4 { margin: 0 0 0.75rem; font-family: var(--heading); font-size: 1.05rem; color: var(--text); }
     .equad { display: grid; gap: 0.75rem; }
@@ -277,9 +277,11 @@
     .sticky-note cite { display: block; margin-block-start: 0.5rem; font-family: var(--body);
       font-size: 0.8rem; font-style: normal; color: #7a6a4f; }
     /* ---------- גלריה מתרחבת ---------- */
-    .gallery { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin-block-start: 1.5rem; }
+    .gallery { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr)); margin-block-start: 1.5rem; }
     /* לוחות רחבים צריכים רוחב כדי להיות קריאים גם לפני ההגדלה */
-    .gallery--wide { grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr)); }
+    /* min() חובה כאן. minmax(22rem) לבדו אינו יורד מתחת ל-352 פיקסל
+       ודוחף לרוחב כל מסך צר ממנו, בלי שאף אלמנט יראה חורג. */
+    .gallery--wide { grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr)); }
     .gallery--one { grid-template-columns: minmax(0, 34rem); justify-content: center; }
     .gallery button {
       display: block; width: 100%; padding: 0; border: 1px solid var(--border);
@@ -306,6 +308,57 @@
       min-height: 44px; min-width: 44px; border-radius: 999px; cursor: pointer;
       border: 1px solid rgb(236 231 221 / 0.35); background: none; color: #ece7dd;
       font: inherit; font-size: 1.1rem;
+    }
+
+    /* מסגרת טלפון. הרוחב קבוע ב-390 והמובייל מכווץ אותה ב-scale,
+       כי מסך טלפון שמשנה מידות כדי להיכנס לעמודה כבר אינו מסך טלפון. */
+    .demo { margin-block-start: 1.75rem; }
+    .phone {
+      --pw: 390px;
+      width: var(--pw); margin-inline: auto; position: relative;
+      border-radius: 46px; padding: 11px; background: #1b2233;
+      box-shadow: 0 22px 60px rgb(11 16 24 / 0.26), 0 0 0 1px #313b52 inset;
+    }
+    .phone__screen {
+      position: relative; width: 100%; aspect-ratio: 390 / 844;
+      border-radius: 36px; overflow: hidden; background: #faf6f3;
+    }
+    .phone__screen > iframe,
+    .phone__poster { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .phone__poster { display: block; object-fit: cover; }
+    .phone__notch {
+      position: absolute; inset-block-start: 15px; inset-inline-start: calc(50% - 47px);
+      width: 94px; height: 22px; border-radius: 999px; background: #1b2233; z-index: 3;
+    }
+    /* השער: כפתור שמכסה את כל המסך, ולכן אין ספק במה לוחצים.
+       הכהות אחידה ולא מדורגת, אחרת הטקסט שלנו נופל על הכפתורים של האפליקציה. */
+    .phone__start {
+      position: absolute; inset: 0; z-index: 2; display: flex;
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.5rem; padding: 2rem 1.5rem; cursor: pointer;
+      border: 0; font: inherit; color: #ece7dd; text-align: center;
+      background: rgb(11 16 24 / 0.62);
+      backdrop-filter: blur(1.5px);
+    }
+    .phone__start b { font-size: 1rem; font-weight: 600; }
+    .phone__start span { font-size: 0.82rem; color: #c9c2b4; max-width: 17rem; }
+    .phone__start .play {
+      display: grid; place-items: center; width: 58px; height: 58px; border-radius: 999px;
+      background: #ece7dd; color: #121827; font-size: 1.15rem; margin-block-end: 0.35rem;
+    }
+    .demo__note { text-align: center; color: var(--text-3); font-size: 0.85rem; margin-block-start: 0.9rem; }
+    .demo__note a { color: var(--text-2); }
+    /* 390 לא נכנס לעמודה של טלפון, ולכן מכווצים את הכל ביחד.
+       scale אינו משנה את מקום הפריסה, ולכן הגובה שנחסך מקוזז ביד.
+       שני המשתנים יושבים על .demo, כי משתנה לא עולה מהילד להורה. */
+    /* הבמה חותכת את תיבת הפריסה. scale מקטין את מה שרואים אבל לא את מה
+       שהדף מודד, ולכן בלי החיתוך תיבה של 390 דוחפת עמוד של 320 לרוחב. */
+    .phone-stage { width: 100%; overflow: hidden; display: flex; justify-content: center; }
+    .phone {
+      /* flex-shrink היה מכווץ את התיבה ל-350 והמסך כבר לא היה מסך טלפון */
+      flex: 0 0 auto;
+      transform: scale(var(--s, 1)); transform-origin: top center;
+      margin-block-end: var(--gap-fix, 0px);
     }
 
     .missing {
@@ -982,6 +1035,34 @@
             <li><strong>אפליקציה שניתנת להתקנה</strong> עם עבודה אופליין ותזכורת יומית מקומית</li>
           </ul>
 
+          <p>
+            וזה הוא, רץ. לא צילום מסך ולא הדמיה, אלא אותו קוד בדיוק שיושב בכתובת
+            החיה, בתוך מסך בגודל של טלפון.
+          </p>
+        </div>
+
+        <div class="demo">
+          <div class="phone-stage">
+          <div class="phone" id="phone">
+            <span class="phone__notch"></span>
+            <div class="phone__screen" id="phone-screen">
+              <img class="phone__poster" src="assets/process/app-poster.webp" alt="מסך התחזית היומית של מזג" width="780" height="1688" loading="lazy" />
+              <button type="button" class="phone__start" id="phone-start">
+                <span class="play" aria-hidden="true">▶</span>
+                <b>להפעיל את האפליקציה</b>
+                <span>נטענת רק עכשיו, כדי לא להכביד על הדף. אפשר לנווט בה כרגיל</span>
+              </button>
+            </div>
+          </div>
+          </div>
+          <p class="demo__note">
+            התחזית מחושבת לתאריך של היום, ולכן מה שייפתח כאן שונה ממה שבתמונה.
+            <br />
+            <a href="index.html" target="_blank" rel="noopener">לפתוח במסך מלא בלשונית חדשה</a>
+          </p>
+        </div>
+
+        <div class="col">
           <div class="ctas">
             <a class="cta" href="index.html">לפתוח את המוצר</a>
             <a class="cta cta--quiet" href="behind-the-scenes.html">למסך שמסביר את המנגנון</a>
@@ -1047,6 +1128,45 @@
       /* לחיצה על הרקע סוגרת, כי זו הציפייה מכל תצוגה מוגדלת */
       box.addEventListener("click", function (e) { if (e.target === box) box.close(); });
       box.addEventListener("close", function () { img.removeAttribute("src"); });
+    })();
+
+    /* המסגרת נטענת רק בלחיצה: בלי זה כל האפליקציה יורדת לכל מבקר,
+       ומסגרת בגובה 844 בולעת את הגלילה של הדף במובייל. */
+    (function () {
+      var start = document.getElementById("phone-start");
+      var screenEl = document.getElementById("phone-screen");
+      if (!start || !screenEl) return;
+
+      start.addEventListener("click", function () {
+        var f = document.createElement("iframe");
+        f.src = "daily-forecast.html";
+        f.title = "מזג, האפליקציה החיה";
+        f.setAttribute("allow", "clipboard-write");
+        screenEl.appendChild(f);
+        var poster = screenEl.querySelector(".phone__poster");
+        if (poster) poster.remove();
+        start.remove();
+        f.addEventListener("load", function () { try { f.contentWindow.focus(); } catch (e) {} });
+      }, { once: true });
+    })();
+
+    /* 390 רחב מעמודת טלפון. מודדים את הרוחב בפועל ומכווצים לפיו,
+       במקום לנחש מקדם קבוע שיישבר במכשיר אחר. */
+    (function () {
+      var phone = document.getElementById("phone");
+      var stage = phone && phone.parentElement;
+      if (!stage) return;
+      function fit() {
+        phone.style.setProperty("--s", "1");
+        phone.style.setProperty("--gap-fix", "0px");
+        var s = Math.min(1, stage.clientWidth / 412);
+        phone.style.setProperty("--s", s.toFixed(3));
+        /* offsetHeight הוא גובה הפריסה ואינו מושפע מ-scale.
+           מודדים אותו ולא מניחים מספר, כי הגובה נגזר מהרוחב בפועל. */
+        phone.style.setProperty("--gap-fix", Math.round(phone.offsetHeight * (s - 1)) + "px");
+      }
+      fit();
+      window.addEventListener("resize", fit);
     })();
   </script>
 
