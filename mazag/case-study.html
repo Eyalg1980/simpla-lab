@@ -278,6 +278,9 @@
       font-size: 0.8rem; font-style: normal; color: #7a6a4f; }
     /* ---------- גלריה מתרחבת ---------- */
     .gallery { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin-block-start: 1.5rem; }
+    /* לוחות רחבים צריכים רוחב כדי להיות קריאים גם לפני ההגדלה */
+    .gallery--wide { grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr)); }
+    .gallery--one { grid-template-columns: minmax(0, 34rem); justify-content: center; }
     .gallery button {
       display: block; width: 100%; padding: 0; border: 1px solid var(--border);
       background-color: var(--raised); border-radius: 14px; overflow: hidden;
@@ -442,6 +445,17 @@
           </p>
         </div>
 
+        <div class="gallery gallery--wide">
+          <button type="button" data-full="assets/process/persona-maya.webp" data-cap="פרסונה א, מאיה כהן, מונעת מטקסיות">
+            <img src="assets/process/persona-maya-thumb.webp" alt="כרטיס הפרסונה של מאיה כהן: מטרות, תסכולים, התנהגויות ונקודת כאב" width="560" height="264" loading="lazy" />
+            <span class="cap"><b>פרסונה א · מאיה כהן</b>הכרטיס המלא מהלוח, כולל שלוש המטרות, שלושת התסכולים והציטוט המייצג</span>
+          </button>
+          <button type="button" data-full="assets/process/persona-tal.webp" data-cap="פרסונה ב, טל אברהמי, צרכנות פסיבית">
+            <img src="assets/process/persona-tal-thumb.webp" alt="כרטיס הפרסונה של טל אברהמי: מטרות, תסכולים, התנהגויות ונקודת כאב" width="560" height="283" loading="lazy" />
+            <span class="cap"><b>פרסונה ב · טל אברהמי</b>הכאב הקריטי מנוסח שם במפורש: כל חיכוך בכניסה מוביל לנטישה מיידית</span>
+          </button>
+        </div>
+
         <div class="col">
           <div class="step-head"><span class="step-num">3</span><h3>מפות מסע לקוח</h3></div>
           <p>
@@ -493,6 +507,29 @@
             2 אצל מאיה, 1.5 אצל טל, בשני המקרים הבור העמוק ביותר במסע.
             כשאותה נקודה נופלת פעמיים בשני מסעות שנבנו בנפרד, זו כבר לא תחושה.
           </p>
+          <p>
+            הגרפים למעלה מציגים ציר אחד, הרגש. הלוחות עצמם מכילים ארבעה נוספים:
+            נקודת המגע, המסך, פתק כאב ופתק הזדמנות בכל שלב. הם למטה, בגודל מלא.
+          </p>
+        </div>
+
+        <div class="gallery gallery--wide">
+          <button type="button" data-full="assets/process/jmap-maya-onboarding.webp" data-cap="מפת מסע, מאיה, אונבורדינג ראשוני">
+            <img src="assets/process/jmap-maya-onboarding-thumb.webp" alt="לוח מפת המסע של מאיה באונבורדינג הראשוני" width="560" height="316" loading="lazy" />
+            <span class="cap"><b>מאיה · אונבורדינג</b>הבור בשלב דירוג האמון, עם פתק הכאב שמסביר אותו</span>
+          </button>
+          <button type="button" data-full="assets/process/jmap-tal-onboarding.webp" data-cap="מפת מסע, טל, אונבורדינג ראשוני">
+            <img src="assets/process/jmap-tal-onboarding-thumb.webp" alt="לוח מפת המסע של טל באונבורדינג הראשוני" width="560" height="302" loading="lazy" />
+            <span class="cap"><b>טל · אונבורדינג</b>אותו שלב, ירידה עמוקה יותר. שני לוחות שנבנו בנפרד</span>
+          </button>
+          <button type="button" data-full="assets/process/jmap-maya-daily.webp" data-cap="מפת מסע, מאיה, כניסה יומית">
+            <img src="assets/process/jmap-maya-daily-thumb.webp" alt="לוח מפת המסע של מאיה בכניסה היומית" width="560" height="306" loading="lazy" />
+            <span class="cap"><b>מאיה · כניסה יומית</b>השיא בתמונה והשפל בטקסט, צמודים זה לזה</span>
+          </button>
+          <button type="button" data-full="assets/process/jmap-tal-daily.webp" data-cap="מפת מסע, טל, כניסה יומית">
+            <img src="assets/process/jmap-tal-daily-thumb.webp" alt="לוח מפת המסע של טל בכניסה היומית" width="560" height="304" loading="lazy" />
+            <span class="cap"><b>טל · כניסה יומית</b>המסע היחיד שמתחיל מחוץ לאפליקציה, בקישור מאדם קרוב</span>
+          </button>
         </div>
 
         <div class="col">
@@ -545,6 +582,17 @@
                 <p>אפשרות להתעלם או להתייחס בררנית, בלי מחויבות</p></section>
             </div>
           </article>
+        </div>
+
+        <div class="gallery gallery--wide">
+          <button type="button" data-full="assets/process/emap-maya.webp" data-cap="מפת אמפתיה, מאיה כהן">
+            <img src="assets/process/emap-maya-thumb.webp" alt="מפת האמפתיה של מאיה כהן, שישה רביעים" width="560" height="424" loading="lazy" />
+            <span class="cap"><b>מפת האמפתיה · מאיה</b>הלוח המלא. כאן יושבים כל הציטוטים, ולא רק השניים שנבחרו לכרטיס למעלה</span>
+          </button>
+          <button type="button" data-full="assets/process/emap-tal.webp" data-cap="מפת אמפתיה, טל אברהמי">
+            <img src="assets/process/emap-tal-thumb.webp" alt="מפת האמפתיה של טל אברהמי, שישה רביעים" width="560" height="435" loading="lazy" />
+            <span class="cap"><b>מפת האמפתיה · טל</b>אותו מבנה, פרסונה אחרת. שני הלוחות נבנו לפני מפות המסע</span>
+          </button>
         </div>
 
         <div class="col">
@@ -633,6 +681,13 @@
           </p>
         </div>
 
+        <div class="gallery gallery--one">
+          <button type="button" data-full="assets/process/sitemap.webp" data-cap="Sitemap, מבנה IA ראשוני, עם הערות הבדיקה">
+            <img src="assets/process/sitemap-thumb.webp" alt="מפת האתר עם שלוש הערות בדיקה בירוק ורשימת החוסרים באפור" width="560" height="285" loading="lazy" />
+            <span class="cap"><b>ה-Sitemap עם הערות הבדיקה</b>שלוש ההערות הירוקות מימין הן המבחנים. השנייה מהן היא "מבחן טל: נכשל", והתיבה האפורה למטה היא רשימת מה שחסר, כפי שנרשמה בתוך הלוח</span>
+          </button>
+        </div>
+
         <div class="col">
           <div class="step-head"><span class="step-num">7</span><h3>מכרטיס תחושה לשפה חזותית</h3></div>
           <p>
@@ -704,6 +759,13 @@
           </p>
         </div>
 
+        <div class="gallery gallery--one">
+          <button type="button" data-full="assets/process/inspiration.webp" data-cap="לוח ההשראה, הרפרנסים וההערות שנכתבו לצידם">
+            <img src="assets/process/inspiration-thumb.webp" alt="לוח ההשראה: שמונה רפרנסים, ולצד כל אחד ההערה שנכתבה עליו" width="560" height="675" loading="lazy" />
+            <span class="cap"><b>הלוח עצמו</b>שמונה רפרנסים, וההערה מעל כל אחד היא זו שמופיעה ברשימה למעלה. הלוח והרשימה הם אותו דבר, פעם כתמונה ופעם כהוראה</span>
+          </button>
+        </div>
+
         <div class="col">
           <div class="step-head"><span class="step-num">9</span><h3>מהוויירפריים למסך</h3></div>
           <p>לחיצה על כל תמונה פותחת אותה בגודל מלא.</p>
@@ -718,6 +780,10 @@
             <img src="assets/process/screens-thumb.webp" alt="עיצוב מלא של חמשת המסכים המרכזיים" width="560" height="299" loading="lazy" />
             <span class="cap"><b>המסכים המעוצבים</b>אותו מבנה בדיוק, עם השפה שנגזרה מכרטיס התחושה</span>
           </button>
+          <button type="button" data-full="assets/process/screens-all.webp" data-cap="שנים עשר המסכים שנבנו בפועל">
+            <img src="assets/process/screens-all-thumb.webp" alt="שנים עשר המסכים שנבנו בפועל, כולל ארכיון, מצב עריכה ומצב כהה" width="560" height="326" loading="lazy" />
+            <span class="cap"><b>המפה המלאה</b>מחמישה מסכי ליבה לשנים עשר, כולל הארכיון, מצב העריכה, מאמר השיטה והגרסה הכהה</span>
+          </button>
           <button type="button" data-full="assets/process/style-guide.webp" data-cap="מדריך הסגנון">
             <img src="assets/process/style-guide-thumb.webp" alt="מדריך הסגנון: צבע, טיפוגרפיה ורכיבים" width="560" height="840" loading="lazy" />
             <span class="cap"><b>מדריך הסגנון</b>הצבעים, הטיפוגרפיה והרכיבים. מכאן נגזרו משתני פיגמה ואסימוני ה-CSS, אחד לאחד</span>
@@ -730,14 +796,14 @@
 
         <div class="col">
           <div class="missing">
-            <b>מה שנבנה מחדש ומה שעדיין חסר.</b> ארבע מפות המסע, שתי מפות האמפתיה
-            והערות לוח ההשראה כאן הן <b>הנתונים האמיתיים מהלוחות</b>, שנבנו מחדש כגרפים
-            וכרטיסים במקום כצילומי מסך. צילום של לוח FigJam בלתי קריא בטלפון,
-            והנתונים מאחוריו קטנים מספיק כדי לצייר אותם נכון.
-            מה שעדיין חסר הוא <b>תמונות הרפרנס עצמן</b> מלוח ההשראה, ופריסת הלוחות
-            כפי שהם. שניהם קיימים כקבצי PDF כבדים בדרייב שלא הצלחתי למשוך לכאן.
-            כדי להוסיף אותם, צריך את קישור לוח ה-FigJam, ואז אפשר לייצא כל פרסונה
-            וכל מפה כתמונה נקייה בנפרד.
+            <b>למה כל לוח מופיע פעמיים.</b> הגרפים, כרטיסי הפרסונה ורשימת הרפרנסים
+            כאן אינם תקציר של הלוחות אלא <b>קריאה שלהם</b>: הם מוציאים מכל לוח את
+            הציר האחד שהוא ראיה להחלטה, ומשאירים את השאר בחוץ. הלוח המקורי, שמופיע
+            מתחת לכל אחד מהם, הוא ההוכחה שהציר הזה לא הומצא כאן.
+            <br /><br />
+            זה גם מה שמאפשר לבדוק אותי. אם גרף מראה שפל בשלב דירוג האמון,
+            אפשר לפתוח את הלוח ולראות את פתק הכאב שנכתב שם באותו שלב.
+            הסדר הזה, קודם הטענה ואז המקור, הוא היחיד שמאפשר לקורא לחלוק עליי.
           </div>
         </div>
       </section>
