@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מזג · קייס סטאדי</title>
+<meta name="description" content="איך שש שיטות ניחוש הפכו לתמונה אחת וטקסט אחד ליום, ולמה זו הייתה בעיית אינדוקס ולא בעיית עיצוב.">
+
+<!--
+  ============================================================
+  מזג, קייס סטאדי. גרסת השוואה שנבנתה מתבנית case-study-builder v3.
+  התוכן כולו מגיע מהדף החי הקיים ומקובצי הזיכרון. שום עובדה לא הומצאה.
+  הפערים מסומנים בתוך הדף עצמו ומפורטים ב-cs-material.md.
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ════════════════════════════════════════════════════════════
+   שכבת הטוקנים. שבע קבוצות, מתוך הסטייל גייד של מזג.
+   ניגודיות נבדקה בבהיר ובכהה, הכל מעל 4.5 חוץ מכיתובים שהם 5.0 ומעלה.
+   ════════════════════════════════════════════════════════════ */
+:root{
+  /* 1. צבע. קלף עתיק, כחול אבק, נייבי */
+  --bg:#F7F3EC; --bg-soft:#EFE8DC; --card:#FFFDF8;
+  --fg:#212839; --fg-soft:#4E5468; --fg-faint:#665F6D;
+  --line:#DED4C4; --accent:#5B5280; --accent-fg:#FFFFFF; --accent-soft:#E7E3EF;
+
+  /* 2. טיפוגרפיה. סריף לכותרות מול סנס לגוף, בדיוק כמו במוצר */
+  --font-display:"Frank Ruhl Libre", Georgia, serif;
+  --font-body:"Assistant", system-ui, sans-serif;
+  --w-display:700;
+  --t-hero:clamp(2.4rem,6vw,4.6rem);
+  --t-h2:clamp(1.7rem,3.4vw,2.6rem);
+  --t-h3:clamp(1.1rem,2vw,1.35rem);
+  --t-body:clamp(1rem,1.4vw,1.1rem);
+  --t-small:.875rem;
+
+  /* 3. פינות. רכות, לא עגלגלות */
+  --r:10px; --r-lg:18px; --r-pill:999px;
+
+  /* 4. צל. אחד, רך */
+  --shadow:0 1px 2px rgba(33,40,57,.05), 0 14px 34px rgba(33,40,57,.09);
+
+  /* 5. קווים */
+  --line-w:1px;
+
+  /* 6. צפיפות */
+  --lh:1.75;
+  --pad-sec:clamp(3.5rem,9vw,7rem);
+  --gap:1.25rem;
+  --wrap:1320px;
+  --wrap-wide:1680px;
+  --measure:68ch;
+
+  /* 7. תמונות */
+  --img-filter:none;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#161A24; --bg-soft:#1D222E; --card:#1D222E;
+    --fg:#F0ECE4; --fg-soft:#BFB8AC; --fg-faint:#918A7D;
+    --line:#2E3542; --accent:#B4B0CA; --accent-fg:#212839; --accent-soft:#2A2B44;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 34px rgba(0,0,0,.45);
+  }
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:6rem}
+body{margin:0; background:var(--bg); color:var(--fg); font-family:var(--font-body);
+  font-size:var(--t-body); line-height:var(--lh); -webkit-font-smoothing:antialiased}
+img{max-width:100%; height:auto; display:block; border-radius:var(--r-lg); filter:var(--img-filter)}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--font-display); line-height:1.18; margin:0 0 .55em; letter-spacing:-.01em}
+h1,h2{font-weight:var(--w-display)}
+h3{font-weight:700; font-size:var(--t-h3)}
+h2{font-size:var(--t-h2)}
+p{margin:0 0 1em; max-width:var(--measure)}
+ul{padding-inline-start:1.2em; max-width:var(--measure)}
+li{margin-bottom:.45em}
+
+.wrap{width:min(100% - 2.5rem, var(--wrap)); margin-inline:auto}
+.wide{width:min(100% - 2.5rem, var(--wrap-wide)); margin-inline:auto}
+.bleed{width:100%; margin-inline:0}
+.bleed img{border-radius:0}
+@media (max-width:760px){
+  .bleed{width:min(100% - 2.5rem, var(--wrap)); margin-inline:auto}
+  .bleed img{border-radius:var(--r-lg)}
+}
+section{padding-block:var(--pad-sec); border-top:var(--line-w) solid var(--line)}
+section:first-of-type{border-top:0}
+.soft{background:var(--bg-soft)}
+
+.eyebrow{font-size:var(--t-small); font-weight:700; letter-spacing:.09em; color:var(--accent); margin:0 0 .7rem}
+.lead{font-size:calc(var(--t-body)*1.22); color:var(--fg-soft)}
+.tiny{font-size:var(--t-small); color:var(--fg-faint)}
+
+.bar-track{position:fixed; inset-block-start:0; inset-inline:0; height:3px; z-index:60}
+.bar{height:100%; width:0; background:var(--accent); transition:width .12s linear}
+
+.nav{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(12px); border-bottom:var(--line-w) solid var(--line)}
+.nav-in{width:min(100% - 2.5rem, var(--wrap)); margin-inline:auto; display:flex; align-items:center; gap:1rem; height:4rem}
+.nav-name{font-family:var(--font-display); font-weight:700; margin-inline-end:auto; white-space:nowrap}
+.nav-links{display:flex; gap:1.3rem; overflow-x:auto; scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{color:var(--fg-soft); text-decoration:none; font-size:var(--t-small); white-space:nowrap; padding-block:.4rem; border-bottom:2px solid transparent}
+.nav-links a:hover{color:var(--fg)}
+.nav-links a.on{color:var(--fg); border-bottom-color:var(--accent)}
+@media (max-width:900px){.nav-links{display:none}}
+
+.btn{display:inline-flex; align-items:center; gap:.5rem; min-height:44px; padding:.75rem 1.5rem; border-radius:var(--r-pill); text-decoration:none; font-weight:600; border:var(--line-w) solid transparent; transition:transform .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-1{background:var(--accent); color:var(--accent-fg)}
+.btn-2{background:transparent; color:var(--fg); border-color:var(--line)}
+.btn-row{display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem}
+.chips{display:flex; flex-wrap:wrap; gap:.5rem; margin:0; padding:0; list-style:none}
+.chip{font-size:var(--t-small); padding:.35rem .85rem; border-radius:var(--r-pill); background:var(--card); color:var(--fg-soft); border:var(--line-w) solid var(--line)}
+
+.grid{display:grid; gap:var(--gap)}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.card{background:var(--card); border:var(--line-w) solid var(--line); border-radius:var(--r-lg); padding:1.7rem; box-shadow:var(--shadow)}
+.card h3{margin-bottom:.4rem}
+.card p:last-child{margin-bottom:0}
+.card-num{font-family:var(--font-display); font-size:2.5rem; font-weight:var(--w-display); color:var(--accent); line-height:1; margin-bottom:.4rem}
+
+.quote{border-inline-start:4px solid var(--accent); padding-inline-start:1.4rem; font-size:calc(var(--t-body)*1.18); margin:1.8rem 0; max-width:var(--measure); color:var(--fg-soft)}
+.quote cite{display:block; font-size:var(--t-small); color:var(--fg-faint); font-style:normal; margin-top:.55rem}
+
+/* טענה ואז ראיה */
+.claim{font-family:var(--font-display); font-weight:700; font-size:calc(var(--t-body)*1.4); line-height:1.4;
+  max-width:var(--measure); margin:0 0 1.2rem; padding-inline-start:1.1rem; border-inline-start:4px solid var(--accent)}
+
+/* תמונה עם תפקיד */
+figure{margin:0}
+.fig figcaption{display:flex; gap:.6rem; align-items:baseline; flex-wrap:wrap; margin-top:.7rem;
+  font-size:var(--t-small); color:var(--fg-faint); max-width:var(--measure)}
+.role{font-size:.7rem; font-weight:700; letter-spacing:.05em; padding:.15rem .6rem; border-radius:var(--r-pill);
+  background:var(--accent-soft); color:var(--accent); white-space:nowrap; flex:0 0 auto}
+.role.ext{background:var(--card); color:var(--fg-soft); border:var(--line-w) solid var(--line)}
+
+/* אינדקס */
+.toc{border:var(--line-w) solid var(--line); border-radius:var(--r-lg); padding:1.7rem 1.9rem; background:var(--card); box-shadow:var(--shadow)}
+.toc h3{margin-bottom:1rem}
+.toc ol{list-style:none; margin:0; padding:0; display:grid; gap:.15rem; grid-template-columns:repeat(auto-fit,minmax(235px,1fr)); max-width:none}
+.toc li{margin:0}
+.toc a{display:flex; gap:.7rem; align-items:baseline; text-decoration:none; color:var(--fg-soft); padding:.5rem .6rem; border-radius:var(--r); min-height:44px}
+.toc a:hover{background:var(--bg-soft); color:var(--fg)}
+.toc a b{font-family:var(--font-display); color:var(--accent); font-size:var(--t-small); font-variant-numeric:tabular-nums}
+
+/* פער מסומן */
+.gap{border:var(--line-w) dashed var(--line); border-inline-start:4px solid var(--fg-faint);
+  border-radius:var(--r); padding:1.1rem 1.3rem; background:transparent; margin:1.6rem 0; max-width:var(--measure)}
+.gap b{display:block; font-family:var(--font-display); margin-bottom:.3rem}
+.gap p{margin:0; font-size:var(--t-small); color:var(--fg-faint)}
+
+.scroll-x{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:1.6rem 0}
+table{border-collapse:collapse; width:100%; min-width:620px; font-size:var(--t-small)}
+th,td{text-align:start; padding:.95rem 1.05rem; border-bottom:var(--line-w) solid var(--line); vertical-align:top}
+th{font-weight:700; background:var(--bg-soft); white-space:nowrap}
+.pill{font-size:.75rem; padding:.2rem .7rem; border-radius:var(--r-pill); white-space:nowrap; display:inline-block}
+.pill.done{background:var(--accent-soft); color:var(--accent)}
+.pill.next{background:var(--bg-soft); color:var(--fg-soft); border:var(--line-w) solid var(--line)}
+
+/* מסע: שלב עם ציון רגש */
+.stages{display:grid; gap:.5rem; margin:1.2rem 0 0; padding:0; list-style:none; max-width:none}
+.stage-row{display:flex; align-items:center; gap:.9rem; padding:.55rem .8rem; border-radius:var(--r); background:var(--card); border:var(--line-w) solid var(--line)}
+.stage-row .n{font-family:var(--font-display); font-weight:700; color:var(--accent); font-variant-numeric:tabular-nums; min-width:2.2rem}
+.stage-row .t{flex:1; min-width:0}
+.stage-row .s{font-family:var(--font-display); font-weight:700; font-variant-numeric:tabular-nums}
+.meter{width:88px; height:6px; border-radius:999px; background:var(--bg-soft); overflow:hidden; flex:0 0 auto}
+.meter i{display:block; height:100%; background:var(--accent)}
+
+footer{padding-block:var(--pad-sec) 3rem; border-top:var(--line-w) solid var(--line); text-align:center}
+footer p{margin-inline:auto}
+footer .btn-row{justify-content:center}
+
+/* v-b. פרקים לסירוגין */
+.v-b section:nth-of-type(even) .duo{direction:ltr}
+.v-b section:nth-of-type(even) .duo > *{direction:rtl}
+.duo{display:grid; gap:clamp(1.5rem,4vw,3rem); grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); align-items:start}
+
+.reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease}
+.reveal.in{opacity:1; transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1; transform:none; transition:none}
+  .btn:hover{transform:none}
+  *,*::before,*::after{transition-duration:.001ms !important; animation-duration:.001ms !important}
+}
+</style>
+</head>
+
+<body class="v-b">
+<div class="bar-track"><div class="bar" id="bar"></div></div>
+
+<nav class="nav">
+  <div class="nav-in">
+    <span class="nav-name">מזג</span>
+    <div class="nav-links">
+      <a href="#challenge">האתגר</a>
+      <a href="#research">המחקר</a>
+      <a href="#persona">הפרסונות</a>
+      <a href="#journey">המסע והמבנה</a>
+      <a href="#language">שפה עיצובית</a>
+      <a href="#screens">המסכים</a>
+      <a href="#ai">העבודה עם המודל</a>
+      <a href="#build">מעיצוב לקוד</a>
+      <a href="#beforeafter">לפני ואחרי</a>
+      <a href="#measure">מדידה</a>
+      <a href="#mistakes">מה נשבר</a>
+      <a href="#learned">מה למדתי</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ 1. היירו ═══════════ -->
+<section id="top">
+  <div class="wrap">
+    <p class="eyebrow">קייס סטאדי</p>
+    <h1 style="font-size:var(--t-hero)">מזג</h1>
+    <p class="lead">שש שיטות ניחוש שונות, תמונה אחת וטקסט אחד בכל בוקר. הבעיה הקשה כאן לא הייתה איך זה נראה, אלא איך בוחרים מה להראות.</p>
+
+    <ul class="chips" style="margin-top:1.8rem">
+      <li class="chip">מוצר, עיצוב ופיתוח</li>
+      <li class="chip">אב טיפוס חי</li>
+      <li class="chip">20 מסכים</li>
+      <li class="chip">32 כרטיסיות, 24 אייקונים</li>
+      <li class="chip">מובייל, RTL</li>
+    </ul>
+
+    <div class="btn-row">
+      <a class="btn btn-1" href="https://eyalg1980.github.io/simpla-lab/mazag/">פתחו את המוצר החי</a>
+      <a class="btn btn-2" href="https://eyalg1980.github.io/simpla-lab/">simpla lab</a>
+    </div>
+  </div>
+
+  <figure class="fig bleed" style="margin-top:3rem">
+    <img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/process/app-poster.webp" alt="מסך התחזית היומית של מזג">
+    <figcaption class="wrap"><span class="role">תוצר</span> מסך התחזית היומית. תמונה אחת, פסקה אחת, בלי רצפים ובלי דוח נתונים.</figcaption>
+  </figure>
+
+  <div class="wrap" style="margin-top:3.5rem">
+    <nav class="toc" aria-label="פרקי הקייס סטאדי">
+      <h3>מה יש בעמוד הזה</h3>
+      <ol>
+        <li><a href="#challenge"><b>01</b> האתגר</a></li>
+        <li><a href="#research"><b>02</b> המחקר</a></li>
+        <li><a href="#persona"><b>03</b> שתי הפרסונות</a></li>
+        <li><a href="#journey"><b>04</b> המסע והמבנה</a></li>
+        <li><a href="#language"><b>05</b> השפה העיצובית</a></li>
+        <li><a href="#screens"><b>06</b> המסכים</a></li>
+        <li><a href="#ai"><b>07</b> העבודה עם המודל</a></li>
+        <li><a href="#build"><b>08</b> מעיצוב לקוד</a></li>
+        <li><a href="#beforeafter"><b>09</b> לפני ואחרי</a></li>
+        <li><a href="#measure"><b>10</b> מדידה</a></li>
+        <li><a href="#mistakes"><b>11</b> מה נשבר</a></li>
+        <li><a href="#impact"><b>12</b> סיכום</a></li>
+        <li><a href="#learned"><b>13</b> מה למדתי</a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- ═══════════ 2. האתגר ═══════════ -->
+<section id="challenge" class="soft">
+  <div class="wrap">
+    <p class="eyebrow">01 · האתגר</p>
+    <h2>הבעיה היא לא מחסור, היא עודף</h2>
+    <p>מי שמתעניין בתחזיות יומיות לא סובל ממחסור. הוא סובל מעודף. אסטרולוגיה אומרת דבר אחד, נומרולוגיה דבר שני, טארוט שלישי, ולפעמים הם סותרים. התוצאה היא בוקר שמתחיל בהתלבטות בין חמש אפליקציות במקום ברגע אחד של התבוננות.</p>
+    <p>הבקשה הייתה פשוטה לניסוח וקשה לביצוע: <strong>תחזית אחת ליום.</strong> תמונה שאפשר לשמור, ופסקה קצרה לקרוא בדרך.</p>
+
+    <div class="grid g3" style="margin-top:2.5rem">
+      <div class="card"><h3>למי זה כואב</h3><p>צרכניות תחזיות יומיות שקוראות משתי שיטות לפחות, ומקבלות מסרים סותרים באותו בוקר.</p></div>
+      <div class="card"><h3>מה קורה היום</h3><p>מעבר בין כמה אפליקציות, כל אחת עם שיטה אחת, בלי שום דבר שמיישב ביניהן.</p></div>
+      <div class="card"><h3>המטרה שלי</h3><p>תמונה אחת וטקסט אחד ליום, שאפשר להסביר איך הם נבחרו.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 3. המחקר ═══════════ -->
+<section id="research">
+  <div class="wrap">
+    <p class="eyebrow">02 · המחקר</p>
+    <h2>ארבעה ראיונות עומק</h2>
+    <p>ארבעה ראיונות עומק עם צרכניות תחזיות יומיות. שלוש תובנות יצאו משם, ושתיים מהן שינו את המוצר. ארבע מרואיינות זו דגימה קטנה, והמספרים כאן הם מספרים ולא אחוזים.</p>
+
+    <div class="grid g3" style="margin-top:2.5rem">
+      <div class="card">
+        <div class="card-num">01</div>
+        <h3>הסתירה היא הכאב</h3>
+        <p>שני מקורות מגיעים באותו בוקר ואומרים דברים הפוכים, בלי שום דבר שמיישב ביניהם.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">02</div>
+        <h3>הכאב אמיתי אבל רך</h3>
+        <p>אותה מרואיינת שחוותה את הסתירה הכי חדה בדגימה לא שינתה שום החלטה בגללה. התובנה הזו כמעט הרגה את המוצר.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">03</div>
+        <h3>החשיפה מגיעה מאדם אחר</h3>
+        <p>חלק ניכר מהחשיפה לתחזיות קורה דרך מישהו ששולח, ולא ביוזמת המשתמשת. זה שינה את מבנה הכניסה למוצר.</p>
+      </div>
+    </div>
+
+    <blockquote class="quote">"הקוסמופוליטן אמר לי שיהיה יום טוב לקבל החלטות כלכליות והטארוט אמר לי להיזהר משינויים פזיזים. קיבלתי שתי הודעות שסותרות אחת את השנייה תוך חמש דקות."<cite>מרואיינת, תובנה 1</cite></blockquote>
+    <blockquote class="quote">"בפועל לא עשיתי שום דבר מיוחד עם זה, לא ביטלתי פגישה או משהו, פשוט המשכתי ליום שלי כרגיל."<cite>אותה מרואיינת, תובנה 2</cite></blockquote>
+    <blockquote class="quote">"אם היא לא הייתה שולחת, פשוט לא הייתי נחשפת לזה בכלל באותו יום."<cite>מרואיינת, תובנה 3</cite></blockquote>
+    <blockquote class="quote">"לא הייתי משלמת על זה כסף בטוח."<cite>על נכונות לשלם</cite></blockquote>
+  </div>
+</section>
+
+<!-- ═══════════ 4. הפרסונות ═══════════ -->
+<section id="persona" class="soft">
+  <div class="wrap">
+    <p class="eyebrow">03 · הפרסונות</p>
+    <h2>ארבעה פרופילים, שתי קבוצות</h2>
+    <p class="claim">הפרסונה המשנית היא זו שקובעת את עיצוב הכניסה, ולא הראשית.</p>
+    <p>ארבעה פרופילים קובצו לשתיים לפי שני צירים: עומק המעורבות, וסוג המניע, רגשי וריטואלי מול פסיבי וזהיר. טל אינה המשתמשת שלשמה נבנה ה-MVP, אבל היא זו שקובעת את עיצוב הכניסה, האונבורדינג והשיתוף. פרסונה משנית שמכתיבה החלטות ראשיות היא לא סתירה, היא בדיוק מה שפרסונה משנית טובה עושה.</p>
+
+    <div class="duo" style="margin-top:2.5rem">
+      <div>
+        <h3>מאיה כהן</h3>
+        <p class="tiny">פרסונה ראשית · 28 עד 34 · "מונעת מטקסיות"</p>
+        <p>קוראת תחזית משתי שיטות לפחות כמעט כל בוקר, כחלק מטקס קבוע. ממשיכה גם כשהיא יודעת שהתוכן גנרי. יש לה תיקיית גלריה עם מעל מאה תמונות תחזית שמורות. התמונה, לא הטקסט, היא מה שגורם לה לעצור.</p>
+      </div>
+      <div>
+        <h3>טל אברהמי</h3>
+        <p class="tiny">פרסונה נוספת · 24 עד 30 · "צרכנות פסיבית"</p>
+        <p>נחשפת לתחזיות כמעט אך ורק כשמישהו קרוב שולח לה. סירבה להתקין אפליקציה שבן זוגה המליץ עליה, ומחקה אחרת תוך יומיים כי ביקשה חיבור לחשבון בנק. כל חיכוך בכניסה מוביל אצלה לנטישה מיידית.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wide grid g2" style="margin-top:2.5rem">
+    <figure class="fig">
+      <img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/process/persona-maya-thumb.webp" alt="כרטיס הפרסונה של מאיה כהן">
+      <figcaption><span class="role ext">הרחבה</span> פרסונה א, מאיה כהן. הכרטיס המלא מחזיק את ההתנהגויות ונקודות הכאב שלא חוזרות בטקסט.</figcaption>
+    </figure>
+    <figure class="fig">
+      <img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/process/persona-tal-thumb.webp" alt="כרטיס הפרסונה של טל אברהמי">
+      <figcaption><span class="role ext">הרחבה</span> פרסונה ב, טל אברהמי.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap" style="margin-top:3.5rem">
+    <h3>מפות האמפתיה</h3>
+    <p>שתי מפות, אחת לכל פרסונה. אצל מאיה הרווח הוא שהתמונה נחקקת, והכאב הוא שטקסט מתאדה מהזיכרון. אצל טל הכאב הוא כל חיכוך בכניסה, והרווח הוא שעשוע קליל בלי מחויבות.</p>
+  </div>
+
+  <div class="wide grid g2" style="margin-top:1.6rem">
+    <figure class="fig">
+      <img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/process/emap-maya-thumb.webp" alt="מפת האמפתיה של מאיה כהן">
+      <figcaption><span class="role ext">הרחבה</span> מפת האמפתיה של מאיה. ארבעת הרביעים פלוס כאבים ורווחים.</figcaption>
+    </figure>
+    <figure class="fig">
+      <img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/process/emap-tal-thumb.webp" alt="מפת האמפתיה של טל אברהמי">
+      <figcaption><span class="role ext">הרחבה</span> מפת האמפתיה של טל.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ═══════════ 5. המסע והמבנה ═══════════ -->
+<section id="journey">
+  <div class="wrap">
+    <p class="eyebrow">04 · המסע והמבנה</p>
+    <h2>איפה המסע נשבר</h2>
+    <p class="claim">שני מסעות עצמאיים, שתי פרסונות שונות, ואותה נקודת שפל: דירוג האמון באונבורדינג.</p>
+    <p>ארבע מפות: שתי פרסונות, ולכל אחת אונבורדינג ראשוני וכניסה יומית. הדירוג יושב בין שני שלבים חיוביים, וזה בדיוק מה שהופך אותו לבולט. אצל טל, אותו שלב יורד עוד יותר.</p>
+
+    <div class="duo" style="margin-top:2.5rem">
+      <div>
+        <h3>מאיה · אונבורדינג ראשוני</h3>
+        <ul class="stages">
+          <li class="stage-row"><span class="n">4</span><span class="t">פתיחה ראשונה, ציפייה סקרנית</span><span class="meter"><i style="width:80%"></i></span></li>
+          <li class="stage-row"><span class="n">3.5</span><span class="t">הסבר קצר על הרעיון, עניין זהיר</span><span class="meter"><i style="width:70%"></i></span></li>
+          <li class="stage-row"><span class="n">2</span><span class="t">דירוג אמון לכל שיטה, התלבטות מתמשכת</span><span class="meter"><i style="width:40%"></i></span></li>
+          <li class="stage-row"><span class="n">3</span><span class="t">בניית המשקולות, ציפייה</span><span class="meter"><i style="width:60%"></i></span></li>
+          <li class="stage-row"><span class="n">4</span><span class="t">מסך התחזית הראשונה, סיפוק זהיר</span><span class="meter"><i style="width:80%"></i></span></li>
+          <li class="stage-row"><span class="n">4</span><span class="t">סיום אונבורדינג, אימוץ הרגל חדש</span><span class="meter"><i style="width:80%"></i></span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>טל · אונבורדינג ראשוני</h3>
+        <ul class="stages">
+          <li class="stage-row"><span class="n">3</span><span class="t">פתיחה ראשונה, סקרנות חולפת</span><span class="meter"><i style="width:60%"></i></span></li>
+          <li class="stage-row"><span class="n">3</span><span class="t">הסבר קצר על הרעיון, אדישות מנומסת</span><span class="meter"><i style="width:60%"></i></span></li>
+          <li class="stage-row"><span class="n">1.5</span><span class="t">דירוג אמון לכל שיטה, תקיעות ואי נוחות</span><span class="meter"><i style="width:30%"></i></span></li>
+          <li class="stage-row"><span class="n">2</span><span class="t">בניית המשקולות, אדישות</span><span class="meter"><i style="width:40%"></i></span></li>
+          <li class="stage-row"><span class="n">2.5</span><span class="t">מסך התחזית הראשונה, ספקנות ותהייה</span><span class="meter"><i style="width:50%"></i></span></li>
+          <li class="stage-row"><span class="n">3</span><span class="t">סיום אונבורדינג, נכונות לנסות עוד קצת</span><span class="meter"><i style="width:60%"></i></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wrap" style="margin-top:3rem; padding:0">
+      <p class="claim">בכניסה היומית, השיא והשפל צמודים: התמונה מקבלת 5, והטקסט מיד אחריה מקבל 2. זה כל המוצר בשתי נקודות.</p>
+      <p>ואצל טל, זה המסע היחיד שמתחיל מחוץ לאפליקציה. הקישור מאדם קרוב הוא נקודת המגע הראשונה, וזה מה שהוליד את מסלול האורח.</p>
+    </div>
+  </div>
+
+  <div class="wide grid g4" style="margin-top:2rem">
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/process/jmap-maya-onboarding-thumb.webp" alt="מפת המסע של מאיה באונבורדינג"><figcaption><span class="role">ראיה</span> מאיה, אונבורדינג</figcaption></figure>
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/process/jmap-tal-onboarding-thumb.webp" alt="מפת המסע של טל באונבורדינג"><figcaption><span class="role">ראיה</span> טל, אונבורדינג</figcaption></figure>
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/process/jmap-maya-daily-thumb.webp" alt="מפת המסע של מאיה בכניסה יומית"><figcaption><span class="role">ראיה</span> מאיה, כניסה יומית</figcaption></figure>
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/process/jmap-tal-daily-thumb.webp" alt="מפת המסע של טל בכניסה יומית"><figcaption><span class="role">ראיה</span> טל, כניסה יומית</figcaption></figure>
+  </div>
+
+  <div class="wrap" style="margin-top:3.5rem">
+    <h3>ארכיטקטורת מידע</h3>
+    <p class="claim">הדבר הכי שימושי במפה לא היה מה שהיא כללה, אלא מה שהיא סימנה כחסר.</p>
+    <p>ה-Sitemap נבנה כ-Status-First: ארבעה עשר כרטיסים, לכל אחד תפקיד, מיקום במסע, עדיפות ושלב MVP. תשעה נכנסו לשלב א', שלושה נדחו לשלב ב' מפורשות בגלל חוסר ראיה, ואחד נוסף אחרי שהמפה עצמה נכשלה במבחן. "מבחן טל" הריץ פרסונה דרך המפה ושאל אם יש לה נתיב. לא היה, וזה נכתב בתוך המפה במקום להישאר בראש של מישהו.</p>
+  </div>
+
+  <figure class="fig wide" style="margin-top:2rem">
+    <img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/process/sitemap-thumb.webp" alt="ה-Sitemap עם הערות הבדיקה">
+    <figcaption><span class="role">ראיה</span> ה-Sitemap עם הערות הבדיקה בתוכו. הכישלון של מבחן טל מתועד על המפה עצמה.</figcaption>
+  </figure>
+</section>
+
+<!-- ═══════════ 6. השפה העיצובית ═══════════ -->
+<section id="language" class="soft">
+  <div class="wrap">
+    <p class="eyebrow">05 · השפה העיצובית</p>
+    <h2>מכרטיס תחושה לשפה חזותית</h2>
+    <p class="claim">התמונה חייבת להיות חזקה מספיק כדי להיחקק, אבל תמונה חזקה מספיק כדי להיזכר כבר מתחילה להישמע כמו טענה לאמת.</p>
+    <p>כל בחירה חזותית בפרויקט הזה היא מיקום על הציר הזה. לפני צבע אחד נבחר, נכתב כרטיס תחושה מילולי: שבע מילים, ולכל אחת המקור המדויק במחקר שממנו היא נגזרה. מרגיע, טקסי, אישי, כן ולא מתחזה, בלתי נשכח, משוחרר ולא תובעני, מיידי.</p>
+
+    <div class="grid g4" style="margin-top:2.2rem">
+      <div class="card"><h3>לא טוען לאמת</h3><p class="tiny">שום ניסוח וודאי</p></div>
+      <div class="card"><h3>שקט מבלי לפתור</h3><p class="tiny">תוצאה אחת, בלי הוכחה</p></div>
+      <div class="card"><h3>עוצר מבט לפני שמדברים</h3><p class="tiny">שום שורת טקסט מעל התמונה בסדר הקריאה</p></div>
+      <div class="card"><h3>טקסי חוזר על עצמו</h3><p class="tiny">אותה מסגרת מדויקת בכל יום, בלי רצפים ובלי הפתעות</p></div>
+    </div>
+
+    <p style="margin-top:2rem">זה גם מסביר את מה שאין במוצר. אין רצפים, אין תגמול על התמדה, ואין שום מסך שנראה כמו דוח נתונים. שלושתם נפסלו בכרטיס התחושה לפני שמישהו עיצב אותם.</p>
+
+    <h3 style="margin-top:3rem">לוח ההשראה</h3>
+    <p class="claim">הערה על רפרנס שאומרת "יפה" לא שווה כלום. הערה שאומרת "האייקונים טובים כי הם משוחררים וכתב יד" היא הוראת עבודה.</p>
+    <p>לכל רפרנס נכתבה הערה שאומרת מה בדיוק לקחת ממנו, ורק זה נלקח. אפשר לבדוק חודש אחר כך אם ההוראה קוימה.</p>
+  </div>
+
+  <div class="wide scroll-x">
+    <table>
+      <thead><tr><th>ההערה כפי שנכתבה</th><th>מה היא הפכה להיות במוצר</th></tr></thead>
+      <tbody>
+        <tr><td>"מטבעות עם המון פרטים וחריטות"</td><td>קווי הזהב והחריטה בכל 32 הכרטיסיות</td></tr>
+        <tr><td>"סגנון אורנמנטי ומנדלה, על צבע אחד"</td><td>המסגרת הכפולה שחוזרת בכל כרטיסייה, זהה בכולן</td></tr>
+        <tr><td>"רקע של קלף"</td><td>הקלף העתיק שהוא המשטח של כל איור במוצר</td></tr>
+        <tr><td>"קונספט של כרטיסיות, דרך להציג אילוסטרציות"</td><td>הכרטיסייה כיחידת התוכן היומית, ומאוחר יותר גם כמאגר</td></tr>
+        <tr><td>"האייקונים טובים: חופשיים, משוחררים, כתב יד אייקוני"</td><td>24 האייקונים המצוירים ביד, מזלות וחיות סיניות</td></tr>
+        <tr><td>"צבעוניות טובה"</td><td>כחול אבק, ורוד דהוי, אוקר וזהב פליז. אלה כל הצבעים שיש</td></tr>
+        <tr><td>"גם הפונט וגם הצורות וגם השחור לבן טוב פה"</td><td>פרנק רוהל לכותרות מול אסיסטנט לגוף, ניגוד סריף מול סנס</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure class="fig wide" style="margin-top:1.5rem">
+    <img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/process/inspiration-thumb.webp" alt="לוח ההשראה עם ההערות">
+    <figcaption><span class="role">ראיה</span> לוח הרפרנסים עם ההערות עליו. הטבלה למעלה היא בדיוק מה שכתוב על הלוח.</figcaption>
+  </figure>
+</section>
+
+<!-- ═══════════ 7. המסכים ═══════════ -->
+<section id="screens">
+  <div class="wrap">
+    <p class="eyebrow">06 · המסכים</p>
+    <h2>מוויירפריימים למסך</h2>
+    <p>מבנה לפני שפה. וויירפריימים תחילה, אחר כך המסכים המעוצבים, ורק בסוף המפה המלאה שגדלה מחמישה מסכי ליבה לשנים עשר.</p>
+  </div>
+
+  <div class="wide grid g3" style="margin-top:2rem">
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/process/wireframes-thumb.webp" alt="וויירפריימים"><figcaption><span class="role">תוצר</span> וויירפריימים: מבנה לפני שפה</figcaption></figure>
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/process/screens-thumb.webp" alt="המסכים המעוצבים"><figcaption><span class="role">תוצר</span> המסכים המעוצבים</figcaption></figure>
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/process/screens-all-thumb.webp" alt="המפה המלאה של המסכים"><figcaption><span class="role ext">הרחבה</span> המפה המלאה: מחמישה ליבה לשנים עשר</figcaption></figure>
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/process/style-guide-thumb.webp" alt="מדריך הסגנון"><figcaption><span class="role">ראיה</span> מדריך הסגנון. הוא מוכיח שההחלטות למעלה הן מערכת ולא בחירות נקודתיות</figcaption></figure>
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/process/asset-sheet-thumb.webp" alt="לוח הנכסים"><figcaption><span class="role">תוצר</span> לוח הנכסים</figcaption></figure>
+  </div>
+
+  <div class="wrap" style="margin-top:3rem">
+    <h3>32 הכרטיסיות</h3>
+    <p>שני צירים, שמונה כפול ארבע. למטה שלוש שורות מתוך המאגר: מולד, מלא, וסהר מתרוקן, כל אחד בארבעת היסודות.</p>
+  </div>
+
+  <div class="wide grid g4" style="margin-top:1.5rem">
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/images/thumb-new-fire.webp" alt="מולד באש"><figcaption><span class="role">תוצר</span> מולד באש</figcaption></figure>
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/images/thumb-new-earth.webp" alt="מולד באדמה"><figcaption><span class="role">תוצר</span> מולד באדמה</figcaption></figure>
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/images/thumb-new-air.webp" alt="מולד באוויר"><figcaption><span class="role">תוצר</span> מולד באוויר</figcaption></figure>
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/images/thumb-new-water.webp" alt="מולד במים"><figcaption><span class="role">תוצר</span> מולד במים</figcaption></figure>
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/images/thumb-full-fire.webp" alt="מלא באש"><figcaption><span class="role">תוצר</span> מלא באש</figcaption></figure>
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/images/thumb-full-earth.webp" alt="מלא באדמה"><figcaption><span class="role">תוצר</span> מלא באדמה</figcaption></figure>
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/images/thumb-full-air.webp" alt="מלא באוויר"><figcaption><span class="role">תוצר</span> מלא באוויר</figcaption></figure>
+    <figure class="fig"><img src="https://eyalg1980.github.io/simpla-lab/mazag/assets/images/thumb-full-water.webp" alt="מלא במים"><figcaption><span class="role">תוצר</span> מלא במים</figcaption></figure>
+  </div>
+</section>
+
+<!-- ═══════════ 8. העבודה עם המודל ═══════════ -->
+<section id="ai" class="soft">
+  <div class="wrap">
+    <p class="eyebrow">07 · העבודה עם המודל</p>
+    <h2>איפה הוא עזר, ואיפה הייתי צריך לעצור אותו</h2>
+    <p class="claim">המודל צייר יפה ולא צייר על הרשת. כל תקלת הנכסים בפרויקט הזה יושבת על ההבדל הזה.</p>
+    <p>כל האיורים במוצר, 32 הכרטיסיות ו-24 האייקונים, יוצרו במודל תמונה. החלק שדרש שיפוט לא היה הפרומפט, אלא מה שעושים עם הפלט.</p>
+
+    <div class="grid g3" style="margin-top:2rem">
+      <div class="card"><h3>מה הוא עשה טוב</h3><p>ייצר שפה חזותית אחת ועקבית על פני 56 נכסים, מה שידני היה לוקח שבועות. הקלף העתיק, המסגרת הכפולה והחריטה חוזרים בכולם.</p></div>
+      <div class="card"><h3>איפה הוא טעה</h3><p>ביקשתי רשת 4 על 3 של אייקונים וקיבלתי ציורים שלא יושבים על הרשת המתמטית. חתכתי לפי הקנבס וקיבלתי אייקונים מוסטים.</p></div>
+      <div class="card"><h3>איך תיקנתי</h3><p>הפכתי את הסדר: קודם חיתוך עד לציור, ואז התאמת הרשת ברגרסיה על מרכזי הציורים. הציורים מגלים את הרשת, לא להפך.</p></div>
+    </div>
+
+    <p class="claim" style="margin-top:2.5rem">אייקון ריבועי שנראה נקי בדפדפן קבצים יכול לקבל קו שחוצה אותו ברגע שמסכה עגולה בגודל 44 פיקסל נוחתת עליו.</p>
+    <p>שלושה סבבי תיקון על מאגר האייקונים התגלו רק כי בניתי גיליון בדיקה עם המסכה האמיתית, לא עם הקבצים. זו הבדיקה שנשארה כשיטה: בודקים נכס במסכה שבה הוא יופיע.</p>
+
+    <h3 style="margin-top:2.5rem">האילוץ שקבע את הארכיטקטורה</h3>
+    <p>בכ-2 קרדיטים לתמונה, גינרוט חי לכל משתמש אינו ריאלי. זה מה שהפך את השאלה מ"איזו תמונה לייצר היום" ל"איך לאנדקס מאגר סגור", וזה מוביל ישירות לפרק הבא.</p>
+
+    <div class="gap">
+      <b>פער מסומן</b>
+      <p>אין כאן ציטוט מדויק של הפרומפט שהכי שינה את התוצאה. קובץ PROMPT_HISTORY.md לא היה בין החומרים שנסרקו לגרסה הזו. הבלוק הזה בנוי ממה שתועד בקייס הקיים ובקבצי הפרויקט, ולא מהיסטוריית הפרומפטים עצמה.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 9. מעיצוב לקוד ═══════════ -->
+<section id="build">
+  <div class="wrap">
+    <p class="eyebrow">08 · מעיצוב לקוד</p>
+    <h2>בעיית האינדוקס: התמונה לעומת הטקסט</h2>
+    <p class="claim">מכפלת המצבים היא מיליוני צירופים. שום מאגר תמונות לא מכסה את זה.</p>
+    <p>כשהגעתי למאגר התמונות התברר שהשאלה "איזה ציור מתאים ליום הזה" היא לא שאלה אסתטית. ספרתי מצבים שונים: שנים עשר מזלות ירח, שמונה מופעים, תשעה מספרי יום, עשרים ושתיים ארקנות, שישים וארבע הקסגרמות, עשרים וארבע רונות. התמונה לא יכולה להיות מאונדקסת על הצירוף, והטקסט חייב לשאת אותו.</p>
+
+    <h3 style="margin-top:2.5rem">מה שמצאתי בהצלבת השיטות</h3>
+    <p>הצלבתי את משמעויות ארבע השיטות המחזוריות וגיליתי שהארקנות בטארוט, הקסגרמות, הרונות ונומרולוגיה, ארבע מתוך שש השיטות, הן אותה קשת בשפות שונות. המכנה המשותף השני הוא הטון, שנתנו ארבעת היסודות. מכאן נגזרה הטקסונומיה: שני צירים, שמונה כפול ארבע, שלושים ושתיים כרטיסיות.</p>
+
+    <h3 style="margin-top:2.5rem">הרווח בטקסט</h3>
+    <p class="claim">שנים עשר קטעים כתובים מייצרים שלושים ושתיים שורות עקביות.</p>
+    <p>הטקסט מתחת לכרטיסייה לא נכתב שלושים ושתיים פעם. הוא מורכב משתי פסוקיות, אחת לקשת ואחת לטון. קופירייטר כותב שנים עשר במקום שלושים ושתיים, וכל שורה נשמעת כאילו נכתבה במיוחד.</p>
+
+    <div class="grid g3" style="margin-top:2.5rem">
+      <div class="card"><h3>מה עבד</h3><p>מנוע חישוב דטרמיניסטי בצד הלקוח, בלי שרת. מזל שמש, מספר דרך, זודיאק סיני, קלף לידה, מופע ירח ומזל ירח. אומת מול מולדים וירחים מלאים ידועים.</p></div>
+      <div class="card"><h3>מה נשבר</h3><p>מצבי טעינה, ריקנות ושגיאה הוגדרו במסמך מההתחלה אבל נבנו בסוף. זה החוב היחיד שהמשיך לגרור את עצמו לאורך כל הפרויקט.</p></div>
+      <div class="card"><h3>מה הייתי עושה אחרת</h3><p>מגדיר את מצבי הביניים ביחד עם המסך ולא אחריו.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 10. לפני ואחרי ═══════════ -->
+<section id="beforeafter" class="soft">
+  <div class="wrap">
+    <p class="eyebrow">09 · לפני ואחרי</p>
+    <h2>המשקולות יצאו מהאונבורדינג</h2>
+    <p class="claim">הדירוג נכשל כי דרש ידע שאין למשתמשת ברגע שבו הוא נדרש ממנה, והפך את הכניסה למבחן.</p>
+    <p>הבריף המקורי הניח שניתן לבקש דירוג מאחת עד עשר בתוקף אמונה בכל שיטה ביום הראשון, וכך לקבוע משקולות. זה נשמע הגיוני: המשקולות הן לב המוצר. המחקר הרג את זה פעמיים. פעם ראשונה במפות המסע, שם דירוג האמון היה נקודת השפל בשני האונבורדינגים, ופעם שנייה בציטוט המסביר.</p>
+
+    <blockquote class="quote">"ממש התלבטתי. סימנתי 'בינוני' כי לא רציתי להיראות כאילו מתחילה לגמרי"<cite>מרואיינת, על מסך הדירוג</cite></blockquote>
+    <blockquote class="quote">"בטח לא אחזור לפתוח תפריט הגדרות ולהתעסק עם סליידרים, זה לא שווה לי"<cite>מרואיינת, על החזרה להגדרות</cite></blockquote>
+
+    <div class="duo" style="margin-top:2.5rem">
+      <div class="card">
+        <p class="eyebrow">לפני</p>
+        <h3>דירוג אמון בשש שיטות</h3>
+        <p>מסך בכניסה שמבקש מהמשתמשת לדרג מאחת עד עשר כמה היא מאמינה בכל שיטה. נקודת השפל בשני מסעות האונבורדינג.</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">אחרי</p>
+        <h3>"מאחורי הקלעים", נעול כברירת מחדל</h3>
+        <p>הדירוג הוסר לגמרי. המשקולות ההתחלתיות נקבעות מאחורי הקלעים, והמסך שמאפשר לשנות אותן קיים אבל נעול לתצוגה. הוא נבנה כדי למנוע נזק מדרישה מוקדמת.</p>
+      </div>
+    </div>
+
+    <p class="claim" style="margin-top:2.5rem">המודל העסקי יצא מתוך ממצא מחקר על אונבורדינג, לא מתוך דיון על תמחור.</p>
+    <p>אם השליטה במשקולות אינה נתיב ליבה אבל היא עומק המוצר, אז היא בדיוק מה שאפשר למכור.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 11. מדידה ═══════════ -->
+<section id="measure">
+  <div class="wrap">
+    <p class="eyebrow">10 · מדידה</p>
+    <h2>מה שהתגלה רק אחרי הבנייה</h2>
+    <p>הרצתי את מנוע הבחירה קדימה על מאה ועשרים ימים וספרתי שתי מטרות: כמה מהכרטיסיות בכלל נכנסות לשימוש, וכמה פעמים היום בוחר את מה שאתמול בחר.</p>
+
+    <div class="grid g3" style="margin-top:2rem">
+      <div class="card"><div class="card-num">120</div><h3>ימים בהרצה</h3><p class="tiny">הרצה קדימה של מנוע הבחירה, לא משתמשים אמיתיים</p></div>
+      <div class="card"><div class="card-num">32</div><h3>כרטיסיות בשימוש</h3><p class="tiny">כל המאגר נכנס לשימוש, אף כרטיסייה לא מתה</p></div>
+      <div class="card"><div class="card-num">43%</div><h3>מהימים חזרו על אתמול</h3><p class="tiny">הירח מחזיק מופע כארבעה ימים, אז זה נכון עניינית</p></div>
+    </div>
+
+    <p class="claim" style="margin-top:2.5rem">זה נכון עניינית, אבל קריאה שחוזרת נראית שבורה.</p>
+    <p>הפיתוי היה לזייף, להוסיף רעש לאינדקס כדי שהתמונה תתחלף. לא עשיתי את זה, כי המוצר מתחייב להסביר את עצמו ורעש אקראי הוא בדיוק מה שלא ניתן להסביר. במקום זה הוספתי פסוקית שלישית שנגזרת ממספר היום האוניברסלי, שמתחלף כל יום.</p>
+    <p><strong>אחרי השינוי: אפס קריאות עוקבות זהות על פני מאה ועשרים יום, והתמונה נשארה כנה.</strong></p>
+    <p>כשמדד יוצא גרוע, אפשר לתקן את המנגנון או את המדד. כאן המנגנון היה נכון והתצוגה חסרה, ולכן התיקון נכנס לטקסט.</p>
+
+    <div class="gap">
+      <b>פער מסומן</b>
+      <p>אין כאן מדידה על משתמשים אמיתיים. כל המספרים בפרק הזה הם הרצה של המנוע, לא התנהגות של אנשים. המוצר הוא אב טיפוס חי ולא היה בשימוש מחוץ לפרויקט.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 12. מה נשבר ═══════════ -->
+<section id="mistakes" class="soft">
+  <div class="wrap">
+    <p class="eyebrow">11 · מה נשבר</p>
+    <h2>ארבע טעויות, ומה שהן לימדו</h2>
+    <p>אלה לא תקלות, אלה החלטות שהתבררו כשגויות. לכל אחת הסיבה השורשית, כי בלעדיה הלקח לא עובר לפרויקט הבא.</p>
+  </div>
+  <div class="wide scroll-x">
+    <table>
+      <thead><tr><th>מה קרה</th><th>השורש</th><th>מה שנשאר</th></tr></thead>
+      <tbody>
+        <tr><td>כרטיסיות בפרופורציה שגויה</td><td>קיבלתי איור בפרופורציה 1:2.15 והעיצוב דרש 1:1.49</td><td>גאומטריה לא מתקנת ציור שגוי. מתיחה מעוותת פנים, חיתוך מוריד את פס הכותרת. רק ייצור מחדש</td></tr>
+        <tr><td>אייקונים נחתכו מוסטים</td><td>חתכתי רשת 4 על 3 על כל הקנבס, כולל שוליים, והמודל לא צייר על הרשת המתמטית</td><td>קודם חיתוך עד לציור, אז התאמת הרשת ברגרסיה על מרכזי הציורים. הציורים מגלים את הרשת</td></tr>
+        <tr><td>זיהוי מסגרת נתפס על צל</td><td>חיפשתי את השורה הכהה ביותר, וצל הנייר כהה יותר מקו הסרגל</td><td>הפרדה לפי עובי משיכה, לא כהות</td></tr>
+        <tr><td>כמעט הזמנתי אצווה במחיר שגוי</td><td>תחשיב המחיר תמחר את המודל שביקשתי, הפלטפורמה ניגשה למודל אחר יקר פי שישה</td><td>תמונת בדיקה אחת והפרש יתרה לפני כל אצווה</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════ 13. סיכום ═══════════ -->
+<section id="impact">
+  <div class="wrap">
+    <p class="eyebrow">12 · סיכום</p>
+    <h2>חמש הנחות שנבדקו, וחמש שנפלו</h2>
+    <p>כל שורה כאן היא הנחה שהייתה בבריף המקורי, ומה שקרה לה כשנפגשה עם המחקר. שורה בלי ראיה לא נכנסה.</p>
+  </div>
+  <div class="wide scroll-x">
+    <table>
+      <thead><tr><th>ההנחה</th><th>על סמך איזו ראיה</th><th>מה השתנה במוצר</th><th>סטטוס</th></tr></thead>
+      <tbody>
+        <tr><td>אפשר לדרג אמון בכל שיטה ביום הראשון</td><td>נקודת השפל בשני מסעות האונבורדינג</td><td>הדירוג הוסר</td><td><span class="pill done">נפלה</span></td></tr>
+        <tr><td>משתמשות יחזרו לכוונן משקולות אחרי האונבורדינג</td><td>אף אחת מארבע לא הראתה נכונות לחזור להגדרות</td><td>המסך הפך לאופציונלי ונעול</td><td><span class="pill done">נפלה</span></td></tr>
+        <tr><td>יש הרגל יומי יציב להשוואת חזרה למחרת</td><td>המשתמשת הכי כבדה בדגימה הפסיקה לשבועיים או שלושה בלי להרגיש חסר</td><td>לא תוקנה. מובאת כדגל אדום</td><td><span class="pill next">נפלה חלקית</span></td></tr>
+        <tr><td>המוצר צריך מסך הגדרות "כי לכל אפליקציה יש"</td><td>אין ראיה לרצון בפרופיל או העדפות, וסלידה חוזרת מהגדרות מורכבות</td><td>שלושה מסכים ירדו לשלב ב'</td><td><span class="pill done">נפלה</span></td></tr>
+        <tr><td>החשיפה לתחזית קורה ביוזמת המשתמשת בתוך האפליקציה</td><td>מבחן טל על ה-Sitemap: נכשל</td><td>נוסף מסך חדש, מסלול אורח</td><td><span class="pill done">נפלה</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="wrap" style="margin-top:2.5rem">
+    <h3>מה נבנה בפועל</h3>
+    <ul>
+      <li><strong>מערכת עיצוב בפיגמה</strong> עם ארבעה אוספי משתנים, שני מודים לצבע, קומפוננטות ברוחב גמיש</li>
+      <li><strong>עשרים מסכים</strong>, כולם RTL, מובייל תחילה, נגישים במקלדת</li>
+      <li><strong>מנוע חישוב דטרמיניסטי</strong> בצד הלקוח, אומת מול מולדים וירחים מלאים ידועים</li>
+      <li><strong>מאגר של 32 כרטיסיות ו-24 אייקונים</strong> באותה שפה חזותית</li>
+      <li><strong>מצב כהה</strong> בשלושה מצבים, עם ניגודיות שנמדדה ולא הוערכה</li>
+      <li><strong>אפליקציה שניתנת להתקנה</strong> עם עבודה אופליין ותזכורת יומית מקומית</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════ מה למדתי ═══════════ -->
+<section id="learned" class="soft">
+  <div class="wrap">
+    <div class="duo" style="align-items:start">
+      <div>
+        <p class="eyebrow">13 · מה למדתי</p>
+        <h2>שלושה דברים</h2>
+        <ul>
+          <li>בעיה שנראית עיצובית יכולה להיות בעיית אינדוקס. השאלה "איזה ציור מתאים להיום" הייתה שאלת ארכיטקטורה בתחפושת.</li>
+          <li>כשמדד יוצא גרוע, צריך קודם לשאול אם המנגנון שבור או המדידה. כאן המנגנון היה נכון והתצוגה חסרה.</li>
+          <li>פרסונה משנית יכולה להכתיב את ההחלטות הראשיות, וזה לא באג.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">מה הייתי עושה אחרת</p>
+        <h2>הגרסה הבאה</h2>
+        <ul>
+          <li>הייתי מודד את קצב החזרה לפני שמייצר את התמונות. הבדיקה לקחה שלוש שורות קוד, ואפשר היה להריץ אותה על הטקסונומיה לפני הזמנת תמונה אחת. היא לא הייתה משנה את ההחלטה, אבל היא הייתה משנה את סדר העבודה.</li>
+          <li>הייתי מגדיר את מצבי הביניים ביחד עם המסך ולא אחריו. טעינה, ריקנות ושגיאה הוגדרו במסמך מההתחלה ונבנו בסוף.</li>
+          <li>הייתי מתעד את היסטוריית הפרומפטים תוך כדי. היא הייתה חוסכת את הפער שמסומן בפרק 07.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h2>אייל גרשון</h2>
+    <p class="lead">מעצב מוצר ומייסד סימפלה. בונה מוצרים מהרעיון ועד לאתר חי.</p>
+    <div class="btn-row">
+      <a class="btn btn-1" href="https://eyalg1980.github.io/simpla-lab/mazag/">המוצר החי</a>
+      <a class="btn btn-2" href="https://eyalg1980.github.io/simpla-lab/">simpla lab</a>
+    </div>
+    <p class="tiny" style="margin-top:2.5rem">מזג · 2026 · גרסת השוואה שנבנתה מתבנית case-study-builder v3</p>
+  </div>
+</footer>
+
+<script>
+var bar=document.getElementById('bar');
+function progress(){var h=document.documentElement;var p=h.scrollTop/((h.scrollHeight-h.clientHeight)||1)*100;bar.style.width=Math.min(100,p)+'%';}
+addEventListener('scroll',progress,{passive:true});progress();
+
+document.querySelectorAll('section > .wrap').forEach(function(el){el.classList.add('reveal');});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+var links=[].slice.call(document.querySelectorAll('.nav-links a'));
+var spy=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(!e.isIntersecting)return;
+  links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id);});
+});},{rootMargin:'-45% 0px -50% 0px'});
+links.forEach(function(a){var t=document.querySelector(a.getAttribute('href'));if(t)spy.observe(t);});
+</script>
+</body>
+</html>
