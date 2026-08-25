@@ -20,16 +20,19 @@
       var dark = c === "dark" ||
         (c === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
       document.documentElement.dataset.theme = dark ? "dark" : "light";
+      var fs = localStorage.getItem("mazag.fontsize");
+      if (fs && fs !== "base") document.documentElement.dataset.fontSize = fs;
     } catch (e) { document.documentElement.dataset.theme = "light"; }
   </script>
 </head>
 <body>
   <div class="screen">
     <header class="app-header">
+      <img class="app-header__logo app-header__logo--light" src="assets/images/logo-new.webp" alt="מזג" width="122" height="45" />
+      <img class="app-header__logo app-header__logo--dark" src="assets/images/logo-new-dark.webp" alt="" aria-hidden="true" width="122" height="45" />
       <button type="button" class="icon-button" id="menu-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-drawer" aria-label="פתח תפריט">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
       </button>
-      <img class="app-header__logo" src="assets/images/logo-new.webp" alt="מזג" width="122" height="45" />
     </header>
 
     <main class="content content--article">
@@ -105,35 +108,23 @@
       <button type="button" class="icon-button nav-drawer__close" id="menu-close" aria-label="סגור תפריט">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
-      <h2 class="nav-drawer__title">מזג</h2>
       <ul class="nav-drawer__list">
         <li class="nav-group">
-          <h3 class="nav-group__title">היום</h3>
+          <h3 class="nav-group__title">תחזיות</h3>
         </li>
           <li><a href="daily-forecast.html">התחזית היומית</a></li>
           <li><a href="archive.html">הארכיון שלי</a></li>
         <li class="nav-group">
           <h3 class="nav-group__title">להבין</h3>
         </li>
-          <li><a href="methods.html" aria-current="page">השיטות</a></li>
+          <li><a href="methods.html">השיטות</a></li>
           <li><a href="behind-the-scenes.html">מאחורי הקלעים</a></li>
-          <li><a href="edit-mode.html">מצב עריכה</a></li>
-          <li><a href="explain.html">איך זה עובד</a></li>
         <li class="nav-group">
           <h3 class="nav-group__title">שלי</h3>
         </li>
           <li><a href="profile.html">הפרופיל שלי</a></li>
-          <li><a href="my-chart.html">המפה שלי</a></li>
           <li><a href="notifications.html">התראות</a></li>
           <li><a href="subscription.html">המנוי שלי</a></li>
-          <li><a href="privacy.html">פרטיות</a></li>
-        <li class="nav-group">
-          <h3 class="nav-group__title">מסכי הדגמה</h3>
-        </li>
-          <li><a href="index.html">פתיחה</a></li>
-          <li><a href="splash.html">מסך טעינה</a></li>
-          <li><a href="guest-view.html">צפייה מקישור</a></li>
-          <li><a href="offline.html">אין חיבור</a></li>
       </ul>
 
       <div class="nav-drawer__prefs">
@@ -144,14 +135,23 @@
           <button type="button" class="theme-switch__item" data-theme-choice="dark">כהה</button>
         </div>
 
+        <p class="theme-switch__label" id="fontsize-label">גודל טקסט</p>
+        <div class="theme-switch" role="group" aria-labelledby="fontsize-label">
+          <button type="button" class="theme-switch__item" data-font-size="base">רגיל</button>
+          <button type="button" class="theme-switch__item" data-font-size="large">גדול</button>
+          <button type="button" class="theme-switch__item" data-font-size="xlarge">גדול מאוד</button>
+        </div>
+
         <label class="pref-toggle">
           <span class="pref-toggle__body">
             <span class="pref-toggle__title">צליל</span>
-            <span class="pref-toggle__note">צלילים קצרים בשמירה ובפתיחת התחזית. כבוי כברירת מחדל</span>
+            <span class="pref-toggle__note">כבוי כברירת מחדל</span>
           </span>
           <input type="checkbox" id="sound-toggle" />
         </label>
       </div>
+
+      <p class="nav-drawer__foot"><a href="privacy.html">פרטיות</a></p>
     </nav>
   </dialog>
 
@@ -195,6 +195,7 @@
         </div>
         <div class="onboard__actions">
           <button type="button" class="button-secondary" id="onboard-back" hidden>חזרה</button>
+          <button type="button" class="text-link onboard__skip" id="onboard-skip-text">דילוג</button>
           <button type="button" class="button-primary" id="onboard-next">המשך</button>
         </div>
       </div>

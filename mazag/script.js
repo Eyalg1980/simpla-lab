@@ -306,15 +306,11 @@
       return (c === "dark" || (c === "system" && media.matches)) ? "dark" : "light";
     }
 
-    /* הלוגו הוא תמונה, ו-CSS לא מחליף src. גרסה לבנה בלבד תיפול על המצב
-       הידני, ולכן ההחלפה נעשית כאן ומכסה את שלושת המצבים */
+    /* שתי גרסאות הלוגו כבר בדף ו-CSS בוחר ביניהן לפי data-theme.
+       החלפת src מכאן הייתה מתרחשת אחרי הציור הראשון, וזה בדיוק
+       הרגע שבו נראה לוגו כהה על רקע כהה */
     function paint() {
-      var mode = resolved();
-      document.documentElement.dataset.theme = mode;
-      var want = mode === "dark" ? "assets/images/logo-new-dark.webp" : "assets/images/logo-new.webp";
-      Array.prototype.forEach.call(
-        document.querySelectorAll(".app-header__logo, .splash__logo"),
-        function (img) { if (img.getAttribute("src") !== want) img.setAttribute("src", want); });
+      document.documentElement.dataset.theme = resolved();
       var c = choice();
       items.forEach(function (b) {
         var on = b.dataset.themeChoice === c;
@@ -333,6 +329,43 @@
 
     /* שינוי ההגדרה במכשיר משנה כלום אלא אם נבחר "מערכת" */
     if (media.addEventListener) media.addEventListener("change", paint);
+
+    paint();
+  }
+
+
+  /* ---------- גודל טקסט, שלוש מדרגות ----------
+     משנה מקדם אחד שכל ארבעת גדלי הטיפוגרפיה נגזרים ממנו */
+
+  var FONT_KEY = "mazag.fontsize";
+
+  function setupFontSize() {
+    var items = Array.prototype.slice.call(document.querySelectorAll("[data-font-size]"));
+
+    function choice() {
+      try { return localStorage.getItem(FONT_KEY) || "base"; }
+      catch (e) { return "base"; }
+    }
+
+    function paint() {
+      var c = choice();
+      /* base הוא ברירת המחדל ולכן הוא היעדר התכונה ולא ערך שלישי */
+      if (c === "base") document.documentElement.removeAttribute("data-font-size");
+      else document.documentElement.dataset.fontSize = c;
+      items.forEach(function (b) {
+        var on = b.dataset.fontSize === c;
+        b.classList.toggle("is-active", on);
+        b.setAttribute("aria-pressed", String(on));
+      });
+    }
+
+    items.forEach(function (b) {
+      b.addEventListener("click", function () {
+        try { localStorage.setItem(FONT_KEY, b.dataset.fontSize); }
+        catch (e) { /* חלון פרטי */ }
+        paint();
+      });
+    });
 
     paint();
   }
@@ -764,9 +797,15 @@
       if (current > 0) { current--; render(); }
     });
 
-    skip.addEventListener("click", function () {
-      try { window.localStorage.setItem(SEEN_KEY, "1"); } catch (e) { /* private window */ }
-      dialog.close();
+    /* שני מסלולי יציאה, אותה תוצאה: ה-X בפינה וכפתור הדילוג בשורת
+       הפעולות. שניהם מסמנים שההיכרות נראתה, כדי שהחזרת ההתניה
+       לפני החנות תעבוד בלי שינוי נוסף */
+    [skip, document.getElementById("onboard-skip-text")].forEach(function (b) {
+      if (!b) return;
+      b.addEventListener("click", function () {
+        try { window.localStorage.setItem(SEEN_KEY, "1"); } catch (e) { /* private window */ }
+        dialog.close();
+      });
     });
 
     dots.forEach(function (d, i) {
@@ -775,13 +814,23 @@
 
     render();
 
-    // open on the first visit of the welcome screen, or on demand from anywhere
+    /* ============================================================
+       לפני העלאה ל-Google Play: להחזיר את ההתניה על SEEN_KEY.
+       כרגע ההיכרות נפתחת בכל פתיחה של האפליקציה בכוונה, כי זה
+       פרויקט הדגל של הוובינר ומוצג שוב ושוב מול קהל. למשתמשת
+       אמיתית הסבר בכל בוקר הוא אגרה, ולכן בגרסת החנות השורה
+       צריכה לחזור להיות:
+
+           if (asked || (!seen && isWelcome)) dialog.showModal();
+
+       SEEN_KEY עדיין נכתב למטה, ולכן ההחזרה היא שינוי שורה אחת.
+       ============================================================ */
     var seen;
     try { seen = window.localStorage.getItem(SEEN_KEY); } catch (e) { seen = "1"; }
     var isWelcome = document.querySelector(".brand-block");
     var asked = window.location.search.indexOf("onboarding=1") > -1;
 
-    if (asked || (!seen && isWelcome)) dialog.showModal();
+    if (asked || isWelcome) dialog.showModal();
 
     var opener = document.getElementById("open-onboarding");
     if (opener) {
@@ -1011,6 +1060,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     setupNavDrawer();
     setupTheme();
+    setupFontSize();
     setupSound();
     setupOnboarding();
     setupCardRouting();

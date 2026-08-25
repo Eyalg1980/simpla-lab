@@ -53,11 +53,14 @@
   --font-weight-body: 400;
   --font-weight-label: 600;
 
-  /* typography/size */
-  --font-size-h1: 28px;
-  --font-size-h2: 20px;
-  --font-size-body: 16px;
-  --font-size-caption: 13px;
+  /* typography/size.
+     ארבעת הגדלים נגזרים ממקדם אחד, ולכן שינוי נגישות הוא שינוי של ערך
+     אחד ולא של ארבעה. הערכים עצמם נשארים בדיוק כפי שהיו במקדם 1 */
+  --font-scale: 1;
+  --font-size-h1: calc(28px * var(--font-scale));
+  --font-size-h2: calc(20px * var(--font-scale));
+  --font-size-body: calc(16px * var(--font-scale));
+  --font-size-caption: calc(13px * var(--font-scale));
 
   /* spacing */
   --space-xs: 4px;
@@ -210,6 +213,28 @@ ul {
    backdrop and entry transition are one unit. Only the inner typography
    and list styling stay here. */
 
+/* שלוש מדרגות נגישות. הבחירה נשמרת ומוחלת לפני הציור הראשון,
+   אחרת הדף נצבע בגודל אחד ואז קופץ לאחר */
+/* הלוגו הוא קובץ ולא צבע, ולכן CSS לא יכול להפוך אותו. שתי הגרסאות
+   נשלחות ואחת מהן מוסתרת. data-theme נקבע לפני הציור הראשון,
+   ולכן אין רגע שבו הגרסה הכהה יושבת על רקע כהה */
+.app-header__logo--dark, .splash__logo--dark { display: none; }
+:root[data-theme="dark"] .app-header__logo--light,
+:root[data-theme="dark"] .splash__logo--light { display: none; }
+:root[data-theme="dark"] .app-header__logo--dark,
+:root[data-theme="dark"] .splash__logo--dark { display: block; }
+
+:root[data-font-size="large"]  { --font-scale: 1.15; }
+:root[data-font-size="xlarge"] { --font-scale: 1.30; }
+
+.nav-drawer__foot {
+  margin: 0;
+  padding-block-start: var(--space-md);
+  font-size: var(--font-size-caption);
+  text-align: center;
+}
+.nav-drawer__foot a { color: var(--color-text-muted); }
+
 .nav-drawer__title {
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-heading-primary);
@@ -220,7 +245,9 @@ ul {
 .nav-drawer__list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  /* xs ולא sm: התפריט חייב להיכנס במסך אחד בלי גלילה,
+     ויעד המגע של 44 פיקסל נשמר ב-min-height של הקישור */
+  gap: var(--space-xs);
 }
 
 .nav-drawer__list a {
@@ -1028,12 +1055,13 @@ ul {
   background: none;
 }
 
-/* the dialog fills the viewport and pins the sheet to the bottom edge,
-   so it reads as a sheet rising rather than a box dropped at the top */
+/* קופסה מרחפת ולא יריעה מהתחתית. הדיאלוג ממרכז אותה בשני הצירים
+   ומשאיר שוליים, כדי שייקרא כחלון מעל המסך ולא כהמשך שלו */
 .onboard[open] {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
+  padding: var(--space-lg);
 }
 
 .onboard:not([open]) {
@@ -1042,18 +1070,19 @@ ul {
 
 .onboard__panel {
   background-color: var(--color-surface-base);
-  width: min(100%, var(--screen-max));
-  max-height: 100dvh;
+  width: min(100%, 380px);
+  max-height: calc(100dvh - var(--space-xl) * 2);
   margin-inline: auto;
   padding: var(--space-lg);
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
   overflow-y: auto;
-  border-start-start-radius: var(--radius-lg);
-  border-start-end-radius: var(--radius-lg);
-  /* rises from the bottom, the way a sheet should */
-  transform: translateY(var(--motion-lift));
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-base);
+  box-shadow: 0 24px 64px rgb(11 16 24 / 0.28);
+  /* עולה מעט ונפתחת, במקום להחליק מהקצה */
+  transform: translateY(12px) scale(0.98);
   opacity: 0;
   transition:
     transform var(--motion-base) var(--motion-ease),
@@ -1061,7 +1090,7 @@ ul {
 }
 
 .onboard[open] .onboard__panel {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   opacity: 1;
 }
 
@@ -1069,7 +1098,7 @@ ul {
    an older browser ignores this and simply shows the sheet with no animation */
 @starting-style {
   .onboard[open] .onboard__panel {
-    transform: translateY(var(--motion-lift));
+    transform: translateY(12px) scale(0.98);
     opacity: 0;
   }
 }
@@ -1138,6 +1167,18 @@ ul {
   display: flex;
   gap: var(--space-sm);
   width: 100%;
+}
+
+/* דילוג הוא מוצא ולא בחירה שקולה, ולכן הוא לא נמתח כמו הכפתורים */
+.onboard__skip {
+  flex: 0 0 auto;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  padding-inline: var(--space-sm);
+  min-height: 44px;
+  color: var(--color-text-muted);
 }
 
 .onboard__actions > * {
@@ -1663,9 +1704,16 @@ ul {
 
 .nav-drawer__prefs {
   width: 100%;
-  padding-block-start: var(--space-md);
+  padding-block-start: var(--space-sm);
   border-block-start: 1px solid var(--color-border-base);
 }
+
+/* שתי קבוצות מתגים ועוד מתג צליל נכנסו לאותו חלל. הרווחים מתכווצים
+   כדי שהתפריט כולו יישאר במסך אחד */
+.nav-drawer__prefs .theme-switch__label { margin-block: var(--space-sm) var(--space-xs); }
+.nav-drawer__prefs .theme-switch__item { min-height: 44px; padding-block: 0; }
+.nav-drawer__foot { padding-block-start: var(--space-sm); }
+.nav-drawer__prefs .theme-switch__label:first-child { margin-block-start: 0; }
 
 fieldset.field {
   border: none;
@@ -1779,7 +1827,8 @@ fieldset.field {
 .nav-group:first-child { padding-block-start: 0; }
 
 .nav-group__title {
-  margin: 0 0 var(--space-xs);
+  margin: var(--space-xs) 0 0;
+  line-height: 1.2;
   font-family: var(--font-family-body);
   font-size: var(--font-size-caption);
   font-weight: var(--font-weight-label);
@@ -2295,14 +2344,16 @@ button:disabled {
   background-color: var(--color-surface-raised);
   width: 280px;
   height: 100%;
-  margin-inline-start: auto;
-  padding: var(--space-lg);
+  /* נצמדת לימין הפיזי ונכנסת משם. margin-inline-start: auto דחף אותה
+     ל-inline-end, שבעברית הוא השמאל, ולכן היא נפתחה מהצד הלא נכון */
+  margin-inline-end: auto;
+  padding: var(--space-lg) var(--space-md);
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-sm);
   overflow-y: auto;
-  /* נכנסת מהצד ההתחלתי של הכיוון, כלומר מימין בעברית */
-  transform: translateX(calc(100% * var(--dir)));
+  /* translateX פיזי ולא לוגי, ולכן 100% הוא תמיד ימינה בשתי השפות */
+  transform: translateX(100%);
   transition: transform var(--motion-base) var(--motion-ease);
 }
 
@@ -2314,7 +2365,7 @@ button:disabled {
    בלעדיו המגירה פשוט תקפוץ למקום. דפדפן ישן מתעלם ומציג בלי אנימציה. */
 @starting-style {
   .nav-drawer[open] .nav-drawer__panel {
-    transform: translateX(calc(100% * var(--dir)));
+    transform: translateX(100%);
   }
 }
 
