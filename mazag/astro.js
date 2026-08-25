@@ -252,7 +252,20 @@ var Mazag = (function () {
     return ((lon % 360) + 360) % 360;
   }
 
-  function dayCard(date) {
+  /* מפתח המזל, כדי שהתחזית תהיה של מישהי ולא של היום.
+     עד עכשיו שני הצירים היו גלובליים: פאזת הירח והיסוד שהירח עומד בו.
+     נמדד: שנים עשר מזלות קיבלו טקסט אחד ויחיד באותו יום, כלומר המזל
+     של המשתמשת לא נכנס לתחזית בכלל. */
+  var SIGN_ORDER = ["aries","taurus","gemini","cancer","leo","virgo",
+                    "libra","scorpio","sagittarius","capricorn","aquarius","pisces"];
+
+  function signSlot(chart) {
+    if (!chart || !chart.sign) return null;
+    var i = SIGN_ORDER.indexOf(chart.sign.key);
+    return i < 0 ? null : i;
+  }
+
+  function dayCard(date, chart) {
     var when = date || new Date();
     var jd = julianDay(when);
     var d = jd - 2451545.0;
@@ -285,6 +298,15 @@ var Mazag = (function () {
       when.getFullYear() * 10000 + (when.getMonth() + 1) * 100 + when.getDate()));
     var accent = DAY_ACCENT[dayNum] || DAY_ACCENT[9];
 
+    /* הטקסט הסיפורי מיוצר מראש ונטען כטבלה. עד שהיא קיימת, נופלים
+       חזרה על הרכבת שברי המשפט. ההרכבה הזו היא זמנית: שני חלקים
+       עצמאיים שמחוברים בפסיק אינם משפט תקין בעברית */
+    var sunSlot = signSlot(chart);
+    var tk = sunSlot === null ? null : key + "-" + SIGN_ORDER[sunSlot] + "-" + dayNum;
+    var STORY = (typeof window !== "undefined" && window.MazagStories) ||
+                (typeof MazagStories !== "undefined" ? MazagStories : null);
+    var composed = (tk && STORY && STORY[tk]) || (p[2] + ", " + t[2] + ". " + accent);
+
     return {
       dayNumber: dayNum,
       accent: accent,
@@ -293,7 +315,13 @@ var Mazag = (function () {
       element: t[0], elementHe: t[1],
       signIndex: signIdx,
       angle: angle,
-      text: p[2] + ", " + t[2] + ". " + accent,
+      /* המפתחות של המרחב המלא. הטקסט יורד עמוק עד מספר היום,
+         התמונה נעצרת במזל. שניהם מיוצרים מראש ונשלחים עם האפליקציה,
+         ולכן אין כאן קריאת רשת ואין עלות למשתמשת */
+      sunSlot: sunSlot,
+      textKey: sunSlot === null ? null : key + "-" + SIGN_ORDER[sunSlot] + "-" + dayNum,
+      imageKey: sunSlot === null ? key : key + "-" + SIGN_ORDER[sunSlot],
+      text: composed,
       headline: p[2] + ", " + t[2],
       image: "assets/images/card-" + key + ".webp",
       thumb: "assets/images/thumb-" + key + ".webp",
