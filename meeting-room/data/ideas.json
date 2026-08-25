@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-24",
+  "updated": "2026-08-25",
   "ideas": [
     {
       "id": "I-2026-0316",
@@ -1397,6 +1397,82 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-08-24"
+    },
+    {
+      "id": "I-2026-0334",
+      "title": "מי מחובר בפועל",
+      "line": "ראיתי שפיגמה שחררה ב-24.8 ניהול הרשאות ארגוני מרוכז ל-MCP server דרך ספק זהות, במקום אישור ידני לכל סוכן. עכשיו אפשר להראות מסך אחד עם כל סוכן AI שמחובר כרגע לקבצי הארגון",
+      "advisor": "visionary",
+      "createdAt": "2026-08-25",
+      "capability": {
+        "name": "Figma Enterprise-managed authorization ל-MCP server",
+        "releasedAt": "2026-08-24"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-25"
+    },
+    {
+      "id": "I-2026-0335",
+      "title": "מוחקים בלי לבחור שכבה",
+      "line": "ראיתי שפיגמה שחררה ב-24.8 מחיקת פסי וקטור ישירות וטיוח כמה אזורים בבת אחת, בלי לבחור שכבה קודם. עכשיו אפשר לנקות סקיצת AI מבולגנת בתוך פיגמה עצמה",
+      "advisor": "visionary",
+      "createdAt": "2026-08-25",
+      "capability": {
+        "name": "Figma erase and multi-region fill לעריכת וקטור",
+        "releasedAt": "2026-08-24"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-25"
+    },
+    {
+      "id": "I-2026-0336",
+      "title": "מקורות שחוזרים ונכשלים",
+      "line": "figma.com/blog חסום ב-robots.txt ו-digg.com חוזר ומחזיר שגיאה, ובכל זאת שליפות מהתקציב הקטן הולכות עליהם בכל פעם מחדש",
+      "advisor": "pain",
+      "createdAt": "2026-08-25",
+      "capability": null,
+      "evidence": "ב-13.8 שליפה מ-digg.com נכשלה ב-403, ב-16.8 שתי שליפות מ-figma.com נכשלו ב-robots.txt, וב-25.8 שוב, figma.com/blog נכשל ב-robots.txt ו-digg.com החזיר 404, שתי שליפות מתוך שש שהתבזבזו על מקורות שכבר נכשלו בעבר בלי שנרשמו כבלתי אמינים",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-25"
+    },
+    {
+      "id": "I-2026-0337",
+      "title": "מה נשאר בחוץ",
+      "line": "איך נראה על מסך הכיתה של מיישם AI כשתרגיל MVP לא רק מראה מה נכנס לגרסה הראשונה, אלא גם מציג לצידו את מה שהוחלט להוציא ולמה",
+      "advisor": "teacher",
+      "createdAt": "2026-08-25",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס מיישם AI ואוטומציה (53500), מודול חשיבת MVP והפרויקט המתגלגל",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-25"
+    },
+    {
+      "id": "I-2026-0338",
+      "title": "מה מבדיל דומיין",
+      "line": "איך נראה על מסך הכיתה שיעור עולמות העיצוב כשאותו מסך בדיוק עובר בין גרסת פינטק לגרסת בריאות, ומראה מה בדיוק השתנה חוץ מהצבעים",
+      "advisor": "teacher",
+      "createdAt": "2026-08-25",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס UI/UX 45900, שיעור עולמות עיצוב (Design Domains)",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-25"
     }
   ]
 }
