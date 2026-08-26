@@ -84,7 +84,11 @@ section:first-of-type{border-top:0}
 
 .nav{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter:blur(12px); border-bottom:var(--line-w) solid var(--line)}
 .nav-in{width:min(100% - 2.5rem, var(--wrap)); margin-inline:auto; display:flex; align-items:center; gap:1rem; height:3.8rem}
-.nav-name{font-family:var(--font-display); font-weight:700; margin-inline-end:auto; white-space:nowrap}
+.nav-name{display:inline-flex; align-items:baseline; gap:.6rem; margin-inline-end:auto; white-space:nowrap}
+.nav-name b{font-family:var(--font-display); font-weight:700; font-size:1.4rem; letter-spacing:-.01em}
+.nav-name span{font-size:var(--t-small); font-weight:600; color:var(--fg-faint); letter-spacing:.05em;
+  padding-inline-start:.6rem; border-inline-start:var(--line-w) solid var(--line)}
+@media (max-width:480px){.nav-name span{display:none}}
 .nav-links{display:flex; gap:1.25rem; overflow-x:auto; scrollbar-width:none}
 .nav-links::-webkit-scrollbar{display:none}
 .nav-links a{color:var(--fg-soft); text-decoration:none; font-size:var(--t-small); white-space:nowrap; padding-block:.4rem; border-bottom:2px solid transparent}
@@ -263,7 +267,7 @@ footer .btn-row{justify-content:center}
 
 <nav class="nav">
   <div class="nav-in">
-    <span class="nav-name">מזג</span>
+    <span class="nav-name"><b>מזג</b><span>קייס סטאדי</span></span>
     <div class="nav-links">
       <a href="#challenge">האתגר</a>
       <a href="#research">המחקר</a>
