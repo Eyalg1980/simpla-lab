@@ -44,6 +44,16 @@
 
   /* ---------- toast, announced as well as shown ---------- */
 
+  /* מפת הלידה של הפרופיל הפעיל. היא מה שהופך את התחזית לשל מישהי
+     ולא של היום, ולכן כל מקום שמרכיב קלף צריך אותה. מחזיר null
+     כשאין תאריך לידה, ואז המנוע נופל לטקסט הכללי. */
+  function activeChart() {
+    try {
+      var prof = Mazag.loadProfile();
+      return prof && prof.birth ? Mazag.read(prof.birth) : null;
+    } catch (e) { return null; }
+  }
+
   function toast(message) {
     var region = document.getElementById("toast-region");
     if (!region) return;
@@ -122,7 +132,7 @@
   function notifyBody() {
     var cfg = loadNotify();
     if (cfg && cfg.style === "teaser" && window.Mazag) {
-      return Mazag.dayCard(new Date()).headline;
+      return Mazag.dayCard(new Date(), activeChart()).headline;
     }
     return "התחזית של היום מחכה לך";
   }
@@ -394,6 +404,10 @@
   function setupCardRouting() {
     var hero = document.getElementById("hero-card");
     var text = document.getElementById("forecast-text");
+    var opening = document.getElementById("forecast-opening");
+    var linkP  = document.getElementById("forecast-link");
+    var methods = document.getElementById("forecast-methods");
+    var methodsList = document.getElementById("forecast-methods-list");
     if (!hero || !text) return;
 
     var flip = document.getElementById("card-flip");
@@ -465,9 +479,12 @@
         }
       }
 
+      /* כל חלקי התחזית מתגלים יחד עם הקלף. חלק שנשאר גלוי מול קלף
+         הפוך מבטל את הטעם של ההיפוך, וזה קרה כאן פעם אחת כבר */
       text.hidden = !front;
-      /* שורת ההסבר נושאת את פאזת הירח ואת היסוד, כלומר חצי מהתחזית.
-         היא הייתה גלויה גם מול קלף הפוך, וזה הדליף את מה שהקלף מסתיר */
+      if (opening) opening.hidden = !front || !opening.textContent;
+      if (linkP) linkP.hidden = !front || !linkP.textContent;
+      if (methods) methods.hidden = !front || !methodsList.childNodes.length;
       if (why) why.hidden = !front;
       if (flipBack) flipBack.hidden = !front;
     }
@@ -517,14 +534,45 @@
     }
 
     var card;
-    try { card = Mazag.dayCard(when); }
+    /* מפת הלידה של הפרופיל הפעיל היא מה שהופך את התחזית לשלו ולא
+       ליום. בלעדיה dayCard נופל חזרה לטקסט הכללי, ולכן היא נקראת כאן
+       ולא נשארת רק בדף הפרופיל */
+    try { card = Mazag.dayCard(when, activeChart()); }
     catch (e) { return fail(errorBox || guestErr); }
     if (!card) return fail(errorBox || guestErr);
 
     /* הטקסט החלופי נשמר ולא מוצמד עדיין. כל עוד הקלף הפוך, alt שמתאר
        את הציור מסגיר לקורא מסך בדיוק את מה שהמסך מסתיר מהעין */
     heroAlt = card.alt;
-    text.textContent = card.text;
+    if (opening) opening.hidden = true;
+    if (linkP) linkP.hidden = true;
+    if (methods) methods.hidden = true;
+
+    /* לשון הפנייה מוחלת כאן ולא במעבר הכללי, כי הטקסט הזה מוזרק
+       אחרי ששני המעברים כבר רצו */
+    var g = Mazag.genderOf(Mazag.loadProfile());
+    function G(v) { return Mazag.gender(v, g); }
+
+    text.textContent = G(card.text);
+    if (opening) opening.textContent = G(card.opening);
+    if (linkP) linkP.textContent = G(card.link);
+
+    /* ההרחבה נבנית מחדש בכל טעינה. אין כאן innerHTML, כי הטקסט
+       מגיע מטבלה ולא צריך לעבור פרסור HTML */
+    if (methods && methodsList) {
+      methodsList.textContent = "";
+      (card.methods || []).forEach(function (row) {
+        var dt = document.createElement("dt");
+        dt.className = "methods-detail__name";
+        dt.textContent = row[0];
+        var dd = document.createElement("dd");
+        dd.className = "methods-detail__body";
+        dd.textContent = G(row[1]);
+        methodsList.appendChild(dt);
+        methodsList.appendChild(dd);
+      });
+    }
+
     if (stamp) stamp.textContent = hebrewDate(when);
     if (why) why.textContent = "הירח היום ב" + card.phaseHe + ", ביסוד " + card.elementHe +
       ". מספר היום " + card.dayNumber + ".";
@@ -708,7 +756,7 @@
     var html = "";
     for (var i = 0; i < 12; i++) {
       var d = new Date(today.getFullYear(), today.getMonth(), today.getDate() - i, 12, 0, 0);
-      var card = Mazag.dayCard(d);
+      var card = Mazag.dayCard(d, activeChart());
       var iso = d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
       html +=
         '<li class="archive__item">' +

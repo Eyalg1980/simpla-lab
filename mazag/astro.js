@@ -305,7 +305,11 @@ var Mazag = (function () {
     var tk = sunSlot === null ? null : key + "-" + SIGN_ORDER[sunSlot] + "-" + dayNum;
     var STORY = (typeof window !== "undefined" && window.MazagStories) ||
                 (typeof MazagStories !== "undefined" ? MazagStories : null);
-    var composed = (tk && STORY && STORY[tk]) || (p[2] + ", " + t[2] + ". " + accent);
+    var story = (tk && STORY && STORY[tk]) || null;
+
+    /* הטקסט המורכב הוא נפילה לאחור לצירוף שעוד לא נכתב. הוא פחות טוב
+       מטקסט שנכתב, אבל הוא תמיד קיים, ולכן אין מסך ריק. */
+    var composed = story ? story.s : (p[2] + ", " + t[2] + ". " + accent);
 
     return {
       dayNumber: dayNum,
@@ -322,6 +326,12 @@ var Mazag = (function () {
       textKey: sunSlot === null ? null : key + "-" + SIGN_ORDER[sunSlot] + "-" + dayNum,
       imageKey: sunSlot === null ? key : key + "-" + SIGN_ORDER[sunSlot],
       text: composed,
+      /* ארבעת החלקים. story הוא null כשהצירוף עוד לא נכתב, ואז המסך
+         מציג את הנפילה לאחור בלבד ולא שדות ריקים. */
+      story: story,
+      opening: story ? story.o : "",
+      link: story ? story.l : "",
+      methods: story ? story.e : [],
       headline: p[2] + ", " + t[2],
       image: "assets/images/card-" + key + ".webp",
       thumb: "assets/images/thumb-" + key + ".webp",

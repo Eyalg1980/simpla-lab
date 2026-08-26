@@ -8,7 +8,7 @@
    הגרסה בשם המטמון היא מה שמפעיל ניקוי. כל שינוי ברשימה מחייב להעלות אותה,
    אחרת דפדפן שכבר ביקר יישאר עם הישן. */
 
-var VERSION = "mazag-v8";
+var VERSION = "mazag-v9";
 var DOC_CACHE = VERSION + "-doc";
 var ASSET_CACHE = VERSION + "-asset";
 
@@ -22,6 +22,7 @@ var PRECACHE = [
   "./style.css",
   "./script.js",
   "./astro.js",
+  "./stories.js",
   "./manifest.webmanifest",
   "./assets/images/logo-new.webp",
   "./assets/icons/app-icon-192.png",

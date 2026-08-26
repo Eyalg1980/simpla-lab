@@ -70,8 +70,17 @@
         </div>
       </div>
 
-      <!-- הקריאה מוכרזת כשהיא מגיעה, כדי שקורא מסך לא יפספס את הרגע -->
+      <!-- הקריאה מוכרזת כשהיא מגיעה, כדי שקורא מסך לא יפספס את הרגע.
+           ארבעה חלקים: שורה שעומדת לבד, הסיפור, החיבור, וההרחבה
+           שנפתחת רק כשמבקשים אותה -->
+      <p class="forecast__opening" id="forecast-opening" hidden></p>
       <p class="body-copy" id="forecast-text" aria-live="polite" hidden></p>
+      <p class="forecast__link" id="forecast-link" hidden></p>
+
+      <details class="methods-detail" id="forecast-methods" hidden>
+        <summary class="methods-detail__summary">איך זה מורכב</summary>
+        <dl class="methods-detail__list" id="forecast-methods-list"></dl>
+      </details>
 
       <div class="skeleton skeleton--line" id="forecast-skeleton-text" aria-hidden="true"></div>
 
@@ -314,6 +323,7 @@
     </div>
   </aside>
 
+  <script src="stories.js"></script>
   <script src="astro.js"></script>
   <script>
     /* לשון הפנייה מוחלת כאן, בין שני הסקריפטים, כי זו הנקודה המוקדמת
