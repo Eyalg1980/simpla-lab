@@ -50,6 +50,8 @@
     region.textContent = "";
     var el = document.createElement("div");
     el.className = "toast";
+    /* הודעה נוצרת אחרי שני המעברים, ולכן היא מגודרת כאן ולא שם */
+    try { message = Mazag.gender(message, Mazag.genderOf(Mazag.loadProfile())); } catch (e) { }
     el.textContent = message;
     region.appendChild(el);
     window.setTimeout(function () {
@@ -530,7 +532,7 @@
     /* הנגיעה שמהפכת. אין כאן בדיקה שהתמונה נטענה, כי הכפתור בכלל
        לא מוצג לפני כן: השלד יורד רק אחרי אירוע ה-load של הפנים */
     if (back) {
-      back.setAttribute("aria-label", "הקישי כדי להפוך את קלף היום");
+      back.setAttribute("aria-label", "{{הקישי|הקש|הקש/י}} כדי להפוך את קלף היום");
       back.addEventListener("click", function () {
         if (flip.dataset.face === "front") return;
         play("reveal");
@@ -570,7 +572,7 @@
         var pressed = save.getAttribute("aria-pressed") === "true";
         save.setAttribute("aria-pressed", pressed ? "false" : "true");
         var label = save.querySelector(".action-button__label");
-        if (label) label.textContent = pressed ? "שמור" : "נשמר";
+        if (label) label.textContent = pressed ? "{{שמרי|שמור|שמור/י}}" : "נשמר";
         if (!pressed) play("save");
         toast(pressed ? "הוסר מהארכיון" : "נשמר בארכיון שלך");
       });
@@ -669,7 +671,7 @@
       title.textContent = pro ? "מנוי מזג" : "חשבון חינם";
       note.textContent = pro
         ? "השליטה במשקולות פתוחה. אפשר לשנות, לשמור, ולחזור אחורה."
-        : "את רואה את התחזית ואת המשקולות, ואת יכולה לגרור אותן ולראות מה קורה. השמירה סגורה.";
+        : "{{את|אתה|את/ה}} רואה את התחזית ואת המשקולות, ואפשר לגרור אותן ולראות מה קורה. השמירה סגורה.";
       toggle.textContent = pro ? "ביטול המנוי לבדיקה" : "הפעלת מנוי לבדיקה";
     }
 
@@ -755,20 +757,34 @@
       steps.forEach(function (s, i) { s.hidden = i !== current; });
       dots.forEach(function (d, i) { d.setAttribute("aria-selected", i === current ? "true" : "false"); });
       back.hidden = current === 0;
-      next.textContent = current === steps.length - 1 ? "בואי נתחיל" : "המשך";
+      next.textContent = current === steps.length - 1 ? "{{בואי|בוא|בוא/י}} נתחיל" : "המשך";
+    }
+
+    /* לשון הפנייה. הכפתור המסומן הוא ברירת המחדל הכללית, ולכן
+       מי שלא נגעה בשלב הזה יוצאת ממנו עם "בחר/י" ולא עם הנחה שגויה */
+    function chosenGender() {
+      var picked = dialog.querySelector('input[name="onboard-gender"]:checked');
+      return picked ? picked.value : "n";
+    }
+
+    /* שמירה אחת שמשרתת את שלושת מסלולי היציאה, כדי שלא ייווצר
+       מסלול שבו התאריך נשמר והלשון לא */
+    function persist() {
+      var hasBirth = birth && birth.value && Mazag.read(birth.value);
+      var g = chosenGender();
+      if (!hasBirth && g === "n") return false;      /* אין מה לשמור */
+      var existing = Mazag.loadProfile() || {};
+      if (hasBirth) existing.birth = birth.value;
+      existing.gender = g;
+      Mazag.saveProfile(existing);
+      return !!hasBirth;
     }
 
     function finish() {
       try { window.localStorage.setItem(SEEN_KEY, "1"); } catch (e) { /* private window */ }
-      if (birth && birth.value && Mazag.read(birth.value)) {
-        var existing = Mazag.loadProfile() || {};
-        existing.birth = birth.value;
-        Mazag.saveProfile(existing);
-        dialog.close();
-        window.location.href = "profile.html";
-        return;
-      }
+      var hadBirth = persist();
       dialog.close();
+      if (hadBirth) window.location.href = "profile.html";
     }
 
     next.addEventListener("click", function () {
@@ -783,11 +799,7 @@
       more.addEventListener("click", function (event) {
         event.preventDefault();
         try { window.localStorage.setItem(SEEN_KEY, "1"); } catch (e) { /* private window */ }
-        if (birth && birth.value && Mazag.read(birth.value)) {
-          var existing = Mazag.loadProfile() || {};
-          existing.birth = birth.value;
-          Mazag.saveProfile(existing);
-        }
+        persist();
         dialog.close();
         window.location.href = "profile.html#details";
       });
@@ -804,6 +816,7 @@
       if (!b) return;
       b.addEventListener("click", function () {
         try { window.localStorage.setItem(SEEN_KEY, "1"); } catch (e) { /* private window */ }
+        persist();     /* מי שבחרה לשון ואז דילגה, הבחירה שלה נשמרת */
         dialog.close();
       });
     });
@@ -895,6 +908,99 @@
     });
   }
 
+
+  /* ---------- מי בתחזית ----------
+     דפדוף בין הפרופילים בראש דף התחזית, ורשימת הפרופילים בדף הפרופיל.
+     שניהם קוראים מאותו מקור, ולכן אין מצב שהם מראים דברים שונים. */
+
+  function setupWhoPager() {
+    var bar = document.getElementById("who");
+    if (!bar) return;
+
+    var nameEl = document.getElementById("who-name-text");
+    var prev = document.getElementById("who-prev");
+    var nextBtn = document.getElementById("who-next");
+
+    function render() {
+      var list = Mazag.listProfiles();
+      if (!list.length) { bar.hidden = true; return; }
+
+      var id = Mazag.activeId(), idx = 0;
+      for (var i = 0; i < list.length; i++) if (list[i].id === id) idx = i;
+
+      bar.hidden = false;
+      nameEl.textContent = list[idx].name || "בלי שם";
+
+      /* פרופיל אחד: שם בלבד, ממורכז. חצים שלא מובילים לשום מקום
+         נראים כמו תקלה, ולכן הם יורדים ולא רק מעומעמים */
+      var single = list.length < 2;
+      bar.dataset.single = single ? "true" : "false";
+      prev.hidden = single;
+      nextBtn.hidden = single;
+    }
+
+    function step(delta) {
+      var list = Mazag.listProfiles();
+      if (list.length < 2) return;
+      var id = Mazag.activeId(), idx = 0;
+      for (var i = 0; i < list.length; i++) if (list[i].id === id) idx = i;
+      var next = (idx + delta + list.length) % list.length;   /* מעגלי, בלי קצוות מתים */
+      Mazag.setActive(list[next].id);
+      window.location.reload();   /* התחזית כולה נגזרת מהפרופיל, ולכן טעינה מחדש כנה יותר מעדכון חלקי */
+    }
+
+    /* בעברית הקריאה מימין לשמאל. הכפתור שמסומן "הקודם" יושב ראשון
+       ב-DOM, ולכן ב-RTL הוא נמצא מימין, וזה הכיוון הנכון */
+    prev.addEventListener("click", function () { step(-1); });
+    nextBtn.addEventListener("click", function () { step(1); });
+    render();
+  }
+
+  function setupPeopleRow() {
+    var row = document.getElementById("people-row");
+    var wrap = document.getElementById("people");
+    if (!row || !wrap) return;
+
+    function render() {
+      var list = Mazag.listProfiles();
+      var id = Mazag.activeId();
+      row.textContent = "";
+
+      /* עם פרופיל אחד ובלי מקום להוסיף אין מה להראות */
+      if (!list.length) { wrap.hidden = true; return; }
+      wrap.hidden = false;
+
+      list.forEach(function (p) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "person";
+        b.setAttribute("role", "tab");
+        b.setAttribute("aria-selected", p.id === id ? "true" : "false");
+        b.textContent = p.name || "בלי שם";
+        b.addEventListener("click", function () {
+          Mazag.setActive(p.id);
+          window.location.reload();
+        });
+        row.appendChild(b);
+      });
+
+      if (list.length < Mazag.maxProfiles) {
+        var add = document.createElement("button");
+        add.type = "button";
+        add.className = "person person--add";
+        add.textContent = "הוספה";
+        add.addEventListener("click", function () {
+          var id2 = Mazag.addProfile({ name: "", birth: "", gender: "n" });
+          if (!id2) return;
+          window.location.href = "profile.html#details";
+        });
+        row.appendChild(add);
+      }
+    }
+
+    render();
+  }
+
   /* ---------- profile: two tabs, but only once there is something to show ---------- */
 
   function setupProfile() {
@@ -915,6 +1021,19 @@
     var panDetails  = document.getElementById("panel-details");
     var chartList   = document.getElementById("profile-chart-list");
     var lead        = document.getElementById("profile-lead");
+    var genderBox   = document.getElementById("profile-gender");
+
+    function readGender() {
+      var picked = genderBox && genderBox.querySelector('input[name="gender"]:checked');
+      return picked ? picked.value : "n";
+    }
+
+    function writeGender(value) {
+      if (!genderBox) return;
+      var want = (value === "f" || value === "m") ? value : "n";
+      var inputs = genderBox.querySelectorAll('input[name="gender"]');
+      for (var i = 0; i < inputs.length; i++) inputs[i].checked = inputs[i].value === want;
+    }
 
     function showTab(which) {
       var wantForecast = which === "forecast";
@@ -952,6 +1071,7 @@
     if (saved.birth) birth.value = saved.birth;
     if (saved.time && time)   time.value  = saved.time;
     if (saved.place && place) place.value = saved.place;
+    writeGender(saved.gender);
 
     tabForecast.addEventListener("click", function () { showTab("forecast"); });
     tabDetails.addEventListener("click", function () { showTab("details"); });
@@ -981,10 +1101,11 @@
       if (year < 1900 || year > now) return showError("שנת הלידה צריכה להיות בין 1900 להיום.");
 
       var ok = Mazag.saveProfile({
-        name:  name.value.trim(),
-        birth: birth.value,
-        time:  time ? time.value : "",
-        place: place ? place.value.trim() : ""
+        name:   name.value.trim(),
+        birth:  birth.value,
+        time:   time ? time.value : "",
+        place:  place ? place.value.trim() : "",
+        gender: readGender()
       });
       if (!ok) return showError("לא הצלחנו לשמור במכשיר. אם הדפדפן במצב פרטי, זו הסיבה.");
 
@@ -1012,6 +1133,7 @@
         birth.value = "";
         if (time) time.value = "";
         if (place) place.value = "";
+        writeGender("n");
         clearError();
         refresh("details");
         toast("הכל נמחק מהמכשיר");
@@ -1066,6 +1188,8 @@
     setupCardRouting();
     setupForecastActions();
     setupBreakdown();
+    setupWhoPager();
+    setupPeopleRow();
     setupProfile();
     setupChart();
     setupWeights();
@@ -1076,5 +1200,12 @@
     setupArchive();
     setupSplash();
     setupStagger();
+
+    /* מעבר שני על לשון הפנייה. המעבר הראשון רץ בין שני הסקריפטים
+       וטיפל במה שהיה ב-HTML. הטקסטים מהטבלאות של astro.js מוזרקים
+       רק כאן, אחרי ההקמה, ולכן בלי המעבר הזה הם היו מוצגים עם
+       הסימונים הגולמיים. הפונקציה אידמפוטנטית: אחרי מעבר אין
+       סימונים, ולכן קריאה נוספת לא עושה כלום. */
+    try { Mazag.applyGender(document); } catch (e) { }
   });
 })();

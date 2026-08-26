@@ -30,12 +30,27 @@
     <header class="app-header">
       <img class="app-header__logo app-header__logo--light" src="assets/images/logo-new.webp" alt="מזג" width="122" height="45" />
       <img class="app-header__logo app-header__logo--dark" src="assets/images/logo-new-dark.webp" alt="" aria-hidden="true" width="122" height="45" />
-      <button type="button" class="icon-button" id="menu-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-drawer" aria-label="פתח תפריט">
+      <button type="button" class="icon-button" id="menu-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-drawer" aria-label="{{פתחי|פתח|פתח/י}} תפריט">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
       </button>
     </header>
 
     <main class="content">
+      <!-- מי מסתכל. עם פרופיל אחד הפס מציג שם בלי חצים, כדי שלא ייראה שבור.
+           בעברית הקריאה מימין לשמאל, ולכן החץ שמצביע ימינה הוא הקודם -->
+      <div class="pager" id="who" hidden>
+        <button type="button" class="pager__arrow" id="who-prev" aria-label="הפרופיל הקודם">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <span class="pager__label" id="who-name" aria-live="polite">
+          <svg class="pager__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          <span id="who-name-text"></span>
+        </span>
+        <button type="button" class="pager__arrow" id="who-next" aria-label="הפרופיל הבא">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+      </div>
+
       <p class="forecast__date">שלישי, 21.05.2025</p>
 
       <!-- השלד אמיתי ולא הדגמה: הוא יורד ברגע שגב הקלף פוענח, ואז
@@ -48,7 +63,7 @@
         <div class="flip__inner">
           <button type="button" class="flip__face flip__face--back" id="card-reveal">
             <img src="assets/images/card-back.webp" alt="" width="244" height="364" />
-            <span class="flip__hint">הקישי כדי להפוך</span>
+            <span class="flip__hint">{{הקישי|הקש|הקש/י}} כדי להפוך</span>
           </button>
           <img class="flip__face flip__face--front" id="hero-card"
                alt="" width="244" height="364" aria-hidden="true" />
@@ -66,23 +81,23 @@
       <div class="state-block" id="forecast-error" hidden role="alert">
         <h2 class="state-block__title">לא הצלחנו להרכיב את התחזית</h2>
         <p class="state-block__note">התאריך במכשיר נראה לא תקין, ובלעדיו אין ממה לגזור את היום.</p>
-        <button type="button" class="button-primary" onclick="window.location.reload()">נסי שוב</button>
+        <button type="button" class="button-primary" onclick="window.location.reload()">{{נסי|נסה|נסה/י}} שוב</button>
       </div>
 
       <div class="actions-row">
         <button type="button" class="action-button" id="save-btn" aria-pressed="false">
           <span class="action-button__surface"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>
-          <span class="action-button__label">שמור</span>
+          <span class="action-button__label">{{שמרי|שמור|שמור/י}}</span>
         </button>
         <button type="button" class="action-button" id="share-btn">
           <span class="action-button__surface"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="m8 7 4-4 4 4"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg></span>
-          <span class="action-button__label">שתף</span>
+          <span class="action-button__label">{{שתפי|שתף|שתף/י}}</span>
         </button>
         <!-- מוצג רק אחרי ההיפוך. כפתור שמציע להפוך חזרה קלף שעדיין הפוך
              הוא הבטחה לפעולה שאין לה משמעות -->
         <button type="button" class="action-button" id="flip-back-btn" hidden>
           <span class="action-button__surface"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span>
-          <span class="action-button__label">הפוך חזרה</span>
+          <span class="action-button__label">{{הפכי|הפוך|הפוך/י}} חזרה</span>
         </button>
       </div>
 
@@ -177,7 +192,7 @@
   <!-- ניווט: dialog אמיתי, כדי לקבל לכידת פוקוס, Escape וסגירה נכונה בלי לכתוב אותן ביד -->
   <dialog class="nav-drawer" id="nav-drawer" aria-label="ניווט ראשי">
     <nav class="nav-drawer__panel">
-      <button type="button" class="icon-button nav-drawer__close" id="menu-close" aria-label="סגור תפריט">
+      <button type="button" class="icon-button nav-drawer__close" id="menu-close" aria-label="{{סגרי|סגור|סגור/י}} תפריט">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
       <ul class="nav-drawer__list">
@@ -231,7 +246,7 @@
   <!-- אונבורדינג: dialog אמיתי, נפתח פעם אחת בביקור הראשון וגם מהתפריט -->
   <dialog class="onboard" id="onboarding" aria-labelledby="onboard-heading">
     <div class="onboard__panel">
-      <button type="button" class="icon-button onboard__close" id="onboard-skip" aria-label="דלגי על ההיכרות">
+      <button type="button" class="icon-button onboard__close" id="onboard-skip" aria-label="{{דלגי|דלג|דלג/י}} על ההיכרות">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
 
@@ -240,12 +255,12 @@
         <section class="onboard__step" data-step="0">
           <img class="onboard__image" src="assets/images/onboard-what.webp" alt="קלף מעוטר מונח על נייר עתיק לצד מצפן פליז וזר לבנדר יבש" width="342" height="228" />
           <h2 class="onboard__title">תמונה אחת וטקסט אחד, כל בוקר</h2>
-          <p class="onboard__body">במקום להתלבט בין שיטות ולפתוח חמש אפליקציות, את מקבלת תחזית אחת. תמונה שאפשר לשמור, ופסקה קצרה לקרוא בדרך.</p>
+          <p class="onboard__body">במקום להתלבט בין שיטות ולפתוח חמש אפליקציות, {{את|אתה|את/ה}} {{מקבלת|מקבל|מקבל/ת}} תחזית אחת. תמונה שאפשר לשמור, ופסקה קצרה לקרוא בדרך.</p>
         </section>
         <section class="onboard__step" data-step="1" hidden>
           <img class="onboard__image" src="assets/images/onboard-how.webp" alt="שישה סמלים עתיקים מסודרים במעגל, וקווי זהב מתכנסים מהם אל נקודה אחת במרכז" width="342" height="228" />
           <h2 class="onboard__title">שש שיטות שמתמזגות לקול אחד</h2>
-          <p class="onboard__body">אסטרולוגיה, נומרולוגיה, טארוט, אי צ׳ינג, רונות ואינטואיציה. לכל אחת משקל משלה, ואת תמיד יכולה לראות אותו, להבין למה, ולשנות אותו.</p>
+          <p class="onboard__body">אסטרולוגיה, נומרולוגיה, טארוט, אי צ׳ינג, רונות ואינטואיציה. לכל אחת משקל משלה, ותמיד אפשר לראות אותו, להבין למה, ולשנות אותו.</p>
         </section>
         <section class="onboard__step" data-step="2" hidden>
           <img class="onboard__image" src="assets/images/onboard-yours.webp" alt="גלגל מזלות מצויר על קלף עתיק, עם שמש וירח בפינות והמזלות סביב המרכז" width="342" height="228" />
@@ -259,16 +274,29 @@
           <a class="text-link onboard__more" href="profile.html#details" id="onboard-more">מילוי פרטים נוספים</a>
         </section>
 
+        <section class="onboard__step" data-step="3" hidden>
+          <img class="onboard__image" src="assets/images/onboard-yours.webp" alt="" aria-hidden="true" width="342" height="228" />
+          <h2 class="onboard__title">איך לפנות אליך</h2>
+          <p class="onboard__body">התחזית נכתבת בגוף שני, ולכן היא צריכה לדעת באיזו לשון. אפשר לשנות את זה בכל רגע בדף הפרופיל.</p>
+          <div class="choice-row" id="onboard-gender">
+            <label class="choice"><input type="radio" name="onboard-gender" value="f" /><span>בלשון נקבה</span></label>
+            <label class="choice"><input type="radio" name="onboard-gender" value="m" /><span>בלשון זכר</span></label>
+            <label class="choice"><input type="radio" name="onboard-gender" value="n" checked /><span>בלשון כללית</span></label>
+          </div>
+          <p class="field__help">הלשון הכללית פונה לשני המינים, למשל "בחר/י". דילוג משאיר אותה.</p>
+        </section>
+
       <div class="onboard__footer">
         <div class="dots" role="tablist" aria-label="שלבי ההיכרות">
           <button type="button" class="dots__item" role="tab" aria-selected="true" aria-label="שלב 1"><span></span></button>
           <button type="button" class="dots__item" role="tab" aria-selected="false" aria-label="שלב 2"><span></span></button>
           <button type="button" class="dots__item" role="tab" aria-selected="false" aria-label="שלב 3"><span></span></button>
+          <button type="button" class="dots__item" role="tab" aria-selected="false" aria-label="שלב 4"><span></span></button>
         </div>
         <div class="onboard__actions">
           <button type="button" class="button-secondary" id="onboard-back" hidden>חזרה</button>
           <button type="button" class="text-link onboard__skip" id="onboard-skip-text">דילוג</button>
-          <button type="button" class="button-primary" id="onboard-next">המשך</button>
+          <button type="button" class="button-primary" id="onboard-next">{{המשיכי|המשך|המשך/י}}</button>
         </div>
       </div>
     </div>
@@ -287,6 +315,11 @@
   </aside>
 
   <script src="astro.js"></script>
+  <script>
+    /* לשון הפנייה מוחלת כאן, בין שני הסקריפטים, כי זו הנקודה המוקדמת
+       ביותר שבה התוכן כבר מפורסר. אחריה אין סימונים על המסך. */
+    try { Mazag.applyGender(document); } catch (e) { }
+  </script>
   <script src="script.js"></script>
   <script>
     /* ההרשמה מחכה ל-load בכוונה, כדי שהיא לא תתחרה על רוחב פס עם המסך עצמו */

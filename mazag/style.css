@@ -2496,3 +2496,102 @@ button:disabled {
 
 .prose__list b { color: var(--color-text-primary); font-weight: var(--font-weight-label); }
 .prose a { color: var(--color-accent-deep); }
+
+/* ============================================================
+   מי בתחזית: פס דפדוף בין פרופילים, ורשימת הפרופילים בדף הפרופיל.
+   בעברית הקריאה מימין לשמאל, ולכן הכפתור הימני הוא "הקודם".
+   בנוי מלוגיקה ולא מכיוון גרפי, ולכן החלפת שפה לא תשבור אותו.
+   ============================================================ */
+
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-block-end: var(--space-sm);
+}
+
+.pager__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  color: var(--color-text-strong);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pager__icon { width: 20px; height: 20px; flex: 0 0 auto; opacity: .75; }
+
+.pager__arrow {
+  flex: 0 0 auto;
+  width: 44px; height: 44px;            /* יעד מגע מלא, גם כשהאייקון קטן */
+  display: grid; place-items: center;
+  border: 1px solid var(--color-border-base);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+.pager__arrow svg { width: 18px; height: 18px; }
+.pager__arrow:hover { color: var(--color-text-strong); }
+.pager__arrow[hidden] { display: none; }
+
+/* פרופיל יחיד: הפס מציג שם בלבד, ממורכז, בלי שלדים של כפתורים */
+.pager[data-single="true"] { justify-content: center; }
+
+.people { margin-block-end: var(--space-md); }
+.people__title {
+  font-size: var(--font-size-caption);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-xs);
+}
+.people__row {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+.person {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--color-border-base);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+  cursor: pointer;
+}
+.person[aria-selected="true"] {
+  border-color: var(--color-accent);
+  color: var(--color-text-strong);
+  font-weight: 600;
+}
+.person--add { border-style: dashed; }
+
+.field--choice { border: 0; padding: 0; margin-inline: 0; }
+.choice-row { display: flex; gap: var(--space-xs); flex-wrap: wrap; }
+.choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--color-border-base);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: var(--font-size-caption);
+  color: var(--color-text-muted);
+}
+.choice input { accent-color: var(--color-accent); }
+.choice:has(input:checked) {
+  border-color: var(--color-accent);
+  color: var(--color-text-strong);
+  font-weight: 600;
+}

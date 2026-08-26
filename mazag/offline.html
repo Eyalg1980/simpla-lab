@@ -30,7 +30,7 @@
     <header class="app-header">
       <img class="app-header__logo app-header__logo--light" src="assets/images/logo-new.webp" alt="מזג" width="122" height="45" />
       <img class="app-header__logo app-header__logo--dark" src="assets/images/logo-new-dark.webp" alt="" aria-hidden="true" width="122" height="45" />
-      <button type="button" class="icon-button" id="menu-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-drawer" aria-label="פתח תפריט">
+      <button type="button" class="icon-button" id="menu-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-drawer" aria-label="{{פתחי|פתח|פתח/י}} תפריט">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
       </button>
     </header>
@@ -43,7 +43,7 @@
       <div class="content__spacer"></div>
 
       <div class="controls">
-        <button type="button" class="button-primary" onclick="window.location.reload()">נסי שוב</button>
+        <button type="button" class="button-primary" onclick="window.location.reload()">{{נסי|נסה|נסה/י}} שוב</button>
         <a class="button-secondary" href="archive.html">לארכיון</a>
       </div>
     </main>
@@ -52,7 +52,7 @@
   <!-- ניווט: dialog אמיתי, כדי לקבל לכידת פוקוס, Escape וסגירה נכונה בלי לכתוב אותן ביד -->
   <dialog class="nav-drawer" id="nav-drawer" aria-label="ניווט ראשי">
     <nav class="nav-drawer__panel">
-      <button type="button" class="icon-button nav-drawer__close" id="menu-close" aria-label="סגור תפריט">
+      <button type="button" class="icon-button nav-drawer__close" id="menu-close" aria-label="{{סגרי|סגור|סגור/י}} תפריט">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
       <ul class="nav-drawer__list">
@@ -106,7 +106,7 @@
   <!-- אונבורדינג: dialog אמיתי, נפתח פעם אחת בביקור הראשון וגם מהתפריט -->
   <dialog class="onboard" id="onboarding" aria-labelledby="onboard-heading">
     <div class="onboard__panel">
-      <button type="button" class="icon-button onboard__close" id="onboard-skip" aria-label="דלגי על ההיכרות">
+      <button type="button" class="icon-button onboard__close" id="onboard-skip" aria-label="{{דלגי|דלג|דלג/י}} על ההיכרות">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
 
@@ -115,12 +115,12 @@
         <section class="onboard__step" data-step="0">
           <img class="onboard__image" src="assets/images/onboard-what.webp" alt="קלף מעוטר מונח על נייר עתיק לצד מצפן פליז וזר לבנדר יבש" width="342" height="228" />
           <h2 class="onboard__title">תמונה אחת וטקסט אחד, כל בוקר</h2>
-          <p class="onboard__body">במקום להתלבט בין שיטות ולפתוח חמש אפליקציות, את מקבלת תחזית אחת. תמונה שאפשר לשמור, ופסקה קצרה לקרוא בדרך.</p>
+          <p class="onboard__body">במקום להתלבט בין שיטות ולפתוח חמש אפליקציות, {{את|אתה|את/ה}} {{מקבלת|מקבל|מקבל/ת}} תחזית אחת. תמונה שאפשר לשמור, ופסקה קצרה לקרוא בדרך.</p>
         </section>
         <section class="onboard__step" data-step="1" hidden>
           <img class="onboard__image" src="assets/images/onboard-how.webp" alt="שישה סמלים עתיקים מסודרים במעגל, וקווי זהב מתכנסים מהם אל נקודה אחת במרכז" width="342" height="228" />
           <h2 class="onboard__title">שש שיטות שמתמזגות לקול אחד</h2>
-          <p class="onboard__body">אסטרולוגיה, נומרולוגיה, טארוט, אי צ׳ינג, רונות ואינטואיציה. לכל אחת משקל משלה, ואת תמיד יכולה לראות אותו, להבין למה, ולשנות אותו.</p>
+          <p class="onboard__body">אסטרולוגיה, נומרולוגיה, טארוט, אי צ׳ינג, רונות ואינטואיציה. לכל אחת משקל משלה, ותמיד אפשר לראות אותו, להבין למה, ולשנות אותו.</p>
         </section>
         <section class="onboard__step" data-step="2" hidden>
           <img class="onboard__image" src="assets/images/onboard-yours.webp" alt="גלגל מזלות מצויר על קלף עתיק, עם שמש וירח בפינות והמזלות סביב המרכז" width="342" height="228" />
@@ -134,11 +134,24 @@
           <a class="text-link onboard__more" href="profile.html#details" id="onboard-more">מילוי פרטים נוספים</a>
         </section>
 
+        <section class="onboard__step" data-step="3" hidden>
+          <img class="onboard__image" src="assets/images/onboard-yours.webp" alt="" aria-hidden="true" width="342" height="228" />
+          <h2 class="onboard__title">איך לפנות אליך</h2>
+          <p class="onboard__body">התחזית נכתבת בגוף שני, ולכן היא צריכה לדעת באיזו לשון. אפשר לשנות את זה בכל רגע בדף הפרופיל.</p>
+          <div class="choice-row" id="onboard-gender">
+            <label class="choice"><input type="radio" name="onboard-gender" value="f" /><span>בלשון נקבה</span></label>
+            <label class="choice"><input type="radio" name="onboard-gender" value="m" /><span>בלשון זכר</span></label>
+            <label class="choice"><input type="radio" name="onboard-gender" value="n" checked /><span>בלשון כללית</span></label>
+          </div>
+          <p class="field__help">הלשון הכללית פונה לשני המינים, למשל "בחר/י". דילוג משאיר אותה.</p>
+        </section>
+
       <div class="onboard__footer">
         <div class="dots" role="tablist" aria-label="שלבי ההיכרות">
           <button type="button" class="dots__item" role="tab" aria-selected="true" aria-label="שלב 1"><span></span></button>
           <button type="button" class="dots__item" role="tab" aria-selected="false" aria-label="שלב 2"><span></span></button>
           <button type="button" class="dots__item" role="tab" aria-selected="false" aria-label="שלב 3"><span></span></button>
+          <button type="button" class="dots__item" role="tab" aria-selected="false" aria-label="שלב 4"><span></span></button>
         </div>
         <div class="onboard__actions">
           <button type="button" class="button-secondary" id="onboard-back" hidden>חזרה</button>
@@ -162,6 +175,11 @@
   </aside>
 
   <script src="astro.js"></script>
+  <script>
+    /* לשון הפנייה מוחלת כאן, בין שני הסקריפטים, כי זו הנקודה המוקדמת
+       ביותר שבה התוכן כבר מפורסר. אחריה אין סימונים על המסך. */
+    try { Mazag.applyGender(document); } catch (e) { }
+  </script>
   <script src="script.js"></script>
   <script>
     /* ההרשמה מחכה ל-load בכוונה, כדי שהיא לא תתחרה על רוחב פס עם המסך עצמו */
