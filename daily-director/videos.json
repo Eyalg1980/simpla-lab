@@ -1,6 +1,62 @@
 {
   "days": [
     {
+      "date": "2026-08-26",
+      "dateLabel": "יום רביעי, 26 באוגוסט",
+      "ideas": [
+        {
+          "id": "2026-08-26-1",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "השעון בחדר ההמתנה של המרפאה רץ מהר בארבע דקות כבר שלושים שנה, ואף אחד לא מעז לתקן אותו.",
+          "concept": "מוקומנטרי ריאיון בחדר המתנה ריק של מרפאת שיניים, מצלמה נעולה על השעון והכיסאות הריקים. בתו של הרופא, שירשה את הקליניקה, מספרת בקריינות שאביה כיוון את השעון ארבע דקות קדימה ביום שהמרפאה נפתחה, כדי שמטופלים שבודקים את השעון ירגישו שהזמן עובר מהר יותר. מאז שהוא נפטר היא לא נתנה לאף אחד לתקן אותו בחזרה.",
+          "execution": "3 דקות ו-25 שניות, מיקום יחיד, חדר ההמתנה. פורמט מושאל: ריאיון מוקומנטרי עם קריינות עברית בגוף ראשון, פני המספרת לא נכנסות במלואן לפריים, המצלמה נשארת על השעון והכיסאות. Higgsfield Cinema Studio לשוט הריאיון הסטטי הארוך, Nano Banana Pro לעקביות פרטי השעון והכיסאות בין קאטים, Kling 3 std לתנועת המחוגים הזעירה ולשינוי האור המסמן מעבר זמן. יחס 16:9 להגשה, 9:16 לרשתות.",
+          "why": "יושב על חמישה מששת מנגנוני הזכייה: פורמט מושאל של ריאיון מוקומנטרי, מיקום יחיד קבוע, מונולוג עברי מלא בלי דיאלוג מסונכרן, גיבור לא אנושי (השעון) לצד דמות אב נעדרת ומבוגרת, סוף שהוא שינוי קטן במודעות שמתגלה רק במשפט האחרון, ואהבה לא סימטרית, חסד אנונימי כלפי זרים שלעולם לא יידעו על כך. אורך שנכנס גם לגלובלי וגם לאסטנה.",
+          "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+          "srcUrl": "https://higgsfield.ai/contests/higgsfield-global-film-festival",
+          "srcLabel": "Higgsfield Global Film Festival, דדליין 3.9.2026",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, warm dentist waiting room, empty clay chairs in a row, cream and coral yellow teal palette, soft afternoon light through a window, shallow depth of field. A round clay wall clock with a slightly worn cracked face hangs above the empty chairs, its minute hand ticking forward with a subtle unnatural speed, static locked camera holding the whole frame, quiet nostalgic mood, 16:9",
+            "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם השעון המהיר: שעון קיר בחדר המתנה ריק של מרפאת שיניים, רץ ארבע דקות קדימה. בתו של הרופא, שירשה את הקליניקה, מספרת בקריינות שאביה כיוון אותו כך ביום הפתיחה כדי שמטופלים ירגישו שהזמן עובר מהר יותר, ומאז מותו היא לא נתנה לאף אחד לתקן אותו. תפתח לי אותו לתסריט מלא: לוגליין אחת, לוח זמנים מדויק ל-3:25 דקות בפורמט ריאיון מוקומנטרי, מונולוג עברי מלא בגוף ראשון, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפט ג'נרציה מוכן לכל שוט בנפרד עם שם המודל, הכל בשפה ויזואלית קליי. ודא שסכום זמני השוטים שווה בדיוק למשך המוצהר. מיקום יחיד, בלי פנים אנושיות מלאות בפריים, בלי דיאלוג מסונכרן, בלי הליכה ובלי המונים.",
+            "image": "Claymation stop-motion still, handcrafted plasticine, visible fingerprints in clay, warm dentist waiting room, empty clay chairs in a row, cream and coral yellow teal palette, soft afternoon light through a window, shallow depth of field. A round clay wall clock with a slightly worn cracked face hangs above the empty chairs, minute hand mid tick, quiet nostalgic mood, no text",
+            "raw": "השעון בחדר ההמתנה של המרפאה רץ מהר בארבע דקות כבר שלושים שנה, ואף אחד לא מעז לתקן אותו.\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, וגם Astana AI Film Festival\nקונספט: ריאיון מוקומנטרי בחדר המתנה ריק של מרפאת שיניים. בתו של הרופא מספרת שאביה כיוון את השעון ארבע דקות קדימה ביום הפתיחה כדי שמטופלים ירגישו שהזמן עובר מהר יותר, ומאז מותו לא נתנה לתקן אותו.\nביצוע: 3:25 דקות, מיקום יחיד, פורמט ריאיון מוקומנטרי, שפה ויזואלית קליי. Cinema Studio לשוט הריאיון הסטטי, Nano Banana Pro לעקביות פרטי החדר, Kling 3 std לתנועת המחוגים ולשינוי האור. מונולוג עברי מלא, אפס פנים אנושיות מלאות בפריים. 16:9 להגשה, 9:16 לרשתות.\nלמה עכשיו: חמישה מששת מנגנוני הזכייה בבת אחת, גיבור לא אנושי לצד דמות אב נעדרת, סוף שהוא שינוי מודעות שמתגלה במשפט האחרון, ואורך שנכנס גם לגלובלי וגם לאסטנה."
+          }
+        },
+        {
+          "id": "2026-08-26-2",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "מונה החשמל בחדר המדרגות סופר צריכה בדירה שאין לה דייר כבר חמש עשרה שנה, ומעולם לא ניתקו אותו.",
+          "concept": "פוטג' מצלמת אבטחה של חדר מדרגות, פינה קבועה, חותמת זמן שורפת בפינת הפריים לאורך שנים. שרת הבניין מספר בקריינות שהוא בודק את המונה הזה כל חורף ותמיד מוצא אותו צריכה, נורה אחת, כמה שעות בלילה. הוא הפסיק לנסות להסביר את זה, ובמקום זה השאיר את האור בחדר המדרגות דלוק בשביל מי שזה לא יהיה.",
+          "execution": "3 דקות ו-10 שניות, מיקום יחיד, ארון המונים בחדר המדרגות. פורמט מושאל: פוטג' מצלמת אבטחה עם חותמת זמן קופצת בין שנים, קריינות עברית של השרת מעל הצילום, בלי דיאלוג מסונכרן. Higgsfield Cinema Studio לשוט הריתוק הסטטי הארוך בסגנון מצלמת אבטחה, Nano Banana Pro לעקביות ארון המונים והמונה בין קפיצות הזמן, Kling 3 std להבהוב העדין של חוגת המונה ולשינוי עוצמת נורת חדר המדרגות. יחס 16:9 להגשה, 9:16 לרשתות.",
+          "why": "יושב על חמישה מששת מנגנוני הזכייה: פורמט מושאל של מצלמת אבטחה, מיקום יחיד קבוע, מונולוג עברי מלא בלי דיאלוג מסונכרן, גיבור לא אנושי (המונה) לצד דמות שרת מבוגרת, סוף שהוא שינוי קטן במודעות, ההחלטה להשאיר את האור דלוק נחשפת רק במשפט האחרון, ואהבה לא סימטרית, דאגה שקטה לזר שלעולם לא יפגוש. אורך שנכנס גם לגלובלי וגם לאסטנה.",
+          "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+          "srcUrl": "https://aaiff.ai/",
+          "srcLabel": "Astana AI Film Festival, דדליין 31.8.2026",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, dim stairwell meter closet, cream coral yellow teal palette rendered in muted security camera tones, subtle static grain, fixed high angle, shallow depth of field. A small clay electricity meter with a slowly spinning dial sits inside an open closet door, a single small bulb glowing warm above it, a faint burned in timestamp corner overlay, static locked camera holding the whole frame, quiet melancholy mood, 16:9",
+            "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם המונה שממשיך לספור: מונה חשמל בחדר מדרגות סופר צריכה בדירה שאין לה דייר כבר חמש עשרה שנה. שרת הבניין מספר בקריינות שהוא בודק את המונה כל חורף ותמיד מוצא צריכה קטנה, נורה אחת, כמה שעות בלילה, הפסיק לנסות להסביר את זה והשאיר את האור דלוק בשביל מי שזה לא יהיה. תפתח לי אותו לתסריט מלא: לוגליין אחת, לוח זמנים מדויק ל-3:10 דקות בפורמט פוטג' מצלמת אבטחה, מונולוג עברי מלא בגוף ראשון, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפט ג'נרציה מוכן לכל שוט בנפרד עם שם המודל, הכל בשפה ויזואלית קליי. ודא שסכום זמני השוטים שווה בדיוק למשך המוצהר. מיקום יחיד, בלי דמות אנושית מלאה בפריים, בלי דיאלוג מסונכרן, בלי הליכה ובלי המונים.",
+            "image": "Claymation stop-motion still, handcrafted plasticine, visible fingerprints in clay, dim stairwell meter closet, cream coral yellow teal palette rendered in muted security camera tones, subtle static grain, fixed high angle, shallow depth of field. A small clay electricity meter with a slowly spinning dial sits inside an open closet door, a single small bulb glowing warm above it, a faint burned in timestamp corner overlay, quiet melancholy mood, no text",
+            "raw": "המונה החשמל בחדר המדרגות סופר צריכה בדירה שאין לה דייר כבר חמש עשרה שנה, ומעולם לא ניתקו אותו.\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, וגם Astana AI Film Festival\nקונספט: פוטג' מצלמת אבטחה של ארון המונים בחדר המדרגות. שרת הבניין מספר בקריינות שהוא בודק את המונה כל חורף ותמיד מוצא צריכה קטנה, ובמקום להסביר את זה השאיר את האור דלוק בשביל מי שזה לא יהיה.\nביצוע: 3:10 דקות, מיקום יחיד, פורמט מצלמת אבטחה, שפה ויזואלית קליי. Cinema Studio לשוט הריתוק הסטטי, Nano Banana Pro לעקביות ארון המונים, Kling 3 std להבהוב חוגת המונה ולשינוי עוצמת האור. מונולוג עברי מלא, אפס דמות אנושית מלאה בפריים. 16:9 להגשה, 9:16 לרשתות.\nלמה עכשיו: חמישה מששת מנגנוני הזכייה בבת אחת, גיבור לא אנושי לצד דמות שרת מבוגרת, סוף שהוא שינוי מודעות שמתגלה במשפט האחרון, ואורך שנכנס גם לגלובלי וגם לאסטנה."
+          }
+        }
+      ],
+      "watch": [
+        {
+          "title": "Astana AI Film Festival Extends Its Submission Deadline",
+          "desc": "ידיעה שמאשרת את ההארכה מ-15.8 ל-31.8, הרקע להחלטה וכמות ההגשות שכבר התקבלו. שווה מעקב כי זו התחרות עם החלון הקצר ביותר שנשאר החודש.",
+          "meta": "Qazinform · 6.8",
+          "url": "https://qazinform.com/news/astana-ai-film-festival-extends-its-submission-deadline-0f7a55"
+        },
+        {
+          "title": "Higgsfield Global Film Festival: How to Enter, Rules, and the $1,000,000 Prize Pool",
+          "desc": "פירוט מלא של כללי ההגשה, לוח הזמנים העדכני ומבנה הפרסים של התחרות הגדולה שסוגרת עוד שמונה ימים.",
+          "meta": "Higgsfield Blog",
+          "url": "https://higgsfield.ai/blog/higgsfield-global-film-festival"
+        }
+      ]
+    },
+    {
       "date": "2026-08-25",
       "dateLabel": "יום שלישי, 25 באוגוסט",
       "ideas": [

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-25",
+  "updated": "2026-08-26",
   "ideas": [
     {
       "id": "I-2026-0316",
@@ -1473,6 +1473,65 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-08-25"
+    },
+    {
+      "id": "I-2026-0339",
+      "title": "בודק נגישות מכל מקום",
+      "line": "מדביקים לינק פיגמה או אתר חי בצ'אט, וסטארק מחזיר רשימת הפרות נגישות עם הקשר לתיקון, בלי לפתוח כלי נפרד",
+      "advisor": "visionary",
+      "createdAt": "2026-08-26",
+      "capability": {
+        "name": "Stark, קונקטור נגישות רשמי בתוך קלוד שסורק פיגמה, קוד, אתרים חיים ו-Storybook",
+        "releasedAt": "2026-08-13"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-26"
+    },
+    {
+      "id": "I-2026-0340",
+      "title": "אתר תחרויות מוגן",
+      "line": "לפני שליפת דדליין מאתר ריכוז, בודקים אם הוא כבר נחסם בריצה קודמת ומדלגים ישר לאימות דרך חיפוש",
+      "advisor": "pain",
+      "createdAt": "2026-08-26",
+      "capability": null,
+      "evidence": "היגספילד.ai/contests נחסם PROVENANCE_REQUIRED גם ב-23.8 וגם היום ב-26.8, ואיתו הפעם גם aifilmcontests.com ו-open-arthouse.com, שלוש שליפות מתוך שש שנחסמו בריצה אחת של הבמאי היומי",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-26"
+    },
+    {
+      "id": "I-2026-0341",
+      "title": "למה זה נראה שונה בשקט",
+      "line": "איך מראים בכיתה שתי תמונות זהות, אחת AI ואחת סטוק, ונותנים לתלמיד לגלות שהוא לא יכול להבדיל לפני שמסבירים למה",
+      "advisor": "teacher",
+      "createdAt": "2026-08-26",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס UI/UX 45900, מודול פסיכולוגיית צבע ותפיסה חזותית",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-26"
+    },
+    {
+      "id": "I-2026-0342",
+      "title": "איזה עיקרון נשבר כאן",
+      "line": "מסך שמראה מסך תלמיד ומסמן בזמן אמת איזה מעשרת העקרונות של נילסן הוא שובר, לא רק רשימת בדיקה סטטית בסוף",
+      "advisor": "teacher",
+      "createdAt": "2026-08-26",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס UI/UX 45900, מודול עשרת עקרונות השימושיות של נילסן",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-26"
     }
   ]
 }
