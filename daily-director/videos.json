@@ -1,6 +1,51 @@
 {
   "days": [
     {
+      "date": "2026-08-27",
+      "dateLabel": "יום חמישי, 27 באוגוסט",
+      "ideas": [
+        {
+          "id": "2026-08-27-1",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "מכונת החיתוך במפתחנייה השכונתית מזהה כל מפתח שהיא חתכה אי פעם, לפי הצליל שהוא משמיע במנעול. הבוקר היא לא מזהה אף אחד.",
+          "concept": "מוקד יחיד וקבוע על מכונת חיתוך מפתחות תעשייתית ישנה בדוכן מפתחן שכונתי, כמעט כמו מצלמת אבטחה שנשארה דלוקה. הבעלים בפרישה סוגר את החנות אחרי ארבעים ושתיים שנה. ביום הפינוי מגיע לקוח אחרון עם מפתח שבור, בדיוק הדגם שהמכונה חתכה הכי הרבה פעמים במהלך השנים. היא כבר מנותקת מהחשמל. הבעלים מהסס רגע, ואז מחבר אותה בחזרה לתקע אחד אחרון.",
+          "execution": "3 דקות ו-30 שניות, מיקום יחיד, דוכן המפתחן. פורמט מושאל: זווית קבועה ונעולה שלא זזה לאורך כל הסרט, כמו מצלמת אבטחה שנשארה פועלת, בלי דיאלוג מסונכרן ובלי פנים אנושיות מלאות בפריים. Higgsfield Cinema Studio לשוט הסטטי הארוך, Nano Banana Pro לעקביות פרטי המכונה והחנות בין קאטים, Kling 3 std לתנועת גלגל החיתוך ולנפילת המפתח. יחס 16:9 להגשה, 9:16 לרשתות.",
+          "why": "יושב על ארבעה מששת מנגנוני הזכייה: פורמט מושאל של זווית מצלמת אבטחה קבועה, מיקום יחיד, גיבור לא אנושי (המכונה) לצד בעלים מבוגר נעדר כמעט מהפריים, וסוף שהוא שינוי קטן במודעות בלי פאנץ'. שקט כמעט מלא, רק צלילי המכונה. אורך שנכנס גם לגלובלי וגם לאסטנה.",
+          "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+          "srcUrl": "https://aaiff.ai/",
+          "srcLabel": "Astana AI Film Festival, דדליין 31.8.2026",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, small aging locksmith shop counter, cream studio background with coral yellow teal palette, soft warm desk lamp light, shallow depth of field. An old industrial clay key-cutting machine with worn brass-toned fittings sits on the counter, a tiny indicator light glows, an elderly clay hand enters frame to plug in a frayed cord, the cutting wheel spins once and a single brass key drops with a soft clink, static locked camera holding one fixed angle for the whole shot, quiet nostalgic mood, 16:9",
+            "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם המפתח האחרון: מכונת חיתוך מפתחות ישנה בדוכן מפתחן שכונתי, שמזהה כל מפתח שהיא חתכה בעבר לפי הצליל שלו במנעול, ובוקר אחד היא לא מזהה אף אחד כי הבעלים סוגר את החנות אחרי ארבעים ושתיים שנה. לקוח אחרון מגיע עם מפתח שבור מהדגם שהיא חתכה הכי הרבה, אבל היא כבר מנותקת, והבעלים מחבר אותה לרגע אחד אחרון. תפתח לי אותו לתסריט מלא: לוגליין אחת, החלטה אם צריך קריינות עברית קצרה או שקט מלא עדיף, לוח זמנים מדויק ל-3:30 דקות בזווית מצלמה קבועה אחת לכל הסרט, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפט ג'נרציה מוכן לכל שוט בנפרד עם שם המודל, הכל בשפה ויזואלית קליי. ודא שסכום זמני השוטים שווה בדיוק למשך המוצהר. מיקום יחיד, בלי דיאלוג מסונכרן, בלי הליכה ובלי המונים.",
+            "image": "Claymation stop-motion still, handcrafted plasticine, visible fingerprints in clay, small aging locksmith shop counter, cream studio background with coral yellow teal palette, soft warm desk lamp light, shallow depth of field. An old industrial clay key-cutting machine with worn brass-toned fittings, a single cut brass key resting beside it on the counter, quiet nostalgic mood, no text",
+            "raw": "מכונת החיתוך במפתחנייה השכונתית מזהה כל מפתח שהיא חתכה אי פעם, לפי הצליל שהוא משמיע במנעול. הבוקר היא לא מזהה אף אחד.\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, וגם Astana AI Film Festival\nקונספט: מוקד קבוע על מכונת חיתוך מפתחות ישנה בדוכן מפתחן. הבעלים בפרישה סוגר את החנות אחרי ארבעים ושתיים שנה. לקוח אחרון מגיע עם מפתח שבור מהדגם שהיא חתכה הכי הרבה, אבל היא כבר מנותקת. הבעלים מחבר אותה לרגע אחד אחרון.\nביצוע: 3:30 דקות, מיקום יחיד, זווית קבועה כמו מצלמת אבטחה, שפה ויזואלית קליי. Cinema Studio לשוט הסטטי, Nano Banana Pro לעקביות, Kling 3 std לתנועת הגלגל והמפתח. כמעט בלי דיאלוג. 16:9 להגשה, 9:16 לרשתות.\nלמה עכשיו: ארבעה מששת מנגנוני הזכייה, זווית מצלמת אבטחה קבועה, מיקום יחיד, גיבור לא אנושי, וסוף שהוא שינוי מודעות שקט. אורך שנכנס גם לגלובלי וגם לאסטנה."
+          },
+          "used": false
+        },
+        {
+          "id": "2026-08-27-2",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "לפסנתר הציבורי בתחנת הרכבת יש מקש תקוע כבר שמונה שנים. הוא בוחר לא לתקן רק את עצמו, כשהיא סוף סוף מגיעה.",
+          "concept": "פסנתר ציבורי בפינת תחנת רכבת מרכזית, מקש אחד תקוע ומוציא צליל שגוי באותה נקודה כבר שמונה שנים. נגנית חובבת מגיעה כל יום שלישי ומנגנת את אותה מנגינה, כולל הצליל השגוי, בלי לשים לב שהוא הפך לחלק ממנה. יום אחד מגיע טכנאי פסנתרים ומתקן את המקש. היא מגיעה, מנגנת, והצליל יוצא נכון בפעם הראשונה. משהו במבט שלה משתנה, לא לטובה. בפעם הבאה היא כבר לא חוזרת.",
+          "execution": "3 דקות ו-45 שניות, מיקום יחיד, פינת הפסנתר בתחנה. פורמט מושאל: זווית רחבה קבועה על פינת הפסנתר, כמו מצלמת אבטחה של התחנה, בלי דיאלוג מסונכרן. Higgsfield Cinema Studio לשוטים הרחבים, Nano Banana Pro לעקביות המקש הבודד והפסנתר בין קאטים, Kling 3 std לתנועת האצבעות והבעת הפנים המצומצמת. יחס 16:9 להגשה, 9:16 לרשתות.",
+          "why": "יושב על ארבעה מששת מנגנוני הזכייה: פורמט מושאל של זווית מצלמת אבטחה קבועה, מיקום יחיד, גיבור לא אנושי (המקש התקוע) שמניע את כל העלילה, ואהבה לא סימטרית, קשר שקיים רק דרך פגם שאף אחד לא ביקש לתקן. סוף שהוא שינוי קטן במודעות ולא פאנץ'. אורך שנכנס גם לגלובלי וגם לאסטנה.",
+          "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+          "srcUrl": "https://higgsfield.ai/contests/higgsfield-global-film-festival",
+          "srcLabel": "Higgsfield Global Film Festival, דדליין 3.9.2026",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, a public upright clay piano in the corner of a busy train station concourse, cream studio background with coral yellow teal palette, warm golden light through tall windows, shallow depth of field. Macro shot of one worn clay piano key sitting slightly lower than its neighbors, a clay finger presses it and a slightly off pitch note rings out, static locked camera holding a wide fixed angle on the piano corner, quiet nostalgic mood, 16:9",
+            "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם המקש התקוע: פסנתר ציבורי בתחנת רכבת עם מקש אחד תקוע ומוציא צליל שגוי כבר שמונה שנים. נגנית חובבת מגיעה כל יום שלישי ומנגנת סביב הצליל השגוי בלי לשים לב שהוא הפך לחלק מהמנגינה שלה, עד שטכנאי מתקן את המקש, היא מנגנת נכון בפעם הראשונה, ומשהו במבט שלה משתנה. תפתח לי אותו לתסריט מלא: לוגליין אחת, החלטה אם דרושה קריינות עברית קצרה או שהשקט עדיף, לוח זמנים מדויק ל-3:45 דקות בזווית מצלמה רחבה קבועה אחת לכל הסרט, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפט ג'נרציה מוכן לכל שוט בנפרד עם שם המודל, הכל בשפה ויזואלית קליי. ודא שסכום זמני השוטים שווה בדיוק למשך המוצהר. מיקום יחיד, בלי דיאלוג מסונכרן בין דמויות, בלי הליכה מלאה ובלי המונים.",
+            "image": "Claymation stop-motion still, handcrafted plasticine, visible fingerprints in clay, a public upright clay piano in the corner of a busy train station concourse, cream studio background with coral yellow teal palette, warm golden light through tall windows, shallow depth of field. Macro close-up on one worn clay piano key sitting slightly lower than its neighbors, dust motes suspended in the light beam, no text",
+            "raw": "לפסנתר הציבורי בתחנת הרכבת יש מקש תקוע כבר שמונה שנים. הוא בוחר לא לתקן רק את עצמו, כשהיא סוף סוף מגיעה.\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, וגם Astana AI Film Festival\nקונספט: פסנתר ציבורי בתחנת רכבת, מקש תקוע שמונה שנים. נגנית חובבת מנגנת סביבו כל יום שלישי בלי לשים לב שהוא חלק מהמנגינה שלה. טכנאי מתקן את המקש, היא מנגנת נכון בפעם הראשונה, ומשהו במבט שלה משתנה. היא לא חוזרת.\nביצוע: 3:45 דקות, מיקום יחיד, זווית רחבה קבועה כמו מצלמת אבטחה, שפה ויזואלית קליי. Cinema Studio לשוטים הרחבים, Nano Banana Pro לעקביות המקש, Kling 3 std לתנועת האצבעות. 16:9 להגשה, 9:16 לרשתות.\nלמה עכשיו: ארבעה מששת מנגנוני הזכייה, זווית מצלמת אבטחה, מיקום יחיד, גיבור לא אנושי, אהבה לא סימטרית וסוף שהוא שינוי מודעות שקט. אורך שנכנס גם לגלובלי וגם לאסטנה."
+          },
+          "used": false
+        }
+      ],
+      "watch": null
+    },
+    {
       "date": "2026-08-26",
       "dateLabel": "יום רביעי, 26 באוגוסט",
       "ideas": [
