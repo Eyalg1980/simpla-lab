@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>מזג · תחזית אחת בבוקר</title>
+  <meta name="description" content="שש שיטות תחזית מתמזגות לתמונה אחת וטקסט אחד בכל בוקר. אפשר לראות בדיוק כמה כל שיטה תרמה, ולשנות. חינם, בלי הרשמה." />
+  <link rel="icon" href="assets/icons/app-icon.png" type="image/png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#121827" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="מזג · תחזית אחת בבוקר, במקום חמש שסותרות" />
+  <meta property="og:description" content="שש שיטות מתמזגות לתמונה אחת וטקסט אחד בכל בוקר." />
+  <meta property="og:image" content="assets/images/proof-daily.webp" />
+  <meta property="og:locale" content="he_IL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+
+  <!--
+    ============================================================
+    המסג'ינג לפני העיצוב. חמש התשובות נכתבו לפני שנפתח קובץ.
+    ============================================================
+    למי זה מיועד     מי שקוראת תחזית יומית ביותר ממקום אחד
+    מה הכאב היום     חמישה מקורות אומרים חמישה דברים סותרים, ואין מי שיכריע
+    מה המוצר עושה    ממזג שש שיטות לתחזית אחת, ומראה כמה כל שיטה תרמה
+    למה דווקא אנחנו  אנחנו היחידים שמראים את המשקולות ומרשים לשנות אותן
+    מה שיעשה עכשיו   ייכנס לתחזית של היום. בלי הרשמה, בלי התקנה, בלי הרשאות
+    ============================================================
+    עמוד אחד, מטרה אחת, כפתור אחד.
+    הניווט העליון מוביל לאזורים בתוך הדף בלבד. הוא לא יציאה מהדף,
+    ולכן הוא לא סותר את הכלל של קישור אחד בהירו.
+  -->
+
+  <style>
+    /* ============================================================
+       1. אסימונים, שתי תמות
+       הבהיר לקוח מהאפליקציה עצמה ולא הומצא כאן, כדי שהדף
+       והמוצר ירגישו אותו דבר.
+       כל צבע בדף עובר דרך אסימון. אין ערך צבע שיושב רק בתוך
+       בלוק של תמה, כי צבע כזה פשוט לא קיים בתמה השנייה
+       ============================================================ */
+    :root {
+      /* ברירת המחדל היא כהה. הדף נבנה סביב סרטון כהה */
+      --surface:     #121827;
+      --surface-alt: #171e30;   /* פס מתחלף, אותה משפחה בגוון אחר */
+      --raised:      #1b2233;
+      --border:      #313b52;
+      --hairline:    #2a334a;
+
+      --text:   #ece7dd;
+      --text-2: #b9b1a2;
+      --text-3: #9a9284;
+
+      --accent: #dcc9a4;        /* כותרות */
+      --blue:   #b4b0ca;
+      --star:   #dcc9a4;
+
+      /* בלוק מודגש על דף כהה חייב להיות בהיר מהדף ולא כהה ממנו */
+      --emph:    #dcc9a4;
+      --on-emph: #121827;
+
+      /* הפס ההפוך. אותו נראה בשתי התמות, וזו כל הנקודה שלו */
+      --band:      #241d33;   /* לא עוד גוון של הדף. אזור אחר */
+      --band-text: #f4efe4;
+
+      --shadow: 0 24px 60px rgb(6 9 15 / 0.55);
+
+      --heading: "Frank Ruhl Libre", Georgia, serif;
+      --body:    "Assistant", Arial, sans-serif;
+
+      --measure: 34rem;
+      --wide:    64rem;
+      --max:     80rem;
+
+      --tap: 48px;
+      --r: 18px;
+
+      color-scheme: dark;
+    }
+
+    :root[data-theme="light"] {
+      --surface:     #faf6f3;
+      --surface-alt: #f2ede6;
+      --raised:      #fffdfa;
+      --border:      #e2d7c4;
+      --hairline:    #e8dfd0;
+
+      --text:   #171f1c;
+      --text-2: #5e564b;
+      --text-3: #8a816f;
+
+      --accent: #8a6a3c;
+      --blue:   #6f6a91;
+      --star:   #b08b3f;
+
+      --emph:    #212839;
+      --on-emph: #faf6f3;
+
+      --band:      #212839;
+      --band-text: #f4efe4;
+
+      --shadow: 0 20px 44px rgb(33 40 57 / 0.14);
+
+      color-scheme: light;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-block-start: 5rem; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+      margin: 0;
+      background-color: var(--surface);
+      color: var(--text);
+      font-family: var(--body);
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-text-size-adjust: 100%;
+      overflow-x: hidden;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+    @media (prefers-reduced-motion: reduce) { body { transition: none; } }
+
+    img, video, svg { max-inline-size: 100%; height: auto; }
+
+    /* ============================================================
+       2. פריסה וארבע נקודות שבירה
+         עד 640     טלפון, עמודה אחת
+         640 - 1024 טאבלט, שתי עמודות
+         1024 - 1440 לפטופ, פריסה מלאה
+         מעל 1440   מסך גדול, מגבילים רוחב תוכן
+       ============================================================ */
+    .wrap { width: min(100% - 2.5rem, var(--wide)); margin-inline: auto; }
+    .col  { width: min(100%, var(--measure)); }
+    @media (min-width: 90rem) { .wrap { width: min(100% - 4rem, var(--max)); } }
+
+    section { padding-block: clamp(3rem, 6.5vw, 5rem); background-color: var(--surface); }
+    section.alt { background-color: var(--surface-alt); }
+
+    .skip {
+      position: absolute; inset-block-start: -100%; inset-inline-start: 1rem;
+      background-color: var(--emph); color: var(--on-emph);
+      padding: 0.6rem 1rem; border-radius: 0 0 12px 12px; z-index: 70;
+    }
+    .skip:focus { inset-block-start: 0; }
+
+    :where(a, button, summary):focus-visible {
+      outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px;
+    }
+
+    /* ============================================================
+       3. טיפוגרפיה
+       ============================================================ */
+    h1 {
+      font-family: var(--heading); font-weight: 600; margin: 0 0 1rem;
+      font-size: clamp(2rem, 5.6vw, 3.4rem); line-height: 1.14; text-wrap: balance;
+    }
+    h2 {
+      font-family: var(--heading); font-weight: 600; margin: 0 0 1rem;
+      font-size: clamp(1.6rem, 3.9vw, 2.2rem); line-height: 1.25;
+      color: var(--accent); text-wrap: balance;
+    }
+    h3 { font-family: var(--heading); font-weight: 500; font-size: 1.15rem; margin: 0 0 0.35rem; color: var(--text); }
+    p  { margin: 0 0 1rem; color: var(--text-2); max-inline-size: var(--measure); }
+    p strong { color: var(--text); font-weight: 600; }
+
+    /* שם האזור. אותו גודל וטון בכל אזור, כדי שהוא ייקרא כמערכת */
+    .kicker {
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em;
+      color: var(--text-3); margin: 0 0 0.85rem;
+    }
+    .lede { font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: var(--text-2); margin: 0 0 0.5rem; }
+    .who  { font-size: 0.95rem; color: var(--text-3); margin: 0 0 1.6rem; }
+  </style>
+  <style>
+    /* ============================================================
+       4. כותרת עליונה
+       דביקה, עם ניווט פנימי ומתג תמה. אין בה שום קישור שיוצא
+       מהדף, ולכן היא לא מוסיפה יציאות להירו
+       ============================================================ */
+    header.top {
+      position: sticky; inset-block-start: 0; z-index: 60;
+      border-block-end: 1px solid var(--hairline);
+      background-color: color-mix(in srgb, var(--surface) 88%, transparent);
+      backdrop-filter: blur(12px);
+      padding-block: 0.7rem;
+    }
+    header.top .wrap { display: flex; align-items: center; gap: 1rem; }
+    .brand { display: flex; align-items: center; gap: 0.7rem; margin-inline-end: auto; }
+    .brand img { display: block; height: 30px; width: auto; }
+    /* לוגו אחד לכל תמה. הבהיר על רקע כהה, והכהה על רקע בהיר */
+    :root[data-theme="light"] .brand .logo-dark { display: none; }
+    :root:not([data-theme="light"]) .brand .logo-light { display: none; }
+
+    .nav { display: none; gap: 0.15rem; }
+    @media (min-width: 64rem) { .nav { display: flex; } }
+    .nav a {
+      color: var(--text-2); text-decoration: none; font-size: 0.9rem;
+      padding: 0.45rem 0.7rem; border-radius: 999px; white-space: nowrap;
+    }
+    .nav a:hover { color: var(--text); background-color: var(--surface-alt); }
+    .nav a[aria-current="true"] { color: var(--accent); background-color: var(--surface-alt); }
+
+    .theme-toggle {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      min-height: 40px; padding-inline: 0.85rem; border-radius: 999px;
+      background: none; border: 1px solid var(--border); color: var(--text-2);
+      font: inherit; font-size: 0.85rem; cursor: pointer;
+    }
+    .theme-toggle:hover { color: var(--text); border-color: var(--accent); }
+    .theme-toggle .ico { width: 18px; height: 18px; stroke: currentColor; }
+    :root[data-theme="light"] .theme-toggle .t-dark { display: none; }
+    :root:not([data-theme="light"]) .theme-toggle .t-light { display: none; }
+
+    /* ============================================================
+       5. אייקוני קו
+       ספרייה אחת: אותה רשת, אותו עובי קו, אותו אסימון צבע
+       ============================================================ */
+    .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+    .ico { width: 26px; height: 26px; flex: none; stroke: var(--accent); fill: none;
+           stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .ico--lg { width: 42px; height: 42px; stroke-width: 1.3; }
+    .ico--muted { stroke: var(--text-3); }
+
+    /* ============================================================
+       6. אריחים ממורכזים
+       אותו רכיב לשלושת השלבים ולארבעת הגבולות. אייקון גדול למעלה,
+       קו שיער מתחתיו, כותרת מודגשת, ואז גוף הטקסט
+       ============================================================ */
+    .tiles { display: grid; gap: 1rem; margin-block-start: 1.75rem; grid-template-columns: 1fr; }
+    @media (min-width: 40rem) { .tiles { grid-template-columns: 1fr 1fr; gap: 1.25rem; } }
+    @media (min-width: 64rem) {
+      .tiles--3 { grid-template-columns: repeat(3, 1fr); }
+      .tiles--4 { grid-template-columns: repeat(4, 1fr); }
+    }
+    .tile {
+      background-color: var(--raised); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 1.75rem 1.35rem 1.5rem;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+    }
+    .tile__icon { display: grid; place-items: center; margin-block-end: 1.1rem; }
+    .tile__rule {
+      width: 3.5rem; height: 1px; background-color: var(--border);
+      margin-block-end: 1.1rem; flex: none;
+    }
+    .tile h3 {
+      font-family: var(--body); font-weight: 700;
+      font-size: 1.16rem; line-height: 1.35; margin: 0 0 0.6rem; color: var(--text);
+    }
+    .tile p { margin: 0; font-size: 0.95rem; color: var(--text-2); max-inline-size: 22rem; }
+    .tile__n {
+      margin-block-start: 1.25rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 2rem; height: 2rem; border-radius: 999px;
+      background-color: var(--emph); color: var(--on-emph);
+      font-family: var(--heading); font-size: 0.92rem; font-weight: 600;
+    }
+
+    /* ============================================================
+       7. כפתורים
+       ============================================================ */
+    .ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      min-height: var(--tap); padding-inline: 1.5rem; border-radius: 999px;
+      text-decoration: none; font: inherit; font-weight: 600; cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 0.12s ease, filter 0.12s ease;
+    }
+    .btn--primary { background-color: var(--emph); color: var(--on-emph); }
+    .btn--primary:hover { filter: brightness(1.08); }
+    .btn--primary:active { transform: translateY(1px); }
+    .btn[hidden] { display: none; }
+    @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+
+    .inline-link {
+      color: var(--text-2); font-size: 0.92rem; text-decoration: underline;
+      text-underline-offset: 4px; min-height: var(--tap);
+      display: inline-flex; align-items: center;
+    }
+    .inline-link:hover { color: var(--accent); }
+    .note { font-size: 0.85rem; color: var(--text-3); margin-block-start: 0.9rem; }
+
+    .sticky-cta {
+      position: fixed; inset-inline: 0; inset-block-end: 0; z-index: 50;
+      padding: 0.65rem 1rem calc(0.65rem + env(safe-area-inset-bottom));
+      background-color: color-mix(in srgb, var(--surface) 94%, transparent);
+      backdrop-filter: blur(10px);
+      border-block-start: 1px solid var(--border);
+      transform: translateY(110%); transition: transform 0.22s ease;
+    }
+    .sticky-cta.is-on { transform: none; }
+    .sticky-cta .btn { width: 100%; }
+    @media (min-width: 40rem) { .sticky-cta { display: none; } }
+    @media (prefers-reduced-motion: reduce) { .sticky-cta { transition: none; } }
+
+    /* ============================================================
+       8. הירו
+       ============================================================ */
+    .hero { padding-block: clamp(2.5rem, 7vw, 5rem); }
+    .hero__grid { display: grid; gap: clamp(2rem, 5vw, 3.5rem); align-items: center; grid-template-columns: 1fr; }
+    @media (min-width: 40rem) { .hero__grid { grid-template-columns: 1fr 0.8fr; } }
+    @media (min-width: 64rem) { .hero__grid { grid-template-columns: 1.05fr 0.95fr; } }
+
+    .phone {
+      justify-self: center; width: min(100%, 15.5rem); position: relative;
+      border: 1px solid var(--border); border-radius: 28px; padding: 8px;
+      background-color: var(--raised); box-shadow: var(--shadow);
+    }
+    @media (min-width: 64rem) { .phone { width: min(100%, 17.5rem); } }
+    .phone img { display: block; width: 100%; border-radius: 20px; }
+
+    .hero__proof {
+      display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem;
+      margin: 1.4rem 0 0; padding: 0; list-style: none;
+      font-size: 0.85rem; color: var(--text-3);
+    }
+    .hero__proof li { display: flex; align-items: baseline; gap: 0.35rem; }
+    .hero__proof b { color: var(--accent); font-family: var(--heading); font-size: 1rem; font-weight: 600; }
+
+    /* ============================================================
+       9. וידאו סקראבינג
+       האזור הזה כהה תמיד, גם במצב בהיר. הרקע לקוח מגוון השוליים
+       של הסרטון עצמו, כדי שהסרטון ייראה כאילו הוא ממלא את המסך
+       ============================================================ */
+    .scrub { padding: 0; background-color: #101728; }
+    .scrub__track { position: relative; height: 300vh; }
+    .scrub__stage {
+      position: sticky; inset-block-start: 0; height: 100svh;
+      display: grid; grid-template-rows: 1fr auto; overflow: hidden;
+      background-color: #101728;
+    }
+    .scrub__stage video { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+    .scrub__still { display: none; width: 100%; height: auto; }
+    .scrub__cap { text-align: center; padding: 0.5rem 1.5rem clamp(1.75rem, 5vh, 3rem); pointer-events: none; }
+    .scrub__cap p {
+      margin: 0 auto; max-inline-size: 30rem; color: #f4efe4;
+      font-family: var(--heading); font-size: clamp(1.3rem, 3.4vw, 2rem); line-height: 1.4;
+      text-shadow: 0 2px 18px rgb(8 11 18 / 0.75);
+    }
+    .scrub__hint {
+      position: absolute; inset-inline: 0; inset-block-start: clamp(1.2rem, 4vh, 2.5rem);
+      text-align: center; font-size: 0.8rem; letter-spacing: 0.08em;
+      color: rgb(244 239 228 / 0.62); pointer-events: none;
+    }
+    .scrub.is-static .scrub__track { height: auto; }
+    .scrub.is-static .scrub__stage { position: static; height: auto; }
+    .scrub.is-static .scrub__stage video { display: none; }
+    .scrub.is-static .scrub__still { display: block; }
+    .scrub.is-static .scrub__cap { position: static; padding-block: 1.5rem; }
+    .scrub.is-static .scrub__hint { display: none; }
+  </style>
+  <style>
+    /* ============================================================
+       10. הבעיה, והציטוט הגדול
+       ============================================================ */
+    .quote {
+      font-family: var(--heading);
+      font-size: clamp(1.4rem, 3.4vw, 2rem); line-height: 1.45;
+      color: var(--text); background-color: var(--raised);
+      border: 1px solid var(--border); border-radius: var(--r);
+      padding: clamp(1.5rem, 4vw, 2.25rem); margin: 0 0 1.5rem; max-inline-size: none;
+    }
+    .quote cite {
+      display: block; margin-block-start: 1rem; font-family: var(--body);
+      font-size: 0.85rem; font-style: normal; color: var(--text-3);
+    }
+
+    /* ============================================================
+       11. הפרסונות
+       ============================================================ */
+    .voices { display: grid; gap: 1rem; grid-template-columns: 1fr; margin-block-start: 1.75rem; }
+    @media (min-width: 40rem) { .voices { grid-template-columns: 1fr 1fr; } }
+    .voice {
+      background-color: var(--raised); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 1.4rem 1.5rem;
+      display: grid; gap: 0.9rem; align-content: start;
+    }
+    .voice__who { display: flex; align-items: center; gap: 0.8rem; }
+    /* ראשי תיבות ולא תצלום. פרסונה היא לא אדם */
+    .voice__avatar {
+      width: 46px; height: 46px; flex: none; border-radius: 999px;
+      display: grid; place-items: center;
+      background-color: var(--surface); border: 1px solid var(--border);
+      font-family: var(--heading); font-size: 1.2rem; color: var(--accent);
+    }
+    .voice__name { font-weight: 600; color: var(--text); line-height: 1.3; }
+    .voice__role { display: block; font-size: 0.82rem; color: var(--text-3); font-weight: 400; }
+    .voice q { font-family: var(--heading); font-size: 1.12rem; line-height: 1.5; color: var(--text); }
+    .voice__note { margin: 0; font-size: 0.9rem; color: var(--text-2); max-inline-size: none; }
+    .voices__source { font-size: 0.88rem; color: var(--text-3); margin-block-start: 1.25rem; max-inline-size: 46rem; }
+
+    /* ============================================================
+       12. מאחורי הקלעים
+       שתי עמודות. הטקסט מתחיל מיד מתחת לכותרת בצד ימין, והמסך
+       יושב בצד שמאל ומיושר לגובה הכותרת. התמונה חתוכה בדיוק
+       לגבולות החלונית, ולכן אין סביבה שוליים לבנים
+       ============================================================ */
+    .proof__grid { display: grid; gap: clamp(1.75rem, 4vw, 3rem); grid-template-columns: 1fr; align-items: start; }
+    .proof__grid > div:first-child { max-inline-size: var(--measure); }
+    @media (min-width: 56rem) { .proof__grid { grid-template-columns: 1fr 0.85fr; } }
+    .proof__shot {
+      border-radius: var(--r); overflow: hidden; justify-self: center;
+      width: min(100%, 22rem); box-shadow: var(--shadow); line-height: 0;
+      border: 1px solid var(--border);
+    }
+    .proof__shot img { display: block; width: 100%; }
+    .proof__cap { font-size: 0.85rem; color: var(--text-3); margin: 0.8rem 0 0; text-align: center; }
+    .proof h3 { margin-block-start: 1.5rem; }
+    .proof h3:first-of-type { margin-block-start: 0; }
+
+    /* ============================================================
+       13. השיטות, ומודל לכל אחת
+       ============================================================ */
+    .methods { list-style: none; margin: 1.75rem 0 0; padding: 0; display: grid; gap: 0.7rem; }
+    @media (min-width: 64rem) { .methods { grid-template-columns: 1fr 1fr; gap: 0.7rem 1.1rem; } }
+    .methods li { display: block; }
+    .method-btn {
+      inline-size: 100%; text-align: start; font: inherit; cursor: pointer;
+      display: grid; grid-template-columns: 46px 1fr auto; gap: 0.9rem; align-items: center;
+      background-color: var(--raised); border: 1px solid var(--border);
+      border-radius: 14px; padding: 0.8rem 1rem; color: inherit;
+      transition: border-color 0.15s ease, transform 0.12s ease;
+    }
+    .method-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+    @media (prefers-reduced-motion: reduce) { .method-btn { transition: none; } }
+    .method-btn img { width: 46px; height: 46px; border-radius: 999px; object-fit: cover; }
+    .method-btn .name { font-weight: 600; color: var(--text); }
+    .method-btn .what { display: block; font-size: 0.85rem; color: var(--text-2); font-weight: 400; }
+    .method-btn .pct { font-family: var(--heading); font-size: 1.1rem; color: var(--accent); }
+    .method-btn .bar { grid-column: 1 / -1; height: 5px; border-radius: 999px; background-color: var(--border); overflow: hidden; }
+    .method-btn .bar span { display: block; height: 100%; background-color: var(--blue); border-radius: 999px; }
+    .methods__hint { font-size: 0.85rem; color: var(--text-3); margin-block-start: 1rem; }
+
+    dialog.sheet {
+      inline-size: min(100% - 2rem, 38rem); max-block-size: 88svh;
+      padding: 0; border: 1px solid var(--border); border-radius: var(--r);
+      background-color: var(--raised); color: var(--text);
+      box-shadow: var(--shadow); overflow: hidden;
+    }
+    dialog.sheet::backdrop { background-color: rgb(8 11 18 / 0.72); backdrop-filter: blur(3px); }
+    .sheet__scroll { max-block-size: 88svh; overflow-y: auto; }
+    .sheet__hero { position: relative; line-height: 0; background-color: var(--surface); }
+    .sheet__hero img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+    .sheet__close {
+      position: absolute; inset-block-start: 0.75rem; inset-inline-end: 0.75rem;
+      inline-size: 40px; block-size: 40px; border-radius: 999px; cursor: pointer;
+      border: 1px solid rgb(255 255 255 / 0.35); background-color: rgb(8 11 18 / 0.55);
+      color: #fff; display: grid; place-items: center; font-size: 1.2rem; line-height: 1;
+    }
+    .sheet__body { padding: 1.5rem clamp(1.25rem, 4vw, 2rem) 2rem; }
+    .sheet__top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-block-end: 0.25rem; }
+    .sheet__top h3 { font-family: var(--heading); font-size: clamp(1.5rem, 4vw, 2rem); margin: 0; color: var(--accent); }
+    .sheet__pct { font-family: var(--heading); font-size: 1.4rem; color: var(--text-3); }
+    .sheet__sub { font-size: 1.02rem; color: var(--text-2); margin: 0 0 1.4rem; max-inline-size: none; }
+    .sheet dl { margin: 0; display: grid; gap: 1.1rem; }
+    .sheet dt { font-size: 0.78rem; letter-spacing: 0.06em; font-weight: 600; color: var(--text-3); margin-block-end: 0.25rem; }
+    .sheet dd { margin: 0; color: var(--text-2); font-size: 0.97rem; }
+    .sheet__foot { margin-block-start: 1.6rem; padding-block-start: 1.1rem; border-block-start: 1px solid var(--border); }
+    .sheet__foot p { font-size: 0.9rem; color: var(--text-3); margin: 0; max-inline-size: none; }
+
+    /* ============================================================
+       14. מה עוד יש בפנים
+       ============================================================ */
+    .screens { display: grid; gap: 1.25rem; grid-template-columns: 1fr 1fr; margin-block-start: 1.75rem; }
+    @media (min-width: 40rem) { .screens { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } }
+    .screen figure { margin: 0; }
+    .screen__frame {
+      position: relative; border: 1px solid var(--border); border-radius: 18px;
+      padding: 6px; background-color: var(--raised); overflow: hidden;
+    }
+    .screen__frame img { display: block; width: 100%; border-radius: 13px; }
+    .screen__frame::after {
+      content: ""; position: absolute; inset-inline: 6px; inset-block-end: 6px; height: 22%;
+      border-radius: 0 0 13px 13px; pointer-events: none;
+      background: linear-gradient(to top, var(--raised), transparent);
+    }
+    .screen figcaption { margin-block-start: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+    .screen figcaption b { color: var(--text); font-weight: 600; font-size: 0.95rem; }
+    .screen p { margin: 0.25rem 0 0; font-size: 0.86rem; color: var(--text-3); max-inline-size: none; }
+  </style>
+  <style>
+    /* ============================================================
+       15. המלצות
+       התוכן כאן הוא תוכן לדוגמה, והשלט אומר את זה בגלוי. דף
+       נחיתה של מוצר לפני משתמשים לא יכול להציג המלצות אמיתיות,
+       ומה שכן אפשר זה להראות את התבנית ולסמן אותה
+       ============================================================ */
+    .demo-chip {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.76rem; font-weight: 600; letter-spacing: 0.04em;
+      color: var(--text-3); border: 1px dashed var(--border);
+      border-radius: 999px; padding: 0.25rem 0.75rem; margin-block-end: 0.85rem;
+    }
+    .cards3 { display: grid; gap: 1rem; grid-template-columns: 1fr; margin-block-start: 1.75rem; }
+    @media (min-width: 40rem) { .cards3 { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 64rem) { .cards3 { grid-template-columns: repeat(3, 1fr); } }
+    .tcard {
+      background-color: var(--raised); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 1.4rem 1.5rem;
+      display: grid; gap: 0.9rem; align-content: start;
+    }
+    .stars { display: flex; gap: 0.15rem; }
+    .stars svg { width: 18px; height: 18px; fill: var(--star); stroke: none; }
+    .tcard q { font-family: var(--heading); font-size: 1.08rem; line-height: 1.5; color: var(--text); }
+    .tcard__who { display: flex; align-items: center; gap: 0.7rem; margin-block-start: 0.15rem; }
+    .tcard__who img {
+      width: 42px; height: 42px; flex: none; border-radius: 999px; object-fit: cover;
+      background-color: var(--surface); border: 1px solid var(--border);
+    }
+    .tcard__name { font-weight: 600; color: var(--text); font-size: 0.95rem; line-height: 1.3; }
+    .tcard__meta { display: block; font-size: 0.8rem; color: var(--text-3); font-weight: 400; }
+
+    /* ============================================================
+       16. סטריפ שיתופי פעולה
+       שמות מומצאים ולא לוגואים של חברות אמיתיות, כי שיתוף פעולה
+       שלא קיים הוא לא נכס עיצובי, הוא טענה שקרית
+       ============================================================ */
+    .logos { padding-block: clamp(1.75rem, 4vw, 2.5rem); }
+    .logos__row {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: clamp(1.25rem, 5vw, 3.25rem); margin-block-start: 1rem;
+    }
+    .logos__row span {
+      font-family: var(--heading); font-size: clamp(1rem, 2.4vw, 1.3rem);
+      color: var(--text-3); opacity: 0.75; white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 0.45rem;
+    }
+    .logos__row .ico { width: 20px; height: 20px; stroke: var(--text-3); }
+    .logos p { text-align: center; margin: 0 auto; }
+
+    /* ============================================================
+       17. גבולות
+       ============================================================ */
+
+    /* ============================================================
+       18. רצועת הכרטיסיות
+       הכרטיסיות רחבות ונוגעות בשני הקצוות, כי הן התוכן ולא קישוט
+       ============================================================ */
+    .strip {
+      display: grid; grid-auto-flow: column; grid-auto-columns: 9.5rem; gap: 0.85rem;
+      overflow-x: auto; overscroll-behavior-inline: contain;
+      padding-block-end: 0.5rem; margin-block-start: 1.75rem;
+      scroll-snap-type: inline mandatory; scrollbar-width: thin;
+    }
+    @media (min-width: 64rem) { .strip { grid-auto-columns: 1fr; gap: 1rem; overflow: visible; } }
+    .strip img {
+      width: 100%; border-radius: 12px; border: 1px solid var(--border);
+      scroll-snap-align: start; box-shadow: var(--shadow);
+    }
+
+    /* ============================================================
+       19. שאלות
+       ============================================================ */
+    .faq { margin-block-start: 1.75rem; display: grid; gap: 0.7rem; }
+    .faq details {
+      border: 1px solid var(--border); border-radius: 14px;
+      background-color: var(--raised); overflow: hidden;
+    }
+    .faq summary {
+      cursor: pointer; font-weight: 600; color: var(--text);
+      min-height: 56px; padding: 0.9rem 1.15rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      list-style: none;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::marker { content: ""; }
+    .faq .chev {
+      width: 20px; height: 20px; flex: none; stroke: var(--accent); fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+      transition: transform 0.2s ease;
+    }
+    .faq details[open] .chev { transform: rotate(180deg); }
+    @media (prefers-reduced-motion: reduce) { .faq .chev { transition: none; } }
+    .faq p { margin: 0; padding: 0 1.15rem 1.1rem; font-size: 0.95rem; max-inline-size: none; }
+
+    /* ============================================================
+       20. הפס ההפוך
+       השבירה הוויזואלית של הדף. אותו מראה בשתי התמות, טיפוגרפיה
+       גדולה, ורקע שאף אזור אחר לא משתמש בו
+       ============================================================ */
+    .band { background-color: var(--band); color: var(--band-text); text-align: center; }
+    .band .wrap { display: grid; justify-items: center; }
+    .band .kicker { color: rgb(244 239 228 / 0.6); }
+    .band h2 {
+      color: var(--band-text); font-size: clamp(2rem, 6vw, 3.6rem);
+      line-height: 1.15; margin-block-end: 1.25rem; max-inline-size: 18ch;
+    }
+    .band p { color: rgb(244 239 228 / 0.78); font-size: 1.06rem; margin-inline: auto; }
+    .band .ctas { justify-content: center; margin-block-start: 0.75rem; }
+    .band .btn--primary { background-color: #dcc9a4; color: #121827; }
+    .band .note { color: rgb(244 239 228 / 0.55); }
+
+    /* ============================================================
+       21. גוגל פליי
+       ============================================================ */
+    .store__grid {
+      display: grid; gap: 1.5rem; grid-template-columns: 1fr; align-items: center;
+      margin-block-start: 1.5rem;
+    }
+    @media (min-width: 48rem) { .store__grid { grid-template-columns: 1fr auto; } }
+    .store__badge {
+      display: inline-flex; align-items: center; gap: 0.9rem;
+      background-color: var(--band); color: var(--band-text);
+      border: 1px solid var(--border); border-radius: 14px;
+      padding: 0.75rem 1.4rem 0.75rem 1.1rem; text-decoration: none;
+      cursor: default; opacity: 0.92;
+    }
+    .store__badge svg { width: 30px; height: 34px; flex: none; }
+    .store__badge .l1 { display: block; font-size: 0.7rem; letter-spacing: 0.06em; opacity: 0.75; }
+    .store__badge .l2 { display: block; font-family: var(--heading); font-size: 1.2rem; line-height: 1.15; }
+    .store__soon {
+      display: inline-flex; align-items: center; margin-inline-start: 0.75rem;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em;
+      color: var(--text-3); border: 1px solid var(--border); border-radius: 999px;
+      padding: 0.15rem 0.6rem;
+    }
+    .store__row { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+
+    footer.bottom {
+      border-block-start: 1px solid var(--border); padding-block: 2.5rem;
+      color: var(--text-3); font-size: 0.9rem; background-color: var(--surface);
+    }
+    footer.bottom p { color: var(--text-3); max-inline-size: none; }
+    footer.bottom a { color: var(--text-2); }
+    @media (max-width: 39.99rem) { footer.bottom { padding-block-end: 6rem; } }
+  </style>
+</head>
+<body>
+
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-date" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/>
+      <path d="M12 13.2l.8 1.7 1.8.2-1.4 1.3.4 1.8-1.6-.9-1.6.9.4-1.8-1.4-1.3 1.8-.2z"/>
+    </symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24">
+      <path d="M12 4v16M7 20h10M4 8h16"/><path d="M4 8l-2.4 5a2.8 2.8 0 004.8 0z"/>
+      <path d="M20 8l-2.4 5a2.8 2.8 0 004.8 0z"/>
+    </symbol>
+    <symbol id="i-card" viewBox="0 0 24 24">
+      <rect x="5" y="3" width="14" height="14" rx="2.5"/><circle cx="12" cy="10" r="2.6"/>
+      <path d="M6 20h12M8.5 23h7"/>
+    </symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24">
+      <path d="M2.5 12S6 6 12 6s9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="12" r="2.6"/>
+    </symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.2A8.2 8.2 0 019.8 4 8.4 8.4 0 1020 14.2z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/>
+    </symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12.5 16V8M17 16v-6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24">
+      <rect x="4.5" y="10" width="15" height="10.5" rx="2.5"/><path d="M8 10V7.5a4 4 0 018 0V10"/>
+      <circle cx="12" cy="15.2" r="1.2"/>
+    </symbol>
+    <symbol id="i-methods" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8.5"/>
+      <circle cx="12" cy="3.5" r="1.3"/><circle cx="20.5" cy="12" r="1.3"/><circle cx="3.5" cy="12" r="1.3"/>
+    </symbol>
+    <symbol id="i-archive" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="4" width="7.5" height="7.5" rx="1.5"/>
+      <rect x="3" y="14.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="14.5" width="7.5" height="7.5" rx="1.5"/>
+    </symbol>
+    <symbol id="i-chartme" viewBox="0 0 24 24">
+      <circle cx="12" cy="8" r="3.5"/><path d="M4.5 20a7.5 7.5 0 0115 0"/>
+      <path d="M18.5 3.5l.7 1.5 1.6.2-1.2 1.1.3 1.6-1.4-.8-1.4.8.3-1.6-1.2-1.1 1.6-.2z"/>
+    </symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24">
+      <path d="M12 3l1.6 5.2L19 10l-5.4 1.8L12 17l-1.6-5.2L5 10l5.4-1.8z"/>
+    </symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9.5l6 6 6-6"/></symbol>
+  </svg>
+
+  <a class="skip" href="#main">דילוג לתוכן</a>
+
+  <header class="top">
+    <div class="wrap">
+      <div class="brand">
+        <img class="logo-dark" src="assets/images/logo-new-dark.webp" alt="מזג" width="122" height="45" />
+        <img class="logo-light" src="assets/images/logo-new.webp" alt="מזג" width="122" height="45" />
+      </div>
+
+      <nav class="nav" aria-label="אזורים בדף">
+        <a href="#problem">הבעיה</a>
+        <a href="#voices">הפרסונות</a>
+        <a href="#proof">מאחורי הקלעים</a>
+        <a href="#how">התהליך</a>
+        <a href="#methods">השיטות</a>
+        <a href="#testimonials">המלצות</a>
+        <a href="#faq">שאלות</a>
+      </nav>
+
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false">
+        <svg class="ico t-dark" aria-hidden="true"><use href="#i-sun" /></svg>
+        <svg class="ico t-light" aria-hidden="true"><use href="#i-moon" /></svg>
+        <span class="t-dark">בהיר</span>
+        <span class="t-light">כהה</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero__grid">
+          <div>
+            <p class="kicker">תחזית יומית ויזואלית</p>
+            <h1>תחזית אחת בבוקר,<br />במקום חמש שסותרות</h1>
+            <p class="lede">
+              שש שיטות נשקלות ומתמזגות לתמונה אחת וטקסט אחד, ואפשר לראות
+              בדיוק כמה כל שיטה תרמה היום.
+            </p>
+            <p class="who">למי שקוראת תחזית יומית ביותר ממקום אחד, ונמאס לה להכריע בין השניים.</p>
+
+            <div class="ctas">
+              <button type="button" class="btn btn--primary" id="install-btn" hidden>התקנה על המסך הראשי</button>
+              <a class="btn btn--primary" href="daily-forecast.html" id="open-btn">לתחזית של היום</a>
+              <a class="inline-link" href="#how">איך זה עובד</a>
+            </div>
+            <p class="note" id="install-note">בלי הרשמה, בלי חשבון, ובלי לבקש גישה לשום דבר.</p>
+
+            <ul class="hero__proof">
+              <li><b>6</b> שיטות</li>
+              <li><b>1</b> תחזית ביום</li>
+              <li><b>0</b> הרשאות</li>
+            </ul>
+          </div>
+
+          <div class="phone">
+            <img src="assets/images/proof-daily.webp"
+                 alt="מסך התחזית היומית באפליקציה: תאריך, כרטיסייה מצוירת, פסקת תחזית קצרה וכפתורי שמירה ושיתוף"
+                 width="585" height="1180" fetchpriority="high" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scrub" id="scrub" aria-label="הקלף נחשף">
+      <div class="scrub__track" id="scrub-track">
+        <div class="scrub__stage">
+          <p class="scrub__hint" aria-hidden="true">גללי כדי לחשוף</p>
+          <video id="scrub-video" muted playsinline preload="none" disablepictureinpicture
+                 aria-hidden="true" tabindex="-1"></video>
+          <img class="scrub__still" id="scrub-still" alt="קלף התחזית אחרי החשיפה, מוקף בסמלי שש השיטות" />
+          <div class="scrub__cap">
+            <p>שש השיטות מקיפות את הקלף, ואז נכנסות אליו. מה שנשאר הוא תחזית אחת.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="problem">
+      <div class="wrap">
+        <div class="col">
+          <p class="kicker">הבעיה</p>
+          <h2>הבעיה היא לא מחסור, היא עודף</h2>
+        </div>
+        <blockquote class="quote">
+          הקוסמופוליטן אמר לי שיהיה יום טוב לקבל החלטות כלכליות והטארוט אמר לי
+          להיזהר משינויים פזיזים. קיבלתי שתי הודעות שסותרות אחת את השנייה תוך חמש דקות.
+          <cite>מתוך ראיונות המשתמשים שקדמו למוצר</cite>
+        </blockquote>
+        <p>
+          מי שקוראת תחזיות יומיות כמעט תמיד קוראת יותר מאחת. השיטות אומרות דברים שונים,
+          ואין מקום אחד שמרכיב את זה לתשובה אחת. <strong>מזג הוא המקום הזה.</strong>
+        </p>
+      </div>
+    </section>
+
+    <section id="voices">
+      <div class="wrap">
+        <div class="col">
+          <p class="kicker">הפרסונות</p>
+          <h2>מי שדיברנו איתה</h2>
+          <p>
+            ראיונות עומק עם צרכניות תחזיות יומיות, שקובצו לשתי פרסונות.
+            <strong>אלה לא המלצות על המוצר.</strong> אלה המשפטים שנאמרו בראיונות,
+            והם אלה שקבעו מה נבנה ומה לא.
+          </p>
+        </div>
+
+        <div class="voices">
+          <article class="voice">
+            <div class="voice__who">
+              <span class="voice__avatar" aria-hidden="true">מ</span>
+              <span class="voice__name">מאיה כהן<span class="voice__role">פרסונה ראשית · 28 עד 34 · מונעת מטקסיות</span></span>
+            </div>
+            <q>הקוסמופוליטן אמר לי שיהיה יום טוב לקבל החלטות כלכליות והטארוט אמר לי להיזהר משינויים פזיזים.</q>
+            <p class="voice__note">
+              קוראת תחזית משתי שיטות לפחות כמעט כל בוקר, כחלק מטקס. יש לה תיקיית גלריה
+              עם מעל מאה תמונות תחזית שמורות. התמונה, לא הטקסט, היא מה שגורם לה לעצור.
+              <strong>בגללה המסך הראשי הוא תמונה.</strong>
+            </p>
+          </article>
+
+          <article class="voice">
+            <div class="voice__who">
+              <span class="voice__avatar" aria-hidden="true">ט</span>
+              <span class="voice__name">טל אברהמי<span class="voice__role">פרסונה נוספת · 24 עד 30 · צרכנות פסיבית</span></span>
+            </div>
+            <q>אם היא לא הייתה שולחת, פשוט לא הייתי נחשפת לזה בכלל באותו יום.</q>
+            <p class="voice__note">
+              נחשפת לתחזיות רק כשמישהי קרובה שולחת. מחקה אפליקציה אחרת תוך יומיים
+              כי ביקשה חיבור לחשבון בנק. כל חיכוך בכניסה מוביל אצלה לנטישה מיידית.
+              <strong>בגללה אין כאן הרשמה.</strong>
+            </p>
+          </article>
+        </div>
+
+        <p class="voices__source">
+          המשפט הכי חשוב שיצא מהראיונות הוא דווקא זה: "בפועל לא עשיתי שום דבר מיוחד עם זה,
+          פשוט המשכתי ליום שלי כרגיל." הכאב אמיתי אבל רך, וזה מה שקבע שהמוצר יישאר קטן.
+        </p>
+      </div>
+    </section>
+
+    <section class="alt proof" id="proof">
+      <div class="wrap">
+        <div class="proof__grid">
+          <div>
+            <p class="kicker">מאחורי הקלעים</p>
+            <h2>לא צריך להאמין לנו, אפשר לפתוח ולראות</h2>
+            <p>
+              בכל תחזית יש שורה אחת שנפתחת ומראה את כל השש, עם המשקל של כל אחת.
+              <strong>הן תמיד מסתכמות במאה.</strong>
+            </p>
+            <h3>מה זה אומר בפועל</h3>
+            <p>
+              אף שיטה לא נעלמת בתוך התוצאה. אם התחזית של היום נשמעת לך רחוקה,
+              אפשר לפתוח את החלונית ולראות מי דחף אותה לשם, ואז לשנות את היחס.
+            </p>
+            <p>
+              אסטרולוגיה מקבלת חצי בברירת המחדל כי היא היחידה שקוראת את מפת הלידה שלך,
+              ולכן היא הקלט הכי אישי שיש.
+            </p>
+          </div>
+          <div>
+            <div class="proof__shot">
+              <img src="assets/images/proof-weights.webp"
+                   alt="חלונית ממה מורכבת התחזית של היום, פתוחה: אסטרולוגיה חמישים אחוז, נומרולוגיה חמישה עשר, טארוט שלושה עשר, אי צ׳ינג תשעה, רונות שבעה, אינטואיציה שישה"
+                   width="513" height="628" loading="lazy" />
+            </div>
+            <p class="proof__cap">צילום מסך מהאפליקציה, לא הדמיה.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap">
+        <div class="col">
+          <p class="kicker">התהליך</p>
+          <h2>איך זה עובד</h2>
+          <p>שלושה שלבים, והשני קורה מאחורי הקלעים.</p>
+        </div>
+        <div class="tiles tiles--3">
+          <article class="tile">
+            <span class="tile__icon"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-date" /></svg></span>
+            <span class="tile__rule"></span>
+            <h3>תאריך לידה, וזהו</h3>
+            <p>בלי הרשמה ובלי חשבון. התאריך נשמר במכשיר שלך בלבד, ואפשר גם לדלג עליו.</p>
+            <span class="tile__n">1</span>
+          </article>
+          <article class="tile">
+            <span class="tile__icon"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-scale" /></svg></span>
+            <span class="tile__rule"></span>
+            <h3>שש שיטות נשקלות</h3>
+            <p>לכל שיטה משקל, והמשקלים תמיד מסתכמים במאה. אפשר לראות בדיוק כמה כל אחת תרמה היום.</p>
+            <span class="tile__n">2</span>
+          </article>
+          <article class="tile">
+            <span class="tile__icon"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-card" /></svg></span>
+            <span class="tile__rule"></span>
+            <h3>תמונה אחת וטקסט אחד</h3>
+            <p>איור שאפשר לשמור ולשתף, ופסקה קצרה לקרוא בדרך. זהו כל המסך.</p>
+            <span class="tile__n">3</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="methods">
+      <div class="wrap">
+        <div class="col">
+          <p class="kicker">השיטות</p>
+          <h2>שש שיטות, והמשקל של כל אחת</h2>
+          <p>אלה ברירות המחדל. <strong>אפשר לשנות את כולן.</strong></p>
+        </div>
+        <ul class="methods">
+          <li>
+            <button type="button" class="method-btn" data-method="astrology" aria-haspopup="dialog">
+              <img src="assets/icons/method-astrology.webp" alt="" width="46" height="46" loading="lazy" />
+              <span class="name">אסטרולוגיה<span class="what">מיקום השמש והירח היום מול מפת הלידה שלך</span></span>
+              <span class="pct">50%</span>
+              <span class="bar"><span style="width:50%"></span></span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="method-btn" data-method="numerology" aria-haspopup="dialog">
+              <img src="assets/icons/method-numerology.webp" alt="" width="46" height="46" loading="lazy" />
+              <span class="name">נומרולוגיה<span class="what">המספר של התאריך היום מול מספר הדרך שלך</span></span>
+              <span class="pct">15%</span>
+              <span class="bar"><span style="width:15%"></span></span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="method-btn" data-method="tarot" aria-haspopup="dialog">
+              <img src="assets/icons/method-tarot.webp" alt="" width="46" height="46" loading="lazy" />
+              <span class="name">טארוט<span class="what">הקלף שנשלף לך היום, ומה שהוא מדגיש</span></span>
+              <span class="pct">13%</span>
+              <span class="bar"><span style="width:13%"></span></span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="method-btn" data-method="iching" aria-haspopup="dialog">
+              <img src="assets/icons/method-iching.webp" alt="" width="46" height="46" loading="lazy" />
+              <span class="name">אי צ׳ינג<span class="what">ההקסגרמה שעלתה, ומה שהיא אומרת על התזמון</span></span>
+              <span class="pct">9%</span>
+              <span class="bar"><span style="width:9%"></span></span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="method-btn" data-method="runes" aria-haspopup="dialog">
+              <img src="assets/icons/method-runes.webp" alt="" width="46" height="46" loading="lazy" />
+              <span class="name">רונות<span class="what">הרונה שנמשכה, וכיוון הפעולה שהיא מציעה</span></span>
+              <span class="pct">7%</span>
+              <span class="bar"><span style="width:7%"></span></span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="method-btn" data-method="intuition" aria-haspopup="dialog">
+              <img src="assets/icons/method-intuition.webp" alt="" width="46" height="46" loading="lazy" />
+              <span class="name">אינטואיציה<span class="what">משקל קטן ששמור לתחושה שלא נכנסת לנוסחה</span></span>
+              <span class="pct">6%</span>
+              <span class="bar"><span style="width:6%"></span></span>
+            </button>
+          </li>
+        </ul>
+        <p class="methods__hint">הקישי על שיטה כדי לקרוא מה היא, מאיפה היא באה, ומה היא תורמת.</p>
+      </div>
+    </section>
+
+    <section id="screens">
+      <div class="wrap">
+        <div class="col">
+          <p class="kicker">מה יש בפנים</p>
+          <h2>ארבעה מסכים, כולם חינם</h2>
+          <p>
+            התחזית היומית היא המסך הראשי, אבל היא לא כל המוצר.
+            כל מה שכאן הוא צילום מסך מהאפליקציה.
+          </p>
+        </div>
+
+        <div class="screens">
+          <div class="screen">
+            <figure>
+              <div class="screen__frame">
+                <img src="assets/images/feat-methods.webp" alt="מסך שש השיטות: שורה לכל שיטה עם האחוז שלה ומשפט הסבר" width="440" height="611" loading="lazy" />
+              </div>
+              <figcaption><svg class="ico" aria-hidden="true"><use href="#i-methods" /></svg><b>שש השיטות</b></figcaption>
+              <p>מה כל אחת מהן, מאיפה היא באה, וכמה היא שוקלת אצלך.</p>
+            </figure>
+          </div>
+          <div class="screen">
+            <figure>
+              <div class="screen__frame">
+                <img src="assets/images/feat-weights.webp" alt="מסך מאחורי הקלעים: שש השיטות עם המשקל של כל אחת ופס התקדמות" width="440" height="611" loading="lazy" />
+              </div>
+              <figcaption><svg class="ico" aria-hidden="true"><use href="#i-scale" /></svg><b>מאחורי הקלעים</b></figcaption>
+              <p>המשקולות שהרכיבו את התחזית של היום, גלויות ולא מוסתרות.</p>
+            </figure>
+          </div>
+          <div class="screen">
+            <figure>
+              <div class="screen__frame">
+                <img src="assets/images/feat-archive.webp" alt="מסך הארכיון: רשת של כרטיסיות התחזית לפי תאריך" width="440" height="611" loading="lazy" />
+              </div>
+              <figcaption><svg class="ico" aria-hidden="true"><use href="#i-archive" /></svg><b>הארכיון</b></figcaption>
+              <p>כל תחזית שראית, לפי תאריך. בלי רצפים ובלי ספירה.</p>
+            </figure>
+          </div>
+          <div class="screen">
+            <figure>
+              <div class="screen__frame">
+                <img src="assets/images/feat-chart.webp" alt="מסך המפה שלי: מזל, מספר דרך, קלף לידה ושנה סינית" width="440" height="611" loading="lazy" />
+              </div>
+              <figcaption><svg class="ico" aria-hidden="true"><use href="#i-chartme" /></svg><b>המפה שלי</b></figcaption>
+              <p>הקריאה הקבועה שנגזרת מתאריך הלידה, ולא משתנה מיום ליום.</p>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- המלצות. תוכן לדוגמה, והשלט אומר את זה בגלוי, כי למוצר
+         עדיין אין משתמשים והמצאת המלצות היא לא החלטת עיצוב -->
+    <section class="alt" id="testimonials">
+      <div class="wrap">
+        <div class="col">
+          <p class="kicker">המלצות</p>
+          <span class="demo-chip">תוכן לדוגמה</span>
+          <h2>מה אומרות מי שכבר קמות איתה</h2>
+          <p>
+            המוצר עוד לא באוויר, ולכן הכרטיסים כאן הם מילוי לדוגמה שממתין
+            להמלצות אמיתיות. <strong>המבנה נכון, הטקסט עוד לא.</strong>
+          </p>
+        </div>
+
+        <div class="cards3">
+          <article class="tcard">
+            <span class="stars" role="img" aria-label="חמישה כוכבים מתוך חמישה">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+            </span>
+            <q>הייתי פותחת שלוש אפליקציות כל בוקר ויוצאת מבולבלת. עכשיו יש לי תמונה אחת, ואני יודעת למה היא נראית ככה.</q>
+            <div class="tcard__who">
+              <img src="assets/icons/sign-leo.webp" alt="" width="42" height="42" loading="lazy" />
+              <span class="tcard__name">נועה ל.<span class="tcard__meta">אריה · איתנו שלושה חודשים</span></span>
+            </div>
+          </article>
+
+          <article class="tcard">
+            <span class="stars" role="img" aria-label="חמישה כוכבים מתוך חמישה">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+            </span>
+            <q>מה שכבש אותי זה שאפשר לפתוח ולראות בדיוק מאיפה כל משפט הגיע. אף אחד אחר לא מראה את זה.</q>
+            <div class="tcard__who">
+              <img src="assets/icons/sign-scorpio.webp" alt="" width="42" height="42" loading="lazy" />
+              <span class="tcard__name">דנה ש.<span class="tcard__meta">עקרב · איתנו חודשיים</span></span>
+            </div>
+          </article>
+
+          <article class="tcard">
+            <span class="stars" role="img" aria-label="חמישה כוכבים מתוך חמישה">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+            </span>
+            <q>נכנסתי בלי להירשם, בלי לתת מייל, בלי כלום. שתי שניות והייתי בפנים. זה בדיוק מה שחיפשתי.</q>
+            <div class="tcard__who">
+              <img src="assets/icons/sign-taurus.webp" alt="" width="42" height="42" loading="lazy" />
+              <span class="tcard__name">יעל ב.<span class="tcard__meta">שור · איתנו חודש</span></span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- שיתופי פעולה. שמות מומצאים בכוונה, בלי לוגואים של חברות אמיתיות -->
+    <section class="logos">
+      <div class="wrap col" style="margin-inline:auto">
+        <p class="kicker" style="text-align:center">שיתופי פעולה</p>
+        <p style="text-align:center">מותגים לדוגמה, לצורך הדגמת המבנה.</p>
+      </div>
+      <div class="wrap">
+        <div class="logos__row" aria-label="לוגואים לדוגמה">
+          <span><svg class="ico" aria-hidden="true"><use href="#i-moon" /></svg>לונה סטודיו</span>
+          <span><svg class="ico" aria-hidden="true"><use href="#i-spark" /></svg>אורה</span>
+          <span><svg class="ico" aria-hidden="true"><use href="#i-methods" /></svg>מרידיאן</span>
+          <span><svg class="ico" aria-hidden="true"><use href="#i-card" /></svg>בית הקלף</span>
+          <span><svg class="ico" aria-hidden="true"><use href="#i-sun" /></svg>שחר מדיה</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="limits">
+      <div class="wrap">
+        <div class="col">
+          <p class="kicker">גבולות</p>
+          <h2>ומה זה לא</h2>
+          <p>
+            זה החלק שרוב המוצרים בקטגוריה הזו לא כותבים, ואצלנו הוא היה החלטת עיצוב
+            לפני שהיה טקסט שיווקי.
+          </p>
+        </div>
+        <div class="tiles tiles--4">
+          <article class="tile">
+            <span class="tile__icon"><svg class="ico ico--lg ico--muted" aria-hidden="true"><use href="#i-eye" /></svg></span>
+            <span class="tile__rule"></span>
+            <h3>זו לא אמת ולא ניבוי</h3>
+            <p>שום ניסוח כאן לא אומר "זה יקרה". זו זווית התבוננות אחת על היום, ואת מחליטה מה לעשות איתה.</p>
+          </article>
+          <article class="tile">
+            <span class="tile__icon"><svg class="ico ico--lg ico--muted" aria-hidden="true"><use href="#i-moon" /></svg></span>
+            <span class="tile__rule"></span>
+            <h3>אין רצפים ואין תגמול</h3>
+            <p>הרגל יומי הוא דבר שביר. מוצר שחוגג רצף של שלושים יום מייצר אשמה ביום השלושים ואחד.</p>
+          </article>
+          <article class="tile">
+            <span class="tile__icon"><svg class="ico ico--lg ico--muted" aria-hidden="true"><use href="#i-chart" /></svg></span>
+            <span class="tile__rule"></span>
+            <h3>אין מסך שנראה כמו דוח</h3>
+            <p>גרפים ואחוזי דיוק היו מתחזים לכלי מדעי. המסך היחיד עם מספרים הוא זה שמסביר את המשקולות.</p>
+          </article>
+          <article class="tile">
+            <span class="tile__icon"><svg class="ico ico--lg ico--muted" aria-hidden="true"><use href="#i-lock" /></svg></span>
+            <span class="tile__rule"></span>
+            <h3>אין בקשות גישה</h3>
+            <p>לא ליומן, לא לאנשי הקשר ולא למיקום. תאריך הלידה נשמר במכשיר שלך ולא נשלח לשום מקום.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cards">
+      <div class="wrap">
+        <div class="col">
+          <p class="kicker">הכרטיסיות</p>
+          <h2>הכרטיסייה של היום היא של היום הזה</h2>
+          <p>
+            היא לא נשלפת מערימה באקראי. מיקום הירח בקשת החודשית קובע שורה,
+            והיסוד שהוא עומד בו קובע עמודה, ומה שיוצא מהצומת הזה הוא הכרטיסייה
+            שלך להיום. <strong>מחר תהיה אחרת.</strong>
+          </p>
+          <p>
+            כולן מצוירות באותה שפה חזותית, והמאגר ממשיך לגדול. הארכיון שלך
+            מתמלא מעצמו, בלי שתצטרכי לשמור שום דבר.
+          </p>
+        </div>
+        <div class="strip" role="list" aria-label="כרטיסיות מימים שונים">
+          <img role="listitem" src="assets/images/thumb-new-fire.webp" alt="מולד ביסוד אש" width="186" height="278" loading="lazy" />
+          <img role="listitem" src="assets/images/thumb-new-water.webp" alt="מולד ביסוד מים" width="186" height="278" loading="lazy" />
+          <img role="listitem" src="assets/images/thumb-first-quarter-earth.webp" alt="רבע ראשון ביסוד אדמה" width="186" height="278" loading="lazy" />
+          <img role="listitem" src="assets/images/thumb-waxing-gibbous-air.webp" alt="גיבוז מתמלא ביסוד אוויר" width="186" height="278" loading="lazy" />
+          <img role="listitem" src="assets/images/thumb-full-fire.webp" alt="מלא ביסוד אש" width="186" height="278" loading="lazy" />
+          <img role="listitem" src="assets/images/thumb-full-water.webp" alt="מלא ביסוד מים" width="186" height="278" loading="lazy" />
+          <img role="listitem" src="assets/images/thumb-waning-gibbous-earth.webp" alt="גיבוז מתרוקן ביסוד אדמה" width="186" height="278" loading="lazy" />
+          <img role="listitem" src="assets/images/thumb-last-quarter-air.webp" alt="רבע אחרון ביסוד אוויר" width="186" height="278" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="faq">
+      <div class="wrap col">
+        <p class="kicker">שאלות</p>
+        <h2>מה שנשאלנו הכי הרבה</h2>
+        <div class="faq">
+          <details>
+            <summary>צריך להירשם?<svg class="chev" aria-hidden="true"><use href="#i-chev" /></svg></summary>
+            <p>לא. אין חשבון, אין סיסמה ואין אימייל. תאריך הלידה, אם תזיני אותו, נשמר במכשיר שלך בלבד.</p>
+          </details>
+          <details>
+            <summary>מה עולה כסף?<svg class="chev" aria-hidden="true"><use href="#i-chev" /></svg></summary>
+            <p>התחזית היומית, דפי ההסבר, המפה האישית והארכיון הם חינם. מה שהמנוי פותח הוא שמירת משקולות משלך: לשנות את היחס בין השיטות ולשמור אותו.</p>
+          </details>
+          <details>
+            <summary>מאיפה מגיעה התמונה של היום?<svg class="chev" aria-hidden="true"><use href="#i-chev" /></svg></summary>
+            <p>ממאגר של כרטיסיות מצוירות שממשיך לגדול. הבחירה עצמה נגזרת מהתאריך ולא מאקראיות: מיקום הירח בקשת החודשית קובע את השורה, והיסוד שהוא עומד בו קובע את העמודה.</p>
+          </details>
+          <details>
+            <summary>למה אסטרולוגיה מקבלת חצי?<svg class="chev" aria-hidden="true"><use href="#i-chev" /></svg></summary>
+            <p>כי היא היחידה מבין השש שקוראת את מפת הלידה שלך, ולכן היא הקלט הכי אישי שיש. השאר מתחלקות ביתרה. אפשר לשנות את היחס.</p>
+          </details>
+          <details>
+            <summary>זה עובד בלי אינטרנט?<svg class="chev" aria-hidden="true"><use href="#i-chev" /></svg></summary>
+            <p>אחרי ביקור ראשון, כן. מזג נשמרת במכשיר ונפתחת גם בלי חיבור, ותחזיות שכבר ראית נפתחות מהארכיון.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="close">
+      <div class="wrap">
+        <p class="kicker">רגע אחד ביום</p>
+        <h2>בלי להתלבט בין חמש אפליקציות</h2>
+        <p>ובלי שאף אחד יטען שהוא יודע מה יקרה לך.</p>
+        <div class="ctas">
+          <button type="button" class="btn btn--primary" id="install-btn-2" hidden>התקנה על המסך הראשי</button>
+          <a class="btn btn--primary" href="daily-forecast.html">לתחזית של היום</a>
+        </div>
+        <p class="note">חינם. בלי הרשמה. אפשר לצאת בכל רגע.</p>
+      </div>
+    </section>
+
+    <section id="store">
+      <div class="wrap">
+        <div class="store__grid">
+          <div>
+            <p class="kicker">להוריד</p>
+            <h2>גם בחנות, בקרוב</h2>
+            <p>
+              מזג רצה כבר היום בדפדפן ואפשר להתקין אותה על המסך הראשי.
+              גרסת החנות בדרך, ועד אז הכפתור למעלה עושה בדיוק את אותו דבר.
+            </p>
+          </div>
+          <div class="store__row">
+            <span class="store__badge" role="img" aria-label="בקרוב ב-Google Play">
+              <svg viewBox="0 0 24 27" aria-hidden="true">
+                <path fill="#8ec8f6" d="M1.6 1.2a1.9 1.9 0 00-.5 1.3v22c0 .5.2 1 .5 1.3l12-12.3z"/>
+                <path fill="#f9c74f" d="M17.6 9.2l-4 4.1 4 4.1 4.8-2.8c.8-.5.8-2.1 0-2.6z"/>
+                <path fill="#e0524f" d="M1.6 26.8c.6.6 1.5.6 2.5 0l13.5-7.9-3.9-4z"/>
+                <path fill="#4caf7d" d="M1.6 1.2l12.1 12.1 3.9-4L4.1 1.3c-1-.6-1.9-.6-2.5 0z"/>
+              </svg>
+              <span>
+                <span class="l1">בקרוב ב</span>
+                <span class="l2">Google Play</span>
+              </span>
+            </span>
+            <span class="store__soon">בקרוב</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+    <a class="btn btn--primary" href="daily-forecast.html" tabindex="-1">לתחזית של היום</a>
+  </div>
+
+  <footer class="bottom">
+    <div class="wrap">
+      <p>מזג · אב טיפוס חי · <a href="case-study.html">איך זה נבנה</a> · <a href="methods.html">מה יש בפנים</a> · <a href="privacy.html">פרטיות</a></p>
+    </div>
+  </footer>
+
+  <dialog class="sheet" id="m-astrology" aria-labelledby="m-astrology-t">
+    <div class="sheet__scroll">
+      <div class="sheet__hero">
+        <img src="assets/images/method-astrology-hero.webp" alt="" width="1200" height="675" loading="lazy" />
+        <button type="button" class="sheet__close" aria-label="סגירה" data-close>&#215;</button>
+      </div>
+      <div class="sheet__body">
+        <div class="sheet__top">
+          <h3 id="m-astrology-t">אסטרולוגיה</h3>
+          <span class="sheet__pct">50%</span>
+        </div>
+        <p class="sheet__sub">המפה של השמיים ברגע שנולדת, ומה שקורה בהם היום</p>
+        <dl>
+          <div><dt>מה זה</dt><dd>האסטרולוגיה מתארת את המיקום של השמש, הירח וכוכבי הלכת ביחס לכדור הארץ, ומייחסת לכל מיקום משמעות. היא לא טוענת שהכוכבים גורמים למשהו לקרות, אלא שהם מסמנים מחזורים שאפשר לקרוא.</dd></div>
+          <div><dt>מאיפה זה מגיע</dt><dd>נולדה בבבל לפני כ-4000 שנה כשיטה לתיעוד מחזורי שמיים לצורכי חקלאות ושלטון. עד המאה ה-17 היא נלמדה לצד אסטרונומיה, באותן אוניברסיטאות ועל ידי אותם אנשים.</dd></div>
+          <div><dt>מה זה תורם לתחזית שלך</dt><dd>זו השיטה שנושאת את רוב המשקל, וזה לא מקרי: היא היחידה מבין השש שקוראת נתון אישי שלך ולא נתון כללי. היא קובעת את הטון, ושאר השיטות מכוונות סביבו.</dd></div>
+        </dl>
+        <div class="sheet__foot"><p>אסטרולוגיה לא חוזה אירועים, ולא נמצאה לה תמיכה מדעית ככלי ניבוי. אנחנו משתמשים בה כשפה לתיאור מחזורים, לא כתחזית מזג אוויר.</p></div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="sheet" id="m-numerology" aria-labelledby="m-numerology-t">
+    <div class="sheet__scroll">
+      <div class="sheet__hero">
+        <img src="assets/images/method-numerology-hero.webp" alt="" width="1200" height="675" loading="lazy" />
+        <button type="button" class="sheet__close" aria-label="סגירה" data-close>&#215;</button>
+      </div>
+      <div class="sheet__body">
+        <div class="sheet__top">
+          <h3 id="m-numerology-t">נומרולוגיה</h3>
+          <span class="sheet__pct">15%</span>
+        </div>
+        <p class="sheet__sub">המספרים שמאחורי התאריך, שלך ושל היום</p>
+        <dl>
+          <div><dt>מה זה</dt><dd>נומרולוגיה מצמצמת תאריכים ושמות למספר בודד, ומייחסת לכל מספר אופי. החישוב פשוט מספיק כדי שתוכלי לעשות אותו בעצמך על פתק, וזו אחת הסיבות שהיא שרדה.</dd></div>
+          <div><dt>מאיפה זה מגיע</dt><dd>השורשים מיוחסים לפיתגורס במאה השישית לפני הספירה, שראה במספרים את המבנה של המציאות עצמה. השיטה בצורתה המוכרת היום התגבשה בתחילת המאה ה-20.</dd></div>
+          <div><dt>מה זה תורם לתחזית שלך</dt><dd>כשהמספר של היום נפגש עם מספר הדרך שלך, המפגש מטה את התחזית לכיוון של פעולה או של המתנה. שני מספרים זהים מחזקים, ומספרים רחוקים יוצרים מתח.</dd></div>
+        </dl>
+        <div class="sheet__foot"><p>המספרים לא מכתיבים מה יקרה. הם קובעים את הנטייה של הניסוח, לא את התוכן שלו.</p></div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="sheet" id="m-tarot" aria-labelledby="m-tarot-t">
+    <div class="sheet__scroll">
+      <div class="sheet__hero">
+        <img src="assets/images/method-tarot-hero.webp" alt="" width="1200" height="675" loading="lazy" />
+        <button type="button" class="sheet__close" aria-label="סגירה" data-close>&#215;</button>
+      </div>
+      <div class="sheet__body">
+        <div class="sheet__top">
+          <h3 id="m-tarot-t">טארוט</h3>
+          <span class="sheet__pct">13%</span>
+        </div>
+        <p class="sheet__sub">קלף אחד ביום, כתמונה שמזמינה מחשבה</p>
+        <dl>
+          <div><dt>מה זה</dt><dd>חפיסת טארוט היא 78 קלפים מאוירים. 22 מהם, הארקנה הגדולה, מתארים שלבים גדולים במסע חיים. הקלף לא אומר מה יקרה, הוא מציע זווית התבוננות על מה שכבר קורה.</dd></div>
+          <div><dt>מאיפה זה מגיע</dt><dd>החפיסה הופיעה בצפון איטליה במאה ה-15, ובמשך מאתיים שנה שימשה רק כמשחק קלפים בשם טארוקי. השימוש בה לקריאה התחיל רק במאה ה-18 בצרפת, וזה חשוב לדעת.</dd></div>
+          <div><dt>מה זה תורם לתחזית שלך</dt><dd>הקלף היומי הוא מה שנותן לתחזית את התמונה שלה. הוא גם הרכיב שהכי הרבה משתמשות שומרות ומשתפות, ולכן הוא מקבל את המקום המרכזי במסך.</dd></div>
+        </dl>
+        <div class="sheet__foot"><p>הקלף אינו ניבוי. הוא דימוי, והוא נבחר כדי לפתוח מחשבה ולא כדי לסגור אותה.</p></div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="sheet" id="m-iching" aria-labelledby="m-iching-t">
+    <div class="sheet__scroll">
+      <div class="sheet__hero">
+        <img src="assets/images/method-iching-hero.webp" alt="" width="1200" height="675" loading="lazy" />
+        <button type="button" class="sheet__close" aria-label="סגירה" data-close>&#215;</button>
+      </div>
+      <div class="sheet__body">
+        <div class="sheet__top">
+          <h3 id="m-iching-t">אי צ׳ינג</h3>
+          <span class="sheet__pct">9%</span>
+        </div>
+        <p class="sheet__sub">ספר סיני עתיק שכל כולו עוסק בתזמון ובשינוי</p>
+        <dl>
+          <div><dt>מה זה</dt><dd>אי צ׳ינג, ספר התמורות, בנוי מ-64 הקסגרמות. כל הקסגרמה היא שש שורות, שלמות או שבורות, וכל אחת מתארת מצב ואת הכיוון שאליו הוא נוטה להשתנות.</dd></div>
+          <div><dt>מאיפה זה מגיע</dt><dd>אחד הטקסטים העתיקים ששרדו בעולם, בן כ-3000 שנה. במקור שימש לייעוץ בחצר הקיסר, ולימים הפך לטקסט פילוסופי מרכזי גם בקונפוציאניזם וגם בטאואיזם.</dd></div>
+          <div><dt>מה זה תורם לתחזית שלך</dt><dd>זו השיטה שהכי מדברת על תזמון ולא על תוכן. היא זו שמטה את התחזית לכיוון של לפעול עכשיו או להמתין עוד קצת.</dd></div>
+        </dl>
+        <div class="sheet__foot"><p>ההקסגרמה לא מתארת אירוע. היא מתארת מצב וכיוון שינוי, וזה כל מה שהיא אומרת.</p></div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="sheet" id="m-runes" aria-labelledby="m-runes-t">
+    <div class="sheet__scroll">
+      <div class="sheet__hero">
+        <img src="assets/images/method-runes-hero.webp" alt="" width="1200" height="675" loading="lazy" />
+        <button type="button" class="sheet__close" aria-label="סגירה" data-close>&#215;</button>
+      </div>
+      <div class="sheet__body">
+        <div class="sheet__top">
+          <h3 id="m-runes-t">רונות</h3>
+          <span class="sheet__pct">7%</span>
+        </div>
+        <p class="sheet__sub">אלפבית נורדי עתיק שנקרא גם כסדרה של סימנים</p>
+        <dl>
+          <div><dt>מה זה</dt><dd>רונות הן אותיות של אלפביתים גרמאניים עתיקים. לכל אות יש שם ומשמעות משלה, ומשיכה של אבן אחת נקראת כסימן לכיוון פעולה.</dd></div>
+          <div><dt>מאיפה זה מגיע</dt><dd>השימוש בהן ככתב מתועד מהמאה השנייה לספירה בסקנדינביה ובגרמניה, על אבנים, נשק ותכשיטים. השימוש שלהן לקריאה הוא ברובו שחזור מודרני מהמאה ה-20, ולא מסורת רציפה.</dd></div>
+          <div><dt>מה זה תורם לתחזית שלך</dt><dd>הרונה מוסיפה לתחזית כיוון פעולה קצר וישיר. היא הרכיב הכי תמציתי מבין השישה, ולכן היא נקראת בסוף ולא בהתחלה.</dd></div>
+        </dl>
+        <div class="sheet__foot"><p>הקריאה ברונות היא שחזור מודרני. אנחנו כותבים את זה כאן ולא מציגים אותה כמסורת עתיקה רציפה.</p></div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="sheet" id="m-intuition" aria-labelledby="m-intuition-t">
+    <div class="sheet__scroll">
+      <div class="sheet__hero">
+        <img src="assets/images/method-intuition-hero.webp" alt="" width="1200" height="675" loading="lazy" />
+        <button type="button" class="sheet__close" aria-label="סגירה" data-close>&#215;</button>
+      </div>
+      <div class="sheet__body">
+        <div class="sheet__top">
+          <h3 id="m-intuition-t">אינטואיציה</h3>
+          <span class="sheet__pct">6%</span>
+        </div>
+        <p class="sheet__sub">המשקל שנשמר בכוונה למה שלא נכנס לנוסחה</p>
+        <dl>
+          <div><dt>מה זה</dt><dd>זו לא שיטה עתיקה, וזה בכוונה. שישה אחוזים מהתחזית נשארים בלי חישוב, כמרווח לניסוח, לבחירת הדימוי ולתחושה הכללית של היום.</dd></div>
+          <div><dt>מאיפה זה מגיע</dt><dd>המרכיב הזה נוסף על ידינו ולא נלקח משום מסורת. הוא קיים כי תחזית שמורכבת מחישוב בלבד נקראת כמו דוח, ולא כמו משהו שנכתב לאדם.</dd></div>
+          <div><dt>מה זה תורם לתחזית שלך</dt><dd>זה מה שגורם לשתי תחזיות עם בדיוק אותם נתונים להישמע קצת אחרת. בלעדיו כל הימים היו מרגישים אותו דבר.</dd></div>
+        </dl>
+        <div class="sheet__foot"><p>זה לא רכיב מסתורי. זה מרווח כתיבה, ואנחנו קוראים לו בשמו.</p></div>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    /* ============================================================
+       מתג התמה
+       הבחירה נשמרת אם הדפדפן מרשה, ואם לא, הדף פשוט מתחיל מחדש
+       בברירת המחדל. אחסון שנכשל הוא לא סיבה לשבור עמוד
+       ============================================================ */
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById("theme-toggle");
+      var KEY = "mazag-lp-theme";
+
+      function read() {
+        try { return localStorage.getItem(KEY); } catch (e) { return null; }
+      }
+      function save(v) {
+        try { localStorage.setItem(KEY, v); } catch (e) {}
+      }
+      function apply(v) {
+        if (v === "light") root.setAttribute("data-theme", "light");
+        else root.removeAttribute("data-theme");
+        if (btn) btn.setAttribute("aria-pressed", v === "light" ? "true" : "false");
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", v === "light" ? "#faf6f3" : "#121827");
+      }
+
+      apply(read() === "light" ? "light" : "dark");
+
+      if (btn) {
+        btn.addEventListener("click", function () {
+          var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+          apply(next); save(next);
+        });
+      }
+    })();
+
+    /* ============================================================
+       הניווט העליון
+       מסמן את האזור שנמצא עכשיו במסך. בלי זה הניווט הוא רשימת
+       קישורים, ואיתו הוא מפה
+       ============================================================ */
+    (function () {
+      var links = [].slice.call(document.querySelectorAll(".nav a"));
+      if (!links.length || !("IntersectionObserver" in window)) return;
+
+      var map = {};
+      links.forEach(function (a) {
+        var el = document.querySelector(a.getAttribute("href"));
+        if (el) map[el.id] = a;
+      });
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          links.forEach(function (a) { a.removeAttribute("aria-current"); });
+          if (map[e.target.id]) map[e.target.id].setAttribute("aria-current", "true");
+        });
+      }, { rootMargin: "-45% 0px -50% 0px" });
+
+      Object.keys(map).forEach(function (id) { io.observe(document.getElementById(id)); });
+    })();
+
+    /* ============================================================
+       מודל השיטות
+       dialog אמיתי ולא div. הוא נותן מיקוד כלוא, סגירה ב-Esc
+       ורקע חוסם בלי שורת קוד אחת
+       ============================================================ */
+    (function () {
+      var opener = null;
+
+      document.querySelectorAll(".method-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var d = document.getElementById("m-" + btn.dataset.method);
+          if (!d) return;
+          opener = btn;
+          if (d.showModal) d.showModal(); else d.setAttribute("open", "");
+        });
+      });
+
+      document.querySelectorAll("dialog.sheet").forEach(function (d) {
+        d.querySelectorAll("[data-close]").forEach(function (x) {
+          x.addEventListener("click", function () { d.close(); });
+        });
+        /* לחיצה על הרקע סוגרת. הבדיקה היא על היעד עצמו, כי לחיצה
+           בתוך התוכן מדווחת על אלמנט פנימי ולא על ה-dialog */
+        d.addEventListener("click", function (e) { if (e.target === d) d.close(); });
+        d.addEventListener("close", function () {
+          if (opener) { opener.focus(); opener = null; }
+        });
+      });
+    })();
+
+    /* ============================================================
+       כפתור ההתקנה
+       מוצג רק אם הדפדפן באמת מאפשר התקנה
+       ============================================================ */
+    (function () {
+      var deferred = null;
+      var buttons = [document.getElementById("install-btn"), document.getElementById("install-btn-2")].filter(Boolean);
+      var open = document.getElementById("open-btn");
+      var note = document.getElementById("install-note");
+
+      window.addEventListener("beforeinstallprompt", function (e) {
+        e.preventDefault();
+        deferred = e;
+        buttons.forEach(function (b) { b.hidden = false; });
+        if (open) open.className = "inline-link";
+      });
+
+      buttons.forEach(function (b) {
+        b.addEventListener("click", function () {
+          if (!deferred) return;
+          deferred.prompt();
+          deferred.userChoice.then(function (c) {
+            if (c.outcome === "accepted" && note) note.textContent = "מזג הותקנה. אפשר לפתוח אותה מהמסך הראשי.";
+            deferred = null;
+            buttons.forEach(function (x) { x.hidden = true; });
+          });
+        });
+      });
+
+      if (window.matchMedia("(display-mode: standalone)").matches && note) {
+        note.textContent = "מזג כבר מותקנת אצלך.";
+      }
+    })();
+
+    /* ============================================================
+       הכפתור הדביק בטלפון
+       מופיע רק אחרי שכפתור ההירו יצא מהמסך, ונעלם כשהכפתור
+       התחתון נכנס. שני כפתורים גלויים בו זמנית זה שני כפתורים
+       ============================================================ */
+    (function () {
+      var bar = document.getElementById("sticky-cta");
+      var hero = document.querySelector(".hero .ctas");
+      var end = document.querySelector(".band .ctas");
+      if (!bar || !hero || !("IntersectionObserver" in window)) return;
+
+      var heroOut = false, endIn = false;
+
+      function apply() {
+        var on = heroOut && !endIn;
+        bar.classList.toggle("is-on", on);
+        bar.setAttribute("aria-hidden", on ? "false" : "true");
+        var a = bar.querySelector("a");
+        if (a) a.tabIndex = on ? 0 : -1;
+      }
+
+      new IntersectionObserver(function (e) { heroOut = !e[0].isIntersecting; apply(); }, { threshold: 0 }).observe(hero);
+      new IntersectionObserver(function (e) { endIn = e[0].isIntersecting; apply(); }, { threshold: 0 }).observe(end);
+    })();
+
+    /* ============================================================
+       וידאו סקראבינג
+       הסרטון לא מתנגן. הגלילה בתוך המסלול היא זו שמזיזה את
+       currentTime, ולכן הוא מקודד עם כל פריים כפריים מפתח.
+
+       שלושה תנאים מבטלים אותו לטובת תמונה סטטית: מסך צר, בקשת
+       פחות תנועה, ומצב חיסכון בנתונים. בשלושתם הוא גם לא יורד
+       ============================================================ */
+    (function () {
+      var sec = document.getElementById("scrub");
+      var track = document.getElementById("scrub-track");
+      var video = document.getElementById("scrub-video");
+      var still = document.getElementById("scrub-still");
+      if (!sec || !track || !video) return;
+
+      var wide = window.matchMedia("(min-width: 40rem)").matches;
+      var base = window.matchMedia("(min-aspect-ratio: 1/1)").matches ? "desktop" : "mobile";
+      var poster = "assets/video/reveal-poster-" + base + ".webp";
+      if (still) still.setAttribute("src", poster);
+
+      var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var conn = navigator.connection || {};
+      var thin = conn.saveData === true || /2g/.test(conn.effectiveType || "");
+
+      if (!wide || calm || thin) { sec.classList.add("is-static"); return; }
+
+      video.setAttribute("poster", poster);
+
+      var dur = 0, target = 0, shown = -1, running = false, primed = false, full = false, dead = false;
+
+      /* אם הסרטון לא נטען, אין מסלול ואין דביקות. בלי זה נשאר בדף
+         חור שחור בגובה שלושה מסכים */
+      function giveUp() {
+        if (dead) return;
+        dead = true; running = false;
+        sec.classList.add("is-static");
+      }
+      video.addEventListener("error", giveUp);
+
+      /* שני שלבים. מטא דאטה יורדת מיד כי היא כמה קילובייטים והיא
+         מה שנותן את משך הסרטון. הקובץ המלא יורד רק כשהמסלול מתקרב */
+      video.setAttribute("preload", "metadata");
+      video.setAttribute("src", "assets/video/reveal-lite.mp4");
+
+      function loadFull() {
+        if (full) return;
+        full = true;
+        video.setAttribute("preload", "auto");
+        video.load();
+      }
+
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (e, o) {
+          if (e[0].isIntersecting) { loadFull(); o.disconnect(); }
+        }, { rootMargin: "400% 0px" }).observe(track);
+      } else { loadFull(); }
+
+      /* שעון הוויתור נדחה בכל התקדמות הורדה. בלי הדחייה הזאת חיבור
+         איטי נראה בדיוק כמו קובץ שבור */
+      var timer = null;
+      function armTimer() {
+        if (dead || dur) return;
+        clearTimeout(timer);
+        timer = setTimeout(function () { if (!dur) giveUp(); }, 20000);
+      }
+      video.addEventListener("progress", armTimer);
+      video.addEventListener("loadstart", armTimer);
+      armTimer();
+
+      video.addEventListener("loadedmetadata", function () {
+        clearTimeout(timer);
+        dur = video.duration || 0;
+        if (!dur) { giveUp(); return; }
+        prime();
+        measure();
+      });
+
+      /* ספארי ואייפון לא מרשים חיפוש לפני שהיה ניגון אחד */
+      function prime() {
+        if (primed || dead) return;
+        primed = true;
+        var p = video.play();
+        if (p && p.then) {
+          p.then(function () { video.pause(); video.currentTime = 0; }).catch(function () {});
+        } else { try { video.pause(); } catch (e) {} }
+      }
+
+      function measure() {
+        if (!dur || dead) return;
+        var r = track.getBoundingClientRect();
+        var span = r.height - window.innerHeight;
+        if (span <= 0) return;
+        var p = (0 - r.top) / span;
+        p = p < 0 ? 0 : (p > 1 ? 1 : p);
+        target = p * (dur - 0.02);
+        if (!running) { running = true; requestAnimationFrame(step); }
+      }
+
+      /* קפיצה ישירה נראית קופצנית מול גלילת אינרציה, ולכן מתקרבים
+         אל היעד בהדרגה */
+      function step() {
+        /* קוראים מהמצב שלנו ולא מהאלמנט, כי חיפוש לא מסתיים מיד */
+        var cur = shown < 0 ? video.currentTime : shown;
+        var next = cur + (target - cur) * 0.28;
+        if (Math.abs(target - cur) < 0.02) { next = target; running = false; }
+        if (Math.abs(next - shown) > 0.016) {
+          shown = next;
+          try { video.currentTime = next; } catch (e) {}
+        }
+        if (running) requestAnimationFrame(step);
+      }
+
+      addEventListener("scroll", measure, { passive: true });
+      addEventListener("resize", measure);
+      document.addEventListener("touchstart", prime, { passive: true, once: true });
+    })();
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("sw.js").catch(function () {});
+      });
+    }
+  </script>
+
+</body>
+</html>
