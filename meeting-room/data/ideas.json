@@ -1,6 +1,68 @@
 {
-  "updated": "2026-08-27",
+  "updated": "2026-08-28",
   "ideas": [
+    {
+      "id": "I-2026-0347",
+      "title": "צ'אט צף לשיעור מוקלט",
+      "line": "ראיתי שפיגמה שחררו פאנל צ'אט סוכן שנפתח לחלון נפרד. עכשיו אפשר להקליט שיעור עם הקנבס במסך מלא והצ'אט של הסוכן צף בפינה, בלי שהוא מכסה שום דבר",
+      "advisor": "visionary",
+      "createdAt": "2026-08-28",
+      "capability": {
+        "name": "Figma detachable agent chat panel, נפתח לחלון נפרד באפליקציית הדסקטופ",
+        "releasedAt": "2026-08-26"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-28"
+    },
+    {
+      "id": "I-2026-0348",
+      "title": "ניקוי דראפט וקטור בלי לצאת מפיגמה",
+      "line": "ראיתי שפיגמה שחררו מחק וגרור-למלא בעריכת וקטור. עכשיו כשה-AI מייצר דראפט עם שתי שגיאות קטנות אין צורך לצאת לאילוסטרייטור, מתקנים ישר על הקנבס",
+      "advisor": "visionary",
+      "createdAt": "2026-08-28",
+      "capability": {
+        "name": "Figma erase + drag-to-fill, כלי עריכת וקטור ידניים חדשים",
+        "releasedAt": "2026-08-24"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-28"
+    },
+    {
+      "id": "I-2026-0349",
+      "title": "משקל הסקראבינג על המסך",
+      "line": "כשסטודנט בונה גיבור עם וידאו סקראבינג לדף הנחיתה שלו, המסך מראה לו כמה כבד הדף נהיה, או שהוא מגלה רק כשהוא מעלה לאוויר?",
+      "advisor": "teacher",
+      "createdAt": "2026-08-28",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מפגש 27.8.2026, קורס UI/UX 45900: וידאו סקראבינג ומצגת בסט פרקטיסס לדפי נחיתה",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-28"
+    },
+    {
+      "id": "I-2026-0350",
+      "title": "רשימת נילסן חיה על המסך",
+      "line": "כשסטודנט מקבל מסך שה-AI ייצר וצריך לבדוק אותו מול עשרת עקרונות נילסן, המסך מראה לו רשימת בדיקה חיה שהוא מסמן, או שהוא צריך לזכור הכל בעל פה?",
+      "advisor": "teacher",
+      "createdAt": "2026-08-28",
+      "capability": null,
+      "evidence": null,
+      "lesson": "סילבוס AI Product Design ו-UX/UI, שיעור עקרונות נילסן לשמישות",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-28"
+    },
     {
       "id": "I-2026-0343",
       "title": "מרקדאון לגאמה בלחיצה",

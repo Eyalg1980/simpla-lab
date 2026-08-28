@@ -1,6 +1,64 @@
 {
   "days": [
     {
+      "date": "2026-08-28",
+      "dateLabel": "יום שישי, 28 באוגוסט",
+      "ideas": [
+        {
+          "id": "2026-08-28-1",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "הפרסומת לחנות השעונים עדיין משודרת כל ליל שבת בערוץ המקומי, שבע שנים אחרי שהחנות נסגרה.",
+          "concept": "פרסומת ישנה בסגנון שידור מקומי צר, מסגרת 4:3 עם קווי סריקה ותג שידור חוזר בפינה. בעל חנות שעונים קורא ישר למצלמה טקסט שיווקי מגושם ושנון בעל פה, בדיוק כמו שהוקלט לפני עשרות שנים. הפרסומת נגמרת, מסך שחור עם כרטיס טקסט קצר שהחנות נסגרה לפני שבע שנים, ואז שוט רחב סטטי בהווה, אותה חזית חנות סגורה, והפרסומת עדיין רצה בלופ חרישי על מסך טלוויזיה קטן בחלון הראווה, פונה לרחוב הריק.",
+          "execution": "3 דקות ו-35 שניות, מיקום יחיד, חזית חנות השעונים בעבר ובהווה. פורמט מושאל: פרסומת שידור מקומי ישנה מזויפת, מסגרת 4:3 עם רעש VHS וקווי סריקה, חתוכה לשוט סטטי רחב בהווה בלי שום עיבוד רטרו. Higgsfield Cinema Studio לשוט הפרסומת הישן ולשוט ההווה הסטטי, Nano Banana Pro לעקביות פני בעל החנות ופרטי החזית בין שתי התקופות, Kling 3 std לתנועת השפתיים בפרסומת ולהבהוב העדין של מסך הטלוויזיה בחלון הראווה. קריינות עברית מלאה רק בתוך הפרסומת עצמה, בלי דיאלוג מסונכרן, שקט כמעט מלא בהווה. יחס 16:9 להגשה, 9:16 לרשתות.",
+          "why": "יושב על חמישה מששת מנגנוני הזכייה: פורמט מושאל של פרסומת שידור מזויפת, מיקום יחיד עם חזרה לאותה חזית, מונולוג עברי בתוך הפרסומת בלי דיאלוג מסונכרן, דמות מבוגרת יחידה, וסוף שהוא שינוי קטן במודעות, הפער בין מה שהפרסומת מבטיחה למה שהחלון מראה בפועל. פורמט שלא נוסה עדיין החודש, פרסומת מושאלת, במקום ריאיון או וידאו בית. אורך שנכנס גם לגלובלי וגם לאסטנה.",
+          "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+          "srcUrl": "https://higgsfield.ai/contests/higgsfield-global-film-festival",
+          "srcLabel": "Higgsfield Global Film Festival, דדליין 3.9.2026, אומת שוב 28.8.2026",
+          "prompts": {
+            "video": "Photoreal aged local-TV commercial footage, boxy 4:3 frame with soft VHS scan lines and grain, faint REPLAY bug in the corner, a modest watch repair shop interior behind the counter, warm practical lighting, an elderly shopkeeper standing still and speaking earnestly straight to camera reciting a rehearsed pitch, static locked camera, sincere and slightly awkward vintage-commercial mood, shallow depth of field, 16:9",
+            "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם הפרסומת שלא מפסיקה: פרסומת ישנה לחנות שעונים, מסגרת 4:3 עם קווי סריקה, בעל החנות קורא טקסט שיווקי מגושם ישר למצלמה. הפרסומת נגמרת, כרטיס טקסט קצר מגלה שהחנות נסגרה לפני שבע שנים, ושוט רחב בהווה מראה את אותה חזית סגורה כשהפרסומת עדיין רצה בלופ חרישי על טלוויזיה בחלון הראווה. תפתח לי אותו לתסריט מלא: לוגליין אחת, לוח זמנים מדויק ל-3:35 דקות, פורמט פרסומת שידור מקומי ישנה מזויפת, מונולוג עברי מלא בתוך הפרסומת בלבד ושקט בהווה, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפט ג'נרציה מוכן לכל שוט בנפרד עם שם המודל. ודא שסכום זמני השוטים שווה בדיוק למשך המוצהר. מיקום יחיד, בלי דיאלוג מסונכרן, בלי הליכה של גוף מלא ובלי המונים.",
+            "image": "Photoreal aged local-TV commercial still, boxy 4:3 frame with soft VHS scan lines and grain, a modest watch repair shop counter, warm practical lighting, an elderly shopkeeper standing behind the counter mid-sentence facing camera, sincere vintage-commercial mood, shallow depth of field, no text",
+            "raw": "הפרסומת לחנות השעונים עדיין משודרת כל ליל שבת בערוץ המקומי, שבע שנים אחרי שהחנות נסגרה.\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, וגם Astana AI Film Festival\nקונספט: פרסומת ישנה מזויפת בסגנון שידור מקומי, בעל חנות שעונים קורא טקסט שיווקי ישר למצלמה. כרטיס טקסט מגלה שהחנות נסגרה לפני שבע שנים, ושוט הווה מראה את הפרסומת עדיין רצה בלופ על טלוויזיה בחלון הראווה הסגור.\nביצוע: 3:35 דקות, מיקום יחיד, פורמט פרסומת שידור ישנה מזויפת, מסגרת 4:3. Cinema Studio לשוטי הפרסומת וההווה, Nano Banana Pro לעקביות בעל החנות, Kling 3 std לתנועת השפתיים ולהבהוב הטלוויזיה. מונולוג עברי רק בפרסומת, שקט בהווה. 16:9 להגשה, 9:16 לרשתות.\nלמה עכשיו: חמישה ממנגנוני הזכייה, פורמט פרסומת מושאל שלא נוסה עדיין החודש, ואורך שנכנס גם לגלובלי וגם לאסטנה."
+          },
+          "used": false
+        },
+        {
+          "id": "2026-08-28-2",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "המודם בפינת האינטרנט קפה עדיין מצפצף בחיוג איטי כל בוקר, חמש עשרה שנה אחרי שהאינטרנט המהיר התחבר.",
+          "concept": "אינטרנט קפה קטן בשכונה. הבעלים מדליק כל בוקר מודם חיוג ישן שמחובר לקו טלפון בפני עצמו, בלי שום תפקיד טכני, רק כדי לשמוע את הצפצוף האיטי המוכר. בריאיון מוקומנטרי קצר הוא מספר שזה היה קול השעון המעורר של השותף שלו, שהיה פותח את המקום איתו כל בוקר לפני שנפטר, והצליל הזה עדיין מעיר אותו כל בוקר בזמן.",
+          "execution": "3 דקות ו-15 שניות, מיקום יחיד, פינת המודם באינטרנט קפה. פורמט מושאל: ריאיון מוקומנטרי קצר עם מונולוג עברי, מצלמה סטטית על פינת המודם ועל הבעלים לסירוגין, בלי דיאלוג מסונכרן. Higgsfield Cinema Studio לשוט הריאיון הסטטי, Nano Banana Pro לעקביות פני הבעלים המבוגר והמודם בין השוטים, Kling 3 std לתנועת נורות המודם ולרעש החיוג. שקט כמעט מלא מלבד צליל החיוג עצמו וקטעי המונולוג הקצרים. יחס 16:9 להגשה, 9:16 לרשתות.",
+          "why": "יושב על חמישה מששת מנגנוני הזכייה: פורמט מושאל של ריאיון מוקומנטרי, מיקום יחיד, מונולוג עברי קצר בלי דיאלוג מסונכרן, גיבור לא אנושי, צליל החיוג, לצד דמות מבוגרת, וסוף שהוא שינוי קטן במודעות שמתגלה רק במשפט האחרון. הימור על צליל במקום תמונה, שלא נוסה החודש. אורך שנכנס גם לגלובלי וגם לאסטנה.",
+          "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+          "srcUrl": "https://aaiff.ai/",
+          "srcLabel": "Astana AI Film Festival, דדליין 31.8.2026, אומת שוב 28.8.2026",
+          "prompts": {
+            "video": "Photoreal intimate documentary footage, warm Mediterranean morning light through a small internet cafe window, sand cream and soft teal palette, an old dial-up modem with small blinking lights sitting alone on a shelf wired to its own phone line, an elderly cafe owner nearby listening quietly as the modem's slow handshake tones play, static locked camera holding on the modem then his weathered face, tender nostalgic mood, shallow depth of field, human and warm rather than cold, 16:9",
+            "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם הצפצוף שמעיר אותו: אינטרנט קפה קטן שבו הבעלים מדליק כל בוקר מודם חיוג ישן בלי שום תפקיד טכני, רק כדי לשמוע את הצפצוף האיטי שהיה קול השעון המעורר של שותפו שנפטר, שהיה פותח את המקום איתו כל בוקר. תפתח לי אותו לתסריט מלא: לוגליין אחת, לוח זמנים מדויק ל-3:15 דקות, פורמט ריאיון מוקומנטרי קצר, מונולוג עברי מלא, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפט ג'נרציה מוכן לכל שוט בנפרד עם שם המודל. ודא שסכום זמני השוטים שווה בדיוק למשך המוצהר. מיקום יחיד, בלי דיאלוג מסונכרן, בלי הליכה של גוף מלא ובלי המונים.",
+            "image": "Photoreal intimate documentary still, warm Mediterranean morning light through a small internet cafe window, sand cream and soft teal palette, an old dial-up modem with small blinking lights standing alone on a shelf, a coiled phone cord leading off frame, tender nostalgic mood, shallow depth of field, no text",
+            "raw": "המודם בפינת האינטרנט קפה עדיין מצפצף בחיוג איטי כל בוקר, חמש עשרה שנה אחרי שהאינטרנט המהיר התחבר.\nעולם: סרטוני תחרויות\nתחרות: Higgsfield Global Film Festival, וגם Astana AI Film Festival\nקונספט: בעלים של אינטרנט קפה מדליק כל בוקר מודם חיוג ישן בלי תפקיד טכני, רק לשמוע את הצפצוף שהיה קול השעון המעורר של שותפו שנפטר.\nביצוע: 3:15 דקות, מיקום יחיד, פורמט ריאיון מוקומנטרי קצר. Cinema Studio לשוט הריאיון, Nano Banana Pro לעקביות הבעלים והמודם, Kling 3 std לנורות ולצליל החיוג. מונולוג עברי קצר, שקט כמעט מלא. 16:9 להגשה, 9:16 לרשתות.\nלמה עכשיו: חמישה ממנגנוני הזכייה, הימור על צליל שלא נוסה החודש, ואורך שנכנס גם לגלובלי וגם לאסטנה."
+          },
+          "used": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "Higgsfield turns a US$1M festival into creator growth",
+          "desc": "ניתוח איך היגספילד הופכים תחרות של מיליון דולר למנוע גיוס יוצרים לפלטפורמה, ולמה זה משנה את הכדאיות של להשקיע בהגשה.",
+          "meta": "Content Grip · אוגוסט 2026",
+          "url": "https://www.contentgrip.com/higgsfield-film-festival-growth/"
+        },
+        {
+          "title": "Higgsfield Global Film Festival: לוח הזמנים אושר שוב ללא שינוי",
+          "desc": "ציוץ רשמי של Higgsfield AI ב-X מאשר מחדש את לוח הזמנים המלא: פתיחה 10.8, דדליין הגשה 3.9, שורטליסט 24.9, זוכים בשבוע הראשון של אוקטובר.",
+          "meta": "Higgsfield AI, X · אוגוסט 2026",
+          "url": "https://x.com/higgsfield_ai/status/2085853524878078290"
+        }
+      ]
+    },
+    {
       "date": "2026-08-27",
       "dateLabel": "יום חמישי, 27 באוגוסט",
       "ideas": [
