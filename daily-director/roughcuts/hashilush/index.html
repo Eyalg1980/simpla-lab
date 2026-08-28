@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>השילוש - ראפ קאט</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#71F73C;--bg:#0a0a0a;--card:#131313;--mut:#8a8a8a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#ededed;font-family:Rubik,system-ui,sans-serif;padding:18px}
+h1{font-size:26px;font-weight:800;margin:0 0 4px}
+.sub{color:var(--mut);font-size:14px;margin-bottom:18px}
+.tag{display:inline-block;border:1px dashed var(--g);color:var(--g);font-size:11px;letter-spacing:.08em;padding:3px 9px;border-radius:3px;margin-inline-end:6px}
+video{width:100%;border:1px dashed #333;border-radius:6px;background:#000;display:block}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 26px}
+.chip{background:var(--card);border:1px solid #262626;border-radius:4px;padding:6px 10px;font-size:12px;color:#cfcfcf}
+.chip b{color:var(--g);font-weight:600}
+h2{font-size:15px;letter-spacing:.06em;color:var(--g);margin:26px 0 10px;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.card{background:var(--card);border:1px dashed #2c2c2c;border-radius:6px;overflow:hidden}
+.card img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#000}
+.ph{width:100%;aspect-ratio:16/9;background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#d8d8d8;font-size:12px;text-align:center;padding:10px;line-height:1.7}
+.ph .last{color:var(--g)}
+.cb{padding:9px 11px}
+.n{color:var(--g);font-weight:800;font-size:13px;font-family:ui-monospace,monospace}
+.nm{font-size:14px;font-weight:600;margin:2px 0 4px}
+.mo{font-size:12px;color:var(--mut);line-height:1.5}
+ul{padding-inline-start:18px;margin:6px 0 0}
+li{font-size:14px;line-height:1.75;margin-bottom:7px;color:#d4d4d4}
+li b{color:#fff}
+a{color:var(--g);word-break:break-all;font-size:12px}
+.note{background:var(--card);border:1px dashed #2c2c2c;border-radius:6px;padding:14px 16px;margin-top:10px}
+</style>
+</head>
+<body>
+<h1>השילוש</h1>
+<div class="sub"><span class="tag">ROUGH CUT</span><span class="tag">STILLS ONLY</span>גרסה 1, תמונות סטטיות במקום קטעי וידאו</div>
+
+<video controls playsinline preload="metadata"
+ src="https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/122fcd8d-580b-48b4-a65d-f9438771241c.mp4"></video>
+
+<div class="meta">
+<div class="chip">אורך <b>3:50</b></div>
+<div class="chip">שוטים <b>21</b></div>
+<div class="chip"><b>1920x1080</b> 25fps</div>
+<div class="chip">פס קול <b>שקט</b></div>
+<div class="chip">קרדיטים שנשרפו <b>40</b></div>
+<div class="chip">נשאר בחשבון <b>117</b></div>
+</div>
+
+<div class="note">
+<b style="color:var(--g)">מה לבדוק בצפייה</b>
+<ul>
+<li>האם הקיר נקרא כאותו קיר לאורך כל הסרט, כולל בסצנות של ההווה (שוטים 12 עד 16)</li>
+<li>האם המעבר בשוט 11, ההחלפה, קורא כאירוע ולא כאיור</li>
+<li>שוט 20, החיתוך לחדר ההמתנה המצולם: להשאיר או למחוק ולסיים על 19</li>
+<li>קצב. כל משך כאן הוא מה שיוזמן מ-Kling, אז מה שמרגיש ארוך עכשיו יהיה ארוך גם בסרט</li>
+</ul>
+</div>
+
+<h2>21 השוטים</h2>
+<div class="grid" id="g"></div>
+
+<h2>קישורים ישירים</h2>
+<div class="note">
+<a href="https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/122fcd8d-580b-48b4-a65d-f9438771241c.mp4">הראפ קאט המלא, MP4</a>
+</div>
+
+<script>
+const B="https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/";
+const F={1:"hf_20260828_184139_0d7bf89f-aaa5-4845-8c5a-fa33bf231954",2:"hf_20260828_184139_b50fd6bf-8c52-4898-887b-ffd771981355",3:"hf_20260828_184139_5b2f9616-c5d5-4167-8e9c-1cfddef15960",4:"hf_20260828_184139_00ba8f25-ec93-42b9-a27a-3469073679fc",5:"hf_20260828_184140_12dc5a89-ea13-4d47-a944-197d67dbe636",6:"hf_20260828_184139_602fe8bc-3c9f-48b9-9d0a-e902c26d6fb4",7:"hf_20260828_183616_50afe60a-f965-4387-acaf-5e495683c968",8:"hf_20260828_184139_52ae0376-0fbf-43fb-9846-9429a90d5268",9:"hf_20260828_184139_750ff71d-0365-4650-a1c5-2bafc748324d",10:"hf_20260828_184140_b8b0d34b-7418-4b34-a18a-627bf703e0aa",11:"hf_20260828_184140_79797444-a653-4a0b-8c42-e0458e669f9c",12:"hf_20260828_184139_7c790a0f-824d-400b-8feb-dd89517e0b58",13:"hf_20260828_184139_7b7a11e1-ea08-423a-86af-eac836f33df4",14:"hf_20260828_184209_2d53738b-b081-48cb-be54-ec9c95f61c88",15:"hf_20260828_184209_eda5f9ed-09b2-4e9f-a683-0d2fdb7c1e0b",16:"hf_20260828_184209_7d9ad775-3657-437f-ae86-d1fc519f5777",17:"hf_20260828_184209_aa8bafc4-6185-4927-8160-5e1499a5a115",18:"hf_20260828_184209_6952dab2-fd9a-431f-9b8b-bf645a5be43c",19:"hf_20260828_184209_02e51880-2f04-4d51-b99c-9bcf06bb41f4",20:"hf_20260828_184209_ded8ada9-8c66-473a-a36a-8caecdcbd651"};
+const S=[[1,12,"כניסת הלפיד","האלומה זוחלת ימינה על הקיר, שום דבר אחר לא זז"],
+[2,10,"טבילה באוקר","האצבע נכנסת לפיגמנט ויוצאת, הנוזל רועד"],
+[3,14,"הקו הראשון","היד נמשכת לאורך הקיר, אבק נושר מהמשיכה"],
+[4,8,"השוכבת","אפס תנועה, רק ריצוד הלהבה על האבן"],
+[5,8,"העומדת","אפס תנועה, הפיגמנט הרטוב מבריק ומתייבש"],
+[6,12,"השלישית נכנסת","האצבע מסיימת את הקו האחרון ונסוגה מהפריים"],
+[7,15,"הקיר, שלוש דמויות","השוט הארוך, רק הלהבה זזה, שקט מוחלט"],
+[8,10,"טביעת יד של ילד","אפס תנועה, צל הלהבה נע על הטביעה"],
+[9,12,"זמן על הקיר","פיח מתעבה ולחות זוחלת, איטי מאוד"],
+[10,10,"היד גדלה","אפס תנועה, האלומה עולה על הטביעות מלמטה למעלה"],
+[11,14,"ההחלפה","הדמויות מחליפות מקום, האטה מלאה"],
+[12,8,"כיסא מול כיסא","אפס תנועה, ריצוד בלבד"],
+[13,8,"לבד עם משהו ביד","אפס תנועה, הנקודה בכף היד מבהיקה לרגע"],
+[14,10,"התור","התור נע קדימה צעד אחד ואז נעצר"],
+[15,12,"אותה יד","שתי הידיים מתקרבות ולא נוגעות"],
+[16,15,"הקיר כולו","האלומה סורקת את הקיר לאט מקצה לקצה"],
+[17,10,"הדמות הרביעית","היד מתחילה קו, עוצרת, ונשארת"],
+[18,12,"הלפיד ניצת מחדש","חושך מוחלט ואז אור קטן שמתפשט"],
+[19,10,"הטביעה","כף היד נלחצת אל האבן ונשארת"],
+[20,12,"קיר חדר המתנה","אפס תנועה, רק ריצוד ניאון"],
+[21,8,"תווית","כרטיס טקסט, נבנה בעריכה"]];
+const g=document.getElementById("g");
+for(const [n,d,nm,mo] of S){
+  const vis = F[n] ? `<img loading="lazy" src="${B}${F[n]}.png" alt="">`
+   : `<div class="ph"><div>מערה, שכבה תחתונה</div><div>שלוש דמויות, אוקר וגחלים</div><div>תיארוך: לפני כשלושים אלף שנה</div><div class="last">משמעות: לא ידועה</div></div>`;
+  g.insertAdjacentHTML("beforeend",
+   `<div class="card">${vis}<div class="cb"><div class="n">${String(n).padStart(2,"0")} / ${d} sec</div><div class="nm">${nm}</div><div class="mo">${mo}</div></div></div>`);
+}
+</script>
+</body>
+</html>
