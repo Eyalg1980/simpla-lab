@@ -64,6 +64,23 @@ DROPPED = {
  39:"the old glass release, replaced by 'throw'",
  41:"the old bullet time, replaced by 'orbit'",
  54:"the old meeting wide, replaced by 'room'",
+ # cut 12, 29.8. Four trims he approved plus seven shots he sent as pictures.
+ 42:"the man hunched on the chair in the dark, one of his seven",
+ 35:"the corridor with the figure walking away, an approved trim",
+ 45:"the orange back in the alley, an approved trim",
+ 46:"the alley with the lamps, an approved trim",
+ 40:"the old glass-alone shot, replaced by 'tumble' with the matching glass",
+ 61:"the hand within a hand, one of his seven",
+}
+# cut 12: the same guard for the new-material keys, which live in N and were
+# never covered by the assert below. Six of the seven he removed are here.
+DROPPED_N = {
+ "throw":"the first throw, replaced so the coat and the glass match the other two",
+ "orbit":"the first bullet time, replaced so the persecutor is in frame too",
+ "morph":"the first morph, it started on two painted men instead of on his fixed shot",
+ "lv_hand":"the hand on the shoulder", "lv_sofa":"the two of them on the sofa",
+ "lv_coffee":"pouring the two coffees", "lv_balcony":"the two of them on the balcony",
+ "lv_wall":"his painted palm beside the ochre handprint",
 }
 assert not (set(C) & set(DROPPED)), "a dropped shot is back in C: %s" % (set(C) & set(DROPPED),)
 
@@ -79,20 +96,29 @@ N = {
  "cave05v":"20260829_092501_3909c7bc-7e56-41a8-9acb-3d5195e115a8",
  "cave07v":"20260829_092501_7756c659-aefb-49f9-bee1-fb4061d6594a",
  "cave08v":"20260829_092501_47215867-9383-411a-a4e6-d10848200a60",
- "throw":"20260829_055935_4ee06eae-5d44-4bd5-bce3-25f830945083",  # arm above the head
- "orbit":"20260829_061423_c5b64d2b-d0ca-4060-89f8-faa2bbb9733f",  # bullet time, victim revealed
+ # THE BULLET TIME, rebuilt 29.8 as three shots from ONE parent frame so the
+ # coat and the glass are the same object in all three. The lock strings were
+ # written once and pasted verbatim into all three prompts: "a heavy dark
+ # charcoal wool overcoat over a black shirt" and "a short heavy clear glass
+ # tumbler, thick round base, completely empty, no liquid, plain and unmarked".
+ "throw2":"20260829_174432_725463d1-b097-440f-a546-d1a97ae5d6a0",  # the throw, arm above the head
+ "tumble":"20260829_174423_ad56ed84-c75b-4f9e-bc1d-2a7771ef8ecc",  # the same glass alone in the dark
+ "orbit2":"20260829_174422_748fa18c-ab14-42e9-90f9-7268db613f2c",  # the shatter, persecutor AND victim in frame
+ # the victim's chapter now opens with one continuous move from outside the house
+ "walk":"20260829_174423_cbb11e04-1558-43e9-a5a8-0b16bb340d0b",
+ # the morph, rebuilt to his spec: his FIXED illustrated shot resolves into the
+ # same frame photoreal, and that frame is exactly where the reveal begins.
+ "morph2":"20260829_174432_0b04cdbf-3297-4921-9ecc-a736e3d7dda8",
  # THE FOURTH LANGUAGE, "the frequency of love": a flat hand-painted cut-out man
  # inside the SAME photographed rooms, painted in the SAME ochre as the cave.
  # 29.8 he asked to take it OUT of the three chapters and give it the ending
  # instead, and to animate it. All of these are now moving footage.
- "morph":"20260829_112938_f6c84bb3-2619-4f01-8012-d937cfaf4723",   # the drawing resolves into the real room
- "lv_hand":"20260829_112938_ed30916e-420f-4d5b-8caf-8adb4f86727e", # an open hand laid on a shoulder
- "lv_sofa":"20260829_112939_52ee8c50-0786-41b2-b460-e0e7747ab4ec", # side by side, facing the same way
- "lv_coffee":"20260829_112938_f3a1ea2f-087a-41f9-975f-695dfe43420a", # pouring two coffees, the rescuer's action without the role
+ # 29.8, cut 12: he sent five of the six love-coda shots back as pictures to
+ # remove. Only the laugh survives, and it now sits directly after the real
+ # smile so it has a partner instead of standing alone.
  "lv_laugh":"20260829_112938_de319988-53e0-4952-8bc6-fd18733fc38d", # laughing at the table
- "lv_balcony":"20260829_112938_c0f63fa8-1806-40a1-afce-f9791322ca24", # two of them looking out
- "lv_wall":"20260829_112938_72eca33b-2304-4683-b97a-5dab1b9aa1a0", # his palm beside the ochre handprint
 }
+assert not (set(N) & set(DROPPED_N)), "a dropped clip is back in N: %s" % (set(N) & set(DROPPED_N),)
 # Hebrew narration, elevenlabs / Arthur
 HE = {
  1:"20260829_062549_3f974055-5a8d-43a0-a9e9-1c536ae0ab6f",
@@ -131,7 +157,9 @@ S = [
 
  # vo2, then the victim opens, then the card
  (12.0,"lip",16,2,0),
- (2.0,"dolly","back",None,0),
+ # the victim's chapter no longer OPENS on him: the camera comes in from
+ # outside the house, through the window and two rooms, and finds him.
+ (8.0,"clip","walk",None,0),
  (0.4,"punch","mag1v",None,0.2),
  (1.8,"clip",23,None,0),
  (0.4,"punch","mag2v",None,0.2),
@@ -143,50 +171,44 @@ S = [
  (1.8,"clip","cave04v",None,0),
  (0.4,"punch","mag1v",None,1.6),
  (0.4,"punch","mag2v",None,1.6),
- (0.9,"punch","mag1v",None,2.8),(0.9,"punch","mag2v",None,2.8),(0.9,"punch","mag3v",None,2.6),
+ (0.9,"punch","mag3v",None,2.6),
  (2.0,"clip",29,None,0),
 
  # vo3, then the persecutor opens, then the card
  (9.0,"lip",30,3,0),
- (1.8,"dolly","block",None,0),(2.0,"dolly","eyes",None,0),(1.8,"clip",35,None,0),
+ (1.8,"dolly","block",None,0),(2.0,"dolly","eyes",None,0),
  (1.6,"clip","cave05v",None,0),
  (3.2,"q3",None,None,0),
- # III. the persecutor, and the bullet time
+ # III. the persecutor, and the bullet time. All three shots regenerated from
+ # one parent frame: same coat, same glass, and the third holds both men.
  (2.2,"clip",38,None,0),
- (5.0,"clip","throw",None,0),                             # arm above the head, slow motion
- (3.0,"clip",40,None,0),                                  # the glass alone in the air
- (5.5,"clip","orbit",None,4.4),                           # orbit, the victim comes around
+ (5.0,"clip","throw2",None,0),                            # the throw, arm above the head
+ (2.6,"clip","tumble",None,0),                            # the SAME glass alone in the dark
+ (5.0,"clip","orbit2",None,1.2),                          # the shatter, and the victim is there
  (2.6,"clip",42,None,0),
 
  # vo4
  (8.0,"lip",43,4,0),
  # vo5, the wheel, over cutaways. the one repeat that stayed
- (2.2,"clip",44,5,0),(2.0,"clip",45,None,0),(2.0,"clip",46,None,0),(2.0,"clip",47,None,0),
+ (2.2,"clip",44,5,0),(2.6,"clip",47,None,0),
  (1.2,"flash","smile",None,0),(1.2,"flash","empty",None,0),
  (1.2,"flash","eyes",None,0),(1.2,"punch","cave07v",None,0.4),
- (7.6,"clip",52,None,0),
+ (6.0,"clip",52,None,0),
  # vo6
  (10.0,"lip",53,6,0),
 
- # THE MEETING. The drawing resolves into the real room, and only then does the
- # camera pull back and find that the patient is really sitting there.
- (5.0,"clip","morph",None,0),
+ # THE MEETING. His fixed illustrated shot resolves into the same frame
+ # photoreal, and that frame is exactly where the pull-back begins, so the
+ # style change and the reveal are one continuous move with no seam.
+ (5.0,"clip","morph2",None,0),
  (8.0,"clip","room",None,0),
  (3.0,"clip",57,None,0),
-
- # THE FREQUENCY OF LOVE, all moving, all of it here rather than inside the chapters
- (2.5,"clip","lv_hand",None,0),
- (3.5,"clip","lv_sofa",None,0),
- (3.5,"clip","lv_coffee",None,0),      # the rescuer's own action, without the role
  (3.0,"clip","lv_laugh",None,0),
- (3.5,"clip","lv_balcony",None,0),
 
  # the cave closes it
  (2.9,"clip","cave08v",None,0),
  (3.5,"clip",59,None,0),
- (5.0,"clip",61,None,0),                                  # the hand within a hand
  (4.5,"clip",62,None,0),
- (4.5,"clip","lv_wall",None,0),                           # his palm beside the ochre handprint
  (3.5,"card",None,None,0),
  (4.5,"dedic",None,None,0),
 ]
@@ -201,7 +223,7 @@ VO_DELAY = {5: 1.0}   # vo5 starts a beat after its shot so it cannot collide wi
 # Cues are anchored to WHAT A SHOT IS, never to its position, because inserting
 # one shot used to move every cue after it silently. Each anchor is
 # (kind, ref, which occurrence).
-MEET_AT = ("clip", "morph", 1)
+MEET_AT = ("clip", "morph2", 1)
 SFX = [
  ("fire",  ("clip", 1, 1),          "the fire finds the wall in the opening"),
  ("fire",  ("clip", 15, 1),         "the cave beat that closes the rescuer"),
@@ -211,14 +233,19 @@ SFX = [
  ("sting", ("q1", None, 1),         "sub drop under THE RESCUER"),
  ("sting", ("q2", None, 1),         "sub drop under THE VICTIM"),
  ("sting", ("q3", None, 1),         "sub drop under THE PERSECUTOR"),
+ # two of the middle collage flashes are gone, so two rips went with them.
+ # the anchors are by occurrence, so a stale one fails the build rather than
+ # landing on the wrong frame.
  ("rip",   ("punch", "mag1v", 1), ""), ("rip", ("punch", "mag2v", 1), ""),
  ("rip",   ("punch", "mag3v", 1), ""), ("rip", ("punch", "mag1v", 2), ""),
- ("rip",   ("punch", "mag2v", 2), ""), ("rip", ("punch", "mag1v", 3), ""),
- ("rip",   ("punch", "mag2v", 3), ""), ("rip", ("punch", "mag3v", 2), ""),
+ ("rip",   ("punch", "mag2v", 2), ""), ("rip", ("punch", "mag3v", 2), ""),
  ("pulse", ("dolly", "block", 1),   "a slow low pulse under the persecutor, felt not heard"),
  ("riser", ("clip", 38, 1),         "the rise into the throw"),
  ("wind",  ("clip", 8, 1),          "under the earth zoom"),
- ("shat",  ("clip", "orbit", 1),    "the glass on the wall"),
+ ("shat",  ("clip", "orbit2", 1),   "the glass on the wall"),
+ # cut 12: the move in through the window needs air moving with it, or an
+ # eight second travelling shot plays as a silent slideshow.
+ ("glide", ("clip", "walk", 1),     "air under the move in through the window"),
 ]
 
 W, H = 1920, 1080
@@ -404,6 +431,23 @@ for v, t0 in marks:
     print("  vo%d %s" % (v, how))
     for (s0, s1), t in pairs:
         cues.append((t0 + s0, t0 + s1, t))
+# cut 12: shortening a chapter can pull the next narration block UNDER the tail
+# of the one before it, and nothing in the build noticed. The whisper pass has
+# just measured every block, so use those measurements as a gate rather than
+# trusting the shot table. Speech overlapping speech is unlistenable.
+import wave, contextlib
+ends = {}
+for v, t0 in marks:
+    with contextlib.closing(wave.open("hv%d.wav" % v)) as w:
+        ends[v] = t0 + w.getnframes() / float(w.getframerate())
+order = sorted(marks, key=lambda m: m[1])
+for (v, t0), (v2, t2) in zip(order, order[1:]):
+    if ends[v] > t2 - 0.3:
+        raise SystemExit("NARRATION OVERLAP: vo%d ends at %.2fs, vo%d starts at %.2fs"
+                         % (v, ends[v], v2, t2))
+print("narration blocks clear, tightest gap %.2fs"
+      % min(t2 - ends[v] for (v, _), (v2, t2) in zip(order, order[1:])))
+
 cues.sort()
 # no cue may sit on top of the next one
 for j in range(len(cues) - 1):

@@ -109,8 +109,11 @@ sox -n riser.wav synth 4.2 sine 62:210 vol 0.09 fade t 3 4.2 0.3
 sox -n wind.wav synth 8 pinknoise vol 0.05 lowpass 1400 fade t 1.5 8 3
 # the glass on the wall
 sox -n shat.wav synth 0.6 whitenoise vol 0.45 highpass 2200 fade h 0 0.6 0.55
+# air moving with the camera as it comes in through the window: a slow swell
+# that arrives with the move and dies as it settles behind him
+sox -n glide.wav synth 8 pinknoise vol 0.07 lowpass 900 fade t 2.5 8 3.5
 
-for f in room fire sting rip pulse riser wind shat; do
+for f in room fire sting rip pulse riser wind shat glide; do
   echo -n "  bed $f "
   ffmpeg -nostdin -i $f.wav -af volumedetect -f null /dev/null 2>&1 | grep mean_volume | sed 's/.*mean_volume: //'
 done
