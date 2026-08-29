@@ -13,8 +13,10 @@ declare -A HE=(
  [4]=hf_20260829_062548_c2fa46e6-d4fc-47bd-8069-26c9713b98e8
  [5]=hf_20260829_062548_c3d7022f-4c9d-470f-a59c-4653249e10ba
  [6]=hf_20260829_062548_f8befee9-fee0-4fd9-bdfd-4624d54e405d
+ # 7 is not the therapist: it is the patient, first person, once, at the start
+ [7]=hf_20260829_194605_a09fa10d-4e9f-4e93-9c49-976b110f4318
 )
-for i in 1 2 3 4 5 6; do
+for i in 1 2 3 4 5 6 7; do
   [ -f hv$i.wav ] || {
     curl -sf -o rh$i.mp3 "$CDN/${HE[$i]}.mp3"
     ffmpeg -nostdin -v error -y -i rh$i.mp3 -af "silenceremove=start_periods=1:start_silence=0.1:start_threshold=-45dB:detection=peak,areverse,silenceremove=start_periods=1:start_silence=0.1:start_threshold=-45dB:detection=peak,areverse,loudnorm=I=-18:TP=-1.5:LRA=11,aformat=sample_rates=48000:channel_layouts=stereo" hv$i.wav </dev/null

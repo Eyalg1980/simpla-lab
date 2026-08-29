@@ -41,8 +41,6 @@ C = {
  23:"20260828_230803_9c31c352-daf4-4914-b35d-6b155f51f8e1",  # hands in the lap
  29:"20260828_230848_ab8e2688-a584-4abe-aafb-aed0ea2763dc",  # pulling the hood up
  38:"20260828_233753_6ca6b04f-139c-46b8-a5cf-ec7348f6a03b",  # face lit low
- 44:"20260828_230930_12fef9e3-ef73-4260-a3ef-cfbf1b7f706a",  # the grip between two hands
- 47:"20260828_230848_3fce5295-a8ff-4a14-b6fb-36d4127dc8b9",  # hand on the glass
  52:"20260829_082556_f8f5a60f-93a7-40eb-aced-fbd556010d4d",  # cave wide, three figures
  57:"20260828_230930_36310d72-7aea-4b11-8f42-bd2aa6c3ad19",  # the real smile
  59:"20260829_082535_df9d9562-00a2-4825-be9e-999123f27a53",  # drawing in the cave
@@ -65,6 +63,10 @@ DROPPED = {
  46:"the alley with the lamps, an approved trim",
  40:"the old glass-alone shot, replaced by 'tumble' with the matching glass",
  61:"the hand within a hand, one of his seven",
+ # cut 13: the two street shots in the wheel. He was right that they are not
+ # part of this film -- an unrelated woman and an unrelated couple.
+ 44:"the two hands gripping in the alley, nobody in the film",
+ 47:"the woman's raised palm in the alley, nobody in the film",
 }
 # cut 12: the same guard for the new-material keys, which live in N and were
 # never covered by the assert below. Six of the seven he removed are here.
@@ -75,12 +77,15 @@ DROPPED_N = {
  "lv_hand":"the hand on the shoulder", "lv_sofa":"the two of them on the sofa",
  "lv_coffee":"pouring the two coffees", "lv_balcony":"the two of them on the balcony",
  "lv_wall":"his painted palm beside the ochre handprint",
+ "throw2":"the second throw, it read as a flinch rather than a throw",
+ "tumble":"replaced together with the throw so the glass still matches",
+ "orbit2":"replaced, its shards were confetti",
+ "room":"the reveal where the therapist mouthed words with no sound",
 }
 assert not (set(C) & set(DROPPED)), "a dropped shot is back in C: %s" % (set(C) & set(DROPPED),)
 
 # ---- new material generated for v7 ------------------------------------------
 N = {
- "room":"20260829_082536_bf01248a-17e6-4dab-a355-6668039df14d",   # pull back + rotate, patient is the lead
  # animated 29.8: the collage now moves as stop-motion, and the relit cave
  # stills now flicker, because a fire that does not move is a defect
  "mag1v":"20260829_092501_85dfde3a-bc89-43a4-a7b6-886ec8251bfc",
@@ -95,9 +100,25 @@ N = {
  # written once and pasted verbatim into all three prompts: "a heavy dark
  # charcoal wool overcoat over a black shirt" and "a short heavy clear glass
  # tumbler, thick round base, completely empty, no liquid, plain and unmarked".
- "throw2":"20260829_174432_725463d1-b097-440f-a546-d1a97ae5d6a0",  # the throw, arm above the head
- "tumble":"20260829_174423_ad56ed84-c75b-4f9e-bc1d-2a7771ef8ecc",  # the same glass alone in the dark
- "orbit2":"20260829_174422_748fa18c-ab14-42e9-90f9-7268db613f2c",  # the shatter, persecutor AND victim in frame
+ # cut 13: regenerated a second time. The first throw read as a FLINCH -- body
+ # hunched, face down, glass still beside his head. This one is a committed
+ # overhand throw: weight forward, face lifted to the wall, glass already most
+ # of the way across the room. The shards are now hand-sized blades, not confetti.
+ "throw3":"20260829_184940_f51b860b-8f16-49e7-b134-5861502fce2c",
+ "tumble2":"20260829_184940_7b316e63-7451-4393-b86f-9084bc580a6b",
+ "orbit3":"20260829_184939_d9b4ac3e-90db-4b17-ac1e-8be5069e0f4f",
+ # THE MEETING OF THE THREE ROLES. The wheel used to run over an unrelated
+ # woman and an unrelated couple in an alley -- filler from an old cut that had
+ # nothing to do with the film. The narration there says "all three of them are
+ # the same person", so now that is what is on screen: the same man, three
+ # times, in one room, in his three costumes. Generated from one parent face
+ # with all three wardrobe references passed together.
+ "trio1":"20260829_184940_a7fd7250-4cc1-4da3-92ef-e5f94e377b41",  # long shot, all three in the room
+ "trio2":"20260829_184940_e6153ab0-2b44-46ce-a43d-1bd7682c88c2",  # victim and persecutor face to face
+ "trio3":"20260829_184940_4da49882-2ab8-4673-8e16-05377615e6f2",  # over the victim's shoulder
+ # the reveal, regenerated: in the old one the therapist mouthed words with no
+ # sound, which reads as a bug and not as a choice. Neither man speaks now.
+ "room2":"20260829_184941_05925272-5863-46fb-bd0e-16504b0d3e61",
  # the victim's chapter now opens with one continuous move from outside the house
  "walk":"20260829_174423_cbb11e04-1558-43e9-a5a8-0b16bb340d0b",
  # the morph, rebuilt to his spec: his FIXED illustrated shot resolves into the
@@ -121,6 +142,14 @@ HE = {
  4:"20260829_062548_c2fa46e6-d4fc-47bd-8069-26c9713b98e8",
  5:"20260829_062548_c3d7022f-4c9d-470f-a59c-4653249e10ba",
  6:"20260829_062548_f8befee9-fee0-4fd9-bdfd-4624d54e405d",
+ # THE CONFESSION, added 29.8. Until now the only voice in the film was the
+ # therapist's, which made the film a lecture: it explains a mechanism and never
+ # gives the viewer one person to lose. This is the patient, in FIRST PERSON,
+ # once, at the very start, in a different voice (elevenlabs / Cillian). It also
+ # plants "my therapist" in the sixth second, so the dedication at the end
+ # closes a circle instead of arriving from nowhere.
+ # Gated the same way the Hebrew was: whisper transcribed it back word for word.
+ 7:"20260829_194605_a09fa10d-4e9f-4e93-9c49-976b110f4318",
 }
 # Hebrew lip sync, wan2.7
 L = {
@@ -135,8 +164,10 @@ L = {
 # (dur, kind, ref, vo, in_point)
 S = [
  # prologue, the cave
- (3.0,"clip",1,None,0),(2.5,"clip",2,None,0),(3.0,"clip",3,None,0),(3.5,"clip",4,None,0),
- (4.0,"title",None,None,0),
+ (3.0,"clip",1,None,0),(2.5,"clip",2,None,0),
+ (3.0,"clip",3,7,0),                                      # vo7, the confession
+ (3.5,"clip",4,None,0),
+ (4.5,"title",None,None,0),
 
  # vo1. THE CHAPTER CARD NOW COMES AFTER THE NARRATION, NOT BEFORE IT: the quote
  # and the burned subtitle were fighting for the same screen. So the therapist
@@ -177,9 +208,9 @@ S = [
  # III. the persecutor, and the bullet time. All three shots regenerated from
  # one parent frame: same coat, same glass, and the third holds both men.
  (2.2,"clip",38,None,0),
- (5.0,"clip","throw2",None,0),                            # the throw, arm above the head
- (2.6,"clip","tumble",None,0),                            # the SAME glass alone in the dark
- (4.6,"clip","orbit2",None,0.4),                          # the shatter, and the victim is there
+ (5.0,"clip","throw3",None,0),                            # a throw, not a flinch
+ (2.6,"clip","tumble2",None,0),                           # the SAME glass alone in the dark
+ (4.6,"clip","orbit3",None,0.4),                          # the shatter, and the victim is there
                                 # in point 0.4: past 4.6s the orbit brings a SECOND standing
                                 # figure round and the hooded victim is gone, which breaks it
 
@@ -191,11 +222,17 @@ S = [
  # go round TWICE, the second turn faster than the first. The line is "it is not
  # a triangle, it is a wheel", so a wheel that comes round again and picks up
  # speed is the picture saying what the voice says.
- (2.2,"clip",44,5,0),(2.4,"clip",47,None,0),
+ # THE MEETING. The line under this is "all three of them are the same person",
+ # so the picture is now literally that, and the first of the three is a LONG
+ # SHOT of a whole room -- the widest frame in the film, dropped in exactly
+ # where a run of close-ups used to be.
+ (4.0,"clip","trio1",5,0),                                # all three in one room
+ (3.6,"clip","trio2",None,0),                             # victim and persecutor, face to face
+ (3.6,"clip","trio3",None,0),                             # over the victim's shoulder
+ # and only then the wheel spins: the three faces, fast, once
  (1.2,"flash","smile",None,0),(1.2,"flash","empty",None,0),(1.2,"flash","eyes",None,0),
- (0.9,"flash","smile",None,0),(0.9,"flash","empty",None,0),(0.9,"flash","eyes",None,0),
  (1.6,"punch","cave07v",None,0.4),
- (9.2,"slow",52,None,0),
+ (6.0,"slow",52,None,0),
  # vo6
  (10.0,"lip",53,6,0),
 
@@ -203,7 +240,7 @@ S = [
  # photoreal, and that frame is exactly where the pull-back begins, so the
  # style change and the reveal are one continuous move with no seam.
  (5.0,"clip","morph2",None,0),
- (8.0,"clip","room",None,0),
+ (8.0,"clip","room2",None,0),
  (3.0,"clip",57,None,0),
  (3.0,"clip","lv_laugh",None,0),
 
@@ -244,7 +281,7 @@ SFX = [
  ("pulse", ("dolly", "block", 1),   "a slow low pulse under the persecutor, felt not heard"),
  ("riser", ("clip", 38, 1),         "the rise into the throw"),
  ("wind",  ("clip", 8, 1),          "under the earth zoom"),
- ("shat",  ("clip", "orbit2", 1),   "the glass on the wall"),
+ ("shat",  ("clip", "orbit3", 1),   "the glass on the wall"),
  # cut 12: the move in through the window needs air moving with it, or an
  # eight second travelling shot plays as a silent slideshow.
  ("glide", ("clip", "walk", 1),     "air under the move in through the window"),
@@ -300,9 +337,14 @@ for i, (dur, kind, ref, vo, ss) in enumerate(S, 1):
     if kind in ("title", "q1", "q2", "q3", "card", "dedic"):
         base = Image.new("RGB", (W, H), (6, 6, 6)); d2 = ImageDraw.Draw(base)
         if kind == "title":
-            d2.text((960, 430), "THE RESCUER", font=f(FB, 96), fill=(240,240,240), anchor="ma")
-            d2.text((960, 545), "SYNDROME", font=f(FB, 96), fill=(240,240,240), anchor="ma")
-            he(d2, (960, 690), u"תסמונת המושיע", f(FR, 42), G)
+            # 29.8: all burned CARD text is English now. The spoken narration
+            # stays Hebrew -- that is the authenticity signal -- and everything
+            # a juror has to READ is in their language.
+            d2.text((960, 420), "THE RESCUER", font=f(FB, 96), fill=(240,240,240), anchor="ma")
+            d2.text((960, 535), "SYNDROME", font=f(FB, 96), fill=(240,240,240), anchor="ma")
+            d2.line([(810, 690), (1110, 690)], fill=(70,70,70), width=2)
+            d2.text((960, 726), "THE KARPMAN TRIANGLE, THIRTY THOUSAND YEARS OLD",
+                    font=f(FR, 26), fill=G, anchor="ma")
         elif kind == "card":
             rows = [("Cave, lowest layer", (232,232,232)),
                     ("Three figures, ochre and charcoal", (232,232,232)),
@@ -313,19 +355,18 @@ for i, (dur, kind, ref, vo, ss) in enumerate(S, 1):
             d2.line([(760, 680), (1160, 680)], fill=(70,70,70), width=2)
             d2.text((960, 720), "THE RESCUER SYNDROME", font=f(FB, 34), fill=(180,180,180), anchor="ma")
         elif kind == "dedic":
-            he(d2, (960, 360), u"מוקדש", f(FR, 34), G)
-            he(d2, (960, 440), u"לרפיק ידידה", f(FB, 84), (240,240,240))
-            he(d2, (960, 580), u"המטפל שלי", f(FR, 46), (200,200,200))
-            d2.line([(790, 700), (1130, 700)], fill=(70,70,70), width=2)
-            d2.text((960, 740), "FOR RAFIK YEDIDIA, MY THERAPIST", font=f(FR, 28), fill=(150,150,150), anchor="ma")
+            d2.text((960, 372), "FOR", font=f(FR, 32), fill=G, anchor="ma")
+            d2.text((960, 440), "RAFIK YEDIDIA", font=f(FB, 84), fill=(240,240,240), anchor="ma")
+            d2.text((960, 580), "MY THERAPIST", font=f(FR, 44), fill=(200,200,200), anchor="ma")
         else:
             num, he_title, en_title, l1, l2 = QUOTES[kind]
-            d2.text((960, 232), num, font=f(FB, 30), fill=G, anchor="ma")
-            he(d2, (960, 288), he_title, f(FB, 104), (245,245,245))       # the chapter title
-            d2.text((960, 452), en_title, font=f(FB, 32), fill=G, anchor="ma")
-            d2.line([(810, 536), (1110, 536)], fill=(70,70,70), width=2)
-            d2.text((960, 594), l1, font=f(FR, 50), fill=(214,214,214), anchor="ma")
-            d2.text((960, 664), l2, font=f(FR, 50), fill=(214,214,214), anchor="ma")
+            # the Hebrew chapter title is gone: the English name carries it now,
+            # at the size the Hebrew used to have.
+            d2.text((960, 268), num, font=f(FB, 30), fill=G, anchor="ma")
+            d2.text((960, 330), en_title, font=f(FB, 82), fill=(245,245,245), anchor="ma")
+            d2.line([(810, 500), (1110, 500)], fill=(70,70,70), width=2)
+            d2.text((960, 566), l1, font=f(FR, 50), fill=(214,214,214), anchor="ma")
+            d2.text((960, 636), l2, font=f(FR, 50), fill=(214,214,214), anchor="ma")
         base.save("o%03d.png" % i); plan.append((i, dur, "card", "-", 0))
     elif kind in ("clip", "slow", "punch"):
         plan.append((i, dur, kind, url_for(ref), ss))
@@ -406,6 +447,10 @@ ENG = {
      "And the victim has had enough, and starts to attack.",
      "It is not a triangle.",
      "It is a wheel."],
+ 7: ["I had a therapist.",
+     "One day he drew a triangle for me, on a page.",
+     "After that I could never look at anyone the same way.",
+     "Least of all myself."],
  6: ["You cannot leave this quietly.",
      "The moment you stop rescuing,",
      "you look to them exactly like the persecutor.",
