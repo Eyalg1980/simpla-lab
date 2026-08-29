@@ -153,7 +153,8 @@ S = [
  (12.0,"lip",16,2,0),
  # the victim's chapter no longer OPENS on him: the camera comes in from
  # outside the house, through the window and two rooms, and finds him.
- (8.0,"clip","walk",None,0),
+ (9.2,"clip","walk",None,0),   # 9.2 not 8.0: the arrival behind him lands at 6.5s of the
+                                # source, so a shorter slot cut away before the payoff
  (0.4,"punch","mag1v",None,0.2),
  (1.8,"clip",23,None,0),
  (0.4,"punch","mag2v",None,0.2),
@@ -178,7 +179,9 @@ S = [
  (2.2,"clip",38,None,0),
  (5.0,"clip","throw2",None,0),                            # the throw, arm above the head
  (2.6,"clip","tumble",None,0),                            # the SAME glass alone in the dark
- (5.0,"clip","orbit2",None,1.2),                          # the shatter, and the victim is there
+ (4.6,"clip","orbit2",None,0.4),                          # the shatter, and the victim is there
+                                # in point 0.4: past 4.6s the orbit brings a SECOND standing
+                                # figure round and the hooded victim is gone, which breaks it
 
  # vo4
  (8.0,"lip",43,4,0),
