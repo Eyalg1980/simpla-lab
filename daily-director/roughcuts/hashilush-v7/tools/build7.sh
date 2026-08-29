@@ -98,19 +98,37 @@ echo "silence begins at $MEET"
 # floor everywhere is what makes the digital silence of the ending land.
 sox -n room.wav synth $MEET brownnoise vol 0.012 lowpass 260 fade t 3 $MEET 3
 # an open flame: filtered noise with a tremolo doing the flicker
-sox -n fire.wav synth 9 pinknoise vol 0.055 highpass 140 lowpass 1100 tremolo 9 55 fade t 0.5 9 1.2
+# two tremolos in series give the irregular flicker of a real flame.
+# levels were MEASURED against the -46 dB room floor and the -21 dB voice, not guessed:
+# an earlier pass had the fire at -48 dB, quieter than the floor, so it was inaudible.
+sox -n fire.wav synth 9 pinknoise vol 0.22 highpass 200 lowpass 3200 tremolo 9 45 tremolo 23 30 fade t 0.5 9 1.2
 # the chapter title hit: a falling sub, no pitch you could hum
-sox -n sting.wav synth 1.8 sine 58:34 vol 0.30 fade t 0.02 1.8 1.5
+sox -n sting.wav synth 1.8 sine 58:34 vol 0.14 fade t 0.02 1.8 1.5
 # torn paper and tape, one per collage cut
-sox -n rip.wav synth 0.13 whitenoise vol 0.34 highpass 1400 lowpass 7000 fade h 0 0.13 0.11
+sox -n rip.wav synth 0.13 whitenoise vol 0.26 highpass 1400 lowpass 7000 fade h 0 0.13 0.11
 # a slow low pulse under the persecutor, meant to be felt rather than heard
-sox -n pulse.wav synth 13 sine 46 vol 0.11 tremolo 50 92 fade t 1.5 13 2.5
+sox -n pulse.wav synth 13 sine 46 vol 0.09 tremolo 50 92 fade t 1.5 13 2.5
 # the rise into the throw
 sox -n riser.wav synth 4.2 sine 62:210 vol 0.09 fade t 3 4.2 0.3
 # wind under the dive
 sox -n wind.wav synth 8 pinknoise vol 0.05 lowpass 1400 fade t 1.5 8 3
 # the glass on the wall
 sox -n shat.wav synth 0.6 whitenoise vol 0.45 highpass 2200 fade h 0 0.6 0.55
+
+for f in room fire sting rip pulse riser wind shat; do
+  echo -n "  bed $f "
+  ffmpeg -nostdin -i $f.wav -af volumedetect -f null /dev/null 2>&1 | grep mean_volume | sed 's/.*mean_volume: //'
+done
+# the fire must sit ABOVE the room floor or it is not there at all
+python3 -c "
+import subprocess, sys, re
+def lvl(f):
+    o=subprocess.run(['ffmpeg','-nostdin','-i',f,'-af','volumedetect','-f','null','/dev/null'],
+                     capture_output=True,text=True).stderr
+    return float(re.search(r'mean_volume: (-?[\d.]+)',o).group(1))
+r,fi=lvl('room.wav'),lvl('fire.wav')
+if fi <= r + 5: sys.exit('THE FIRE IS INAUDIBLE: room %.1f dB, fire %.1f dB' % (r,fi))
+print('  fire sits %.1f dB above the room floor' % (fi-r))"
 
 echo "== audio mix"
 FC=""; IN=""; LBL=""; i=0
