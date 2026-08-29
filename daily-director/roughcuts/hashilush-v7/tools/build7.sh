@@ -37,6 +37,16 @@ while read n d k url ss; do
       ffmpeg -nostdin -y -loglevel error -ss $ss -i "$c" \
         -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps=25,setsar=1" \
         -an -t $d -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -r 25 -g 50 $s </dev/null ;;
+    slow)
+      # source is shorter than the slot: stretch it instead of cutting the slot
+      c=$(printf "c%02d.mp4" $n)
+      [ -f "$c" ] || curl -sf -o "$c" "$url"
+      SRC=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$c")
+      F=$(python3 -c "print('%.4f' % (($d + 0.2) / ($SRC - $ss)))")
+      ffmpeg -nostdin -y -loglevel error -ss $ss -i "$c" \
+        -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setpts=PTS*$F,fps=25,setsar=1" \
+        -an -t $d -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -r 25 -g 50 $s </dev/null
+      echo "  shot $n stretched x$F from ${SRC}s" ;;
     flash|card)
       ffmpeg -nostdin -y -loglevel error -loop 1 -framerate 25 -i $(printf "o%02d.png" $n) -t $d \
         -c:v libx264 -preset veryfast -tune stillimage -crf 20 -pix_fmt yuv420p -r 25 -g 50 \
@@ -47,6 +57,14 @@ while read n d k url ss; do
         -vf "scale=3840:2160,zoompan=z='min(zoom+0.0006,1.10)':d=$FR:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1920x1080:fps=25,setsar=1" \
         -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -r 25 -g 50 $s </dev/null ;;
   esac
+  # a source shorter than its slot would silently shift every later shot and
+  # drag the narration out of sync. that is the v6 bug. fail here instead.
+  GOT=$(ffprobe -v error -show_entries format=duration -of csv=p=0 $s)
+  python3 -c "
+import sys
+d,g=$d,$GOT
+if abs(g-d)>0.06:
+    sys.exit('SHOT $n SHORT: wanted %.2f got %.2f' % (d,g))"
   echo "file '$s'" >> list.txt
 done < plan.txt
 NGOT=$(wc -l < list.txt)

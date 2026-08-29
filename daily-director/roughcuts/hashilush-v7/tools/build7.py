@@ -117,7 +117,7 @@ S = [
  (1.8,"dolly","knuck",None,0),(1.6,"dolly","cave05",None,0),
  (2.2,"clip",38,None,0),
  (5.0,"clip","throw",None,0),                             # arm above the head, slow motion
- (3.5,"clip",40,None,0),                                  # the glass alone in the air
+ (3.0,"clip",40,None,0),                                  # the glass alone in the air
  (5.5,"clip","orbit",None,4.4),                           # orbit, the victim comes around
  (2.6,"clip",42,None,0),
  # vo4
@@ -126,12 +126,12 @@ S = [
  (2.2,"clip",44,5,0),(2.0,"clip",45,None,0),(2.0,"clip",46,None,0),(2.0,"clip",47,None,0),
  (1.2,"flash","smile",None,0),(1.2,"flash","empty",None,0),
  (1.2,"flash","eyes",None,0),(1.2,"flash","cave07",None,0),
- (7.6,"clip",52,None,0),
+ (7.6,"slow",52,None,0),   # 4s of cave stretched: the deceleration after the burst
  # vo6
  (10.0,"lip",53,6,0),
  # the meeting, and the healing
  (8.0,"clip","room",None,0),                              # pull back, rotate, the patient appears
- (3.5,"clip",57,None,0),
+ (3.0,"clip",57,None,0),
  (3.0,"dolly","cave08",None,0),
  (3.5,"clip",59,None,0),(3.0,"clip",60,None,0),
  (5.0,"clip",61,None,0),                                  # the hand within a hand
@@ -215,8 +215,8 @@ for i, (dur, kind, ref, vo, ss) in enumerate(S, 1):
             d2.text((960, 480), l1, font=f(FR, 56), fill=(238,238,238), anchor="ma")
             d2.text((960, 560), l2, font=f(FR, 56), fill=(238,238,238), anchor="ma")
         base.save("o%02d.png" % i); plan.append((i, dur, "card", "-", 0))
-    elif kind == "clip":
-        plan.append((i, dur, "clip", url_for(ref), ss))
+    elif kind in ("clip", "slow"):
+        plan.append((i, dur, kind, url_for(ref), ss))
     elif kind == "lip":
         plan.append((i, dur, "clip", B + L[ref] + ".mp4", ss))
     else:                                    # dolly / flash, both from a still
@@ -235,8 +235,9 @@ open("plan.txt","w").write("".join("%d %.2f %s %s %.2f\n" % p for p in plan))
 open("marks.txt","w").write("".join("%d %d\n" % (v, round(t*1000)) for v, t in marks))
 tot = cum
 print("shots %d  total %.2f = %d:%02d" % (len(S), tot, tot//60, tot%60))
-print("clips %d  dolly %d  flash %d  cards %d" % (
-    sum(1 for p in plan if p[2]=="clip"), sum(1 for p in plan if p[2]=="dolly"),
+print("clips %d  slow %d  dolly %d  flash %d  cards %d" % (
+    sum(1 for p in plan if p[2]=="clip"), sum(1 for p in plan if p[2]=="slow"),
+    sum(1 for p in plan if p[2]=="dolly"),
     sum(1 for p in plan if p[2]=="flash"), sum(1 for p in plan if p[2]=="card")))
 print("marks", [(v, round(t,2)) for v, t in marks])
 
