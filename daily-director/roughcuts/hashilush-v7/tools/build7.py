@@ -164,9 +164,8 @@ L = {
 # (dur, kind, ref, vo, in_point)
 S = [
  # prologue, the cave
- (3.0,"clip",1,None,0),(2.5,"clip",2,None,0),
- (3.0,"clip",3,7,0),                                      # vo7, the confession
- (3.5,"clip",4,None,0),
+ (3.0,"clip",1,7,0),                                      # vo7, the confession
+ (2.5,"clip",2,None,0),(3.0,"clip",3,None,0),(3.5,"clip",4,None,0),
  (4.5,"title",None,None,0),
 
  # vo1. THE CHAPTER CARD NOW COMES AFTER THE NARRATION, NOT BEFORE IT: the quote
@@ -251,7 +250,8 @@ S = [
  (3.5,"card",None,None,0),
  (4.5,"dedic",None,None,0),
 ]
-VO_DELAY = {5: 1.4}   # vo5 starts a beat after its shot so it cannot collide with vo4
+VO_DELAY = {5: 1.4, 7: 1.5}  # vo7 lets the first cave image sit for a beat
+                             # before anyone speaks, and still clears the title card   # vo5 starts a beat after its shot so it cannot collide with vo4
 
 # ---- sound design ------------------------------------------------------------
 # Every cue is anchored to a SHOT INDEX, never to a hand-typed timecode, so the
@@ -494,6 +494,21 @@ for (v, t0), (v2, t2) in zip(order, order[1:]):
                          % (v, ends[v], v2, t2))
 print("narration blocks clear, tightest gap %.2fs"
       % min(t2 - ends[v] for (v, _), (v2, t2) in zip(order, order[1:])))
+
+# A CARD MUST NEVER SHARE THE SCREEN WITH A VOICE. That collision -- a quote to
+# read and a subtitle to read at the same time -- is the thing he sent back
+# twice. The chapter cards were fixed by hand; this makes it structural.
+card_t, t = [], 0.0
+for dur, kind, ref, vo, ss in S:
+    if kind in ("title", "q1", "q2", "q3", "card", "dedic"):
+        card_t.append((kind, t, t + dur))
+    t += dur
+for kind, a, b in card_t:
+    for v, t0 in marks:
+        if t0 < b and ends[v] > a:
+            raise SystemExit("CARD OVER SPEECH: %s runs %.2f-%.2f, vo%d runs %.2f-%.2f"
+                             % (kind, a, b, v, t0, ends[v]))
+print("no card shares the screen with a voice, %d cards checked" % len(card_t))
 
 cues.sort()
 # no cue may sit on top of the next one
