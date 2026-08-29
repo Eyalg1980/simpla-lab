@@ -37,6 +37,13 @@ while read n d k url ss; do
       ffmpeg -nostdin -y -loglevel error -ss $ss -i "$c" \
         -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps=25,setsar=1" \
         -an -t $d -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -r 25 -g 50 $s </dev/null ;;
+    punch)
+      # a moving clip used as a fast flash: punched in so it still reads at 0.4s
+      c=$(printf "c%02d.mp4" $n)
+      [ -f "$c" ] || curl -sf -o "$c" "$url"
+      ffmpeg -nostdin -y -loglevel error -ss $ss -i "$c" \
+        -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=iw*0.86:ih*0.86,scale=1920:1080,fps=25,setsar=1" \
+        -an -t $d -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -r 25 -g 50 $s </dev/null ;;
     slow)
       # source is shorter than the slot: stretch it instead of cutting the slot
       c=$(printf "c%02d.mp4" $n)
