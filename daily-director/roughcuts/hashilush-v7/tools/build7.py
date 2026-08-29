@@ -81,6 +81,9 @@ DROPPED_N = {
  "tumble":"replaced together with the throw so the glass still matches",
  "orbit2":"replaced, its shards were confetti",
  "room":"the reveal where the therapist mouthed words with no sound",
+ "throw3":"the third throw, folded into the single continuous bullet-time take",
+ "tumble2":"folded into the single continuous take",
+ "orbit3":"folded into the single continuous take",
 }
 assert not (set(C) & set(DROPPED)), "a dropped shot is back in C: %s" % (set(C) & set(DROPPED),)
 
@@ -104,9 +107,15 @@ N = {
  # hunched, face down, glass still beside his head. This one is a committed
  # overhand throw: weight forward, face lifted to the wall, glass already most
  # of the way across the room. The shards are now hand-sized blades, not confetti.
- "throw3":"20260829_184940_f51b860b-8f16-49e7-b134-5861502fce2c",
- "tumble2":"20260829_184940_7b316e63-7451-4393-b86f-9084bc580a6b",
- "orbit3":"20260829_184939_d9b4ac3e-90db-4b17-ac1e-8be5069e0f4f",
+ # cut 14: the whole bullet time is now ONE UNBROKEN TEN-SECOND TAKE on
+ # Seedance 2.5 (omni_reference, 720p), not three cuts. Bullet time IS one
+ # continuous move -- splitting it into three shots is what kept killing it.
+ # Two image references locked the objects: the clean tumbler on black for the
+ # glass, and the face-in-the-dark-coat frame for the man. The prompt is written
+ # as a TIMED SHOT LIST inside one take (0-2 the throw, 2-4.5 the glass alone,
+ # 4.5-6 the impact, 6-10 the camera arcing round the frozen shards until the
+ # hooded victim is revealed behind them).
+ "bullet":"20260829_204646_1e4543ca-30ef-48ee-b46f-588cc34cdcdb",
  # THE MEETING OF THE THREE ROLES. The wheel used to run over an unrelated
  # woman and an unrelated couple in an alley -- filler from an old cut that had
  # nothing to do with the film. The narration there says "all three of them are
@@ -207,9 +216,9 @@ S = [
  # III. the persecutor, and the bullet time. All three shots regenerated from
  # one parent frame: same coat, same glass, and the third holds both men.
  (2.2,"clip",38,None,0),
- (5.0,"clip","throw3",None,0),                            # a throw, not a flinch
- (2.6,"clip","tumble2",None,0),                           # the SAME glass alone in the dark
- (4.6,"clip","orbit3",None,0.4),                          # the shatter, and the victim is there
+ # one take: throw, flight, impact, and the camera coming round the frozen
+ # glass to find the victim sitting behind it. No cut anywhere inside it.
+ (10.0,"clip","bullet",None,0),
                                 # in point 0.4: past 4.6s the orbit brings a SECOND standing
                                 # figure round and the hooded victim is gone, which breaks it
 
@@ -281,7 +290,7 @@ SFX = [
  ("pulse", ("dolly", "block", 1),   "a slow low pulse under the persecutor, felt not heard"),
  ("riser", ("clip", 38, 1),         "the rise into the throw"),
  ("wind",  ("clip", 8, 1),          "under the earth zoom"),
- ("shat",  ("clip", "orbit3", 1),   "the glass on the wall"),
+ ("shat",  ("clip", "bullet", 1, 5.4), "the glass on the wall, 5.4s into the single take"),
  # cut 12: the move in through the window needs air moving with it, or an
  # eight second travelling shot plays as a silent slideshow.
  ("glide", ("clip", "walk", 1),     "air under the move in through the window"),
@@ -390,7 +399,7 @@ t = 0.0
 for dur, *_ in S:
     starts.append(t); t += dur
 def find(anchor):
-    kind, ref, nth = anchor
+    kind, ref, nth = anchor[:3]
     seen = 0
     for i, (d, k, r, vo, ss) in enumerate(S):
         if k == kind and r == ref:
@@ -400,7 +409,10 @@ def find(anchor):
 meet_t = starts[find(MEET_AT)]
 sfx = []
 for name, anchor, _why in SFX:
-    at = starts[find(anchor)]
+    # a 4th element is an offset INSIDE the shot. The bullet time is one ten
+    # second take now, so the glass breaks in the middle of a shot rather than
+    # at its head, and the hit has to land there.
+    at = starts[find(anchor)] + (anchor[3] if len(anchor) > 3 else 0.0)
     assert at < meet_t - 0.01, "%s at %r lands in the silent ending" % (name, anchor)
     sfx.append((name, at))
 open("sfx.txt","w").write("".join("%s %.3f\n" % x for x in sfx))
