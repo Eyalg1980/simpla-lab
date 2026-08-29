@@ -9,19 +9,12 @@ B = "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_"
 A = {
  # every cave still RELIT 29.8: the flashlight beam replaced by open flame,
  # regenerated from the old frame itself so only the light changed
- "cave04":"20260829_082104_d98172d8-9a33-4cef-b72a-1917bed34cb3",
- "cave05":"20260829_082104_65438868-db8a-43cd-9ba6-255ed326b08e",
- "cave07":"20260829_082122_7bcf2fa2-d7fd-4f02-a706-2cb66452d62b",
- "cave08":"20260829_082606_744ac58a-99e8-4dd2-b16f-a23c03e83c6e",
  "smile":"20260828_202509_2d9c8e6c-07cb-41d6-909f-710e537595ac",
  "back":"20260828_202509_7cd08410-83fe-4f0d-a963-26523208005b",   # back turned, hoodie
  "empty":"20260828_202509_8683f183-95a5-42db-b5f6-c429d458fcba",  # face, hoodie
  "block":"20260828_202544_0095804c-0a7c-41bb-aad7-e3b5f57f5c0a",  # in the doorway
  "eyes":"20260828_202544_e790d35a-49a2-4161-90ad-490724d97084",
  "knuck":"20260828_202544_eb017d03-2695-4076-831d-66c6483d3035",
- "mag1":"20260828_222831_229f8d60-c01f-49bd-b3ed-b2cf817643ba",
- "mag2":"20260828_222831_a3d5137a-0aa3-4218-a55b-4758bbaf9c03",
- "mag3":"20260828_222831_f4eea5ca-6b12-468c-9163-9dcd63bd5307",
 }
 
 # ---- clips, keyed by their v6 shot number, copied verbatim from build6.py.
@@ -74,6 +67,15 @@ assert not (set(C) & set(DROPPED)), "a dropped shot is back in C: %s" % (set(C) 
 # ---- new material generated for v7 ------------------------------------------
 N = {
  "room":"20260829_082536_bf01248a-17e6-4dab-a355-6668039df14d",   # pull back + rotate, patient is the lead
+ # animated 29.8: the collage now moves as stop-motion, and the relit cave
+ # stills now flicker, because a fire that does not move is a defect
+ "mag1v":"20260829_092501_85dfde3a-bc89-43a4-a7b6-886ec8251bfc",
+ "mag2v":"20260829_092501_41fd76d7-3699-4d3c-a6b3-45694a7ebb13",
+ "mag3v":"20260829_092501_78a50459-6932-472a-901d-1c37714620ba",
+ "cave04v":"20260829_092501_3816c537-3b5c-484c-b0f3-9ce464f12e3d",
+ "cave05v":"20260829_092501_3909c7bc-7e56-41a8-9acb-3d5195e115a8",
+ "cave07v":"20260829_092501_7756c659-aefb-49f9-bee1-fb4061d6594a",
+ "cave08v":"20260829_092501_47215867-9383-411a-a4e6-d10848200a60",
  "throw":"20260829_055935_4ee06eae-5d44-4bd5-bce3-25f830945083",  # arm above the head
  "orbit":"20260829_061423_c5b64d2b-d0ca-4060-89f8-faa2bbb9733f",  # bullet time, victim revealed
 }
@@ -114,23 +116,23 @@ S = [
  (3.2,"q2",None,None,0),
  # II. the victim, fast cuts with the collage woven in and then bursting
  (2.0,"dolly","back",None,0),
- (0.4,"flash","mag1",None,0),
+ (0.4,"punch","mag1v",None,0.2),
  (1.8,"clip",23,None,0),
- (0.4,"flash","mag2",None,0),
+ (0.4,"punch","mag2v",None,0.2),
  (2.0,"dolly","empty",None,0),
- (0.4,"flash","mag3",None,0),
+ (0.4,"punch","mag3v",None,0.2),
  (2.4,"clip",19,None,0),
- (0.4,"flash","mag1",None,0),
- (1.8,"dolly","cave04",None,0),
- (0.4,"flash","mag2",None,0),
- (0.9,"flash","mag1",None,0),(0.9,"flash","mag2",None,0),(0.9,"flash","mag3",None,0),
+ (0.4,"punch","mag1v",None,1.6),
+ (1.8,"clip","cave04v",None,0),
+ (0.4,"punch","mag2v",None,1.6),
+ (0.9,"punch","mag1v",None,2.8),(0.9,"punch","mag2v",None,2.8),(0.9,"punch","mag3v",None,2.6),
  (2.0,"clip",29,None,0),
  # vo3
  (9.0,"lip",30,3,0),
  (3.2,"q3",None,None,0),
  # III. the persecutor, fast then the bullet time slows everything down
  (1.8,"dolly","block",None,0),(2.0,"dolly","eyes",None,0),(1.8,"clip",35,None,0),
- (1.8,"dolly","knuck",None,0),(1.6,"dolly","cave05",None,0),
+ (1.8,"dolly","knuck",None,0),(1.6,"clip","cave05v",None,0),
  (2.2,"clip",38,None,0),
  (5.0,"clip","throw",None,0),                             # arm above the head, slow motion
  (3.0,"clip",40,None,0),                                  # the glass alone in the air
@@ -141,14 +143,14 @@ S = [
  # vo5, the wheel, over cutaways. the one repeat that stayed
  (2.2,"clip",44,5,0),(2.0,"clip",45,None,0),(2.0,"clip",46,None,0),(2.0,"clip",47,None,0),
  (1.2,"flash","smile",None,0),(1.2,"flash","empty",None,0),
- (1.2,"flash","eyes",None,0),(1.2,"flash","cave07",None,0),
+ (1.2,"flash","eyes",None,0),(1.2,"punch","cave07v",None,0.4),
  (7.6,"clip",52,None,0),   # cave wide, held long: the deceleration after the burst
  # vo6
  (10.0,"lip",53,6,0),
  # the meeting, and the healing
  (8.0,"clip","room",None,0),                              # pull back, rotate, the patient appears
  (3.0,"clip",57,None,0),
- (3.0,"dolly","cave08",None,0),
+ (2.9,"clip","cave08v",None,0),
  (3.5,"clip",59,None,0),(3.0,"clip",60,None,0),
  (5.0,"clip",61,None,0),                                  # the hand within a hand
  (4.5,"clip",62,None,0),
@@ -156,6 +158,31 @@ S = [
  (4.5,"dedic",None,None,0),
 ]
 VO_DELAY = {5: 1.0}   # vo5 starts a beat after its shot so it cannot collide with vo4
+
+# ---- sound design ------------------------------------------------------------
+# Every cue is anchored to a SHOT INDEX, never to a hand-typed timecode, so the
+# sound cannot drift when a duration changes. All of it is synthesised with sox.
+# HARD RULE: nothing may be placed at or after the meeting (MEET_SHOT). The
+# absolute silence of the last half minute is the film's strongest sound idea
+# and adding anything to it would be a downgrade, so the build asserts it.
+MEET_SHOT = 54
+SFX = [
+ # (file, shot index, what it is)
+ ("fire",  1,  "the fire finds the wall in the opening"),
+ ("fire", 14,  "the cave beat that closes the rescuer"),
+ ("fire", 25,  "the cave beat inside the collage weave"),
+ ("fire", 37,  "the cave beat before the bullet time"),
+ ("fire", 51,  "the cave that ends the wheel"),
+ ("sting", 7,  "sub drop under THE RESCUER"),
+ ("sting",16,  "sub drop under THE VICTIM"),
+ ("sting",32,  "sub drop under THE PERSECUTOR"),
+ ("rip", 18, ""), ("rip", 20, ""), ("rip", 22, ""), ("rip", 24, ""),
+ ("rip", 26, ""), ("rip", 27, ""), ("rip", 28, ""), ("rip", 29, ""),
+ ("pulse", 33, "a slow low pulse under the persecutor, felt not heard"),
+ ("riser", 38, "the rise into the throw"),
+ ("wind",  8,  "under the earth zoom"),
+ ("shat",  41, "the glass on the wall"),
+]
 
 W, H = 1920, 1080
 G = (113, 247, 60)
@@ -234,7 +261,7 @@ for i, (dur, kind, ref, vo, ss) in enumerate(S, 1):
             d2.text((960, 594), l1, font=f(FR, 50), fill=(214,214,214), anchor="ma")
             d2.text((960, 664), l2, font=f(FR, 50), fill=(214,214,214), anchor="ma")
         base.save("o%02d.png" % i); plan.append((i, dur, "card", "-", 0))
-    elif kind in ("clip", "slow"):
+    elif kind in ("clip", "slow", "punch"):
         plan.append((i, dur, kind, url_for(ref), ss))
     elif kind == "lip":
         plan.append((i, dur, "clip", B + L[ref] + ".mp4", ss))
@@ -249,6 +276,20 @@ for i, (dur, kind, ref, vo, ss) in enumerate(S, 1):
         base.save("o%02d.png" % i)
         plan.append((i, dur, kind, "-", 0))
     cum += dur
+
+# shot start times, so every sound cue is derived and never typed
+starts = []
+t = 0.0
+for dur, *_ in S:
+    starts.append(t); t += dur
+meet_t = starts[MEET_SHOT - 1]
+sfx = []
+for name, shot, _why in SFX:
+    at = starts[shot - 1]
+    assert at < meet_t - 0.01, "%s at shot %d lands in the silent ending" % (name, shot)
+    sfx.append((name, at))
+open("sfx.txt","w").write("".join("%s %.3f\n" % x for x in sfx))
+print("sfx cues %d, last at %.1fs, silence begins %.1fs" % (len(sfx), max(a for _, a in sfx), meet_t))
 
 open("plan.txt","w").write("".join("%d %.2f %s %s %.2f\n" % p for p in plan))
 open("marks.txt","w").write("".join("%d %d\n" % (v, round(t*1000)) for v, t in marks))

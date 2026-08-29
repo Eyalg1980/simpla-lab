@@ -77,19 +77,32 @@ TOT=$(ffprobe -v error -show_entries format=duration -of csv=p=0 silent.mp4)
 PLAN=$(awk '{s+=$2} END{printf "%.2f", s}' plan.txt)
 echo "video duration $TOT  (plan $PLAN)"
 
-echo "== ambience beds"
+echo "== sound design"
 at () { python3 -c "
 rows=[l.split() for l in open('plan.txt')]
 t=0.0
 for r in rows:
     if int(r[0])==$1: print('%.2f'%t); break
     t+=float(r[1])"; }
-MEET=$(at 54)   # room tone stops here, absolute silence to the end
-EZ=$(at 8)      # wind under the earth zoom
-BT=$(at 41)     # the shatter, inside the orbit
-echo "meeting $MEET  earthzoom $EZ  shatter $BT"
+MEET=$(at 54)   # the room tone stops here and the film goes to absolute silence
+echo "silence begins at $MEET"
+
+# the bed: a very quiet room floor under everything up to the meeting. having a
+# floor everywhere is what makes the digital silence of the ending land.
 sox -n room.wav synth $MEET brownnoise vol 0.012 lowpass 260 fade t 3 $MEET 3
+# an open flame: filtered noise with a tremolo doing the flicker
+sox -n fire.wav synth 9 pinknoise vol 0.055 highpass 140 lowpass 1100 tremolo 9 55 fade t 0.5 9 1.2
+# the chapter title hit: a falling sub, no pitch you could hum
+sox -n sting.wav synth 1.8 sine 58:34 vol 0.30 fade t 0.02 1.8 1.5
+# torn paper and tape, one per collage cut
+sox -n rip.wav synth 0.13 whitenoise vol 0.34 highpass 1400 lowpass 7000 fade h 0 0.13 0.11
+# a slow low pulse under the persecutor, meant to be felt rather than heard
+sox -n pulse.wav synth 13 sine 46 vol 0.11 tremolo 50 92 fade t 1.5 13 2.5
+# the rise into the throw
+sox -n riser.wav synth 4.2 sine 62:210 vol 0.09 fade t 3 4.2 0.3
+# wind under the dive
 sox -n wind.wav synth 8 pinknoise vol 0.05 lowpass 1400 fade t 1.5 8 3
+# the glass on the wall
 sox -n shat.wav synth 0.6 whitenoise vol 0.45 highpass 2200 fade h 0 0.6 0.55
 
 echo "== audio mix"
@@ -97,13 +110,25 @@ FC=""; IN=""; LBL=""; i=0
 while read v ms; do
   IN="$IN -i hv$v.wav"; FC="$FC[$i]adelay=$ms|$ms[x$i];"; LBL="$LBL[x$i]"; i=$((i+1))
 done < marks.txt
-IN="$IN -i room.wav -i wind.wav -i shat.wav"
-R=$i; W2=$((i+1)); SH=$((i+2))
-FC="$FC[$R]volume=1.0[bed];"
-FC="$FC[$W2]adelay=$(python3 -c "print(int($EZ*1000))")|$(python3 -c "print(int($EZ*1000))")[wnd];"
-FC="$FC[$SH]adelay=$(python3 -c "print(int($BT*1000))")|$(python3 -c "print(int($BT*1000))")[sht];"
-FC="$FC$LBL[bed][wnd][sht]amix=inputs=$((i+3)):normalize=0:duration=longest,apad,atrim=0:$TOT,alimiter=limit=0.95[out]"
+IN="$IN -i room.wav"; FC="$FC[$i]volume=1.0[bed];"; LBL="$LBL[bed]"; i=$((i+1))
+# every remaining cue comes from sfx.txt, which build7.py derived from the shot
+# table. no cue time is typed by hand anywhere.
+while read name at; do
+  MS=$(python3 -c "print(int($at*1000))")
+  IN="$IN -i $name.wav"; FC="$FC[$i]adelay=$MS|$MS[s$i];"; LBL="$LBL[s$i]"; i=$((i+1))
+done < sfx.txt
+FC="$FC$LBL""amix=inputs=$i:normalize=0:duration=longest,apad,atrim=0:$TOT,alimiter=limit=0.95[out]"
 ffmpeg -nostdin -y -loglevel error $IN -filter_complex "$FC" -map "[out]" -c:a aac -b:a 160k track.m4a </dev/null
+echo "mixed $i sources"
+
+# the ending must still be digital silence. measure it, do not assume it.
+SIL=$(python3 -c "print('%.2f' % ($MEET + 4))")
+LVL=$(ffmpeg -nostdin -ss $SIL -i track.m4a -af volumedetect -f null /dev/null 2>&1 | grep mean_volume | sed 's/.*mean_volume: //;s/ dB//')
+echo "ending level from ${SIL}s: $LVL dB"
+python3 -c "
+import sys
+v=float('$LVL')
+if v > -85: sys.exit('THE SILENT ENDING WAS BROKEN: %.1f dB' % v)"
 
 echo "== burn english subtitles"
 ffmpeg -nostdin -y -loglevel error -i silent.mp4 \
