@@ -240,9 +240,40 @@ print("clips %d  dolly %d  flash %d  cards %d" % (
     sum(1 for p in plan if p[2]=="flash"), sum(1 for p in plan if p[2]=="card")))
 print("marks", [(v, round(t,2)) for v, t in marks])
 
-# ---------- English subtitles, timed on the Hebrew narration itself ----------
-# whisper's speech-translation task gives English text WITH timestamps taken
-# from the Hebrew audio, so nothing here is hand-timed.
+# ---------- English subtitles ------------------------------------------------
+# The TIMING comes from whisper run on the Hebrew narration itself, so no cue is
+# hand-timed. The TEXT is the film's own English, because whisper's speech
+# translation renders המושיע as "Moses" and הקורבן as "sacrifice" and is unusable.
+ENG = {
+ 1: ["There are three roles.",
+     "The rescuer. The victim. The persecutor.",
+     "And each one is certain he is only one of them."],
+ 2: ["The rescuer looks like the best person in the room.",
+     "He isn't.",
+     "He just doesn't know who he is when nobody needs him.",
+     "So without meaning to, he makes sure they always need him.",
+     "He grew up in a house that praised him for what he did,",
+     "never for what he was."],
+ 3: ["The victim is not a weak person.",
+     "The victim decided, a long time ago, that he cannot.",
+     "And that is a decision, not a fact.",
+     "He is looking for a rescuer. He always finds one."],
+ 4: ["And the persecutor is certain that he is the victim. Always.",
+     "He is only defending himself.",
+     "In his world, only the hard ones survive."],
+ 5: ["And here is the part that is hard to accept.",
+     "All three of them are the same person.",
+     "The rescuer gets tired and turns into the persecutor.",
+     "The persecutor gets caught and turns into the victim.",
+     "And the victim has had enough, and starts to attack.",
+     "It is not a triangle.",
+     "It is a wheel."],
+ 6: ["You cannot leave this quietly.",
+     "The moment you stop rescuing,",
+     "you look to them exactly like the persecutor.",
+     "And that is the price.",
+     "Whoever gets out, gets out alone."],
+}
 from faster_whisper import WhisperModel
 M = WhisperModel("small", device="cpu", compute_type="int8")
 def ts(x):
@@ -250,12 +281,25 @@ def ts(x):
     return "%02d:%02d:%02d,%03d" % (h, m, int(s), round((s-int(s))*1000))
 cues = []
 for v, t0 in marks:
-    segs, _ = M.transcribe("hv%d.wav" % v, language="he", task="translate",
-                           vad_filter=False)
-    for sg in segs:
-        txt = " ".join(sg.text.split())
-        if txt: cues.append((t0 + sg.start, t0 + sg.end, txt))
+    segs, _ = M.transcribe("hv%d.wav" % v, language="he", vad_filter=False)
+    spans = [(s.start, s.end) for s in segs if s.text.strip()]
+    txts = ENG[v]
+    if len(spans) == len(txts):
+        pairs = list(zip(spans, txts))                 # one cue per spoken segment
+        how = "1:1"
+    else:                                              # spread evenly over the block
+        a, b = spans[0][0], spans[-1][1]
+        step = (b - a) / len(txts)
+        pairs = [((a + j*step, a + (j+1)*step), t) for j, t in enumerate(txts)]
+        how = "spread %d segs -> %d cues" % (len(spans), len(txts))
+    print("  vo%d %s" % (v, how))
+    for (s0, s1), t in pairs:
+        cues.append((t0 + s0, t0 + s1, t))
 cues.sort()
+# no cue may sit on top of the next one
+for j in range(len(cues) - 1):
+    if cues[j][1] > cues[j+1][0]:
+        cues[j] = (cues[j][0], cues[j+1][0] - 0.02, cues[j][2])
 with open("subs.srt", "w", encoding="utf-8") as fh:
     for i, (a_, b_, t) in enumerate(cues, 1):
         fh.write("%d\n%s --> %s\n%s\n\n" % (i, ts(a_), ts(b_), t))
