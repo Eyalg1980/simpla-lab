@@ -40,18 +40,12 @@ C = {
  19:"20260828_230803_8cdb2ab2-84e9-4c3d-a699-ff6d301c5943",  # leaning on the tool
  23:"20260828_230803_9c31c352-daf4-4914-b35d-6b155f51f8e1",  # hands in the lap
  29:"20260828_230848_ab8e2688-a584-4abe-aafb-aed0ea2763dc",  # pulling the hood up
- 35:"20260828_230930_6ef88c81-aea1-47f7-91ca-23716a4525fb",  # corridor, walking away
  38:"20260828_233753_6ca6b04f-139c-46b8-a5cf-ec7348f6a03b",  # face lit low
- 40:"20260828_230306_653526d2-7088-46f0-8c7e-92f5097a7a37",  # the glass alone in the air
- 42:"20260828_230848_a97ed3a3-84b5-4e4c-ae20-368af34a8260",  # hunched on the chair
  44:"20260828_230930_12fef9e3-ef73-4260-a3ef-cfbf1b7f706a",  # the grip between two hands
- 45:"20260828_230930_f753e251-1e55-4c7f-a015-5d53fc55d42d",  # back, orange, the alley
- 46:"20260828_230848_ef63a6fa-2dd2-4fa4-aee1-05b59d079cf3",  # the alley, lamps
  47:"20260828_230848_3fce5295-a8ff-4a14-b6fb-36d4127dc8b9",  # hand on the glass
  52:"20260829_082556_f8f5a60f-93a7-40eb-aced-fbd556010d4d",  # cave wide, three figures
  57:"20260828_230930_36310d72-7aea-4b11-8f42-bd2aa6c3ad19",  # the real smile
  59:"20260829_082535_df9d9562-00a2-4825-be9e-999123f27a53",  # drawing in the cave
- 61:"20260829_082556_df5a1293-bc5a-485d-bcb3-44e799277d8d",  # the hand within a hand
  62:"20260829_082536_c4fc580b-78f6-4b2b-a469-7e200add6f7b",  # the torch
 }
 # v6 shots deliberately absent, and why. Anything listed here must never appear
