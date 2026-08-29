@@ -12,7 +12,9 @@ A = {
  "cave07":"20260828_183616_50afe60a-f965-4387-acaf-5e495683c968",
  "cave08":"20260828_184139_52ae0376-0fbf-43fb-9846-9429a90d5268",
  "smile":"20260828_202509_2d9c8e6c-07cb-41d6-909f-710e537595ac",
- "empty":"20260828_202509_8683f183-95a5-42db-b5f6-c429d458fcba",
+ "back":"20260828_202509_7cd08410-83fe-4f0d-a963-26523208005b",   # back turned, hoodie
+ "empty":"20260828_202509_8683f183-95a5-42db-b5f6-c429d458fcba",  # face, hoodie
+ "block":"20260828_202544_0095804c-0a7c-41bb-aad7-e3b5f57f5c0a",  # in the doorway
  "eyes":"20260828_202544_e790d35a-49a2-4161-90ad-490724d97084",
  "knuck":"20260828_202544_eb017d03-2695-4076-831d-66c6483d3035",
  "mag1":"20260828_222831_229f8d60-c01f-49bd-b3ed-b2cf817643ba",
@@ -20,40 +22,50 @@ A = {
  "mag3":"20260828_222831_f4eea5ca-6b12-468c-9163-9dcd63bd5307",
 }
 
-# ---- clips, keyed by their v6 shot number so the table stays readable --------
+# ---- clips, keyed by their v6 shot number, copied verbatim from build6.py.
+# The key IS the v6 shot number; the comment is what that shot shows. Never
+# re-key one of these by description -- that put a deleted shot back into the
+# cut once already.
 C = {
- 1:"20260828_230804_0876d505-1ae7-40f8-a5a7-8af0fd005ad2",
- 2:"20260828_230803_5d133708-3bad-4a26-9101-9549b35fe4ad",
- 3:"20260828_230803_446b5f0d-0484-4a91-97e1-db4c38b797ba",
- 4:"20260828_230803_9019a833-b991-47cb-910f-a326c8db1582",
- 8:"20260828_223225_f9d05bc9-78c1-42fe-9a8b-81de58b7b676",
- 9:"20260828_230804_273c71f9-f836-4871-ab9e-25813b822f8f",
- 10:"20260828_230849_989249d4-74a3-4951-b1f6-110338c7c668",
- 11:"20260828_230804_151bd1ef-6566-49e8-a52b-789239805cb9",
- 13:"20260828_230848_3ca5edb3-929c-4fef-ae4d-5bc699062bca",
- 15:"20260828_230803_d555ca97-8623-4a81-a964-3964e3689184",
- 19:"20260828_230803_8cdb2ab2-84e9-4c3d-a699-ff6d301c5943",
- 21:"20260828_230803_9c31c352-daf4-4914-b35d-6b155f51f8e1",  # back turned, hoodie
- 22:"20260828_230848_ab8e2688-a584-4abe-aafb-aed0ea2763dc",  # face, hoodie
- 23:"20260828_230848_e12a26af-e05f-40a5-9f45-9f45d51bf314",  # hands in lap
- 29:"20260828_230930_6ef88c81-aea1-47f7-91ca-23716a4525fb",  # pulling hood up
- 33:"20260828_230242_528f9b71-6103-4723-bb1a-57ede188779b",
- 34:"20260828_230306_653526d2-7088-46f0-8c7e-92f5097a7a37",
- 35:"20260828_230315_0ea47578-88d7-4106-9cad-753fdb1e1326",
- 38:"20260828_233753_6ca6b04f-139c-46b8-a5cf-ec7348f6a03b",
- 40:"20260828_230930_12fef9e3-ef73-4260-a3ef-cfbf1b7f706a",  # glass spinning
- 42:"20260828_230848_a97ed3a3-84b5-4e4c-ae20-368af34a8260",
- 44:"20260828_230930_f753e251-1e55-4c7f-a015-5d53fc55d42d",
- 45:"20260828_230848_ef63a6fa-2dd2-4fa4-aee1-05b59d079cf3",
- 46:"20260828_230848_3fce5295-a8ff-4a14-b6fb-36d4127dc8b9",
- 47:"20260828_230849_9b8e69a4-4b7c-437f-ab64-fabf674510e6",
- 52:"20260828_230930_65a55011-899e-49a3-a43b-98732283824f",
+ 1:"20260828_230804_0876d505-1ae7-40f8-a5a7-8af0fd005ad2",   # torch on the painting
+ 2:"20260828_230803_5d133708-3bad-4a26-9101-9549b35fe4ad",   # pigment bowl
+ 3:"20260828_230803_446b5f0d-0484-4a91-97e1-db4c38b797ba",   # hand drawing on the wall
+ 4:"20260828_230803_9019a833-b991-47cb-910f-a326c8db1582",   # three figures, wide
+ 8:"20260828_223225_f9d05bc9-78c1-42fe-9a8b-81de58b7b676",   # EARTH ZOOM
+ 9:"20260828_230804_273c71f9-f836-4871-ab9e-25813b822f8f",   # pouring two coffees
+ 10:"20260828_230849_989249d4-74a3-4951-b1f6-110338c7c668",  # phone at night
+ 11:"20260828_230804_151bd1ef-6566-49e8-a52b-789239805cb9",  # fixing the wall
+ 13:"20260828_230848_3ca5edb3-929c-4fef-ae4d-5bc699062bca",  # doorway at night
+ 15:"20260828_230803_d555ca97-8623-4a81-a964-3964e3689184",  # cave, red figures
+ 19:"20260828_230803_8cdb2ab2-84e9-4c3d-a699-ff6d301c5943",  # leaning on the tool
+ 23:"20260828_230803_9c31c352-daf4-4914-b35d-6b155f51f8e1",  # hands in the lap
+ 29:"20260828_230848_ab8e2688-a584-4abe-aafb-aed0ea2763dc",  # pulling the hood up
+ 35:"20260828_230930_6ef88c81-aea1-47f7-91ca-23716a4525fb",  # corridor, walking away
+ 38:"20260828_233753_6ca6b04f-139c-46b8-a5cf-ec7348f6a03b",  # face lit low
+ 40:"20260828_230306_653526d2-7088-46f0-8c7e-92f5097a7a37",  # the glass alone in the air
+ 42:"20260828_230848_a97ed3a3-84b5-4e4c-ae20-368af34a8260",  # hunched on the chair
+ 44:"20260828_230930_12fef9e3-ef73-4260-a3ef-cfbf1b7f706a",  # the grip between two hands
+ 45:"20260828_230930_f753e251-1e55-4c7f-a015-5d53fc55d42d",  # back, orange, the alley
+ 46:"20260828_230848_ef63a6fa-2dd2-4fa4-aee1-05b59d079cf3",  # the alley, lamps
+ 47:"20260828_230848_3fce5295-a8ff-4a14-b6fb-36d4127dc8b9",  # hand on the glass
+ 52:"20260828_230849_9b8e69a4-4b7c-437f-ab64-fabf674510e6",  # cave wide, three figures
  57:"20260828_230930_36310d72-7aea-4b11-8f42-bd2aa6c3ad19",  # the real smile
- 59:"20260828_230930_b674f1bf-3d0d-4012-a893-e262c57286e5",
- 60:"20260828_230930_c5904aae-d534-403c-9453-b2084d3ea840",
- 61:"20260828_230930_a1dc46a3-0adc-4e0a-a504-d827eecce1f1",  # hand within a hand
- 62:"20260828_230944_f756c20f-8fa2-47d8-a820-7380d93ec245",
+ 59:"20260828_230930_b674f1bf-3d0d-4012-a893-e262c57286e5",  # drawing in the cave
+ 60:"20260828_230930_c5904aae-d534-403c-9453-b2084d3ea840",  # cave figures
+ 61:"20260828_230930_a1dc46a3-0adc-4e0a-a504-d827eecce1f1",  # the hand within a hand
+ 62:"20260828_230944_f756c20f-8fa2-47d8-a820-7380d93ec245",  # the torch
 }
+# v6 shots deliberately absent, and why. Anything listed here must never appear
+# in C or A again.
+DROPPED = {
+ 14:"the fist gripping the shoulder", 18:"sitting on the bed",
+ 20:"the hand holding the blank phone", 28:"the door from inside",
+ 32:"the door latch", 55:"the illustrated meeting", 56:"the hug",
+ 39:"the old glass release, replaced by 'throw'",
+ 41:"the old bullet time, replaced by 'orbit'",
+ 54:"the old meeting wide, replaced by 'room'",
+}
+assert not (set(C) & set(DROPPED)), "a dropped shot is back in C: %s" % (set(C) & set(DROPPED),)
 
 # ---- new material generated for v7 ------------------------------------------
 N = {
@@ -97,13 +109,13 @@ S = [
  (12.0,"lip",16,2,0),
  (2.5,"q2",None,None,0),
  # II. the victim, fast cuts with the collage woven in and then bursting
- (2.0,"clip",19,None,0),
+ (2.0,"dolly","back",None,0),
  (0.4,"flash","mag1",None,0),
- (1.8,"clip",21,None,0),
+ (1.8,"clip",23,None,0),
  (0.4,"flash","mag2",None,0),
- (2.0,"clip",22,None,0),
+ (2.0,"dolly","empty",None,0),
  (0.4,"flash","mag3",None,0),
- (2.4,"clip",23,None,0),
+ (2.4,"clip",19,None,0),
  (0.4,"flash","mag1",None,0),
  (1.8,"dolly","cave04",None,0),
  (0.4,"flash","mag2",None,0),
@@ -113,7 +125,7 @@ S = [
  (9.0,"lip",30,3,0),
  (2.5,"q3",None,None,0),
  # III. the persecutor, fast then the bullet time slows everything down
- (1.8,"clip",33,None,0),(2.0,"clip",34,None,0),(1.8,"clip",35,None,0),
+ (1.8,"dolly","block",None,0),(2.0,"dolly","eyes",None,0),(1.8,"clip",35,None,0),
  (1.8,"dolly","knuck",None,0),(1.6,"dolly","cave05",None,0),
  (2.2,"clip",38,None,0),
  (5.0,"clip","throw",None,0),                             # arm above the head, slow motion
@@ -126,7 +138,7 @@ S = [
  (2.2,"clip",44,5,0),(2.0,"clip",45,None,0),(2.0,"clip",46,None,0),(2.0,"clip",47,None,0),
  (1.2,"flash","smile",None,0),(1.2,"flash","empty",None,0),
  (1.2,"flash","eyes",None,0),(1.2,"flash","cave07",None,0),
- (7.6,"slow",52,None,0),   # 4s of cave stretched: the deceleration after the burst
+ (7.6,"clip",52,None,0),   # cave wide, held long: the deceleration after the burst
  # vo6
  (10.0,"lip",53,6,0),
  # the meeting, and the healing
