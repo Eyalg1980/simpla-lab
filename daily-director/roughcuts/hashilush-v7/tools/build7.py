@@ -14,18 +14,10 @@ A = {
  "empty":"20260828_202509_8683f183-95a5-42db-b5f6-c429d458fcba",  # face, hoodie
  "block":"20260828_202544_0095804c-0a7c-41bb-aad7-e3b5f57f5c0a",  # in the doorway
  "eyes":"20260828_202544_e790d35a-49a2-4161-90ad-490724d97084",
- "knuck":"20260828_202544_eb017d03-2695-4076-831d-66c6483d3035",
  # THE FOURTH LANGUAGE, added 29.8: "the frequency of love".
  # A flat hand-painted cut-out man standing inside the SAME photographed rooms
  # as the filmed man, painted in the SAME ochre as the cave. He is not a new
  # character: he is this man without his roles, and the film never remarks on him.
- "lv_hand":"20260829_101109_3c883e2d-ceca-45bb-97b2-44392d832d39",   # an open hand laid on a shoulder
- "lv_stand":"20260829_101109_69600d22-b602-416d-be84-3609adf1949f",  # standing upright, hands loose
- "lv_hug":"20260829_101413_89917eaa-e394-43a6-b552-057d18e96385",    # two men holding each other in a doorway
- "lv_sofa":"20260829_101109_9077af12-cfa9-4d0f-a521-9cac568a4fc4",   # side by side, facing the same way
- "lv_both":"20260829_101109_e09f894c-e2fa-47aa-bda4-ad9408b3a7b7",   # the filmed man and the painted man, one frame
- "lv_laugh":"20260829_101413_2009b160-2bad-490f-9873-226bee504fe9",  # laughing at the table
- "lv_wall":"20260829_101413_866cb34d-66ed-4861-8b95-e7f47f376b2a",   # his palm beside the ochre handprint
 }
 
 # ---- clips, keyed by their v6 shot number, copied verbatim from build6.py.
@@ -59,7 +51,6 @@ C = {
  52:"20260829_082556_f8f5a60f-93a7-40eb-aced-fbd556010d4d",  # cave wide, three figures
  57:"20260828_230930_36310d72-7aea-4b11-8f42-bd2aa6c3ad19",  # the real smile
  59:"20260829_082535_df9d9562-00a2-4825-be9e-999123f27a53",  # drawing in the cave
- 60:"20260829_082556_f33ec4c4-3b85-49f7-9b18-cdd3b13fff0f",  # cave figures
  61:"20260829_082556_df5a1293-bc5a-485d-bcb3-44e799277d8d",  # the hand within a hand
  62:"20260829_082536_c4fc580b-78f6-4b2b-a469-7e200add6f7b",  # the torch
 }
@@ -69,6 +60,7 @@ DROPPED = {
  14:"the fist gripping the shoulder", 18:"sitting on the bed",
  20:"the hand holding the blank phone", 28:"the door from inside",
  32:"the door latch", 55:"the illustrated meeting", 56:"the hug",
+ 60:"one of the two cave-figure shots in the coda, they said the same thing",
  39:"the old glass release, replaced by 'throw'",
  41:"the old bullet time, replaced by 'orbit'",
  54:"the old meeting wide, replaced by 'room'",
@@ -89,6 +81,17 @@ N = {
  "cave08v":"20260829_092501_47215867-9383-411a-a4e6-d10848200a60",
  "throw":"20260829_055935_4ee06eae-5d44-4bd5-bce3-25f830945083",  # arm above the head
  "orbit":"20260829_061423_c5b64d2b-d0ca-4060-89f8-faa2bbb9733f",  # bullet time, victim revealed
+ # THE FOURTH LANGUAGE, "the frequency of love": a flat hand-painted cut-out man
+ # inside the SAME photographed rooms, painted in the SAME ochre as the cave.
+ # 29.8 he asked to take it OUT of the three chapters and give it the ending
+ # instead, and to animate it. All of these are now moving footage.
+ "morph":"20260829_112938_f6c84bb3-2619-4f01-8012-d937cfaf4723",   # the drawing resolves into the real room
+ "lv_hand":"20260829_112938_ed30916e-420f-4d5b-8caf-8adb4f86727e", # an open hand laid on a shoulder
+ "lv_sofa":"20260829_112939_52ee8c50-0786-41b2-b460-e0e7747ab4ec", # side by side, facing the same way
+ "lv_coffee":"20260829_112938_f3a1ea2f-087a-41f9-975f-695dfe43420a", # pouring two coffees, the rescuer's action without the role
+ "lv_laugh":"20260829_112938_de319988-53e0-4952-8bc6-fd18733fc38d", # laughing at the table
+ "lv_balcony":"20260829_112938_c0f63fa8-1806-40a1-afce-f9791322ca24", # two of them looking out
+ "lv_wall":"20260829_112938_72eca33b-2304-4683-b97a-5dab1b9aa1a0", # his palm beside the ochre handprint
 }
 # Hebrew narration, elevenlabs / Arthur
 HE = {
@@ -114,64 +117,76 @@ S = [
  # prologue, the cave
  (3.0,"clip",1,None,0),(2.5,"clip",2,None,0),(3.0,"clip",3,None,0),(3.5,"clip",4,None,0),
  (4.0,"title",None,None,0),
- # vo1
+
+ # vo1. THE CHAPTER CARD NOW COMES AFTER THE NARRATION, NOT BEFORE IT: the quote
+ # and the burned subtitle were fighting for the same screen. So the therapist
+ # speaks, the EARTH ZOOM finds the man, and only then the card names him.
  (6.0,"lip",6,1,0),
- (3.2,"q1",None,None,0),
  (8.0,"clip",8,None,0),                                   # EARTH ZOOM
- # I. the rescuer, fast
+ (3.2,"q1",None,None,0),
+ # I. the rescuer
  (2.2,"clip",9,None,0),(1.8,"clip",10,None,0),(1.8,"clip",11,None,0),
  (2.6,"dolly","smile",None,0),
- (1.0,"dolly","lv_hand",None,0),      # LOVE 1: the rescuer performs warmth, this is the real thing
  (1.8,"clip",13,None,0),(2.2,"clip",15,None,0),
- # vo2
+
+ # vo2, then the victim opens, then the card
  (12.0,"lip",16,2,0),
- (3.2,"q2",None,None,0),
- # II. the victim, fast cuts with the collage woven in and then bursting
  (2.0,"dolly","back",None,0),
  (0.4,"punch","mag1v",None,0.2),
  (1.8,"clip",23,None,0),
- (1.2,"dolly","lv_stand",None,0),     # LOVE 2: the victim says he cannot, and this man is standing
  (0.4,"punch","mag2v",None,0.2),
  (2.0,"dolly","empty",None,0),
  (0.4,"punch","mag3v",None,0.2),
  (2.4,"clip",19,None,0),
- (0.4,"punch","mag1v",None,1.6),
+ (3.2,"q2",None,None,0),
+ # II. the victim, the collage bursting
  (1.8,"clip","cave04v",None,0),
+ (0.4,"punch","mag1v",None,1.6),
  (0.4,"punch","mag2v",None,1.6),
  (0.9,"punch","mag1v",None,2.8),(0.9,"punch","mag2v",None,2.8),(0.9,"punch","mag3v",None,2.6),
  (2.0,"clip",29,None,0),
- # vo3
+
+ # vo3, then the persecutor opens, then the card
  (9.0,"lip",30,3,0),
- (3.2,"q3",None,None,0),
- # III. the persecutor, fast then the bullet time slows everything down
  (1.8,"dolly","block",None,0),(2.0,"dolly","eyes",None,0),(1.8,"clip",35,None,0),
- (1.8,"dolly","knuck",None,0),(1.6,"clip","cave05v",None,0),
+ (1.6,"clip","cave05v",None,0),
+ (3.2,"q3",None,None,0),
+ # III. the persecutor, and the bullet time
  (2.2,"clip",38,None,0),
- (1.0,"dolly","lv_hug",None,0),       # LOVE 3: one second before the glass, at maximum pressure
  (5.0,"clip","throw",None,0),                             # arm above the head, slow motion
  (3.0,"clip",40,None,0),                                  # the glass alone in the air
  (5.5,"clip","orbit",None,4.4),                           # orbit, the victim comes around
  (2.6,"clip",42,None,0),
+
  # vo4
  (8.0,"lip",43,4,0),
  # vo5, the wheel, over cutaways. the one repeat that stayed
  (2.2,"clip",44,5,0),(2.0,"clip",45,None,0),(2.0,"clip",46,None,0),(2.0,"clip",47,None,0),
  (1.2,"flash","smile",None,0),(1.2,"flash","empty",None,0),
  (1.2,"flash","eyes",None,0),(1.2,"punch","cave07v",None,0.4),
- (7.6,"clip",52,None,0),   # cave wide, held long: the deceleration after the burst
- (3.0,"dolly","lv_sofa",None,0),      # LOVE 4: the wheel has just closed. the first alternative the film offers
+ (7.6,"clip",52,None,0),
  # vo6
  (10.0,"lip",53,6,0),
- # the meeting, and the healing
- (8.0,"clip","room",None,0),                              # pull back, rotate, the patient appears
+
+ # THE MEETING. The drawing resolves into the real room, and only then does the
+ # camera pull back and find that the patient is really sitting there.
+ (5.0,"clip","morph",None,0),
+ (8.0,"clip","room",None,0),
  (3.0,"clip",57,None,0),
- (4.0,"dolly","lv_both",None,0),      # LOVE 5: the payoff, both versions of him in one frame
- (2.5,"dolly","lv_laugh",None,0),
+
+ # THE FREQUENCY OF LOVE, all moving, all of it here rather than inside the chapters
+ (2.5,"clip","lv_hand",None,0),
+ (3.5,"clip","lv_sofa",None,0),
+ (3.5,"clip","lv_coffee",None,0),      # the rescuer's own action, without the role
+ (3.0,"clip","lv_laugh",None,0),
+ (3.5,"clip","lv_balcony",None,0),
+
+ # the cave closes it
  (2.9,"clip","cave08v",None,0),
- (3.5,"clip",59,None,0),(3.0,"clip",60,None,0),
+ (3.5,"clip",59,None,0),
  (5.0,"clip",61,None,0),                                  # the hand within a hand
  (4.5,"clip",62,None,0),
- (4.5,"dolly","lv_wall",None,0),      # LOVE 6: the man and the painting are the same pigment
+ (4.5,"clip","lv_wall",None,0),                           # his palm beside the ochre handprint
  (3.5,"card",None,None,0),
  (4.5,"dedic",None,None,0),
 ]
@@ -186,7 +201,7 @@ VO_DELAY = {5: 1.0}   # vo5 starts a beat after its shot so it cannot collide wi
 # Cues are anchored to WHAT A SHOT IS, never to its position, because inserting
 # one shot used to move every cue after it silently. Each anchor is
 # (kind, ref, which occurrence).
-MEET_AT = ("clip", "room", 1)
+MEET_AT = ("clip", "morph", 1)
 SFX = [
  ("fire",  ("clip", 1, 1),          "the fire finds the wall in the opening"),
  ("fire",  ("clip", 15, 1),         "the cave beat that closes the rescuer"),
