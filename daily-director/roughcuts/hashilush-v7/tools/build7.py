@@ -7,10 +7,12 @@ B = "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_"
 
 # ---- stills (dolly / flash) --------------------------------------------------
 A = {
- "cave04":"20260828_184139_00ba8f25-ec93-42b9-a27a-3469073679fc",
- "cave05":"20260828_184140_12dc5a89-ea13-4d47-a944-197d67dbe636",
- "cave07":"20260828_183616_50afe60a-f965-4387-acaf-5e495683c968",
- "cave08":"20260828_184139_52ae0376-0fbf-43fb-9846-9429a90d5268",
+ # every cave still RELIT 29.8: the flashlight beam replaced by open flame,
+ # regenerated from the old frame itself so only the light changed
+ "cave04":"20260829_082104_d98172d8-9a33-4cef-b72a-1917bed34cb3",
+ "cave05":"20260829_082104_65438868-db8a-43cd-9ba6-255ed326b08e",
+ "cave07":"20260829_082122_7bcf2fa2-d7fd-4f02-a706-2cb66452d62b",
+ "cave08":"20260829_082606_744ac58a-99e8-4dd2-b16f-a23c03e83c6e",
  "smile":"20260828_202509_2d9c8e6c-07cb-41d6-909f-710e537595ac",
  "back":"20260828_202509_7cd08410-83fe-4f0d-a963-26523208005b",   # back turned, hoodie
  "empty":"20260828_202509_8683f183-95a5-42db-b5f6-c429d458fcba",  # face, hoodie
@@ -26,17 +28,19 @@ A = {
 # The key IS the v6 shot number; the comment is what that shot shows. Never
 # re-key one of these by description -- that put a deleted shot back into the
 # cut once already.
+# Every CAVE clip here was regenerated 29.8 from a relit frame: open flame
+# instead of a flashlight beam. The keys stay the v6 shot numbers.
 C = {
- 1:"20260828_230804_0876d505-1ae7-40f8-a5a7-8af0fd005ad2",   # torch on the painting
- 2:"20260828_230803_5d133708-3bad-4a26-9101-9549b35fe4ad",   # pigment bowl
- 3:"20260828_230803_446b5f0d-0484-4a91-97e1-db4c38b797ba",   # hand drawing on the wall
- 4:"20260828_230803_9019a833-b991-47cb-910f-a326c8db1582",   # three figures, wide
+ 1:"20260829_082536_e527c07a-b676-4b25-9bdc-58766d8e9125",   # torch on the painting
+ 2:"20260829_082556_523810e5-1301-4557-85ab-6c15e24ffb68",   # pigment bowl
+ 3:"20260829_082535_4524c368-b2f1-4490-bb17-4ea98961fb6a",   # hand drawing on the wall
+ 4:"20260829_082555_0c3eee58-86a0-4f52-8781-faeae176f677",   # three figures, wide
  8:"20260828_223225_f9d05bc9-78c1-42fe-9a8b-81de58b7b676",   # EARTH ZOOM
  9:"20260828_230804_273c71f9-f836-4871-ab9e-25813b822f8f",   # pouring two coffees
  10:"20260828_230849_989249d4-74a3-4951-b1f6-110338c7c668",  # phone at night
  11:"20260828_230804_151bd1ef-6566-49e8-a52b-789239805cb9",  # fixing the wall
  13:"20260828_230848_3ca5edb3-929c-4fef-ae4d-5bc699062bca",  # doorway at night
- 15:"20260828_230803_d555ca97-8623-4a81-a964-3964e3689184",  # cave, red figures
+ 15:"20260829_082555_0ce0df82-74b1-49bb-9fbf-f78bd52a1ab3",  # cave, red figures
  19:"20260828_230803_8cdb2ab2-84e9-4c3d-a699-ff6d301c5943",  # leaning on the tool
  23:"20260828_230803_9c31c352-daf4-4914-b35d-6b155f51f8e1",  # hands in the lap
  29:"20260828_230848_ab8e2688-a584-4abe-aafb-aed0ea2763dc",  # pulling the hood up
@@ -48,12 +52,12 @@ C = {
  45:"20260828_230930_f753e251-1e55-4c7f-a015-5d53fc55d42d",  # back, orange, the alley
  46:"20260828_230848_ef63a6fa-2dd2-4fa4-aee1-05b59d079cf3",  # the alley, lamps
  47:"20260828_230848_3fce5295-a8ff-4a14-b6fb-36d4127dc8b9",  # hand on the glass
- 52:"20260828_230849_9b8e69a4-4b7c-437f-ab64-fabf674510e6",  # cave wide, three figures
+ 52:"20260829_082556_f8f5a60f-93a7-40eb-aced-fbd556010d4d",  # cave wide, three figures
  57:"20260828_230930_36310d72-7aea-4b11-8f42-bd2aa6c3ad19",  # the real smile
- 59:"20260828_230930_b674f1bf-3d0d-4012-a893-e262c57286e5",  # drawing in the cave
- 60:"20260828_230930_c5904aae-d534-403c-9453-b2084d3ea840",  # cave figures
- 61:"20260828_230930_a1dc46a3-0adc-4e0a-a504-d827eecce1f1",  # the hand within a hand
- 62:"20260828_230944_f756c20f-8fa2-47d8-a820-7380d93ec245",  # the torch
+ 59:"20260829_082535_df9d9562-00a2-4825-be9e-999123f27a53",  # drawing in the cave
+ 60:"20260829_082556_f33ec4c4-3b85-49f7-9b18-cdd3b13fff0f",  # cave figures
+ 61:"20260829_082556_df5a1293-bc5a-485d-bcb3-44e799277d8d",  # the hand within a hand
+ 62:"20260829_082536_c4fc580b-78f6-4b2b-a469-7e200add6f7b",  # the torch
 }
 # v6 shots deliberately absent, and why. Anything listed here must never appear
 # in C or A again.
@@ -69,7 +73,7 @@ assert not (set(C) & set(DROPPED)), "a dropped shot is back in C: %s" % (set(C) 
 
 # ---- new material generated for v7 ------------------------------------------
 N = {
- "room":"20260829_055935_dc30d3a7-3723-49a0-83b8-eb9b1b1cf106",   # pull back + rotate reveal
+ "room":"20260829_082536_bf01248a-17e6-4dab-a355-6668039df14d",   # pull back + rotate, patient is the lead
  "throw":"20260829_055935_4ee06eae-5d44-4bd5-bce3-25f830945083",  # arm above the head
  "orbit":"20260829_061423_c5b64d2b-d0ca-4060-89f8-faa2bbb9733f",  # bullet time, victim revealed
 }
@@ -99,7 +103,7 @@ S = [
  (4.0,"title",None,None,0),
  # vo1
  (6.0,"lip",6,1,0),
- (2.5,"q1",None,None,0),
+ (3.2,"q1",None,None,0),
  (8.0,"clip",8,None,0),                                   # EARTH ZOOM
  # I. the rescuer, fast
  (2.2,"clip",9,None,0),(1.8,"clip",10,None,0),(1.8,"clip",11,None,0),
@@ -107,7 +111,7 @@ S = [
  (1.8,"clip",13,None,0),(2.2,"clip",15,None,0),
  # vo2
  (12.0,"lip",16,2,0),
- (2.5,"q2",None,None,0),
+ (3.2,"q2",None,None,0),
  # II. the victim, fast cuts with the collage woven in and then bursting
  (2.0,"dolly","back",None,0),
  (0.4,"flash","mag1",None,0),
@@ -123,7 +127,7 @@ S = [
  (2.0,"clip",29,None,0),
  # vo3
  (9.0,"lip",30,3,0),
- (2.5,"q3",None,None,0),
+ (3.2,"q3",None,None,0),
  # III. the persecutor, fast then the bullet time slows everything down
  (1.8,"dolly","block",None,0),(2.0,"dolly","eyes",None,0),(1.8,"clip",35,None,0),
  (1.8,"dolly","knuck",None,0),(1.6,"dolly","cave05",None,0),
@@ -182,9 +186,9 @@ def assert_rtl():
 print("rtl gate ok, vav=%d alef=%d" % assert_rtl())
 
 QUOTES = {
- "q1": ("I.  THE RESCUER", u"“If they stop needing me,", u"I stop existing.”"),
- "q2": ("II.  THE VICTIM", u"“I decided, a long time ago,", u"that I can’t.”"),
- "q3": ("III.  THE PERSECUTOR", u"“I am not attacking.", u"I am defending myself.”"),
+ "q1": ("I", u"המושיע", "THE RESCUER", u"“If they stop needing me,", u"I stop existing.”"),
+ "q2": ("II", u"הקורבן", "THE VICTIM", u"“I decided, a long time ago,", u"that I can’t.”"),
+ "q3": ("III", u"התוקפן", "THE PERSECUTOR", u"“I am not attacking.", u"I am defending myself.”"),
 }
 
 for k, stem in A.items():
@@ -222,10 +226,13 @@ for i, (dur, kind, ref, vo, ss) in enumerate(S, 1):
             d2.line([(790, 700), (1130, 700)], fill=(70,70,70), width=2)
             d2.text((960, 740), "FOR RAFIK YEDIDIA, MY THERAPIST", font=f(FR, 28), fill=(150,150,150), anchor="ma")
         else:
-            head, l1, l2 = QUOTES[kind]
-            d2.text((960, 380), head, font=f(FB, 30), fill=G, anchor="ma")
-            d2.text((960, 480), l1, font=f(FR, 56), fill=(238,238,238), anchor="ma")
-            d2.text((960, 560), l2, font=f(FR, 56), fill=(238,238,238), anchor="ma")
+            num, he_title, en_title, l1, l2 = QUOTES[kind]
+            d2.text((960, 232), num, font=f(FB, 30), fill=G, anchor="ma")
+            he(d2, (960, 288), he_title, f(FB, 104), (245,245,245))       # the chapter title
+            d2.text((960, 452), en_title, font=f(FB, 32), fill=G, anchor="ma")
+            d2.line([(810, 536), (1110, 536)], fill=(70,70,70), width=2)
+            d2.text((960, 594), l1, font=f(FR, 50), fill=(214,214,214), anchor="ma")
+            d2.text((960, 664), l2, font=f(FR, 50), fill=(214,214,214), anchor="ma")
         base.save("o%02d.png" % i); plan.append((i, dur, "card", "-", 0))
     elif kind in ("clip", "slow"):
         plan.append((i, dur, kind, url_for(ref), ss))
