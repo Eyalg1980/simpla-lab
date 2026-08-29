@@ -179,7 +179,6 @@ S = [
  (5.0,"clip","throw2",None,0),                            # the throw, arm above the head
  (2.6,"clip","tumble",None,0),                            # the SAME glass alone in the dark
  (5.0,"clip","orbit2",None,1.2),                          # the shatter, and the victim is there
- (2.6,"clip",42,None,0),
 
  # vo4
  (8.0,"lip",43,4,0),
