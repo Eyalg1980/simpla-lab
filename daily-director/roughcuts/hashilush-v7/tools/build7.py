@@ -282,7 +282,7 @@ for i, (dur, kind, ref, vo, ss) in enumerate(S, 1):
             d2.line([(810, 536), (1110, 536)], fill=(70,70,70), width=2)
             d2.text((960, 594), l1, font=f(FR, 50), fill=(214,214,214), anchor="ma")
             d2.text((960, 664), l2, font=f(FR, 50), fill=(214,214,214), anchor="ma")
-        base.save("o%02d.png" % i); plan.append((i, dur, "card", "-", 0))
+        base.save("o%03d.png" % i); plan.append((i, dur, "card", "-", 0))
     elif kind in ("clip", "slow", "punch"):
         plan.append((i, dur, kind, url_for(ref), ss))
     elif kind == "lip":
@@ -295,7 +295,7 @@ for i, (dur, kind, ref, vo, ss) in enumerate(S, 1):
         base = im2.crop((l, t, l+W, t+H))
         if kind == "flash":                  # punched in a little so a 0.4s flash reads
             base = base.crop((150, 84, W-150, H-84)).resize((W, H), Image.LANCZOS)
-        base.save("o%02d.png" % i)
+        base.save("o%03d.png" % i)
         plan.append((i, dur, kind, "-", 0))
     cum += dur
 

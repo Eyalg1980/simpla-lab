@@ -29,24 +29,24 @@ echo "== segments"
 rm -f list.txt
 NEXP=$(wc -l < plan.txt)
 while read n d k url ss; do
-  s=$(printf "g%02d.mp4" $n)
+  s=$(printf "g%03d.mp4" $n)
+  # cache key is the URL, never the shot number: shot numbers move when a shot
+  # is inserted and a number-keyed cache then serves the wrong clip.
+  c="src_$(printf '%s' "$url" | md5sum | cut -c1-16).mp4"
   case "$k" in
     clip)
-      c=$(printf "c%02d.mp4" $n)
       [ -f "$c" ] || curl -sf -o "$c" "$url"
       ffmpeg -nostdin -y -loglevel error -ss $ss -i "$c" \
         -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps=25,setsar=1" \
         -an -t $d -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -r 25 -g 50 $s </dev/null ;;
     punch)
       # a moving clip used as a fast flash: punched in so it still reads at 0.4s
-      c=$(printf "c%02d.mp4" $n)
       [ -f "$c" ] || curl -sf -o "$c" "$url"
       ffmpeg -nostdin -y -loglevel error -ss $ss -i "$c" \
         -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=iw*0.86:ih*0.86,scale=1920:1080,fps=25,setsar=1" \
         -an -t $d -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -r 25 -g 50 $s </dev/null ;;
     slow)
       # source is shorter than the slot: stretch it instead of cutting the slot
-      c=$(printf "c%02d.mp4" $n)
       [ -f "$c" ] || curl -sf -o "$c" "$url"
       SRC=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$c")
       F=$(python3 -c "print('%.4f' % (($d + 0.2) / ($SRC - $ss)))")
@@ -55,12 +55,12 @@ while read n d k url ss; do
         -an -t $d -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -r 25 -g 50 $s </dev/null
       echo "  shot $n stretched x$F from ${SRC}s" ;;
     flash|card)
-      ffmpeg -nostdin -y -loglevel error -loop 1 -framerate 25 -i $(printf "o%02d.png" $n) -t $d \
+      ffmpeg -nostdin -y -loglevel error -loop 1 -framerate 25 -i $(printf "o%03d.png" $n) -t $d \
         -c:v libx264 -preset veryfast -tune stillimage -crf 20 -pix_fmt yuv420p -r 25 -g 50 \
         -vf "scale=1920:1080,setsar=1" $s </dev/null ;;
     dolly)
       FR=$(python3 -c "print(int(round($d*25)))")
-      ffmpeg -nostdin -y -loglevel error -loop 1 -framerate 25 -i $(printf "o%02d.png" $n) -t $d \
+      ffmpeg -nostdin -y -loglevel error -loop 1 -framerate 25 -i $(printf "o%03d.png" $n) -t $d \
         -vf "scale=3840:2160,zoompan=z='min(zoom+0.0006,1.10)':d=$FR:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1920x1080:fps=25,setsar=1" \
         -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -r 25 -g 50 $s </dev/null ;;
   esac
