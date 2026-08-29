@@ -15,6 +15,17 @@ A = {
  "block":"20260828_202544_0095804c-0a7c-41bb-aad7-e3b5f57f5c0a",  # in the doorway
  "eyes":"20260828_202544_e790d35a-49a2-4161-90ad-490724d97084",
  "knuck":"20260828_202544_eb017d03-2695-4076-831d-66c6483d3035",
+ # THE FOURTH LANGUAGE, added 29.8: "the frequency of love".
+ # A flat hand-painted cut-out man standing inside the SAME photographed rooms
+ # as the filmed man, painted in the SAME ochre as the cave. He is not a new
+ # character: he is this man without his roles, and the film never remarks on him.
+ "lv_hand":"20260829_101109_3c883e2d-ceca-45bb-97b2-44392d832d39",   # an open hand laid on a shoulder
+ "lv_stand":"20260829_101109_69600d22-b602-416d-be84-3609adf1949f",  # standing upright, hands loose
+ "lv_hug":"20260829_101413_89917eaa-e394-43a6-b552-057d18e96385",    # two men holding each other in a doorway
+ "lv_sofa":"20260829_101109_9077af12-cfa9-4d0f-a521-9cac568a4fc4",   # side by side, facing the same way
+ "lv_both":"20260829_101109_e09f894c-e2fa-47aa-bda4-ad9408b3a7b7",   # the filmed man and the painted man, one frame
+ "lv_laugh":"20260829_101413_2009b160-2bad-490f-9873-226bee504fe9",  # laughing at the table
+ "lv_wall":"20260829_101413_866cb34d-66ed-4861-8b95-e7f47f376b2a",   # his palm beside the ochre handprint
 }
 
 # ---- clips, keyed by their v6 shot number, copied verbatim from build6.py.
@@ -110,6 +121,7 @@ S = [
  # I. the rescuer, fast
  (2.2,"clip",9,None,0),(1.8,"clip",10,None,0),(1.8,"clip",11,None,0),
  (2.6,"dolly","smile",None,0),
+ (1.0,"dolly","lv_hand",None,0),      # LOVE 1: the rescuer performs warmth, this is the real thing
  (1.8,"clip",13,None,0),(2.2,"clip",15,None,0),
  # vo2
  (12.0,"lip",16,2,0),
@@ -118,6 +130,7 @@ S = [
  (2.0,"dolly","back",None,0),
  (0.4,"punch","mag1v",None,0.2),
  (1.8,"clip",23,None,0),
+ (1.2,"dolly","lv_stand",None,0),     # LOVE 2: the victim says he cannot, and this man is standing
  (0.4,"punch","mag2v",None,0.2),
  (2.0,"dolly","empty",None,0),
  (0.4,"punch","mag3v",None,0.2),
@@ -134,6 +147,7 @@ S = [
  (1.8,"dolly","block",None,0),(2.0,"dolly","eyes",None,0),(1.8,"clip",35,None,0),
  (1.8,"dolly","knuck",None,0),(1.6,"clip","cave05v",None,0),
  (2.2,"clip",38,None,0),
+ (1.0,"dolly","lv_hug",None,0),       # LOVE 3: one second before the glass, at maximum pressure
  (5.0,"clip","throw",None,0),                             # arm above the head, slow motion
  (3.0,"clip",40,None,0),                                  # the glass alone in the air
  (5.5,"clip","orbit",None,4.4),                           # orbit, the victim comes around
@@ -145,15 +159,19 @@ S = [
  (1.2,"flash","smile",None,0),(1.2,"flash","empty",None,0),
  (1.2,"flash","eyes",None,0),(1.2,"punch","cave07v",None,0.4),
  (7.6,"clip",52,None,0),   # cave wide, held long: the deceleration after the burst
+ (3.0,"dolly","lv_sofa",None,0),      # LOVE 4: the wheel has just closed. the first alternative the film offers
  # vo6
  (10.0,"lip",53,6,0),
  # the meeting, and the healing
  (8.0,"clip","room",None,0),                              # pull back, rotate, the patient appears
  (3.0,"clip",57,None,0),
+ (4.0,"dolly","lv_both",None,0),      # LOVE 5: the payoff, both versions of him in one frame
+ (2.5,"dolly","lv_laugh",None,0),
  (2.9,"clip","cave08v",None,0),
  (3.5,"clip",59,None,0),(3.0,"clip",60,None,0),
  (5.0,"clip",61,None,0),                                  # the hand within a hand
  (4.5,"clip",62,None,0),
+ (4.5,"dolly","lv_wall",None,0),      # LOVE 6: the man and the painting are the same pigment
  (3.5,"card",None,None,0),
  (4.5,"dedic",None,None,0),
 ]
@@ -165,23 +183,27 @@ VO_DELAY = {5: 1.0}   # vo5 starts a beat after its shot so it cannot collide wi
 # HARD RULE: nothing may be placed at or after the meeting (MEET_SHOT). The
 # absolute silence of the last half minute is the film's strongest sound idea
 # and adding anything to it would be a downgrade, so the build asserts it.
-MEET_SHOT = 54
+# Cues are anchored to WHAT A SHOT IS, never to its position, because inserting
+# one shot used to move every cue after it silently. Each anchor is
+# (kind, ref, which occurrence).
+MEET_AT = ("clip", "room", 1)
 SFX = [
- # (file, shot index, what it is)
- ("fire",  1,  "the fire finds the wall in the opening"),
- ("fire", 14,  "the cave beat that closes the rescuer"),
- ("fire", 25,  "the cave beat inside the collage weave"),
- ("fire", 37,  "the cave beat before the bullet time"),
- ("fire", 51,  "the cave that ends the wheel"),
- ("sting", 7,  "sub drop under THE RESCUER"),
- ("sting",16,  "sub drop under THE VICTIM"),
- ("sting",32,  "sub drop under THE PERSECUTOR"),
- ("rip", 18, ""), ("rip", 20, ""), ("rip", 22, ""), ("rip", 24, ""),
- ("rip", 26, ""), ("rip", 27, ""), ("rip", 28, ""), ("rip", 29, ""),
- ("pulse", 33, "a slow low pulse under the persecutor, felt not heard"),
- ("riser", 38, "the rise into the throw"),
- ("wind",  8,  "under the earth zoom"),
- ("shat",  41, "the glass on the wall"),
+ ("fire",  ("clip", 1, 1),          "the fire finds the wall in the opening"),
+ ("fire",  ("clip", 15, 1),         "the cave beat that closes the rescuer"),
+ ("fire",  ("clip", "cave04v", 1),  "the cave beat inside the collage weave"),
+ ("fire",  ("clip", "cave05v", 1),  "the cave beat before the bullet time"),
+ ("fire",  ("punch", "cave07v", 1), "the cave that ends the wheel"),
+ ("sting", ("q1", None, 1),         "sub drop under THE RESCUER"),
+ ("sting", ("q2", None, 1),         "sub drop under THE VICTIM"),
+ ("sting", ("q3", None, 1),         "sub drop under THE PERSECUTOR"),
+ ("rip",   ("punch", "mag1v", 1), ""), ("rip", ("punch", "mag2v", 1), ""),
+ ("rip",   ("punch", "mag3v", 1), ""), ("rip", ("punch", "mag1v", 2), ""),
+ ("rip",   ("punch", "mag2v", 2), ""), ("rip", ("punch", "mag1v", 3), ""),
+ ("rip",   ("punch", "mag2v", 3), ""), ("rip", ("punch", "mag3v", 2), ""),
+ ("pulse", ("dolly", "block", 1),   "a slow low pulse under the persecutor, felt not heard"),
+ ("riser", ("clip", 38, 1),         "the rise into the throw"),
+ ("wind",  ("clip", 8, 1),          "under the earth zoom"),
+ ("shat",  ("clip", "orbit", 1),    "the glass on the wall"),
 ]
 
 W, H = 1920, 1080
@@ -282,11 +304,19 @@ starts = []
 t = 0.0
 for dur, *_ in S:
     starts.append(t); t += dur
-meet_t = starts[MEET_SHOT - 1]
+def find(anchor):
+    kind, ref, nth = anchor
+    seen = 0
+    for i, (d, k, r, vo, ss) in enumerate(S):
+        if k == kind and r == ref:
+            seen += 1
+            if seen == nth: return i
+    raise SystemExit("sound anchor not found: %r" % (anchor,))
+meet_t = starts[find(MEET_AT)]
 sfx = []
-for name, shot, _why in SFX:
-    at = starts[shot - 1]
-    assert at < meet_t - 0.01, "%s at shot %d lands in the silent ending" % (name, shot)
+for name, anchor, _why in SFX:
+    at = starts[find(anchor)]
+    assert at < meet_t - 0.01, "%s at %r lands in the silent ending" % (name, anchor)
     sfx.append((name, at))
 open("sfx.txt","w").write("".join("%s %.3f\n" % x for x in sfx))
 print("sfx cues %d, last at %.1fs, silence begins %.1fs" % (len(sfx), max(a for _, a in sfx), meet_t))
