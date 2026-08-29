@@ -182,11 +182,17 @@ S = [
 
  # vo4
  (8.0,"lip",43,4,0),
- # vo5, the wheel, over cutaways. the one repeat that stayed
- (2.2,"clip",44,5,0),(2.6,"clip",47,None,0),
- (1.2,"flash","smile",None,0),(1.2,"flash","empty",None,0),
- (1.2,"flash","eyes",None,0),(1.2,"punch","cave07v",None,0.4),
- (6.0,"clip",52,None,0),
+ # vo5, the wheel. Two of the cutaways here were among the trims he approved,
+ # which left the block shorter than the narration that runs over it -- the new
+ # overlap gate caught exactly that. The fix is not padding: the three faces now
+ # go round TWICE, the second turn faster than the first. The line is "it is not
+ # a triangle, it is a wheel", so a wheel that comes round again and picks up
+ # speed is the picture saying what the voice says.
+ (2.2,"clip",44,5,0),(2.4,"clip",47,None,0),
+ (1.2,"flash","smile",None,0),(1.2,"flash","empty",None,0),(1.2,"flash","eyes",None,0),
+ (0.9,"flash","smile",None,0),(0.9,"flash","empty",None,0),(0.9,"flash","eyes",None,0),
+ (1.6,"punch","cave07v",None,0.4),
+ (9.2,"slow",52,None,0),
  # vo6
  (10.0,"lip",53,6,0),
 
@@ -205,7 +211,7 @@ S = [
  (3.5,"card",None,None,0),
  (4.5,"dedic",None,None,0),
 ]
-VO_DELAY = {5: 1.0}   # vo5 starts a beat after its shot so it cannot collide with vo4
+VO_DELAY = {5: 1.4}   # vo5 starts a beat after its shot so it cannot collide with vo4
 
 # ---- sound design ------------------------------------------------------------
 # Every cue is anchored to a SHOT INDEX, never to a hand-typed timecode, so the
