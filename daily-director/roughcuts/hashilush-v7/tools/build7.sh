@@ -85,13 +85,8 @@ PLAN=$(awk '{s+=$2} END{printf "%.2f", s}' plan.txt)
 echo "video duration $TOT  (plan $PLAN)"
 
 echo "== sound design"
-at () { python3 -c "
-rows=[l.split() for l in open('plan.txt')]
-t=0.0
-for r in rows:
-    if int(r[0])==$1: print('%.2f'%t); break
-    t+=float(r[1])"; }
-MEET=$(at 54)   # the room tone stops here and the film goes to absolute silence
+# build7.py wrote this: the moment the film goes to absolute silence.
+MEET=$(cat meet.txt)
 echo "silence begins at $MEET"
 
 # the bed: a very quiet room floor under everything up to the meeting. having a

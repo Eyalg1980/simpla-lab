@@ -319,6 +319,9 @@ for name, anchor, _why in SFX:
     assert at < meet_t - 0.01, "%s at %r lands in the silent ending" % (name, anchor)
     sfx.append((name, at))
 open("sfx.txt","w").write("".join("%s %.3f\n" % x for x in sfx))
+# one source of truth for where the silence starts. the shell used to recompute
+# this from a hardcoded shot number, which went wrong the moment a shot was inserted.
+open("meet.txt","w").write("%.3f\n" % meet_t)
 print("sfx cues %d, last at %.1fs, silence begins %.1fs" % (len(sfx), max(a for _, a in sfx), meet_t))
 
 open("plan.txt","w").write("".join("%d %.2f %s %s %.2f\n" % p for p in plan))
