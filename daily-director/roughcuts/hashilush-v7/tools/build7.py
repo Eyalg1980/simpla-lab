@@ -28,8 +28,6 @@ A = {
 # instead of a flashlight beam. The keys stay the v6 shot numbers.
 C = {
  1:"20260829_082536_e527c07a-b676-4b25-9bdc-58766d8e9125",   # torch on the painting
- 2:"20260829_082556_523810e5-1301-4557-85ab-6c15e24ffb68",   # pigment bowl
- 3:"20260829_082535_4524c368-b2f1-4490-bb17-4ea98961fb6a",   # hand drawing on the wall
  4:"20260829_082555_0c3eee58-86a0-4f52-8781-faeae176f677",   # three figures, wide
  8:"20260828_223225_f9d05bc9-78c1-42fe-9a8b-81de58b7b676",   # EARTH ZOOM
  9:"20260828_230804_273c71f9-f836-4871-ab9e-25813b822f8f",   # pouring two coffees
@@ -67,6 +65,10 @@ DROPPED = {
  # part of this film -- an unrelated woman and an unrelated couple.
  44:"the two hands gripping in the alley, nobody in the film",
  47:"the woman's raised palm in the alley, nobody in the film",
+ # cut 17: the forest opening replaced two cave-detail shots, and clip 3 said
+ # the same thing as clip 59 in the coda.
+ 2:"the pigment bowl, cut to make room for the forest opening",
+ 3:"the hand drawing on the wall, the coda already has that shot",
 }
 # cut 12: the same guard for the new-material keys, which live in N and were
 # never covered by the assert below. Six of the seven he removed are here.
@@ -118,6 +120,26 @@ N = {
  # 4.5-6 the impact, 6-10 the camera arcing round the frozen shards until the
  # hooded victim is revealed behind them).
  "bullet":"20260829_204646_1e4543ca-30ef-48ee-b46f-588cc34cdcdb",
+ # THE OPENING, 30.8. The painted man -- the healthy one, before any role --
+ # walks through a real forest to a real cave and goes in. It puts the painted
+ # language in the first second instead of at 2:35, it makes the man who enters
+ # the cave the WELL one (so the whole film is what he finds there), and the
+ # confession now runs over someone walking toward the thing he is about to
+ # understand rather than over a static wall.
+ "fw1":"20260830_124846_419e2eb9-f12d-4b69-8ac9-02258623ae1f",  # forest, wide, walking away
+ "fw2":"20260830_124846_59371aea-b58c-49ba-ba15-2f5e7a443e36",  # passing between the trunks
+ "fw3":"20260830_124905_1a205403-1a35-41f1-819c-220013c26851",  # stopped at the cave mouth
+ "fw4":"20260830_124846_d7e2e4de-e78e-475c-84c0-d37e28f86e11",  # stepping into the dark
+ # THREE CLOSE-UPS TRADED FOR AIR, one per chapter. The tight faces stay in the
+ # wheel at the end, where the crowding IS the point; inside the chapters they
+ # were saying less than a wide frame could.
+ "w_res":"20260830_124846_79f6c588-0618-4a86-bb31-53a5dbaed944", # small in someone else's room
+ "w_vic":"20260830_124846_88353299-c263-43d2-be61-5a26b473afc8", # tiny in a huge empty room
+ "w_per":"20260830_124846_01485bd7-a0e5-4826-bc41-067ed157197f", # filling a doorway, low angle
+ # THE CLOSER: the therapist, painted, walking away down a real street. The last
+ # narration is "whoever gets out, gets out alone"; this is that line as a shot,
+ # and it puts him on screen immediately before the dedication that names him.
+ "ther_walk":"20260830_124846_94017a87-3477-4ee0-8652-046484113a93",
  # THE MEETING OF THE THREE ROLES. The wheel used to run over an unrelated
  # woman and an unrelated couple in an alley -- filler from an old cut that had
  # nothing to do with the film. The narration there says "all three of them are
@@ -192,8 +214,11 @@ L = {
 # (dur, kind, ref, vo, in_point)
 S = [
  # prologue, the cave
- (3.0,"clip",1,7,0),                                      # vo7, the confession
- (2.5,"clip",2,None,0),(3.0,"clip",3,None,0),(3.5,"clip",4,None,0),
+ (2.4,"clip","fw1",7,0),                                  # vo7, the confession
+ (1.8,"clip","fw2",None,0),
+ (2.0,"clip","fw3",None,0),
+ (2.6,"clip","fw4",None,0),
+ (2.5,"clip",1,None,0),(3.0,"clip",4,None,0),
  (4.5,"title",None,None,0),
 
  # vo1. THE CHAPTER CARD NOW COMES AFTER THE NARRATION, NOT BEFORE IT: the quote
@@ -204,7 +229,7 @@ S = [
  (3.2,"q1",None,None,0),
  # I. the rescuer
  (2.2,"clip",9,None,0),(1.8,"clip",10,None,0),(1.8,"clip",11,None,0),
- (2.6,"dolly","smile",None,0),
+ (3.6,"clip","w_res",None,0),
  (1.8,"clip",13,None,0),(2.2,"clip",15,None,0),
 
  # vo2, then the victim opens, then the card
@@ -216,7 +241,7 @@ S = [
  (0.4,"punch","mag1v",None,0.2),
  (1.8,"clip",23,None,0),
  (0.4,"punch","mag2v",None,0.2),
- (2.0,"dolly","empty",None,0),
+ (3.4,"clip","w_vic",None,0),
  (0.4,"punch","mag3v",None,0.2),
  (2.4,"clip",19,None,0),
  (3.2,"q2",None,None,0),
@@ -229,7 +254,7 @@ S = [
 
  # vo3, then the persecutor opens, then the card
  (9.0,"lip",30,3,0),
- (1.8,"dolly","block",None,0),(2.0,"dolly","eyes",None,0),
+ (3.6,"clip","w_per",None,0),
  (1.6,"clip","cave05v",None,0),
  (3.2,"q3",None,None,0),
  # III. the persecutor, and the bullet time. All three shots regenerated from
@@ -275,6 +300,7 @@ S = [
  (2.9,"clip","cave08v",None,0),
  (3.5,"clip",59,None,0),
  (4.5,"clip",62,None,0),
+ (5.0,"clip","ther_walk",None,0),
  (3.5,"card",None,None,0),
  (4.5,"dedic",None,None,0),
 ]
@@ -306,7 +332,7 @@ SFX = [
  ("rip",   ("punch", "mag1v", 1), ""), ("rip", ("punch", "mag2v", 1), ""),
  ("rip",   ("punch", "mag3v", 1), ""), ("rip", ("punch", "mag1v", 2), ""),
  ("rip",   ("punch", "mag2v", 2), ""), ("rip", ("punch", "mag3v", 2), ""),
- ("pulse", ("dolly", "block", 1),   "a slow low pulse under the persecutor, felt not heard"),
+ ("pulse", ("clip", "w_per", 1),   "a slow low pulse under the persecutor, felt not heard"),
  ("riser", ("clip", 38, 1),         "the rise into the throw"),
  ("wind",  ("clip", 8, 1),          "under the earth zoom"),
  ("shat",  ("clip", "bullet", 1, 5.4), "the glass on the wall, 5.4s into the single take"),
