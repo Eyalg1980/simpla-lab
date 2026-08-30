@@ -1,6 +1,82 @@
 {
-  "updated": "2026-08-28",
+  "updated": "2026-08-30",
   "ideas": [
+    {
+      "id": "I-2026-0351",
+      "title": "ערכת פתיחה בפקודה אחת",
+      "line": "ראיתי ש-Build with Claude השיקו ב-23.8.2026 מרקטפלייס עם 82 פלאגינים, 155 סקילים ו-117 סוכני משנה להתקנה בפקודה אחת. עכשיו אפשר לתת לכל הכיתה בדיוק את אותה ערכת כלים פותחת ברגע אחד, במקום לבזבז עשר דקות על כל אחד שמתקין ידנית סקיל אחר.",
+      "advisor": "visionary",
+      "createdAt": "2026-08-30",
+      "capability": {
+        "name": "Build with Claude, מרקטפלייס פלאגינים קהילתי",
+        "releasedAt": "2026-08-23"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-30"
+    },
+    {
+      "id": "I-2026-0352",
+      "title": "עדכון חי במקום ייצוא קפוא",
+      "line": "ראיתי שפיגמה פרטו ב-28.8.2026 סנכרון בין העיצוב בפיגמה לקוד שסוכן ממשיך לערוך, לא רק ייצוא חד פעמי. עכשיו אפשר להראות לכיתה מסך חי שממשיך להתעדכן גם אחרי שהסוכן שינה קוד, בלי לייצא מחדש בכל פעם.",
+      "advisor": "visionary",
+      "createdAt": "2026-08-30",
+      "capability": {
+        "name": "Figma, סנכרון עיצוב-קוד עם סוכנים",
+        "releasedAt": "2026-08-28"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-30"
+    },
+    {
+      "id": "I-2026-0353",
+      "title": "סדר עדיפויות תקציב קבוע",
+      "line": "מסך שמראה מראש כמה תקציב מחקר הוקצה לכל אחד משלושת המנועים לפני שהריצה מתחילה, כדי שהקורבן כשנגמר התקציב לא יהיה תמיד אותו חלק.",
+      "advisor": "pain",
+      "createdAt": "2026-08-30",
+      "capability": null,
+      "evidence": "ארבע מתוך חמש הריצות האחרונות שתועדו ב-runs.json, 23.8, 24.8, 27.8 ו-30.8 היום, נגמר בהן תקציב המחקר על Part A או Part B לפני שסריקת התחרויות המלאה של יום ראשון או אימות ישיר הושלמו, ובכל פעם החלק שנפגע היה שונה כי לא היה סדר עדיפויות קבוע מראש.",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-30"
+    },
+    {
+      "id": "I-2026-0354",
+      "title": "השוואת שלושה סוכנים ממדף אחד",
+      "line": "איך נראה על מסך הכיתה כששלושה סטודנטים מתקינים שלושה סוכנים שונים מאותו מרקטפלייס Build with Claude ומריצים אותם על אותה משימה?",
+      "advisor": "teacher",
+      "createdAt": "2026-08-30",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מיישם AI ואוטומציה, שיעור סוכנים ו-MCP",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-30"
+    },
+    {
+      "id": "I-2026-0355",
+      "title": "מסך תיקון לצד תיקון",
+      "line": "איך נראה על מסך הכיתה תרגיל שבו סטודנט שם זה לצד זה תיקון שה-AI נתן לעבודה שלו ותיקון שהוא היה נותן לעצמו?",
+      "advisor": "teacher",
+      "createdAt": "2026-08-30",
+      "capability": null,
+      "evidence": null,
+      "lesson": "AI Product Design & UX/UI, שיעור משוב וביקורת עיצוב",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-30"
+    },
     {
       "id": "I-2026-0347",
       "title": "צ'אט צף לשיעור מוקלט",
@@ -14,9 +90,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-28"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0348",
@@ -31,9 +107,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-28"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0349",
@@ -45,9 +121,9 @@
       "evidence": null,
       "lesson": "מפגש 27.8.2026, קורס UI/UX 45900: וידאו סקראבינג ומצגת בסט פרקטיסס לדפי נחיתה",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-28"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0350",
@@ -59,9 +135,9 @@
       "evidence": null,
       "lesson": "סילבוס AI Product Design ו-UX/UI, שיעור עקרונות נילסן לשמישות",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-28"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0343",
@@ -73,9 +149,9 @@
       "evidence": "בחודש האחרון נמסרו לפחות שש מצגות שונות של קורס 45900 (סקילים, פרויקט מתגלגל, וובינר, דף נחיתה ובסט פרקטיסס, מערכות מורכבות ואנליטיקות, העלאה לאוויר) כמרקדאון ידני להדבקה בגאמה, כל פעם לפי אותה בקשה מפורשת שחוזרת על עצמה, מעדיף לקבל מצגות כמרקדאון לגאמה ולא כ-PPTX או HTML",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-27"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0344",
@@ -87,9 +163,9 @@
       "evidence": "שלוש פעמים באוגוסט נאלצת לתקן ידנית כמה מפגשים נותרו בקורס 45900, ב-17.8, ב-20.8 וב-21.8 עם התיקון המפורש היה בלבול בתכנון המקורי, כל פעם אחרי שהמספר בפועל לא תאם את מה שתוכנן",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-27"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0345",
@@ -101,9 +177,9 @@
       "evidence": null,
       "lesson": "מפגש 27.8.2026, קורס UI/UX 45900: קייס סטאדי ופורטפוליו חי, שלב חיתוך תמונת שש המסכים ופירוק ציטוט הפרסונה מה-PNG לטקסט",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-27"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0346",
@@ -115,9 +191,9 @@
       "evidence": null,
       "lesson": "שיעור 17.8.2026, קורס UI/UX 45900: מ-PRD למסכים מעוצבים, שלושה כיווני סטייל גייד מתומצתים מ-PRD ולוח השראה",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-27"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0316",
@@ -149,9 +225,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-21"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0318",
@@ -163,9 +239,9 @@
       "evidence": "בשלושה סטוריבורדים נפרדים בחודש התחרויות (ההוראות, השכן, עברית לחתולים) המשך המוצהר בטיפול לא תאם את סכום השוט ליסט. עברית לחתולים נרשם כ-2:40 בעוד שהמשך האמיתי היה 3:48, כלומר היה נופל לפסילה אוטומטית באסטנה אם היה מוגש לפי המספר המוצהר",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-21"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0319",
@@ -205,9 +281,9 @@
       "evidence": null,
       "lesson": "קורס UI/UX 45900, שיעור 4 (31.8), השלמות",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-21"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0294",
@@ -222,9 +298,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-17"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0295",
@@ -239,9 +315,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-17"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0296",
@@ -253,9 +329,9 @@
       "evidence": "לפחות פעמיים שכפלת ידנית קובץ הצעת מחיר קיים (gogeek-proposal-v1.pptx) ושינית שם לקוח וסכומים, לאחרונה עבור Cross Diamond ב-29.7",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-17"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0297",
@@ -267,9 +343,9 @@
       "evidence": "ב-10.8 בלבד הסרת בעצמך חמש משימות נפרדות מהלוח בזו אחר זו: מצגת מכירות, מסמך תהליך ופרומפטים, מיקי, סקיל בונה האתרים, מעקב קרוס דיאמונד",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-17"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0298",
@@ -281,9 +357,9 @@
       "evidence": null,
       "lesson": "קורס UI/UX 45900, שיעור 04 (קטלוג הפרומפטים) מול שיעור 05 (כלי צבע)",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-17"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0299",
@@ -295,9 +371,9 @@
       "evidence": null,
       "lesson": "קורס UI/UX 45900, שלב 6 בתרגיל המתגלגל (השפה הויזואלית)",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-17"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0231",
@@ -1107,9 +1183,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-18"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0301",
@@ -1124,9 +1200,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-18"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0302",
@@ -1138,9 +1214,9 @@
       "evidence": "לפחות שלוש פעמים ניסחת מאפס פנייה מקצועית לערעור על חיוב או מנוי: Slack, Udio ו-Partner טלקום",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-18"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0303",
@@ -1152,9 +1228,9 @@
       "evidence": null,
       "lesson": "UI/UX 45900, שיעור 8, שהחומרים שלו עוד לא בנויים",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-18"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0304",
@@ -1166,9 +1242,9 @@
       "evidence": null,
       "lesson": "UI/UX 45900, שיעור בונוס C, 10 ההתנהגויות המודרניות באתרים",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
-      "touchedAt": "2026-08-18"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0305",
@@ -1183,9 +1259,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-19"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0306",
@@ -1200,9 +1276,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
-      "touchedAt": "2026-08-19"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0307",
@@ -1214,9 +1290,9 @@
       "evidence": "שני מעברים ידניים נפרדים על לוח המשימות תוך יומיים, 17.8 ו18.8, כל פעם סוגר וממיין סעיפים אחד אחד: ב17.8 מפגש הערב ותת-משימת וונסה, ב18.8 קרם שיזוף, הכנת המפגש וניסוח מחדש של משימת Backstage",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-19"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0308",
@@ -1228,9 +1304,9 @@
       "evidence": null,
       "lesson": "UI/UX 45900, מפגש 9, גאמה טרם נבנתה",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-19"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0309",
@@ -1242,9 +1318,9 @@
       "evidence": null,
       "lesson": "UI/UX 45900, מפגש 8, מדריך פריסה חסר",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-19"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0310",
@@ -1259,9 +1335,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-20"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0311",
@@ -1276,9 +1352,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-20"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0312",
@@ -1290,9 +1366,9 @@
       "evidence": "כתבת תדרוך של חמש שורות לקלוד אחרי כל אחד ממפגשי 45900 ברצף, שגרה קבועה ולא חד פעמית",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-20"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0313",
@@ -1304,9 +1380,9 @@
       "evidence": "עקבת ידנית אחרי שחק וראמיז שחייבים את כל התרגילים כבר שבועות, בכמה עדכוני לוח נפרדים (17/8, 18/8)",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-20"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0314",
@@ -1318,9 +1394,9 @@
       "evidence": null,
       "lesson": "UI/UX 45900, שיעורים 04-05, כלי צבע",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-20"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0315",
@@ -1332,9 +1408,9 @@
       "evidence": null,
       "lesson": "מיישם AI 53500, מודול 6 שיעור 23, בניית אוטומציות",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-20"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0322",
@@ -1349,9 +1425,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-23"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0323",
@@ -1366,9 +1442,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-23"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0324",
@@ -1380,9 +1456,9 @@
       "evidence": "ב-19.8.2026 הורדת גם את Cross Diamond וגם את ברוני גז מהלוח באותו יום: הסרת המשימות, הסרת פריט מ-READY הודעות מוכנות (אינדקס 0), ומחזור אינדקסים ידני של הקישורים [0,1] [0,3] [0,4] ל-[0,0] [0,2] [0,3], וגם הסרה מרשימת מחכה ל",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-23"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0325",
@@ -1394,9 +1470,9 @@
       "evidence": "ב-17.8.2026 עדכון בדק בית אשקלון יצא כגרסת מייל וגרסת וואטסאפ נפרדות ל-READY, ואותו דפוס חוזר על עצמו בכל הודעה מוכנה שנכתבת ללוח",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-23"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0326",
@@ -1408,9 +1484,9 @@
       "evidence": null,
       "lesson": "קורס UI/UX 45900, מפגשי משוב אישיים, חלון 25.8-16.9",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-23"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0327",
@@ -1422,9 +1498,9 @@
       "evidence": null,
       "lesson": "קורס UI/UX 45900, מפגש קייס סטאדי (27.8/31.8), כלי case-study-builder שנמסר 21.8",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-23"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0328",
@@ -1439,9 +1515,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-24"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0329",
@@ -1456,9 +1532,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-24"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0330",
@@ -1470,9 +1546,9 @@
       "evidence": "runs.json מתעד שבריצת 23.8 כל ארבע שליפות אימות התחרויות נחסמו ולא נוסף אף אימות, וגם בריצת 24.8 שליפת דף התחרויות של היגספילד נחסמה ושתי תחרויות אומתו דרך חיפוש במקום דרך דף התחרות עצמה. competitions.json מחזיק כרגע 21 תחרויות, ושתיים מהן עם דדליין בתוך שבעה ימים נשארו עם אימות ישן בלי סימון",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-24"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0331",
@@ -1484,9 +1560,9 @@
       "evidence": "runs.json מראה שתי ריצות רצופות, 21.8 ו-23.8, שרשמו 10 שליפות כל אחת מול תקרה מוצהרת של 6 בהוראות המשימה, כלומר חריגה של כמעט פי שניים פעמיים ברצף, ובשתיהן החריגה התגלתה רק בשלב כתיבת יומן הריצה בסוף",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
-      "touchedAt": "2026-08-24"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0332",
@@ -1498,9 +1574,9 @@
       "evidence": null,
       "lesson": "קורס UI/UX 45900, השיעור על אוטו לייאאוט ומערכת הריווח",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-24"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0333",
@@ -1512,9 +1588,9 @@
       "evidence": null,
       "lesson": "קורס UI/UX 45900, המודול על תיעדוף MoSCoW ובניית MVP",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-24"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0334",
@@ -1529,9 +1605,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-25"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0335",
@@ -1546,9 +1622,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-25"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0336",
@@ -1560,9 +1636,9 @@
       "evidence": "ב-13.8 שליפה מ-digg.com נכשלה ב-403, ב-16.8 שתי שליפות מ-figma.com נכשלו ב-robots.txt, וב-25.8 שוב, figma.com/blog נכשל ב-robots.txt ו-digg.com החזיר 404, שתי שליפות מתוך שש שהתבזבזו על מקורות שכבר נכשלו בעבר בלי שנרשמו כבלתי אמינים",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-25"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0337",
@@ -1574,9 +1650,9 @@
       "evidence": null,
       "lesson": "קורס מיישם AI ואוטומציה (53500), מודול חשיבת MVP והפרויקט המתגלגל",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-25"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0338",
@@ -1588,9 +1664,9 @@
       "evidence": null,
       "lesson": "קורס UI/UX 45900, שיעור עולמות עיצוב (Design Domains)",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-25"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0339",
@@ -1605,9 +1681,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-26"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0340",
@@ -1619,9 +1695,9 @@
       "evidence": "היגספילד.ai/contests נחסם PROVENANCE_REQUIRED גם ב-23.8 וגם היום ב-26.8, ואיתו הפעם גם aifilmcontests.com ו-open-arthouse.com, שלוש שליפות מתוך שש שנחסמו בריצה אחת של הבמאי היומי",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-26"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0341",
@@ -1633,9 +1709,9 @@
       "evidence": null,
       "lesson": "קורס UI/UX 45900, מודול פסיכולוגיית צבע ותפיסה חזותית",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-26"
+      "touchedAt": "2026-08-30"
     },
     {
       "id": "I-2026-0342",
@@ -1647,9 +1723,9 @@
       "evidence": null,
       "lesson": "קורס UI/UX 45900, מודול עשרת עקרונות השימושיות של נילסן",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-08-26"
+      "touchedAt": "2026-08-30"
     }
   ]
 }
