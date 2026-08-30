@@ -85,6 +85,7 @@ DROPPED_N = {
  "tumble2":"folded into the single continuous take",
  "orbit3":"folded into the single continuous take",
  "morph2":"the morph from the 3D therapist, replaced when he was repainted",
+ "morph3":"the morph from the dark-haired painted therapist, wrong man",
 }
 assert not (set(C) & set(DROPPED)), "a dropped shot is back in C: %s" % (set(C) & set(DROPPED),)
 
@@ -135,7 +136,7 @@ N = {
  # same frame photoreal, and that frame is exactly where the reveal begins.
  # regenerated once more: it has to start from the PAINTED therapist now, since
  # that is who has been speaking for the whole film.
- "morph3":"20260829_210524_cbe1d6dd-2faf-4d3e-b22a-51caa0012331",
+ "morph4":"20260830_040713_ef67e357-7625-428a-9445-ab0e148ba060",
  # THE FOURTH LANGUAGE, "the frequency of love": a flat hand-painted cut-out man
  # inside the SAME photographed rooms, painted in the SAME ochre as the cave.
  # 29.8 he asked to take it OUT of the three chapters and give it the ending
@@ -175,11 +176,16 @@ HE = {
 # SECONDS. Without it the model ignores how long the audio is and returns a 5s
 # clip, and the give-away is the length, not the picture. Always pass duration.
 L = {
- 6:"20260829_211207_1bc7fecf-ad53-4c8c-942b-7cd49b0b56da",   # 6s
- 16:"20260829_211208_6af3dc7a-9fb6-41be-8202-b296f469623a",  # 12s
- 30:"20260829_211207_3d292ca7-1d10-4893-8b44-dd2489d70a34",  # 9s
- 43:"20260829_211207_53ae33a7-4b61-46f1-b4f2-79a8546bdc70",  # 8s
- 53:"20260829_211207_d6beb771-5322-4892-a17c-de6a720d97d3",  # 10s
+ # AND REGENERATED ONCE MORE: the first painted pass gave him DARK hair, while
+ # the photoreal man the film morphs into is white-haired and twenty years
+ # older. That turned the morph from a change of rendering into a change of
+ # PERSON. The parent frame now takes its composition from the illustrated shot
+ # and its IDENTITY from the photoreal frame, so both are the same man.
+ 6:"20260830_040713_09ddd3a0-62d2-4655-b0ae-8ec1d827ffe8",   # 6s
+ 16:"20260830_040714_8c5a8fdf-8caa-4d9a-aee5-87d13f233e23",  # 12s
+ 30:"20260830_040713_2a98a450-def6-4113-8b8e-d035439d4e00",  # 9s
+ 43:"20260830_040713_bf3f969c-5030-4b02-aa0a-ab246682e052",  # 8s
+ 53:"20260830_040713_b952cfa8-af8c-4e9c-9794-4b0787b1081a",  # 10s
 }
 
 # ---- the cut -----------------------------------------------------------------
@@ -260,7 +266,7 @@ S = [
  # THE MEETING. His fixed illustrated shot resolves into the same frame
  # photoreal, and that frame is exactly where the pull-back begins, so the
  # style change and the reveal are one continuous move with no seam.
- (5.0,"clip","morph3",None,0),
+ (5.0,"clip","morph4",None,0),
  (8.0,"clip","room2",None,0),
  (3.0,"clip",57,None,0),
  (3.0,"clip","lv_laugh",None,0),
@@ -284,7 +290,7 @@ VO_DELAY = {5: 1.4, 7: 1.5}  # vo7 lets the first cave image sit for a beat
 # Cues are anchored to WHAT A SHOT IS, never to its position, because inserting
 # one shot used to move every cue after it silently. Each anchor is
 # (kind, ref, which occurrence).
-MEET_AT = ("clip", "morph3", 1)
+MEET_AT = ("clip", "morph4", 1)
 SFX = [
  ("fire",  ("clip", 1, 1),          "the fire finds the wall in the opening"),
  ("fire",  ("clip", 15, 1),         "the cave beat that closes the rescuer"),
