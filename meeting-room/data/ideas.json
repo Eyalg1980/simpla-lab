@@ -1,6 +1,96 @@
 {
-  "updated": "2026-08-30",
+  "updated": "2026-08-31",
   "ideas": [
+    {
+      "id": "I-2026-0356",
+      "title": "מדף סקילים לסטודיו",
+      "line": "פקודה אחת מתקינה סקיל בדוק מהקהילה במקום לכתוב אחד מאפס",
+      "advisor": "visionary",
+      "createdAt": "2026-08-31",
+      "capability": {
+        "name": "Build with Claude, מרקטפלייס קהילתי בקוד פתוח לסקילים, פלאגינים וסוכני משנה",
+        "releasedAt": "2026-08-23"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-31"
+    },
+    {
+      "id": "I-2026-0357",
+      "title": "מבקר אתר בפקודה אחת",
+      "line": "משפט אחד בודק נגישות, קישורים שבורים וביצועים באתר של תלמיד, בלי לפתוח כלי נפרד",
+      "advisor": "visionary",
+      "createdAt": "2026-08-31",
+      "capability": {
+        "name": "Webflow Skills בתוך ChatGPT ו-Codex, ביקורת אתר בשפה טבעית",
+        "releasedAt": "2026-08-24"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-31"
+    },
+    {
+      "id": "I-2026-0358",
+      "title": "מלכודת פיגמה בקבלות",
+      "line": "שלוש חשבוניות פיגמה מגיעות מאותו שולח, וסבב אחד כבר פספס אחת מהן",
+      "advisor": "pain",
+      "createdAt": "2026-08-31",
+      "capability": null,
+      "evidence": "שני סבבי קבלות רצופים, מאי-יוני ויולי-אוגוסט 2026: שלוש חשבוניות פיגמה שונות (html.to.design, Weave, Professional) מגיעות כולן מאותו שולח Figma Inc, וסבב אחד תפס רק אחת מהן ופספס 474 שקל מהשתיים האחרות",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-31"
+    },
+    {
+      "id": "I-2026-0359",
+      "title": "העברת קובץ שעולה יותר מדי",
+      "line": "כל PDF שעובר מג'ימייל לדרייב דרך הצ'אט עולה עשרות אלפי תווים, ונכשל על קבצים גדולים",
+      "advisor": "pain",
+      "createdAt": "2026-08-31",
+      "capability": null,
+      "evidence": "בסבב הקבלות של יולי-אוגוסט 2026, עם 166 מסמכים, הועברת PDF מג'ימייל לדרייב דרך הכלים עלתה בערך 44 אלף תווים לכל 33 קילובייט בכל כיוון ונכשלה לגמרי על קבצים גדולים, מה שדחף בפועל לבנות סקריפט Apps Script נפרד",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-31"
+    },
+    {
+      "id": "I-2026-0360",
+      "title": "מהמסך למסמך בנייה",
+      "line": "ממסך מעוצב אחד יוצאים PRD, הנחיות בנייה וסטייל גייד מוכנים להדבקה ב-Lovable",
+      "advisor": "teacher",
+      "createdAt": "2026-08-31",
+      "capability": null,
+      "evidence": null,
+      "lesson": "שיעור 45900 (יום שני), דף הנחיתה שממנו פותחים את השיעור וממשיכים ל-Lovable ו-base44: בנייה ממסכים מעוצבים ל-PRD, הנחיות בנייה וסטייל גייד",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-31"
+    },
+    {
+      "id": "I-2026-0361",
+      "title": "מה השתנה מהמפגש הקודם",
+      "line": "מסך שמראה לתלמיד בדיוק מה נוסף לתרגיל המתגלגל שלו מהמפגש הקודם",
+      "advisor": "teacher",
+      "createdAt": "2026-08-31",
+      "capability": null,
+      "evidence": null,
+      "lesson": "התרגיל המתגלגל, מפגשים 3 עד 11 בקורס 45900, כל מפגש מוסיף deliverable אחד לפורטפוליו",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-08-31"
+    },
     {
       "id": "I-2026-0351",
       "title": "ערכת פתיחה בפקודה אחת",
