@@ -1,6 +1,49 @@
 {
   "days": [
     {
+      "date": "2026-08-31",
+      "dateLabel": "יום שני, 31 באוגוסט",
+      "ideas": [
+        {
+          "id": "2026-08-31-1",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "יש בבית הכנסת השכונתי מתג אחד שהגבאי מזיז ביד ארבעים שנה, בדיוק שעה לפני כל תפילה גדולה, גם אחרי שהתקינו תרמוסטט חכם.",
+          "concept": "בית כנסת ריק, שעה לפני תפילה גדולה. גבאי מבוגר מספר בריאיון מוקומנטרי קצר איך הוא מזיז ביד מתג ישן של מזגן בדיוק בתזמון הזה, ארבעים שנה, לפי מתי שהוא מרגיש שהחדר מתחיל להתמלא, לא לפי שעון. השנה הותקן תרמוסטט חכם שכבר מדליק את המזגן לבד. הוא ממשיך להזיז את המתג באותו תזמון בדיוק. בתקריב הסיום רואים שהנורית הירוקה כבר דלקה לפני שידו בכלל נגעה בו.",
+          "execution": "3 דקות ו-30 שניות, מיקום יחיד, אולם התפילה הריק וזווית קטנה עם המזגן הישן. פורמט מושאל: ריאיון מוקומנטרי קצר לצד תקריבים סטטיים על המתג והמזגן, בלי דיאלוג מסונכרן. Higgsfield Cinema Studio לשוט הריאיון הנעול ולתקריב המתג, Nano Banana Pro לעקביות פני הגבאי והמזגן הישן בין השוטים, Kling 3 std לתנועת היד המזיזה את המתג ולהבהוב הנורית הירוקה. מונולוג עברי בלבד, שקט כמעט מלא בשוטי התקריב. יחס 16:9 להגשה, 9:16 לרשתות.",
+          "why": "כי זו הפעם הראשונה החודש שה-AI בסיפור הוא נוכחות שקטה ברקע ולא הנושא המוצהר, בדיוק כמו ברוב הזוכים שניתחתי, וזה נכנס בול לתקופת החגים אז יש לו זווית זמן אמיתית ולא רק קונספט.",
+          "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+          "srcUrl": "https://aaiff.ai/",
+          "srcLabel": "AAIFF, אומת ישירות היום 31.8.2026: הדף כותב שהגשות אחרי הדדליין עדיין נשקלות לפי שיקול דעת השופטים",
+          "prompts": {
+            "video": "Photoreal intimate documentary footage, warm late-afternoon Mediterranean light spilling through tall synagogue windows onto empty wooden pews, sand cream stone walls with soft teal shadow accents, an elderly synagogue caretaker standing beside an old wall-mounted air conditioning unit in a small utility alcove, static locked camera on his weathered hand resting on a worn manual switch, then a slow push in to a small green indicator light already glowing on the unit before his hand moves, tender reverent mood, shallow depth of field, human and hopeful rather than technical, 16:9",
+            "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם המתג של הגבאי: גבאי מבוגר בבית כנסת שכונתי ריק, שעה לפני תפילה גדולה, מזיז ביד מתג ישן של מזגן שהוא מפעיל כך ארבעים שנה בדיוק בתזמון הזה, גם אחרי שהותקן תרמוסטט חכם שכבר הדליק את המזגן לבד. בתקריב הסיום רואים שהנורית הירוקה כבר דלקה לפני שידו נגעה במתג. תפתח לי אותו לתסריט מלא: לוגליין אחת, לוח זמנים מדויק ל-3:30 דקות, פורמט ריאיון מוקומנטרי קצר לצד תקריבים סטטיים, מונולוג עברי מלא, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפטים מוכנים לג'נרציה לכל שוט בנפרד עם שם המודל המתאים, Higgsfield Cinema Studio או Nano Banana Pro או Kling 3.",
+            "image": "Photoreal intimate documentary still, warm late-afternoon Mediterranean light through tall synagogue windows, empty wooden pews in soft focus behind, an elderly caretaker's weathered hand resting on an old worn manual air conditioning switch in a small stone alcove, a small green indicator light glowing softly on the unit, sand cream and soft teal palette, shallow depth of field, tender and human, no text, 16:9",
+            "raw": "hook: יש בבית הכנסת השכונתי מתג אחד שהגבאי מזיז ביד ארבעים שנה, בדיוק שעה לפני כל תפילה גדולה, גם אחרי שהתקינו תרמוסטט חכם.\nworld: סרטוני תחרויות\ncompetition: Higgsfield Global Film Festival, וגם Astana AI Film Festival\nconcept: גבאי מבוגר בבית כנסת ריק מספר בריאיון מוקומנטרי קצר איך הוא מזיז ביד מתג ישן של מזגן בדיוק שעה לפני כל תפילה גדולה, ארבעים שנה. השנה הותקן תרמוסטט חכם שמדליק את המזגן לבד, והוא עדיין מזיז את המתג באותו תזמון. בתקריב האחרון רואים שהנורית כבר דלקה לפני שידו נגעה בו.\nexecution: 3:30 דקות, מיקום יחיד, פורמט מוקומנטרי, Higgsfield Cinema Studio לריאיון הסטטי, Nano Banana Pro לעקביות הדמות והמזגן, Kling 3 std לתנועת היד והבהוב הנורית, מונולוג עברי בלבד, יחס 16:9 להגשה ו-9:16 לרשתות.\nwhy: הפעם הראשונה שה-AI בסיפור הוא נוכחות שקטה ברקע ולא נושא מוצהר, וזה נכנס בדיוק לתקופת החגים."
+          }
+        },
+        {
+          "id": "2026-08-31-2",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "התוכי בקליניקה הווטרינרית אומר את אותו משפט הרגעה חמש עשרה שנה, ומאז שהוקם הבוט הטלפוני של הקליניקה הוא כבר לא אומר אותו לחיות.",
+          "concept": "קליניקה וטרינרית קטנה. תוכי אפור זקן בכלוב ליד דלפק הקבלה אומר חמש עשרה שנה את אותו משפט הרגעה, בדיוק כשהדלת נפתחת, כי מישהי לימדה אותו את זה כדי להרגיע חיות מבוהלות. השנה כל התיאום עבר לבוט טלפוני ולטאבלטים שקטים. התוכי ממשיך לומר את המשפט בכל פתיחת דלת, אבל עכשיו הוא אומר אותו לבעלים, לא לחיות שלהם. הווטרינר מבין בסוף שהתוכי מעולם לא הרגיע חיות, הוא הרגיע בני אדם.",
+          "execution": "3 דקות ו-40 שניות, מיקום יחיד, חדר ההמתנה של הקליניקה. פורמט מושאל: ריאיון מוקומנטרי עם הווטרינר לצד תקריבים סטטיים על התוכי והדלת. Higgsfield Cinema Studio לריאיון הנעול ולתקריבי הדלת, Nano Banana Pro לעקביות עיצוב התוכי והקליניקה בין השוטים, Kling 3 std לתנועת ראש התוכי ופתיחת המקור כשהוא מדבר. מונולוג עברי של הווטרינר, ומשפט עברי אחד קבוע מפי התוכי, מעבר לזה שקט כמעט מלא. יחס 16:9 להגשה, 9:16 לרשתות.",
+          "why": "כי גיבור לא אנושי הוא אחד המנגנונים שעוד לא מיציתי החודש, וזה גם רעיון שיכול לצאת גם כפוסט על מי שבאמת מרגיע את מי בקליניקה, אז זה גם מועמד לחיתוך השבועי בין שני הערוצים.",
+          "competition": "Higgsfield Global Film Festival, וגם Astana AI Film Festival",
+          "srcUrl": "https://higgsfield.ai/contests/higgsfield-global-film-festival",
+          "srcLabel": "Higgsfield Global Film Festival, דדליין 3.9.2026, אומת בחיפוש ב-30.8.2026 ללא שינוי בלוח הזמנים, לא בוצע אימות נוסף היום עקב תקציב המחקר",
+          "prompts": {
+            "video": "Photoreal intimate documentary footage, warm soft daylight through a small veterinary clinic window, sand cream walls with soft teal accent tiles, an old grey parrot perched in a simple cage beside a reception desk, static locked camera holding on the parrot as the clinic door opens off-frame, the parrot tilts its head and opens its beak to speak, shallow depth of field, gentle observational mood, human and hopeful rather than clinical, 16:9",
+            "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם התוכי שמרגיע את הבן אדם: בקליניקה וטרינרית קטנה יש תוכי אפור זקן שאומר חמש עשרה שנה את אותו משפט הרגעה בדיוק כשהדלת נפתחת, כי מישהי לימדה אותו את זה בשביל להרגיע חיות מבוהלות. השנה כל התהליך הטכני עבר לבוט טלפוני ולטאבלטים שקטים, אבל התוכי ממשיך לומר את המשפט בכל פתיחת דלת, הפעם לבעלי החיים ולא לחיות עצמן. תפתח לי אותו לתסריט מלא: לוגליין אחת, לוח זמנים מדויק ל-3:40 דקות, פורמט מוקומנטרי עם ריאיון של הווטרינר לצד תקריבים סטטיים על התוכי, מונולוג עברי מלא, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפטים מוכנים לג'נרציה לכל שוט עם שם המודל המתאים, Higgsfield Cinema Studio או Nano Banana Pro או Kling 3.",
+            "image": "Photoreal intimate documentary still, warm soft daylight through a small veterinary clinic window, an old grey parrot perched in a simple cage beside a reception desk, sand cream walls with soft teal accent tiles, shallow depth of field, gentle and warm, no text, 16:9",
+            "raw": "hook: התוכי בקליניקה הווטרינרית אומר את אותו משפט הרגעה חמש עשרה שנה, ומאז שהוקם הבוט הטלפוני של הקליניקה הוא כבר לא אומר אותו לחיות.\nworld: סרטוני תחרויות\ncompetition: Higgsfield Global Film Festival, וגם Astana AI Film Festival\nconcept: תוכי אפור זקן בקליניקה וטרינרית קטנה אומר חמש עשרה שנה את אותו משפט הרגעה כשהדלת נפתחת. השנה הבוקינג עבר לבוט טלפוני ולטאבלטים שקטים, אבל התוכי ממשיך לומר את המשפט, הפעם לבעלי החיים ולא לחיות. הווטרינר מבין בסוף שהתוכי מעולם לא הרגיע חיות, הוא הרגיע בני אדם.\nexecution: 3:40 דקות, מיקום יחיד, פורמט מוקומנטרי, Higgsfield Cinema Studio לריאיון ולתקריבי הדלת, Nano Banana Pro לעקביות התוכי והקליניקה, Kling 3 std לתנועת ראש התוכי, מונולוג עברי בלבד, יחס 16:9 להגשה ו-9:16 לרשתות.\nwhy: גיבור לא אנושי שעוד לא מוצה החודש, ומועמד גם לחיתוך שבועי מול הפוסטים."
+          }
+        }
+      ],
+      "watch": []
+    },
+    {
       "date": "2026-08-30",
       "dateLabel": "יום ראשון, 30 באוגוסט",
       "ideas": [
