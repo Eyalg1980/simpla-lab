@@ -1023,13 +1023,22 @@ var SCRUB_BUBBLES = [{"w":250,"h":68,"x0":90,"y0":120,"r0":-6,"x1":675,"y1":44},
 
     /* שעון הוויתור נדחה בכל אירוע progress. בלי הדחייה הזאת
        חיבור איטי נראה בדיוק כמו קובץ שבור. */
+    /* טאב ברקע מקבל throttling אגרסיבי: ההורדה נעצרת, אירועי
+       progress מפסיקים, והשעון הזה היה מוותר על סרט תקין לגמרי.
+       לכן כשהמסמך מוסתר השעון נדחה במקום לירות. */
     function armTimer() {
       if (dead || dur) return;
       clearTimeout(timer);
-      timer = setTimeout(function () { if (!dur) giveUp(); }, 20000);
+      timer = setTimeout(function () {
+        if (dur || dead) return;
+        if (document.hidden || video.readyState >= 1) { armTimer(); return; }
+        giveUp();
+      }, 20000);
     }
     video.addEventListener("progress", armTimer);
     video.addEventListener("loadstart", armTimer);
+    video.addEventListener("suspend", armTimer);
+    document.addEventListener("visibilitychange", armTimer);
     armTimer();
 
     /* ספארי ו-iOS מסרבים לבצע seek לפני שהיה play אחד */
@@ -1047,7 +1056,10 @@ var SCRUB_BUBBLES = [{"w":250,"h":68,"x0":90,"y0":120,"r0":-6,"x1":675,"y1":44},
     /* loadedmetadata יורה יותר מפעם אחת. בלי השמירה הזאת apply
        נבנה מחדש ו-prime רץ שוב באמצע גרירה. */
     video.addEventListener("loadedmetadata", function () {
-      if (dur) return;
+      /* ה-dead נבדק כאן ולא רק ב-dur: בלעדיו, ויתור שקרה קודם היה
+         משאיר את הסקשן בפריסה סטטית בזמן ש-apply ממשיך לגרור את
+         הסרט, וזה המצב הכי גרוע מבין השלושה. */
+      if (dur || dead) return;
       clearTimeout(timer);
       dur = video.duration || 0;
       if (!dur) { giveUp(); return; }
