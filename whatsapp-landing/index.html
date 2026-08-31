@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>WhatsApp · קבוצה אחת לכל משימה</title>
+<meta name="description" content="הודעות, תמונות, מיקום ושיחת וידאו עד 32 משתתפים, בשיחה אחת. בלי דמי מנוי." />
+<meta property="og:title" content="קבוצה אחת לכל משימה, וכל מה שסוכם נשאר בתוכה" />
+<meta property="og:description" content="הודעות, תמונות, מיקום ושיחת וידאו עד 32 משתתפים, בשיחה אחת. בלי דמי מנוי." />
+<meta property="og:image" content="assets/wa-group.jpg" />
+<meta property="og:locale" content="he_IL" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#FCF5EB" />
+
+<!--
+  ============================================================
+  גיליון המסג'ינג, מלא. זהו מקור האמת של הדף.
+
+  מוצר: WhatsApp Messenger (WhatsApp LLC / Meta)
+
+  1. למי זה מיועד
+     מי שאחראי על קבוצת אנשים סביב משימה משותפת: ועד הורים,
+     ארגון טיול, צוות מתנדבים, קבוצת שכונה.
+
+  2. מה הכאב שלו היום, בלי לדבר על המוצר
+     התיאום מתפזר. חלק בהודעות, חלק במייל, חלק בשיחות טלפון.
+     אותה שאלה נשאלת שלוש פעמים, מי שהצטרף אחרון לא יודע מה
+     כבר סוכם, וההחלטה שנפלה ביום שני צריכה להיאמר שוב ביום חמישי.
+
+  3. מה המוצר עושה בפועל, בלי שמות תואר
+     מרכז את כל המשתתפים בשיחה אחת: טקסט, תמונות, וידאו והודעות
+     קוליות. מחייג שיחת קול או וידאו עד 32 משתתפים. משתף מיקום
+     בתוך הקבוצה. מצפין הודעות ושיחות מקצה לקצה. מזהה לפי מספר
+     טלפון. עובד על טלפון, מחשב ושעון. בלי דמי מנוי.
+
+  4. למה דווקא אנחנו ולא הקיים
+     מוסיפים חבר לקבוצה מתוך אנשי הקשר בטלפון. אין הזמנה לשלוח,
+     אין חשבון לפתוח, ואין מי שיישאר בחוץ כי לא נרשם.
+
+  5. מה אנחנו רוצים שהוא יעשה
+     להתקין את האפליקציה מ-Google Play.
+
+  כותרת ראשית : קבוצה אחת לכל משימה, וכל מה שסוכם נשאר בתוכה
+  טקסט הכפתור : להתקין ולפתוח קבוצה
+  מבחן שש שניות: אפליקציה שמרכזת תיאום של קבוצה בשיחה אחת /
+                 למי שאחראי על קבוצה סביב משימה / מתקינים מ-Google Play
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   1. TOKENS
+   כל ערך צבע כאן חולץ מ-computed styles של whatsapp.com,
+   למעט ארבעה שסומנו DERIVED. שום צבע בדף לא מוגדר רק בתוך
+   בלוק של ערכה אחת, אחרת הוא לא קיים בשנייה.
+   ============================================================ */
+:root{
+  --surface:      #FCF5EB;   /* הרקע הראשי באתר המוצר, קרם */
+  --surface-alt:  #FFFFFF;
+  --raised:       #FFFFFF;
+  --border:       #C4D0D4;
+  --hairline:     #E4DCD0;   /* DERIVED */
+
+  --text:   #1C1E21;
+  --text-2: #103928;
+  --text-3: #5E5E5E;
+
+  --accent: #103928;
+  --star:   #F5A623;         /* DERIVED, לכוכבי הדירוג */
+
+  /* זוג ההדגשה. הוא נחלץ כזוג ולעולם לא מתהפך.
+     ווטסאפ שמה טקסט כמעט שחור על הירוק, לא לבן. לבן על הירוק
+     הזה יוצא 2.1:1 וכפתור בלתי קריא. */
+  --emph:    #25D366;
+  --on-emph: #1C1E21;
+
+  /* הרצועה ההפוכה. גוון אחר לגמרי משתי הערכות, לא רק כהה יותר */
+  --band:      #103928;
+  --band-text: #FCF5EB;
+
+  --body: "Assistant", "Segoe UI", system-ui, Arial, sans-serif;
+
+  --measure: 34rem;
+  --wide:    64rem;
+  --max:     78rem;
+  --tap: 48px;
+  --r:  25px;                /* רדיוס הכרטיס באתר המוצר */
+  --rp: 50px;                /* רדיוס הכפתור, גלולה */
+
+  color-scheme: light;
+}
+
+:root[data-theme="dark"]{
+  --surface:      #111B21;
+  --surface-alt:  #0B141A;   /* DERIVED */
+  --raised:       #1F2C33;   /* DERIVED */
+  --border:       #33463F;
+  --hairline:     #24333A;   /* DERIVED */
+
+  --text:   #FFFFFF;
+  --text-2: #C4D0D4;
+  --text-3: #8696A0;         /* DERIVED */
+
+  --accent: #43CD66;
+  --star:   #F5A623;
+
+  --emph:    #25D366;
+  --on-emph: #111B21;
+
+  --band:      #103928;
+  --band-text: #FCF5EB;
+
+  color-scheme: dark;
+}
+
+/* המצב השלישי, והוא הנפוץ ביותר: המבקר לא בחר ערכה ידנית, ולכן
+   שום data-theme לא מוטבע ורק העדפת המערכת מפרידה בין השתיים.
+   השמירה על :not([data-theme="light"]) היא מה שמאפשר לבחירה
+   מפורשת בהיר לנצח מערכת שנמצאת בכהה. */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+  --surface:      #111B21;
+  --surface-alt:  #0B141A;   /* DERIVED */
+  --raised:       #1F2C33;   /* DERIVED */
+  --border:       #33463F;
+  --hairline:     #24333A;   /* DERIVED */
+
+  --text:   #FFFFFF;
+  --text-2: #C4D0D4;
+  --text-3: #8696A0;         /* DERIVED */
+
+  --accent: #43CD66;
+  --star:   #F5A623;
+
+  --emph:    #25D366;
+  --on-emph: #111B21;
+
+  --band:      #103928;
+  --band-text: #FCF5EB;
+
+  color-scheme: dark;
+}
+}
+
+/* ============================================================
+   2. RESET
+   ============================================================ */
+*,*::before,*::after{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  background-color: var(--surface);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.65;
+  font-weight: 400;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+img,video,svg{ max-inline-size: 100%; height: auto; }
+p{ max-inline-size: var(--measure); }
+h1,h2,h3{ text-wrap: balance; }
+
+.wrap{ width: min(100% - 2.5rem, var(--wide)); margin-inline: auto; }
+.col { width: min(100%, var(--measure)); }
+
+/* ============================================================
+   3. BREAKPOINTS: 640 / 1024 / 1440. אין חמישי.
+   ============================================================ */
+@media (min-width: 90rem){
+  .wrap{ width: min(100% - 4rem, var(--max)); }
+}
+
+/* ============================================================
+   4. ACCESSIBILITY FLOOR
+   ============================================================ */
+.skip{
+  position: absolute; inset-block-start: -100%; inset-inline-start: 1rem;
+  background-color: var(--emph); color: var(--on-emph);
+  padding: .6rem 1rem; border-radius: 0 0 12px 12px; z-index: 90;
+  text-decoration: none; font-weight: 500;
+}
+.skip:focus{ inset-block-start: 0; }
+:where(a,button,summary):focus-visible{
+  outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px;
+}
+html{ scroll-behavior: smooth; scroll-padding-block-start: 5rem; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } }
+
+/* ============================================================
+   5. HEADER + NAV. ה-eyebrows של הבלוקים הם פריטי הניווט.
+   עוגן בתוך הדף אינו יציאה, ולכן זה לא שובר את הכלל
+   של קישור אחד בהירו.
+   ============================================================ */
+header.top{
+  position: sticky; inset-block-start: 0; z-index: 60;
+  border-block-end: 1px solid var(--hairline);
+  background-color: color-mix(in srgb, var(--surface) 90%, transparent);
+  backdrop-filter: blur(12px);
+}
+.bar{
+  display: flex; align-items: center; gap: 1rem; min-height: 60px;
+  width: min(100% - 2.5rem, var(--wide)); margin-inline: auto;
+}
+@media (min-width: 90rem){ .bar{ width: min(100% - 4rem, var(--max)); } }
+.brand{ display: flex; align-items: center; gap: .5rem; font-weight: 700; letter-spacing: -.01em; }
+.brand .ico{ stroke: var(--emph); }
+/* גילוי נאות. הדף מציג מותג אמיתי, ולכן הוא חייב לומר בגלוי
+   שהוא תרגיל ולא נכס רשמי, במקום שרואים לפני הגלילה. */
+.disclosure{
+  font-size: .72rem; letter-spacing: .02em; color: var(--text-3);
+  border: 1px dashed var(--border); border-radius: var(--rp);
+  padding: .15rem .6rem; white-space: nowrap;
+}
+@media (max-width: 26rem){ .disclosure{ display: none; } }
+.nav{ display: none; gap: 1.1rem; font-size: .9rem; margin-inline-start: auto; }
+.nav a{
+  color: var(--text-3); text-decoration: none; padding-inline: .45rem; border-radius: 8px;
+  display: inline-flex; align-items: center; min-height: 44px;
+}
+.nav a:hover{ color: var(--text); }
+.nav a[aria-current="true"]{ color: var(--accent); background-color: var(--surface-alt); }
+@media (min-width: 64rem){ .nav{ display: flex; } }
+.theme-toggle{
+  margin-inline-start: auto;
+  display: inline-flex; align-items: center; gap: .4rem;
+  min-height: 44px; padding-inline: .9rem; border-radius: var(--rp);
+  background: none; border: 1px solid var(--border); color: var(--text-3);
+  font: inherit; font-size: .82rem; cursor: pointer;
+}
+@media (min-width: 64rem){ .theme-toggle{ margin-inline-start: 1rem; } }
+:root[data-theme="dark"] .theme-toggle .t-dark{ display: none; }
+:root:not([data-theme="dark"]) .theme-toggle .t-light{ display: none; }
+
+/* ============================================================
+   6. TYPE + SECTIONS
+   באתר המוצר יש שני משקלים בלבד, 400 ו-500. הדף שומר על זה,
+   ומשתמש ב-700 רק במספרים הקטנים של בלוק ההוכחה.
+   ============================================================ */
+section{ padding-block: clamp(3rem, 7vw, 5.5rem); }
+.alt{ background-color: var(--surface-alt); }
+.kicker{
+  font-size: .78rem; letter-spacing: .1em; text-transform: none;
+  color: var(--text-3); margin: 0 0 .7rem; font-weight: 500;
+}
+h1{ font-size: clamp(2rem, 5.6vw, 3.6rem); line-height: 1.12; font-weight: 400; margin: 0 0 1rem; letter-spacing: -.02em; }
+h2{ font-size: clamp(1.5rem, 3.6vw, 2.3rem); line-height: 1.2;  font-weight: 500; margin: 0 0 1rem; color: var(--text-2); letter-spacing: -.01em; }
+h3{ font-size: 1.12rem; line-height: 1.35; font-weight: 500; margin: 0 0 .5rem; color: var(--text); }
+.lede{ font-size: clamp(1rem, 1.6vw, 1.14rem); color: var(--text-2); }
+.who{ font-size: .9rem; color: var(--text-3); margin-block-end: 1.5rem; }
+
+/* ============================================================
+   7. BUTTONS. מחרוזת אחת בכל הדף, יעד אחד.
+   ============================================================ */
+.ctas{ display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+.btn{
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  min-height: var(--tap); padding-inline: 1.6rem; border-radius: var(--rp);
+  text-decoration: none; font: inherit; font-weight: 500; cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform .12s ease, filter .12s ease;
+}
+.btn--primary{ background-color: var(--emph); color: var(--on-emph); }
+.btn--primary:hover{ filter: brightness(1.06); }
+.btn--primary:active{ transform: translateY(1px); }
+@media (prefers-reduced-motion: reduce){ .btn{ transition: none; } }
+.inline-link{
+  color: var(--text-3); font-size: .9rem;
+  text-decoration: underline; text-underline-offset: 4px;
+  min-height: var(--tap); display: inline-flex; align-items: center;
+}
+
+/* ============================================================
+   8. HERO
+   ============================================================ */
+.hero__grid{ display: grid; gap: 2rem; grid-template-columns: 1fr; align-items: center; }
+@media (min-width: 64rem){ .hero__grid{ grid-template-columns: 1.15fr .85fr; gap: 3rem; } }
+.phone{ justify-self: start; }
+@media (min-width: 64rem){ .phone{ justify-self: end; } }
+.phone img{
+  display: block; width: min(100%, 262px); border-radius: 18px;
+  border: 1px solid var(--border);
+}
+.note{ font-size: .85rem; color: var(--text-3); margin-block-start: 1rem; }
+
+/* ============================================================
+   9. QUOTE / PROBLEM
+   ============================================================ */
+.quote{
+  background-color: var(--raised); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 1.5rem 1.6rem;
+  max-inline-size: var(--measure);
+}
+.quote p{ margin: 0; font-size: 1.06rem; }
+
+/* ============================================================
+   10. TILES
+   ============================================================ */
+.tiles{ display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 40rem){ .tiles{ grid-template-columns: 1fr 1fr; gap: 1.25rem; } }
+@media (min-width: 64rem){ .tiles--3{ grid-template-columns: repeat(3,1fr); } }
+.tile{
+  background-color: var(--raised); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 1.7rem 1.35rem 1.5rem;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.tile__rule{ width: 3.5rem; height: 1px; background-color: var(--border); margin-block: 1rem 1.1rem; }
+.tile p{ margin: 0; font-size: .95rem; color: var(--text-2); max-inline-size: 22rem; }
+.tile__n{
+  margin-block-start: 1.25rem; inline-size: 2rem; block-size: 2rem; border-radius: var(--rp);
+  display: inline-flex; align-items: center; justify-content: center;
+  background-color: var(--emph); color: var(--on-emph); font-weight: 700; font-size: .9rem;
+}
+
+/* ============================================================
+   11. PROOF NUMBERS
+   ============================================================ */
+.facts{ display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
+@media (min-width: 64rem){ .facts{ grid-template-columns: repeat(4,1fr); } }
+.fact{
+  background-color: var(--raised); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 1.3rem 1.2rem;
+}
+.fact b{ display: block; font-size: clamp(1.7rem,4vw,2.3rem); font-weight: 700; line-height: 1.05; color: var(--accent); }
+.fact span{ display: block; font-size: .9rem; margin-block-start: .35rem; }
+.fact small{ display: block; font-size: .76rem; color: var(--text-3); margin-block-start: .35rem; }
+.stars{ display: inline-flex; gap: .1rem; vertical-align: middle; }
+.stars svg{ width: 16px; height: 16px; fill: var(--star); stroke: none; }
+
+/* ============================================================
+   12. SCREEN GALLERY
+   הכרטיסים האלה הם התוכן עצמו, ולכן הם ממלאים את השורה
+   ולא נשארים תמונות ממוזערות.
+   ============================================================ */
+.screens{
+  display: grid; gap: 1rem; grid-auto-flow: column; grid-auto-columns: 15rem;
+  overflow-x: auto; overscroll-behavior-inline: contain;
+  padding-block-end: .75rem; scroll-snap-type: inline mandatory;
+}
+.screens > *{ scroll-snap-align: start; }
+@media (min-width: 64rem){
+  .screens{ grid-auto-flow: row; grid-template-columns: repeat(5,1fr); grid-auto-columns: auto; overflow: visible; }
+}
+.screen{ margin: 0; }
+.screen__frame{
+  position: relative; border: 1px solid var(--border); border-radius: 18px;
+  padding: 5px; background-color: var(--raised); overflow: hidden;
+}
+.screen__frame img{ display: block; width: 100%; border-radius: 14px; }
+.screen figcaption{ margin-block-start: .7rem; font-size: .85rem; color: var(--text-2); }
+
+/* ============================================================
+   13. SCRUB STAGE
+   הבמה הזאת נשארת קרם בשתי הערכות בכוונה, כי הבועות מצוירות
+   על קרם וכל רקע אחר היה יוצר מסגרת סביבן. ערכים מקובעים.
+
+   ברירת המחדל היא הסקשן הסטטי: מסלול בגובה רגיל, במה לא דביקה,
+   ותמונה אחת. הגרירה נדלקת רק כשהסקריפט מוסיף is-scrub, ולכן
+   דפדפן בלי JS מקבל סקשן תקין ולא מסלול ריק בגובה שני מסכים.
+   ============================================================ */
+.scrub{ padding: 0; }
+.scrub__track{ position: relative; }
+.scrub__stage{
+  display: grid; grid-template-rows: 1fr auto; overflow: hidden;
+  background-color: #FCF5EB;
+  color: #1C1E21;
+}
+.scrub__stage video,
+.scrub__svg{ display: none; }
+.scrub__still{ display: block; width: 100%; height: auto; }
+.scrub__hint{ display: none; }
+
+/* המצב הנגרר */
+.scrub.is-scrub .scrub__track{ height: 260vh; }
+.scrub.is-scrub .scrub__stage{ position: sticky; inset-block-start: 0; height: 100svh; }
+.scrub.is-scrub .scrub__still{ display: none; }
+.scrub.is-scrub .scrub__hint{ display: block; }
+
+/* מנוע הגרירה. הצורות הן SVG ולא פריימים של וידאו, ולכן אין
+   seek, אין keyframes ואין קובץ. רק אינטרפולציה של transform,
+   שנקראת חלק לגמרי בשני הכיוונים ובכל מהירות. */
+.scrub.is-scrub .scrub__svg{ display: block; width: 100%; height: 100%; min-height: 0; }
+.scrub__svg g{ will-change: transform; }
+
+/* כשיש קובץ סרט, הווידאו מחליף את ה-SVG על אותה במה */
+.scrub.is-scrub.is-film .scrub__stage video{
+  display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain;
+}
+.scrub.is-scrub.is-film .scrub__svg{ display: none; }
+
+.scrub__hint{
+  position: absolute; inset-block-start: 1.2rem; inset-inline: 0; text-align: center;
+  font-size: .8rem; letter-spacing: .1em; color: #5E5E5E; margin: 0;
+  transition: opacity .2s linear;
+}
+@media (prefers-reduced-motion: reduce){ .scrub__hint{ transition: none; } }
+.scrub__cap{ padding: 1.2rem 1.5rem 2rem; text-align: center; }
+.scrub__cap p{ margin: 0 auto; max-inline-size: 30rem; font-size: 1rem; color: #103928; }
+
+/* ============================================================
+   14. TESTIMONIALS + PARTNERS, מסומנים כתוכן לדוגמה
+   ============================================================ */
+.demo-chip{
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .74rem; font-weight: 500; letter-spacing: .04em;
+  color: var(--text-3); border: 1px dashed var(--border);
+  border-radius: var(--rp); padding: .22rem .75rem;
+}
+.tcards{ display: grid; gap: 1rem; grid-template-columns: 1fr; margin-block-start: 1.5rem; }
+@media (min-width: 40rem){ .tcards{ grid-template-columns: 1fr 1fr; } }
+@media (min-width: 64rem){ .tcards{ grid-template-columns: repeat(3,1fr); } }
+.tcard{
+  background-color: var(--raised); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 1.35rem 1.4rem;
+  display: grid; gap: .85rem; align-content: start;
+}
+.tcard q{ font-size: 1.02rem; line-height: 1.5; color: var(--text); quotes: "„" "”"; }
+.tcard__who{ display: flex; align-items: center; gap: .75rem; }
+.tcard__av{
+  width: 42px; height: 42px; flex: none; border-radius: var(--rp);
+  display: grid; place-items: center;
+  background-color: var(--surface); border: 1px solid var(--border);
+  color: var(--accent); font-weight: 500;
+}
+.tcard__name{ font-weight: 500; line-height: 1.25; font-size: .95rem; }
+.tcard__role{ display: block; font-size: .8rem; color: var(--text-3); font-weight: 400; }
+.logos{ display: grid; gap: .75rem; grid-template-columns: repeat(2,1fr); margin-block-start: 1.25rem; }
+@media (min-width: 40rem){ .logos{ grid-template-columns: repeat(3,1fr); } }
+@media (min-width: 64rem){ .logos{ grid-template-columns: repeat(5,1fr); } }
+.logo-ph{
+  border: 1px dashed var(--border); border-radius: 14px;
+  min-height: 68px; display: grid; place-items: center;
+  color: var(--text-3); font-size: .78rem; background-color: var(--surface);
+}
+
+/* ============================================================
+   15. FAQ
+   ============================================================ */
+.faq{ max-inline-size: var(--measure); }
+.faq details{ border-block-end: 1px solid var(--hairline); }
+.faq summary{
+  cursor: pointer; list-style: none; padding-block: 1rem;
+  display: flex; align-items: center; gap: .75rem; font-weight: 500; min-height: var(--tap);
+}
+.faq summary::-webkit-details-marker{ display: none; }
+.faq .chev{ margin-inline-start: auto; flex: none; transition: transform .18s ease; }
+.faq details[open] .chev{ transform: rotate(180deg); }
+.faq details p{ margin: 0 0 1.1rem; color: var(--text-2); font-size: .97rem; }
+@media (prefers-reduced-motion: reduce){ .faq .chev{ transition: none; } }
+
+/* ============================================================
+   16. THE ONE INVERTED BAND
+   ============================================================ */
+.band{ background-color: var(--band); color: var(--band-text); text-align: center; }
+.band h2{ color: var(--band-text); font-size: clamp(2rem,6vw,3.4rem); line-height: 1.14; max-inline-size: 20ch; margin-inline: auto; }
+.band p{ color: #D7E5DA; margin-inline: auto; }
+.band .ctas{ justify-content: center; margin-block-start: 1.75rem; }
+.band .btn--primary{ background-color: #25D366; color: #103928; }
+
+/* ============================================================
+   17. STICKY CTA
+   ============================================================ */
+.sticky-cta{
+  position: fixed; inset-inline: 0; inset-block-end: 0; z-index: 50;
+  padding: .65rem 1rem calc(.65rem + env(safe-area-inset-bottom));
+  background-color: color-mix(in srgb, var(--surface) 94%, transparent);
+  backdrop-filter: blur(10px);
+  border-block-start: 1px solid var(--border);
+  transform: translateY(115%); transition: transform .22s ease;
+}
+.sticky-cta.is-on{ transform: none; }
+.sticky-cta .btn{ width: 100%; }
+@media (min-width: 40rem){ .sticky-cta{ display: none; } }
+@media (prefers-reduced-motion: reduce){ .sticky-cta{ transition: none; } }
+
+/* ============================================================
+   18. FOOTER. כל קישור משני חי כאן, ורק כאן.
+   ============================================================ */
+footer.bottom{
+  border-block-start: 1px solid var(--hairline);
+  padding-block: 2rem 2.5rem; font-size: .85rem; color: var(--text-3);
+}
+footer.bottom a{ color: var(--text-3); }
+@media (max-width: 39.99rem){ footer.bottom{ padding-block-end: 6rem; } }
+
+/* ============================================================
+   19. ICON FAMILY: סטרוק אחד, גריד אחד, טוקן צבע אחד
+   ============================================================ */
+.sprite{ position: absolute; width: 0; height: 0; overflow: hidden; }
+.ico{
+  width: 26px; height: 26px; flex: none;
+  stroke: var(--accent); fill: none;
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+.ico--sm{ width: 20px; height: 20px; }
+.ico--muted{ stroke: var(--text-3); }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">דילוג לתוכן</a>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.3 7.6L3.5 21l1.4-4.6A8.5 8.5 0 1 1 20.5 12z"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="12" height="12" rx="3"/><path d="M15 11l5-3v8l-5-3z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s6.5-6 6.5-10.5a6.5 6.5 0 1 0-13 0C5.5 15 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.4"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="10.5" rx="2.5"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9.5l6 6 6-6"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="bar">
+    <span class="brand"><svg class="ico ico--sm" aria-hidden="true"><use href="#i-chat"/></svg>WhatsApp</span>
+    <span class="disclosure">תרגיל קורס, לא דף רשמי</span>
+    <nav class="nav" aria-label="אזורים בדף">
+      <a href="#problem">הבעיה</a>
+      <a href="#inside">מה בפנים</a>
+      <a href="#numbers">המספרים</a>
+      <a href="#screens">המסכים</a>
+      <a href="#process">התהליך</a>
+      <a href="#voices">המלצות</a>
+      <a href="#faq">שאלות</a>
+    </nav>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false">
+      <span class="t-dark">ערכה כהה</span><span class="t-light">ערכה בהירה</span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 01 HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero__grid">
+        <div>
+          <p class="kicker">תיאום קבוצות</p>
+          <h1>קבוצה אחת לכל משימה, וכל מה שסוכם נשאר בתוכה</h1>
+          <p class="lede">הודעות, תמונות, מיקום ושיחת וידאו עד 32 משתתפים, בשיחה אחת. בלי דמי מנוי.</p>
+          <p class="who">לוועד הורים, לצוות מתנדבים, לארגון טיול, לקבוצת שכונה.</p>
+          <div class="ctas">
+            <a class="btn btn--primary" href="https://play.google.com/store/apps/details?id=com.whatsapp">להתקין ולפתוח קבוצה</a>
+            <a class="inline-link" href="#process">איך זה עובד</a>
+          </div>
+          <p class="note">בלי שם משתמש, בלי סיסמה, בלי דמי מנוי. נדרש חיבור אינטרנט.</p>
+        </div>
+        <div class="phone">
+          <img src="assets/wa-group.jpg" alt="מסך צ'אט קבוצתי באפליקציה, ובו הודעות של כמה משתתפים ומיקום משותף" width="248" height="440" fetchpriority="high" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 PROBLEM -->
+  <section id="problem" class="alt">
+    <div class="wrap">
+      <div class="col">
+      <p class="kicker">הבעיה</p>
+      <h2>אותה שאלה, שלוש פעמים</h2>
+      <div class="quote">
+        <p>חלק מהאנשים עונים בהודעה, חלק במייל, ואחד מרים טלפון. מי שהצטרף אחרון לא יודע מה כבר סוכם, וההחלטה שנפלה ביום שני נאמרת שוב ביום חמישי.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 SOLUTION -->
+  <section id="inside">
+    <div class="wrap">
+      <p class="kicker">מה בפנים</p>
+      <h2>שלושה דברים שקורים בתוך הקבוצה</h2>
+      <div class="tiles tiles--3">
+        <div class="tile">
+          <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>
+          <div class="tile__rule"></div>
+          <h3>כותבים במקום אחד</h3>
+          <p>טקסט, תמונות, וידאו והודעות קוליות באותה שיחה, שאפשר לגלול אחורה עד ההתחלה.</p>
+        </div>
+        <div class="tile">
+          <svg class="ico" aria-hidden="true"><use href="#i-video"/></svg>
+          <div class="tile__rule"></div>
+          <h3>מדברים בלי לתאם שעה</h3>
+          <p>שיחת קול או וידאו יוצאת מתוך הקבוצה עצמה, עד 32 משתתפים.</p>
+        </div>
+        <div class="tile">
+          <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
+          <div class="tile__rule"></div>
+          <h3>יודעים מי איפה</h3>
+          <p>שיתוף מיקום בתוך הקבוצה, כל עוד הוא פעיל, לכל מי שבשטח.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 PROOF -->
+  <section id="numbers" class="alt">
+    <div class="wrap">
+      <p class="kicker">המספרים</p>
+      <h2>מה שאפשר לבדוק</h2>
+      <div class="facts">
+        <div class="fact">
+          <b>4.5</b>
+          <span>דירוג בחנות
+            <span class="stars" role="img" aria-label="ארבע וחצי כוכבים מתוך חמישה">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+            </span>
+          </span>
+          <small>242 מיליון ביקורות · Google Play, אוגוסט 2026</small>
+        </div>
+        <div class="fact">
+          <b>32</b>
+          <span>משתתפים בשיחת וידאו אחת</span>
+          <small>מגבלת המוצר</small>
+        </div>
+        <div class="fact">
+          <b>0</b>
+          <span>דמי מנוי, ואפס תשלום לפי הודעה</span>
+          <small>נדרש חיבור אינטרנט</small>
+        </div>
+        <div class="fact">
+          <b>E2E</b>
+          <span>הצפנה מקצה לקצה על הודעות ושיחות אישיות</span>
+          <small>לפי דף החנות של האפליקציה</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04b SCREENS -->
+  <section id="screens">
+    <div class="wrap">
+      <p class="kicker">המסכים</p>
+      <h2>איך זה נראה בפועל</h2>
+      <p class="lede">חמישה מסכים אמיתיים, מתוך דף האפליקציה בחנות Google Play</p>
+      <div class="screens">
+        <figure class="screen">
+          <div class="screen__frame"><img src="assets/wa-list.jpg" alt="רשימת השיחות באפליקציה, עם קבוצות ושיחות אישיות" width="248" height="440" loading="lazy" /></div>
+          <figcaption>רשימת השיחות</figcaption>
+        </figure>
+        <figure class="screen">
+          <div class="screen__frame"><img src="assets/wa-group.jpg" alt="צ'אט קבוצתי שבו המשתתפים מתאמים מפגש ומשתפים מיקום" width="248" height="440" loading="lazy" /></div>
+          <figcaption>צ'אט קבוצתי</figcaption>
+        </figure>
+        <figure class="screen">
+          <div class="screen__frame"><img src="assets/wa-call.jpg" alt="שיחת וידאו קבוצתית עם כמה משתתפים על המסך" width="248" height="440" loading="lazy" /></div>
+          <figcaption>שיחת וידאו</figcaption>
+        </figure>
+        <figure class="screen">
+          <div class="screen__frame"><img src="assets/wa-chat.jpg" alt="שיחה אישית עם הודעה קולית, תמונה ומיקום חי" width="248" height="440" loading="lazy" /></div>
+          <figcaption>הודעה קולית ומיקום</figcaption>
+        </figure>
+        <figure class="screen">
+          <div class="screen__frame"><img src="assets/wa-status.jpg" alt="מסך סטטוס, תמונה שנמחקת אחרי 24 שעות" width="248" height="440" loading="lazy" /></div>
+          <figcaption>סטטוס</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCRUB -->
+  <section class="scrub" id="scrub" aria-label="הודעות מפוזרות שמתכנסות לשיחה אחת">
+    <div class="scrub__track" id="scrub-track">
+      <div class="scrub__stage">
+        <p class="scrub__hint" id="scrub-hint" aria-hidden="true">גללו כדי לאסוף</p>
+        <svg class="scrub__svg" id="scrub-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet" role="img" aria-label="תשע בועות הודעה מפוזרות שמתכנסות לשיחה אחת">
+          <g fill="#25D366" transform="translate(90 120) rotate(-6 125 34)"><rect width="250" height="68" rx="34"/><path d="M16 68 L0 84 L46 68 Z"/></g>
+          <g fill="#103928" transform="translate(620 70) rotate(4 98 30)"><rect width="196" height="60" rx="30"/><path d="M16 60 L0 76 L46 60 Z"/></g>
+          <g fill="#103928" transform="translate(1210 150) rotate(-3 86 28)"><rect width="172" height="56" rx="28"/><path d="M16 56 L0 72 L46 56 Z"/></g>
+          <g fill="#103928" transform="translate(330 350) rotate(5 112 32)"><rect width="224" height="64" rx="32"/><path d="M16 64 L0 80 L46 64 Z"/></g>
+          <g fill="#25D366" transform="translate(1360 390) rotate(-4 78 27)"><rect width="156" height="54" rx="27"/><path d="M16 54 L0 70 L46 54 Z"/></g>
+          <g fill="#25D366" transform="translate(780 480) rotate(3 104 31)"><rect width="208" height="62" rx="31"/><path d="M16 62 L0 78 L46 62 Z"/></g>
+          <g fill="#103928" transform="translate(140 580) rotate(-5 91 29)"><rect width="182" height="58" rx="29"/><path d="M16 58 L0 74 L46 58 Z"/></g>
+          <g fill="#103928" transform="translate(1060 650) rotate(6 118 33)"><rect width="236" height="66" rx="33"/><path d="M16 66 L0 82 L46 66 Z"/></g>
+          <g fill="#25D366" transform="translate(540 760) rotate(-2 83 28)"><rect width="166" height="56" rx="28"/><path d="M16 56 L0 72 L46 56 Z"/></g>
+        </svg>
+        <video id="scrub-video" muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1"></video>
+        <img class="scrub__still" id="scrub-still" src="assets/scrub-still.jpg" width="1200" height="675" alt="הודעות מפוזרות על משטח קרם, לפני שהן נאספות לשיחה אחת" />
+        <div class="scrub__cap"><p>כל ההודעות שהיו מפוזרות בין ערוצים, נאספות לשיחה אחת.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 HOW -->
+  <section id="process" class="alt">
+    <div class="wrap">
+      <p class="kicker">התהליך</p>
+      <h2>שלושה צעדים עד שהקבוצה עובדת</h2>
+      <div class="tiles tiles--3">
+        <div class="tile">
+          <h3>מתקינים ומאמתים מספר</h3>
+          <p>הזיהוי הוא מספר הטלפון. אין שם משתמש ואין סיסמה לזכור.</p>
+          <span class="tile__n">1</span>
+        </div>
+        <div class="tile">
+          <h3>פותחים קבוצה ומוסיפים</h3>
+          <p>בוחרים משתתפים מתוך אנשי הקשר שכבר בטלפון, בלי לשלוח הזמנה.</p>
+          <span class="tile__n">2</span>
+        </div>
+        <div class="tile">
+          <h3>כותבים בה את המשימה</h3>
+          <p>מכאן כל התיאום נשאר בשיחה הזאת, וגם מי שהצטרף מאוחר יכול לגלול אחורה.</p>
+          <span class="tile__n">3</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICES: sample content, labelled -->
+  <section id="voices">
+    <div class="wrap">
+      <p class="kicker">המלצות</p>
+      <h2>מה שמנהלי קבוצות מספרים</h2>
+      <p class="lede" style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap">
+        <span class="demo-chip">תוכן לדוגמה</span>
+        שלושת הכרטיסים האלה הם מבנה, לא עדות. הטקסט בהם ממלא מקום עד שייכנסו ציטוטים אמיתיים.
+      </p>
+      <div class="tcards">
+        <div class="tcard">
+          <span class="demo-chip">תוכן לדוגמה</span>
+          <q>הפסקנו לשלוח את אותו עדכון בשלושה מקומות. מי שרוצה לדעת מה סוכם פשוט גולל אחורה.</q>
+          <div class="tcard__who">
+            <span class="tcard__av" aria-hidden="true">א׳</span>
+            <span class="tcard__name">שם ממלא מקום<span class="tcard__role">ועד הורים</span></span>
+          </div>
+        </div>
+        <div class="tcard">
+          <span class="demo-chip">תוכן לדוגמה</span>
+          <q>מי שהצטרף באמצע העונה קרא את כל ההיסטוריה בעצמו ולא הייתי צריכה לעדכן אותו.</q>
+          <div class="tcard__who">
+            <span class="tcard__av" aria-hidden="true">ב׳</span>
+            <span class="tcard__name">שם ממלא מקום<span class="tcard__role">רכזת מתנדבים</span></span>
+          </div>
+        </div>
+        <div class="tcard">
+          <span class="demo-chip">תוכן לדוגמה</span>
+          <q>ביום הטיול ראינו על המפה מי כבר בנקודה ומי עוד בדרך, בלי להתקשר לאף אחד.</q>
+          <div class="tcard__who">
+            <span class="tcard__av" aria-hidden="true">ג׳</span>
+            <span class="tcard__name">שם ממלא מקום<span class="tcard__role">מארגן טיולים</span></span>
+          </div>
+        </div>
+      </div>
+
+      <p class="kicker" style="margin-block-start:2.5rem">שותפים</p>
+      <p class="lede" style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap">
+        <span class="demo-chip">מציין מקום</span>
+        חמש המסגרות האלה ממתינות ללוגואים אמיתיים שיש זכות להציג.
+      </p>
+      <div class="logos">
+        <span class="logo-ph">לוגו שותף</span>
+        <span class="logo-ph">לוגו שותף</span>
+        <span class="logo-ph">לוגו שותף</span>
+        <span class="logo-ph">לוגו שותף</span>
+        <span class="logo-ph">לוגו שותף</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="alt">
+    <div class="wrap">
+      <p class="kicker">שאלות</p>
+      <h2>מה שנשאל לפני שמתקינים</h2>
+      <div class="faq">
+        <details>
+          <summary>צריך לשלם?<svg class="ico ico--sm ico--muted chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <p>לא. אין דמי מנוי ואין תשלום לפי הודעה. נדרש חיבור אינטרנט.</p>
+        </details>
+        <details>
+          <summary>מי יכול לקרוא את מה שנכתב בקבוצה?<svg class="ico ico--sm ico--muted chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <p>המשתתפים בקבוצה. לפי דף החנות, הודעות ושיחות אישיות מוצפנות מקצה לקצה.</p>
+        </details>
+        <details>
+          <summary>מה קורה עם מי שאין לו את האפליקציה?<svg class="ico ico--sm ico--muted chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <p>הוא צריך להתקין אותה. הזיהוי הוא מספר הטלפון, ולכן אין חשבון לפתוח ואין הזמנה לשלוח: ברגע שהאפליקציה מותקנת אפשר להוסיף אותו מתוך אנשי הקשר.</p>
+        </details>
+        <details>
+          <summary>אפשר גם מהמחשב?<svg class="ico ico--sm ico--muted chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <p>כן. אחרי האימות בטלפון אפשר גם ממחשב ומשעון Wear OS.</p>
+        </details>
+        <details>
+          <summary>כמה אנשים אפשר בשיחת וידאו אחת?<svg class="ico ico--sm ico--muted chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <p>עד 32 משתתפים, והיא יוצאת מתוך הקבוצה עצמה.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 CLOSE, the one inverted band -->
+  <section class="band close">
+    <div class="wrap">
+      <h2>פותחים קבוצה אחת ורואים</h2>
+      <p>המשימה הבאה של הוועד, של הצוות או של הטיול, בשיחה אחת שאפשר לגלול אחורה.</p>
+      <div class="ctas">
+        <a class="btn btn--primary" href="https://play.google.com/store/apps/details?id=com.whatsapp">להתקין ולפתוח קבוצה</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <a class="btn btn--primary" href="https://play.google.com/store/apps/details?id=com.whatsapp" tabindex="-1">להתקין ולפתוח קבוצה</a>
+</div>
+
+<footer class="bottom">
+  <div class="wrap">
+    <p><strong>הדף הזה נבנה כתרגיל בקורס עיצוב. הוא אינו דף רשמי של WhatsApp או של Meta ואינו מסונף אליהן.</strong> WhatsApp הוא מוצר של WhatsApp LLC. הנתונים בבלוק המספרים נלקחו מדף האפליקציה ב-<a href="https://play.google.com/store/apps/details?id=com.whatsapp">Google Play</a> באוגוסט 2026.</p>
+    <p>בלוק ההמלצות ורצועת השותפים מסומנים כתוכן לדוגמה ואינם עדות של אנשים אמיתיים.</p>
+  </div>
+</footer>
+
+<script>
+/* ---------- theme ---------- */
+(function(){
+  var root = document.documentElement, btn = document.getElementById("theme-toggle"), KEY = "wa-lp-theme";
+  function read(){ try{ return localStorage.getItem(KEY); }catch(e){ return null; } }
+  function save(v){ try{ localStorage.setItem(KEY, v); }catch(e){} }
+  function apply(v){
+    /* תמיד מוטבע ערך מפורש, ולא נמחק. מחיקה הייתה מחזירה את הדף
+       להעדפת המערכת ומבטלת את הבחירה של מי שלחץ. */
+    root.setAttribute("data-theme", v === "dark" ? "dark" : "light");
+    if(btn) btn.setAttribute("aria-pressed", v === "dark" ? "true" : "false");
+    var m = document.querySelector('meta[name="theme-color"]');
+    if(m) m.setAttribute("content", v === "dark" ? "#111B21" : "#FCF5EB");
+  }
+  var saved = read();
+  if(saved === "dark" || saved === "light") apply(saved);
+  else if(btn) btn.setAttribute("aria-pressed",
+    window.matchMedia("(prefers-color-scheme: dark)").matches ? "true" : "false");
+  if(btn) btn.addEventListener("click", function(){
+    var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    apply(next); save(next);
+  });
+})();
+
+/* ---------- nav current section ---------- */
+(function(){
+  if(!("IntersectionObserver" in window)) return;
+  var links = [].slice.call(document.querySelectorAll(".nav a")), map = {};
+  links.forEach(function(a){ var el = document.querySelector(a.getAttribute("href")); if(el) map[el.id] = a; });
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      links.forEach(function(a){ a.removeAttribute("aria-current"); });
+      if(map[e.target.id]) map[e.target.id].setAttribute("aria-current","true");
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  Object.keys(map).forEach(function(id){ io.observe(document.getElementById(id)); });
+})();
+
+/* ---------- sticky cta: on after the hero button leaves, off when the closing one arrives ---------- */
+(function(){
+  var bar = document.getElementById("sticky-cta"),
+      hero = document.querySelector(".hero .ctas"),
+      end  = document.querySelector(".close .ctas");
+  if(!bar || !hero || !end || !("IntersectionObserver" in window)) return;
+  var heroOut = false, endIn = false;
+  function apply(){
+    var on = heroOut && !endIn;
+    bar.classList.toggle("is-on", on);
+    bar.setAttribute("aria-hidden", on ? "false" : "true");
+    var a = bar.querySelector("a"); if(a) a.tabIndex = on ? 0 : -1;
+  }
+  new IntersectionObserver(function(e){ heroOut = !e[0].isIntersecting; apply(); }, { threshold: 0 }).observe(hero);
+  new IntersectionObserver(function(e){ endIn  =  e[0].isIntersecting; apply(); }, { threshold: 0 }).observe(end);
+})();
+
+/* ---------- scroll scrubbing ----------
+   מנוע הגרירה מצייר את התנועה ב-SVG במקום לגרור קובץ וידאו.
+   התנועה היא אינטרפולציה של transform על תשע קבוצות, ולכן היא
+   חלקה בשני הכיוונים, שוקלת שני קילובייט, ולא תלויה בשום קובץ.
+
+   FILM: כשיהיה mp4, שמים כאן את הנתיב אליו והדף עובר לגרור אותו.
+   null משאיר את מנוע ה-SVG פעיל. שאר הקוד לא משתנה. */
+var FILM = null;
+
+var SCRUB_BUBBLES = [{"w":250,"h":68,"x0":90,"y0":120,"r0":-6,"x1":675,"y1":44},{"w":196,"h":60,"x0":620,"y0":70,"r0":4,"x1":702,"y1":143},{"w":172,"h":56,"x0":1210,"y0":150,"r0":-3,"x1":714,"y1":240},{"w":224,"h":64,"x0":330,"y0":350,"r0":5,"x1":688,"y1":331},{"w":156,"h":54,"x0":1360,"y0":390,"r0":-4,"x1":722,"y1":431},{"w":208,"h":62,"x0":780,"y0":480,"r0":3,"x1":696,"y1":522},{"w":182,"h":58,"x0":140,"y0":580,"r0":-5,"x1":709,"y1":619},{"w":236,"h":66,"x0":1060,"y0":650,"r0":6,"x1":682,"y1":710},{"w":166,"h":56,"x0":540,"y0":760,"r0":-2,"x1":717,"y1":810}];
+
+(function () {
+  var sec   = document.getElementById("scrub"),
+      track = document.getElementById("scrub-track"),
+      svg   = document.getElementById("scrub-svg"),
+      hint  = document.getElementById("scrub-hint"),
+      video = document.getElementById("scrub-video"),
+      still = document.getElementById("scrub-still");
+  if (!sec || !track) return;
+
+  var poster = "assets/scrub-still.jpg";
+  if (still && !still.getAttribute("src")) still.setAttribute("src", poster);
+
+  var wide = window.matchMedia("(min-width: 40rem)").matches;
+  var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var conn = navigator.connection || {};
+  var thin = conn.saveData === true || /2g/.test(conn.effectiveType || "");
+
+  /* שלושה תנאים שולחים את הסקשן לתמונה סטטית: מסך צר, בקשת
+     תנועה מופחתת, וחיבור חסכוני. בשלושתם אין מסלול גרירה בכלל,
+     המסלול הארוך מתקצר והבמה מפסיקה להיות דביקה. */
+  if (!wide || calm || thin) return;
+
+  /* ===== המשותף לשני המנועים: מיפוי גלילה לאחוז, והחלקה ===== */
+  var target = 0, shown = -1, running = false, apply = null;
+
+  function measure() {
+    var r = track.getBoundingClientRect(), span = r.height - window.innerHeight;
+    if (span <= 0) return;
+    var p = (0 - r.top) / span;
+    target = p < 0 ? 0 : (p > 1 ? 1 : p);
+    if (!running) { running = true; requestAnimationFrame(step); }
+  }
+
+  /* קפיצה ישירה ליעד נראית קופצנית מול גלילה אינרציאלית, אז
+     מתקרבים אליו. הפרש קטן מהסף לא שווה ציור. */
+  function step() {
+    var cur = shown < 0 ? target : shown;
+    var next = cur + (target - cur) * 0.28;
+    if (Math.abs(target - cur) < 0.002) { next = target; running = false; }
+    if (Math.abs(next - shown) > 0.0015) { shown = next; if (apply) apply(next); }
+    if (running) requestAnimationFrame(step);
+  }
+
+  addEventListener("scroll", measure, { passive: true });
+  addEventListener("resize", measure);
+
+  /* ===== מנוע SVG, ברירת המחדל ===== */
+  function startSvg() {
+    if (!svg || typeof SCRUB_BUBBLES === "undefined") return;
+    var gs = svg.querySelectorAll("g");
+    if (gs.length !== SCRUB_BUBBLES.length) return;
+
+    /* האטה בקצוות, בלי overshoot. תנועה בקצב אחיד נראית מכנית,
+       ותנועה עם קפיצה בסוף נראית שבורה כשגוררים אחורה. */
+    function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+
+    apply = function (p) {
+      var e = ease(p);
+      for (var i = 0; i < gs.length; i++) {
+        var b = SCRUB_BUBBLES[i];
+        var x = b.x0 + (b.x1 - b.x0) * e;
+        var y = b.y0 + (b.y1 - b.y0) * e;
+        var r = b.r0 * (1 - e);
+        gs[i].setAttribute("transform",
+          "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ") rotate(" +
+          r.toFixed(2) + " " + (b.w / 2) + " " + (b.h / 2) + ")");
+      }
+      if (hint) hint.style.opacity = String(Math.max(0, 1 - p * 3));
+    };
+    sec.classList.add("is-scrub");
+    apply(0);
+    measure();
+  }
+
+  /* ===== מנוע וידאו, רק אם FILM מצביע על קובץ ===== */
+  function startFilm() {
+    sec.classList.add("is-scrub");
+    sec.classList.add("is-film");
+    var dur = 0, primed = false, full = false, dead = false, timer = null;
+
+    /* בלי הנפילה הזאת, קובץ שלא נטען משאיר חור בגובה שני מסכים,
+       וזה גרוע בהרבה מלוותר על האפקט. */
+    function giveUp() {
+      if (dead) return;
+      dead = true; running = false; apply = null;
+      sec.classList.remove("is-film");
+      sec.classList.remove("is-scrub");
+    }
+    video.addEventListener("error", giveUp);
+
+    video.setAttribute("poster", poster);
+    video.setAttribute("preload", "metadata");
+    video.setAttribute("src", FILM);
+
+    function loadFull() {
+      if (full) return;
+      full = true;
+      video.setAttribute("preload", "auto");
+      video.load();
+    }
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (e, o) {
+        if (e[0].isIntersecting) { loadFull(); o.disconnect(); }
+      }, { rootMargin: "400% 0px" }).observe(track);
+    } else { loadFull(); }
+
+    /* שעון הוויתור נדחה בכל אירוע progress. בלי הדחייה הזאת
+       חיבור איטי נראה בדיוק כמו קובץ שבור. */
+    function armTimer() {
+      if (dead || dur) return;
+      clearTimeout(timer);
+      timer = setTimeout(function () { if (!dur) giveUp(); }, 20000);
+    }
+    video.addEventListener("progress", armTimer);
+    video.addEventListener("loadstart", armTimer);
+    armTimer();
+
+    /* ספארי ו-iOS מסרבים לבצע seek לפני שהיה play אחד */
+    function prime() {
+      if (primed || dead) return;
+      primed = true;
+      var pr = video.play();
+      if (pr && pr.then) { pr.then(function () { video.pause(); video.currentTime = 0; }).catch(function () {}); }
+      else { try { video.pause(); } catch (e) {} }
+    }
+    document.addEventListener("touchstart", prime, { passive: true, once: true });
+
+    video.addEventListener("loadedmetadata", function () {
+      clearTimeout(timer);
+      dur = video.duration || 0;
+      if (!dur) { giveUp(); return; }
+      prime();
+      apply = function (p) {
+        try { video.currentTime = p * (dur - 0.02); } catch (e) {}
+        if (hint) hint.style.opacity = String(Math.max(0, 1 - p * 3));
+      };
+      measure();
+    });
+  }
+
+  if (FILM && video) startFilm(); else startSvg();
+})();
+</script>
+</body>
+</html>
