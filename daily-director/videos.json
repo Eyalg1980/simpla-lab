@@ -1,6 +1,62 @@
 {
   "days": [
     {
+      "date": "2026-09-01",
+      "dateLabel": "יום שלישי, 1 בספטמבר",
+      "ideas": [
+        {
+          "id": "2026-09-01-1",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "הקול שמכריז את התחנה כבר שלושים ושתיים שנה שייך למישהי שפרשה לפני עשור, ואף אחד לא הקליט אותה מחדש.",
+          "concept": "תחנת רכבת קטנה בפריפריה, אחר הצהריים שקט. אישה מבוגרת יורדת מהרכבת ליום הוקרה לוותיקי הרכבת, ועוצרת כששומעת את קולה שלה מכריז את שם התחנה מהרמקולים, מוקלט לפני שלושים ושתיים שנה כשעבדה כמכריזת התחנה הראשית של הרשת. בריאיון מוקומנטרי קצר היא מספרת שהתחנה עצמה שינתה שם פעמיים מאז, אבל אף אחד לא טרח להקליט קול חדש, אז היא עדיין 'שם' בכל פעם שרכבת נכנסת, מכריזה שם שכבר לא קיים על שלט אבל עדיין יוצא מהרמקול. בתקריב הסיום היא עומדת מתחת לרמקול בדיוק כשהוא מכריז שוב, ושפתיה זזות יחד איתו, מילה במילה, בלי שהיא שמה לב שהיא עושה את זה.",
+          "execution": "3 דקות ו-30 שניות, מיקום יחיד, רציף התחנה והרמקול התלוי מעליו. פורמט מושאל: ריאיון מוקומנטרי קצר לצד תקריבים סטטיים על הרמקול והשלט, בלי דיאלוג מסונכרן. Higgsfield Cinema Studio לשוט הריאיון הנעול ולתקריב הרמקול, Nano Banana Pro לעקביות פני האישה והרציף בין השוטים, Kling 3 std לתנועת השפתיים העדינה בתקריב הסיום ולרעד הרמקול כשהוא מכריז. מונולוג עברי בלבד לצד ההכרזה המוקלטת עצמה, שקט כמעט מלא מעבר לזה. יחס 16:9 להגשה, 9:16 לרשתות.",
+          "why": "כי זה הרעיון הראשון החודש שבו הגיבורה לא רק נזכרת בעבר, היא פיזית עדיין נוכחת בו כל פעם שרכבת נכנסת, וזה נותן לסוף שינוי מודעות ממשי בלי שום פאנץ'. יושב על חמישה מששת מנגנוני הזכייה: פורמט מושאל של ריאיון מוקומנטרי, מיקום יחיד, מונולוג עברי בלי דיאלוג מסונכרן, דמות מבוגרת יחידה, וסוף שהוא שינוי קטן במודעות. אורך שנכנס ליעד הגלובלי של היגספילד, שני ימים לסגירה.",
+          "competition": "Higgsfield Global Film Festival (סוגר בעוד יומיים, 3.9), ואולי גם Astana AI Film Festival אם עדיין נשקל בחלון שיקול הדעת שהדף שלה ציין אתמול, הדדליין הרשמי 31.8 עבר",
+          "srcUrl": "https://x.com/higgsfield_ai/status/2085853524878078290",
+          "srcLabel": "Higgsfield AI, X, לוח הזמנים הרשמי אומת שוב היום 1.9.2026, ללא שינוי, שני ימים לסגירה",
+          "prompts": {
+            "video": "Photoreal intimate documentary footage, warm late-afternoon light on a small quiet regional train platform, sand cream and soft teal accents on the station signage, an elderly woman standing still beneath an old wall-mounted speaker as a train pulls in, static locked camera holding on her face then drifting up to the speaker, her lips moving faintly in sync with the recorded announcement only she seems to hear as her own voice, tender reverent mood, shallow depth of field, human and hopeful rather than technical, 16:9",
+            "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם הכריזה בתחנה: אישה מבוגרת מגיעה לתחנת רכבת קטנה ליום הוקרה לוותיקי הרשת, ושומעת את קולה שלה מכריז את שם התחנה מהרמקולים, מוקלט לפני שלושים ושתיים שנה כשהייתה מכריזת התחנה הראשית. התחנה שינתה שם פעמיים מאז, אבל אף אחד לא הקליט קול חדש, אז היא עדיין 'שם' בכל כניסת רכבת. בתקריב הסיום שפתיה זזות יחד עם ההכרזה בלי שהיא שמה לב. תפתח לי אותו לתסריט מלא: לוגליין אחת, לוח זמנים מדויק ל-3:30 דקות, פורמט ריאיון מוקומנטרי קצר לצד תקריבים סטטיים, מונולוג עברי מלא, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפט ג'נרציה מוכן לכל שוט בנפרד עם שם המודל. ודא שסכום זמני השוטים שווה בדיוק למשך המוצהר. מיקום יחיד, בלי דיאלוג מסונכרן, בלי הליכה של גוף מלא ובלי המונים.",
+            "image": "Photoreal intimate documentary still, warm late-afternoon light on a small quiet regional train platform, an old wall-mounted station speaker against sand cream and soft teal walls, a faint blur of an elderly woman's shoulder at the edge of frame looking up at it, tender reverent mood, shallow depth of field, no text, 16:9",
+            "raw": "hook: הקול שמכריז את התחנה כבר שלושים ושתיים שנה שייך למישהי שפרשה לפני עשור, ואף אחד לא הקליט אותה מחדש.\nworld: סרטוני תחרויות\ncompetition: Higgsfield Global Film Festival, שני ימים לסגירה, ואולי גם Astana בחלון שיקול הדעת\nconcept: אישה מבוגרת מגיעה לתחנת רכבת ליום הוקרה לוותיקים, שומעת את קולה שלה מכריז את שם התחנה, מוקלט לפני 32 שנה. התחנה שינתה שם פעמיים אבל אף אחד לא הקליט קול חדש. בסיום שפתיה זזות יחד עם ההכרזה בלי שהיא שמה לב.\nexecution: 3:30 דקות, מיקום יחיד, רציף התחנה. פורמט ריאיון מוקומנטרי, Higgsfield Cinema Studio, Nano Banana Pro לעקביות, Kling 3 std לתנועת השפתיים והרמקול. מונולוג עברי בלבד. 16:9 להגשה, 9:16 לרשתות.\nwhy: חמישה ממנגנוני הזכייה, דמות שעדיין פיזית נוכחת בעבר שלה, ושני ימים בלבד לסגירת הגלובלי."
+          }
+        },
+        {
+          "id": "2026-09-01-2",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "מוכר הספרים היד-שנייה יודע בדיוק מי נכנס לחנות לפי הקצב של הפעמון, ועדיין מחכה לפעימה אחת שלא תבוא.",
+          "concept": "חנות ספרים יד-שנייה קטנה וצפופה, אחר הצהריים. מוכר מבוגר יושב מאחורי הדלפק. פעמון מכני ישן מעל הדלת מצלצל בכל פתיחה, אותו צליל בדיוק כבר שלושים שנה. בריאיון מוקומנטרי קצר הוא מספר שהוא יכול לזהות בדיוק מי נכנס לפי הקצב של הצלצול, לקוח קבוע, סקרן חדש, או מישהו שבא לגנוב, בלי להרים את הראש מהספר. אשתו, שניהלה איתו את הקופה, נהגה להשהות חצי שנייה בדיוק לפני שהיא מסתובבת לראות מי נכנס, כאילו היא כבר יודעת. שלושים שנה אחרי שהיא נפטרה, הוא עדיין מחכה לאותה חצי שנייה לפני שהוא מסתובב, בכל פעימת פעמון, בלי שהוא שם לב שהוא עושה את זה.",
+          "execution": "3 דקות ו-20 שניות, מיקום יחיד, דלפק הקופה וקטע הדלת עם הפעמון. פורמט מושאל: ריאיון מוקומנטרי קצר לצד תקריבים סטטיים על הפעמון והדלפק, בלי דיאלוג מסונכרן. Higgsfield Cinema Studio לשוט הריאיון הנעול, Nano Banana Pro לעקביות פני המוכר והחנות בין השוטים, Kling 3 std לתנועת הפעמון ולתנועת הראש המושהית של המוכר. מונולוג עברי קצר בלבד, שקט כמעט מלא מעבר לצליל הפעמון עצמו. יחס 16:9 להגשה, 9:16 לרשתות.",
+          "why": "כי זה נופל בדיוק על אהבה לא סימטרית, קשר שממשיך חד צדדי דרך הרגל גוף קטן שאף אחד לא ביקש ממנו לשמור, וזה נושא שלא נוסה החודש דרך אובייקט קול כמו הפעמון. יושב על חמישה מששת מנגנוני הזכייה: פורמט מושאל, מיקום יחיד, מונולוג עברי קצר, דמות מבוגרת יחידה, אהבה לא סימטרית, וסוף שהוא שינוי קטן במודעות. אורך שנכנס ליעד הגלובלי, שני ימים לסגירה.",
+          "competition": "Higgsfield Global Film Festival (סוגר בעוד יומיים, 3.9), ואולי גם Astana AI Film Festival בחלון שיקול הדעת",
+          "srcUrl": "https://x.com/higgsfield_ai/status/2085853524878078290",
+          "srcLabel": "Higgsfield AI, X, לוח הזמנים הרשמי אומת שוב היום 1.9.2026, ללא שינוי, שני ימים לסגירה",
+          "prompts": {
+            "video": "Photoreal intimate documentary footage, warm dusty afternoon light through a cluttered secondhand bookshop window, sand cream and soft teal accents among stacked books, an elderly shopkeeper seated behind a worn wooden counter, an old brass mechanical bell mounted above the door, static locked camera holding on the bell as it rings then drifting to the shopkeeper's face as he pauses half a beat before turning, tender nostalgic mood, shallow depth of field, human and warm rather than cold, 16:9",
+            "script": "אני אייל גרשון, מייסד סימפלה, מלמד UX ו-AI בג'ון ברייס. יש לי רעיון לסרט תחרות בשם פעמון חנות הספרים: מוכר ספרים יד-שנייה מבוגר יושב מאחורי הדלפק בחנות צפופה, פעמון מכני ישן מעל הדלת מצלצל בכל כניסה כבר שלושים שנה. הוא מזהה מי נכנס לפי קצב הצלצול בלי להרים ראש, כי אשתו שניהלה איתו את הקופה נהגה להשהות חצי שנייה לפני שהיא מסתובבת. שלושים שנה אחרי שנפטרה הוא עדיין מחכה לאותה חצי שנייה לפני שהוא מסתובב, בכל פעימת פעמון. תפתח לי אותו לתסריט מלא: לוגליין אחת, לוח זמנים מדויק ל-3:20 דקות, פורמט ריאיון מוקומנטרי קצר לצד תקריבים סטטיים, מונולוג עברי מלא, שוט ליסט מלא עם משך לכל שוט ותיאור מצלמה, ופרומפט ג'נרציה מוכן לכל שוט בנפרד עם שם המודל. ודא שסכום זמני השוטים שווה בדיוק למשך המוצהר. מיקום יחיד, בלי דיאלוג מסונכרן, בלי הליכה של גוף מלא ובלי המונים.",
+            "image": "Photoreal intimate documentary still, warm dusty afternoon light through a cluttered secondhand bookshop window, an old brass mechanical bell mounted above a wooden door frame, stacked books in soft focus behind, sand cream and soft teal palette, tender nostalgic mood, shallow depth of field, no text, 16:9",
+            "raw": "hook: מוכר הספרים היד-שנייה יודע בדיוק מי נכנס לחנות לפי הקצב של הפעמון, ועדיין מחכה לפעימה אחת שלא תבוא.\nworld: סרטוני תחרויות\ncompetition: Higgsfield Global Film Festival, שני ימים לסגירה, ואולי גם Astana בחלון שיקול הדעת\nconcept: מוכר ספרים יד-שנייה מבוגר מזהה כל לקוח לפי קצב צלצול הפעמון הישן מעל הדלת. אשתו המנוחה נהגה להשהות חצי שנייה לפני שהיא מסתובבת לראות מי נכנס. שלושים שנה אחרי שנפטרה הוא עדיין מחכה לאותה חצי שנייה, בלי לשים לב.\nexecution: 3:20 דקות, מיקום יחיד, דלפק הקופה. פורמט ריאיון מוקומנטרי, Higgsfield Cinema Studio, Nano Banana Pro לעקביות, Kling 3 std לתנועת הפעמון וראש המוכר. מונולוג עברי קצר, שקט כמעט מלא. 16:9 להגשה, 9:16 לרשתות.\nwhy: אהבה לא סימטרית דרך הרגל גוף קטן, נושא לא נוסה החודש, ושני ימים בלבד לסגירת הגלובלי."
+          }
+        }
+      ],
+      "watch": [
+        {
+          "title": "Higgsfield Global Film Festival: How to Enter, Rules, and the $1,000,000 Prize Pool",
+          "desc": "עמוד הכללים הרשמי של היגספילד, שני ימים לפני הדדליין, שווה מעבר אחרון לפני הגשה.",
+          "meta": "Higgsfield AI Blog · אוגוסט 2026",
+          "url": "https://higgsfield.ai/blog/higgsfield-global-film-festival"
+        },
+        {
+          "title": "Astana AI Film Festival draws over 1,900 submissions from more than 90 countries",
+          "desc": "היקף ההגשות לאסטנה כשהדדליין הרשמי שלה עבר אתמול, קונטקסט לתחרות המקבילה.",
+          "meta": "Qazinform · אוגוסט 2026",
+          "url": "https://qazinform.com/news/astana-ai-film-festival-draws-over-1900-submissions-from-more-than-90-countries-07ecd7/amp"
+        }
+      ]
+    },
+    {
       "date": "2026-08-31",
       "dateLabel": "יום שני, 31 באוגוסט",
       "ideas": [
