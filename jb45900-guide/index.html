@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="מדריך כיס לקורס 45900, AI Product Design & UX/UI ב-John Bryce. התכנים, הצינור, הסקילים, הפרומפטים, מילון מושגים והכלים.">
 <meta name="color-scheme" content="dark light">
+<link rel="icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Crect width="32" height="32" rx="7" fill="%23DF2537"/%3E%3Cpath d="M16 9.6c-2-1.5-4.4-2.2-6.8-2.2-.5 0-.9.4-.9.9v13.4c0 .5.4.9.9.9 2.4 0 4.8.7 6.8 2.2 2-1.5 4.4-2.2 6.8-2.2.5 0 .9-.4.9-.9V8.3c0-.5-.4-.9-.9-.9-2.4 0-4.8.7-6.8 2.2z" fill="none" stroke="%23fff" stroke-width="1.9" stroke-linejoin="round"/%3E%3Cpath d="M16 9.6v15.2" fill="none" stroke="%23fff" stroke-width="1.9"/%3E%3C/svg%3E'>
 <title>מדריך כיס 45900</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700&family=Assistant:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
@@ -673,6 +674,7 @@
           <tr><td class="sk">05</td><td><code>figjam-sitemap-builder</code></td><td>ארכיטקטורת מידע וסייטמאפ, כולל מבחני קבלה</td></tr>
           <tr><td class="sk">06</td><td><code>extract-design-system</code></td><td>חילוץ tokens.css מ-URL או מצילום מסך של רפרנס</td></tr>
           <tr><td class="sk">07</td><td><code>jb-portfolio-builder</code></td><td>הרכבת אתר הפורטפוליו מהתוכן שלכם ומתבנית הקורס</td></tr>
+          <tr><td class="sk">+</td><td><code>landing-page-builder</code></td><td>בונה דף נחיתה שלם. כולל את קוד הווידאו סקראבינג, ונפילה לתמונה סטטית בטלפון</td></tr>
           <tr><td class="sk">+</td><td><code>case-study-builder</code></td><td>מראיין אתכם בלוק אחר בלוק ובונה קייס סטאדי. אסור לו להמציא מספרים וציטוטים</td></tr>
           <tr><td class="sk">+</td><td><code>github-pages-deploy</code></td><td>העלאת תיקייה לאוויר בלי גיט, עם preflight שתופס בעיות לפני ההעלאה</td></tr>
         </tbody>
@@ -1013,7 +1015,10 @@ EVALUATION CRITERIA: אזהה בכל משפט שהוא שלי.</pre>
           <div data-alias="krea קריאה ריאלטיים"><dt>Krea</dt><dd>יצירה ועריכה של תמונות בזמן אמת, כולל ציור גס שהופך לתמונה תוך כדי</dd></div>
           <div data-alias="magnific מגניפיק upscale הגדלה"><dt>Magnific</dt><dd>הגדלת תמונה עם הוספת פרטים. לא מותח פיקסלים, ממציא אותם מחדש</dd></div>
           <div data-alias="flux פלוקס lora"><dt>Flux</dt><dd>משפחת מודלי תמונה בקוד פתוח, שאפשר לאמן עליה סגנון או דמות קבועה</dd></div>
-          <div data-alias="nano banana gemini עריכה"><dt>עריכה בפרומפט</dt><dd>שינוי תמונה קיימת בהוראה במילים במקום בכלי עריכה, לדוגמה החלפת רקע או אובייקט</dd></div>
+          <div data-alias="gpt image chatgpt דאלי"><dt>GPT Image</dt><dd>מודל התמונה של ChatGPT. חזק בהבנת פרומפט ארוך ובטקסט בתוך התמונה</dd></div>
+          <div data-alias="nano banana gemini ננו בננה"><dt>Nano Banana</dt><dd>מודל התמונה של Gemini. עריכה מדויקת של תמונה קיימת בהוראה במילים</dd></div>
+          <div data-alias="ideogram אידיאוגרם טקסט טיפוגרפיה"><dt>Ideogram</dt><dd>מודל תמונה שמצטיין בטקסט קריא, ולכן טוב ללוגו ולכריזה</dd></div>
+          <div data-alias="prompt editing עריכה בפרומפט"><dt>עריכה בפרומפט</dt><dd>שינוי תמונה קיימת בהוראה במילים במקום בכלי עריכה, לדוגמה החלפת רקע או אובייקט</dd></div>
           <div data-alias="weavy וויבי workflow קנבס"><dt>Weavy</dt><dd>קנבס שמחבר כמה מודלים לזרימת עבודה אחת, פלט של אחד נכנס לשני</dd></div>
         </dl>
       </details>
@@ -1023,6 +1028,9 @@ EVALUATION CRITERIA: אזהה בכל משפט שהוא שלי.</pre>
         <dl class="gloss">
           <div data-alias="higgsfield היגספילד איקספילד מצלמה"><dt>Higgsfield</dt><dd>וידאו מתמונה או מטקסט, עם פריסטים של תנועות מצלמה מוכנות</dd></div>
           <div data-alias="krea video קריאה וידאו"><dt>Krea Video</dt><dd>יצירת וידאו קצר מתמונה או מטקסט, באותה סביבה של התמונות</dd></div>
+          <div data-alias="veo 3 וו 3 גוגל google"><dt>Veo 3</dt><dd>מודל הווידאו של גוגל. מייצר גם סאונד ודיבור מסונכרן עם התמונה</dd></div>
+          <div data-alias="kling קלינג"><dt>Kling</dt><dd>וידאו ארוך יחסית עם תנועה יציבה, חזק בתנועת גוף ובפיזיקה</dd></div>
+          <div data-alias="seedance seed dance סידאנס"><dt>Seedance</dt><dd>וידאו מהיר ובעלות נמוכה, נוח לבדיקת כמה כיוונים לפני שמשקיעים</dd></div>
           <div data-alias="image to video תמונה לוידאו"><dt>Image to Video</dt><dd>השיטה שעבדנו בה: קודם מייצרים תמונה שאוהבים, ורק אותה מניעים</dd></div>
           <div data-alias="text to video טקסט לוידאו"><dt>Text to Video</dt><dd>וידאו ישר מפרומפט. מהיר, אבל פחות שליטה על הקומפוזיציה</dd></div>
           <div data-alias="preset פריסט תנועת מצלמה"><dt>פריסט תנועה</dt><dd>תנועת מצלמה מוכנה מראש, זום, סיבוב, מעקב. חוסך תיאור ידני</dd></div>
@@ -1037,8 +1045,9 @@ EVALUATION CRITERIA: אזהה בכל משפט שהוא שלי.</pre>
           <div data-alias="claude code web דפדפן"><dt>claude.ai/code</dt><dd>בנייה ועריכה של הריפו מהדפדפן, בלי התקנות ובלי טרמינל</dd></div>
           <div data-alias="base44 בייס"><dt>Base44</dt><dd>בניית אפליקציה שלמה מפרומפט, כולל בסיס נתונים והרשאות</dd></div>
           <div data-alias="lovable לאבבל"><dt>Lovable</dt><dd>בניית אתר או ממשק מפרומפט, עם חיבור דומיין מתוך המערכת</dd></div>
-          <div data-alias="figma make פיגמה מייק"><dt>Figma Make</dt><dd>הפיכת עיצוב או תיאור לאב טיפוס חי מתוך פיגמה</dd></div>
           <div data-alias="figma weave ויב פיגמה"><dt>Figma Weave</dt><dd>קנבס של פיגמה לחיבור מודלים וזרימות יצירה, תמונה ווידאו במקום אחד</dd></div>
+          <div data-alias="landing page builder דף נחיתה סקראבינג scrubbing"><dt>landing-page-builder</dt><dd>הסקיל שבונה דף נחיתה שלם, כולל קוד הווידאו סקראבינג ונפילה לתמונה סטטית בטלפון</dd></div>
+          <div data-alias="jb portfolio builder פורטפוליו"><dt>jb-portfolio-builder</dt><dd>הסקיל שמרכיב את אתר הפורטפוליו מהתוכן שלכם ומתבנית הקורס</dd></div>
           <div data-alias="prompt to ui פרומפט לממשק"><dt>Prompt to UI</dt><dd>לתאר מסך במילים ולקבל ממשק. תמיד מתקנים אחרי, אף פעם לא לוקחים כמו שיצא</dd></div>
         </dl>
       </details>
