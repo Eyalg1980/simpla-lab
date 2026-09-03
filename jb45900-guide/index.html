@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="he" dir="rtl">
+<html lang="he" dir="rtl" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="מדריך הכיס של קורס 45900, AI Product Design & UX/UI ב-John Bryce. התכנים, הצינור, הסקילים, הפרומפטים, מילון מושגים והכלים.">
-<meta name="color-scheme" content="light dark">
-<title>מדריך הכיס 45900</title>
+<meta name="description" content="מדריך כיס לקורס 45900, AI Product Design & UX/UI ב-John Bryce. התכנים, הצינור, הסקילים, הפרומפטים, מילון מושגים והכלים.">
+<meta name="color-scheme" content="dark light">
+<title>מדריך כיס 45900</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700&family=Assistant:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
   *{margin:0}
@@ -15,7 +15,26 @@
 </head>
 <body>
 <style>
+  /* dark is the default; light is opt in through the toggle */
   :root{
+    --paper:#171415;
+    --surface:#1F1B1D;
+    --ink:#F3EFEF;
+    --muted:#A69B9E;
+    --faint:#8B8083;
+    --line:#332C2E;
+    --line-soft:#272122;
+    --accent:#FF5C6B;
+    --accent-ink:#FF8790;
+    --accent-soft:#2B1D20;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+    --bar:rgba(23,20,21,.94);
+
+    --display:"Frank Ruhl Libre", "Times New Roman", serif;
+    --body:"Assistant", "Segoe UI", system-ui, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+  }
+  :root[data-theme="light"]{
     --paper:#FAF8F7;
     --surface:#FFFFFF;
     --ink:#1C1719;
@@ -28,26 +47,6 @@
     --accent-soft:#FBEDEE;
     --shadow:0 1px 2px rgba(28,23,25,.05), 0 8px 24px -16px rgba(28,23,25,.18);
     --bar:rgba(250,248,247,.94);
-
-    --display:"Frank Ruhl Libre", "Times New Roman", serif;
-    --body:"Assistant", "Segoe UI", system-ui, sans-serif;
-    --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --paper:#171415;
-      --surface:#1F1B1D;
-      --ink:#F3EFEF;
-      --muted:#A69B9E;
-      --faint:#8B8083;
-      --line:#332C2E;
-      --line-soft:#272122;
-      --accent:#FF5C6B;
-      --accent-ink:#FF8790;
-      --accent-soft:#2B1D20;
-      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
-      --bar:rgba(23,20,21,.94);
-    }
   }
   :root[data-theme="dark"]{
     --paper:#171415;
@@ -412,7 +411,7 @@
 
   <header class="masthead">
     <div class="kicker">John Bryce · 45900</div>
-    <h1>מדריך הכיס</h1>
+    <h1>מדריך כיס</h1>
     <p class="standfirst">כל מה שלמדנו בקורס, על דף אחד. התכנים, הצינור, הסקילים, הפרומפטים, מילון המושגים והכלים. שמרו את הלינק, אתם תחזרו אליו.</p>
     <div class="meta">
       <span>AI Product Design &amp; UX/UI</span>
@@ -1201,15 +1200,11 @@ EVALUATION CRITERIA: אזהה בכל משפט שהוא שלי.</pre>
   var root = document.documentElement;
   var themeBtn = document.getElementById("theme");
   var THEME_KEY = "jb45900-theme";
-  var media = window.matchMedia("(prefers-color-scheme: dark)");
-
   function stored() {
     try { return localStorage.getItem(THEME_KEY); } catch (e) { return null; }
   }
   function resolved() {
-    var attr = root.getAttribute("data-theme");
-    if (attr === "dark" || attr === "light") { return attr; }
-    return media.matches ? "dark" : "light";
+    return root.getAttribute("data-theme") === "light" ? "light" : "dark";
   }
   function paint() {
     themeBtn.classList.toggle("is-dark", resolved() === "dark");
@@ -1217,7 +1212,7 @@ EVALUATION CRITERIA: אזהה בכל משפט שהוא שלי.</pre>
   }
 
   var saved = stored();
-  if (saved === "dark" || saved === "light") { root.setAttribute("data-theme", saved); }
+  root.setAttribute("data-theme", saved === "light" ? "light" : "dark");
   paint();
 
   themeBtn.addEventListener("click", function () {
@@ -1227,7 +1222,6 @@ EVALUATION CRITERIA: אזהה בכל משפט שהוא שלי.</pre>
     paint();
   });
 
-  media.addEventListener("change", function () { if (!stored()) { paint(); } });
 
   /* collapse and expand */
   var sectionToggles = {};
