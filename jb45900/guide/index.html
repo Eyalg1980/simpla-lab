@@ -1,0 +1,1355 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="מדריך הכיס של קורס 45900, AI Product Design & UX/UI ב-John Bryce. התכנים, הצינור, הסקילים, הפרומפטים, מילון מושגים והכלים.">
+<meta name="color-scheme" content="light dark">
+<title>מדריך הכיס 45900</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700&family=Assistant:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  *{margin:0}
+  img{max-width:100%}
+  [hidden]{display:none !important}
+</style>
+</head>
+<body>
+<style>
+  :root{
+    --paper:#FAF8F7;
+    --surface:#FFFFFF;
+    --ink:#1C1719;
+    --muted:#6E6467;
+    --faint:#8F8588;
+    --line:#E5DEDD;
+    --line-soft:#F0EAE9;
+    --accent:#DF2537;
+    --accent-ink:#B01A29;
+    --accent-soft:#FBEDEE;
+    --shadow:0 1px 2px rgba(28,23,25,.05), 0 8px 24px -16px rgba(28,23,25,.18);
+    --bar:rgba(250,248,247,.94);
+
+    --display:"Frank Ruhl Libre", "Times New Roman", serif;
+    --body:"Assistant", "Segoe UI", system-ui, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#171415;
+      --surface:#1F1B1D;
+      --ink:#F3EFEF;
+      --muted:#A69B9E;
+      --faint:#8B8083;
+      --line:#332C2E;
+      --line-soft:#272122;
+      --accent:#FF5C6B;
+      --accent-ink:#FF8790;
+      --accent-soft:#2B1D20;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+      --bar:rgba(23,20,21,.94);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#171415;
+    --surface:#1F1B1D;
+    --ink:#F3EFEF;
+    --muted:#A69B9E;
+    --faint:#8B8083;
+    --line:#332C2E;
+    --line-soft:#272122;
+    --accent:#FF5C6B;
+    --accent-ink:#FF8790;
+    --accent-soft:#2B1D20;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+    --bar:rgba(23,20,21,.94);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    direction:rtl;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16.5px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:74ch;margin:0 auto;padding:0 22px 96px}
+
+  .masthead{
+    padding:56px 0 28px;
+    border-bottom:2px solid var(--ink);
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .kicker{
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);font-weight:700;
+  }
+  h1{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(34px,7vw,52px);line-height:1.08;margin:0;
+    text-wrap:balance;letter-spacing:-.01em;
+  }
+  .standfirst{color:var(--muted);font-size:17px;margin:0;max-width:56ch}
+  .meta{
+    display:flex;flex-wrap:wrap;gap:8px 18px;
+    font-size:13px;color:var(--faint);
+    font-variant-numeric:tabular-nums;
+  }
+
+  .topbar{
+    position:sticky;top:0;z-index:30;
+    display:flex;align-items:center;gap:10px;
+    margin:0 -22px;padding:9px 22px;
+    background:var(--bar);
+    -webkit-backdrop-filter:saturate(1.6) blur(10px);
+    backdrop-filter:saturate(1.6) blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color .2s;
+  }
+  .topbar.stuck{border-bottom-color:var(--line)}
+  nav.chips{
+    flex:1;min-width:0;
+    display:flex;flex-wrap:nowrap;gap:7px;
+    padding:2px 0;
+    overflow-x:auto;overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+  }
+  .theme{
+    flex:none;width:34px;height:34px;border-radius:50%;
+    display:grid;place-items:center;cursor:pointer;
+    background:var(--surface);color:var(--muted);
+    border:1px solid var(--line);
+    transition:color .15s, border-color .15s;
+  }
+  .theme:hover{color:var(--accent);border-color:var(--accent)}
+  .theme:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .theme svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .theme .sun{display:none}
+  .theme.is-dark .sun{display:block}
+  .theme.is-dark .moon{display:none}
+  nav.chips::-webkit-scrollbar{display:none}
+  nav.chips a{
+    font-size:13px;text-decoration:none;color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;
+    padding:5px 12px;background:var(--surface);white-space:nowrap;
+    transition:color .15s, border-color .15s, background .15s;
+  }
+  nav.chips a:hover{color:var(--accent);border-color:var(--accent)}
+  nav.chips a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  nav.chips a[aria-current="true"]{
+    color:var(--accent-ink);border-color:var(--accent);background:var(--accent-soft);font-weight:600;
+  }
+
+  /* back to top */
+  .totop{
+    position:fixed;inset-inline-start:18px;bottom:18px;z-index:40;
+    width:42px;height:42px;border-radius:50%;
+    display:grid;place-items:center;
+    background:var(--surface);color:var(--ink);
+    border:1px solid var(--line);box-shadow:var(--shadow);
+    cursor:pointer;opacity:0;visibility:hidden;
+    transition:opacity .2s, visibility .2s, border-color .15s;
+  }
+  .totop.show{opacity:1;visibility:visible}
+  .totop:hover{border-color:var(--accent);color:var(--accent)}
+  .totop:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .totop svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+  section{padding-top:48px;scroll-margin-top:60px}
+  h2{
+    font-family:var(--display);font-weight:700;
+    font-size:26px;line-height:1.2;margin:0 0 6px;
+    text-wrap:balance;
+  }
+  .section-note{color:var(--faint);font-size:14px;margin:0 0 22px}
+  h3{
+    font-family:var(--body);font-weight:700;font-size:16px;
+    margin:26px 0 8px;letter-spacing:-.005em;
+  }
+  p{margin:0 0 14px}
+  a{color:var(--accent-ink)}
+
+  /* knowledge domains */
+  #learned .domains{margin-top:24px}
+  .domains{
+    display:grid;gap:0;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    border-top:1px solid var(--line);
+  }
+  .domain{
+    padding:18px 0 20px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .domains .domain{padding-inline-end:22px}
+  .domain h3{
+    margin:0 0 2px;font-size:15.5px;
+    display:flex;align-items:baseline;gap:8px;
+  }
+  .domain h3 span{
+    font-family:var(--mono);font-size:11.5px;font-weight:500;
+    color:var(--accent);font-variant-numeric:tabular-nums;
+  }
+  .domain ul{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
+  .domain li{
+    font-size:14.5px;color:var(--muted);
+    padding-inline-start:12px;position:relative;
+  }
+  .domain li::before{
+    content:"";position:absolute;inset-inline-start:0;top:.68em;
+    width:4px;height:1px;background:var(--faint);
+  }
+  .domain li b{color:var(--ink);font-weight:600}
+
+  /* pipeline rail */
+  ol.rail{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0}
+  ol.rail li{
+    display:grid;grid-template-columns:44px 1fr;gap:16px;
+    padding:16px 0;border-bottom:1px solid var(--line-soft);
+  }
+  ol.rail li:first-child{border-top:1px solid var(--line-soft)}
+  .num{
+    font-family:var(--mono);font-size:13px;font-weight:500;
+    color:var(--accent);padding-top:3px;
+    font-variant-numeric:tabular-nums;
+  }
+  .stage-title{font-weight:700;margin:0 0 3px}
+  .stage-body{margin:0;color:var(--muted);font-size:15px}
+  .stage-out{margin:7px 0 0;font-size:13.5px;color:var(--faint)}
+  .stage-out b{color:var(--ink);font-weight:600}
+  .opt{
+    font-family:var(--body);font-size:11.5px;font-weight:600;
+    color:var(--accent-ink);background:var(--accent-soft);
+    border-radius:4px;padding:1px 7px;margin-inline-start:6px;
+    vertical-align:middle;
+  }
+
+  /* tables */
+  .scroll{overflow-x:auto;margin:14px 0 4px}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:460px}
+  th,td{text-align:right;padding:10px 12px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  th{
+    font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--faint);font-weight:600;border-bottom:1px solid var(--line);
+  }
+  td code{font-family:var(--mono);font-size:13px}
+  tbody tr:last-child td{border-bottom:none}
+  .sk{font-family:var(--mono);font-size:12.5px;color:var(--accent);font-variant-numeric:tabular-nums}
+  .cost{white-space:nowrap;color:var(--muted);font-size:13.5px}
+
+  /* rules block */
+  .rules{display:flex;flex-direction:column;gap:2px;margin:16px 0}
+  .rule{background:var(--surface);border:1px solid var(--line);padding:14px 16px}
+  .rule:first-child{border-radius:10px 10px 0 0}
+  .rule:last-child{border-radius:0 0 10px 10px}
+  .rule + .rule{border-top:none}
+  .rule b{display:block;margin-bottom:2px}
+  .rule span{color:var(--muted);font-size:14.5px}
+
+  /* prompt cards */
+  .copy{
+    font-family:var(--body);font-size:12.5px;font-weight:600;
+    color:var(--accent-ink);background:var(--accent-soft);
+    border:1px solid transparent;border-radius:6px;
+    padding:5px 11px;cursor:pointer;white-space:nowrap;
+    transition:border-color .15s;
+  }
+  .copy:hover{border-color:var(--accent)}
+  .copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  pre{
+    margin:0;padding:16px;font-family:var(--mono);font-size:12.8px;
+    line-height:1.75;white-space:pre-wrap;overflow-wrap:anywhere;
+    color:var(--ink);background:transparent;
+  }
+
+
+  /* collapsible sections */
+  .sec-head{
+    display:flex;align-items:flex-start;justify-content:space-between;
+    gap:16px;margin:0 0 6px;
+  }
+  .sec-head h2{margin:0}
+  .sec-toggle{
+    font-family:var(--body);font-size:12.5px;font-weight:600;
+    color:var(--muted);background:var(--surface);
+    border:1px solid var(--line);border-radius:999px;
+    padding:5px 12px;cursor:pointer;white-space:nowrap;flex:none;
+    display:flex;align-items:center;gap:6px;
+    transition:color .15s, border-color .15s;
+  }
+  .sec-toggle:hover{color:var(--accent);border-color:var(--accent)}
+  .sec-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .sec-toggle .chev{
+    width:7px;height:7px;
+    border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;
+    transform:rotate(-135deg);margin-block-start:3px;
+    transition:transform .18s;
+  }
+  .sec-toggle[aria-expanded="false"] .chev{transform:rotate(45deg);margin-block-start:-3px}
+  .collapsible[hidden]{display:none}
+
+
+  /* collapsible rule groups */
+  details.rulegroup{border-bottom:1px solid var(--line-soft)}
+  details.rulegroup:first-of-type{border-top:1px solid var(--line-soft)}
+  details.rulegroup > summary{
+    display:flex;align-items:center;gap:9px;
+    padding:13px 0;cursor:pointer;list-style:none;
+  }
+  details.rulegroup > summary::-webkit-details-marker{display:none}
+  details.rulegroup > summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .rg-title{font-weight:700;font-size:16px}
+  .rg-chev{
+    width:7px;height:7px;flex:none;
+    border-right:1.6px solid var(--faint);border-bottom:1.6px solid var(--faint);
+    transform:rotate(45deg);margin-block-start:-3px;transition:transform .18s;
+  }
+  details.rulegroup[open] > summary .rg-chev{transform:rotate(-135deg);margin-block-start:3px;border-color:var(--accent)}
+  .rg-body{padding:0 0 6px}
+  .rg-body > :first-child{margin-block-start:0}
+  .rg-body .rules{margin-block-start:0}
+  .rg-body .scroll{margin-block-start:0}
+
+  /* prompt cards as disclosures */
+  details.prompt{
+    border:1px solid var(--line);border-radius:10px;
+    background:var(--surface);margin:10px 0;overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  details.prompt > summary{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:12px 16px;cursor:pointer;list-style:none;
+  }
+  details.prompt > summary::-webkit-details-marker{display:none}
+  details.prompt > summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+  details.prompt[open] > summary{border-bottom:1px solid var(--line-soft)}
+  .p-meta{display:flex;align-items:center;gap:10px;min-width:0}
+  .p-meta .p-chev{
+    width:7px;height:7px;flex:none;
+    border-right:1.6px solid var(--faint);border-bottom:1.6px solid var(--faint);
+    transform:rotate(45deg);margin-block-start:-3px;transition:transform .18s;
+  }
+  details.prompt[open] .p-chev{transform:rotate(-135deg);margin-block-start:3px;border-color:var(--accent)}
+  .p-text{min-width:0}
+  .p-title{display:block;font-weight:700;font-size:15px;line-height:1.35}
+  .p-when{display:block;color:var(--faint);font-size:12.5px;line-height:1.35}
+
+  .callout{
+    border-inline-start:3px solid var(--accent);
+    background:var(--accent-soft);
+    padding:14px 16px;margin:18px 0;border-radius:0 8px 8px 0;
+    font-size:15px;
+  }
+  .callout b{font-weight:700}
+
+  /* glossary */
+  .search{
+    display:flex;align-items:center;gap:10px;
+    border:1px solid var(--line);border-radius:8px;
+    background:var(--surface);padding:0 14px;margin:0 0 20px;
+  }
+  .search input{
+    flex:1;border:0;background:transparent;color:var(--ink);
+    font-family:var(--body);font-size:15px;padding:11px 0;outline:none;
+  }
+  .search input::placeholder{color:var(--faint)}
+  .search:focus-within{border-color:var(--accent)}
+  .search .count{
+    font-family:var(--mono);font-size:12px;color:var(--faint);
+    font-variant-numeric:tabular-nums;white-space:nowrap;
+  }
+  details.gloss-group{border-bottom:1px solid var(--line-soft)}
+  details.gloss-group:first-of-type{border-top:1px solid var(--line-soft)}
+  details.gloss-group > summary{
+    display:flex;align-items:center;gap:9px;
+    padding:13px 0;cursor:pointer;list-style:none;
+  }
+  details.gloss-group > summary::-webkit-details-marker{display:none}
+  details.gloss-group > summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  details.gloss-group[open] > summary .rg-chev{transform:rotate(-135deg);margin-block-start:3px;border-color:var(--accent)}
+  .g-count{
+    margin-inline-start:auto;font-family:var(--mono);font-size:11.5px;
+    color:var(--faint);font-variant-numeric:tabular-nums;
+  }
+  details.gloss-group > dl.gloss{padding-block-end:8px}
+  details.gloss-group > dl.gloss > div:first-child{border-top:none}
+  dl.gloss{margin:0;display:flex;flex-direction:column;gap:0}
+  dl.gloss > div{
+    display:grid;grid-template-columns:minmax(120px,32%) 1fr;gap:14px;
+    padding:9px 0;border-top:1px solid var(--line-soft);
+  }
+  dl.gloss dt{font-weight:600;font-size:14.5px;margin:0}
+  dl.gloss dd{margin:0;color:var(--muted);font-size:14.5px}
+  dl.gloss > div[hidden]{display:none}
+  .no-results{color:var(--faint);font-size:14.5px;padding:12px 0}
+
+  footer{
+    margin-top:64px;padding-top:22px;border-top:1px solid var(--line);
+    color:var(--faint);font-size:13.5px;
+  }
+
+  @media (max-width:560px){
+    dl.gloss > div{grid-template-columns:1fr;gap:2px}
+    .domains .domain{padding-inline-end:0}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important;animation:none !important}
+  }
+  @media print{
+    body{background:#fff;color:#000;font-size:11pt}
+    .topbar,nav.chips,.theme,.copy,.search,.totop,.sec-toggle{display:none}
+    .collapsible[hidden]{display:block !important}
+    details.prompt > summary{border-bottom:1px solid #ccc}
+    .rg-chev,.p-chev{display:none}
+    .prompt,.rule{box-shadow:none;break-inside:avoid}
+    .domain,.gloss-group{break-inside:avoid}
+  }
+</style>
+
+<div class="page" lang="he">
+
+  <header class="masthead">
+    <div class="kicker">John Bryce · 45900</div>
+    <h1>מדריך הכיס</h1>
+    <p class="standfirst">כל מה שלמדנו בקורס, על דף אחד. התכנים, הצינור, הסקילים, הפרומפטים, מילון המושגים והכלים. שמרו את הלינק, אתם תחזרו אליו.</p>
+    <div class="meta">
+      <span>AI Product Design &amp; UX/UI</span>
+      <span>אייל גרשון</span>
+      <span>עודכן 3.9.2026</span>
+    </div>
+  </header>
+
+  <div class="topbar">
+  <nav class="chips" aria-label="ניווט">
+    <a href="#learned">מה למדנו</a>
+    <a href="#pipeline">הצינור</a>
+    <a href="#skills">הסקילים</a>
+    <a href="#prompts">פרומפטים</a>
+    <a href="#rules">כללי אצבע</a>
+    <a href="#glossary">מילון מושגים</a>
+    <a href="#tools">הכלים</a>
+  </nav>
+  <button class="theme" type="button" id="theme" aria-label="החלפת מצב תצוגה" title="מצב בהיר או כהה">
+    <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+  </button>
+  </div>
+
+  <section id="learned">
+    <div class="sec-head">
+      <h2>מה למדנו</h2>
+      <button class="sec-toggle" type="button" data-collapse="learnedBody" aria-controls="learnedBody" aria-expanded="false">הרחב <span class="chev" aria-hidden="true"></span></button>
+    </div>
+    <p class="section-note">ראשי פרקים: יסודות ויזואליים, צבע, טיפוגרפיה, חשיבת מוצר, מחקר משתמשים, ארכיטקטורת מידע, מערכת עיצוב ופיגמה, כתיבה ומיקרוקופי, נגישות, בנייה ומדידה, וחוקים ועקרונות.</p>
+
+    <div class="collapsible" hidden id="learnedBody">
+    <div class="domains">
+
+      <div class="domain">
+        <h3><span>A</span>יסודות ויזואליים</h3>
+        <ul>
+          <li><b>היררכיה ויזואלית</b> דרך גודל, משקל, צבע ומיקום</li>
+          <li><b>מרחב לבן</b> כחומר עיצוב ולא כשטח שנשאר</li>
+          <li><b>קרבה ויישור</b>, מה נתפס כשייך למה</li>
+          <li><b>איזון וחזרתיות</b>, ומתי לשבור אותם בכוונה</li>
+          <li><b>גריד ועמודות</b> כמערכת שהמסך מתיישר אליה</li>
+        </ul>
+      </div>
+
+      <div class="domain">
+        <h3><span>B</span>צבע</h3>
+        <ul>
+          <li>גלגל הצבעים וסכמות: <b>מונוכרום, אנלוגי, משלים</b></li>
+          <li>חלוקת <b>60-30-10</b> בין רקע, משני והדגשה</li>
+          <li><b>צבע מותג מול צבע סמנטי</b>: הצלחה, אזהרה, שגיאה</li>
+          <li><b>צבע לפי סקטור</b>, ומתי כדאי לשבור את המוסכמה</li>
+        </ul>
+      </div>
+
+      <div class="domain">
+        <h3><span>C</span>טיפוגרפיה</h3>
+        <ul>
+          <li><b>סקאלת גדלים</b> קבועה שהכל נופל עליה</li>
+          <li><b>משקלים</b> במקום צבעים ליצירת היררכיה</li>
+          <li><b>גובה שורה ואורך שורה</b>, כ-45 עד 75 תווים</li>
+          <li><b>זוג גופנים</b>, כותרת וטקסט רץ, עם גיבוי אמיתי</li>
+          <li>עברית ולטינית באותו משפט, ומה זה שובר</li>
+        </ul>
+      </div>
+
+      <div class="domain">
+        <h3><span>D</span>חשיבת מוצר</h3>
+        <ul>
+          <li><b>MVP</b>, הגרסה הקטנה שכבר פותרת בעיה למישהו</li>
+          <li><b>בעיה לפני פתרון</b>, וניסוח הצעת ערך במשפט</li>
+          <li><b>קהל יעד</b>, מי המשתמש שבשבילו בונים</li>
+          <li><b>Crazy 8's</b> וסיעור מוחות מוגבל בזמן</li>
+          <li><b>MoSCoW</b> לתעדוף: חובה, רצוי, אפשרי, לא עכשיו</li>
+          <li><b>PRD</b> כמסמך שמחזיק את כל ההחלטות</li>
+        </ul>
+      </div>
+
+      <div class="domain">
+        <h3><span>E</span>מחקר משתמשים</h3>
+        <ul>
+          <li><b>ראיון פתוח</b>, ואיך לא לשתול את התשובה בשאלה</li>
+          <li><b>תובנה מול ציטוט מול סיכום</b></li>
+          <li><b>פרסונה</b> שנבנית ממחקר, לא מהדמיון</li>
+          <li><b>מפת אמפתיה</b>, Pains ו-Gains</li>
+          <li><b>מפת מסע לקוח</b>, ואיפה יושבות נקודות הכאב</li>
+        </ul>
+      </div>
+
+      <div class="domain">
+        <h3><span>F</span>ארכיטקטורת מידע וזרימה</h3>
+        <ul>
+          <li><b>סייטמאפ</b> והיררכיית המסכים</li>
+          <li><b>תבניות ניווט</b> ומתי כל אחת מתאימה</li>
+          <li><b>User Flow</b> לתרחיש הליבה</li>
+          <li><b>וירפריים</b> ב-Lo-Fi וב-Hi-Fi</li>
+          <li><b>פרוטוטייפ</b> שאפשר ללחוץ עליו</li>
+        </ul>
+      </div>
+
+      <div class="domain">
+        <h3><span>G</span>מערכת עיצוב ופיגמה</h3>
+        <ul>
+          <li><b>Design Tokens</b>, שינוי במקום אחד שמשנה בכל מקום</li>
+          <li><b>Auto Layout</b> כתשתית ולא כנוחות</li>
+          <li><b>קומפוננטה, אינסטנס ווריאנט</b></li>
+          <li><b>סטיילים</b> לצבע, לטקסט ולאפקטים</li>
+          <li>נגיעות ב-<b>Smart Animate, Dev Mode ו-Atomic Design</b></li>
+        </ul>
+      </div>
+
+      <div class="domain">
+        <h3><span>H</span>כתיבה ומיקרוקופי</h3>
+        <ul>
+          <li><b>כפתור שאומר מה יקרה</b>, לא "אישור"</li>
+          <li><b>הודעת שגיאה</b> שמסבירה ומציעה פעולה</li>
+          <li><b>מצב ריק</b> שמזמין ולא מודיע</li>
+          <li><b>טון אחיד</b> לאורך כל המוצר</li>
+          <li><b>מסג'ינג לפני עיצוב</b> בדף נחיתה</li>
+        </ul>
+      </div>
+
+      <div class="domain">
+        <h3><span>I</span>נגישות</h3>
+        <ul>
+          <li><b>WCAG 2.2</b> כרמת ייחוס, ו-AA כיעד</li>
+          <li><b>ניגודיות</b> 4.5 לטקסט רגיל, 3 לטקסט גדול</li>
+          <li><b>שטח מגע</b> של 44 פיקסל לפחות</li>
+          <li><b>מצב פוקוס</b> גלוי וניווט במקלדת</li>
+          <li><b>טקסט חלופי</b> והיררכיית כותרות תקינה</li>
+        </ul>
+      </div>
+
+      <div class="domain">
+        <h3><span>J</span>בנייה, אוויר ומדידה</h3>
+        <ul>
+          <li><b>Vibe coding</b>, מתיאור לקוד עובד</li>
+          <li><b>מיקרו אנימציה ומצבי hover</b></li>
+          <li><b>GitHub Pages</b> ככתובת חיה, ו-<b>PWA</b> על מסך הבית</li>
+          <li><b>ריספונסיב</b> ובדיקה על מכשיר אמיתי</li>
+          <li><b>אנליטיקה</b> ומדידה בסיסית <span class="opt">רשות</span></li>
+        </ul>
+      </div>
+
+      <div class="domain">
+        <h3><span>K</span>חוקים ועקרונות</h3>
+        <ul>
+          <li><b>חוקי הגשטלט</b>: קרבה, דמיון, סגירות, המשכיות, דמות ורקע</li>
+          <li><b>חוק היק</b>, כל אפשרות נוספת מאריכה את ההחלטה</li>
+          <li><b>חוק פיטס</b>, מה שגדול וקרוב נלחץ מהר יותר</li>
+          <li><b>חוק ג'ייקוב</b>, המשתמש מצפה שזה יעבוד כמו אצל האחרים</li>
+          <li><b>עומס קוגניטיבי</b> ועשרת עקרונות השימושיות של נילסן</li>
+        </ul>
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+  <section id="pipeline">
+    <div class="sec-head">
+      <h2>הצינור</h2>
+      <button class="sec-toggle" type="button" data-collapse="pipelineBody" aria-controls="pipelineBody" aria-expanded="false">הרחב <span class="chev" aria-hidden="true"></span></button>
+    </div>
+    <p class="section-note">שמונה תחנות, לפי הסדר שבו הרכבנו את הפרויקט. הסדר הוא לא המלצה, הוא תלות. כל תחנה ניזונה מהתוצר של הקודמת.</p>
+
+    <div class="collapsible" hidden id="pipelineBody">
+    <ol class="rail">
+      <li>
+        <div class="num">01</div>
+        <div>
+          <p class="stage-title">יסודות ושפה</p>
+          <p class="stage-body">גריד, היררכיה, מרחב לבן, צבע, טיפוגרפיה, MVP. מוד בורד לכיוון ויזואלי ראשוני. נגישות כבדיקה שחוזרת בכל שלב, לא כשיעור חד פעמי.</p>
+          <p class="stage-out">התוצר: <b>אודיט נגישות</b></p>
+        </div>
+      </li>
+      <li>
+        <div class="num">02</div>
+        <div>
+          <p class="stage-title">מחקר ותובנות</p>
+          <p class="stage-body">ראיונות, חילוץ תובנות, וקיבוץ לקבוצות. כאן נקבע מי המשתמש. כל מה שנבנה מכאן והלאה נשען על השלב הזה, ולכן זה השלב שהכי מסוכן לזייף בו.</p>
+          <p class="stage-out">הסקיל: <b>interview-analyzer</b></p>
+        </div>
+      </li>
+      <li>
+        <div class="num">03</div>
+        <div>
+          <p class="stage-title">פרסונה ואמפתיה</p>
+          <p class="stage-body">כרטיס פרסונה ומפת אמפתיה 2x2 עם Pains ו-Gains. הפרסונה היא לא דמות, היא החלטה על מי אנחנו מוותרים.</p>
+          <p class="stage-out">הסקילים: <b>figjam-persona-builder</b> ו-<b>figjam-empathy-map-builder</b></p>
+        </div>
+      </li>
+      <li>
+        <div class="num">04</div>
+        <div>
+          <p class="stage-title">מפת מסע וסייטמאפ</p>
+          <p class="stage-body">מפת מסע לקוח מלאה, ואז ארכיטקטורת המידע. הסייטמאפ הוא הגשר בין מחקר לבין מסכים.</p>
+          <p class="stage-out">הסקילים: <b>figjam-cjm-builder</b> ו-<b>figjam-sitemap-builder</b></p>
+        </div>
+      </li>
+      <li>
+        <div class="num">05</div>
+        <div>
+          <p class="stage-title">PRD ווירפריימס</p>
+          <p class="stage-body">מסמך מוצר קצר ומנומק, המסך העיקרי ב-High Fidelity, ובין 3 ל-5 מסכים מרכזיים כווירפריימס.</p>
+          <p class="stage-out">התוצר: <b>PRD, מסך ראשי, שלושה מסכי וירפריים</b></p>
+        </div>
+      </li>
+      <li>
+        <div class="num">06</div>
+        <div>
+          <p class="stage-title">שפה ויזואלית וטוקנים</p>
+          <p class="stage-body">לוח השראה, ייצוא כ-PDF, שלושה כיווני סטייל גייד, דיוק דרך פידבק חוזר, ואז שאר המסכים והאסטים. הטוקנים הם מה שמאפשר לצבוע דף נחיתה, אפליקציה וקייס סטאדי באותה שפה בלי לעצב פעמיים.</p>
+          <p class="stage-out">הסקיל: <b>extract-design-system</b></p>
+        </div>
+      </li>
+      <li>
+        <div class="num">07</div>
+        <div>
+          <p class="stage-title">בנייה ועלייה לאוויר</p>
+          <p class="stage-body">דיזיין סיסטם ומסכים בפיגמה, בנייה חיה בקוורק, מיקרו אנימציות ומצבי hover, ואז העלאה ל-GitHub Pages כאתר וכ-PWA.</p>
+          <p class="stage-out">התוצר: <b>כתובת חיה</b></p>
+        </div>
+      </li>
+      <li>
+        <div class="num">08</div>
+        <div>
+          <p class="stage-title">דף נחיתה, קייס סטאדי ומדידה</p>
+          <p class="stage-body">דף נחיתה עם רגע וואו ווידאו סקראבינג, וקייס סטאדי בנוי בלוק אחר בלוק. מי שרוצה, מוסיף שכבת מדידה ורואה לראשונה מה אנשים באמת עושים.</p>
+          <p class="stage-out">הסקילים: <b>jb-portfolio-builder</b>, <b>case-study-builder</b>, <b>github-pages-deploy</b></p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="callout">
+      <b>הקו שמחזיק את הכל.</b> פרסונה, מפת מסע וסייטמאפ הן השערות מבוססות, לא עובדות. ברגע שמוצר עולה לאוויר אפשר לבדוק אותן מול מציאות, ומי שעושה את זה מקבל את הבלוק החזק ביותר בתיק עבודות: מדדתי, גיליתי משהו שלא ציפיתי, שיניתי, ומדדתי שוב.
+    </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head">
+      <h2>הסקילים</h2>
+      <button class="sec-toggle" type="button" data-collapse="skillsBody" aria-controls="skillsBody" aria-expanded="false">הרחב <span class="chev" aria-hidden="true"></span></button>
+    </div>
+    <p class="section-note">שבעה סקילים בחבילת הקורס, ועוד שניים שקיבלתם בהמשך. מריצים על Claude Sonnet 5. לסקילי ה-FigJam צריך חיבור Figma MCP פעיל.</p>
+
+    <div class="collapsible" hidden id="skillsBody">
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>#</th><th>סקיל</th><th>מה הוא עושה</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="sk">01</td><td><code>interview-analyzer</code></td><td>ניתוח ראיונות בשני שלבים: חילוץ תובנות, ואז קיבוץ לקבוצות פרסונה</td></tr>
+          <tr><td class="sk">02</td><td><code>figjam-persona-builder</code></td><td>כרטיס פרסונה ויזואלי ב-FigJam</td></tr>
+          <tr><td class="sk">03</td><td><code>figjam-empathy-map-builder</code></td><td>מפת אמפתיה 2x2 עם Pains ו-Gains</td></tr>
+          <tr><td class="sk">04</td><td><code>figjam-cjm-builder</code></td><td>מפת מסע לקוח מלאה</td></tr>
+          <tr><td class="sk">05</td><td><code>figjam-sitemap-builder</code></td><td>ארכיטקטורת מידע וסייטמאפ, כולל מבחני קבלה</td></tr>
+          <tr><td class="sk">06</td><td><code>extract-design-system</code></td><td>חילוץ tokens.css מ-URL או מצילום מסך של רפרנס</td></tr>
+          <tr><td class="sk">07</td><td><code>jb-portfolio-builder</code></td><td>הרכבת אתר הפורטפוליו מהתוכן שלכם ומתבנית הקורס</td></tr>
+          <tr><td class="sk">+</td><td><code>case-study-builder</code></td><td>מראיין אתכם בלוק אחר בלוק ובונה קייס סטאדי. אסור לו להמציא מספרים וציטוטים</td></tr>
+          <tr><td class="sk">+</td><td><code>github-pages-deploy</code></td><td>העלאת תיקייה לאוויר בלי גיט, עם preflight שתופס בעיות לפני ההעלאה</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>שלושת כללי הזהב</h3>
+    <div class="rules">
+      <div class="rule"><b>כל סקיל שואל לפני שהוא בונה</b><span>אם הוא מציג תוכנית ומבקש אישור, זה בכוונה. קראו ואשרו, אל תדלגו.</span></div>
+      <div class="rule"><b>לעולם לא ממציאים נתונים</b><span>אם חסר קלט, ראיונות או פרסונה, משיגים את הקלט. לא מבקשים מהמודל להמציא.</span></div>
+      <div class="rule"><b>תוצר של שלב הוא הקלט של השלב הבא</b><span>שומרים את בלוקי ה-handoff שכל סקיל מסיים בהם.</span></div>
+    </div>
+
+    <h3>כשסקיל לא עובד</h3>
+    <p>לא מגיב בכלל: לבדוק שהקובץ הותקן, ושהניסוח כולל את שם הסקיל או את מילות הטריגר. סקיל FigJam נתקע באמצע: לבדוק את חיבור ה-Figma MCP, ולפתוח את קובץ ה-FigJam הנכון לפני ההרצה. פלט בשפה לא נכונה: לבקש עברית במפורש בפנייה הראשונה.</p>
+    </div>
+  </section>
+
+  <section id="prompts">
+    <div class="sec-head">
+      <h2>הפרומפטים</h2>
+      <button class="sec-toggle" type="button" data-collapse="promptsBody" aria-controls="promptsBody" aria-expanded="false">הרחב <span class="chev" aria-hidden="true"></span></button>
+    </div>
+    <p class="section-note">כל פרומפט בנוי על אותו שלד. מעתיקים, ממלאים את מה שבסוגריים המרובעים, ומריצים. פרומפט טוב הוא לא ניסוח יפה, הוא בריף מלא. לחצו על פרומפט כדי לפתוח אותו.</p>
+
+    <div class="collapsible" hidden id="promptsBody">
+    <details class="prompt">
+      <summary>
+        <span class="p-meta"><span class="p-chev" aria-hidden="true"></span><span class="p-text"><span class="p-title">השלד</span><span class="p-when">מסגרת הפרומפט של הקורס</span></span></span>
+        <button class="copy" type="button">העתק</button>
+      </summary>
+      <pre>ROLE: [מי אתה בשיחה הזו]
+CONTEXT: [המוצר, הקהל, השלב שאני נמצא בו]
+TASK: [מה בדיוק אני מבקש]
+CONSTRAINTS: [מה אסור, מה חובה, אורך, שפה]
+INPUTS: [החומרים שאני מצרף]
+OUTPUT FORMAT: [טבלה, רשימה, קובץ, מבנה מדויק]
+EVALUATION CRITERIA: [איך אדע שהתוצר טוב]
+EXAMPLES: [דוגמה אחת למה שאני מצפה לקבל]</pre>
+    </details>
+
+    <details class="prompt">
+      <summary>
+        <span class="p-meta"><span class="p-chev" aria-hidden="true"></span><span class="p-text"><span class="p-title">חילוץ תובנות מראיון</span><span class="p-when">תחנה 02</span></span></span>
+        <button class="copy" type="button">העתק</button>
+      </summary>
+      <pre>ROLE: חוקר UX ותיק שמנתח ראיונות איכותניים.
+CONTEXT: אני מפתח [שם המוצר], עבור [הקהל]. מצורף תמלול ראיון אחד.
+TASK: חלץ תובנות. תובנה היא משפט שמתאר צורך, כאב או התנהגות,
+ולא ציטוט ולא סיכום.
+CONSTRAINTS:
+- כל תובנה חייבת להישען על משפט מהתמלול. צרף את המשפט
+- אסור להסיק מעבר לנאמר. אם משהו לא נאמר, אל תכתוב אותו
+- אם התמלול לא מספיק לתובנה, כתוב זאת במפורש
+- עברית
+OUTPUT FORMAT: טבלה בעמודות: תובנה, ציטוט תומך, סוג (צורך / כאב /
+התנהגות), עוצמה (1 עד 3).
+EVALUATION CRITERIA: אצליח להצביע על מקור מדויק בתמלול לכל שורה.</pre>
+    </details>
+
+    <details class="prompt">
+      <summary>
+        <span class="p-meta"><span class="p-chev" aria-hidden="true"></span><span class="p-text"><span class="p-title">שלושה כיווני סטייל גייד</span><span class="p-when">תחנה 06</span></span></span>
+        <button class="copy" type="button">העתק</button>
+      </summary>
+      <pre>ROLE: מנהל אמנותי שמגדיר שפה ויזואלית למוצר דיגיטלי.
+CONTEXT: מצורפים לוח ההשראה שלי כ-PDF, וה-PRD המתומצת של המוצר.
+הקהל הוא [הקהל], והתחושה שאני מחפש היא [שתיים או שלוש מילים].
+TASK: הצע שלושה כיווני סטייל גייד שונים זה מזה באמת.
+CONSTRAINTS:
+- שלושה כיוונים, לא אחד ולא חמישה
+- כל כיוון יקבל שם ומשפט אחד שמסביר על מה הוא מוותר
+- פלטה של חמישה עד שישה צבעים עם קודי הקס
+- כל צמד טקסט ורקע חייב לעבור ניגודיות של 4.5 לפחות
+- זוג גופנים, כותרת וטקסט רץ, עם גיבוי אמיתי
+- עברית, RTL
+OUTPUT FORMAT: לכל כיוון: שם, ויתור, פלטה, טיפוגרפיה, רדיוסים,
+צללים, ומשפט על תחושת התנועה.
+EVALUATION CRITERIA: אוכל להסתכל על שלושת הכיוונים ולהבין מיד
+במה הם שונים, לא רק בצבע.</pre>
+    </details>
+
+    <details class="prompt">
+      <summary>
+        <span class="p-meta"><span class="p-chev" aria-hidden="true"></span><span class="p-text"><span class="p-title">מיקרו קופי למסך</span><span class="p-when">בכל שלב בנייה</span></span></span>
+        <button class="copy" type="button">העתק</button>
+      </summary>
+      <pre>ROLE: כותב UX בעברית.
+CONTEXT: מצורף צילום מסך של [שם המסך] מתוך [שם המוצר].
+המשתמש הוא [הפרסונה], והוא מגיע למסך הזה כדי [המשימה].
+TASK: כתוב מחדש את כל הטקסטים במסך.
+CONSTRAINTS:
+- כל כפתור אומר מה יקרה, לא "שלח" ולא "אישור"
+- הודעת שגיאה מסבירה מה קרה ומה עושים עכשיו, בלי התנצלות
+- מצב ריק מציע פעולה, לא מודיע שאין כלום
+- בלי סימני קריאה, בלי אמוג'י, בלי "אנחנו"
+- עברית טבעית, משפטים קצרים
+OUTPUT FORMAT: טבלה בעמודות: מיקום במסך, הטקסט הנוכחי,
+ההצעה, הנימוק במשפט.
+EVALUATION CRITERIA: אפשר להבין מה קורה בלי לקרוא שום דבר אחר במסך.</pre>
+    </details>
+
+    <details class="prompt">
+      <summary>
+        <span class="p-meta"><span class="p-chev" aria-hidden="true"></span><span class="p-text"><span class="p-title">בדיקת נגישות למסך</span><span class="p-when">לפני שסוגרים מסך</span></span></span>
+        <button class="copy" type="button">העתק</button>
+      </summary>
+      <pre>ROLE: בודק נגישות שעובד לפי WCAG 2.2 ברמה AA.
+CONTEXT: מצורף [צילום מסך / קוד HTML] של [שם המסך].
+המוצר בעברית, RTL, ורוב המשתמשים בטלפון.
+TASK: מצא ליקויי נגישות ותקן אותם.
+CONSTRAINTS:
+- בדוק ניגודיות לכל צמד טקסט ורקע, וציין את היחס במספר
+- בדוק שטחי מגע מול מינימום של 44 פיקסל
+- בדוק סדר כותרות, טקסט חלופי, ומצב פוקוס גלוי
+- אל תציע שינוי עיצובי שלא נובע מליקוי
+OUTPUT FORMAT: טבלה: הרכיב, הליקוי, חומרה (חוסם / בינוני / קל),
+התיקון המדויק. ואחריה רק את הקוד שהשתנה.
+EVALUATION CRITERIA: כל שורה מצביעה על רכיב אמיתי במסך.</pre>
+    </details>
+
+    <details class="prompt">
+      <summary>
+        <span class="p-meta"><span class="p-chev" aria-hidden="true"></span><span class="p-text"><span class="p-title">קייס סטאדי, פתיחת הראיון</span><span class="p-when">כשלא מריצים את הסקיל</span></span></span>
+        <button class="copy" type="button">העתק</button>
+      </summary>
+      <pre>ROLE: עורך תיק עבודות שמראיין מעצב, וכותב רק ממה שנאמר לו.
+CONTEXT: אני בונה קייס סטאדי על [שם המוצר]. מצורפים ה-PRD,
+הפרסונה, מפת המסע, הסייטמאפ, המסכים והלינק החי.
+TASK: ראיין אותי בלוק אחר בלוק ובנה את הקייס.
+CONSTRAINTS:
+- שאלה אחת בכל פעם, וממתין לתשובה
+- אסור להמציא מספרים, ציטוטים או תוצאות. אם אין לי, כותבים
+  שאין, או מדלגים על הבלוק
+- אסור לכתוב במקומי משפט שלא אמרתי. מותר לנסח מחדש
+- לפני כל בלוק, אמור לי איזה חומר חסר לך
+- עברית
+OUTPUT FORMAT: אחרי כל בלוק, טקסט מוכן להדבקה בטמפלט,
+ורשימת החומרים החסרים.
+EVALUATION CRITERIA: אזהה בכל משפט שהוא שלי.</pre>
+    </details>
+    </div>
+  </section>
+
+  <section id="rules">
+    <div class="sec-head">
+      <h2>כללי אצבע</h2>
+      <button class="sec-toggle" type="button" data-collapse="rulesBody" aria-controls="rulesBody" aria-expanded="false">הרחב <span class="chev" aria-hidden="true"></span></button>
+    </div>
+    <p class="section-note">המשפטים שחזרו לאורך הקורס, במקום אחד. לחצו על כותרת כדי לסגור אותה.</p>
+
+    <div class="collapsible" hidden id="rulesBody">
+
+    <details class="rulegroup">
+      <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">צבע וטיפוגרפיה</span></summary>
+      <div class="rg-body">
+    <div class="rules">
+      <div class="rule"><b>60-30-10</b><span>60 אחוז רקע, 30 אחוז צבע משני, 10 אחוז הדגשה. ההדגשה היא מה שנשאר בזיכרון.</span></div>
+      <div class="rule"><b>צבע סמנטי הוא לא צבע מותג</b><span>אדום של שגיאה ואדום של לוגו לא יכולים להיות אותו אדום.</span></div>
+      <div class="rule"><b>סקאלה אחת לכל הטקסטים</b><span>חמישה עד שבעה גדלים, וכל טקסט במוצר נופל על אחד מהם.</span></div>
+      <div class="rule"><b>קרבה עושה את העבודה של הקו המפריד</b><span>לפני שמוסיפים מסגרת או קו, נסו להזיז. גשטלט חוסך אלמנטים.</span></div>
+      <div class="rule"><b>כל מרווח הוא כפולה של 8</b><span>8, 16, 24, 32. ברירת מחדל אחת שפותרת את רוב שאלות המרווח לבד.</span></div>
+    </div>
+      </div>
+    </details>
+    <details class="rulegroup">
+      <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">צבע לפי סקטור</span></summary>
+      <div class="rg-body">
+    <p>לכל תחום יש מוסכמת צבע שהמשתמשים כבר מכירים. אפשר לשבור אותה, אבל רק ביודעין ומסיבה.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>סקטור</th><th>הפלטה המקובלת</th><th>למה</th></tr></thead>
+        <tbody>
+          <tr><td>פיננסים ובנקאות</td><td>כחול, נייבי, אפור</td><td>אמון, יציבות, שמרנות</td></tr>
+          <tr><td>בריאות ורפואה</td><td>כחול, טורקיז, ירוק רך</td><td>ניקיון, רוגע, מקצועיות</td></tr>
+          <tr><td>אוכל ומסעדנות</td><td>אדום, כתום, צהוב</td><td>מעורר תיאבון ודחיפות</td></tr>
+          <tr><td>קיימות וטבע</td><td>ירוק, גווני אדמה, בז'</td><td>טבעיות ואמינות סביבתית</td></tr>
+          <tr><td>יוקרה ואופנה</td><td>שחור, לבן, זהב</td><td>פלטה מצומצמת קוראת יקר</td></tr>
+          <tr><td>ילדים וחינוך</td><td>צבעים רוויים ומגוונים</td><td>שובבות, אנרגיה, נגישות רגשית</td></tr>
+          <tr><td>טכנולוגיה ו-AI</td><td>סגול, כחול כהה, גרדיאנטים</td><td>חדשנות ותחכום</td></tr>
+          <tr><td>ספורט וכושר</td><td>ניגודיות גבוהה, נאון על כהה</td><td>אנרגיה ותנועה</td></tr>
+        </tbody>
+      </table>
+    </div>
+      </div>
+    </details>
+    <details class="rulegroup">
+      <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">דף נחיתה</span></summary>
+      <div class="rg-body">
+    <div class="rules">
+      <div class="rule"><b>עמוד אחד, מטרה אחת</b><span>שני CTA שונים בדף אחד הם דף בלי CTA.</span></div>
+      <div class="rule"><b>שלוש שאלות בשש שניות</b><span>מה זה, בשביל מי, מה עושים עכשיו.</span></div>
+      <div class="rule"><b>שישה בלוקים, לא שלושים</b><span>הכותרת מדברת על המשתמש ולא על המוצר.</span></div>
+      <div class="rule"><b>מסג'ינג לפני עיצוב</b><span>מי שמתחיל מהעיצוב מעצב טקסט שעוד לא הוחלט.</span></div>
+    </div>
+      </div>
+    </details>
+    <details class="rulegroup">
+      <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">מסכים ומערכות</span></summary>
+      <div class="rg-body">
+    <div class="rules">
+      <div class="rule"><b>חמישה מצבים לכל מסך</b><span>ריק, טוען, שגיאה, חלקי, מלא. רובנו מעצבים רק את המלא.</span></div>
+      <div class="rule"><b>לעולם לא להתחיל ממסך הבית</b><span>הוא הכי קל והכי מטעה. מתחילים מהמסך שבו קורית העבודה.</span></div>
+      <div class="rule"><b>מודל הנתונים לפני המסך</b><span>מה ישות, מה שדה, ומה הקשר. בלי זה המסך הראשון סותר את השלישי.</span></div>
+    </div>
+      </div>
+    </details>
+    <details class="rulegroup">
+      <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">וידאו וסקראבינג</span></summary>
+      <div class="rg-body">
+    <p>וידאו רגיל שומר פריים מפתח אחת לכמה שניות, ולכן גלילה אחורה קופצת. הדגל <code>-g 1</code> ב-ffmpeg הופך כל פריים לפריים מפתח, וזה ההבדל בין קסם לתקלה. תמונה סטטית יפה במקום וידאו היא גרסה, מסך שחור הוא באג, ולכן תכננו מראש את הנפילה בטלפון.</p>
+      </div>
+    </details>
+    <details class="rulegroup">
+      <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">נגישות ו-RTL</span></summary>
+      <div class="rg-body">
+    <p>ניגודיות של 4.5 לטקסט רגיל ו-3 לטקסט גדול, שטח מגע של 44 פיקסל לפחות, פוקוס גלוי במקלדת, וטקסט חלופי לכל תמונה. RTL עם מספרים ומונחים באנגלית נשבר, והוא נשבר בעיקר בטלפון, ולכן כל בדיקת ריספונסיב נעשית על מכשיר אמיתי ולא רק בדפדפן.</p>
+      </div>
+    </details>
+    <details class="rulegroup">
+      <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">מדידה <span class="opt">רשות</span></span></summary>
+      <div class="rg-body">
+    <p>למי שרוצה להוסיף שכבת מדידה: חמישה אירועים ולא חמישים, שלושה מספרים ולא דשבורד, ו-Clarity ועוד GA4 מספיקים בהחלט. ב-GA4 הדוחות הרגילים מתעדכנים רק אחרי יממה, ולכן בודקים ב-Realtime, וחוסם פרסומות יבלע את הנתונים. ומי שמנפח מספרים קטנים בתיק, נתפס.</p>
+      </div>
+    </details>
+    </div>
+  </section>
+
+  <section id="glossary">
+    <div class="sec-head">
+      <h2>מילון מושגים</h2>
+      <button class="sec-toggle" type="button" data-collapse="glossaryBody" aria-controls="glossaryBody" aria-expanded="false">הרחב <span class="chev" aria-hidden="true"></span></button>
+    </div>
+    <p class="section-note">כל המונחים שהשתמשנו בהם, בשורה אחת כל אחד. הקלידו כדי לסנן.</p>
+
+    <div class="collapsible" hidden id="glossaryBody">
+    <div class="search">
+      <input type="search" id="gsearch" placeholder="חיפוש מושג, למשל טוקן או פרסונה" aria-label="חיפוש במילון המושגים" autocomplete="off">
+      <span class="count" id="gcount"></span>
+    </div>
+
+    <div id="gloss-root">
+
+      <details class="gloss-group">
+        <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">עיצוב ויזואלי</span><span class="g-count" aria-hidden="true"></span></summary>
+        <dl class="gloss">
+          <div data-alias="8pt spacing מרווחים רשת שמונה"><dt>רשת 8 נקודות</dt><dd>כל המרווחים והגדלים הם כפולות של 8, ולפעמים 4. מה שגורם למסך להיראות מסודר בלי שיודעים למה</dd></div>
+          <div data-alias="grid עמודות"><dt>גריד</dt><dd>מערכת עמודות ומרווחים שהמסך מתיישר אליה, כדי שדברים לא ינחתו במקום אקראי</dd></div>
+          <div data-alias="hierarchy היררכיה"><dt>היררכיה ויזואלית</dt><dd>הסדר שבו העין קולטת אלמנטים. נקבע בגודל, במשקל, בצבע ובמיקום</dd></div>
+          <div data-alias="white space מרווח"><dt>מרחב לבן</dt><dd>השטח הריק בין אלמנטים. הוא לא בזבוז, הוא מה שמאפשר לקרוא</dd></div>
+          <div data-alias="פלטה צבע חלוקה"><dt>60-30-10</dt><dd>חלוקת פלטה: 60 אחוז רקע, 30 אחוז צבע משני, 10 אחוז הדגשה</dd></div>
+          <div data-alias="גוון רוויה בהירות צבע"><dt>HSL</dt><dd>תיאור צבע בגוון, רוויה ובהירות. נוח לשליטה הרבה יותר מקוד הקס</dd></div>
+          <div data-alias="semantic שגיאה אזהרה הצלחה"><dt>צבע סמנטי</dt><dd>צבע שמשמעותו קבועה במוצר: הצלחה, אזהרה, שגיאה, מידע</dd></div>
+          <div data-alias="contrast נגישות"><dt>ניגודיות</dt><dd>יחס הבהירות בין טקסט לרקע. 4.5 לטקסט רגיל, 3 לטקסט גדול</dd></div>
+          <div data-alias="type scale גופן טיפוגרפיה"><dt>סקאלת טיפוגרפיה</dt><dd>סדרת גדלים קבועה שכל הכותרות והטקסטים במוצר נופלים עליה</dd></div>
+        </dl>
+      </details>
+
+      <details class="gloss-group">
+        <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">חוקים ועקרונות</span><span class="g-count" aria-hidden="true"></span></summary>
+        <dl class="gloss">
+          <div data-alias="gestalt קרבה דמיון סגירות המשכיות"><dt>חוקי הגשטלט</dt><dd>איך העין מקבצת אלמנטים לבד: קרבה, דמיון, סגירות, המשכיות, דמות ורקע</dd></div>
+          <div data-alias="hick היקס בחירה החלטה תפריט"><dt>חוק היק</dt><dd>ככל שיש יותר אפשרויות, ההחלטה לוקחת יותר זמן. תפריט קצר הוא תפריט מהיר</dd></div>
+          <div data-alias="fitts פיטס כפתור מטרה מגע"><dt>חוק פיטס</dt><dd>הזמן להגיע למטרה תלוי בגודלה ובמרחק אליה. כפתור חשוב הוא גדול וקרוב</dd></div>
+          <div data-alias="jakob ג'ייקוב מוסכמה קונבנציה"><dt>חוק ג'ייקוב</dt><dd>המשתמש מבלה את רוב זמנו באתרים אחרים, ומצפה שגם שלכם יעבוד כמותם</dd></div>
+          <div data-alias="miller מילר זיכרון שבע"><dt>חוק מילר</dt><dd>הזיכרון לטווח קצר מחזיק סביב שבעה פריטים. לכן מקבצים ולא מונים</dd></div>
+          <div data-alias="cognitive load עומס מאמץ"><dt>עומס קוגניטיבי</dt><dd>כמות המאמץ המחשבתי שהמסך דורש. כל אלמנט מיותר מוסיף לו</dd></div>
+          <div data-alias="nielsen נילסן היוריסטיקות שימושיות"><dt>עקרונות נילסן</dt><dd>עשר היוריסטיקות לשימושיות, למשל נראות מצב המערכת ומניעת שגיאות</dd></div>
+          <div data-alias="moscow תעדוף priority must should"><dt>MoSCoW</dt><dd>תעדוף פיצ'רים לארבע קבוצות: חובה, רצוי, אפשרי, ולא עכשיו</dd></div>
+          <div data-alias="dark patterns מניפולציה הטעיה"><dt>דארק פטרנס</dt><dd>עיצוב שמכוון את המשתמש לפעולה שלא רצה: ביטול מוסתר, הסכמה מסומנת מראש, דחיפות מזויפת. מזהים כדי לא לעשות</dd></div>
+          <div data-alias="progressive disclosure חשיפה"><dt>חשיפה הדרגתית</dt><dd>להראות קודם את המעט שצריך, ולפתוח את השאר רק למי שביקש</dd></div>
+          <div data-alias="affordance רמז"><dt>אפורדנס</dt><dd>הרמז הוויזואלי שאומר מה אפשר לעשות עם הרכיב בלי שכתבו את זה</dd></div>
+          <div data-alias="above the fold קיפול מסך ראשון"><dt>מעל הקיפול</dt><dd>מה שנראה לפני הגלילה הראשונה. שם נופלת ההחלטה אם להישאר</dd></div>
+          <div data-alias="mobile first מובייל"><dt>מובייל פירסט</dt><dd>מעצבים קודם למסך הקטן, ורק אחר כך מרחיבים לדסקטופ</dd></div>
+        </dl>
+      </details>
+
+      <details class="gloss-group">
+        <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">מוצר ומחקר</span><span class="g-count" aria-hidden="true"></span></summary>
+        <dl class="gloss">
+          <div data-alias="מוצר מינימלי אם וי פי"><dt>MVP</dt><dd>הגרסה הקטנה ביותר שכבר פותרת את הבעיה למישהו אחד באמת</dd></div>
+          <div data-alias="value proposition ערך"><dt>הצעת ערך</dt><dd>משפט אחד: למי זה, איזו בעיה זה פותר, ובמה זה שונה</dd></div>
+          <div data-alias="מסמך מוצר"><dt>PRD</dt><dd>מסמך המוצר. מה בונים, למי, למה, ומה במפורש לא נכנס</dd></div>
+          <div data-alias="persona"><dt>פרסונה</dt><dd>דמות מייצגת שנבנתה ממחקר. בפועל זו החלטה על מי אנחנו מוותרים</dd></div>
+          <div data-alias="empathy map אמפתיה"><dt>מפת אמפתיה</dt><dd>מה המשתמש אומר, חושב, עושה ומרגיש, ולצידם Pains ו-Gains</dd></div>
+          <div data-alias="פיין גיין כאב רווח"><dt>Pain ו-Gain</dt><dd>מה מתסכל את המשתמש היום, ומה ייחשב עבורו הצלחה</dd></div>
+          <div data-alias="journey map cjm מסע"><dt>מפת מסע לקוח</dt><dd>שלבי המסע, ובכל שלב מה עושים, מה חושבים, ואיפה נשבר</dd></div>
+          <div data-alias="insight תובנות"><dt>תובנה</dt><dd>משפט על צורך או התנהגות, שנשען על ציטוט. לא ציטוט ולא סיכום</dd></div>
+          <div><dt>מחקר איכותני</dt><dd>ראיונות ותצפיות. עונה על למה. מחקר כמותי, סקרים ונתונים, עונה על כמה</dd></div>
+          <div data-alias="קרייזי סיעור מוחות רעיונות"><dt>Crazy 8's</dt><dd>שמונה רעיונות בשמונה דקות. התרגיל שנועד לעקוף את הרעיון הראשון</dd></div>
+        </dl>
+      </details>
+
+      <details class="gloss-group">
+        <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">ארכיטקטורה וזרימה</span><span class="g-count" aria-hidden="true"></span></summary>
+        <dl class="gloss">
+          <div data-alias="ia information architecture"><dt>ארכיטקטורת מידע</dt><dd>איך התוכן מסודר ואיך מוצאים אותו. בקיצור IA</dd></div>
+          <div data-alias="sitemap ארכיטקטורה"><dt>סייטמאפ</dt><dd>מפת המסכים וההיררכיה ביניהם, לפני שמעצבים מסך אחד</dd></div>
+          <div data-alias="יוזר פלואו זרימת משתמש זרימה"><dt>User Flow</dt><dd>הצעדים שמשתמש עובר כדי להשלים משימה אחת מתחילתה ועד סופה</dd></div>
+          <div data-alias="wireframe שלד"><dt>וירפריים</dt><dd>שלד המסך בלי צבע ובלי עיצוב, כדי לדבר על מבנה בלבד</dd></div>
+          <div data-alias="לו פיי היי פיי רזולוציה גימור"><dt>Lo-Fi ו-Hi-Fi</dt><dd>רמת הגימור. סקיצה גסה מול מסך שנראה כמו המוצר הסופי</dd></div>
+          <div data-alias="prototype אב טיפוס"><dt>פרוטוטייפ</dt><dd>מסכים מחוברים שאפשר ללחוץ עליהם ולעבור ביניהם</dd></div>
+        </dl>
+      </details>
+
+      <details class="gloss-group">
+        <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">מערכת עיצוב ופיגמה</span><span class="g-count" aria-hidden="true"></span></summary>
+        <dl class="gloss">
+          <div data-alias="דיזיין סיסטם מערכת עיצוב"><dt>Design System</dt><dd>אוסף ההחלטות והרכיבים שמאפשר לבנות מסך חדש בלי להמציא מחדש</dd></div>
+          <div data-alias="טוקן טוקנים דיזיין טוקן"><dt>Design Token</dt><dd>ערך בעל שם: צבע, מרווח, רדיוס. משנים במקום אחד ומשתנה בכל מקום</dd></div>
+          <div data-alias="אוטו לייאאוט אוטולייאאוט"><dt>Auto Layout</dt><dd>מנגנון הסידור של פיגמה. גורם לרכיב להגיב לתוכן במקום להישבר</dd></div>
+          <div data-alias="component רכיב"><dt>קומפוננטה</dt><dd>רכיב מקור. כל שינוי בו מתעדכן בכל המקומות שמשתמשים בו</dd></div>
+          <div data-alias="variant גרסה"><dt>וריאנט</dt><dd>גרסה של אותה קומפוננטה: ראשי, משני, מושבת, hover</dd></div>
+          <div data-alias="סמארט אנימייט אנימציה מעבר"><dt>Smart Animate</dt><dd>מעבר מונפש בין שני מסכים לפי שכבות בעלות אותו שם</dd></div>
+          <div data-alias="דב מוד מפתחים handoff"><dt>Dev Mode</dt><dd>התצוגה שממנה מפתח שולף מידות, צבעים וקוד מהעיצוב</dd></div>
+        </dl>
+      </details>
+
+      <details class="gloss-group">
+        <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">כתיבה ונגישות</span><span class="g-count" aria-hidden="true"></span></summary>
+        <dl class="gloss">
+          <div data-alias="כתיבה קופי"><dt>UX Writing</dt><dd>כתיבת הטקסטים שבתוך המוצר, ככלי עיצוב ולא כקישוט</dd></div>
+          <div data-alias="microcopy קופי טקסטים"><dt>מיקרוקופי</dt><dd>הטקסטים הקטנים: כפתור, תווית, הודעה, טקסט עזרה</dd></div>
+          <div data-alias="empty state ריק"><dt>מצב ריק</dt><dd>המסך כשאין עדיין תוכן. הזדמנות להסביר ולהזמין לפעולה</dd></div>
+          <div data-alias="כפתור קריאה לפעולה"><dt>CTA</dt><dd>הפעולה שאנחנו רוצים שהמשתמש יעשה, ואומרת מה יקרה כשילחץ</dd></div>
+          <div data-alias="נגישות תקן"><dt>WCAG 2.2</dt><dd>תקן הנגישות לרשת. רמת AA היא היעד המקובל למוצר מסחרי</dd></div>
+          <div data-alias="touch target מגע"><dt>שטח מגע</dt><dd>האזור הלחיץ סביב אלמנט. 44 פיקסל לפחות, גם אם האייקון קטן</dd></div>
+          <div data-alias="alt text קורא מסך"><dt>טקסט חלופי</dt><dd>תיאור התמונה לקורא מסך. מתאר את התוכן, לא את קובץ התמונה</dd></div>
+          <div data-alias="focus מקלדת"><dt>מצב פוקוס</dt><dd>הסימון הגלוי שמראה איפה נמצא הניווט במקלדת</dd></div>
+          <div data-alias="ימין לשמאל כיוון"><dt>RTL</dt><dd>כיוון ימין לשמאל. נשבר בעיקר כשמעורבים בו מספרים ומונחים באנגלית</dd></div>
+        </dl>
+      </details>
+
+      <details class="gloss-group">
+        <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">מודלי תמונה</span><span class="g-count" aria-hidden="true"></span></summary>
+        <dl class="gloss">
+          <div data-alias="midjourney מידג'רני מוד בורד"><dt>Midjourney</dt><dd>יצירת תמונות מטקסט. הכלי שבו בנינו מוד בורד וכיווני קונספט</dd></div>
+          <div data-alias="krea קריאה ריאלטיים"><dt>Krea</dt><dd>יצירה ועריכה של תמונות בזמן אמת, כולל ציור גס שהופך לתמונה תוך כדי</dd></div>
+          <div data-alias="magnific מגניפיק upscale הגדלה"><dt>Magnific</dt><dd>הגדלת תמונה עם הוספת פרטים. לא מותח פיקסלים, ממציא אותם מחדש</dd></div>
+          <div data-alias="flux פלוקס lora"><dt>Flux</dt><dd>משפחת מודלי תמונה בקוד פתוח, שאפשר לאמן עליה סגנון או דמות קבועה</dd></div>
+          <div data-alias="nano banana gemini עריכה"><dt>עריכה בפרומפט</dt><dd>שינוי תמונה קיימת בהוראה במילים במקום בכלי עריכה, לדוגמה החלפת רקע או אובייקט</dd></div>
+          <div data-alias="weavy וויבי workflow קנבס"><dt>Weavy</dt><dd>קנבס שמחבר כמה מודלים לזרימת עבודה אחת, פלט של אחד נכנס לשני</dd></div>
+        </dl>
+      </details>
+
+      <details class="gloss-group">
+        <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">מודלי וידאו</span><span class="g-count" aria-hidden="true"></span></summary>
+        <dl class="gloss">
+          <div data-alias="higgsfield היגספילד איקספילד מצלמה"><dt>Higgsfield</dt><dd>וידאו מתמונה או מטקסט, עם פריסטים של תנועות מצלמה מוכנות</dd></div>
+          <div data-alias="krea video קריאה וידאו"><dt>Krea Video</dt><dd>יצירת וידאו קצר מתמונה או מטקסט, באותה סביבה של התמונות</dd></div>
+          <div data-alias="image to video תמונה לוידאו"><dt>Image to Video</dt><dd>השיטה שעבדנו בה: קודם מייצרים תמונה שאוהבים, ורק אותה מניעים</dd></div>
+          <div data-alias="text to video טקסט לוידאו"><dt>Text to Video</dt><dd>וידאו ישר מפרומפט. מהיר, אבל פחות שליטה על הקומפוזיציה</dd></div>
+          <div data-alias="preset פריסט תנועת מצלמה"><dt>פריסט תנועה</dt><dd>תנועת מצלמה מוכנה מראש, זום, סיבוב, מעקב. חוסך תיאור ידני</dd></div>
+          <div data-alias="heygen אווטאר דובר"><dt>HeyGen</dt><dd>אווטאר מדבר מטקסט, לסרטוני הסבר ולקריינות מול מצלמה</dd></div>
+        </dl>
+      </details>
+
+      <details class="gloss-group">
+        <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">וייב קודינג ובנייה</span><span class="g-count" aria-hidden="true"></span></summary>
+        <dl class="gloss">
+          <div data-alias="claude cowork קלוד"><dt>Claude ו-Cowork</dt><dd>הסביבה שבה הרצנו את הסקילים ובנינו את המוצר החי מקבצים אמיתיים</dd></div>
+          <div data-alias="claude code web דפדפן"><dt>claude.ai/code</dt><dd>בנייה ועריכה של הריפו מהדפדפן, בלי התקנות ובלי טרמינל</dd></div>
+          <div data-alias="base44 בייס"><dt>Base44</dt><dd>בניית אפליקציה שלמה מפרומפט, כולל בסיס נתונים והרשאות</dd></div>
+          <div data-alias="lovable לאבבל"><dt>Lovable</dt><dd>בניית אתר או ממשק מפרומפט, עם חיבור דומיין מתוך המערכת</dd></div>
+          <div data-alias="figma make פיגמה מייק"><dt>Figma Make</dt><dd>הפיכת עיצוב או תיאור לאב טיפוס חי מתוך פיגמה</dd></div>
+          <div data-alias="figma weave ויב פיגמה"><dt>Figma Weave</dt><dd>קנבס של פיגמה לחיבור מודלים וזרימות יצירה, תמונה ווידאו במקום אחד</dd></div>
+          <div data-alias="prompt to ui פרומפט לממשק"><dt>Prompt to UI</dt><dd>לתאר מסך במילים ולקבל ממשק. תמיד מתקנים אחרי, אף פעם לא לוקחים כמו שיצא</dd></div>
+        </dl>
+      </details>
+
+      <details class="gloss-group">
+        <summary><span class="rg-chev" aria-hidden="true"></span><span class="rg-title">בנייה, אוויר ומדידה</span><span class="g-count" aria-hidden="true"></span></summary>
+        <dl class="gloss">
+          <div data-alias="וייב קודינג בנייה קוד"><dt>Vibe coding</dt><dd>לתאר מוצר במילים ולקבל קוד עובד, ואז לתקן בשיחה</dd></div>
+          <div data-alias="skill סקילים"><dt>סקיל</dt><dd>תהליך ארוז שמריצים שוב ושוב, ומקבלים ממנו תוצאה עקבית</dd></div>
+          <div data-alias="חיבור אם סי פי"><dt>MCP</dt><dd>חיבור שמאפשר למודל לפעול בתוך כלי חיצוני, למשל בפיגמה</dd></div>
+          <div data-alias="גיטהאב פייג'ס אוויר אחסון"><dt>GitHub Pages</dt><dd>שירות שהופך ריפו לאתר חי בכתובת אמיתית, בחינם</dd></div>
+          <div data-alias="אפליקציה מסך הבית"><dt>PWA</dt><dd>אתר שמתנהג כאפליקציה, ואפשר להוסיף אותו למסך הבית של הטלפון</dd></div>
+          <div data-alias="responsive מובייל דסקטופ"><dt>ריספונסיב</dt><dd>עיצוב שמשנה מבנה לפי רוחב המסך, ולא רק מקטין הכל</dd></div>
+          <div data-alias="הובר ריחוף מצב"><dt>Hover state</dt><dd>מראה הרכיב כשהעכבר עליו. מסמן שאפשר ללחוץ</dd></div>
+          <div data-alias="scrubbing גלילה וידאו"><dt>וידאו סקראבינג</dt><dd>גלילה שמניעה וידאו קדימה ואחורה במקום להפעיל אותו</dd></div>
+          <div data-alias="event אנליטיקה מדידה"><dt>אירוע</dt><dd>פעולה שמדדנו: לחיצה, שליחה, הרשמה. הבסיס לכל ניתוח</dd></div>
+          <div data-alias="funnel נשירה"><dt>משפך</dt><dd>רצף אירועים מכניסה ועד הצלחה, שמראה איפה אנשים נושרים</dd></div>
+        </dl>
+      </details>
+
+    </div>
+    <p class="no-results" id="gnone" hidden>לא נמצא מושג שמתאים לחיפוש.</p>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="sec-head">
+      <h2>הכלים</h2>
+      <button class="sec-toggle" type="button" data-collapse="toolsBody" aria-controls="toolsBody" aria-expanded="false">הרחב <span class="chev" aria-hidden="true"></span></button>
+    </div>
+    <p class="section-note">מה שימשנו למה, כמה זה עולה, ואיפה זה נכנס בקורס.</p>
+
+    <div class="collapsible" hidden id="toolsBody">
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>כלי</th><th>למה</th><th>עלות</th><th>איפה בקורס</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Figma</td><td>עיצוב מסכים, מערכת עיצוב, קומפוננטות וטוקנים</td><td class="cost">בתשלום</td><td>שפה ויזואלית ובנייה</td></tr>
+          <tr><td>FigJam</td><td>לוחות מחקר, מפות מסע וסייטמאפ</td><td class="cost">חינמי עד 3 לוחות</td><td>כל שלב המחקר</td></tr>
+          <tr><td>Claude</td><td>מחקר, כתיבה, הרצת הסקילים ובנייה חיה</td><td class="cost">בתשלום</td><td>לאורך כל הקורס</td></tr>
+          <tr><td>claude.ai/code</td><td>בנייה ועריכה בדפדפן, בלי התקנות ובלי טרמינל</td><td class="cost">כלול ב-Claude</td><td>עלייה לאוויר</td></tr>
+          <tr><td>ChatGPT</td><td>PRD, מיקרוקופי, ומודל תמונה לסטייל גייד ולאסטים</td><td class="cost">בתשלום</td><td>מ-PRD למסכים</td></tr>
+          <tr><td>Midjourney</td><td>מוד בורד וקונספטים ויזואליים</td><td class="cost">בתשלום</td><td>כיוון ויזואלי</td></tr>
+          <tr><td>Coolors</td><td>בניית פלטות צבע והחלפה מהירה</td><td class="cost">חינמי</td><td>צבע</td></tr>
+          <tr><td>Adobe Color</td><td>סכמות צבע וחילוץ פלטה מתמונה</td><td class="cost">חינמי</td><td>צבע</td></tr>
+          <tr><td>Realtime Colors</td><td>לראות פלטה על ממשק אמיתי לפני שמחליטים</td><td class="cost">חינמי</td><td>צבע</td></tr>
+          <tr><td>Khroma, Huemint, Color Hunt</td><td>מקורות השראה נוספים לפלטות</td><td class="cost">חינמי</td><td>צבע</td></tr>
+          <tr><td>WebAIM Contrast Checker</td><td>בדיקת יחס ניגודיות בין טקסט לרקע</td><td class="cost">חינמי</td><td>נגישות</td></tr>
+          <tr><td>GitHub ו-GitHub Pages</td><td>אחסון הקוד, וכתובת חיה בלי שרת</td><td class="cost">חינמי</td><td>עלייה לאוויר</td></tr>
+          <tr><td>Base44</td><td>בניית מוצר מפרומפט, בלי לגעת בקוד</td><td class="cost">חינמי מוגבל</td><td>בנייה מהירה</td></tr>
+          <tr><td>Lovable</td><td>בניית אתר או ממשק מפרומפט</td><td class="cost">בתשלום</td><td>בנייה מהירה</td></tr>
+          <tr><td>Microsoft Clarity</td><td>מפות חום והקלטות סשן</td><td class="cost">חינמי</td><td>מדידה, רשות</td></tr>
+          <tr><td>Google Analytics 4</td><td>תנועה, אירועים ומשפכים</td><td class="cost">חינמי</td><td>מדידה, רשות</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </section>
+
+  <footer>
+    קורס 45900, AI Product Design &amp; UX/UI, John Bryce. הוכן על ידי אייל גרשון למפגש הסיום, 3 בספטמבר 2026.
+  </footer>
+</div>
+
+<button class="totop" type="button" id="totop" aria-label="חזרה לראש הדף">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+  document.querySelectorAll(".copy").forEach(function (btn) {
+    btn.addEventListener("click", function (ev) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      var pre = btn.closest(".prompt").querySelector("pre");
+      var text = pre.innerText;
+      var done = function () {
+        var old = btn.textContent;
+        btn.textContent = "הועתק";
+        setTimeout(function () { btn.textContent = old; }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { fallback(text, done); });
+      } else {
+        fallback(text, done);
+      }
+    });
+  });
+
+  function fallback(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); done(); } catch (e) { /* no clipboard */ }
+    document.body.removeChild(ta);
+  }
+
+  var input = document.getElementById("gsearch");
+  var root = document.getElementById("gloss-root");
+  var none = document.getElementById("gnone");
+  var counter = document.getElementById("gcount");
+  var rows = Array.prototype.slice.call(root.querySelectorAll("dl.gloss > div"));
+  var groups = Array.prototype.slice.call(root.querySelectorAll(".gloss-group"));
+  var total = rows.length;
+
+  function setCount(n) {
+    counter.textContent = n === total ? total + " מושגים" : n + " מתוך " + total;
+  }
+
+  var preSearchOpen = null;
+
+  function paintGroupCounts() {
+    groups.forEach(function (g) {
+      var n = g.querySelectorAll("dl.gloss > div:not([hidden])").length;
+      var badge = g.querySelector(".g-count");
+      if (badge) { badge.textContent = n; }
+    });
+  }
+
+  function filter() {
+    var q = input.value.trim().toLowerCase();
+
+    if (q && !preSearchOpen) {
+      preSearchOpen = groups.map(function (g) { return g.open; });
+    }
+
+    var shown = 0;
+    rows.forEach(function (row) {
+      var hay = (row.textContent + " " + (row.getAttribute("data-alias") || "")).toLowerCase();
+      var match = !q || hay.indexOf(q) !== -1;
+      row.hidden = !match;
+      if (match) { shown++; }
+    });
+
+    groups.forEach(function (g, i) {
+      var any = g.querySelector("dl.gloss > div:not([hidden])");
+      g.hidden = !any;
+      if (q) { g.open = !!any; }
+      else if (preSearchOpen) { g.open = preSearchOpen[i]; }
+    });
+
+    if (!q) { preSearchOpen = null; }
+
+    none.hidden = shown > 0;
+    setCount(shown);
+    paintGroupCounts();
+  }
+
+  setCount(total);
+  paintGroupCounts();
+  input.addEventListener("input", filter);
+
+  /* light and dark mode */
+  var root = document.documentElement;
+  var themeBtn = document.getElementById("theme");
+  var THEME_KEY = "jb45900-theme";
+  var media = window.matchMedia("(prefers-color-scheme: dark)");
+
+  function stored() {
+    try { return localStorage.getItem(THEME_KEY); } catch (e) { return null; }
+  }
+  function resolved() {
+    var attr = root.getAttribute("data-theme");
+    if (attr === "dark" || attr === "light") { return attr; }
+    return media.matches ? "dark" : "light";
+  }
+  function paint() {
+    themeBtn.classList.toggle("is-dark", resolved() === "dark");
+    themeBtn.setAttribute("aria-pressed", resolved() === "dark" ? "true" : "false");
+  }
+
+  var saved = stored();
+  if (saved === "dark" || saved === "light") { root.setAttribute("data-theme", saved); }
+  paint();
+
+  themeBtn.addEventListener("click", function () {
+    var next = resolved() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* storage unavailable */ }
+    paint();
+  });
+
+  media.addEventListener("change", function () { if (!stored()) { paint(); } });
+
+  /* collapse and expand */
+  var sectionToggles = {};
+
+  document.querySelectorAll(".sec-toggle[data-collapse]").forEach(function (btn) {
+    var body = document.getElementById(btn.getAttribute("data-collapse"));
+    var section = btn.closest("section");
+    if (section) { sectionToggles[section.id] = { btn: btn, body: body }; }
+
+    function set(open) {
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      btn.firstChild.nodeValue = open ? "כווץ " : "הרחב ";
+      body.hidden = !open;
+    }
+    btn.addEventListener("click", function () {
+      set(btn.getAttribute("aria-expanded") !== "true");
+    });
+    if (section) { sectionToggles[section.id].set = set; }
+  });
+
+  function expandSection(id) {
+    var t = sectionToggles[id];
+    if (t && t.set && t.btn.getAttribute("aria-expanded") !== "true") { t.set(true); }
+  }
+
+  var promptCards = Array.prototype.slice.call(document.querySelectorAll("details.prompt"));
+  var ruleGroups = Array.prototype.slice.call(document.querySelectorAll("details.rulegroup, details.gloss-group"));
+
+  /* print with everything open */
+  var printState = null;
+  function beforePrint() {
+    printState = {
+      prompts: promptCards.map(function (d) { return d.open; }),
+      groups: ruleGroups.map(function (d) { return d.open; }),
+      bodies: Array.prototype.slice.call(document.querySelectorAll(".collapsible")).map(function (el) { return el.hidden; })
+    };
+    promptCards.forEach(function (d) { d.open = true; });
+    ruleGroups.forEach(function (d) { d.open = true; });
+    document.querySelectorAll(".collapsible").forEach(function (el) { el.hidden = false; });
+  }
+  function afterPrint() {
+    if (!printState) { return; }
+    promptCards.forEach(function (d, i) { d.open = printState.prompts[i]; });
+    ruleGroups.forEach(function (d, i) { d.open = printState.groups[i]; });
+    document.querySelectorAll(".collapsible").forEach(function (el, i) { el.hidden = printState.bodies[i]; });
+    printState = null;
+  }
+  window.addEventListener("beforeprint", beforePrint);
+  window.addEventListener("afterprint", afterPrint);
+
+  /* navigation: sticky bar, active section, back to top */
+  var bar = document.querySelector(".topbar");
+  var nav = document.querySelector("nav.chips");
+  var navLinks = Array.prototype.slice.call(nav.querySelectorAll("a"));
+  var sections = navLinks
+    .map(function (a) { return document.querySelector(a.getAttribute("href")); })
+    .filter(Boolean);
+  var toTop = document.getElementById("totop");
+  var current = null;
+  var ticking = false;
+
+  function centreChip(link) {
+    var barBox = nav.getBoundingClientRect();
+    var chipBox = link.getBoundingClientRect();
+    if (chipBox.left < barBox.left + 8 || chipBox.right > barBox.right - 8) {
+      nav.scrollBy({
+        left: chipBox.left - barBox.left - (barBox.width - chipBox.width) / 2,
+        behavior: "smooth"
+      });
+    }
+  }
+
+  function sync() {
+    ticking = false;
+    var y = window.scrollY || document.documentElement.scrollTop;
+
+    bar.classList.toggle("stuck", bar.getBoundingClientRect().top <= 1);
+    toTop.classList.toggle("show", y > 700);
+
+    var active = sections[0];
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].getBoundingClientRect().top <= 90) { active = sections[i]; }
+    }
+    var atEnd = window.innerHeight + y >= document.body.scrollHeight - 4;
+    if (atEnd) { active = sections[sections.length - 1]; }
+
+    if (active !== current) {
+      current = active;
+      navLinks.forEach(function (a) {
+        var on = a.getAttribute("href") === "#" + active.id;
+        if (on) { a.setAttribute("aria-current", "true"); centreChip(a); }
+        else { a.removeAttribute("aria-current"); }
+      });
+    }
+  }
+
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(sync); }
+  }
+
+  navLinks.forEach(function (a) {
+    a.addEventListener("click", function (ev) {
+      var id = a.getAttribute("href").slice(1);
+      var target = document.getElementById(id);
+      if (!target) { return; }
+      ev.preventDefault();
+      expandSection(id);
+      requestAnimationFrame(function () {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        history.replaceState(null, "", "#" + id);
+      });
+    });
+  });
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+
+  toTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  sync();
+</script>
+</body>
+</html>
