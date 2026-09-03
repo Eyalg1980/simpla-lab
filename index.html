@@ -213,7 +213,7 @@
 <h2>דפי עבודה</h2>
 
 <div class="rows" style="--c:#1B2D6B;--c-soft:#E9ECF5">
-  <a class="row" href="https://eyalg1980.github.io/simpla-lab/jb53500/">
+  <a class="row" href="https://eyalg1980.github.io/simpla-lab/jb53500/" data-meta="jb53500/meta.json">
     <span class="r-dot"></span>
     <span class="r-name"><b>מיישם AI ואוטומציה · מרחב עבודה</b><span>John Bryce · 53500 · סילבוס אוגוסט 2026</span></span>
     <span class="go"><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></span>
@@ -393,6 +393,21 @@
 <div class="empty">פרויקטים חדשים יתווספו לכאן<br>אותה שפה: הדר סטיקי, צבע אחד לאפליקציה, אייקונים בצבע אחד</div>
 
 <footer>Simpla Lab · נבנה עם Claude · תוכן: 3.9.2026</footer>
+
+<script>
+/* Rows that point at a workspace read their subtitle from that workspace's own
+   meta.json, so the list never drifts from what is actually live. If the fetch
+   fails, offline or opened as a local file, the static text stays. */
+(function(){
+  document.querySelectorAll('a.row[data-meta]').forEach(function(a){
+    var sub=a.querySelector('.r-name span'); if(!sub) return;
+    fetch(a.dataset.meta+'?v='+Date.now(),{cache:'no-store'})
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(m){ if(m && m.version) sub.textContent=m.version; })
+      .catch(function(){});
+  });
+})();
+</script>
 
 </body>
 </html>
