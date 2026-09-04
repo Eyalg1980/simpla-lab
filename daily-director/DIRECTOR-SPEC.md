@@ -7,36 +7,14 @@ You are generating today's edition of Eyal Gershon's daily video-ideas brief ("�
 ## Who Eyal is (for idea selection)
 Founder of Simpla (UX+AI studio, Tel Aviv), teaches UX/AI at John Bryce, heavy Higgsfield user (Cinema Studio, Kling, Veo, Nano Banana, Shorts Studio), HeyGen for avatars, trained LoRAs on Fal.ai (empathyportrait/moments/movement), made a Weavy short film. His content worlds for video: וידאו ארט, סרטוני הסבר (AI/UX/סקילים), קונספטואלי, סרטוני תחרויות, תיעוד תהליך.
 
-## מוד תחרויות (פעיל מ-11.8.2026 עד 3.9.2026, ואז חוזרים לזרימה הרגילה)
+## מוד תחרויות (הסתיים 3.9.2026)
 
-החודש הזה כולו ממוקד בתחרויות היגספילד ובפסטיבלי ה-AI הפתוחים. עד שהפסטיבל הגלובלי נסגר ב-3.9, **כל רעיון יומי חייב להיות רעיון תחרות**, לא רעיון תוכן. אחרי 3.9 לחזור לתמהיל הרגיל ולמחוק את הסעיף הזה, אחרת הוא ייצור דריפט.
-
-מה זה משנה בזרימה היומית:
-
-- **אורך: שלוש עד ארבע דקות, לא חצי דקה.** Higgsfield Global Film Festival דורש מינימום שלוש דקות, ואסטנה פוסלת אוטומטית סרטים קצרים מזה. רעיון שלא מחזיק שלוש דקות בלי להתנפח לא נכתב בחודש הזה, אלא אם הוא מיועד במפורש לאדתון (30 עד 60 שניות).
-- **שני יעדים, לא אחד.** כל רעיון נכתב כך שיתאים גם ל-Higgsfield GFF (סוגר 3.9) וגם ל-Astana (סוגר 31.8). שלושה ימי הפרש בלבד, אותו סרט נכנס לשתיהן.
-- שדה `competition` על הרעיון הוא **חובה** בחודש הזה, לא אופציונלי.
-- הרעיון היומי מגיע עם `execution` שכולל את **האורך המתוכנן בדקות** ואת המסגרת הדיאגטית שנבחרה.
-
-**המנגנונים שמנצחים, מתוך ניתוח הזוכים של 11.8.** כל רעיון חדש חייב לשבת על לפחות שלושה מהם:
-
-1. **פורמט מושאל שמתיר מראש את הפגמים.** מוקומנטרי, פרסומת מזויפת, ראיון מבוים, קריינות סרט טבע, מצלמת אבטחה, וידאו בית, מונטאז' תצלומים. זה המכשיר החוזר ביותר אצל הזוכים, כי הצופה כבר מצפה שהפורמט הזה יהיה מחוספס ומקוטע.
-2. **רעיון אחד, מקום אחד, דמות אחת או שתיים, וחזרה לנקודת ההתחלה.** מבנה של אוסף וינייטות נקרא כסליל פרומפטים והוא הביקורת המצוטטת ביותר נגד הגשות חלשות.
-3. **קריינות עברית או שתיקה מלאה, לא דיאלוג מסונכרן ממושך.** קריינות בשפה שאינה אנגלית מצוטטת שוב ושוב על ידי חברי שופטים כאות אותנטיות, כלומר עברית היא נכס ולא מחסום. סרט חסר מילים לחלוטין לקח פרס ראשון.
-4. **פנים מבוגרות, אסימטריות או לא שגרתיות, או גיבור לא אנושי.** חיה, אובייקט או מכונה. פנים צעירות וסימטריות נופלות לעמק המפלצות, פנים מקומטות נקראות כאופי.
-5. **סוף שהוא שינוי קטן במודעות, לא פאנץ' ולא נשיקה.**
-6. **אהבה לא סימטרית**, כשהרעיון רומנטי: מישהו שאוהב יותר, מישהו שלא יודע שהוא נאהב, או אהבה שקיימת רק בצד אחד.
-
-**מה לא לכתוב בכלל בחודש הזה, כי זה מתפרק ריאליסטית:** המונים, מכוניות ותנועה, אנשים צעירים ויפים כלליים, שיחות מסונכרנות של שני אנשים לאורך זמן, כל שוט שתלוי באותה דמות זהה בעשרה קאטים באותו לבוש, הליכה או ריצה של גוף שלם בגיאוגרפיה, ומורפינג בין סביבות בלי סיבה נרטיבית.
-
-**דירוג הז'אנרים לפי מה שבאמת לוקח פרס ראשון:** זיכרון ואובדן וקרבה, אחר כך מסה מושגית, אחר כך קומדיה וסאטירה, אחר כך רומנטיקה, אחר כך מדע בדיוני, אחר כך אימה, ואחרון אקשן. **אקשן הוא הליגה החלשה, אפס פרסים גדולים בכל התחרויות שנבדקו**, אז לא לכתוב רעיונות אקשן בחודש הזה.
-
-בנק הרעיונות של מחזור 1 (18 רעיונות, 11.8) והניתוח המלא שמאחורי הסעיף הזה נמסרו לאייל כשני מסמכים. **לפני שכותבים רעיון חדש, לבדוק שהוא לא כבר שם**, במיוחד: שכן, שתי כפיות, תרגום, טופס 43, מדריך שדה בסופר, ההוראות, סקירת מוצר הבן שלי, הצלם של החתונה, עברית לחתולים, סייר הסלון, מקום ארבע ג', הכלב שלמד שעון חדש, מי גר בקיר, מי מלמד את המכונה עברית, השיעור האחרון, הדבר האחרון שאמא שמרה, תעודת יושר, ואנתולוגיית ביוגרפיה של אובייקט.
+היה פעיל מ-11.8.2026 עד 3.9.2026: כל רעיון יומי היה חייב להיות רעיון תחרות בלבד (שלוש עד ארבע דקות, יעד כפול Higgsfield GFF ואסטנה, שדה `competition` חובה, ששת המנגנונים המנצחים). הפסטיבל הגלובלי נסגר ב-3.9.2026, אסטנה נסגרה ב-31.8.2026, והזרימה חזרה לרגילה ב-4.9.2026 לפי ההוראה המפורשת שהייתה בסעיף הזה ("אחרי 3.9 לחזור לתמהיל הרגיל ולמחוק את הסעיף הזה"). הסעיף המלא, בנק 18 הרעיונות של מחזור 1, וניתוח ששת המנגנונים המנצחים נשארים בהיסטוריית ה-git של הקובץ הזה (לפני קומיט 4.9.2026) אם צריך לחזור אליהם בפעם הבאה שנפתח מוד תחרויות.
 
 ## Daily flow
 1. Read current `videos.json` and `competitions.json` first. Never repeat hooks from the last 14 days.
 2. Research fresh: AI video tool news, viral video formats, and NEW open competitions (sources: https://aifilmcontests.com/, https://open-arthouse.com/, https://higgsfield.ai/contests, https://www.kajimelo.com/ai-film-festivals). Verify deadlines on the competition's own site before adding.
-3. Write 2-3 new video ideas (Hebrew, Eyal's voice, no em dashes). **While מוד תחרויות above is active, every idea is a competition idea and obeys that section's length, mechanism and forbidden-subject rules.** Each idea: `world`, `hook` (one line), `concept` (2-3 sentences), `execution` (concrete: which Higgsfield/HeyGen tools, format, length, aspect ratios), `why` (why now), optional `competition` + `srcUrl`, and a **required `prompts` object** (see below). At least once a week: one idea that crosses with his post brainstormer content (same asset, two channels).
+3. Write 2-3 new video ideas (Hebrew, Eyal's voice, no em dashes). Each idea: `world`, `hook` (one line), `concept` (2-3 sentences), `execution` (concrete: which Higgsfield/HeyGen tools, format, length, aspect ratios), `why` (why now), optional `competition` + `srcUrl`, and a **required `prompts` object** (see below). At least once a week: one idea that crosses with his post brainstormer content (same asset, two channels).
 4. Update `competitions.json`: refresh `updated` date; mark passed deadlines as "נסגר" (keep 30 days then remove); add newly found competitions with 1-2 tailored ideas each; every idea must play to Eyal's unfair advantages (education, UX, Hebrew/Israeli angle, clay/LoRA visual languages).
 5. Add up to 2 "שווה צפייה" items per day (real links only).
 6. When Eyal sends inspiring videos, analyze format/technique and add to `inspiration.json` with a one-line "מה לגנוב מזה" desc.
