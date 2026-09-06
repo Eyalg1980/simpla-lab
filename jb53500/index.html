@@ -431,13 +431,13 @@ td b{color:var(--ink)}
   .ttab.on{border-style:solid}
   .ttab small{display:none}
 }
-.term{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);transition:.15s}
+.term{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);transition:.15s;display:flex;flex-direction:column}
 .term:hover{border-color:var(--coral);transform:translateY(-2px)}
 .term .h{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:7px}
 .term h4{font-size:16.5px;font-weight:700;color:var(--navy);line-height:1.3}
 .term .lat{font-family:'Poppins',sans-serif;font-size:13.5px;color:var(--ink-2);direction:ltr;text-align:right;display:block;margin-top:3px;font-weight:500;letter-spacing:.01em}
-.term p{font-size:14px;color:var(--ink-2)}
-.term .foot{margin-top:11px;padding-top:10px;border-top:2px dashed var(--dash);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.term p{font-size:14px;color:var(--ink-2);margin-bottom:11px}
+.term .foot{margin-top:auto;padding-top:10px;border-top:2px dashed var(--dash);display:flex;justify-content:space-between;align-items:center;gap:8px}
 .term .where{font-size:12px;color:var(--ink-3)}
 .count{font-size:13px;color:var(--ink-3);margin-bottom:14px}
 .empty{grid-column:1/-1;text-align:center;padding:60px 0;color:var(--ink-3)}
