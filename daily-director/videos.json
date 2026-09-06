@@ -1,6 +1,61 @@
 {
   "days": [
     {
+      "date": "2026-09-06",
+      "ideas": [
+        {
+          "id": "2026-09-06-1",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "כפתור אחד שהיה חמישה גוונים שונים של אפור מנוטרל בקבצים שלך, השבוע הופך לקו אחד שמתעדכן מאליו בכל מקום שהוא מופיע.",
+          "concept": "פתיחה על שדה של ריבועים זהים, כל אחד עם גוון אפור מעט שונה ושרשרת שבורה מתחתיו, כאילו כל אחד מנותק ולבד. ואז, בשוט אחד, קו זהב דק מתחיל לזחול ולחבר את כולם, וכל הריבועים דוהים באחידות לאותו גוון בדיוק ברגע שהקו נוגע בהם. מבוסס על עדכון פיגמה מ-3.9.2026, שליטה על אופסיטי דרך משתנים בלי לנתק קומפוננטות מהספרייה. אותו נכס בדיוק עומד גם ברעיון הראשון של הבריינסטורמר של היום, נכס אחד, שני ערוצים.",
+          "execution": "שפת editorial kinetic, רקע פחם עמוק, טיפוגרפיה קינטית מינימלית, קריינות עברית קצרה של אייל או HeyGen, פריימים ב-Nano Banana, אנימציה ב-Kling 3, 40 עד 50 שניות, 9:16 ראשי ועותק 1:1 לפיד, בלי דיאלוג מעבר לקריינות.",
+          "why": "העדכון יצא ב-3.9.2026, שלושה ימים לפני הריצה הזו, וזה בדיוק סוג הרעיון שממחיש שינוי טכני מופשט בלי להסביר אותו במילים כבדות.",
+          "competition": null,
+          "srcUrl": "https://releasebot.io/updates/figma",
+          "srcLabel": "Releasebot, סיכום עדכוני Figma",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, 9:16. A field of five identical square icons sits in frame, each a slightly different shade of grey with a small broken chain link glyph beneath it, then a thin glowing golden thread slowly crawls in from the left connecting them one by one, and each square fades to the exact same soft grey tone the instant the thread touches it, calm confident pacing, single warm accent light, English placeholder typography only, leave clear negative space in the lower third for Hebrew titling added in edit.",
+            "script": "פתח לי את רעיון הווידאו \"הקו שמחבר את האפור\" לסטוריבורד מלא במבנה הסדרה: לוגליין, סינופסיס, שוט-ליסט של 6 עד 8 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: עדכון פיגמה מ-3.9.2026, שליטה על אופסיטי דרך משתנים בלי ניתוק קומפוננטות מהספרייה. שפת editorial kinetic, קריינות עברית קצרה.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. Five identical square icons in a row, each a slightly different shade of grey, a thin glowing golden thread running through all of them connecting them together, no text, no logos, 1:1",
+            "raw": "הוק: כפתור אחד שהיה חמישה גוונים שונים של אפור מנוטרל בקבצים שלך, השבוע הופך לקו אחד שמתעדכן מאליו בכל מקום שהוא מופיע.\nעולם: סרטוני הסבר\nקונספט: ריבועים מנותקים בגוני אפור שונים מתחברים לקו זהב אחד ודוהים לאותו גוון בבת אחת. מבוסס על עדכון פיגמה מ-3.9.2026 על אופסיטי כמשתנה.\nביצוע: editorial kinetic, קריינות עברית קצרה, Nano Banana לפריימים, Kling 3 לאנימציה, 40 עד 50 שניות, 9:16 ראשי ו-1:1.\nלמה עכשיו: העדכון יצא לפני שלושה ימים, ואותו נכס בדיוק עומד גם ברעיון הראשון של הבריינסטורמר היום, נכס אחד שני ערוצים."
+          }
+        },
+        {
+          "id": "2026-09-06-2",
+          "world": "וידאו ארט",
+          "color": "#71F73C",
+          "hook": "פרק 7: הסמן, היד שלא באמת שם. חץ קטן שהוא לא אצבע ולא עכבר, רק הבטחה משותפת שכולנו הסכמנו להאמין בה.",
+          "concept": "משטח חימר, יד קטנה מפלסטלינה מנסה לגעת ישירות במסך ונתקלת בזכוכית קרה. ואז חץ פשוט וחד מופיע במקומה ומתחיל לזוז חלק על פני האובייקטים, כאילו הוא זה שבאמת שם. בסוף, כשהיד מוותרת ונעלמת, החץ ממשיך לבד, כאילו תמיד היה הוא הדמות האמיתית מההתחלה. הסמן נולד כפתרון לבעיה טכנית של עכבר שאין לו אצבעות, וב-2026, עם ממשקי מגע וסוכני AI שמזיזים סמנים בעצמם, הוא כבר לא מובן מאליו כמו שהיה.",
+          "execution": "שפת קליי, פריימי פתיחה ב-Nano Banana, אנימציה ב-Higgsfield Cinema Studio, 45 עד 55 שניות, 9:16 ראשי ועותק 1:1 לפיד, בלי דיאלוג, רק צליל קליק עדין בכל נגיעה של הסמן.",
+          "why": "בשיעור הבונוס על עשר ההתנהגויות המודרניות באתרים יש כבר סעיף שלם על סמנים מותאמים אישית, וזה נכס טבעי לפרק הבא בסדרה בלי לחכות לתחרות או לחדשות.",
+          "competition": null,
+          "srcUrl": "https://eyalg1980.github.io/simpla-lab/hachug-sheli/",
+          "srcLabel": "10 התנהגויות מודרניות באתרים, שיעור בונוס C, סמנים מותאמים אישית",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A small clay hand reaches forward to touch a smooth glass screen directly and stops short against the cold surface, then a simple sharp black arrow cursor pops into frame in its place and glides smoothly across small clay UI objects on the screen, by the end the clay hand quietly withdraws and disappears while the arrow keeps moving on its own as if it were always the real character, static camera, gentle deliberate pacing, warm soft lighting, no text overlay, no logos.",
+            "script": "פתח לי את רעיון הווידאו \"פרק 7: הסמן\" לסטוריבורד מלא במבנה הסדרה: לוגליין, סינופסיס, שוט-ליסט של 6 עד 8 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן: תולדות הסמן כפתרון לבעיה שלעכבר אין אצבעות, ואיך ממשקי מגע וסוכני AI שמזיזים סמנים בעצמם ב-2026 הופכים אותו לפחות מובן מאליו. שפת קליי, בלי דיאלוג, רק קליקים עדינים.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. A small clay hand stopped just short of touching a glass screen, a simple sharp black arrow cursor floating just beyond the glass in its place, no text, no logos, 1:1",
+            "raw": "הוק: פרק 7: הסמן, היד שלא באמת שם. חץ קטן שהוא לא אצבע ולא עכבר, רק הבטחה משותפת שכולנו הסכמנו להאמין בה.\nעולם: וידאו ארט\nקונספט: יד חימר מוותרת על נגיעה ישירה במסך, חץ סמן ממשיך במקומה עד שהוא נראה כמו הדמות האמיתית. פרק 7 בסדרת ביוגרפיה של אובייקט.\nביצוע: שפת קליי, Nano Banana לפריימים, Higgsfield Cinema Studio לאנימציה, 45 עד 55 שניות, 9:16 ראשי ו-1:1.\nלמה עכשיו: סמנים מותאמים אישית כבר בשיעור הבונוס על עשר ההתנהגויות המודרניות, פרק טבעי בסדרה בלי לחכות לחדשות."
+          }
+        }
+      ],
+      "watch": [
+        {
+          "title": "Control Opacity at Scale",
+          "desc": "המקור לרעיון הראשון של היום, שליטה על אופסיטי כמשתנה בלי ניתוק קומפוננטות.",
+          "meta": "Releasebot · 3.9",
+          "url": "https://releasebot.io/updates/figma"
+        },
+        {
+          "title": "Using AI for UX Work: Study Guide",
+          "desc": "למה תפקיד ה-UX זז מעיצוב ממשק להגדרת כוונה ופיקוח על AI.",
+          "meta": "Nielsen Norman Group · 4.9",
+          "url": "https://www.nngroup.com/articles/ai-work-study-guide/"
+        }
+      ]
+    },
+    {
       "date": "2026-09-04",
       "ideas": [
         {
