@@ -1,6 +1,61 @@
 {
   "days": [
     {
+      "date": "2026-09-07",
+      "ideas": [
+        {
+          "id": "2026-09-07-1",
+          "world": "סרטוני תחרויות",
+          "color": "#71F73C",
+          "hook": "פרק 8 בסדרת ביוגרפיה של אובייקט, הגלילה האינסופית, ופעם ראשונה שפרק יוצא ישר להגשה בפסטיבל בלי לעבור קודם דרך האנתולוגיה",
+          "concept": "יד חימר ממשיכה לגלגל דף נייר ארוך בלי סוף נראה לעין, בזמן שקריינות עברית קצרה מספרת על ההרגל שנולד ב2006 כשפלטפורמה אחת הבינה שאם אין כפתור עמוד הבא, אין רגע עצירה שבו המשתמש שואל את עצמו אם להמשיך לגלול. השוט האחרון מראה את אותה יד, עכשיו קטנה בפינת המסך, ממשיכה לגלגל דף אחרי שהעין כבר עזבה, בדיוק כמו סוכן AI שממשיך לענות אחרי שאף אחד לא ביקש עוד.",
+          "execution": "שפת קליי, פריימי פתיחה ב-Nano Banana, אנימציה ב-Higgsfield Cinema Studio, 45 שניות, 9:16 ראשי, קריינות עברית מוקלטת בנפרד ומחוברת בעריכה, בלי דיאלוג נוסף.",
+          "why": "בוסאן, פסטיבל AI בקוריאה, דדליין 11.9.2026 שאומת ישירות מול FilmFreeway ב4.9.2026, הגשה חינם ובלי הגבלת אורך, אבל הגשה אחת בלבד לאדם, אז עדיף לבחור עכשיו איזה פרק הולך לשם ולא ברגע האחרון.",
+          "competition": "Busan International AI Film Festival (BIAIF), דדליין 11.9.2026 23:59 KST, אומת ישירות מול FilmFreeway ב4.9.2026, הגשה חינם, בלי הגבלת אורך, הגשה אחת לאדם, סרטים שהופקו אחרי ספטמבר 2025, כתוביות אנגלית לדיאלוג לא אנגלי",
+          "srcUrl": "https://filmfreeway.com/BIAIF",
+          "srcLabel": "Busan International AI Film Festival, FilmFreeway",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A small clay hand continuously scrolls an endless strip of paper downward across a tabletop, the paper never showing an end, by the final beat the same hand is now small in the corner of frame still scrolling the paper long after the eye would have looked away, static camera, steady unhurried rolling motion, warm soft lighting, no text overlay, no logos.",
+            "script": "פתח לי את רעיון הווידאו \"פרק 8: הגלילה האינסופית\" לסטוריבורד מלא במבנה הסדרה, לוגליין, סינופסיס, שוט-ליסט של 6 עד 8 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן, תולדות הגלילה האינסופית מ2006, האתר הראשון שהבין שבלי כפתור עמוד הבא אין רגע עצירה, והקבלה לסוכן AI שממשיך לענות בלי שביקשו עוד. שפת קליי, קריינות עברית קצרה, מיועד להגשה לבוסאן.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. A small clay hand mid scroll of an endless strip of clay textured paper trailing off past the frame edge, no visible end to the paper, no text, no logos, 1:1",
+            "raw": "הוק: פרק 8 בסדרת ביוגרפיה של אובייקט, הגלילה האינסופית, ופעם ראשונה שפרק יוצא ישר להגשה בפסטיבל בלי לעבור קודם דרך האנתולוגיה.\nעולם: סרטוני תחרויות\nתחרות: Busan International AI Film Festival, דדליין 11.9.2026, הגשה חינם בלי הגבלת אורך, הגשה אחת לאדם.\nקונספט: יד חימר מגלגלת דף נייר אינסופי, קריינות עברית מספרת את תולדות הגלילה האינסופית מ2006 ומקבילה לסוכן AI שממשיך לענות בלי שביקשו.\nביצוע: שפת קליי, Nano Banana לפריימים, Higgsfield Cinema Studio לאנימציה, 45 שניות, 9:16.\nלמה עכשיו: בוסאן סוגר בעוד ארבעה ימים, הגשה חינם בלי הגבלת אורך אבל רק הגשה אחת לאדם."
+          }
+        },
+        {
+          "id": "2026-09-07-2",
+          "world": "תיעוד תהליך",
+          "color": "#71F73C",
+          "hook": "מה שקורה בסטודיו לפני שהלקוח הראשון מתעורר, בקריינות של סרט טבע בריטי כבד ורציני",
+          "concept": "בוקר רגיל בסטודיו, אבל בקצב ובטון של תיעוד טבע יוקרתי. קריינות כבדה מלווה יד שפותחת כלי אחרי כלי על אותו מסך, כאילו מדובר בטקס בוקר של יצור נדיר ולא בעוד יום עבודה. הבדיחה היא הפער בין החומרה של הטון לבין מה שבאמת קורה על המסך, פתיחת קלוד, פתיחת פיגמה, כוס קפה שמתקררת ליד המקלדת.",
+          "execution": "צילום לייב אקשן על שולחן עבודה אמיתי או פריימים שנוצרו וממוזערים, שפת optimistic near-future, 40 שניות, 9:16 ראשי, קריינות עברית כבדה בסגנון תיעודי, בלי דיאלוג נוסף.",
+          "why": "קריינות תיעודית כבר הוכיחה את עצמה החודש בתחרויות בגלל שהיא מתירה כל פגם חזותי, שווה לבדוק אם הפורמט עובד גם כתוכן שוטף בלי מסגרת תחרות, ולתעד את השגרה עצמה בשביל אנשים שרוצים לדעת איך נראית בפועל ריצה יומית של שלושה מנועים.",
+          "competition": null,
+          "srcUrl": "https://eyalg1980.github.io/simpla-lab/",
+          "srcLabel": "מהסטודיו של סימפלה, השגרה מאחורי שלושת המנועים היומיים",
+          "prompts": {
+            "video": "Optimistic near-future visual language, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field, 9:16. A hand opens one app window after another on a desk monitor in a sunlit studio, a coffee cup slowly cooling beside the keyboard, the camera holds a calm static angle throughout, unhurried documentary pacing, warm morning light through a window, no text overlay, no logos.",
+            "script": "פתח לי את רעיון הווידאו \"בוקר בסטודיו, קריינות סרט טבע\" לתסריט מלא, לוגליין, סינופסיס, שוט-ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן, שגרת בוקר אמיתית בסטודיו, פתיחת כלים על אותו מסך, קריינות עברית כבדה בטון של תיעוד טבע בריטי. בלי דיאלוג מעבר לקריינות.",
+            "image": "Optimistic near-future visual language, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field. A desk monitor showing an open design tool window, a coffee cup beside the keyboard, warm morning light through a window, no text, no logos, 1:1",
+            "raw": "הוק: מה שקורה בסטודיו לפני שהלקוח הראשון מתעורר, בקריינות של סרט טבע בריטי כבד ורציני.\nעולם: תיעוד תהליך\nקונספט: בוקר רגיל בסטודיו בקצב וטון של תיעוד טבע יוקרתי, הפער בין הטון הכבד לפעולות הפשוטות הוא הבדיחה.\nביצוע: לייב אקשן או פריימים ממוזערים, שפת optimistic near-future, 40 שניות, 9:16, קריינות עברית כבדה.\nלמה עכשיו: קריינות תיעודית הוכיחה עצמה החודש בתחרויות, שווה לבדוק כתוכן שוטף וגם לתעד את השגרה עצמה."
+          }
+        }
+      ],
+      "watch": [
+        {
+          "title": "Pixels of the Week, September 6 2026",
+          "desc": "סיכום שבועי שמצביע על מאמר Futurice בנושא דפוסי UX עקביים כתנאי לסקאלה של AI סוכנים.",
+          "meta": "Stéphanie Walter · 6.9",
+          "url": "https://stephaniewalter.design/blog/pixels-of-the-week-september-6-2026/"
+        },
+        {
+          "title": "BIAIF, Busan International AI Film Festival",
+          "desc": "עמוד ההגשה, דדליין 11.9.2026, בלי הגבלת אורך, הגשה אחת לאדם.",
+          "meta": "FilmFreeway",
+          "url": "https://filmfreeway.com/BIAIF"
+        }
+      ]
+    },
+    {
       "date": "2026-09-06",
       "ideas": [
         {
