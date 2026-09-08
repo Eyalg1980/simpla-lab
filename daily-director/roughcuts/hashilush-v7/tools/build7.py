@@ -326,7 +326,7 @@ S = [
  # 1.3s inside vo3, which the card-over-speech gate caught. The seconds go to
  # the persecutor's own medium rather than back to a cave cutaway, so the
  # chapter gets air instead of an interruption.
- (5.2,"clip","w_per",None,0),
+ (5.2,"slow","w_per",None,0),
  (3.2,"q3",None,None,0),
  # III. the persecutor, and the bullet time. All three shots regenerated from
  # one parent frame: same coat, same glass, and the third holds both men.
