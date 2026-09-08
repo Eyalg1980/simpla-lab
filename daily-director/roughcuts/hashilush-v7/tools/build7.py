@@ -28,32 +28,23 @@ A = {
  # lock was written once and pasted verbatim into all three prompts, and all
  # three took their man and their wardrobe from the trio1 frame, so it is
  # provably the same person three times.
- "so_res":"20260908_155545_7c92e302-97b5-4502-9139-13d658661eee",
- "so_vic":"20260908_155545_201f04b8-bc67-4882-99d6-b95d476c3e69",
- "so_per":"20260908_155545_477b91d1-4fe2-4722-8f4e-a64f13c12bf8",
  # THE TRUNK SHOT, from the floor: the rescuer and the persecutor lean over the
  # lens and look down into it. The camera is the victim. One frame that says the
  # whole triangle without a word.
- "trunk":"20260908_155545_fdb735d1-3639-42f5-a2fd-afd24f8651b4",
  # THE EMPTY WALL, one second before the glass is thrown. The ear scene cuts
  # AWAY at the moment of violence; the bullet time here is one continuous take
  # he approved after four rounds and cutting into it would destroy it, so the
  # withholding is moved to the beat BEFORE: the camera looks at the bare wall
  # while we already know what is coming. Generated from the take's own frame
  # with the man, the glass and every shard removed, so it is the same wall.
- "wall":"20260908_155546_84db969b-dd32-4f20-860e-f016653b00d7",
  # THE COFFEE TABLE ANGLE, the Wolf in Jimmie's kitchen: the camera sits on the
  # table and looks UP at the man serving. It lands one shot after the WIDE that
  # makes him small, so the chapter shows him tiny and then towering inside four
  # seconds, which is the rescuer's whole contradiction.
- "tbl":"20260908_155546_11f50a06-62f3-4e56-98eb-b56dd55051a0",
  # THREE OBJECT INSERTS inside the therapist blocks, the Landa cutaway. Each one
  # rhymes with something the film already owns: the open hand with the ochre
  # handprint, the glass with the glass that gets thrown, the inked triangle with
  # the confession that opens the film ("he drew me a triangle on a page").
- "ins_hand":"20260908_155545_9d64787a-132c-4eed-9265-06d0124fc811",
- "ins_glass":"20260908_155545_973d7a05-8ee0-4023-9a8a-c284dfdd3a5b",
- "ins_paper":"20260908_155546_8a0d22c8-408b-4c6b-8305-bf9a1339c513",
 }
 # ---- clips, keyed by their v6 shot number, copied verbatim from build6.py.
 # The key IS the v6 shot number; the comment is what that shot shows. Never
@@ -69,7 +60,6 @@ C = {
  10:"20260828_230849_989249d4-74a3-4951-b1f6-110338c7c668",  # phone at night
  11:"20260828_230804_151bd1ef-6566-49e8-a52b-789239805cb9",  # fixing the wall
  13:"20260828_230848_3ca5edb3-929c-4fef-ae4d-5bc699062bca",  # doorway at night
- 15:"20260829_082555_0ce0df82-74b1-49bb-9fbf-f78bd52a1ab3",  # cave, red figures
  19:"20260828_230803_8cdb2ab2-84e9-4c3d-a699-ff6d301c5943",  # leaning on the tool
  23:"20260828_230803_9c31c352-daf4-4914-b35d-6b155f51f8e1",  # hands in the lap
  29:"20260828_230848_ab8e2688-a584-4abe-aafb-aed0ea2763dc",  # pulling the hood up
@@ -103,6 +93,10 @@ DROPPED = {
  # cut 17: the forest opening replaced two cave-detail shots, and clip 3 said
  # the same thing as clip 59 in the coda.
  2:"the pigment bowl, cut to make room for the forest opening",
+ # cut 19: he asked for fewer cave cuts. The cave now FRAMES the film (the
+ # opening and the coda) and pays the wheel off once, and stops interrupting
+ # the three present-day chapters, which is where it was diluting them.
+ 15:"the cave red figures inside the rescuer chapter, an interruption",
  3:"the hand drawing on the wall, the coda already has that shot",
 }
 # cut 12: the same guard for the new-material keys, which live in N and were
@@ -123,6 +117,11 @@ DROPPED_N = {
  "orbit3":"folded into the single continuous take",
  "morph2":"the morph from the 3D therapist, replaced when he was repainted",
  "morph3":"the morph from the dark-haired painted therapist, wrong man",
+ # cut 19, the same thinning of the cave inside the chapters
+ "cave04v":"the cave flicker inside the victim chapter",
+ "cave05v":"the cave flicker inside the persecutor chapter",
+ "cave07v":"the cave flash inside the wheel, the wheel is dense enough",
+ # cut 19, the same thinning of the cave inside the chapters
 }
 assert not (set(C) & set(DROPPED)), "a dropped shot is back in C: %s" % (set(C) & set(DROPPED),)
 
@@ -133,9 +132,6 @@ N = {
  "mag1v":"20260829_092501_85dfde3a-bc89-43a4-a7b6-886ec8251bfc",
  "mag2v":"20260829_092501_41fd76d7-3699-4d3c-a6b3-45694a7ebb13",
  "mag3v":"20260829_092501_78a50459-6932-472a-901d-1c37714620ba",
- "cave04v":"20260829_092501_3816c537-3b5c-484c-b0f3-9ce464f12e3d",
- "cave05v":"20260829_092501_3909c7bc-7e56-41a8-9acb-3d5195e115a8",
- "cave07v":"20260829_092501_7756c659-aefb-49f9-bee1-fb4061d6594a",
  "cave08v":"20260829_092501_47215867-9383-411a-a4e6-d10848200a60",
  # THE BULLET TIME, rebuilt 29.8 as three shots from ONE parent frame so the
  # coat and the glass are the same object in all three. The lock strings were
@@ -162,7 +158,11 @@ N = {
  # confession now runs over someone walking toward the thing he is about to
  # understand rather than over a static wall.
  "fw1":"20260830_124846_419e2eb9-f12d-4b69-8ac9-02258623ae1f",  # forest, wide, walking away
- "fw2":"20260830_124846_59371aea-b58c-49ba-ba15-2f5e7a443e36",  # passing between the trunks
+ # CUT 19: the old fw2 had him reaching out and stroking a trunk, which he asked
+ # to replace. The new one is a LONG SHOT down a path curving away between very
+ # tall trunks with him small inside it and both hands at his sides. It also
+ # buys the opening a wider frame, which the opening needed anyway.
+ "fw2":"20260908_173946_5e0cc4ce-1e68-4e11-8044-dcadb157319f",  # the path between the trunks
  "fw3":"20260830_124905_1a205403-1a35-41f1-819c-220013c26851",  # stopped at the cave mouth
  "fw4":"20260830_124846_d7e2e4de-e78e-475c-84c0-d37e28f86e11",  # stepping into the dark
  # THREE CLOSE-UPS TRADED FOR AIR, one per chapter. The tight faces stay in the
@@ -188,6 +188,21 @@ N = {
  # and it arrives after the cut rate has already stopped -- accelerate, then a
  # dead stop, then the turn.
  "over_v":"20260908_155810_6c8bd051-b901-419d-835d-5f8c5580f23b",
+ # CUT 19: HE ASKED FOR THE NEW SCENES TO BE ANIMATED, and they now are, but
+ # the Tarantino grammar is kept on purpose: every one of these is a LOCKED
+ # camera. The prompts forbid every pan, tilt, zoom and push, and allow only
+ # what a real held shot has -- a breath, a blink, a jaw settling, dust in the
+ # light, water trembling in a glass. A standoff whose camera drifts stops being
+ # a standoff, so the movement here is inside the frame, never of it.
+ "so_res":"20260908_173855_21273ae6-447b-41b6-ad1e-0dd2fa4ac7bf",
+ "so_vic":"20260908_173854_d146cce2-33b5-4324-9b57-61bef84086c2",
+ "so_per":"20260908_173854_d3ce8105-694e-4430-98f1-9d0db42eb934",
+ "trunk":"20260908_173834_8685dabd-28b3-44ae-9f7b-b720c1ab39b4",
+ "wall":"20260908_173854_84118022-d0ee-432f-b35d-7266e089fe0c",
+ "tbl":"20260908_173836_76bae49c-72ab-4639-a4ac-bfc87b0821b0",
+ "ins_hand":"20260908_173834_cd2b1958-289f-40db-b7e9-ef9397acd0b6",
+ "ins_glass":"20260908_173854_a796ca76-c2a5-40c8-b4a3-fbec32df4660",
+ "ins_paper":"20260908_173834_d4b479fe-4d57-4704-a621-77f403aee336",
  "trio1":"20260829_184940_a7fd7250-4cc1-4da3-92ef-e5f94e377b41",  # long shot, all three in the room
  "trio2":"20260829_184940_e6153ab0-2b44-46ce-a43d-1bd7682c88c2",  # victim and persecutor face to face
  "trio3":"20260829_184940_4da49882-2ab8-4673-8e16-05377615e6f2",  # over the victim's shoulder
@@ -249,7 +264,9 @@ L = {
  16:"20260830_040714_8c5a8fdf-8caa-4d9a-aee5-87d13f233e23",  # 12s
  30:"20260830_040713_2a98a450-def6-4113-8b8e-d035439d4e00",  # 9s
  43:"20260830_040713_bf3f969c-5030-4b02-aa0a-ab246682e052",  # 8s
- 53:"20260830_040713_b952cfa8-af8c-4e9c-9794-4b0787b1081a",  # 10s
+ # CUT 19: regenerated at 12s from the FULL vo6 audio. At 10s the last 1.84
+ # seconds of the line played over his own frozen face in the morph.
+ 53:"20260908_173805_d2b01ffd-fdb5-4db9-8655-73d95031d7a9",  # 12.03s
 }
 
 # ---- the cut -----------------------------------------------------------------
@@ -270,19 +287,19 @@ S = [
  # an object. The block's TOTAL length never changes and the clip resumes at
  # exactly t+d, so the mouth stays synced to the voice and no mark moves.
  (3.0,"lip",6,1,0),
- (1.0,"dolly","ins_hand",None,0),
+ (1.0,"clip","ins_hand",None,0),
  (2.0,"lip",6,None,4.0),
  (8.0,"clip",8,None,0),                                   # EARTH ZOOM
  (3.2,"q1",None,None,0),
  # I. the rescuer
  (2.2,"clip",9,None,0),(1.8,"clip",10,None,0),(1.8,"clip",11,None,0),
  (3.6,"clip","w_res",None,0),
- (2.2,"dolly","tbl",None,0),   # THE WOLF ANGLE, from the coffee table looking up
- (1.8,"clip",13,None,0),(2.2,"clip",15,None,0),
+ (2.2,"clip","tbl",None,0),   # THE WOLF ANGLE, from the coffee table looking up
+ (1.8,"clip",13,None,0),
 
  # vo2, then the victim opens, then the card
  (5.2,"lip",16,2,0),
- (1.2,"dolly","ins_glass",None,0),          # the glass, two minutes before it is thrown
+ (1.2,"clip","ins_glass",None,0),          # the glass, two minutes before it is thrown
  (5.6,"lip",16,None,6.4),
  # the victim's chapter no longer OPENS on him: the camera comes in from
  # outside the house, through the window and two rooms, and finds him.
@@ -293,12 +310,11 @@ S = [
  (0.4,"punch","mag2v",None,0.2),
  (1.4,"black",None,None,0),                 # KILL BILL: absolute black, room tone only
  (3.4,"clip","w_vic",None,0),
- (2.6,"dolly","trunk",None,0),              # THE TRUNK SHOT: the camera is the victim
+ (2.6,"clip","trunk",None,0),              # THE TRUNK SHOT: the camera is the victim
  (0.4,"punch","mag3v",None,0.2),
  (2.4,"clip",19,None,0),
  (3.2,"q2",None,None,0),
  # II. the victim, the collage bursting
- (1.8,"clip","cave04v",None,0),
  (0.4,"punch","mag1v",None,1.6),
  (0.4,"punch","mag2v",None,1.6),
  (0.9,"punch","mag3v",None,2.6),
@@ -307,12 +323,11 @@ S = [
  # vo3, then the persecutor opens, then the card
  (9.0,"lip",30,3,0),
  (3.6,"clip","w_per",None,0),
- (1.6,"clip","cave05v",None,0),
  (3.2,"q3",None,None,0),
  # III. the persecutor, and the bullet time. All three shots regenerated from
  # one parent frame: same coat, same glass, and the third holds both men.
  (2.2,"clip",38,None,0),
- (1.0,"dolly","wall",None,0),   # the bare wall, one second before
+ (1.0,"clip","wall",None,0),   # the bare wall, one second before
  # one take: throw, flight, impact, and the camera coming round the frozen
  # glass to find the victim sitting behind it. No cut anywhere inside it.
  (10.0,"clip","bullet",None,0),
@@ -339,21 +354,26 @@ S = [
  # MIRRORED (the 180 cross, see EXTRA), then the faces, and only then the frame
  # stops moving and the god's eye turns.
  (3.4,"clip","trio1",5,0),                                # the geometry, all three in one room
- (1.6,"dolly","so_res",None,0),
- (1.3,"dolly","so_vic",None,0),
- (1.0,"dolly","so_per",None,0),
+ (1.6,"clip","so_res",None,0),
+ (1.3,"clip","so_vic",None,0),
+ (1.0,"clip","so_per",None,0),
  (2.2,"clip","trio2",None,0),                             # victim and persecutor, face to face
  (2.4,"clip","trio3",None,0),                             # over the shoulder, SCREEN DIRECTION FLIPPED
  (1.2,"flash","smile",None,0),(1.2,"flash","empty",None,0),(1.2,"flash","eyes",None,0),
  # "it is not a triangle. it is a wheel." -- and the frame is the wheel: three
  # men in a triangle seen from straight above, and the whole plan turning.
  (3.4,"clip","over_v",None,0),
- (1.6,"punch","cave07v",None,0.4),
  (6.0,"slow",52,None,0),
  # vo6
+ # HIS NOTE ON CUT 18, AND HE WAS RIGHT: vo6 RUNS 11.84 SECONDS AND THE BLOCK
+ # WAS 10.0, so for the last 1.84s we heard him talking over the MORPH -- which
+ # is his own face, held still. Everywhere else the voice carries over cutaways
+ # of other things and reads fine; here it lands on him not speaking. The lip
+ # clip is regenerated at 12s from the full audio and the block now covers the
+ # whole line. A gate below makes this class of bug impossible to ship again.
  (4.0,"lip",53,6,0),
- (1.2,"dolly","ins_paper",None,0),          # the triangle on the page, from the confession
- (4.8,"lip",53,None,5.2),
+ (1.2,"clip","ins_paper",None,0),           # the triangle on the page, from the confession
+ (6.64,"lip",53,None,5.2),
 
  # THE MEETING. His fixed illustrated shot resolves into the same frame
  # photoreal, and that frame is exactly where the pull-back begins, so the
@@ -386,10 +406,11 @@ VO_DELAY = {5: 1.4, 7: 1.5}  # vo7 lets the first cave image sit for a beat
 MEET_AT = ("clip", "morph4", 1)
 SFX = [
  ("fire",  ("clip", 1, 1),          "the fire finds the wall in the opening"),
- ("fire",  ("clip", 15, 1),         "the cave beat that closes the rescuer"),
- ("fire",  ("clip", "cave04v", 1),  "the cave beat inside the collage weave"),
- ("fire",  ("clip", "cave05v", 1),  "the cave beat before the bullet time"),
- ("fire",  ("punch", "cave07v", 1), "the cave that ends the wheel"),
+ # cut 19: four cave shots came out of the three chapters, so their fire cues
+ # went with them. The flame now sounds exactly where the cave still is: the
+ # opening, the wide that pays the wheel off, and the coda.
+ ("fire",  ("slow", 52, 1),         "the cave wide that pays the wheel off"),
+ ("fire",  ("clip", "cave08v", 1),  "the cave in the coda"),
  ("sting", ("q1", None, 1),         "sub drop under THE RESCUER"),
  ("sting", ("q2", None, 1),         "sub drop under THE VICTIM"),
  ("sting", ("q3", None, 1),         "sub drop under THE PERSECUTOR"),
@@ -653,6 +674,26 @@ for (v, t0), (v2, t2) in zip(order, order[1:]):
                          % (v, ends[v], v2, t2))
 print("narration blocks clear, tightest gap %.2fs"
       % min(t2 - ends[v] for (v, _), (v2, t2) in zip(order, order[1:])))
+
+# cut 19. HIS EAR CAUGHT WHAT THE BUILD DID NOT: vo6 runs 11.84s and its block
+# was 10.0, so the last 1.84 seconds of him speaking played over the MORPH,
+# which is his own face held still. Sound with no mouth, the exact mirror of the
+# complaint he made three cuts ago. Everywhere else a voice carrying over a
+# cutaway of something ELSE is fine, so the rule is not "the voice must end with
+# the block": it is that A SPEAKING VOICE MUST NEVER STILL BE RUNNING WHEN THE
+# FILM SHOWS THE SPEAKER'S OWN FACE ON A FROZEN FRAME, and the first such frame
+# is always the meeting, which is also where the film goes silent. So: nothing
+# may still be speaking when the silence begins.
+SPEAKER_FACE_AT = meet_t
+for v, t0 in marks:
+    if ends[v] > SPEAKER_FACE_AT + 0.01:
+        raise SystemExit(
+            "VOICE RUNS INTO THE SILENT ENDING: vo%d ends at %.2fs, the meeting "
+            "and the silence begin at %.2fs. Either the block is too short for "
+            "its narration or the meeting comes too early."
+            % (v, ends[v], SPEAKER_FACE_AT))
+print("no voice runs into the meeting, latest ends %.2fs before it"
+      % (SPEAKER_FACE_AT - max(ends.values())))
 
 # A CARD MUST NEVER SHARE THE SCREEN WITH A VOICE. That collision -- a quote to
 # read and a subtitle to read at the same time -- is the thing he sent back
