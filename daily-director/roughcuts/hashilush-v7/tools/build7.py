@@ -505,7 +505,11 @@ EXTRA = {
  # at night lit by one lamp. -0.022 per second over a 9.2s shot is -0.20 by the
  # time we reach his back. Written without a comma on purpose: the filter chain
  # travels through plan.txt as a single whitespace-delimited field.
- "walk":"eq=brightness=-0.022*t:eval=frame",
+ # 0.036 and not 0.022: the first pass was MEASURED on the finished film and
+ # the interior still arrived at luma 77 against 38 at the window, so the
+ # ramp was real but too shallow. 0.036 over 8.7s brings the arrival to
+ # roughly the brightness of the night we came in through.
+ "walk":"eq=brightness=-0.036*t:contrast=1.06:eval=frame",
 }
 def vf_for(ref):
     parts = [p for p in (VF.get(CHAP.get(ref, "")), EXTRA.get(ref)) if p]
