@@ -18,8 +18,43 @@ A = {
  # A flat hand-painted cut-out man standing inside the SAME photographed rooms
  # as the filmed man, painted in the SAME ochre as the cave. He is not a new
  # character: he is this man without his roles, and the film never remarks on him.
+ # ---- CUT 18, the Tarantino pass. Six documented scenes were taken apart and
+ # mapped onto named places in this cut; the analysis is published at
+ # daily-director/roughcuts/tarantino/ . Everything here is a LOCKED frame:
+ # Tarantino's standoff shots and inserts do not move, so these run on the
+ # digital dolly rather than through a video model.
+ # THE MEXICAN STANDOFF. Three matched low-angle mediums, identical lens,
+ # identical camera height, identical distance, identical centring. The framing
+ # lock was written once and pasted verbatim into all three prompts, and all
+ # three took their man and their wardrobe from the trio1 frame, so it is
+ # provably the same person three times.
+ "so_res":"20260908_155545_7c92e302-97b5-4502-9139-13d658661eee",
+ "so_vic":"20260908_155545_201f04b8-bc67-4882-99d6-b95d476c3e69",
+ "so_per":"20260908_155545_477b91d1-4fe2-4722-8f4e-a64f13c12bf8",
+ # THE TRUNK SHOT, from the floor: the rescuer and the persecutor lean over the
+ # lens and look down into it. The camera is the victim. One frame that says the
+ # whole triangle without a word.
+ "trunk":"20260908_155545_fdb735d1-3639-42f5-a2fd-afd24f8651b4",
+ # THE EMPTY WALL, one second before the glass is thrown. The ear scene cuts
+ # AWAY at the moment of violence; the bullet time here is one continuous take
+ # he approved after four rounds and cutting into it would destroy it, so the
+ # withholding is moved to the beat BEFORE: the camera looks at the bare wall
+ # while we already know what is coming. Generated from the take's own frame
+ # with the man, the glass and every shard removed, so it is the same wall.
+ "wall":"20260908_155546_84db969b-dd32-4f20-860e-f016653b00d7",
+ # THE COFFEE TABLE ANGLE, the Wolf in Jimmie's kitchen: the camera sits on the
+ # table and looks UP at the man serving. It lands one shot after the WIDE that
+ # makes him small, so the chapter shows him tiny and then towering inside four
+ # seconds, which is the rescuer's whole contradiction.
+ "tbl":"20260908_155546_11f50a06-62f3-4e56-98eb-b56dd55051a0",
+ # THREE OBJECT INSERTS inside the therapist blocks, the Landa cutaway. Each one
+ # rhymes with something the film already owns: the open hand with the ochre
+ # handprint, the glass with the glass that gets thrown, the inked triangle with
+ # the confession that opens the film ("he drew me a triangle on a page").
+ "ins_hand":"20260908_155545_9d64787a-132c-4eed-9265-06d0124fc811",
+ "ins_glass":"20260908_155545_973d7a05-8ee0-4023-9a8a-c284dfdd3a5b",
+ "ins_paper":"20260908_155546_8a0d22c8-408b-4c6b-8305-bf9a1339c513",
 }
-
 # ---- clips, keyed by their v6 shot number, copied verbatim from build6.py.
 # The key IS the v6 shot number; the comment is what that shot shows. Never
 # re-key one of these by description -- that put a deleted shot back into the
@@ -146,6 +181,13 @@ N = {
  # the same person", so now that is what is on screen: the same man, three
  # times, in one room, in his three costumes. Generated from one parent face
  # with all three wardrobe references passed together.
+ # CUT 18, THE GOD'S EYE. The line under it is "it is not a triangle, it is a
+ # wheel". The frame is now literally that: the three of them standing in an
+ # equilateral triangle seen from straight above, and the whole plan turning
+ # clockwise under a locked lens. It is the one shot in the standoff that moves,
+ # and it arrives after the cut rate has already stopped -- accelerate, then a
+ # dead stop, then the turn.
+ "over_v":"20260908_155810_6c8bd051-b901-419d-835d-5f8c5580f23b",
  "trio1":"20260829_184940_a7fd7250-4cc1-4da3-92ef-e5f94e377b41",  # long shot, all three in the room
  "trio2":"20260829_184940_e6153ab0-2b44-46ce-a43d-1bd7682c88c2",  # victim and persecutor face to face
  "trio3":"20260829_184940_4da49882-2ab8-4673-8e16-05377615e6f2",  # over the victim's shoulder
@@ -224,16 +266,24 @@ S = [
  # vo1. THE CHAPTER CARD NOW COMES AFTER THE NARRATION, NOT BEFORE IT: the quote
  # and the burned subtitle were fighting for the same screen. So the therapist
  # speaks, the EARTH ZOOM finds the man, and only then the card names him.
- (6.0,"lip",6,1,0),
+ # THE LANDA CUTAWAY. Each therapist block is now broken once by an insert on
+ # an object. The block's TOTAL length never changes and the clip resumes at
+ # exactly t+d, so the mouth stays synced to the voice and no mark moves.
+ (3.0,"lip",6,1,0),
+ (1.0,"dolly","ins_hand",None,0),
+ (2.0,"lip",6,None,4.0),
  (8.0,"clip",8,None,0),                                   # EARTH ZOOM
  (3.2,"q1",None,None,0),
  # I. the rescuer
  (2.2,"clip",9,None,0),(1.8,"clip",10,None,0),(1.8,"clip",11,None,0),
  (3.6,"clip","w_res",None,0),
+ (2.2,"dolly","tbl",None,0),   # THE WOLF ANGLE, from the coffee table looking up
  (1.8,"clip",13,None,0),(2.2,"clip",15,None,0),
 
  # vo2, then the victim opens, then the card
- (12.0,"lip",16,2,0),
+ (5.2,"lip",16,2,0),
+ (1.2,"dolly","ins_glass",None,0),          # the glass, two minutes before it is thrown
+ (5.6,"lip",16,None,6.4),
  # the victim's chapter no longer OPENS on him: the camera comes in from
  # outside the house, through the window and two rooms, and finds him.
  (9.2,"clip","walk",None,0),   # 9.2 not 8.0: the arrival behind him lands at 6.5s of the
@@ -241,7 +291,9 @@ S = [
  (0.4,"punch","mag1v",None,0.2),
  (1.8,"clip",23,None,0),
  (0.4,"punch","mag2v",None,0.2),
+ (1.4,"black",None,None,0),                 # KILL BILL: absolute black, room tone only
  (3.4,"clip","w_vic",None,0),
+ (2.6,"dolly","trunk",None,0),              # THE TRUNK SHOT: the camera is the victim
  (0.4,"punch","mag3v",None,0.2),
  (2.4,"clip",19,None,0),
  (3.2,"q2",None,None,0),
@@ -260,6 +312,7 @@ S = [
  # III. the persecutor, and the bullet time. All three shots regenerated from
  # one parent frame: same coat, same glass, and the third holds both men.
  (2.2,"clip",38,None,0),
+ (1.0,"dolly","wall",None,0),   # the bare wall, one second before
  # one take: throw, flight, impact, and the camera coming round the frozen
  # glass to find the victim sitting behind it. No cut anywhere inside it.
  (10.0,"clip","bullet",None,0),
@@ -278,15 +331,29 @@ S = [
  # so the picture is now literally that, and the first of the three is a LONG
  # SHOT of a whole room -- the widest frame in the film, dropped in exactly
  # where a run of close-ups used to be.
- (4.0,"clip","trio1",5,0),                                # all three in one room
- (3.6,"clip","trio2",None,0),                             # victim and persecutor, face to face
- (3.6,"clip","trio3",None,0),                             # over the victim's shoulder
- # and only then the wheel spins: the three faces, fast, once
+ # THE MEXICAN STANDOFF. The Karpman triangle IS a standoff, which makes this
+ # the closest match in the whole Tarantino exercise. The grammar is three
+ # MATCHED shots -- same lens, same height, same distance -- an accelerating cut
+ # rate, and then a dead stop. So: the wide that shows the geometry, then the
+ # three of them at 1.6, 1.3 and 1.0 seconds, then trio2 fast, then trio3
+ # MIRRORED (the 180 cross, see EXTRA), then the faces, and only then the frame
+ # stops moving and the god's eye turns.
+ (3.4,"clip","trio1",5,0),                                # the geometry, all three in one room
+ (1.6,"dolly","so_res",None,0),
+ (1.3,"dolly","so_vic",None,0),
+ (1.0,"dolly","so_per",None,0),
+ (2.2,"clip","trio2",None,0),                             # victim and persecutor, face to face
+ (2.4,"clip","trio3",None,0),                             # over the shoulder, SCREEN DIRECTION FLIPPED
  (1.2,"flash","smile",None,0),(1.2,"flash","empty",None,0),(1.2,"flash","eyes",None,0),
+ # "it is not a triangle. it is a wheel." -- and the frame is the wheel: three
+ # men in a triangle seen from straight above, and the whole plan turning.
+ (3.4,"clip","over_v",None,0),
  (1.6,"punch","cave07v",None,0.4),
  (6.0,"slow",52,None,0),
  # vo6
- (10.0,"lip",53,6,0),
+ (4.0,"lip",53,6,0),
+ (1.2,"dolly","ins_paper",None,0),          # the triangle on the page, from the confession
+ (4.8,"lip",53,None,5.2),
 
  # THE MEETING. His fixed illustrated shot resolves into the same frame
  # photoreal, and that frame is exactly where the pull-back begins, so the
@@ -369,6 +436,36 @@ def assert_rtl():
     return wl, wr
 print("rtl gate ok, vav=%d alef=%d" % assert_rtl())
 
+# ---- CUT 18: one lighting signature per chapter -----------------------------
+# Tarantino gives every chapter its own light and never breaks it. Ours all
+# looked the same. This is a GRADE, not a regeneration: it costs nothing and it
+# makes the three chapters read as three films. Only the present-day shots of
+# each role are touched -- never the cave, never the painted man, never a card.
+VF = {
+ # the rescuer: warm domestic tungsten, the light of other people's houses
+ "res":"colorbalance=rs=0.06:gs=0.01:bs=-0.07:rm=0.04:bm=-0.05,eq=contrast=1.03:saturation=1.09",
+ # the victim: one cold window, everything else falling to black
+ "vic":"colorbalance=rs=-0.05:gs=-0.01:bs=0.08:rm=-0.03:bm=0.06,eq=contrast=1.13:saturation=0.84:gamma=0.93",
+ # the persecutor: hard top light, dark eye sockets, the warehouse
+ "per":"eq=contrast=1.28:saturation=0.76:gamma=0.88,colorbalance=rs=0.02:bs=0.03",
+}
+# which shot belongs to which chapter. Keyed exactly the way the shot table
+# keys it, so a renamed or re-timed shot cannot silently lose its light.
+CHAP = {
+ 9:"res", 10:"res", 11:"res", 13:"res", "w_res":"res", "tbl":"res",
+ "walk":"vic", 23:"vic", 19:"vic", 29:"vic", "w_vic":"vic", "trunk":"vic",
+ 38:"per", "bullet":"per", "w_per":"per", "wall":"per",
+}
+# per-shot extras that are not a chapter grade.
+# THE 180 LINE: Landa's scene crosses it deliberately at the moment the truth
+# arrives, and the viewer feels the flip without knowing what moved. Ours lands
+# on "all three of them are the same person": trio3 is mirrored, so the two men
+# swap sides of the screen between trio2 and trio3.
+EXTRA = { "trio3":"hflip" }
+def vf_for(ref):
+    parts = [p for p in (VF.get(CHAP.get(ref, "")), EXTRA.get(ref)) if p]
+    return ",".join(parts) if parts else "-"
+
 QUOTES = {
  "q1": ("I", u"המושיע", "THE RESCUER", u"“If they stop needing me,", u"I stop existing.”"),
  "q2": ("II", u"הקורבן", "THE VICTIM", u"“I decided, a long time ago,", u"that I can’t.”"),
@@ -421,11 +518,16 @@ for i, (dur, kind, ref, vo, ss) in enumerate(S, 1):
             d2.line([(810, 500), (1110, 500)], fill=(70,70,70), width=2)
             d2.text((960, 566), l1, font=f(FR, 50), fill=(214,214,214), anchor="ma")
             d2.text((960, 636), l2, font=f(FR, 50), fill=(214,214,214), anchor="ma")
-        base.save("o%03d.png" % i); plan.append((i, dur, "card", "-", 0))
+        base.save("o%03d.png" % i); plan.append((i, dur, "card", "-", 0, "-"))
     elif kind in ("clip", "slow", "punch"):
-        plan.append((i, dur, kind, url_for(ref), ss))
+        plan.append((i, dur, kind, url_for(ref), ss, vf_for(ref)))
+    elif kind == "black":
+        # THE KILL BILL FRAME: absolute black, held longer than is comfortable,
+        # with the room tone still running under it. It costs nothing and it is
+        # the single biggest change of rhythm available to this cut.
+        plan.append((i, dur, "black", "-", 0, "-"))
     elif kind == "lip":
-        plan.append((i, dur, "clip", B + L[ref] + ".mp4", ss))
+        plan.append((i, dur, "clip", B + L[ref] + ".mp4", ss, "-"))
     else:                                    # dolly / flash, both from a still
         im2 = Image.open("a_%s.png" % ref).convert("RGB")
         r = max(W / im2.width, H / im2.height)
@@ -435,7 +537,7 @@ for i, (dur, kind, ref, vo, ss) in enumerate(S, 1):
         if kind == "flash":                  # punched in a little so a 0.4s flash reads
             base = base.crop((150, 84, W-150, H-84)).resize((W, H), Image.LANCZOS)
         base.save("o%03d.png" % i)
-        plan.append((i, dur, kind, "-", 0))
+        plan.append((i, dur, kind, "-", 0, vf_for(ref)))
     cum += dur
 
 # shot start times, so every sound cue is derived and never typed
@@ -466,7 +568,7 @@ open("sfx.txt","w").write("".join("%s %.3f\n" % x for x in sfx))
 open("meet.txt","w").write("%.3f\n" % meet_t)
 print("sfx cues %d, last at %.1fs, silence begins %.1fs" % (len(sfx), max(a for _, a in sfx), meet_t))
 
-open("plan.txt","w").write("".join("%d %.2f %s %s %.2f\n" % p for p in plan))
+open("plan.txt","w").write("".join("%d %.2f %s %s %.2f %s\n" % p for p in plan))
 open("marks.txt","w").write("".join("%d %d\n" % (v, round(t*1000)) for v, t in marks))
 tot = cum
 print("shots %d  total %.2f = %d:%02d" % (len(S), tot, tot//60, tot%60))
