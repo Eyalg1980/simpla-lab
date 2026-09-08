@@ -1,6 +1,44 @@
 {
   "days": [
     {
+      "date": "2026-09-08",
+      "ideas": [
+        {
+          "id": "2026-09-08-1",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "פיגמה עכשיו נותנת לך קיפריים בתוך הקובץ, ולסוכן שלה לבנות ציר זמן ראשון לפי משפט אחד שאתה כותב.",
+          "concept": "ריבוע קיפריים בודד על ציר זמן דק מתחיל לזוז לאט ונמס לתוך סרט אור שוטף, בזמן שקריינות עברית קצרה מסבירה מה זה אומר שאנימציה גרה עכשיו בתוך פיגמה ולא באפטר אפקטס. שוט אמצעי מראה משפט מוקלד נכנס לתיבה, ומיד אחריו קיפריימים מופיעים לבד על הציר, כאילו סוכן ציית. השוט האחרון חוזר לריבוע הבודד מתחילת הסרט, עכשיו כחלק מריבוי קיפריימים שלמים.",
+          "execution": "שפה קינטית עריכתית, פריימי פתיחה ב-Nano Banana, אנימציה ב-Higgsfield Cinema Studio, 35 שניות, 9:16 ראשי, קריינות עברית מוקלטת בנפרד ומחוברת בעריכה, בלי דיאלוג נוסף.",
+          "why": "בטא פתוחה מ-24.6.2026, כמעט אין עליה תוכן בעברית, וזה בדיוק היום שהפוסט המקביל על אותו נושא יוצא בבריף.",
+          "srcUrl": "https://help.figma.com/hc/en-us/articles/39582753756695-What-s-new-from-Config-2026",
+          "srcLabel": "What's new from Config 2026, Figma Help Center",
+          "prompts": {
+            "video": "Editorial kinetic style, deep charcoal background, kinetic typography, coral and warm yellow accent colors, minimal geometric composition, generous negative space, no text overlay, no logos. A single diamond-shaped keyframe marker on a thin horizontal timeline slowly melts into a smooth flowing ribbon of coral light trailing behind it, camera holds a static wide shot, steady unhurried pace, 9:16, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"קיפריים בפנים, לא בחוץ\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן, Figma Motion, בבטא פתוחה מ-24.6.2026, קיפריימים ואנימציית סוכן בתוך הקובץ במקום ייצוא לאפטר אפקטס. שפה חזותית קינטית עריכתית, גופנים נעים על רקע פחם כהה. וידאו הסבר קצר, קריינות עברית.",
+            "image": "Editorial kinetic style, deep charcoal background, kinetic typography, coral and warm yellow accent colors, minimal geometric composition, generous negative space, no text. A single diamond-shaped keyframe marker on a thin horizontal timeline with a faint dotted trail extending behind it, 1:1",
+            "raw": "הוק: פיגמה עכשיו נותנת לך קיפריים בתוך הקובץ, ולסוכן שלה לבנות ציר זמן ראשון לפי משפט אחד שאתה כותב.\nעולם: סרטוני הסבר\nקונספט: ריבוע קיפריים בודד על ציר זמן דק נמס לתוך סרט אור שוטף, קריינות עברית מסבירה שאנימציה גרה עכשיו בתוך פיגמה. משפט מוקלד נכנס לתיבה, קיפריימים מופיעים לבד, כאילו סוכן ציית.\nביצוע: שפה קינטית עריכתית, Nano Banana לפריימים, Higgsfield Cinema Studio לאנימציה, 35 שניות, 9:16, קריינות עברית.\nלמה עכשיו: בטא פתוחה מ-24.6.2026, כמעט אין תוכן בעברית, וחופף לפוסט המקביל באותו יום."
+          }
+        },
+        {
+          "id": "2026-09-08-2",
+          "world": "וידאו ארט",
+          "color": "#71F73C",
+          "hook": "ב-2009, כפתור בצבע כחול קיבל שם שהוא לא תוכנן להישאר, ומאז כל פעולה שאתה עושה ברשת מחכה לאותו סוג של אישור קטן.",
+          "concept": "יד חימר לוחצת שוב ושוב על כפתור עגול קטן שמאיר לרגע ומכבה, בזמן שקריינות עברית קצרה מספרת איך פייסבוק שקלה בין Awesome ל-Like ובחרה במילה הפשוטה יותר. שוט אמצעי מתרחק ומראה עשרות ידי חימר קטנות לוחצות מרחוק בו זמנית על אותו כפתור, כמו מקהלה. השוט האחרון מתרחק עוד, מגלה שהאור הכחול ממשיך להידלק גם כשאין יד בכלל בפריים, בוט לוחץ לבד.",
+          "execution": "שפת קליי, פריימי פתיחה ב-Nano Banana, אנימציה ב-Higgsfield Cinema Studio, 45 שניות, 9:16 ראשי, קריינות עברית מוקלטת בנפרד, בלי דיאלוג נוסף.",
+          "why": "פרק 9 בסדרת ביוגרפיה של אובייקט, הכפתור שהכי הרבה אנשים לוחצים עליו ביום ומעולם לא קיבל פרק משלו. בוסאן עדיין פתוחה עד 11.9.2026 בלי הגבלת אורך, אז זו הזדמנות נוספת להגיש.",
+          "competition": "Busan International AI Film Festival (BIAIF), דדליין 11.9.2026 23:59 KST, אומת לאחרונה מול FilmFreeway ב-4.9.2026 (לא בוצע אימות חוזר היום, WebFetch נחסם בריצה ללא השגחה, האימות הקודם עדיין בתוקף), הגשה חינם, בלי הגבלת אורך, הגשה אחת לאדם",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, 9:16. A small clay thumb presses a round button that glows briefly then fades, repeating in a steady rhythm, by the final beat the same button glows on its own with no thumb present nearby, static camera, warm soft lighting, no text overlay, no logos.",
+            "script": "פתח לי את רעיון הווידאו \"פרק 9: כפתור הלייק\" לסטוריבורד מלא במבנה הסדרה, לוגליין, סינופסיס, שוט ליסט של 6 עד 8 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן, לידת כפתור הלייק בפייסבוק ב-2009, הבחירה במילה הפשוטה במקום Awesome, וההיפוך של הפרק, כפתור שממשיך להידלק גם כשאין יד אנושית שלוחצת עליו, בוט לוחץ לבד. שפת קליי, קריינות עברית קצרה, מיועד להגשה לבוסאן.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. A small clay thumb mid-press on a round glowing button, soft warm glow radiating outward from the button, no text, no logos, 1:1",
+            "raw": "הוק: ב-2009, כפתור בצבע כחול קיבל שם שהוא לא תוכנן להישאר, ומאז כל פעולה שאתה עושה ברשת מחכה לאותו סוג של אישור קטן.\nעולם: וידאו ארט, ביוגרפיה של אובייקט פרק 9\nתחרות: Busan International AI Film Festival, דדליין 11.9.2026, הגשה חינם בלי הגבלת אורך.\nקונספט: יד חימר לוחצת על כפתור שמאיר ומכבה, מקהלת ידיים מרחוק, ולבסוף האור ממשיך לבד בלי יד, בוט לוחץ.\nביצוע: שפת קליי, Nano Banana לפריימים, Higgsfield Cinema Studio לאנימציה, 45 שניות, 9:16, קריינות עברית.\nלמה עכשיו: הכפתור הכי נלחץ ברשת עוד לא קיבל פרק, ובוסאן פתוחה בלי הגבלת אורך."
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-09-07",
       "ideas": [
         {
