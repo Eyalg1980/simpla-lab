@@ -163,7 +163,9 @@ N = {
  # tall trunks with him small inside it and both hands at his sides. It also
  # buys the opening a wider frame, which the opening needed anyway.
  "fw2":"20260908_173946_5e0cc4ce-1e68-4e11-8044-dcadb157319f",  # the path between the trunks
- "fw3":"20260830_124905_1a205403-1a35-41f1-819c-220013c26851",  # stopped at the cave mouth
+ # CUT 20: "fw3" was the cave seen FROM OUTSIDE, and he asked to drop or replace
+ # it. Dropped. Stepping into the dark already says he arrived; a shot of him
+ # standing at the mouth first only announces the shot that follows it.
  "fw4":"20260830_124846_d7e2e4de-e78e-475c-84c0-d37e28f86e11",  # stepping into the dark
  # THREE CLOSE-UPS TRADED FOR AIR, one per chapter. The tight faces stay in the
  # wheel at the end, where the crowding IS the point; inside the chapters they
@@ -215,7 +217,14 @@ N = {
  # same frame photoreal, and that frame is exactly where the reveal begins.
  # regenerated once more: it has to start from the PAINTED therapist now, since
  # that is who has been speaking for the whole film.
- "morph4":"20260830_040713_ef67e357-7625-428a-9445-ab0e148ba060",
+ # CUT 20: regenerated because his mouth was still moving through the morph.
+ # This shot has NO voice under it, so a moving mouth reads as a glitch. The
+ # prompt now forbids speech five different ways ("mouth closed and completely
+ # still", "NOT speaking", "NOT mouthing words", "lips do NOT part", "jaw does
+ # NOT move"), and the two-frame lock is kept: start on his painted fixed frame,
+ # end on the exact frame room2 begins from, so the style change and the reveal
+ # stay one continuous move.
+ "morph4":"20260908_212053_98623a43-98ce-48dd-9b87-68e861668926",
  # THE FOURTH LANGUAGE, "the frequency of love": a flat hand-painted cut-out man
  # inside the SAME photographed rooms, painted in the SAME ochre as the cave.
  # 29.8 he asked to take it OUT of the three chapters and give it the ending
@@ -275,7 +284,6 @@ S = [
  # prologue, the cave
  (2.4,"clip","fw1",7,0),                                  # vo7, the confession
  (1.8,"clip","fw2",None,0),
- (2.0,"clip","fw3",None,0),
  (2.6,"clip","fw4",None,0),
  (2.5,"clip",1,None,0),(3.0,"clip",4,None,0),
  (4.5,"title",None,None,0),
@@ -487,7 +495,18 @@ CHAP = {
 # arrives, and the viewer feels the flip without knowing what moved. Ours lands
 # on "all three of them are the same person": trio3 is mirrored, so the two men
 # swap sides of the screen between trio2 and trio3.
-EXTRA = { "trio3":"hflip" }
+EXTRA = {
+ "trio3":"hflip",
+ # CUT 20, HIS NOTE ON THE WINDOW: the exterior is night, but by the time the
+ # move has come through the glass and two rooms it reads as daylight, so the
+ # same house changes time of day inside one continuous shot. The move is one
+ # generated take and cannot be relit, but it CAN be graded ON A RAMP: the frame
+ # darkens steadily as the camera goes deeper, so the interior lands as a house
+ # at night lit by one lamp. -0.022 per second over a 9.2s shot is -0.20 by the
+ # time we reach his back. Written without a comma on purpose: the filter chain
+ # travels through plan.txt as a single whitespace-delimited field.
+ "walk":"eq=brightness=-0.022*t:eval=frame",
+}
 def vf_for(ref):
     parts = [p for p in (VF.get(CHAP.get(ref, "")), EXTRA.get(ref)) if p]
     return ",".join(parts) if parts else "-"
