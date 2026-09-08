@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-07",
+  "updated": "2026-09-08",
   "ideas": [
     {
       "id": "I-2026-0387",
@@ -2237,6 +2237,96 @@
       "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-09-06"
+    },
+    {
+      "id": "I-2026-0391",
+      "title": "פלאגין גנרטיבי דרך MCP",
+      "line": "ראיתי שפיגמה הרחיבו ב-1.9.2026 את הפלאגינים הגנרטיביים והשיידרים כולל עדכוני MCP server, סוכן חיצוני יכול עכשיו לבנות שיידר אנימטיבי בתוך קובץ בלי לפתוח את פיגמה בכלל.",
+      "advisor": "visionary",
+      "createdAt": "2026-09-08",
+      "capability": {
+        "name": "Figma Generative Plugins & Shaders, MCP expansion",
+        "releasedAt": "2026-09-01"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-08"
+    },
+    {
+      "id": "I-2026-0392",
+      "title": "מחולל סטייטים מוריאבל אחד",
+      "line": "ראיתי שפיגמה הוציאו ב-3.9.2026 וריאבלים לאופסיטי בקנה מידה, אליאס אחד במקום עשרות קומפוננטות מנותקות ל-disabled, hover ו-scrim.",
+      "advisor": "visionary",
+      "createdAt": "2026-09-08",
+      "capability": {
+        "name": "Figma variables scalable opacity (Control Opacity at Scale)",
+        "releasedAt": "2026-09-03"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-08"
+    },
+    {
+      "id": "I-2026-0393",
+      "title": "עוזר תיוג תאריכים בלוח",
+      "line": "בחמש מתוך שש ריצות בוקר אחרונות נדרש לתייג ידנית מחדש כרטיסים שהתאריך שלהם עבר או הגיע, 31.8, 2.9, 3.9, 6.9, 7.9.",
+      "advisor": "pain",
+      "createdAt": "2026-09-08",
+      "capability": null,
+      "evidence": "תיוג ידני חוזר של תאריכים שעברו או הגיעו בלוח, ב-5 מתוך 6 ריצות בוקר אחרונות (31.8, 2.9, 3.9, 6.9, 7.9.2026), מתועד ביומן הריצות ב-task-management",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-08"
+    },
+    {
+      "id": "I-2026-0394",
+      "title": "רשימת התחברויות לסבב קבלות",
+      "line": "בכל סבב קבלות נשארת אותה רשימת עשרה אתרים שדורשים התחברות ידנית כי אין להם קבלה במייל, פיגמה, וובפלואו, גוגל פליי, אדובי, מיקרוסופט ועוד.",
+      "advisor": "pain",
+      "createdAt": "2026-09-08",
+      "capability": null,
+      "evidence": "התחברות ידנית לאותם כעשרה אתרים חוזרת בכל סבב קבלות, תועד גם בסבב מאי יוני וגם ביולי אוגוסט 2026 (login-only downloads pending)",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-08"
+    },
+    {
+      "id": "I-2026-0395",
+      "title": "מיני PRD, מודול 1 או מודול 3",
+      "line": "תרגיל תכנון קצר נכנס במודול 1, רעיון ופרומפטים, או מחכה למודול 3, אפיון ובנייה בשלב ה-MVP? איך זה נראה על מסך הסילבוס שסטודנט פותח במפגש הראשון?",
+      "advisor": "teacher",
+      "createdAt": "2026-09-08",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מודול 1 רעיון ופרומפטים / מודול 3 אפיון ובנייה, סילבוס מיישם AI 53500",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-08"
+    },
+    {
+      "id": "I-2026-0396",
+      "title": "שלב אוטומציה חי במודול 6",
+      "line": "מודול 6, בניית אוטומציות עם n8n, פרוס על שבעה מפגשים. איך נראה מסך שמראה לכיתה באיזה שלב בזרימה הם עומדים עכשיו, בלי לגלול אחורה בין המפגשים?",
+      "advisor": "teacher",
+      "createdAt": "2026-09-08",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מודול 6 בניית אוטומציות (n8n), סילבוס מיישם AI 53500",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-08"
     }
   ]
 }
