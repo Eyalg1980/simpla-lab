@@ -322,7 +322,11 @@ S = [
 
  # vo3, then the persecutor opens, then the card
  (9.0,"lip",30,3,0),
- (3.6,"clip","w_per",None,0),
+ # 5.2 not 3.6: taking the cave beat out of this chapter left the card landing
+ # 1.3s inside vo3, which the card-over-speech gate caught. The seconds go to
+ # the persecutor's own medium rather than back to a cave cutaway, so the
+ # chapter gets air instead of an interruption.
+ (5.2,"clip","w_per",None,0),
  (3.2,"q3",None,None,0),
  # III. the persecutor, and the bullet time. All three shots regenerated from
  # one parent frame: same coat, same glass, and the third holds both men.
@@ -373,7 +377,7 @@ S = [
  # whole line. A gate below makes this class of bug impossible to ship again.
  (4.0,"lip",53,6,0),
  (1.2,"clip","ins_paper",None,0),           # the triangle on the page, from the confession
- (6.64,"lip",53,None,5.2),
+ (6.80,"lip",53,None,5.2),
 
  # THE MEETING. His fixed illustrated shot resolves into the same frame
  # photoreal, and that frame is exactly where the pull-back begins, so the
