@@ -410,7 +410,8 @@ SFX = [
  # went with them. The flame now sounds exactly where the cave still is: the
  # opening, the wide that pays the wheel off, and the coda.
  ("fire",  ("slow", 52, 1),         "the cave wide that pays the wheel off"),
- ("fire",  ("clip", "cave08v", 1),  "the cave in the coda"),
+ # NOT cave08v: the coda is AFTER the meeting, and the assert below is right
+ # that nothing may sound there. The coda's cave is silent on purpose.
  ("sting", ("q1", None, 1),         "sub drop under THE RESCUER"),
  ("sting", ("q2", None, 1),         "sub drop under THE VICTIM"),
  ("sting", ("q3", None, 1),         "sub drop under THE PERSECUTOR"),
