@@ -425,7 +425,7 @@ SFX = [
  ("rip",   ("punch", "mag1v", 1), ""), ("rip", ("punch", "mag2v", 1), ""),
  ("rip",   ("punch", "mag3v", 1), ""), ("rip", ("punch", "mag1v", 2), ""),
  ("rip",   ("punch", "mag2v", 2), ""), ("rip", ("punch", "mag3v", 2), ""),
- ("pulse", ("clip", "w_per", 1),   "a slow low pulse under the persecutor, felt not heard"),
+ ("pulse", ("slow", "w_per", 1),   "a slow low pulse under the persecutor, felt not heard"),
  ("riser", ("clip", 38, 1),         "the rise into the throw"),
  ("wind",  ("clip", 8, 1),          "under the earth zoom"),
  ("shat",  ("clip", "bullet", 1, 5.4), "the glass on the wall, 5.4s into the single take"),
