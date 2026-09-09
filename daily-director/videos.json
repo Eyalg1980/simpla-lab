@@ -1,6 +1,61 @@
 {
   "days": [
     {
+      "date": "2026-09-09",
+      "ideas": [
+        {
+          "id": "2026-09-09-1",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "אנתרופיק שחררו את ה-Skills API לגרסה יציבה, וזה אומר שכל טריק פרומפט שחזרת עליו חמש פעמים יכול סוף סוף להפוך לכלי קבוע.",
+          "concept": "ניירות זהים עם אותו שרבוט חוזר נערמים זה על זה על שולחן, ואז נלחצים ומתקפלים לכלי בודד וממותג עם חותמת. קריינות עברית קצרה מסבירה שעד עכשיו כלי AI מותאם היה או פרומפט שחוזרים עליו, או פרויקט הנדסה שלם, ועכשיו יש דרך שלישית.",
+          "execution": "שפת editorial kinetic, פריימי פתיחה ב-Nano Banana, אנימציה ב-Higgsfield Cinema Studio, 40 עד 45 שניות, 9:16 ראשי ועותק 1:1, קריינות עברית קצרה, בלי דיאלוג נוסף.",
+          "why": "יצא ל-GA לפני שלושה שבועות בדיוק, 20.8.2026, ואותו נכס עומד גם ברעיון הראשון של הבריינסטורמר של היום, נכס אחד, שני ערוצים.",
+          "competition": null,
+          "srcUrl": "https://releasebot.io/updates/anthropic/claude",
+          "srcLabel": "Releasebot, עדכוני Claude",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, 9:16. A stack of identical crumpled paper notes with the same repeated scribble mark keeps piling higher on a flat surface, then the whole stack compresses downward and folds into a single solid stamped tool icon that clicks firmly into place, camera holds static, calm confident pacing, single warm accent light, no text overlay, no logos.",
+            "script": "פתח לי את רעיון הווידאו \"מפרומפט חוזר לכלי קבוע\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט-ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: Skills API ו-Files API של אנתרופיק יצאו ל-GA ב-20.8.2026, מאפשרים לארוז הוראות קבועות וקבצים לכלי הנקרא ב-API בלי הנדסה. שפת editorial kinetic, קריינות עברית קצרה.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A stack of identical crumpled paper notes with the same scribble mark mid-transformation into a single solid stamped tool icon, no text, no logos, 1:1",
+            "raw": "הוק: אנתרופיק שחררו את ה-Skills API לגרסה יציבה, וזה אומר שכל טריק פרומפט שחזרת עליו חמש פעמים יכול סוף סוף להפוך לכלי קבוע.\nעולם: סרטוני הסבר\nקונספט: ניירות זהים עם אותו שרבוט נערמים ומתקפלים לכלי ממותג עם חותמת.\nביצוע: editorial kinetic, Nano Banana לפריימים, Higgsfield Cinema Studio לאנימציה, 40 עד 45 שניות, 9:16 ראשי ו-1:1, קריינות עברית.\nלמה עכשיו: Skills API יצא ל-GA לפני שלושה שבועות בדיוק, ואותו נכס עומד גם בפוסט המקביל של היום."
+          }
+        },
+        {
+          "id": "2026-09-09-2",
+          "world": "תיעוד תהליך",
+          "color": "#71F73C",
+          "hook": "לפני יומיים נפתח בפועל הקורס החדש, מפגש ראשון מתוך עשרים, אחרי חודשים שהיה רק סילבוס על מסך.",
+          "concept": "יד מסדרת תיקיות מפגש על שולחן עבודה, נפתח אתר הסילבוס במסך, שעון קיר מתקדם לשעת בוקר. קריינות עברית שקטה מספרת על ההבדל בין תוכנית לימודים שעברה עשרות גרסאות לבין הרגע הראשון שתלמידים אמיתיים נכנסים למסך. השוט האחרון מראה את המצגת של מפגש 3 כבר פתוחה ומוכנה, יום לפני שהיא בכלל נדרשת.",
+          "execution": "שפת optimistic near-future, אור בוקר ים תיכוני, פריימי פתיחה ב-Nano Banana, אנימציה ב-Kling 3, 40 עד 50 שניות, 9:16 ראשי, קריינות עברית שקטה, בלי דיאלוג נוסף.",
+          "why": "מפגש ראשון אמיתי קרה ב-7.9.2026, פחות משבוע אחרי החלטת הסילבוס שכבר הפכה לפוסט, וזה בדיוק הרגע שבו תוכנית עוברת ממסמך למציאות.",
+          "competition": null,
+          "srcUrl": "https://eyalg1980.github.io/simpla-lab/jb53500/",
+          "srcLabel": "אתר סילבוס מיישם AI 53500",
+          "prompts": {
+            "video": "Optimistic near-future visual language, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field, 9:16. A hand arranges a small stack of session folders on a sunlit desk, then opens a laptop showing a simple course syllabus webpage, a wall clock in the background reads early morning, camera holds a calm static angle, unhurried documentary pacing, warm morning light through a window, no text overlay, no logos.",
+            "script": "פתח לי את רעיון הווידאו \"מפגש ראשון, אחרי חודשים של סילבוס\" לתסריט מלא: לוגליין, סינופסיס, שוט-ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: קורס מיישם AI ואוטומציה 53500 פתח את המפגש הראשון בפועל ב-7.9.2026, אחרי חודשים של גרסאות סילבוס ופגישות יישור קו. שפת optimistic near-future, קריינות עברית שקטה, בלי דיאלוג מעבר לקריינות.",
+            "image": "Optimistic near-future visual language, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field. A small stack of neatly arranged session folders on a sunlit desk beside an open laptop showing a simple webpage, warm morning light through a window, no text, no logos, 1:1",
+            "raw": "הוק: לפני יומיים נפתח בפועל הקורס החדש, מפגש ראשון מתוך עשרים, אחרי חודשים שהיה רק סילבוס על מסך.\nעולם: תיעוד תהליך\nקונספט: יד מסדרת תיקיות מפגש, אתר הסילבוס נפתח במסך, שעון בוקר, קריינות שקטה על המעבר ממסמך למציאות.\nביצוע: optimistic near-future, Nano Banana לפריימים, Kling 3 לאנימציה, 40 עד 50 שניות, 9:16, קריינות עברית שקטה.\nלמה עכשיו: מפגש ראשון אמיתי קרה ב-7.9.2026, פחות משבוע אחרי החלטת הסילבוס שכבר הפכה לפוסט."
+          }
+        }
+      ],
+      "watch": [
+        {
+          "title": "AI Shortest Film Competition by LTX, Forward Festival",
+          "desc": "תחרות שהתגלתה היום בסריקת יום רביעי, טרם אומתה מול תקנון רשמי, יעד לבדיקה בסריקה הבאה.",
+          "meta": "Forward Festival",
+          "url": "https://www.forward-festival.com/page/ai-shortest-film-competition-by-ltx"
+        },
+        {
+          "title": "Claude Updates, September 2026",
+          "desc": "רשימת כל השחרורים של אנתרופיק, המקור לרעיון הראשון של היום.",
+          "meta": "Releasebot",
+          "url": "https://releasebot.io/updates/anthropic/claude"
+        }
+      ]
+    },
+    {
       "date": "2026-09-08",
       "ideas": [
         {
