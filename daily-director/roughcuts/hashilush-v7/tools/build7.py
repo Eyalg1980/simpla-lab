@@ -263,20 +263,60 @@ HE = {
 # THE BUG THAT COST TWO ROUNDS: wan2_7's `duration` parameter defaults to 5
 # SECONDS. Without it the model ignores how long the audio is and returns a 5s
 # clip, and the give-away is the length, not the picture. Always pass duration.
-L = {
- # AND REGENERATED ONCE MORE: the first painted pass gave him DARK hair, while
- # the photoreal man the film morphs into is white-haired and twenty years
- # older. That turned the morph from a change of rendering into a change of
- # PERSON. The parent frame now takes its composition from the illustrated shot
- # and its IDENTITY from the photoreal frame, so both are the same man.
- 6:"20260830_040713_09ddd3a0-62d2-4655-b0ae-8ec1d827ffe8",   # 6s
- 16:"20260830_040714_8c5a8fdf-8caa-4d9a-aee5-87d13f233e23",  # 12s
- 30:"20260830_040713_2a98a450-def6-4113-8b8e-d035439d4e00",  # 9s
- 43:"20260830_040713_bf3f969c-5030-4b02-aa0a-ab246682e052",  # 8s
- # CUT 19: regenerated at 12s from the FULL vo6 audio. At 10s the last 1.84
- # seconds of the line played over his own frozen face in the morph.
- 53:"20260908_173805_d2b01ffd-fdb5-4db9-8655-73d95031d7a9",  # 12.03s
+# ---- the narration audio. THIS IS THE ONLY PLACE THE STEMS ARE WRITTEN.
+# They used to live in build7.sh as well, and on cut 21 that duplication cost a
+# whole round: the narration was re-recorded shorter here and the LIP SYNC CLIPS
+# were not regenerated, so for four blocks the mouth was still speaking the old,
+# longer script while the new audio played. He heard it at the end of the film.
+# Now the shell reads he.txt, which this file writes, and the assert below makes
+# a mismatch between a mouth and its voice fail the build instead of shipping.
+HE = {
+ 1:"20260829_062549_3f974055-5a8d-43a0-a9e9-1c536ae0ab6f",
+ 2:"20260910_000959_0a0910a8-6492-4c22-bf47-279f0311525b",
+ 3:"20260910_001001_5300c0af-79e8-4491-985c-f8829e9c6d01",
+ 4:"20260910_000959_886a02e6-457d-47c4-9d7b-a1190d03ff4b",
+ 5:"20260910_001025_3788c9f1-d22d-46ab-bd96-1d9ec55b1586",
+ 6:"20260910_001000_5f69ce62-cef7-4cc6-9424-13fe647d85dd",
+ # 7 is not the therapist: it is the patient, first person, once, at the start
+ 7:"20260829_194605_a09fa10d-4e9f-4e93-9c49-976b110f4318",
 }
+# which narration block each speaking shot is lip synced to
+LIP_VO = {6:1, 16:2, 30:3, 43:4, 53:6}
+
+L = {
+ # Each entry is (VIDEO STEM, THE AUDIO STEM THE MOUTH WAS SYNCED TO). The second
+ # half exists so the assert below can prove the mouth and the voice agree.
+ # CUT 22: four of the five regenerated, because cut 21 re-recorded the narration
+ # shorter and left these speaking to the old script. Block 6 keeps its clip
+ # because vo1 was never re-recorded.
+ 6: ("20260830_040713_09ddd3a0-62d2-4655-b0ae-8ec1d827ffe8",
+     "20260829_062549_3f974055-5a8d-43a0-a9e9-1c536ae0ab6f"),   # 6s
+ 16:("20260910_004019_d14a530d-6b61-42a9-a906-1acbe023f605",
+     "20260910_000959_0a0910a8-6492-4c22-bf47-279f0311525b"),   # 13s
+ 30:("20260910_004019_1f925827-6044-4e1f-9a38-d6c143508c05",
+     "20260910_001001_5300c0af-79e8-4491-985c-f8829e9c6d01"),   # 7s
+ 43:("20260910_004019_9d22e3eb-4c2c-4e3d-8a3c-1ff60d325044",
+     "20260910_000959_886a02e6-457d-47c4-9d7b-a1190d03ff4b"),   # 5s
+ 53:("20260910_004019_34cf75cb-1405-4d0b-97a7-854b891f3770",
+     "20260910_001000_5f69ce62-cef7-4cc6-9424-13fe647d85dd"),   # 11s
+}
+# THE GATE THIS FILE EXISTS FOR NOW: a mouth may never speak a script the film
+# is no longer playing. Cheap to check, and it is the only thing that would have
+# caught cut 21 before he did.
+for _sh, _vo in LIP_VO.items():
+    if L[_sh][1] != HE[_vo]:
+        raise SystemExit(
+            "LIP SYNC IS STALE: shot %d was synced to audio %s but vo%d is now %s. "
+            "Regenerate that lip clip from the current audio."
+            % (_sh, L[_sh][1], _vo, HE[_vo]))
+print("every mouth matches its voice, %d speaking shots checked" % len(LIP_VO))
+
+# the shell fetches the narration BEFORE this script does its real work, so the
+# map is written here and the script can be called with --he to write only that.
+import sys
+open("he.txt","w").write("".join("%d hf_%s\n" % (k, v) for k, v in sorted(HE.items())))
+if "--he" in sys.argv:
+    raise SystemExit(0)
 
 # ---- the cut -----------------------------------------------------------------
 # (dur, kind, ref, vo, in_point)
@@ -579,7 +619,7 @@ for i, (dur, kind, ref, vo, ss) in enumerate(S, 1):
         # the single biggest change of rhythm available to this cut.
         plan.append((i, dur, "black", "-", 0, "-"))
     elif kind == "lip":
-        plan.append((i, dur, "clip", B + L[ref] + ".mp4", ss, "-"))
+        plan.append((i, dur, "clip", B + L[ref][0] + ".mp4", ss, "-"))
     else:                                    # dolly / flash, both from a still
         im2 = Image.open("a_%s.png" % ref).convert("RGB")
         r = max(W / im2.width, H / im2.height)
