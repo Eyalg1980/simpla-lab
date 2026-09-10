@@ -295,10 +295,15 @@ L = {
      "20260910_000959_0a0910a8-6492-4c22-bf47-279f0311525b"),   # 13s
  30:("20260910_004019_1f925827-6044-4e1f-9a38-d6c143508c05",
      "20260910_001001_5300c0af-79e8-4491-985c-f8829e9c6d01"),   # 7s
- 43:("20260910_004019_9d22e3eb-4c2c-4e3d-8a3c-1ff60d325044",
-     "20260910_000959_886a02e6-457d-47c4-9d7b-a1190d03ff4b"),   # 5s
- 53:("20260910_004019_34cf75cb-1405-4d0b-97a7-854b891f3770",
-     "20260910_001000_5f69ce62-cef7-4cc6-9424-13fe647d85dd"),   # 11s
+ # regenerated a second time at 6s: at 5s the clip came back 5.00 and the
+ # per-shot length gate refused a 5.20 slot. Ask for headroom, not for exactly
+ # the audio length.
+ 43:("20260910_004655_656e442f-c58d-4d55-a603-417c6bd09878",
+     "20260910_000959_886a02e6-457d-47c4-9d7b-a1190d03ff4b"),   # 6s
+ # and this one at 13s for the same reason: the block resumes at 4.6 and runs
+ # 6.6, which needs 11.2 seconds of source that an 11s clip does not have
+ 53:("20260910_004655_e859c06c-6018-4a70-86f1-a8b2ab557060",
+     "20260910_001000_5f69ce62-cef7-4cc6-9424-13fe647d85dd"),   # 13s
 }
 # THE GATE THIS FILE EXISTS FOR NOW: a mouth may never speak a script the film
 # is no longer playing. Cheap to check, and it is the only thing that would have
