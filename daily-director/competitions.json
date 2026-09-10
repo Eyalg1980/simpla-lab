@@ -1,5 +1,5 @@
 {
-  "updated": "9.9.2026",
+  "updated": "10.9.2026",
   "competitions": [
     {
       "id": "ai-film-awards-venice",
@@ -260,7 +260,7 @@
       "name": "Busan International AI Film Festival",
       "org": "BIAIF, בוסאן, קוריאה",
       "theme": "שתי קטגוריות טכניות: AI Pure שכולו מג'ונרט, ו-AI Hybrid שמשלב לייב אקשן",
-      "deadline": "11.9.2026 23:59 KST, אומת מול FilmFreeway ב-4.9.2026. ניסיונות אימות חוזר ב-8.9 וב-9.9.2026 נחסמו (WebFetch PROVENANCE_REQUIRED בריצה ללא השגחה), האימות מ-4.9.2026 עדיין בתוקף ובתוך החלון, יומיים לדדליין",
+      "deadline": "11.9.2026 23:59 KST, אומת מול FilmFreeway ב-4.9.2026. ניסיונות אימות חוזר ב-8.9, ב-9.9 וב-10.9.2026 נחסמו (WebFetch PROVENANCE_REQUIRED בריצה ללא השגחה), האימות מ-4.9.2026 עדיין בתוקף ובתוך החלון, יום אחד בלבד לדדליין",
       "prize": "מענק הקרנה של 1,000 דולר ל-15 הנבחרים, ועוד 3,000 דולר לפרס הקהל",
       "url": "https://filmfreeway.com/BIAIF",
       "status": "פתוח",

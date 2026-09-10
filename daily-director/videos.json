@@ -1,6 +1,61 @@
 {
   "days": [
     {
+      "date": "2026-09-10",
+      "ideas": [
+        {
+          "id": "2026-09-10-1",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "פיגמה עכשיו נותנת לסוכן AI לגעת בשיידר ולקחת אותו איתו ישר לתוך קוד React, בלי שלב ידני באמצע.",
+          "concept": "שיידר זוהר יושב בתוך פריים עיצוב קטן, גולש בעצמו על קו מקווקו ונכנס ישר לתוך סוגריים של קוד פתוחים שנסגרים סביבו ברכות. קריינות עברית קצרה מסבירה שעד עכשיו אפקט גנרטיבי כזה היה מת ברגע שהוא צריך להפוך לקוד, ועכשיו הוא נשאר חי גם אחרי המעבר.",
+          "execution": "שפה קינטית עריכתית, פריימי פתיחה ב-Nano Banana, אנימציה ב-Higgsfield Cinema Studio, 35 עד 40 שניות, 9:16 ראשי ועותק 1:1, קריינות עברית קצרה, בלי דיאלוג נוסף.",
+          "why": "התגלה בסריקת חדשות מ-8.9.2026, ואותו נכס עומד גם ברעיון הראשון של הבריינסטורמר של היום, נכס אחד, שני ערוצים.",
+          "competition": null,
+          "srcUrl": "https://ux-news.com/",
+          "srcLabel": "UX News, עדכון 8.9",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, 9:16. A glowing shader orb sitting inside a small design canvas frame slides smoothly along a thin dashed path and passes directly into an open code bracket symbol without pausing, the bracket closes gently around it, camera holds static, calm confident pacing, single warm accent light, no text overlay, no logos.",
+            "script": "פתח לי את רעיון הווידאו \"שיידר שעובר בעצמו לקוד\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: פיגמה מאפשרת עכשיו לסוכני AI לערוך שיידרים ופלאגינים גנרטיביים ולהעביר אותם ישירות לקוד React דרך MCP, עדכון מ-8.9.2026. אותו נכס עומד גם בפוסט המקביל של היום. שפת editorial kinetic, קריינות עברית קצרה.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. A glowing shader orb inside a small design canvas frame beside an open code bracket symbol, a faint dashed line connecting them, 1:1",
+            "raw": "הוק: פיגמה עכשיו נותנת לסוכן AI לגעת בשיידר ולקחת אותו איתו ישר לתוך קוד React, בלי שלב ידני באמצע.\nעולם: סרטוני הסבר\nקונספט: שיידר זוהר גולש על קו מקווקו ונכנס לסוגריים של קוד שנסגרים סביבו, קריינות עברית מסבירה שהאפקט נשאר חי אחרי המעבר לקוד.\nביצוע: שפה קינטית עריכתית, Nano Banana לפריימים, Higgsfield Cinema Studio לאנימציה, 35 עד 40 שניות, 9:16 ו-1:1, קריינות עברית.\nלמה עכשיו: התגלה ב-8.9.2026, אותו נכס עומד גם בפוסט המקביל של היום."
+          }
+        },
+        {
+          "id": "2026-09-10-2",
+          "world": "תיעוד תהליך",
+          "color": "#71F73C",
+          "hook": "מחר, 11.9.2026, נסגרת בוסאן, ויש לי הגשה אחת בלבד לאדם, אז הערב אני צריך להחליט סופית איזה פרק הולך.",
+          "concept": "יד מרחפת בין שני אייקוני תיקייה מסומנים על שולחן עץ חם, מהססת, ואז דוחפת תיקייה אחת בהחלטיות למגש הגשה קטן, בזמן ששעון קיר ברקע מראה שעה מאוחרת. התיקייה השנייה נשארת נוגעת על השולחן. קריינות עברית שקטה מספרת על הכלל שהגשה אחת לאדם, ועל הבחירה בין הפרק הבודד הגמור לאנתולוגיה המלאה.",
+          "execution": "שפת optimistic near-future, אור ערב חם, פריימי פתיחה ב-Nano Banana, אנימציה ב-Kling 3, 40 עד 50 שניות, 9:16 ראשי, קריינות עברית שקטה, בלי דיאלוג נוסף.",
+          "why": "בוסאן, פסטיבל AI בקוריאה, דדליין 11.9.2026 23:59 KST, אומת ישירות מול FilmFreeway ב-4.9.2026. ניסיון אימות חוזר היום, 10.9.2026, נחסם שוב PROVENANCE_REQUIRED בריצה ללא השגחה, בדיוק כמו ב-8.9 וב-9.9. האימות מ-4.9 עדיין בתוקף ובתוך החלון, יום אחד בלבד לדדליין.",
+          "competition": "Busan International AI Film Festival (BIAIF), דדליין 11.9.2026 23:59 KST, אומת מול FilmFreeway ב-4.9.2026. ניסיון אימות חוזר ב-10.9.2026 נחסם (WebFetch PROVENANCE_REQUIRED בריצה ללא השגחה), האימות מ-4.9.2026 עדיין בתוקף, יום אחד לדדליין. הגשה חינם, בלי הגבלת אורך, הגשה אחת לאדם.",
+          "srcUrl": "https://filmfreeway.com/BIAIF",
+          "srcLabel": "Busan International AI Film Festival, FilmFreeway",
+          "prompts": {
+            "video": "Optimistic near-future visual language, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field, 9:16. A hand hovers between two labeled folder icons on a warm wooden desk, hesitates, then slides one folder firmly into a small submission tray while a wall clock behind shows a late hour, the other folder remains untouched on the desk, camera holds a calm static angle, unhurried documentary pacing, warm evening light through a window, no text overlay, no logos.",
+            "script": "פתח לי את רעיון הווידאו \"הגשה אחת, שני פרקים\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: פסטיבל Busan International AI Film Festival סוגר הגשות ב-11.9.2026 23:59 KST, הגשה חינם ובלי הגבלת אורך אבל רק הגשה אחת לאדם, כך שצריך להחליט בין הפרק הבודד הגמור לאנתולוגיה המלאה. שפת optimistic near-future, קריינות עברית שקטה.",
+            "image": "Optimistic near-future visual language, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field. A hand resting between two labeled folder icons on a warm wooden desk beside a small empty submission tray, warm evening light through a window, no text, no logos, 1:1",
+            "raw": "הוק: מחר, 11.9.2026, נסגרת בוסאן, ויש לי הגשה אחת בלבד לאדם, אז הערב אני צריך להחליט סופית איזה פרק הולך.\nעולם: תיעוד תהליך\nתחרות: Busan International AI Film Festival, דדליין 11.9.2026, הגשה חינם בלי הגבלת אורך, הגשה אחת לאדם.\nקונספט: יד מהססת בין שתי תיקיות, דוחפת אחת למגש הגשה בזמן ששעון מראה שעה מאוחרת, השנייה נשארת על השולחן.\nביצוע: שפת optimistic near-future, Nano Banana לפריימים, Kling 3 לאנימציה, 40 עד 50 שניות, 9:16, קריינות עברית שקטה.\nלמה עכשיו: יום אחד בלבד לדדליין, אומת לאחרונה ישירות ב-4.9.2026."
+          }
+        }
+      ],
+      "watch": [
+        {
+          "title": "Adobe Is Building a New AI Design Tool Called Project Oasis",
+          "desc": "כלי עיצוב חדש מבוסס דפדפן עם AI מודע למותג, עוד לא יצא לציבור, שווה מעקב לקראת השקה.",
+          "meta": "UX News",
+          "url": "https://ux-news.com/"
+        },
+        {
+          "title": "ByteDance Prepares AI Model for Real-Time Spatial Video Generation",
+          "desc": "לאן וידאו AI הולך אחרי הפריים הבודד, רקע למודלי עולם בזמן אמת.",
+          "meta": "Bloomberg",
+          "url": "https://www.bloomberg.com/news/articles/2026-09-07/bytedance-founder-joins-ai-elite-in-race-to-perfect-world-models"
+        }
+      ]
+    },
+    {
       "date": "2026-09-09",
       "ideas": [
         {
