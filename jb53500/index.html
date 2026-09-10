@@ -749,6 +749,14 @@ td b{color:var(--ink)}
 .pcopy.done{background:#2F6B4F}
 .ptpl pre{margin:0;padding:20px 22px;font-family:'Heebo',system-ui,sans-serif;font-size:14px;line-height:1.75;
   white-space:pre-wrap;word-break:break-word;color:var(--ink);background:var(--cream);max-height:520px;overflow:auto;direction:rtl;text-align:right}
+.imgs{display:grid;gap:14px;margin:14px 0 18px}
+.imgs.c3{grid-template-columns:repeat(3,1fr)}
+.imgs.c2{grid-template-columns:repeat(2,1fr)}
+.imgs figure{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.imgs img{display:block;width:100%;height:auto;background:var(--cream)}
+.imgs figcaption{padding:9px 12px 11px;font-size:12px;color:var(--ink-2);line-height:1.55;border-top:1px dashed var(--dash)}
+.imgs figcaption b{color:var(--ink);font-size:12.5px}
+@media(max-width:760px){.imgs.c3,.imgs.c2{grid-template-columns:1fr}}
 @media (max-width:700px){.ptpl pre{font-size:13px;padding:15px 16px;max-height:460px;overflow:auto;overscroll-behavior:contain}}
 
 /* =============== ACCESS GATE =============== */
@@ -1131,6 +1139,7 @@ td b{color:var(--ink)}
 <h2 class="sec">פלט לדוגמה: ערכת התמונות של "החוג המושלם"</h2>
 <p class="lead" style="margin-bottom:16px">זו התשובה המלאה שפרומפט ה-META מחזיר, מורצת על המיזם המלווה. היא כאן משתי סיבות: כדי שיהיה מה להקרין כשמסבירים את הפרומפט, וכדי שהתלמיד יראה איך נראה פלט טוב לפני שהוא מריץ אותו על שלו. הפרומפטים באנגלית, כי כך מודלי תמונה עובדים טוב יותר.</p>
 <div class="callout" style="margin-bottom:18px"><b>הכלל שמחזיק את כל הערכה.</b> משפט הסגנון חוזר מילה במילה בסוף כל פרומפט. זה מה שגורם לתמונת היוגה, ללוגו ולאיור להיראות כאילו יצאו מאותו מקום, גם כשהם נוצרו בשלוש הרצות נפרדות ובימים שונים. אם מוחקים אותו מפרומפט אחד, אותה תמונה תיראה זרה בין השאר.</div>
+<div class="callout calm-note" style="margin-bottom:18px"><b>התמונות שלמטה נוצרו בפועל מהפרומפטים שבעמוד הזה.</b> שתים עשרה תמונות בהרצה אחת, ואחת מהן נפסלה בבדיקה וחזרה. זה בדיוק מה שקורה בכיתה, ולכן הן כאן: כדי שהתלמיד יראה גם את הפלט הטוב וגם את הפסילה.</div>
 <h4 style="margin:0 0 8px">1. עמוד השדרה הוויזואלי</h4>
 <p style="margin-bottom:16px">המשתמשת היא נועה, שעדיין לא התחילה להתאמן. הבעיה שלה היא הרתעה, לא חוסר מידע. לכן העולם הוויזואלי הוא בדיוק ההפך מהאסתטיקה הרגילה של כושר: לא חדר כושר כהה, לא זיעה, לא ניגודיות חדה, לא גופים מושלמים. אור יום רך, אנשים שנראים כמו אנשים, ותנועה בלי מאמץ. הסגנון שממנו התרחקנו הוא בדיוק זה שגורם לנועה לסגור את האתר.</p>
 <h4 style="margin:0 0 8px">2. פלטת הצבעים</h4>
@@ -1158,9 +1167,10 @@ td b{color:var(--ink)}
 
 2. LETTERFORM. A single soft geometric Hebrew-style circular counter shape, rendered as an abstract closed loop with one open gap on the lower right, in solid coral on warm butter. The gap is the point: an entrance. Thick even stroke, fully rounded terminals, no serifs, no letters, no readable characters. Flat vector, centered. Soft natural daylight, warm butter and coral palette, gentle film grain, calm airy composition with generous negative space, unhurried and welcoming. No text, letters, numbers or logos anywhere in the image.
 
-3. COMBINED. A soft rounded square badge in studio green, and inside it a single continuous coral line that traces a calm looping path from bottom left to top right, ending in a small filled dot. The line suggests a route from hesitation to a chosen class. Flat vector, centered, no border, no shine. Soft natural daylight, warm butter and coral palette, gentle film grain, calm airy composition with generous negative space, unhurried and welcoming. No text, letters, numbers or logos anywhere in the image.</pre>
+3. COMBINED. A soft rounded square badge in solid studio green. Inside it, one single smooth coral curve, shaped like a gentle rising S, sweeping from the lower left corner up to the upper right, ending in one small filled coral circle. Exactly one curve and exactly one dot, nothing else inside the badge. The curve is simple and calm, not tangled, not looping over itself, no knots, no spirals, no scribble. Even thick stroke, rounded terminals. Extremely minimal, like a modern app icon. The curve suggests a route from hesitation to a chosen class. Soft natural daylight, warm butter and coral palette, gentle film grain, calm airy composition with generous negative space, unhurried and welcoming. No text, letters, numbers or logos anywhere in the image.</pre>
 </div>
 <div class="callout calm-note" style="margin-bottom:18px"><b>הרעיון מאחורי כל אחת.</b> הראשונה, שלוש קשתות שנפתחות: גוף שיוצא מהתכנסות לתנועה. השנייה, לולאה סגורה עם פתח אחד למטה, והפתח הוא כל הרעיון, כניסה. השלישית, קו אחד שמוביל מפינה לנקודה, המסלול מההיסוס לשיעור שנבחר. שימו לב שאף אחת מהן אינה משקולת. משקולת היא בדיוק מה שמרתיע את נועה.</div>
+<div class="imgs c3"><figure><img src="files/hachug/logo-symbol.webp" alt="לוגו מבוסס סמל, שלוש קשתות נפתחות" loading="lazy"><figcaption><b>גרסה 1, סמל.</b> שלוש קשתות שנפתחות, גוף שיוצא מהתכנסות לתנועה.</figcaption></figure><figure><img src="files/hachug/logo-letter.webp" alt="לוגו מבוסס צורה טיפוגרפית, לולאה עם פתח" loading="lazy"><figcaption><b>גרסה 2, צורה טיפוגרפית.</b> לולאה סגורה עם פתח אחד. הפתח הוא כל הרעיון, כניסה.</figcaption></figure><figure><img src="files/hachug/logo-combo.webp" alt="לוגו משולב, קו עולה בתוך תג ירוק" loading="lazy"><figcaption><b>גרסה 3, שילוב.</b> קו אחד שעולה ונגמר בנקודה, המסלול מההיסוס לשיעור שנבחר.</figcaption></figure></div><div class="callout" style="margin-bottom:18px"><b>מה קרה בגרסה 3 בהרצה הראשונה, ולמה זה שווה הקרנה.</b> הפרומפט ביקש "קו רציף שמתפתל ממטה למעלה", והמודל הבין מתפתל כמו שרבוט. התיקון לא היה להריץ שוב ולקוות, אלא לכתוב מה אסור: עקומה אחת בלבד, בלי לולאות על עצמה, בלי סלילים, בלי קשרים. זו בדיוק הטכניקה של הגבלת פלט ממפגש 2, על תמונה במקום על טקסט.</div><div class="imgs c2"><figure><img src="files/hachug/logo-combo-rejected.webp" alt="הגרסה שנפסלה, קו מסולסל שנראה כמו שרבוט" loading="lazy"><figcaption><b>נפסל.</b> "קו רציף שמתפתל" בלי מגבלות. התוצאה היא שרבוט, לא מסלול.</figcaption></figure><figure><img src="files/hachug/logo-combo.webp" alt="הגרסה שהתקבלה, עקומה אחת נקייה" loading="lazy"><figcaption><b>התקבל.</b> אותו רעיון, אחרי שהוספנו שלושה איסורים מפורשים לפרומפט.</figcaption></figure></div>
 <h4 style="margin:18px 0 8px">ב. תמונות המוצר, חמישה סוגי שיעורים ובאנר</h4>
 <p style="margin-bottom:10px">ההגדרה מדברת על שיעורים ולא על מסכים, ולכן פרומפט לכל סוג שיעור. כולן באותו טיפול ובאותו יחס, כדי שהן יעבדו כרשת אחת במסך ההמלצות.</p>
 <div class="ptpl" style="margin-bottom:16px">
@@ -1179,6 +1189,7 @@ td b{color:var(--ink)}
 
 6. BANNER. Wide 16:9 establishing shot of the empty studio in the morning, before anyone arrives. Mats stacked neatly, one coral mat unrolled on the floor, low sun across the wood. Nobody in frame. Room for a headline on the left third, kept visually quiet. Soft natural daylight, warm butter and coral palette, gentle film grain, calm airy composition with generous negative space, unhurried and welcoming. No text, letters, numbers or logos anywhere in the image.</pre>
 </div>
+<div class="imgs c3"><figure><img src="files/hachug/class-yoga.webp" alt="שיעור יוגה באור בוקר" loading="lazy"><figcaption><b>יוגה.</b> אור בוקר, אישה בשנות השלושים, מתיחה פשוטה.</figcaption></figure><figure><img src="files/hachug/class-pilates.webp" alt="שיעור פילאטיס בקבוצה קטנה" loading="lazy"><figcaption><b>פילאטיס.</b> שלושה מתאמנים בגילים ובמבנה גוף שונים.</figcaption></figure><figure><img src="files/hachug/class-functional.webp" alt="אימון פונקציונלי בחדר מואר" loading="lazy"><figcaption><b>פונקציונלי.</b> מאמץ שנראה בר קיימא, בלי זיעה ובלי צעקות.</figcaption></figure><figure><img src="files/hachug/class-dance.webp" alt="שיעור מחול, שני מבוגרים בתנועה" loading="lazy"><figcaption><b>מחול.</b> תנועה עם טשטוש קל בידיים, ושניהם צוחקים.</figcaption></figure><figure><img src="files/hachug/class-evening.webp" alt="שיעור ערב, מעגל לפני תחילת השיעור" loading="lazy"><figcaption><b>שיעור ערב.</b> רגע חברתי לפני שהשיעור מתחיל, באור מנורה.</figcaption></figure><figure><img src="files/hachug/banner.webp" alt="באנר, סטודיו ריק בבוקר" loading="lazy"><figcaption><b>באנר 16:9.</b> הסטודיו לפני שמישהו הגיע. הצד השקט נשאר לכותרת.</figcaption></figure></div>
 <h4 style="margin:18px 0 8px">ג. דוגמנית הבית ודוגמן הבית</h4>
 <p style="margin-bottom:10px">נועה היא המשתמשת, ואמיר הוא המדריך. כל אחד מהם מתואר בפירוט מספיק כדי לייצר אותו שוב בסיטואציה אחרת, וזו כל הנקודה: דמות שחוזרת היא מה שהופך ערכת תמונות למותג.</p>
 <div class="ptpl" style="margin-bottom:16px">
@@ -1192,6 +1203,7 @@ HOUSE MODEL, MALE. Amir. A man of 46, lean, short salt and pepper hair, close tr
 To reuse him: keep the sentence from "A man of 46" to "rather than instructing" word for word, and replace only the last two sentences with the new situation.</pre>
 </div>
 <div class="callout" style="margin-bottom:18px"><b>איך שומרים על אותה דמות.</b> מעתיקים את משפט התיאור הפיזי מילה במילה, ומחליפים רק את שתי השורות האחרונות, אלה שמתארות איפה היא נמצאת ומה היא עושה. ברגע שמשנים גם את התיאור הפיזי, מקבלים אדם אחר. זה הכלל היחיד שצריך לזכור כאן, והוא זהה בכל מודל תמונה.</div>
+<div class="imgs c2"><figure><img src="files/hachug/model-noa.webp" alt="נועה, דוגמנית הבית, עומדת בכניסה לסטודיו" loading="lazy"><figcaption><b>נועה, 35.</b> המשתמשת. עומדת בכניסה עם הטלפון ביד, סקרנית ומהססת. זו שעוד לא התחילה.</figcaption></figure><figure><img src="files/hachug/model-amir.webp" alt="אמיר, דוגמן הבית, יושב ליד מזרן" loading="lazy"><figcaption><b>אמיר, 46.</b> המדריך. יושב ליד המזרן, מקשיב ולא מנחה. המדריך שלא מרתיע.</figcaption></figure></div>
 <h4 style="margin:18px 0 8px">ד. סגנון האילוסטרציה</h4>
 <p style="margin-bottom:10px">לאיפה שהצילום לא מגיע: מסכים ריקים, חמשת שלבי השאלון, ואייקונים. הכלל שמחזיק אותם כמשפחה הוא צורה ירוקה אחת בכל איור, אף פעם לא שתיים.</p>
 <div class="ptpl" style="margin-bottom:16px">
@@ -1202,6 +1214,7 @@ A single continuous coral line drawing on a warm butter background, showing a si
 
 To use this style for other illustrations: keep "a single continuous coral line drawing on a warm butter background, one weight throughout, rounded terminals, no shading, no fill except a single flat studio green shape" and replace only the subject. The rule that keeps them a family: exactly one green shape per illustration, and never more.</pre>
 </div>
+<div class="imgs c2"><figure><img src="files/hachug/illu-calendar.webp" alt="איור בקו אחד, לוח שנה עם משבצת שמתרוממת" loading="lazy"><figcaption><b>סגנון האיור.</b> קו קורל אחד, ובדיוק צורה ירוקה אחת. הכלל הזה הוא מה שהופך איורים למשפחה.</figcaption></figure></div>
 <h4 style="margin:18px 0 8px">ה. טיפוגרפיה</h4>
 <table style="margin-bottom:16px">
   <tr><th scope="col" style="width:16%">רמה</th><th scope="col" style="width:16%">לטינית</th><th scope="col" style="width:16%">עברית</th><th scope="col">למה</th></tr>
