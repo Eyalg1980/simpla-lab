@@ -67,7 +67,7 @@ QUOTES = {
 S = [
  (3.5,"clip","bare",7,0),          # a man before any role. The confession runs here
  (3.2,"clip","don",None,0),        # hands lower the first halo onto him
- (3.3,"clip","p_res",None,0),
+ (4.2,"clip","p_res",None,0),   # held longer: the confession has to finish before the title
  (4.5,"title",None,None,0),
 
  (3.6,"clip","p_res",1,0.4),       # the three roles named over the three faces
