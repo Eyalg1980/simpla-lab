@@ -6,13 +6,17 @@ CDN=https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ
 cd "$(dirname "$0")"
 
 echo "== hebrew narration"
+# CUT 21: blocks 2 to 6 RE-RECORDED shorter. 1 and 7 are untouched, so they keep
+# their original files. Measured after silenceremove and loudnorm: speech went
+# from 93.44s to 72.16s, 21.28 seconds less talking. Same voice preset as before,
+# or the interviewee would change voice halfway through his own interview.
 declare -A HE=(
  [1]=hf_20260829_062549_3f974055-5a8d-43a0-a9e9-1c536ae0ab6f
- [2]=hf_20260829_062548_42ad5d39-0f0c-4308-8966-579c82df765c
- [3]=hf_20260829_062548_764a69e5-82f7-4387-a9e5-3dd9f096d88f
- [4]=hf_20260829_062548_c2fa46e6-d4fc-47bd-8069-26c9713b98e8
- [5]=hf_20260829_062548_c3d7022f-4c9d-470f-a59c-4653249e10ba
- [6]=hf_20260829_062548_f8befee9-fee0-4fd9-bdfd-4624d54e405d
+ [2]=hf_20260910_000959_0a0910a8-6492-4c22-bf47-279f0311525b
+ [3]=hf_20260910_001001_5300c0af-79e8-4491-985c-f8829e9c6d01
+ [4]=hf_20260910_000959_886a02e6-457d-47c4-9d7b-a1190d03ff4b
+ [5]=hf_20260910_001025_3788c9f1-d22d-46ab-bd96-1d9ec55b1586
+ [6]=hf_20260910_001000_5f69ce62-cef7-4cc6-9424-13fe647d85dd
  # 7 is not the therapist: it is the patient, first person, once, at the start
  [7]=hf_20260829_194605_a09fa10d-4e9f-4e93-9c49-976b110f4318
 )

@@ -306,9 +306,12 @@ S = [
  (1.8,"clip",13,None,0),
 
  # vo2, then the victim opens, then the card
- (5.2,"lip",16,2,0),
+ # 9.0 not 12.0: vo2 measured 12.40 against 19.52. The voice still carries a
+ # little past the block onto the cutaways after it, which is the pattern that
+ # works everywhere in this film except on the speaker's own frozen face.
+ (3.6,"lip",16,2,0),
  (1.2,"clip","ins_glass",None,0),          # the glass, two minutes before it is thrown
- (5.6,"lip",16,None,6.4),
+ (4.2,"lip",16,None,4.8),
  # the victim's chapter no longer OPENS on him: the camera comes in from
  # outside the house, through the window and two rooms, and finds him.
  (9.2,"clip","walk",None,0),   # 9.2 not 8.0: the arrival behind him lands at 6.5s of the
@@ -329,7 +332,7 @@ S = [
  (2.0,"clip",29,None,0),
 
  # vo3, then the persecutor opens, then the card
- (9.0,"lip",30,3,0),
+ (6.8,"lip",30,3,0),   # vo3 measured 6.56 against 13.92
  # 5.2 not 3.6: taking the cave beat out of this chapter left the card landing
  # 1.3s inside vo3, which the card-over-speech gate caught. The seconds go to
  # the persecutor's own medium rather than back to a cave cutaway, so the
@@ -347,7 +350,7 @@ S = [
                                 # figure round and the hooded victim is gone, which breaks it
 
  # vo4
- (8.0,"lip",43,4,0),
+ (5.2,"lip",43,4,0),   # vo4 measured 4.88 against 8.72
  # vo5, the wheel. Two of the cutaways here were among the trims he approved,
  # which left the block shorter than the narration that runs over it -- the new
  # overlap gate caught exactly that. The fix is not padding: the three faces now
@@ -369,12 +372,12 @@ S = [
  (1.6,"clip","so_res",None,0),
  (1.3,"clip","so_vic",None,0),
  (1.0,"clip","so_per",None,0),
- (2.2,"clip","trio2",None,0),                             # victim and persecutor, face to face
- (2.4,"clip","trio3",None,0),                             # over the shoulder, SCREEN DIRECTION FLIPPED
- (1.2,"flash","smile",None,0),(1.2,"flash","empty",None,0),(1.2,"flash","eyes",None,0),
+ (1.6,"clip","trio2",None,0),                             # victim and persecutor, face to face
+ (2.0,"clip","trio3",None,0),                             # over the shoulder, SCREEN DIRECTION FLIPPED
+ (1.0,"flash","smile",None,0),(1.0,"flash","empty",None,0),(1.0,"flash","eyes",None,0),
  # "it is not a triangle. it is a wheel." -- and the frame is the wheel: three
  # men in a triangle seen from straight above, and the whole plan turning.
- (3.4,"clip","over_v",None,0),
+ (3.0,"clip","over_v",None,0),
  (6.0,"slow",52,None,0),
  # vo6
  # HIS NOTE ON CUT 18, AND HE WAS RIGHT: vo6 RUNS 11.84 SECONDS AND THE BLOCK
@@ -383,9 +386,9 @@ S = [
  # of other things and reads fine; here it lands on him not speaking. The lip
  # clip is regenerated at 12s from the full audio and the block now covers the
  # whole line. A gate below makes this class of bug impossible to ship again.
- (4.0,"lip",53,6,0),
+ (3.4,"lip",53,6,0),
  (1.2,"clip","ins_paper",None,0),           # the triangle on the page, from the confession
- (6.80,"lip",53,None,5.2),
+ (6.6,"lip",53,None,4.6),                   # vo6 measured 10.96 against a 11.2 block
 
  # THE MEETING. His fixed illustrated shot resolves into the same frame
  # photoreal, and that frame is exactly where the pull-back begins, so the
@@ -635,21 +638,23 @@ ENG = {
  1: ["There are three roles.",
      "The rescuer. The victim. The persecutor.",
      "And each one is certain he is only one of them."],
+ # CUT 21. Eight lines out of thirty-two, and the rule was: delete every line
+ # the picture already says, keep only mechanism, decision and price. He then
+ # restored three of my cuts -- the three roles being named, "looks like the
+ # best person in the room / he isn't", and the two other turns of the wheel --
+ # so what actually left is the childhood explanation, the defensive "the victim
+ # is not a weak person", the slogan "only the hard ones survive", the summary
+ # "and that is the price", "he is looking for a rescuer, he always finds one",
+ # and the presenter's cue "and here is the part that is hard to accept".
  2: ["The rescuer looks like the best person in the room.",
      "He isn't.",
      "He just doesn't know who he is when nobody needs him.",
-     "So without meaning to, he makes sure they always need him.",
-     "He grew up in a house that praised him for what he did,",
-     "never for what he was."],
- 3: ["The victim is not a weak person.",
-     "The victim decided, a long time ago, that he cannot.",
-     "And that is a decision, not a fact.",
-     "He is looking for a rescuer. He always finds one."],
+     "So without meaning to, he makes sure they always need him."],
+ 3: ["The victim decided, a long time ago, that he cannot.",
+     "And that is a decision, not a fact."],
  4: ["And the persecutor is certain that he is the victim. Always.",
-     "He is only defending himself.",
-     "In his world, only the hard ones survive."],
- 5: ["And here is the part that is hard to accept.",
-     "All three of them are the same person.",
+     "He is only defending himself."],
+ 5: ["All three of them are the same person.",
      "The rescuer gets tired and turns into the persecutor.",
      "The persecutor gets caught and turns into the victim.",
      "And the victim has had enough, and starts to attack.",
@@ -659,10 +664,8 @@ ENG = {
      "One day he drew a triangle for me, on a page.",
      "After that I could never look at anyone the same way.",
      "Least of all myself."],
- 6: ["You cannot leave this quietly.",
-     "The moment you stop rescuing,",
-     "you look to them exactly like the persecutor.",
-     "And that is the price.",
+ 6: ["You cannot leave this game quietly.",
+     "The moment you stop rescuing, you look to them exactly like the persecutor.",
      "Whoever gets out, gets out alone."],
 }
 from faster_whisper import WhisperModel
