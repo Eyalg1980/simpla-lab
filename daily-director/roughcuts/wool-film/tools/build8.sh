@@ -25,14 +25,18 @@ python3 build8.py
 echo "== segments"
 rm -f list.txt
 NEXP=$(wc -l < plan.txt)
-while read n d k url ss; do
+while read n d k url ss st; do
   s=$(printf "g%03d.mp4" $n)
   c="src_$(printf '%s' "$url" | md5sum | cut -c1-16).mp4"
   case "$k" in
     clip)
       [ -f "$c" ] || curl -sf -o "$c" "$url"
+      # a slot longer than its take is retimed, not truncated. setpts first,
+      # so fps= resamples the already-slowed frames and the motion stays smooth.
+      PRE=""
+      if [ "$st" != "-" ]; then PRE="setpts=PTS*$st,"; fi
       ffmpeg -nostdin -y -loglevel error -ss $ss -i "$c" \
-        -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps=25,setsar=1" \
+        -vf "${PRE}scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps=25,setsar=1" \
         -an -t $d -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -r 25 -g 50 $s </dev/null ;;
     card)
       ffmpeg -nostdin -y -loglevel error -loop 1 -framerate 25 -i $(printf "o%03d.png" $n) -t $d \

@@ -77,7 +77,7 @@ S = [
 
  (4.5,"clip","res_tea",2,0),
  (3.5,"clip","res_hand",None,0),
- (4.5,"clip","p_res",None,0.8),
+ (4.5,"clip","p_res",None,0.2),
  (3.2,"q2",None,None,0),
 
  (4.0,"clip","vic_room",3,0),
@@ -97,9 +97,9 @@ S = [
  (1.3,"clip","p_vic",None,1.4),
  (1.0,"clip","p_per",None,1.6),
  (4.5,"clip","over",None,0.2),     # "it is not a triangle. it is a wheel"
- (5.2,"clip","trio",None,0.5),
+ (6.0,"clip","trio",None,0.5),
 
- (5.5,"clip","doff",6,0),          # the halo comes off while the price is named
+ (6.0,"clip","doff",6,0),          # the halo comes off while the price is named
  (5.7,"clip","bare",None,0.5),
  (4.0,"clip","bare",None,1.5),     # and then nothing, in silence
  (3.5,"card",None,None,0),
@@ -114,6 +114,32 @@ SFX = [
  ("shat",  ("clip","throw",1,4.0), "the glass on the wall, 4s into the single take"),
  ("pulse", ("clip","door",1),  "a slow low pulse under the persecutor"),
 ]
+
+# ---- what the generator actually gave us -------------------------------------
+# Measured with ffprobe on the finished takes. A slot longer than its source
+# used to fail in the shell, three shots deep, after everything had downloaded.
+# Now python knows the lengths and retimes the shot instead, and refuses to
+# stretch a take so far that the wool stops moving like cloth.
+SRC_LEN = {
+ "bare":4.04, "don":4.04, "doff":6.04,
+ "p_res":3.04, "p_vic":3.04, "p_per":3.04, "trio":5.04,
+ "res_tea":5.04, "res_hand":4.04, "vic_room":5.04,
+ "door":3.04, "wall":3.04, "glass":3.04, "throw":8.04, "after":3.04,
+ "over":5.04,
+}
+TAIL = 0.04      # never ask for the last partial frame
+MAX_STRETCH = 1.8
+def stretch_for(ref, dur, ss):
+    avail = SRC_LEN[ref] - ss - TAIL
+    if avail <= 0:
+        raise SystemExit("IN POINT PAST THE END: %s at %.2f of %.2f" % (ref, ss, SRC_LEN[ref]))
+    if dur <= avail:
+        return None
+    r = dur / avail
+    if r > MAX_STRETCH:
+        raise SystemExit("STRETCH TOO FAR: %s wants %.2f from %.2fs of source = %.2fx"
+                         % (ref, dur, avail, r))
+    return r
 
 # ---- fonts and cards ---------------------------------------------------------
 FB = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
@@ -153,9 +179,11 @@ for i, (dur, kind, ref, vo, ss) in enumerate(S, 1):
             d.line([(810, 500), (1110, 500)], fill=(84,74,64), width=2)
             d.text((960, 566), l1, font=f(FR, 50), fill=(210,204,194), anchor="ma")
             d.text((960, 636), l2, font=f(FR, 50), fill=(210,204,194), anchor="ma")
-        base.save("o%03d.png" % i); plan.append((i, dur, "card", "-", 0))
+        base.save("o%03d.png" % i); plan.append((i, dur, "card", "-", 0, "-"))
     else:
-        plan.append((i, dur, "clip", B + V[ref] + ".mp4", ss))
+        sfac = stretch_for(ref, dur, ss)
+        plan.append((i, dur, "clip", B + V[ref] + ".mp4", ss,
+                     "-" if sfac is None else "%.4f" % sfac))
     cum += dur
 
 starts, t = [], 0.0
@@ -176,7 +204,9 @@ for name, anchor, _why in SFX:
     sfx.append((name, at))
 open("sfx.txt","w").write("".join("%s %.3f\n" % x for x in sfx))
 open("meet.txt","w").write("%.3f\n" % meet_t)
-open("plan.txt","w").write("".join("%d %.2f %s %s %.2f\n" % p for p in plan))
+open("plan.txt","w").write("".join("%d %.2f %s %s %.2f %s\n" % p for p in plan))
+nsl = sum(1 for p in plan if p[5] != "-")
+print("retimed shots %d, slowest %s" % (nsl, max([p[5] for p in plan if p[5] != "-"] or ["-"])))
 open("marks.txt","w").write("".join("%d %d\n" % (v, round(t*1000)) for v, t in marks))
 tot = cum
 print("shots %d  total %.2f = %d:%02d" % (len(S), tot, tot//60, tot%60))
