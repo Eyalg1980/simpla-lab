@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>תסמונת המושיע - קאט 22</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#71F73C;--o:#E0954A;--bg:#0a0a0a;--card:#131313;--mut:#8a8a8a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#ededed;font-family:Rubik,system-ui,sans-serif;padding:18px;max-width:1000px;margin-inline:auto}
+h1{font-size:28px;font-weight:800;margin:0 0 4px}
+.sub{color:var(--mut);font-size:14px;margin-bottom:16px}
+.tag{display:inline-block;border:1px dashed var(--g);color:var(--g);font-size:11px;letter-spacing:.08em;padding:3px 9px;border-radius:3px;margin-inline-end:6px}
+.tag.o{border-color:var(--o);color:var(--o)}
+video{width:100%;border:1px solid #333;border-radius:6px;background:#000;display:block}
+img{width:100%;border:1px solid #2a2a2a;border-radius:6px;display:block;margin-top:10px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 22px}
+.chip{background:var(--card);border:1px solid #262626;border-radius:4px;padding:6px 10px;font-size:12px;color:#cfcfcf}
+.chip b{color:var(--g);font-weight:600}
+h2{font-size:15px;letter-spacing:.06em;color:var(--g);margin:30px 0 10px;font-weight:600}
+h2.o{color:var(--o)}
+.note{background:var(--card);border:1px dashed #2c2c2c;border-radius:6px;padding:14px 16px;margin-top:10px}
+.note.o{border-color:#4a3a1e;background:#171207}
+ul{padding-inline-start:18px;margin:6px 0 0}
+li{font-size:14px;line-height:1.8;margin-bottom:9px;color:#d4d4d4}
+li b{color:#fff}
+ol{padding-inline-start:20px;margin:6px 0 0}
+ol li{margin-bottom:11px}
+p{font-size:14px;line-height:1.85;color:#d4d4d4;margin:0 0 12px}
+p b{color:#fff}
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
+td,th{border-bottom:1px solid #242424;padding:7px 6px;text-align:right;vertical-align:top}
+th{color:var(--g);font-weight:600;font-size:12px}
+.mono{font-family:ui-monospace,monospace;color:#fff}
+a{color:var(--g);word-break:break-all;font-size:12px}
+.q{border-inline-start:2px solid var(--o);padding-inline-start:14px;margin:14px 0;color:#e8e8e8;font-size:15px;line-height:1.8}
+</style>
+</head>
+<body>
+<h1>תסמונת המושיע</h1>
+<div class="sub"><span class="tag">קאט 22</span><span class="tag o">הליפסינק תוקן</span><span class="tag">3:15</span>הפה מדבר את הטקסט שבאמת מתנגן</div>
+
+<video controls playsinline preload="metadata"
+ src="https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/5056b375-f0d0-446e-bed9-bbfa21314504.mp4"></video>
+
+<div class="meta">
+<div class="chip">אורך <b>3:15</b></div>
+<div class="chip">שוטים <b>65</b></div>
+<div class="chip">ליפסינקים שנוצרו מחדש <b>4</b></div>
+<div class="chip">שער חדש <b>1</b></div>
+</div>
+
+<h2 class="o">מה היה שבור, וזה היה באג שלי</h2>
+<div class="note o">
+<p>בקאט 21 הקלטתי קריינות חדשה וקצרה יותר, ו<b>לא יצרתי מחדש את קליפי הליפסינק</b>. התוצאה: בארבעה מתוך חמשת בלוקי הדיבור הפה של המטפל אמר את הטקסט הישן והארוך בזמן שהאוזן שמעה את החדש. שמעת את זה בסוף הסרט, שם זה הכי בולט כי הוא על המסך הכי הרבה זמן, אבל זה היה נכון לכל ארבעת הבלוקים.</p>
+<p><b>התיקון:</b> ארבעת הקליפים נוצרו מחדש מהאודיו החדש, כל אחד באורך שלו. בלוק אחד לא נגעתי כי הקריינות שלו לא השתנתה.</p>
+</div>
+
+<h2>ושער שימנע את זה מלחזור</h2>
+<div class="note">
+<p>הבעיה האמיתית לא הייתה שכחה, אלא <b>שהמפה של קבצי הקריינות הייתה כתובה בשני מקומות</b>: פעם בקובץ הפייתון ופעם בסקריפט הרינדור. לכן אפשר היה לעדכן אחד ולא את השני.</p>
+<ul>
+<li>המפה עברה למקום אחד בלבד, והסקריפט קורא ממנו</li>
+<li>כל קליפ ליפסינק רושם עכשיו <b>לאיזה קובץ אודיו הוא סונכרן</b></li>
+<li>הבילד נופל אם פה כלשהו מסונכרן לאודיו שהסרט כבר לא מנגן</li>
+</ul>
+<p>זה אותו דפוס שכבר תפס כאן ארבעה באגים אחרים: לא לתקן את המופע, לתקן את המחלקה.</p>
+</div>
+
+<h2>מדידות</h2>
+<table>
+<tr><th>מה נמדד</th><th>תוצאה</th></tr>
+<tr><td>פה מול קול</td><td class="mono">5 מתוך 5 תואמים</td></tr>
+<tr><td>אורך</td><td class="mono">3:15, 196.08 מול 195.90 בתכנון</td></tr>
+<tr><td>65 השוטים מול התכנון</td><td class="mono">65 / 65</td></tr>
+<tr><td>חפיפת קריינות</td><td class="mono">אין, המרווח הצפוף 1.72 שניות</td></tr>
+<tr><td>קול שנכנס לשקט</td><td class="mono">אין. האחרון נגמר 0.24 לפני</td></tr>
+<tr><td>כרטיס מול דיבור</td><td class="mono">0 התנגשויות</td></tr>
+<tr><td>02:37 עד הסוף</td><td class="mono">-91 dB</td></tr>
+</table>
+
+<h2>כל הגרסאות שמורות</h2>
+<div class="note">
+<p>שום דבר לא נדרס. לכל קאט יש קובץ משלו ועמוד משלו:</p>
+<table>
+<tr><th>קאט</th><th>אורך</th><th>מה מייחד אותו</th></tr>
+<tr><td><a href="../hashilush-v20/">20</a></td><td class="mono">3:26</td><td>הקריינות המלאה, לפני הקיצור</td></tr>
+<tr><td><a href="../hashilush-v21/">21</a></td><td class="mono">3:15</td><td>הקריינות המקוצרת, עם הליפסינק השבור</td></tr>
+<tr><td><b>22</b></td><td class="mono">3:15</td><td><b>הקריינות המקוצרת, הליפסינק תקין. זו הגרסה לשימוש</b></td></tr>
+</table>
+</div>
+
+<h2>קישורים</h2>
+<div class="note">
+<a href="https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/5056b375-f0d0-446e-bed9-bbfa21314504.mp4">הסרט, קאט 22, MP4</a><br><br>
+<a href="../short-cut/">תכנון הקיצור</a> &middot; <a href="../wool-test-2/">טסט צמר 2</a> &middot; <a href="../process/">דף התהליך</a>
+</div>
+</body>
+</html>
