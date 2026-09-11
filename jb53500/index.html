@@ -606,7 +606,7 @@ td b{color:var(--ink)}
 .ns{display:none}
 @media (max-width:900px){
   .nl{display:none!important}
-  .ns{display:block!important;font-size:10px;line-height:1.15;max-width:100%;
+  .ns{display:block!important;font-size:10px;line-height:1.15;max-width:100%;letter-spacing:-.2px;
       overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 }
 @media (max-width:360px){ .ns{font-size:9px} }
@@ -807,13 +807,14 @@ td b{color:var(--ink)}
   <div class="gcard">
     <span class="gk">JOHN BRYCE / MATRIX</span>
     <h2>מיישם AI ואוטומציה<br>מק"ט 53500</h2>
-    <p class="gp">מרחב העבודה של הקורס: הסילבוס המלא, הפרויקט המתגלגל, מדריך לסטודנט, עזר למרקטינג וארכיון מושגים. בחרו את התפקיד שלכם והזינו את הקוד שקיבלתם.</p>
+    <p class="gp">מרחב העבודה של הקורס: הסילבוס המלא, הפרויקט שמלווה כל תלמיד, ארגז כלים עם הפרומפטים והמושגים, השקפים של הכיתה ועזר למכירות. בחרו את התפקיד שלכם והזינו את הקוד שקיבלתם.</p>
     <div class="gerr" id="gerr"></div>
     <label for="grole">אני</label>
     <select id="grole">
       <option value="lecturer">מרצה</option>
       <option value="admin">מנהלה</option>
       <option value="student">סטודנט</option>
+      <option value="marketing">מרקטינג</option>
     </select>
     <label for="gcode">קוד כניסה</label>
     <input id="gcode" type="password" autocomplete="off" spellcheck="false" placeholder="הזינו את הקוד">
@@ -832,14 +833,12 @@ td b{color:var(--ink)}
   </div>
   <nav class="nav" id="nav">
     <button data-p="home" class="on"><svg class="ico" viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg><span class="nl">דף הבית</span><span class="ns">בית</span></button>
-    <button data-p="syllabus"><svg class="ico" viewBox="0 0 24 24"><path d="M4 4h11l5 5v11a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1z"/><path d="M14 4v6h6M8 14h8M8 18h5"/></svg><span class="nl">סילבוס ומפגשים</span><span class="ns">סילבוס</span></button>
-    <button data-p="project"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg><span class="nl">הפרויקט המתגלגל</span><span class="ns">פרויקט</span></button>
-    <button data-p="guide"><svg class="ico" viewBox="0 0 24 24"><path d="M12 6.5C10.5 5 8.5 4.5 6 4.5H3v14h3c2.5 0 4.5.5 6 2 1.5-1.5 3.5-2 6-2h3v-14h-3c-2.5 0-4.5.5-6 2z"/><path d="M12 6.5v14"/></svg><span class="nl">מדריך פרויקט הגמר</span><span class="ns">מדריך</span></button>
-    <button data-p="prompts"><svg class="ico" viewBox="0 0 24 24"><path d="M4 4.5h16v15H4z"/><path d="M7.5 9l2.5 2.5-2.5 2.5M12.5 14.5h4"/></svg><span class="nl">ארגז הפרומפטים</span><span class="ns">פרומפטים</span></button>
+    <button data-p="syllabus"><svg class="ico" viewBox="0 0 24 24"><path d="M4 4h11l5 5v11a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1z"/><path d="M14 4v6h6M8 14h8M8 18h5"/></svg><span class="nl">הקורס</span><span class="ns">קורס</span></button>
+    <button data-p="project"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg><span class="nl">הפרויקט שלי</span><span class="ns">פרויקט</span></button>
+    <button data-p="prompts"><svg class="ico" viewBox="0 0 24 24"><path d="M4 4.5h16v15H4z"/><path d="M7.5 9l2.5 2.5-2.5 2.5M12.5 14.5h4"/></svg><span class="nl">ארגז כלים</span><span class="ns">כלים</span></button>
     <button data-p="decks"><svg class="ico" viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="13" rx="2"/><path d="M12 17.5V21M8.5 21h7"/></svg><span class="nl">שקפים ותרשימים</span><span class="ns">שקפים</span></button>
     <button data-p="teachers"><svg class="ico" viewBox="0 0 24 24"><path d="M3 5.5h18v11H3z"/><path d="M12 16.5V21M8 21h8M7 9.5h6M7 12.5h4"/></svg><span class="nl">חדר מרצים</span><span class="ns">מרצים</span></button>
-    <button data-p="marketing"><svg class="ico" viewBox="0 0 24 24"><path d="M3 10.5v3a1 1 0 001 1h3l5 4V5.5l-5 4H4a1 1 0 00-1 1z"/><path d="M17 8.5a5 5 0 010 7M20 6a8.5 8.5 0 010 12"/></svg><span class="nl">עזר למרקטינג</span><span class="ns">מרקטינג</span></button>
-    <button data-p="glossary"><svg class="ico" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg><span class="nl">ארכיון מושגים</span><span class="ns">מושגים</span></button>
+    <button data-p="marketing"><svg class="ico" viewBox="0 0 24 24"><path d="M3 10.5v3a1 1 0 001 1h3l5 4V5.5l-5 4H4a1 1 0 00-1 1z"/><path d="M17 8.5a5 5 0 010 7M20 6a8.5 8.5 0 010 12"/></svg><span class="nl">עזר למרקטינג</span><span class="ns">שיווק</span></button>
   </nav>
   <div class="rail-foot">
     <b>גרסת סילבוס</b><br>אוגוסט 2026<br>
@@ -854,7 +853,7 @@ td b{color:var(--ink)}
 <div class="hero">
   <span class="tag">מיישם AI ואוטומציה · מק"ט 53500 · גרסת סילבוס · אוגוסט 2026</span>
   <h2>"הבוגר שלנו לא מספר שלמד.<br>הוא שולח קישור ומראה מה בנה."</h2>
-  <p>מרחב עבודה משותף לפדגוגיה, למרצים ולמכירות. גרסת סילבוס אוגוסט 2026, עודכנה על ידי אייל גרשון, אסף פינקלשטיין ולירון חונן: הסילבוס המלא, הפרויקט המתגלגל בנושא חופשי שמוגש כפרויקט הגמר, המיזם המלווה שנבנה יחד בכיתה, עזר מכירה וארכיון מושגים. כל אזור נפתח באתר משלו, בתפריט הצדי.</p>
+  <p>מרחב עבודה משותף לפדגוגיה, למרצים ולמכירות. גרסת סילבוס אוגוסט 2026, עודכנה על ידי אייל גרשון, אסף פינקלשטיין ולירון חונן. האתר בנוי כאזור אחד לכל שאלה: מה הקורס ומה קורה בכל מפגש, מה כל תלמיד בונה ומגיש, איפה מוצאים פרומפט או מושג באמצע עבודה, מה מוקרן בכיתה, ואיך מעבירים את המפגש.</p>
   <div class="stats">
     <div class="stat"><b data-ed="total">225.5</b><span>שעות סה"כ במסלול</span></div>
     <div class="stat"><b data-ed="meetings">20</b><span data-ed="when">ימי שני ורביעי, 09:00 עד 16:30, כ-6.5 שעות לימוד למפגש</span></div>
@@ -864,12 +863,12 @@ td b{color:var(--ink)}
 </div>
 
 <div class="quick" id="quick">
-  <button class="qb" data-go="syllabus"><svg viewBox="0 0 24 24"><path d="M4 4h11l5 5v11a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1z"/><path d="M14 4v6h6M8 14h8M8 18h5"/></svg><b>סילבוס ומפגשים</b><span>7 מודולים, <i style="font-style:normal" data-ed="meetings">20</i> מפגשים</span></button>
-  <button class="qb" data-go="project"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg><b>הפרויקט המתגלגל</b><span>המסע, המיזם המלווה ומצגת ההכנה</span></button>
-  <button class="qb" data-go="guide"><svg viewBox="0 0 24 24"><path d="M12 6.5C10.5 5 8.5 4.5 6 4.5H3v14h3c2.5 0 4.5.5 6 2 1.5-1.5 3.5-2 6-2h3v-14h-3c-2.5 0-4.5.5-6 2z"/><path d="M12 6.5v14"/></svg><b>מדריך פרויקט הגמר</b><span>בחירת נושא, דוגמאות ושיטת עבודה</span></button>
-  <button class="qb" data-go="teachers"><svg viewBox="0 0 24 24"><path d="M3 5.5h18v11H3z"/><path d="M12 16.5V21M8 21h8M7 9.5h6M7 12.5h4"/></svg><b>חדר מרצים</b><span>בהכנה</span></button>
+  <button class="qb" data-go="syllabus"><svg viewBox="0 0 24 24"><path d="M4 4h11l5 5v11a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1z"/><path d="M14 4v6h6M8 14h8M8 18h5"/></svg><b>הקורס</b><span>7 מודולים, <i style="font-style:normal" data-ed="meetings">20</i> מפגשים, והקצב של כל מפגש</span></button>
+  <button class="qb" data-go="project"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg><b>הפרויקט שלי</b><span>מה בונים, איך בוחרים נושא, ומה מגישים</span></button>
+  <button class="qb" data-go="prompts"><svg viewBox="0 0 24 24"><path d="M4 4.5h16v15H4z"/><path d="M7.5 9l2.5 2.5-2.5 2.5M12.5 14.5h4"/></svg><b>ארגז כלים</b><span>פרומפטים, מושגים, טבלאות ודוגמאות</span></button>
+  <button class="qb" data-go="decks"><svg viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="13" rx="2"/><path d="M12 17.5V21M8.5 21h7"/></svg><b>שקפים ותרשימים</b><span>כל מה שמוקרן בכיתה, לפי מפגש</span></button>
+  <button class="qb" data-go="teachers"><svg viewBox="0 0 24 24"><path d="M3 5.5h18v11H3z"/><path d="M12 16.5V21M8 21h8M7 9.5h6M7 12.5h4"/></svg><b>חדר מרצים</b><span>סדר ההנחיה של כל מפגש</span></button>
   <button class="qb" data-go="marketing"><svg viewBox="0 0 24 24"><path d="M3 10.5v3a1 1 0 001 1h3l5 4V5.5l-5 4H4a1 1 0 00-1 1z"/><path d="M17 8.5a5 5 0 010 7M20 6a8.5 8.5 0 010 12"/></svg><b>עזר למרקטינג</b><span>פרסונות, בידול והתנגדויות</span></button>
-  <button class="qb" data-go="glossary"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg><b>ארכיון מושגים</b><span>99 מושגים, עם חיפוש</span></button>
 </div>
 
 </section>
@@ -1256,77 +1255,6 @@ td b{color:var(--ink)}
 לכל שקף: כותרת, עד שלוש שורות תוכן, ומה התמונה שצריכה להיות בו.</pre>
 </div>
 
-<h2 class="sec">שש תנועות המצלמה, והשם שהמודל מבין</h2>
-<p class="lead" style="margin-bottom:16px">הטבלה שמלווה את בלוק ההנפשה של 09:10 במפגש 4. לכל תנועה יש דוגמה מהקולנוע ומילה מדויקת שכותבים בפרומפט. מקרינים קטע של עשרים שניות, ומיד אחריו את השם באנגלית. בסדר הזה זה נדבק.</p>
-<table>
-  <tr><th scope="col" style="width:15%">התנועה</th><th scope="col" style="width:26%">הדוגמה מהקולנוע</th><th scope="col" style="width:24%">מה כותבים בפרומפט</th><th scope="col">למה היא שם</th></tr>
-  <tr><td><b>דולי זום</b></td><td>ורטיגו של היצ׳קוק, ואחריו המדרגות ב״מלתעות״</td><td style="font-family:Poppins;direction:ltr;text-align:right;font-size:12.5px">dolly zoom</td><td>הרקע נמתח והנושא נשאר במקום. התנועה היחידה שהיא רגש טהור ולא מידע.</td></tr>
-  <tr><td><b>תנועה על תמונה סטטית</b></td><td>אפקט קן ברנס, מכל סרט תיעודי</td><td style="font-family:Poppins;direction:ltr;text-align:right;font-size:12.5px">slow push in on a still image</td><td>התנועה הכי בטוחה שיש. עובדת כמעט תמיד, וממנה מתחילים כשמודל מחזיר בלגן.</td></tr>
-  <tr><td><b>סיבוב סביב נושא</b></td><td>זמן הכדור ב״מטריקס״</td><td style="font-family:Poppins;direction:ltr;text-align:right;font-size:12.5px">camera orbits the subject</td><td>מראה את הנושא מכל הצדדים בלי לחתוך. מצוין לשוט של מוצר.</td></tr>
-  <tr><td><b>Match cut</b></td><td>העצם שהופכת לחללית ב״2001: אודיסאה בחלל״</td><td style="font-family:Poppins;direction:ltr;text-align:right;font-size:12.5px">נעשה בעריכה, לא בפרומפט</td><td>זו לא תנועה אלא חיבור בין שני שוטים. שווה להכיר כי היא מה שהופך שני שוטים לרעיון אחד.</td></tr>
-  <tr><td><b>Tracking</b></td><td>״הבנים של האדם״, או הכניסה למועדון ב״החברים של הנרי״</td><td style="font-family:Poppins;direction:ltr;text-align:right;font-size:12.5px">tracking shot following the subject</td><td>המצלמה נעה עם הנושא. הכי קשה למודל, ולכן שומרים אותה לשוט אחד ולא לכולם.</td></tr>
-  <tr><td><b>לופ</b></td><td>התמונות הזזות ב״הארי פוטר״</td><td style="font-family:Poppins;direction:ltr;text-align:right;font-size:12.5px">subtle looping motion, everything else still</td><td>פרט אחד זז והשאר קפוא. הכי חסכוני, והכי מתאים לרקע של אתר.</td></tr>
-</table>
-<div class="callout" style="margin-top:16px"><b>המשפט שסוגר את הבלוק.</b> חמש מתוך השש האלה קיימות בקולנוע כמעט מאה שנה, והמודל למד מהן. אתם לא ממציאים שפה חדשה, אתם מדברים בשפה של צלמים. וזו גם הסיבה שכדאי להכיר עוד מונחים: כל מונח שאתם יודעים הוא עוד שליטה.</div>
-<div class="callout calm-note" style="margin-top:12px"><b>הכלל שחוסך את רוב התקלות בסדנה:</b> תנועה אחת בכל שוט. או המצלמה זזה, או הנושא זז, לא שניהם. שניהם יחד זה בדיוק מה שהופך סרטון AI למרק, וזו הטעות הכי נפוצה.</div>
-<h2 class="sec">הסטוריבורד לדוגמה: פרסומת משלוחים, מפורקת לשישה שוטים</h2>
-<p class="lead" style="margin-bottom:16px">מוקרן בבלוק של 10:45 במפגש 4. זהו פירוק לאחור של פרסומת בסגנון מוכר, ולא הסטוריבורד המקורי של המפרסם: אנחנו מנחשים את הכוונה מהתוצאה. זו בדיוק אותה הנדסה הפוכה מתרגיל ה-Reverse Prompting של מפגש 2, הפעם על סרטון.</p>
-<div class="callout" style="margin-bottom:16px"><b>התסריט בשורה אחת:</b> מישהי רעבה בשעה לא הגיונית, מזמינה, והאוכל מגיע לפני שהיא הספיקה להתחרט.</div>
-<table>
-  <tr><th scope="col" style="width:4%">#</th><th scope="col" style="width:27%">מה רואים</th><th scope="col" style="width:15%">מצלמה</th><th scope="col" style="width:6%">שנ׳</th><th scope="col" style="width:24%">מה זז</th><th scope="col">אודיו</th></tr>
-  <tr><td><b style="font-family:Poppins">1</b></td><td>סלון ב-23:40. אישה על הספה מול טלוויזיה דולקת, מסתכלת לכיוון המטבח</td><td>סטטי, medium shot</td><td style="font-family:Poppins">3</td><td>רק הבהוב הטלוויזיה על הפנים, היא לא זזה</td><td>מוזיקה נכנסת, שקטה</td></tr>
-  <tr><td><b style="font-family:Poppins">2</b></td><td>מקרר נפתח, ובפנים שלושה דברים עצובים</td><td>סטטי, close up</td><td style="font-family:Poppins">2</td><td>הדלת נפתחת, האור נדלק</td><td>דלת מקרר</td></tr>
-  <tr><td><b style="font-family:Poppins">3</b></td><td>היא על הספה, הטלפון ביד, בוחרת</td><td>over the shoulder</td><td style="font-family:Poppins">3</td><td>האגודל גולל, המסך מואר</td><td>טאפ אחד</td></tr>
-  <tr><td><b style="font-family:Poppins">4</b></td><td>שליח על אופניים ברחוב לילה ריק</td><td>tracking מהצד</td><td style="font-family:Poppins">3</td><td>השליח נע שמאלה, הרקע זז</td><td>המוזיקה עולה</td></tr>
-  <tr><td><b style="font-family:Poppins">5</b></td><td>דלת נפתחת, שקית מוגשת, שני חיוכים</td><td>סטטי, medium</td><td style="font-family:Poppins">3</td><td>היד מושטת קדימה בלבד</td><td>צלצול בדלת</td></tr>
-  <tr><td><b style="font-family:Poppins">6</b></td><td>היא על הספה עם האוכל, אותה קומפוזיציה כמו שוט 1</td><td>סטטי, medium shot</td><td style="font-family:Poppins">3</td><td>קיטור עולה מהמנה</td><td>המוזיקה נסגרת</td></tr>
-</table>
-<div class="callout" style="margin-top:16px"><b>שלושה דברים להצביע עליהם, ולא לוותר.</b> <b>ראשית,</b> שוט 1 ושוט 6 הם אותה קומפוזיציה בדיוק. זה מה שהופך רצף לסיפור: הצופה רואה את אותו סלון לפני ואחרי, וזה עושה את כל העבודה בלי מילה אחת. <b>שנית,</b> המוצר נמצא על המסך שנייה וחצי בסך הכל. פרסומת טובה מוכרת את הרגע שאחרי, לא את הממשק. <b>ושלישית,</b> אין טקסט בשום שוט. הכל נכנס בעריכה, כי מודלי תמונה כותבים אותיות עקומות ובעברית זה גרוע במיוחד.</div>
-<div class="callout calm-note" style="margin-top:12px"><b>החשבון שמפתיע את הכיתה:</b> שישה שוטים כפול שלוש שניות זה שמונה עשרה שניות, וזו פרסומת שלמה. התלמידים בטוחים שהם צריכים דקה, וזו הסיבה שהסרטונים שלהם מתפרקים. והשאלה שסוגרת את הבלוק: איזה שוט אפשר היה להוריד בלי שהסיפור יישבר. התשובה כמעט תמיד היא שאי אפשר, וזו ההגדרה של סטוריבורד טוב.</div>
-<h2 class="sec">חמשת הכללים של שוט</h2>
-<p class="lead" style="margin-bottom:16px">נאמרים בקול לפני הסדנה, וכתובים על הלוח לאורכה. מי שעובד לפיהם מקבל סרטון, ומי שלא מקבל שישה קליפים ברצף.</p>
-<div class="grid g3" style="margin-bottom:4px">
-<div class="card"><h4>שוט הוא שלוש עד ארבע שניות</h4><p class="mo">כלל 1</p><p>לא יותר. מודלי וידאו מתפרקים אחרי חמש שניות, והצופה מתנתק אחרי שלוש.</p></div>
-<div class="card"><h4>תנועה אחת לשוט</h4><p class="mo">כלל 2</p><p>או המצלמה זזה, או הנושא זז. שניהם יחד זה מה שהופך סרטון AI לבלגן.</p></div>
-<div class="card"><h4>השוט הראשון הוא הבעיה, לא המוצר</h4><p class="mo">כלל 3</p><p>המוצר נכנס בשוט השלישי או הרביעי, ולא יותר משוט וחצי בסך הכל.</p></div>
-<div class="card"><h4>השוט האחרון הוא הפעולה</h4><p class="mo">כלל 4</p><p>מה הצופה אמור לעשות עכשיו. ואם אפשר, בקומפוזיציה של השוט הראשון.</p></div>
-<div class="card"><h4>כל שוט מתחיל מתמונה, לא מטקסט</h4><p class="mo">כלל 5</p><p>תמונה נותנת שליטה, טקסט נותן הפתעה. ובתמונה גרועה אין טעם להתחיל תנועה, היא תישאר גרועה גם כשהיא זזה.</p></div>
-</div>
-<h2 class="sec">כלי וידאו שאפשר להשתמש בהם בלי לשלם</h2>
-<p class="lead" style="margin-bottom:16px">נבדק בספטמבר 2026. מכסות בתחום הזה משתנות כמעט כל חודש, ולכן הטבלה הזאת צריכה בדיקה קצרה לפני כל מחזור. העמודה שקובעת היא האחרונה.</p>
-<table>
-  <tr><th scope="col" style="width:16%">כלי</th><th scope="col" style="width:26%">מה מקבלים בחינם</th><th scope="col" style="width:10%">רזולוציה</th><th scope="col" style="width:12%">סימן מים</th><th scope="col">מתאים לכיתה</th></tr>
-  <tr><td><b style="font-family:Poppins">Kling</b></td><td>כשישה סרטונים ביום</td><td>720p</td><td>קטן</td><td>כן, ברירת המחדל של הסדנה</td></tr>
-  <tr><td><b style="font-family:Poppins">Hailuo</b></td><td>ללא הגבלה עם סימן מים, וכמה נקיים ביום</td><td>720p</td><td>תלוי במסלול</td><td>כן, הגיבוי הראשון</td></tr>
-  <tr><td><b style="font-family:Poppins">Pixverse</b></td><td>כ-80 נקודות ביום, שניים או שלושה סרטונים</td><td>540p עד 720p</td><td>תלוי במסלול</td><td>כן, גיבוי שני</td></tr>
-  <tr><td><b style="font-family:Poppins">Luma Dream Machine</b></td><td>כשלושים בחודש</td><td>720p</td><td>קטן</td><td>כן, אבל נגמר תוך יומיים של תרגול</td></tr>
-  <tr><td><b style="font-family:Poppins">Veo דרך Gemini</b></td><td>מכסה יומית קטנה מאוד</td><td>1080p</td><td>אין</td><td>האיכות הכי טובה, הכמות הכי קטנה</td></tr>
-  <tr><td><b style="font-family:Poppins">Runway</b></td><td>נקודות חד פעמיות, כחמישה סרטונים ואז נגמר</td><td>720p</td><td>קטן</td><td>לא לכיתה. נגמר לפני סוף הסדנה</td></tr>
-  <tr><td><b style="font-family:Poppins">Sora</b></td><td>מכסה שבועית קטנה</td><td>720p</td><td>קטן</td><td>תלוי בזמינות באזור. לא לסמוך עליו</td></tr>
-</table>
-<div class="callout" style="margin-top:16px"><b>הכלל שנאמר בתחילת הסדנה, ומונע את רוב התקיעות:</b> פותחים חשבון בשניים, לא באחד. כשהמכסה נגמרת עוברים לשני וממשיכים, במקום לשבת ולחכות. וכל החשבונות דרך הג׳ימייל הייעודי של הקורס.</div>
-<div class="callout calm-note" style="margin-top:12px"><b>מטלת ההכנה, נשלחת בסוף מפגש 3.</b> לפתוח חשבון ב-Kling וב-Hailuo, ולוודא שאפשר לייצר סרטון אחד. חמש דקות, בבית. זה לפי הכלל של אין התקנות בשיעור, וזה מה שמאפשר לסדנה של 11:30 להתחיל בזמן.</div>
-<h2 class="sec">כלי דיבוב וליפסינק, ומה מהם עובד בעברית</h2>
-<p class="lead" style="margin-bottom:16px">מלווה את הבלוק של 14:05 במפגש 4. זו טבלה להקרנה, לא לסדנה: רוב הכיתה לא תצטרך את זה בפרויקט, וחשוב שהם ידעו שזה קיים ומה המגבלה.</p>
-<table>
-  <tr><th scope="col" style="width:16%">כלי</th><th scope="col" style="width:24%">מה הוא עושה</th><th scope="col" style="width:34%">עברית</th><th scope="col">חינמי</th></tr>
-  <tr><td><b style="font-family:Poppins">ElevenLabs</b></td><td>קריינות ודיבוב</td><td>כן, והקריינות בעברית באמת טובה</td><td>מכסה חודשית קטנה</td></tr>
-  <tr><td><b style="font-family:Poppins">HeyGen</b></td><td>אווטארים ודיבוב</td><td>הדיבוב כן, האווטארים בעברית חלשים</td><td>כמה דקות בחודש</td></tr>
-  <tr><td><b style="font-family:Poppins">Hedra</b></td><td>ליפסינק מתמונה סטטית</td><td>האודיו כן, השפתיים בערך</td><td>מכסה יומית</td></tr>
-  <tr><td><b style="font-family:Poppins">CapCut</b></td><td>כתוביות אוטומטיות</td><td>כן, וזה החלק הכי שימושי מכולם</td><td>כן, בלי הגבלה מעשית</td></tr>
-</table>
-<div class="callout" style="margin-top:16px"><b>ההערה שחייבת להיאמר, כי היא חוסכת שעה של תסכול.</b> ליפסינק בעברית עדיין לא טוב. המודלים אומנו על אנגלית, והשפתיים לא באמת מתאימות לצלילים של העברית. מקרוב זה נראה מוזר, והכיתה תראה את זה מיד. מה שכן עובד, ומה שיהיה בסרטון של רוב הכיתה: קריינות בעברית מעל תמונות, בלי פנים מדברות. זה נשמע מצוין ולוקח שתי דקות. הפנים המדברות שמורות לאנגלית.</div>
-<h2 class="sec">מאגרי פרומפטים</h2>
-<p class="lead" style="margin-bottom:16px">מלווה את הבלוק של 15:00 במפגש 3. המאגרים לא יחסכו את הכתיבה, הם יחסכו את ההתחלה מאפס. פרומפט מהמאגר הוא נקודת מוצא, לא תוצר.</p>
-<table>
-  <tr><th scope="col" style="width:20%">המאגר</th><th scope="col" style="width:34%">מה יש בו</th><th scope="col">למי ומתי</th></tr>
-  <tr><td><b style="font-family:Poppins">ספריית הקורס</b></td><td>הפרומפטים של כל מפגש, בעברית</td><td>זו ברירת המחדל, והיא באתר</td></tr>
-  <tr><td><b style="font-family:Poppins">Higgsfield presets</b></td><td>סגנונות ותנועות מצלמה מוכנים, בלחיצה</td><td>הכי מהיר להתחיל, וטוב במיוחד לווידאו</td></tr>
-  <tr><td><b style="font-family:Poppins">PromptHero</b></td><td>פרומפטים עם התוצאה שלהם לצידם</td><td>ללמוד מה עושה מה, ולא רק להעתיק</td></tr>
-  <tr><td><b style="font-family:Poppins">Lexica</b></td><td>חיפוש לפי תמונה, ומחזיר את הפרומפט</td><td>כשראיתם סגנון ואתם רוצים אותו</td></tr>
-  <tr><td><b style="font-family:Poppins">Krea</b></td><td>סגנונות ועריכה בממשק נוח</td><td>בתשלום, כחמישה דולר. לא חובה לקורס</td></tr>
-</table>
-<div class="callout" style="margin-top:16px"><b>המיומנות היחידה שנלמדת בבלוק הזה.</b> לא איפה יש פרומפטים, אלא איך מתאימים פרומפט של מישהו אחר לפרויקט שלכם. כל פרומפט מורכב משני סוגי חלקים: חלקי סגנון, שאולי תשמרו, וחלקי נושא, שחייבים להחליף. והחלק שכולם שוכחים הוא שמשפט הסגנון בסוף חייב להיות שלכם, אחרת התמונה החדשה לא תשתלב בערכה שכבר בניתם.</div>
 <h2 class="sec">ארבעת הפרומפטים של מודול 2</h2>
 <p class="lead" style="margin-bottom:16px">מוכנים להעתקה, ומסודרים לפי סדר השימוש ביום. הראשון נכנס בתחילת סדנת הפרסומת, השני אחרי שרואים את השוטים, השלישי בבלוק המאגרים במפגש 3, והרביעי הוא מטלת בית.</p>
 <div class="ptpl" style="margin-bottom:16px">
@@ -2436,7 +2364,94 @@ td b{color:var(--ink)}
 
 </div>
 <div class="tpane" id="tp-gen" role="tabpanel" aria-labelledby="tb-tp-gen">
-<div class="plead">החומר שלא שייך למודול אחד: מפת המסלול כולו, הקצב הקבוע שחוזר בכל מפגש בוקר, תבנית הפרומפט של הקורס, שתי ההכרעות שעדיין פתוחות, ולינקים להעשרה. <b>כל הזמנים באתר הזה הם למתכונת הבוקר, 09:00 עד 16:30.</b></div>
+<div class="plead">החומר שלא שייך למודול אחד: מפת המסלול כולו, ומפת שלושת המודולים הראשונים. הקצב הקבוע של המפגש ומטלות ההכנה עברו לאזור <b>הקורס</b>, בלשונית "קצב ומטלות", כדי שגם הסטודנטים יראו אותם. <b>כל הזמנים באתר הזה הם למתכונת הבוקר, 09:00 עד 16:30.</b></div>
+<h2 class="sec">מפת המסלול: שבעה מודולים, עשרים מפגשים</h2>
+<p class="lead" style="margin-bottom:14px">עשרים מפגשי בוקר, שבעה מודולים. הטבלה הזו היא מה שמוצג לכיתה בבלוק של 09:10 במפגש 1, כסולם ולא כרשימה: כל מודול מוסיף שכבה אחת למערכת, ובסוף יש מוצר.</p>
+<table>
+  <tr><th style="width:22%">מודול</th><th style="width:12%">מפגשים</th><th style="width:9%">שעות</th><th style="width:29%">מה מתווסף למערכת</th><th>המבחן בסוף המודול</th></tr>
+  <tr><td><b>1 · רעיון ופרומפטים</b></td><td>1-2</td><td>13.5</td><td>עדיין כלום. מודול של החלטה ושל שפה משותפת.</td><td>לכל תלמיד נושא, בעיה במשפט, משתמש, ופרומפט ליבה. זו הגשה 1</td></tr>
+  <tr><td><b>2 · מדיה ותוכן</b></td><td>3-4</td><td>13.5</td><td>שכבת התוכן: לוגו, תמונות, סרטון ומצגת</td><td>ערכת תוכן שלמה שקשורה לנושא, ומצגת שמתארת אותו</td></tr>
+  <tr><td><b>3 · אפיון ובנייה</b></td><td>5-9</td><td>31.5</td><td>המערכת עצמה: מפרט, תרשים, מסכים, אפליקציה חיה</td><td>קישור ציבורי שנפתח בדפדפן אחר, ורשומה שנשמרה בו. זו הגשה 2</td></tr>
+  <tr><td><b>4 · אתיקה, נגישות ואבטחה</b></td><td>10-11</td><td>13.5</td><td>לא מוסיף שכבה. מתקן את מה שכבר קיים.</td><td>שלושה ממצאי נגישות ושני ממצאי אבטחה שתוקנו, עם לפני ואחרי</td></tr>
+  <tr><td><b>5 · נתונים וסוכנים</b></td><td>12-14</td><td>22.5</td><td>מבנה נתונים, סוכן שפועל לבד, וצ׳אטבוט</td><td>סוכן אחד שרץ בהצלחה על המערכת, ובוט שסוגר מסלול אחד</td></tr>
+  <tr><td><b>6 · אוטומציות</b></td><td>15-19</td><td>31.5</td><td>תהליכים שרצים בלי אדם: טפסים, מיילים, תזכורות ודוחות</td><td>שלוש אוטומציות שרצות על המערכת החיה, מקצה לקצה</td></tr>
+  <tr><td><b>7 · פרויקט גמר</b></td><td>20</td><td>4.5</td><td>שום דבר חדש. מציגים.</td><td>הצגה של עשר דקות עם הדגמה חיה. זו הגשה 3</td></tr>
+</table>
+<div class="callout" style="margin-top:16px"><b>שתי נקודות שכדאי לומר בקול במפגש 1:</b> מודול 4 הוא היחיד שלא מוסיף יכולות, והוא גם הראשון שנופל כשמתעכבים, לכן שווה להגן עליו. ומודול 3 לוקח חמישה מפגשים מתוך עשרים, כלומר רבע מהקורס, וזה מכוון: שם נבנית המערכת שכל השאר יושב עליה.</div>
+
+
+<h2 class="sec">מפת שלושת המודולים הראשונים</h2>
+<p class="lead" style="margin-bottom:14px">תשעה מפגשים במתכונת הבוקר, שלושה עשר בערב. כל מודול מוסיף שכבה אחת למערכת, ובסוף מודול 3 יש לכל תלמיד אפליקציה חיה בכתובת ציבורית. זו גם ההגשה הנבדקת הראשונה.</p>
+<table>
+  <tr><th style="width:16%">מודול</th><th style="width:14%">מפגשים</th><th style="width:26%">מה מתווסף למערכת</th><th style="width:24%">מה התלמיד לוקח הביתה</th><th>נקודת הכשל</th></tr>
+  <tr><td><b>1 · רעיון ופרומפטים</b></td><td>בוקר 1-2<br>ערב 1-3</td><td>עדיין כלום. זה מודול של החלטה ושל שפה משותפת.</td><td>נושא, בעיה במשפט, משתמש, ופרומפט ליבה שעבר שתי איטרציות</td><td>תלמיד שיוצא בלי נושא. כל מטלה במודול 2 מבוצעת עליו, ובלעדיו התלמיד מתרגל בחלל ריק</td></tr>
+  <tr><td><b>2 · מדיה ותוכן</b></td><td>בוקר 3-4<br>ערב 4-6</td><td>שכבת התוכן: לוגו, תמונות, סרטון ומצגת</td><td>ערכת תוכן שלמה לפרויקט, ומצגת שמתארת אותו</td><td>תלמיד שמייצר תמונות יפות שלא קשורות לנושא שלו. התוצר נמדד מול הפרויקט, לא מול היופי</td></tr>
+  <tr><td><b>3 · אפיון ובנייה</b></td><td>בוקר 5-9<br>ערב 7-13</td><td>המערכת עצמה: מפרט, תרשים, מסכים, אפליקציה חיה</td><td>קישור ציבורי שנפתח בדפדפן אחר, ורשומה שנשמרה בו</td><td>MVP מנופח. תלמיד עם שמונה יכולות ליבה לא יסיים, וזה נקבע כבר במפגש 5</td></tr>
+</table>
+<div class="callout" style="margin-top:16px"><b>מבנה זהה בכל מפגש בוקר:</b> פתיחה 10, בלוק 80, הפסקה 15, בלוק 90, צהריים 45, בלוק 85, הפסקה 15, סדנה 95, סגירה 15. סך הכל 450 דקות. מפגש 1 חורג מהמבנה הזה בכוונה, כי הוא מפגש היכרות.</div>
+
+</div>
+
+
+</section>
+<!-- ================= SYLLABUS ================= -->
+<section class="page" id="p-syllabus">
+  <div class="hero" style="padding:38px 44px">
+    <span class="tag">סילבוס מלא ומעודכן · אוגוסט 2026</span>
+    <h2 style="font-size:36px;max-width:26ch">7 מודולים, <span data-ed="meetings">20</span> מפגשים,<br>פרויקט אישי אחד לאורך כולם.</h2>
+    <p><span data-ed="study">130.5</span> שעות לימוד ועוד <span data-ed="self">95</span> שעות עבודה על הפרויקט, <span data-ed="total">225.5</span> שעות סה"כ. שתי המתכונות זהות בהיקף ובתוכן, כולל שעות הלימוד של כל מודול. מה שמשתנה הוא רק חלוקת אותו תוכן למפגשים.</p>
+  </div>
+
+  <div class="edsw" role="group" aria-label="בחירת מתכונת הקורס">
+    <span class="edl">מתכונת:</span>
+    <button class="edb on" data-ed-set="morn">20 מפגשי בוקר</button>
+    <button class="edb" data-ed-set="eve">29 מפגשי ערב</button>
+    <span class="edn" data-ed="when">ימי שני ורביעי, 09:00 עד 16:30, כ-6.5 שעות לימוד למפגש</span>
+  </div>
+
+<div class="ttabs" role="tablist" aria-label="הקורס">
+  <button class="ttab on" type="button" role="tab" id="tb-sy-m" data-p="sy-m" aria-selected="true" aria-controls="sy-m" tabindex="0">מפת המודולים<small>שבעה מודולים במבט אחד</small></button>
+  <button class="ttab" type="button" role="tab" id="tb-sy-d" data-p="sy-d" aria-selected="false" aria-controls="sy-d" tabindex="-1">הסילבוס המפורט<small>מפגש אחר מפגש</small></button>
+  <button class="ttab" type="button" role="tab" id="tb-sy-r" data-p="sy-r" aria-selected="false" aria-controls="sy-r" tabindex="-1">קצב ומטלות<small>מה מגיע ומתי</small></button>
+</div>
+
+<div class="tpane on" id="sy-m" role="tabpanel" aria-labelledby="tb-sy-m">
+<h2 class="sec">מפת המודולים</h2>
+  <table id="modmap"></table>
+
+  
+</div>
+
+<div class="tpane" id="sy-d" role="tabpanel" aria-labelledby="tb-sy-d">
+<h2 class="sec">הסילבוס המפורט</h2>
+  <div class="legend">
+    <span><i class="dotm" style="background:#F4F6FC;border:1px solid #A9BCEE"></i> תרגיל כיתתי</span>
+    <span><i class="dotm" style="background:#FAFAFA;border:1px dashed #C9C9C9"></i> פרומפט עבודה</span>
+    <span><i class="dotm" style="background:#FCE6EA;border:1px solid #F6C4CD"></i> חיבור לפרויקט המתגלגל</span>
+    <span><i class="dotm" style="background:#EEF9F1;border:1px solid #CDE9D6"></i> הגשת שלב</span>
+  </div>
+  <div class="toolbar">
+    <button class="btn" onclick="allMods(true)">פתיחת כל המודולים</button>
+    <button class="btn" onclick="allMods(false)">סגירת הכול</button>
+  </div>
+  <div id="mods"></div>
+
+  
+</div>
+
+<div class="tpane" id="sy-r" role="tabpanel" aria-labelledby="tb-sy-r">
+<div class="plead"><b>איך מפגש בנוי, ומה צריך להביא אליו מוכן.</b> ההפסקות קבועות ולפי שעון, ומטלות ההכנה נשלחות בכתב בערב שאחרי המפגש הקודם. הכלל: לא מתקינים תוכנה בכיתה.</div>
+<h2 class="sec">הקצב שחוזר בכל מפגש</h2>
+<p class="lead" style="margin-bottom:14px">אותו מבנה בכל מודול, כדי שהתלמידים ידעו מה מגיע ומתי. ההפסקות קבועות ולפי שעון ולא לפי תחושה: 15 דקות ב-10:30, 45 דקות צהריים ב-13:00, ו-15 דקות ב-14:45. הבלוק הארוך ביותר הוא זה שלפני הצהריים, ולכן שם צריך הדגמה חיה באמצע ולא רק דיבור.</p>
+<div class="grid g3">
+  <div class="card"><h4>פתיחה</h4><p class="mo">10 דקות</p><p>מה עשינו במפגש הקודם, מה יוצא מהמפגש הזה, ומה המטלה שממתינה בסוף. שלוש שורות, לא שקף.</p></div>
+  <div class="card"><h4>תיאוריה</h4><p class="mo">20 עד 30 דקות</p><p>נטו. אף בלוק תיאורטי לא ממשיך מעבר לכך בלי הדגמה חיה. אם הוא ארוך יותר, מפצלים.</p></div>
+  <div class="card"><h4>שאלות</h4><p class="mo">10 דקות</p><p>מרוכזות, לא לאורך הדרך. שומרים על מיקוד בנושא ולא נותנים לגלוש לכלים אחרים.</p></div>
+  <div class="card"><h4>הדגמה</h4><p class="mo">20 עד 30 דקות</p><p>תמיד על המיזם המלווה, לפי מה שכתוב באותו מפגש בסילבוס. המרצה לא ממציא דוגמה משלו.</p></div>
+  <div class="card"><h4>סדנה</h4><p class="mo">45 עד 60 דקות</p><p>אותה פעולה בדיוק, על הנושא האישי של כל תלמיד. המרצה עובר בין העמדות ומאשר.</p></div>
+  <div class="card"><h4>סגירה</h4><p class="mo">10 דקות</p><p>סבב תוצרים קצר של שלושה או ארבעה תלמידים, המטלה לבית, ומה במפגש הבא.</p></div>
+</div>
+
 <h2 class="sec">מטלות ההכנה: הכלל ולוח המפגשים</h2>
 <div class="callout" style="margin-bottom:16px"><b>הכלל, מ-7.9.2026:</b> לא מתקינים תוכנה בכיתה. כלי שדורש התקנה או פתיחת חשבון מוקצה כמטלת הכנה בסוף המפגש הקודם, ונשלח בכתב באותו ערב. בכיתה בודקים אותו בהרמת יד אחת בפתיחת המפגש, ומי שלא הספיק יושב ליד מי שכן. הכיתה לא נעצרת.</div>
 <p class="lead" style="margin-bottom:14px">הכלל הזה נולד ממפגש 1 של מחזור ספטמבר 2026, שבו בלוק ההתקנות לקח יותר מהזמן שהוקצה לו, לא הצליח אצל כולם, ובגללו חלק א של הנדסת פרומפטים לא נכנס ליום. הטבלה מראה מתי כל מטלה יוצאת ומה יש בה. אחריה ההודעות המוכנות לשליחה.</p>
@@ -2538,277 +2553,6 @@ td b{color:var(--ink)}
 מי שמעדיף שלא לפתוח חשבון בענן, יש גם התקנה עצמית על המחשב והיא החינמית. כתבו לי ואסביר.</pre>
 </div>
 
-<h2 class="sec">מפת המסלול: שבעה מודולים, עשרים מפגשים</h2>
-<p class="lead" style="margin-bottom:14px">עשרים מפגשי בוקר, שבעה מודולים. הטבלה הזו היא מה שמוצג לכיתה בבלוק של 09:10 במפגש 1, כסולם ולא כרשימה: כל מודול מוסיף שכבה אחת למערכת, ובסוף יש מוצר.</p>
-<table>
-  <tr><th style="width:22%">מודול</th><th style="width:12%">מפגשים</th><th style="width:9%">שעות</th><th style="width:29%">מה מתווסף למערכת</th><th>המבחן בסוף המודול</th></tr>
-  <tr><td><b>1 · רעיון ופרומפטים</b></td><td>1-2</td><td>13.5</td><td>עדיין כלום. מודול של החלטה ושל שפה משותפת.</td><td>לכל תלמיד נושא, בעיה במשפט, משתמש, ופרומפט ליבה. זו הגשה 1</td></tr>
-  <tr><td><b>2 · מדיה ותוכן</b></td><td>3-4</td><td>13.5</td><td>שכבת התוכן: לוגו, תמונות, סרטון ומצגת</td><td>ערכת תוכן שלמה שקשורה לנושא, ומצגת שמתארת אותו</td></tr>
-  <tr><td><b>3 · אפיון ובנייה</b></td><td>5-9</td><td>31.5</td><td>המערכת עצמה: מפרט, תרשים, מסכים, אפליקציה חיה</td><td>קישור ציבורי שנפתח בדפדפן אחר, ורשומה שנשמרה בו. זו הגשה 2</td></tr>
-  <tr><td><b>4 · אתיקה, נגישות ואבטחה</b></td><td>10-11</td><td>13.5</td><td>לא מוסיף שכבה. מתקן את מה שכבר קיים.</td><td>שלושה ממצאי נגישות ושני ממצאי אבטחה שתוקנו, עם לפני ואחרי</td></tr>
-  <tr><td><b>5 · נתונים וסוכנים</b></td><td>12-14</td><td>22.5</td><td>מבנה נתונים, סוכן שפועל לבד, וצ׳אטבוט</td><td>סוכן אחד שרץ בהצלחה על המערכת, ובוט שסוגר מסלול אחד</td></tr>
-  <tr><td><b>6 · אוטומציות</b></td><td>15-19</td><td>31.5</td><td>תהליכים שרצים בלי אדם: טפסים, מיילים, תזכורות ודוחות</td><td>שלוש אוטומציות שרצות על המערכת החיה, מקצה לקצה</td></tr>
-  <tr><td><b>7 · פרויקט גמר</b></td><td>20</td><td>4.5</td><td>שום דבר חדש. מציגים.</td><td>הצגה של עשר דקות עם הדגמה חיה. זו הגשה 3</td></tr>
-</table>
-<div class="callout" style="margin-top:16px"><b>שתי נקודות שכדאי לומר בקול במפגש 1:</b> מודול 4 הוא היחיד שלא מוסיף יכולות, והוא גם הראשון שנופל כשמתעכבים, לכן שווה להגן עליו. ומודול 3 לוקח חמישה מפגשים מתוך עשרים, כלומר רבע מהקורס, וזה מכוון: שם נבנית המערכת שכל השאר יושב עליה.</div>
-
-
-<h2 class="sec">מפת שלושת המודולים הראשונים</h2>
-<p class="lead" style="margin-bottom:14px">תשעה מפגשים במתכונת הבוקר, שלושה עשר בערב. כל מודול מוסיף שכבה אחת למערכת, ובסוף מודול 3 יש לכל תלמיד אפליקציה חיה בכתובת ציבורית. זו גם ההגשה הנבדקת הראשונה.</p>
-<table>
-  <tr><th style="width:16%">מודול</th><th style="width:14%">מפגשים</th><th style="width:26%">מה מתווסף למערכת</th><th style="width:24%">מה התלמיד לוקח הביתה</th><th>נקודת הכשל</th></tr>
-  <tr><td><b>1 · רעיון ופרומפטים</b></td><td>בוקר 1-2<br>ערב 1-3</td><td>עדיין כלום. זה מודול של החלטה ושל שפה משותפת.</td><td>נושא, בעיה במשפט, משתמש, ופרומפט ליבה שעבר שתי איטרציות</td><td>תלמיד שיוצא בלי נושא. כל מטלה במודול 2 מבוצעת עליו, ובלעדיו התלמיד מתרגל בחלל ריק</td></tr>
-  <tr><td><b>2 · מדיה ותוכן</b></td><td>בוקר 3-4<br>ערב 4-6</td><td>שכבת התוכן: לוגו, תמונות, סרטון ומצגת</td><td>ערכת תוכן שלמה לפרויקט, ומצגת שמתארת אותו</td><td>תלמיד שמייצר תמונות יפות שלא קשורות לנושא שלו. התוצר נמדד מול הפרויקט, לא מול היופי</td></tr>
-  <tr><td><b>3 · אפיון ובנייה</b></td><td>בוקר 5-9<br>ערב 7-13</td><td>המערכת עצמה: מפרט, תרשים, מסכים, אפליקציה חיה</td><td>קישור ציבורי שנפתח בדפדפן אחר, ורשומה שנשמרה בו</td><td>MVP מנופח. תלמיד עם שמונה יכולות ליבה לא יסיים, וזה נקבע כבר במפגש 5</td></tr>
-</table>
-<div class="callout" style="margin-top:16px"><b>מבנה זהה בכל מפגש בוקר:</b> פתיחה 10, בלוק 80, הפסקה 15, בלוק 90, צהריים 45, בלוק 85, הפסקה 15, סדנה 95, סגירה 15. סך הכל 450 דקות. מפגש 1 חורג מהמבנה הזה בכוונה, כי הוא מפגש היכרות.</div>
-
-<h2 class="sec">הקצב שחוזר בכל מפגש</h2>
-<p class="lead" style="margin-bottom:14px">אותו מבנה בכל מודול, כדי שהתלמידים ידעו מה מגיע ומתי. ההפסקות קבועות ולפי שעון ולא לפי תחושה: 15 דקות ב-10:30, 45 דקות צהריים ב-13:00, ו-15 דקות ב-14:45. הבלוק הארוך ביותר הוא זה שלפני הצהריים, ולכן שם צריך הדגמה חיה באמצע ולא רק דיבור.</p>
-<div class="grid g3">
-  <div class="card"><h4>פתיחה</h4><p class="mo">10 דקות</p><p>מה עשינו במפגש הקודם, מה יוצא מהמפגש הזה, ומה המטלה שממתינה בסוף. שלוש שורות, לא שקף.</p></div>
-  <div class="card"><h4>תיאוריה</h4><p class="mo">20 עד 30 דקות</p><p>נטו. אף בלוק תיאורטי לא ממשיך מעבר לכך בלי הדגמה חיה. אם הוא ארוך יותר, מפצלים.</p></div>
-  <div class="card"><h4>שאלות</h4><p class="mo">10 דקות</p><p>מרוכזות, לא לאורך הדרך. שומרים על מיקוד בנושא ולא נותנים לגלוש לכלים אחרים.</p></div>
-  <div class="card"><h4>הדגמה</h4><p class="mo">20 עד 30 דקות</p><p>תמיד על המיזם המלווה, לפי מה שכתוב באותו מפגש בסילבוס. המרצה לא ממציא דוגמה משלו.</p></div>
-  <div class="card"><h4>סדנה</h4><p class="mo">45 עד 60 דקות</p><p>אותה פעולה בדיוק, על הנושא האישי של כל תלמיד. המרצה עובר בין העמדות ומאשר.</p></div>
-  <div class="card"><h4>סגירה</h4><p class="mo">10 דקות</p><p>סבב תוצרים קצר של שלושה או ארבעה תלמידים, המטלה לבית, ומה במפגש הבא.</p></div>
-</div>
-
-</div>
-
-
-</section>
-<!-- ================= SYLLABUS ================= -->
-<section class="page" id="p-syllabus">
-  <div class="hero" style="padding:38px 44px">
-    <span class="tag">סילבוס מלא ומעודכן · אוגוסט 2026</span>
-    <h2 style="font-size:36px;max-width:26ch">7 מודולים, <span data-ed="meetings">20</span> מפגשים,<br>פרויקט אישי אחד לאורך כולם.</h2>
-    <p><span data-ed="study">130.5</span> שעות לימוד ועוד <span data-ed="self">95</span> שעות עבודה על הפרויקט, <span data-ed="total">225.5</span> שעות סה"כ. שתי המתכונות זהות בהיקף ובתוכן, כולל שעות הלימוד של כל מודול. מה שמשתנה הוא רק חלוקת אותו תוכן למפגשים.</p>
-  </div>
-
-<div class="edsw" role="group" aria-label="בחירת מתכונת הקורס">
-    <span class="edl">מתכונת:</span>
-    <button class="edb on" data-ed-set="morn">20 מפגשי בוקר</button>
-    <button class="edb" data-ed-set="eve">29 מפגשי ערב</button>
-    <span class="edn" data-ed="when">ימי שני ורביעי, 09:00 עד 16:30, כ-6.5 שעות לימוד למפגש</span>
-  </div>
-
-<h2 class="sec">מפת המודולים</h2>
-  <table id="modmap"></table>
-
-  <h2 class="sec">הסילבוס המפורט</h2>
-  <div class="legend">
-    <span><i class="dotm" style="background:#F4F6FC;border:1px solid #A9BCEE"></i> תרגיל כיתתי</span>
-    <span><i class="dotm" style="background:#FAFAFA;border:1px dashed #C9C9C9"></i> פרומפט עבודה</span>
-    <span><i class="dotm" style="background:#FCE6EA;border:1px solid #F6C4CD"></i> חיבור לפרויקט המתגלגל</span>
-    <span><i class="dotm" style="background:#EEF9F1;border:1px solid #CDE9D6"></i> הגשת שלב</span>
-  </div>
-  <div class="toolbar">
-    <button class="btn" onclick="allMods(true)">פתיחת כל המודולים</button>
-    <button class="btn" onclick="allMods(false)">סגירת הכול</button>
-  </div>
-  <div id="mods"></div>
-
-  <h2 class="sec">טבלת הכלים</h2>
-  <p class="lead" style="margin-bottom:14px">כל הכלים שמופיעים בסילבוס, עם מה עושים איתם, באילו מודולים הם נכנסים, מודל העלות ומידת ההעמקה. מסומן "טרם נקבע" בכל מקום שבו הכלי עדיין פתוח להחלטה.</p>
-  <div class="legend">
-    <span><i class="dotm" style="background:#FCE6EA;border:1px solid #F6C4CD"></i> <b>העמקה:</b> כלי ליבה, נלמד לעומק ומתורגל</span>
-    <span><i class="dotm" style="background:#E7EAF4;border:1px solid #A9BCEE"></i> <b>שימוש מעשי:</b> התלמידים עובדים איתו בפועל</span>
-    <span><i class="dotm" style="background:#EDEDED;border:1px solid #C9C9C9"></i> <b>הדגמה והיכרות:</b> מוצג ומוסבר, בלי תרגול מלא</span>
-  </div>
-  <div class="chips" id="tchips"></div>
-  <div class="count" id="tcount" style="margin-top:16px"></div>
-  <table id="toolstable"></table>
-  <div class="callout" style="margin-top:16px"><b>לתשומת לב:</b> מודלי העלות נכונים לזמן כתיבת הסילבוס ומשתנים לעתים קרובות. יש לאמת אותם מול הספקים לפני פתיחת המחזור, ולוודא שלכל תלמיד יש גישה לחשבונות הנדרשים לפני המפגש שבו הכלי נכנס.</div>
-<h2 class="sec">איך זה עובד, בתמונה</h2>
-<p class="lead" style="margin-bottom:16px">התרשים שמסביר את כל בלוק "כיצד LLM עובד" במפגש 1. הוא נמצא כאן ולא כתמונה במצגת, כדי שאפשר יהיה לעדכן אותו במקום אחד. אפשר גם לפתוח אותו כשקף להקרנה, מהכרטיס שמתחת לטבלת הזמנים של מפגש 1.</p>
-<div class="dgmw"><svg class="dgm" viewBox="0 0 1000 560" role="img" aria-labelledby="dgm-t dgm-d" xmlns="http://www.w3.org/2000/svg">
-  <title id="dgm-t">מסלול הפרומפט, מהמשתמש ועד התשובה</title>
-  <desc id="dgm-d">תרשים בחמישה שלבים. המשתמש כותב פרומפט. שכבת המעטפת מרכיבה הקשר מהודעת המערכת, מהיסטוריית השיחה, מהקבצים ומהפרומפט. ההקשר נשלח למודל, שמפרק אותו לטוקנים ומייצר טוקן אחר טוקן. אם דרוש כלי חיצוני, המודל עוצר, הכלי מוחזר כהודעת כלי, והייצור ממשיך. התשובה חוזרת למשתמש, ונוספת להיסטוריה, ולכן בפעם הבאה ההקשר גדול יותר.</desc>
-  <defs>
-    <marker id="hw-ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0 0.5L9 5L0 9.5z" fill="#E4002B"/>
-    </marker>
-    <marker id="hw-ahg" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0 0.5L9 5L0 9.5z" fill="#8A8A8A"/>
-    </marker>
-  </defs>
-
-  <!-- ============ 1. USER, far right ============ -->
-  <g>
-    <rect x="828" y="150" width="150" height="104" rx="12" fill="#1B2D6B"/>
-    <text x="903" y="185" text-anchor="middle" font-size="13" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">1 · המשתמש</text>
-    <text x="903" y="211" text-anchor="middle" font-size="14.5" font-weight="700" fill="#fff" font-family="Heebo, sans-serif">כותב פרומפט</text>
-    <text x="903" y="234" text-anchor="middle" font-size="12" fill="#B9C4E4" font-family="Heebo, sans-serif">שורה אחת בצ׳אט</text>
-  </g>
-
-  <!-- ============ 2. HARNESS ============ -->
-  <g>
-    <rect x="486" y="72" width="300" height="260" rx="14" fill="#fff" stroke="#E4002B" stroke-width="2.5"/>
-    <rect x="486" y="72" width="300" height="42" rx="14" fill="#E4002B"/>
-    <rect x="486" y="98" width="300" height="16" fill="#E4002B"/>
-    <text x="636" y="100" text-anchor="middle" font-size="14" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">2 · שכבת המעטפת, Harness</text>
-    <text x="636" y="140" text-anchor="middle" font-size="12.5" fill="#555555" font-family="Heebo, sans-serif">מרכיבה את ההקשר, Context</text>
-    <rect x="508" y="156" width="256" height="30" rx="7" fill="#E7EAF4"/>
-    <text x="636" y="176" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1B2D6B" font-family="Heebo, sans-serif">הודעת מערכת</text>
-    <rect x="508" y="192" width="256" height="30" rx="7" fill="#E7EAF4"/>
-    <text x="636" y="212" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1B2D6B" font-family="Heebo, sans-serif">כל היסטוריית השיחה</text>
-    <rect x="508" y="228" width="256" height="30" rx="7" fill="#E7EAF4"/>
-    <text x="636" y="248" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1B2D6B" font-family="Heebo, sans-serif">קבצים שהועלו</text>
-    <rect x="508" y="264" width="256" height="30" rx="7" fill="#E4002B"/>
-    <text x="636" y="284" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff" font-family="Heebo, sans-serif">והפרומפט החדש</text>
-    <text x="636" y="316" text-anchor="middle" font-size="11.5" fill="#8A8A8A" font-family="Heebo, sans-serif">המשתמש לא רואה את שלוש הראשונות</text>
-  </g>
-
-  <!-- ============ 3. MODEL ============ -->
-  <g>
-    <rect x="110" y="112" width="290" height="180" rx="14" fill="#1B2D6B"/>
-    <text x="255" y="146" text-anchor="middle" font-size="14" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">3 · המודל</text>
-    <text x="255" y="174" text-anchor="middle" font-size="12.5" fill="#B9C4E4" font-family="Heebo, sans-serif">מפרק את ההקשר לטוקנים</text>
-    <rect x="136" y="188" width="238" height="1.5" fill="#2A4090"/>
-    <text x="255" y="216" text-anchor="middle" font-size="13.5" font-weight="700" fill="#fff" font-family="Heebo, sans-serif">ומייצר טוקן אחר טוקן</text>
-    <text x="255" y="240" text-anchor="middle" font-size="12" fill="#B9C4E4" font-family="Heebo, sans-serif">כל טוקן חדש נכנס לחישוב הבא</text>
-    <text x="255" y="270" text-anchor="middle" font-size="11.5" fill="#8FA0D0" font-family="Heebo, sans-serif">אין כאן חיפוש אמת. יש הסתברות</text>
-  </g>
-
-  <!-- ============ 4. TOOLS, below the model ============ -->
-  <g>
-    <rect x="136" y="368" width="238" height="86" rx="12" fill="#fff" stroke="#8A8A8A" stroke-width="1.6" stroke-dasharray="5 4"/>
-    <text x="255" y="396" text-anchor="middle" font-size="13" font-weight="900" fill="#1E1E1E" font-family="Heebo, sans-serif">4 · כלי חיצוני, אם צריך</text>
-    <text x="255" y="419" text-anchor="middle" font-size="12" fill="#555555" font-family="Heebo, sans-serif">מחשבון, חיפוש, הרצת קוד</text>
-    <text x="255" y="440" text-anchor="middle" font-size="11.5" fill="#8A8A8A" font-family="Heebo, sans-serif">חוזר כהודעת כלי, והייצור ממשיך</text>
-  </g>
-  <path d="M222 292 L222 368" stroke="#8A8A8A" stroke-width="1.8" fill="none" marker-end="url(#hw-ahg)"/>
-  <path d="M290 368 L290 292" stroke="#8A8A8A" stroke-width="1.8" fill="none" marker-end="url(#hw-ahg)"/>
-
-  <!-- ============ arrows: user -> harness -> model ============ -->
-  <path d="M828 202 L790 202" stroke="#E4002B" stroke-width="2.6" fill="none" marker-end="url(#hw-ah)"/>
-  <path d="M486 202 L404 202" stroke="#E4002B" stroke-width="2.6" fill="none" marker-end="url(#hw-ah)"/>
-  <text x="445" y="192" text-anchor="middle" font-size="11" font-weight="700" fill="#E4002B" font-family="Heebo, sans-serif">ההקשר כולו</text>
-
-  <!-- ============ 5. return path, along the bottom ============ -->
-  <path d="M255 292 L255 330 L60 330 L60 500 L903 500 L903 258"
-        stroke="#E4002B" stroke-width="2.6" fill="none" stroke-linejoin="round" marker-end="url(#hw-ah)"/>
-  <rect x="360" y="478" width="290" height="44" rx="10" fill="#E4002B"/>
-  <text x="505" y="506" text-anchor="middle" font-size="13.5" font-weight="800" fill="#fff" font-family="Heebo, sans-serif">5 · התשובה חוזרת למשתמש</text>
-
-  <!-- ============ the loop note ============ -->
-  <rect x="672" y="384" width="306" height="76" rx="11" fill="#F6F5F3" stroke="#E2E2E2" stroke-width="1.5"/>
-  <text x="825" y="410" text-anchor="middle" font-size="12.5" font-weight="900" fill="#E4002B" font-family="Heebo, sans-serif">והנה הלולאה</text>
-  <text x="825" y="431" text-anchor="middle" font-size="12" fill="#1E1E1E" font-family="Heebo, sans-serif">התשובה נכנסת להיסטוריית השיחה</text>
-  <text x="825" y="450" text-anchor="middle" font-size="12" fill="#1E1E1E" font-family="Heebo, sans-serif">ולכן בפעם הבאה ההקשר גדול יותר</text>
-  <path d="M825 384 L825 340 L806 340 L806 207 L792 207" stroke="#8A8A8A" stroke-width="1.8" fill="none"
-        stroke-dasharray="6 5" stroke-linejoin="round" marker-end="url(#hw-ahg)"/>
-</svg></div>
-<h3 style="font-size:19px;font-weight:900;margin:30px 0 10px;color:var(--navy)">איך מעבירים אותו, חמש דקות</h3>
-<div class="grid g2">
-  <div class="card y"><h4>מה כן</h4>
-    <p><b>מספרים את המסלול, לא מקריאים את התיבות.</b> מתחילים מהמשתמש מימין ומלווים באצבע על המסך עד שחוזרים אליו.</p>
-    <p><b>עוצרים על תיבה 2.</b> זו התיבה היחידה שהכיתה לא מכירה, וזו גם התשובה לשאלה "למה השיחה שלי מתחילה לשכוח".</p>
-    <p><b>סוגרים על הלולאה.</b> השורה על ההיסטוריה שגדלה היא כל מה שצריך כדי להסביר בהמשך את חלון ההקשר וכלכלת הטוקנים.</p>
-  </div>
-  <div class="card n"><h4>מה לא</h4>
-    <p><b>לא נכנסים לתיבה 3.</b> איך המודל בוחר טוקן זה נושא לשקפים הבאים במצגת, ולא לתרשים.</p>
-    <p><b>לא מסבירים את הכלים לעומק.</b> תיבה 4 היא בסוגריים מקווקוים בכוונה, כי היא לא תמיד קורית. משפט אחד ומספיק.</p>
-    <p><b>לא מציגים אותו לפני המונחים.</b> התרשים עובד רק אחרי שהוגדרו הודעת מערכת, הקשר וטוקן. לפני זה הוא ג׳יבריש מצויר.</p>
-  </div>
-</div>
-<div class="callout" style="margin-top:16px"><b>המשפט שסוגר את התרשים:</b> "כל מה שראיתם עכשיו קורה מחדש בכל הודעה שאתם שולחים. המודל לא זוכר כלום. המעטפת מזכירה לו הכל, כל פעם מהתחלה." זה המשפט שמכין את הקרקע לכל מפגש 2.</div>
-<h2 class="sec">טבלת המודלים ומי מפתח אותם</h2>
-<p class="lead" style="margin-bottom:16px">לחיצה על משפחה פותחת את המודלים שבתוכה, עם חלון ההקשר, המחיר לכל מיליון טוקנים בקלט ובפלט, החוזק שלו, ומתי בוחרים דווקא בו. שלוש העמודות האחרונות הן מה שבאמת מכריע בבחירה, והמחיר הוא הסיבה שכדאי להסתכל בהן לפי הסדר.</p>
-<div class="callout calm-note" style="margin-bottom:18px"><b>לפני כל מחזור, בדיקה של שתי דקות:</b> הרשימה כאן נבדקה מול הדפים הרשמיים ב-6.9.2026. קצב ההשקות בתחום הוא שבועי, ולכן שמות וגרסאות משתנים. בכל משפחה יש קישור לדף הרשמי בתחתית, וזה גם הדף שכדאי לפתוח בכיתה כששואלים "מה הכי חדש".</div>
-<div class="macc">
-  <button class="macc-h" type="button" aria-expanded="false"><span class="macc-co">Anthropic</span><span class="macc-fam">Claude</span><span class="macc-str">כתיבה ארוכה, עבודה עם מסמכים, וכתיבת קוד. סביבת הבנייה שלה היא מה שהופך אותה לרלוונטית כאן</span><svg class="macc-cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-  <div class="macc-b" hidden>
-    <table>
-  <tr><th scope="col" style="width:21%">המודל</th><th scope="col" style="width:12%">חלון הקשר</th><th scope="col" style="width:24%">החוזק שלו</th><th scope="col" style="width:23%">מתי בוחרים בו</th><th scope="col">איפה זה בקורס</th></tr>
-  <tr><td><b>Claude Fable 5.1</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">claude-fable-5-1</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">קלט 10, פלט 50 דולר למיליון</span></td><td>מיליון טוקנים</td><td>החזק במשפחה. חשיבה מותאמת שתמיד פועלת, ומשימות ארוכות שרצות לבד</td><td>משימה ארוכה שדורשת עקביות על פני שעות, או בעיה שנכשלה במודלים אחרים</td><td>לא נדרש בקורס. שווה להזכיר כשמישהו שואל מה יש מעל</td></tr>
-  <tr><td><b>Claude Opus 5</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">claude-opus-5</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">קלט 5, פלט 25 דולר למיליון</span></td><td>מיליון טוקנים</td><td>ברירת המחדל המומלצת של אנתרופיק לרוב העבודה</td><td>אפיון, תכנון, החלטות, וכתיבת קוד ארוכה</td><td>מפגשים 7 ו-8, בבניית האפליקציה. וגם מפגש 5, באפיון</td></tr>
-  <tr><td><b>Claude Sonnet 5</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">claude-sonnet-5</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">קלט 2, פלט 10 דולר למיליון</span></td><td>מיליון טוקנים</td><td>איזון בין איכות למחיר. פי שניים וחצי זול מ-Opus</td><td>רוב העבודה היומיומית, כולל תיקונים ובנייה של מסך בודד</td><td>מפגש 2, בתרגול הפרומפטים. זה גם המודל שרוב הכיתה תשתמש בו בפועל</td></tr>
-  <tr><td><b>Claude Haiku 4.5</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">claude-haiku-4-5</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">קלט 1, פלט 5 דולר למיליון</span></td><td>200 אלף טוקנים</td><td>הזול והמהיר. חלון קטן יותר, ופלט קצר יותר</td><td>משימות חוזרות בנפח: סיווג, תיוג, סיכום קצר</td><td>מודול 6, בתוך תרחישי אוטומציה שרצים הרבה פעמים</td></tr>
-    </table>
-    <a class="macc-lk" href="https://platform.claude.com/docs/en/about-claude/models" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:14px;height:14px;flex:0 0 14px"><path d="M10.3 13.7a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1.2 1.2"/><path d="M13.7 10.3a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1.2-1.2"/></svg>הגרסאות הנוכחיות ותאריכי היציאה, בדף הרשמי: platform.claude.com/docs/en/about-claude/models</a>
-  </div>
-</div>
-<div class="macc">
-  <button class="macc-h" type="button" aria-expanded="false"><span class="macc-co">OpenAI</span><span class="macc-fam">GPT</span><span class="macc-str">המודל הכללי הנפוץ ביותר, וגם יצירת תמונות באותו ממשק. הכי הרבה תוספים ואינטגרציות</span><svg class="macc-cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-  <div class="macc-b" hidden>
-    <table>
-  <tr><th scope="col" style="width:21%">המודל</th><th scope="col" style="width:12%">חלון הקשר</th><th scope="col" style="width:24%">החוזק שלו</th><th scope="col" style="width:23%">מתי בוחרים בו</th><th scope="col">איפה זה בקורס</th></tr>
-  <tr><td><b>GPT-6 Astra</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gpt-6-astra</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">קלט 10, פלט 50 דולר למיליון</span></td><td>מיליון טוקנים</td><td>החזק במשפחה, לעבודה מורכבת מקצה לקצה</td><td>הבעיות הקשות. יקר, ולכן לא לשימוש יומיומי</td><td>לא נדרש בקורס</td></tr>
-  <tr><td><b>GPT-5.6 Sol</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gpt-5.6-sol</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">קלט 4, פלט 20 דולר למיליון</span></td><td>מיליון טוקנים</td><td>דגל לעבודה מקצועית מורכבת</td><td>אפיון, ניתוח, והחלטות שדורשות חשיבה</td><td>מפגש 5, בצמצום התכולה ובתרשים הזרימה</td></tr>
-  <tr><td><b>GPT-5.6 Terra</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gpt-5.6-terra</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">קלט 2, פלט 12 דולר למיליון</span></td><td>מיליון טוקנים</td><td>איזון בין יכולת לעלות</td><td>רוב העבודה היומיומית</td><td>מפגש 2, בתרגול הפרומפטים</td></tr>
-  <tr><td><b>GPT-5.6 Luna</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gpt-5.6-luna</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">קלט 0.20, פלט 1.20 דולר למיליון</span></td><td>מיליון טוקנים</td><td>הזול בהרבה. מותאם לעומסים רגישי עלות</td><td>משימות בנפח גדול שרצות שוב ושוב</td><td>מודול 6, בתוך תרחישי אוטומציה</td></tr>
-  <tr><td><b>GPT-Image-2</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gpt-image-2</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">לפי תמונה</span></td><td>לא רלוונטי</td><td>יצירת ועריכת תמונות</td><td>לוגו, באנרים, תמונות המחשה</td><td>מפגש 3, בסדנת ערכת התוכן</td></tr>
-    </table>
-    <a class="macc-lk" href="https://developers.openai.com/api/docs/models" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:14px;height:14px;flex:0 0 14px"><path d="M10.3 13.7a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1.2 1.2"/><path d="M13.7 10.3a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1.2-1.2"/></svg>הגרסאות הנוכחיות ותאריכי היציאה, בדף הרשמי: developers.openai.com/api/docs/models</a>
-  </div>
-</div>
-<div class="macc">
-  <button class="macc-h" type="button" aria-expanded="false"><span class="macc-co">Google</span><span class="macc-fam">Gemini</span><span class="macc-str">חלונות הקשר גדולים במיוחד, עבודה עם וידאו, וחיבור הדוק לכלי העבודה של גוגל</span><svg class="macc-cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-  <div class="macc-b" hidden>
-    <table>
-  <tr><th scope="col" style="width:21%">המודל</th><th scope="col" style="width:12%">חלון הקשר</th><th scope="col" style="width:24%">החוזק שלו</th><th scope="col" style="width:23%">מתי בוחרים בו</th><th scope="col">איפה זה בקורס</th></tr>
-  <tr><td><b>Gemini 3.8 Flash</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gemini-3.8-flash</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">ראו דף התמחור</span></td><td>גדול מאוד</td><td>החדש בסדרה. משימות ארוכות, סוכנים, ותהליכים ארגוניים</td><td>עבודה שרצה לאורך זמן ודורשת עקביות</td><td>מודול 5, בבניית הסוכן</td></tr>
-  <tr><td><b>Gemini 3.7 Flash</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gemini-3.7-flash</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">ראו דף התמחור</span></td><td>גדול מאוד</td><td>קוד מורכב וביצוע רב שלבי אמין</td><td>בנייה ותיקונים</td><td>מפגשים 7 ו-8, למי שעובד בסביבת גוגל</td></tr>
-  <tr><td><b>Gemini 3.6 Flash</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gemini-3.6-flash</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">ראו דף התמחור</span></td><td>גדול מאוד</td><td>איזון בין מהירות ליכולות מולטימודליות</td><td>עבודה יומיומית עם טקסט, תמונה ווידאו</td><td>מפגש 3, בניתוח תמונות וסרטונים</td></tr>
-  <tr><td><b>Gemini 3.5 Flash-Lite</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gemini-3.5-flash-lite</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">ראו דף התמחור</span></td><td>גדול</td><td>המהיר והזול ביותר בסדרה</td><td>נפח גבוה ותקציב נמוך</td><td>מודול 6, באוטומציות</td></tr>
-  <tr><td><b>Nano Banana Pro</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gemini-3-pro-image</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">לפי תמונה</span></td><td>לא רלוונטי</td><td>תמונות באיכות סטודיו, כולל פריסות מורכבות וטקסט בתמונה</td><td>לוגו ובאנר שצריכים להיראות מקצועיים</td><td>מפגש 3, בסדנת התמונות</td></tr>
-  <tr><td><b>Gemini Deep Research</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">deep-research</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">לפי הרצה</span></td><td>לא רלוונטי</td><td>מחקר עצמאי על מאות מקורות, עם דוח מצוטט</td><td>שאלה גדולה שדורשת סקירה, ולא שאלה יומיומית</td><td>מפגש 2, בחלק ג של הנדסת פרומפטים</td></tr>
-    </table>
-    <a class="macc-lk" href="https://ai.google.dev/gemini-api/docs/models" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:14px;height:14px;flex:0 0 14px"><path d="M10.3 13.7a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1.2 1.2"/><path d="M13.7 10.3a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1.2-1.2"/></svg>הגרסאות הנוכחיות ותאריכי היציאה, בדף הרשמי: ai.google.dev/gemini-api/docs/models</a>
-  </div>
-</div>
-<div class="macc">
-  <button class="macc-h" type="button" aria-expanded="false"><span class="macc-co">xAI</span><span class="macc-fam">Grok</span><span class="macc-str">גישה ישירה למידע מרשת X, וטון פחות מסונן. פחות מתאים לעבודה מול לקוח</span><svg class="macc-cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-  <div class="macc-b" hidden>
-    <table>
-  <tr><th scope="col" style="width:21%">המודל</th><th scope="col" style="width:12%">חלון הקשר</th><th scope="col" style="width:24%">החוזק שלו</th><th scope="col" style="width:23%">מתי בוחרים בו</th><th scope="col">איפה זה בקורס</th></tr>
-  <tr><td><b>Grok 4.6</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">grok-4-6</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">ראו דף התמחור</span></td><td>גדול</td><td>החדש בסדרה, לעבודה כללית</td><td>למי שכבר עובד בסביבה הזו</td><td>לא נדרש בקורס</td></tr>
-  <tr><td><b>Grok 4.5</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">grok-4-5</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">ראו דף התמחור</span></td><td>גדול</td><td>הדור הקודם, זול יותר</td><td>משימות פשוטות יותר</td><td>לא נדרש בקורס</td></tr>
-    </table>
-    <p style="font-size:11.5px;color:var(--ink-2);margin:10px 2px 0">המשפחה הזו לא נדרשת לאף מטלה בקורס, והיא מופיעה כאן כדי שתלמיד שנתקל בשם יידע איפה הוא יושב.</p>
-    <a class="macc-lk" href="https://x.ai" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:14px;height:14px;flex:0 0 14px"><path d="M10.3 13.7a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1.2 1.2"/><path d="M13.7 10.3a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1.2-1.2"/></svg>הגרסאות הנוכחיות ותאריכי היציאה, בדף הרשמי: x.ai</a>
-  </div>
-</div>
-<div class="macc">
-  <button class="macc-h" type="button" aria-expanded="false"><span class="macc-co">Meta</span><span class="macc-fam">Llama</span><span class="macc-str">משקולות פתוחות. אפשר להוריד ולהריץ על שרת פרטי, וזה ההבדל שמעניין ארגונים</span><svg class="macc-cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-  <div class="macc-b" hidden>
-    <table>
-  <tr><th scope="col" style="width:21%">המודל</th><th scope="col" style="width:12%">חלון הקשר</th><th scope="col" style="width:24%">החוזק שלו</th><th scope="col" style="width:23%">מתי בוחרים בו</th><th scope="col">איפה זה בקורס</th></tr>
-  <tr><td><b>Llama, הדור הנוכחי</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">ראו הדף הרשמי</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">חינם להורדה, ומשלמים על החומרה</span></td><td>גדול</td><td>ריצה מקומית או על שרת של הארגון, בלי לשלוח מידע החוצה</td><td>כשהמידע לא יכול לצאת מהארגון</td><td>מוזכר במודול 4, בהקשר של פרטיות ואבטחה</td></tr>
-    </table>
-    <p style="font-size:11.5px;color:var(--ink-2);margin:10px 2px 0">הערך המרכזי כאן הוא לא איכות אלא בעלות: המודל רץ אצלכם, ולכן שום מידע לא נשלח לספק חיצוני.</p>
-    <a class="macc-lk" href="https://www.llama.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:14px;height:14px;flex:0 0 14px"><path d="M10.3 13.7a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1.2 1.2"/><path d="M13.7 10.3a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1.2-1.2"/></svg>הגרסאות הנוכחיות ותאריכי היציאה, בדף הרשמי: www.llama.com</a>
-  </div>
-</div>
-<div class="macc">
-  <button class="macc-h" type="button" aria-expanded="false"><span class="macc-co">DeepSeek</span><span class="macc-fam">DeepSeek</span><span class="macc-str">משקולות פתוחות, ועלות נמוכה במיוחד ביחס לביצועים</span><svg class="macc-cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-  <div class="macc-b" hidden>
-    <table>
-  <tr><th scope="col" style="width:21%">המודל</th><th scope="col" style="width:12%">חלון הקשר</th><th scope="col" style="width:24%">החוזק שלו</th><th scope="col" style="width:23%">מתי בוחרים בו</th><th scope="col">איפה זה בקורס</th></tr>
-  <tr><td><b>DeepSeek, הדור הנוכחי</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">ראו הדף הרשמי</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">זול משמעותית מהמתחרים</span></td><td>גדול</td><td>יחס ביצועים למחיר, במיוחד בקוד ובחשבון</td><td>עומסים גדולים בתקציב קטן</td><td>לא נדרש בקורס</td></tr>
-    </table>
-    <p style="font-size:11.5px;color:var(--ink-2);margin:10px 2px 0">שווה להזכיר במשפט: התחרות הזו היא הסיבה שמחירי המודלים ירדו, ולכן היא נוגעת לכם גם אם לא תשתמשו בה.</p>
-    <a class="macc-lk" href="https://www.deepseek.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:14px;height:14px;flex:0 0 14px"><path d="M10.3 13.7a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1.2 1.2"/><path d="M13.7 10.3a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1.2-1.2"/></svg>הגרסאות הנוכחיות ותאריכי היציאה, בדף הרשמי: www.deepseek.com</a>
-  </div>
-</div>
-<h2 class="sec">תבנית הפרומפט של הקורס</h2>
-<p class="lead" style="margin-bottom:14px">אותה תבנית בכל הקורס. במפגש 1 רק מציגים אותה בקצרה, ובמפגש 2 מתרגלים לעומק.</p>
-<table>
-  <tr><th style="width:110px">החלק</th><th style="width:30%">מה כותבים</th><th>למה זה משנה</th></tr>
-  <tr><td><b>תפקיד</b></td><td>מי המודל אמור להיות</td><td>"אתה מנהל מוצר" מחזיר תשובה אחרת לגמרי מ"אתה קופירייטר".</td></tr>
-  <tr><td><b>הקשר</b></td><td>מה הפרויקט, מי המשתמש, ומה כבר קיים</td><td>החלק שהתלמידים מדלגים עליו, והוא זה שקובע את איכות התשובה.</td></tr>
-  <tr><td><b>משימה</b></td><td>מה בדיוק לעשות, בפועל אחד</td><td>לא "תעזור לי עם", אלא "כתוב", "נסח", "הצע שלושה".</td></tr>
-  <tr><td><b>מגבלות</b></td><td>אורך, שפה, טון, ומה אסור</td><td>בלי מגבלות מקבלים תשובה כללית ובינונית.</td></tr>
-  <tr><td><b>פורמט פלט</b></td><td>טבלה, רשימה, מספר סעיפים</td><td>מה שלא ביקשתם, לא תקבלו באופן עקבי.</td></tr>
-  <tr><td><b>דוגמאות</b></td><td>דוגמה אחת או שתיים לפלט הרצוי</td><td>הדרך הזולה ביותר לשפר עקביות, ועובדת בכל מודל.</td></tr>
-</table>
-<div class="callout" style="margin-top:16px"><b>ההדגמה שסוגרת את זה:</b> לוקחים פרומפט גולמי של שורה אחת, מריצים, ואז בונים אותו מחדש בשישה החלקים ומריצים שוב. שתי התשובות זו לצד זו על המסך. אף פרומפט לא נשפט מהניסיון הראשון, שתי איטרציות הן המינימום.</div>
-
-<h2 class="sec">ששת חלקי הפרומפט</h2>
-<p class="lead" style="margin-bottom:16px">המבנה שחוזר בכל פרומפט בקורס, כולל בעשרים פרומפטי התרגול. מוצג בבלוק של 13:45 במפגש 2, ואחר כך חוזרים אליו כמעט בכל מודול.</p>
-<div class="dgmw"><svg class="dgm" viewBox="0 0 1000 404" role="img" aria-labelledby="prt-t prt-d" xmlns="http://www.w3.org/2000/svg"><title id="prt-t">ששת חלקי הפרומפט</title><desc id="prt-d">שש משבצות בסדר כתיבה. תפקיד, מי המודל אמור להיות. הקשר, מה הוא צריך לדעת לפני. משימה, מה בדיוק לעשות. מגבלות, מה לא לעשות. פורמט פלט, באיזה מבנה להחזיר. דוגמאות, איך נראית תוצאה נכונה. לכל משבצת דוגמה קצרה. החלק שהכי הרבה שוכחים הוא המגבלות.</desc><defs><marker id="prt-ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5L9 5L0 9.5z" fill="#E4002B"/></marker><marker id="prt-ahg" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5L9 5L0 9.5z" fill="#8A8A8A"/></marker></defs><rect x="672" y="76" width="308" height="140" rx="12" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><rect x="922" y="90" width="44" height="30" rx="8" fill="#E4002B"/><text x="944" y="111" text-anchor="middle" font-size="14" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">1</text><text x="904" y="116" text-anchor="start" font-size="16" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">תפקיד <tspan font-size="12.5" font-weight="600" fill="#8A8A8A">(Role)</tspan></text><text x="904" y="142" text-anchor="start" font-size="12.5" font-weight="600" fill="#555555" font-family="Heebo, sans-serif">מי המודל אמור להיות</text><line x1="690" y1="160" x2="962" y2="160" stroke="#E2E2E2" stroke-width="1.4"/><text x="904" y="184" text-anchor="start" font-size="12" font-weight="500" fill="#8A8A8A" font-family="Heebo, sans-serif">למשל: אתה מנחה פרויקטים בקורס</text><rect x="346" y="76" width="308" height="140" rx="12" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><rect x="596" y="90" width="44" height="30" rx="8" fill="#E4002B"/><text x="618" y="111" text-anchor="middle" font-size="14" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">2</text><text x="578" y="116" text-anchor="start" font-size="16" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">הקשר <tspan font-size="12.5" font-weight="600" fill="#8A8A8A">(Context)</tspan></text><text x="578" y="142" text-anchor="start" font-size="12.5" font-weight="600" fill="#555555" font-family="Heebo, sans-serif">מה הוא צריך לדעת לפני</text><line x1="364" y1="160" x2="636" y2="160" stroke="#E2E2E2" stroke-width="1.4"/><text x="578" y="184" text-anchor="start" font-size="12" font-weight="500" fill="#8A8A8A" font-family="Heebo, sans-serif">למשל: אני תלמיד בלי רקע בתכנות</text><rect x="20" y="76" width="308" height="140" rx="12" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><rect x="270" y="90" width="44" height="30" rx="8" fill="#E4002B"/><text x="292" y="111" text-anchor="middle" font-size="14" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">3</text><text x="252" y="116" text-anchor="start" font-size="16" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">משימה <tspan font-size="12.5" font-weight="600" fill="#8A8A8A">(Task)</tspan></text><text x="252" y="142" text-anchor="start" font-size="12.5" font-weight="600" fill="#555555" font-family="Heebo, sans-serif">מה בדיוק לעשות, פעולה אחת</text><line x1="38" y1="160" x2="310" y2="160" stroke="#E2E2E2" stroke-width="1.4"/><text x="252" y="184" text-anchor="start" font-size="12" font-weight="500" fill="#8A8A8A" font-family="Heebo, sans-serif">למשל: בדוק אם הרעיון מתאים</text><rect x="672" y="244" width="308" height="140" rx="12" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><rect x="922" y="258" width="44" height="30" rx="8" fill="#E4002B"/><text x="944" y="279" text-anchor="middle" font-size="14" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">4</text><text x="904" y="284" text-anchor="start" font-size="16" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">מגבלות <tspan font-size="12.5" font-weight="600" fill="#8A8A8A">(Constraints)</tspan></text><text x="904" y="310" text-anchor="start" font-size="12.5" font-weight="600" fill="#555555" font-family="Heebo, sans-serif">מה לא לעשות</text><line x1="690" y1="328" x2="962" y2="328" stroke="#E2E2E2" stroke-width="1.4"/><text x="904" y="352" text-anchor="start" font-size="12" font-weight="500" fill="#8A8A8A" font-family="Heebo, sans-serif">למשל: אל תציע לי רעיון אחר</text><rect x="346" y="244" width="308" height="140" rx="12" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><rect x="596" y="258" width="44" height="30" rx="8" fill="#E4002B"/><text x="618" y="279" text-anchor="middle" font-size="14" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">5</text><text x="578" y="284" text-anchor="start" font-size="16" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">פורמט פלט <tspan font-size="12.5" font-weight="600" fill="#8A8A8A">(Output Format)</tspan></text><text x="578" y="310" text-anchor="start" font-size="12.5" font-weight="600" fill="#555555" font-family="Heebo, sans-serif">באיזה מבנה להחזיר</text><line x1="364" y1="328" x2="636" y2="328" stroke="#E2E2E2" stroke-width="1.4"/><text x="578" y="352" text-anchor="start" font-size="12" font-weight="500" fill="#8A8A8A" font-family="Heebo, sans-serif">למשל: טבלה, ואז משפט הכרעה</text><rect x="20" y="244" width="308" height="140" rx="12" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><rect x="270" y="258" width="44" height="30" rx="8" fill="#E4002B"/><text x="292" y="279" text-anchor="middle" font-size="14" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">6</text><text x="252" y="284" text-anchor="start" font-size="16" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">דוגמאות <tspan font-size="12.5" font-weight="600" fill="#8A8A8A">(Examples)</tspan></text><text x="252" y="310" text-anchor="start" font-size="12.5" font-weight="600" fill="#555555" font-family="Heebo, sans-serif">איך נראית תוצאה נכונה</text><line x1="38" y1="328" x2="310" y2="328" stroke="#E2E2E2" stroke-width="1.4"/><text x="252" y="352" text-anchor="start" font-size="12" font-weight="500" fill="#8A8A8A" font-family="Heebo, sans-serif">למשל: קלט זה, פלט כזה</text><text x="500" y="42" text-anchor="middle" font-size="17" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">ששת חלקי הפרומפט, בסדר שבו כותבים אותם</text></svg></div>
 <h2 class="sec">לינקים להעשרה, לפי מודול</h2><p class="lead" style="margin-bottom:6px">מקורות חיצוניים להעמקה. אף אחד מהם אינו חובה, וכולם נבחרו כי הם מסבירים משהו טוב יותר מהשיעור.</p><h3 style="margin:26px 0 10px">מודול 1</h3>
 <p class="lead" style="margin-bottom:14px">מעבר ללינקים המעשיים של המודול. אלה דברים שאפשר לשלוח לתלמיד סקרן, או לקרוא כמרצה כדי שהתשובה לשאלה קשה בכיתה תהיה מוכנה מראש.</p>
 <table>
@@ -2882,16 +2626,18 @@ td b{color:var(--ink)}
 </table>
 <div class="callout" style="margin-top:16px"><b>חומרי העשרה לסטודנט:</b> שני מסמכים נשלחים לכיתה בסוף מודול 2, לא במפגש 1. הראשון על חשיבה מוצרית ולוגיקה, והשני על MVP. שליחה מוקדמת מדי אומרת שאף אחד לא יחזור אליהם.</div>
 
+
+</div>
 </section>
 
 <!-- ================= ROLLING PROJECT ================= -->
 <section class="page" id="p-project">
   <div class="hero" style="padding:38px 44px">
     <span class="tag">עמוד השדרה של הקורס</span>
-    <h2 style="font-size:36px;max-width:26ch">פרויקט אישי אחד,<br>מרעיון למערכת חיה.</h2>
-    <p>כל תלמיד בוחר בתחילת הקורס נושא אישי משלו, בבחירה חופשית, ומפתח אותו לאורך שבעת המודולים עד מערכת דיגיטלית חיה: אפליקציה, תוכן, שכבת AI ואוטומציה. זה הפרויקט שמוגש כפרויקט הגמר. במקביל, הכיתה כולה בונה יחד עם המרצה מיזם מלווה משותף, "החוג המושלם", כדי שכל כלי ייראה פעם אחת על מקרה מוכר לפני שכל אחד מפעיל אותו על שלו.</p>
+    <h2 style="font-size:36px;max-width:28ch">הפרויקט שלי:<br>מרעיון למערכת חיה.</h2>
+    <p>כל תלמיד בוחר במפגש הראשון נושא אישי משלו, בבחירה חופשית, ומפתח אותו לאורך שבעת המודולים עד מערכת דיגיטלית חיה: מסכים, מידע שנשמר, שכבת AI ותהליכים שרצים לבד. זה הפרויקט שמוגש כפרויקט הגמר. במקביל הכיתה בונה יחד עם המרצה מיזם מלווה משותף, "החוג המושלם", כדי שכל כלי ייראה פעם אחת על מקרה מוכר לפני שכל אחד מפעיל אותו על שלו.</p>
   </div>
-
+  <div class="callout" style="margin-top:18px"><b>המדריך להורדה:</b> כל מה שבאזור הזה מרוכז במסמך Word קצר של 6 עמודים, נוח להדפסה ולהפצה לכיתה. <a href="guide-rolling-project.docx" style="color:var(--coral);font-weight:800">הורדת המדריך לסטודנט (DOCX)</a></div>
 
   <div class="edsw" role="group" aria-label="בחירת מתכונת הקורס">
     <span class="edl">מתכונת:</span>
@@ -2900,37 +2646,52 @@ td b{color:var(--ink)}
     <span class="edn" data-ed="when">ימי שני ורביעי, 09:00 עד 16:30, כ-6.5 שעות לימוד למפגש</span>
   </div>
 
-  <h2 class="sec">שני מסלולים שרצים במקביל</h2>
-  <p class="lead" style="margin-bottom:14px">בכל מודול התלמיד עובר את אותו חומר פעמיים: פעם אחת יחד עם הכיתה והמרצה על המיזם המלווה, ופעם שנייה לבד על הפרויקט שלו. זה מה שמאפשר להתקדם מהר בלי להשאיר אף אחד מאחור.</p>
-  <div class="grid g2">
-    <div class="card y">
-      <h4>המיזם המלווה: "החוג המושלם"</h4>
-      <p>נושא אחד וזהה לכל הכיתה. המרצה והתלמידים בונים אותו יחד בכיתה, שלב אחר שלב, בכל מודול. זה מגרש האימונים: כאן רואים איך כל כלי נראה בפועל, ואפשר לטעות בלי מחיר.</p>
-      <div style="margin-top:12px"><span class="pill y">בכיתה, יחד</span> <span class="pill">לא מוגש</span></div>
-    </div>
-    <div class="card n">
-      <h4>הפרויקט המתגלגל: הנושא שלך</h4>
-      <p>כל תלמיד בוחר נושא משלו בבחירה חופשית, ומפתח אותו במקביל לאורך כל הקורס. זה הפרויקט שמוגש כפרויקט הגמר, מוצג מול הכיתה ונכנס לתיק העבודות.</p>
-      <div style="margin-top:12px"><span class="pill c">עבודה אישית</span> <span class="pill c">פרויקט הגמר</span></div>
-    </div>
-  </div>
-  <table style="margin-top:16px">
-    <tr><th style="width:22%"></th><th style="width:39%">המיזם המלווה</th><th>הפרויקט המתגלגל</th></tr>
-    <tr><td><b>הנושא</b></td><td>"החוג המושלם", זהה לכל הכיתה</td><td>בחירה חופשית של כל תלמיד</td></tr>
-    <tr><td><b>מי בונה</b></td><td>המרצה והתלמידים יחד, בכיתה</td><td>כל תלמיד לבד, בסדנה ובעבודה העצמית</td></tr>
-    <tr><td><b>מתי</b></td><td>בחלק המעשי של המפגש</td><td>לאורך כל המודול ובין המפגשים</td></tr>
-    <tr><td><b>מה התפקיד</b></td><td>ללמוד את הכלי על מקרה מוכר ומודרך</td><td>ליישם את אותו כלי על מקרה אמיתי משלך</td></tr>
-    <tr><td><b>מה קורה בסוף</b></td><td>נשאר כדוגמה משותפת של הכיתה</td><td>מוגש ומוצג כפרויקט הגמר</td></tr>
-  </table>
+<div class="ttabs" role="tablist" aria-label="הפרויקט שלי">
+  <button class="ttab on" type="button" role="tab" id="tb-pj-w" data-p="pj-w" aria-selected="true" aria-controls="pj-w" tabindex="0">מה בונים<small>ההגדרה והשכבות</small></button>
+  <button class="ttab" type="button" role="tab" id="tb-pj-t" data-p="pj-t" aria-selected="false" aria-controls="pj-t" tabindex="-1">בחירת נושא<small>ההחלטה של מפגש 1</small></button>
+  <button class="ttab" type="button" role="tab" id="tb-pj-j" data-p="pj-j" aria-selected="false" aria-controls="pj-j" tabindex="-1">המסע<small>שבעה מודולים</small></button>
+  <button class="ttab" type="button" role="tab" id="tb-pj-s" data-p="pj-s" aria-selected="false" aria-controls="pj-s" tabindex="-1">הגשות<small>שלוש נקודות עצירה</small></button>
+</div>
 
-  <h2 class="sec">המיזם המלווה: "החוג המושלם" 🤸</h2>
-  <div class="callout" style="margin-bottom:16px">המיזם המלווה לא מחליף את הבחירה האישית של כל תלמיד ולא מוגש כפרויקט הגמר. הוא נבנה בכיתה יחד, כדי שבכל מודול תהיה עבודה מעשית מודרכת על מקרה אחד מוכר, לצד ההנחיה הכללית.</div>
+<div class="tpane on" id="pj-w" role="tabpanel" aria-labelledby="tb-pj-w">
+<div class="plead"><b>מה זה הפרויקט, ומה ייחשב לשלם בסוף.</b> בסוף הקורס לא תצאו עם תעודה בלבד, אלא עם כתובת אינטרנט שאפשר לשלוח לחבר, למנהל או ללקוח, ומאחוריה מערכת שאתם בניתם.</div>
+<h2 class="sec">שני מסלולים שרצים במקביל</h2>
+  <p class="lead" style="margin-bottom:14px">בקורס יש שני פרויקטים זה לצד זה, וההבדל ביניהם מלווה אתכם עד הסוף.</p>
   <div class="grid g2">
-    <div class="card">
-      <h4>מה זה</h4>
-      <p>מערכת לניהול סטודיו או חוג: אתר שבו הלקוח עונה על כמה שאלות (מה המטרה, רמת הניסיון, אילו ימים ושעות פנויים, סוג הפעילות והתקציב), וה-AI מחזיר שלוש המלצות לשיעור מתוך לוח הסטודיו, עם אפשרות להירשם.</p>
-    </div>
-    <div class="card y">
+    <div class="card y"><h4>המיזם המלווה: "החוג המושלם"</h4><p>נושא אחד וזהה לכל הכיתה. המרצה והתלמידים בונים אותו יחד בכיתה, שלב אחר שלב. זה מגרש האימונים: כאן רואים איך כל כלי נראה בפועל, ואפשר לטעות בלי מחיר. לא מוגש ואין עליו ציון.</p></div>
+    <div class="card n"><h4>הפרויקט המתגלגל: הנושא שלכם</h4><p>כל אחד בוחר נושא משלו בבחירה חופשית, ומפתח אותו במקביל לאורך כל הקורס. זה הפרויקט שנבדק, שמוגש, ושמוצג מול הכיתה במפגש האחרון, וזה מה שנשאר אצלכם ביד.</p></div>
+  </div>
+  <table style="margin-top:16px"><tr><th style="width:16%"></th><th style="width:42%">המיזם המלווה: "החוג המושלם"</th><th>הפרויקט המתגלגל: הנושא שלכם</th></tr>
+    <tr><td><b>הנושא</b></td><td>אחד וזהה לכל הכיתה</td><td>בחירה חופשית של כל תלמיד</td></tr>
+    <tr><td><b>מי בונה</b></td><td>המרצה והתלמידים יחד, בכיתה</td><td>כל אחד לבד, בסדנה ובבית</td></tr><tr><td><b>מתי</b></td><td>בחלק המעשי של המפגש</td><td>לאורך כל המודול ובין המפגשים</td></tr>
+    <tr><td><b>התפקיד</b></td><td>ללמוד כל כלי על מקרה מוכר ומודרך, ולטעות בלי מחיר</td><td>ליישם את אותו כלי על מקרה אמיתי שלכם</td></tr>
+    <tr><td><b>בסוף הקורס</b></td><td>נשאר כדוגמה משותפת. לא מוגש ואין עליו ציון</td><td>מוגש, מוצג מול הכיתה, ונשאר אצלכם</td></tr>
+  </table>
+  <p class="lead" style="margin-top:14px">אף אחד לא לומד לנהוג מקריאת ספר. קודם רואים, אחר כך נוהגים כשמישהו יושב לידכם, ורק אז נוסעים לבד. בכל מודול תעברו את אותו חומר פעמיים: פעם ראשונה יחד בכיתה על "החוג המושלם", ופעם שנייה לבד על הפרויקט שלכם.</p>
+  <h2 class="sec">מה יהיה לכם ביד בסוף</h2>
+  <div class="grid g2">
+    <div class="card"><h4>התוצרים</h4><ul class="tick"><li>אתר או אפליקציה חיה בכתובת ציבורית, שנפתחת מכל מחשב ומכל טלפון</li><li>מקום שבו המידע נשמר, כדי שהמערכת תזכור פניות ולקוחות</li><li>עוזר חכם: שאלון שמחזיר תשובה מותאמת, או צ׳אט שמדבר עם המשתמש</li><li>תהליכים שרצים לבד: מייל שנשלח, תזכורת שיוצאת, רשומה שנשמרת</li><li>תוכן משלכם: לוגו, תמונות, סרטון קצר ומצגת</li><li>הצגה של עשר דקות ותיק עבודות שאפשר לשלוח למעסיק או ללקוח</li></ul></div>
+    <div class="card dash"><h4>ומה נדרש מכם</h4><ul class="tick c"><li>לבחור נושא כבר במפגש הראשון ולהישאר איתו</li><li>לעבוד עליו קצת בין המפגשים. הקורס מקצה כ-95 שעות עבודה עצמית, וזה חלק מהמסלול ולא תוספת</li><li>לשמור סדר במקום אחד: תיקייה, קובץ קישורים, וג׳ימייל ייעודי לקורס</li></ul><div class="quote" style="margin-top:14px;font-size:14.5px">לא צריך לדעת לתכנת, לא צריך רעיון עסקי מנצח, ולא צריך תקציב.</div></div>
+  </div>
+  <h2 class="sec">ארבע השכבות של הפרויקט</h2>
+<p class="lead" style="margin-bottom:16px">זו ההגדרה של פרויקט הגמר, בתמונה אחת. ארבע שכבות, שנבנות מלמטה למעלה, וכל אחת מהן נבנית במודול אחר. כשאתם בודקים בסוף הקורס האם הפרויקט שלכם שלם, זו הרשימה שבודקים מולה.</p>
+<div class="dgmw"><svg class="dgm" viewBox="0 0 1000 510" role="img" aria-labelledby="lay-t lay-d" xmlns="http://www.w3.org/2000/svg"><title id="lay-t">ארבע השכבות של פרויקט הגמר</title><desc id="lay-d">ארבע שכבות זו על זו. הבסיס הוא מסכים שאפשר להיכנס אליהם, ומעליו מידע שנשמר ונשלף, ומעליו שכבת AI שמחזירה תשובה מותאמת, ומעליו תהליכים שרצים לבד. לצד כל שכבה מצוין המודול שבונה אותה. מודול 4 בודק את כל השכבות ולא מוסיף שכבה, ומודול 7 מציג את מה שנבנה.</desc><defs><marker id="lay-ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5L9 5L0 9.5z" fill="#E4002B"/></marker><marker id="lay-ahg" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5L9 5L0 9.5z" fill="#8A8A8A"/></marker></defs><rect x="230" y="88" width="560" height="74" rx="11" fill="#E4002B"/><text x="510" y="119" text-anchor="middle" font-size="15.5" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">תהליכים שרצים לבד</text><text x="510" y="142" text-anchor="middle" font-size="12" font-weight="500" fill="#D6DCEF" font-family="Heebo, sans-serif">טופס שנשמר, מייל שנשלח, תזכורת שיוצאת</text><rect x="806" y="102" width="172" height="46" rx="9" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><text x="892" y="121" text-anchor="middle" font-size="12.5" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">מודול 6</text><text x="892" y="138" text-anchor="middle" font-size="10.5" font-weight="600" fill="#8A8A8A" font-family="Heebo, sans-serif">מפגשים 15-19</text><rect x="230" y="174" width="560" height="74" rx="11" fill="#1B2D6B"/><text x="510" y="205" text-anchor="middle" font-size="15.5" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">שכבת AI שמחזירה תשובה מותאמת</text><text x="510" y="228" text-anchor="middle" font-size="12" font-weight="500" fill="#D6DCEF" font-family="Heebo, sans-serif">לא תשובה גנרית. תשובה שנגזרת מהנתונים של המשתמש</text><rect x="806" y="188" width="172" height="46" rx="9" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><text x="892" y="207" text-anchor="middle" font-size="12.5" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">מודול 5</text><text x="892" y="224" text-anchor="middle" font-size="10.5" font-weight="600" fill="#8A8A8A" font-family="Heebo, sans-serif">מפגשים 12-14</text><rect x="230" y="260" width="560" height="74" rx="11" fill="#2A4090"/><text x="510" y="291" text-anchor="middle" font-size="15.5" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">מידע שנשמר ונשלף</text><text x="510" y="314" text-anchor="middle" font-size="12" font-weight="500" fill="#D6DCEF" font-family="Heebo, sans-serif">מה המערכת זוכרת בין ביקור לביקור</text><rect x="806" y="274" width="172" height="46" rx="9" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><text x="892" y="293" text-anchor="middle" font-size="12.5" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">מודול 3 ו-5</text><text x="892" y="310" text-anchor="middle" font-size="10.5" font-weight="600" fill="#8A8A8A" font-family="Heebo, sans-serif">מפגשים 5-14</text><rect x="230" y="346" width="560" height="74" rx="11" fill="#E7EAF4"/><text x="510" y="377" text-anchor="middle" font-size="15.5" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">מסכים שאפשר להיכנס אליהם</text><text x="510" y="400" text-anchor="middle" font-size="12" font-weight="500" fill="#555555" font-family="Heebo, sans-serif">הבסיס. בלי זה אין למה לחבר את השאר</text><rect x="806" y="360" width="172" height="46" rx="9" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><text x="892" y="379" text-anchor="middle" font-size="12.5" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">מודול 3</text><text x="892" y="396" text-anchor="middle" font-size="10.5" font-weight="600" fill="#8A8A8A" font-family="Heebo, sans-serif">מפגשים 5-9</text><text x="510" y="52" text-anchor="middle" font-size="18" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">ארבע השכבות שכל פרויקט גמר חייב</text><text x="510" y="72" text-anchor="middle" font-size="12.5" font-weight="500" fill="#555555" font-family="Heebo, sans-serif">נבנות מלמטה למעלה. כל שכבה יושבת על זו שמתחתיה</text><path d="M196 96 L178 96 L178 428 L196 428" stroke="#8A8A8A" stroke-width="2" fill="none" stroke-dasharray="6 5"/><rect x="22" y="232" width="146" height="60" rx="9" fill="#F6F5F3" stroke="#E2E2E2" stroke-width="1.6"/><text x="95" y="255" text-anchor="middle" font-size="12.5" font-weight="900" fill="#E4002B" font-family="Heebo, sans-serif">מודול 4</text><text x="95" y="275" text-anchor="middle" font-size="11.5" font-weight="600" fill="#555555" font-family="Heebo, sans-serif">בודק את כולן</text><text x="95" y="290" text-anchor="middle" font-size="11.5" font-weight="600" fill="#555555" font-family="Heebo, sans-serif">ולא מוסיף שכבה</text><path d="M168 262 L178 262" stroke="#8A8A8A" stroke-width="2"/><rect x="230" y="444" width="748" height="44" rx="9" fill="#FCE6EA"/><text x="604" y="472" text-anchor="middle" font-size="13" font-weight="800" fill="#B00020" font-family="Heebo, sans-serif">מודול 7 לא מוסיף שכבה. הוא מציג את מה שנבנה</text></svg></div>
+<div class="grid g2" style="margin-top:20px">
+  <div class="card"><h4>למה הסדר הזה</h4>
+    <p>אי אפשר לשמור מידע בלי מסך שדרכו מכניסים אותו, ואי אפשר להחזיר תשובה מותאמת בלי מידע שמור. כל שכבה יושבת על זו שמתחתיה, וזו הסיבה שסדר המודולים הוא כזה ולא אחר.</p>
+    <p>אם אתם נתקעים באמצע הקורס, שווה לבדוק איזו שכבה עדיין חסרה. לרוב זו התשובה.</p>
+  </div>
+  <div class="card"><h4>מה זה אומר בהגשה</h4>
+    <p>בהגשה השלישית, במפגש האחרון, כל אחת מארבע השכבות צריכה להיות קיימת ולעבוד. לא מרשימה, קיימת.</p>
+    <p>שכבה שלא הספקתם היא לא כישלון, אבל היא צריכה להיאמר במפורש בהצגה. "לא הספקתי את האוטומציות ולכן ההרשמה נשמרת אבל לא שולחת מייל" היא תשובה טובה. שקט הוא לא.</p>
+  </div>
+</div>
+<h2 class="sec">המיזם המלווה: "החוג המושלם" 🤸</h2>
+  <p class="lead" style="margin-bottom:10px">מערכת לניהול סטודיו או חוג. נועה רוצה להתחיל להתאמן, נכנסת לאתר, רואה לוח שיעורים ארוך ומבולבל, וסוגרת אותו. זו הבעיה.</p>
+  <p class="lead" style="margin-bottom:10px">ב"החוג המושלם" היא עונה על חמש שאלות קצרות (מטרה, רמת ניסיון, ימים ושעות פנויים, סוג פעילות ותקציב), ומקבלת שלוש המלצות לשיעורים מתוך הלוח האמיתי, כל אחת עם נימוק ומועד קרוב. היא נרשמת, וההמשך קורה לבד: ההרשמה נשמרת, נשלח מייל אישי, ויום לפני יוצאת תזכורת.</p>
+  <div class="callout" style="margin-top:14px"><b>שימו לב:</b> המיזם המלווה אינו הפרויקט שלכם ואינו תחליף לו. אל תעתיקו אותו. השתמשו בו כמו בפתרון של תרגיל לדוגמה: מסתכלים איך זה נעשה, ואז עושים את התרגיל שלכם.</div>
+  <p style="margin-top:14px">פרויקט פשוט להבנה, ובכל זאת אפשר להדגים עליו כמעט כל טכנולוגיה שנלמדת בקורס. בדיוק בשביל זה הוא נבחר כמיזם המלווה.</p>
+  <div style="margin-top:16px"><div class="card y">
       <h4>הפרויקט לא נגמר שם</h4>
       <ul class="tick">
         <li>לוגו ותמונות לסוגי השיעורים</li>
@@ -2942,85 +2703,13 @@ td b{color:var(--ink)}
       </ul>
     </div>
   </div>
-  <p class="muted" style="margin-top:10px">פרויקט פשוט להבנה, אך יכול להדגים כמעט כל טכנולוגיה שנלמדת בקורס, בדיוק בשביל זה הוא נבחר כמיזם המלווה.</p>
 
-  <h2 class="sec">מבט על</h2>
-  <p class="lead" style="margin-bottom:14px">שבע תחנות, מודול אחר מודול: מה נבנה בכל אחת, מתי היא קורית ובאיזה כלי מרכזי.</p>
-  <table id="stagemap"></table>
 
-  <h2 class="sec">השלבים</h2>
-  <p class="lead" style="margin-bottom:14px">כל שלב בפירוט: מה כל תלמיד בונה בנושא שלו לפרויקט הגמר, ואיך אותו שלב נבנה יחד בכיתה במיזם המלווה.</p>
-  <div class="toolbar">
-    <button class="btn" onclick="allStages(true)">פתיחת כל השלבים</button>
-    <button class="btn" onclick="allStages(false)">סגירת הכול</button>
-  </div>
-  <div id="stages"></div>
+</div>
 
-  <h2 class="sec">הגשות ובדיקה</h2>
-  <p class="lead" style="margin-bottom:16px">שלוש נקודות לאורך הקורס: אחת לפתיחה בלי בדיקה, ושתי הגשות נבדקות. לכל אחת: מה התלמיד מגיש, מתי להגיש, איך המרצה בודק, כמה זמן בדיקה זה לוקח, ומה סף המעבר. כל ההגשות הן על הפרויקט המתגלגל, כלומר על הנושא שכל תלמיד בחר לעצמו, והבדיקה האחרונה היא על הפרויקט השלם ולא רק על החלקים האחרונים. המיזם המלווה נבנה יחד בכיתה ואינו מוגש.</p>
-
-  <h3 style="margin-bottom:12px">לוח ההגשות</h3>
-  <table id="submap"></table>
-
-  <h3 style="margin:26px 0 12px">כל הגשה בפירוט</h3>
-  <div class="toolbar">
-    <button class="btn" onclick="allSubs(true)">פתיחת כל ההגשות</button>
-    <button class="btn" onclick="allSubs(false)">סגירת הכול</button>
-  </div>
-  <div id="subs"></div>
-
-  <h2 class="sec">מצגת הכנה: איך נכנסים לכל שלב</h2>
-  <p class="lead" style="margin-bottom:16px">שקף לכל מודול: מה המטרה, מה להכין מראש, ואיזה פרומפט מפעילים. הפרומפטים הם תבניות. מחליפים את מה שבסוגריים המרובעים ואותה תבנית עובדת לכל נושא פרויקט ולכל מפגש.</p>
-
-  <div class="callout" style="margin-bottom:18px"><b>איך קוראים את זה:</b> לכל מודול יש שקף אחד עם תבנית פרומפט ייעודית, ולצידה דוגמה מלאה על המיזם המלווה, "החוג המושלם".</div>
-
-  <div class="toolbar">
-    <button class="btn" onclick="allSlides(true)">פתיחת כל השקפים</button>
-    <button class="btn" onclick="allSlides(false)">סגירת הכול</button>
-  </div>
-  <div id="slides"></div>
-
-  <h2 class="sec">רעיונות נוספים להשראה</h2>
-  <p class="lead" style="margin-bottom:16px">אלה רק דוגמאות. כל תלמיד יכול גם לבחור נושא אחר משלו לגמרי, כל עוד הוא עומד בעקרונות המנחים.</p>
-  <div class="grid g3">
-    <div class="card"><h4>מתכנן טיולים</h4><p>בונה מסלול טיול מותאם אישית לפי יעד, תקציב ומספר ימים, וממליץ על אטרקציות ולינה.</p></div>
-    <div class="card y"><h4>מלון בוטיק</h4><p>מנהל הזמנות וזמינות חדרים, ממליץ על חבילה מתאימה לפי סוג האורח ומועד השהות, ושולח אישור, המלצות באזור ותזכורת לפני ההגעה.</p></div>
-    <div class="card n"><h4>המתנה המושלמת</h4><p>שירות למציאת מתנות: המשתמש עונה על כמה שאלות, למי המתנה, גיל, תחביבים, תקציב ואירוע, וה-AI מחזיר שלושה רעיונות למתנה.</p></div>
-  </div>
-
-  </section>
-
-<!-- ================= STUDENT GUIDE ================= -->
-<section class="page" id="p-guide">
-  <div class="hero" style="padding:38px 44px">
-    <span class="tag">מדריך לסטודנט · פרויקט הגמר</span>
-    <h2 style="font-size:36px;max-width:28ch">מדריך פרויקט הגמר:<br>מה בונים, ואיך בוחרים נושא.</h2>
-    <p>בסוף הקורס לא תצאו עם תעודה בלבד. תצאו עם כתובת אינטרנט שאפשר לשלוח לחבר, למנהל או ללקוח, ומאחוריה מערכת שאתם בניתם: מסכים שנכנסים אליהם, מידע שנשמר, עוזר חכם שעונה, ותהליכים שרצים לבד.</p>
-  </div>
-  <div class="callout" style="margin-top:18px"><b>המדריך להורדה:</b> כל מה שבעמוד הזה מרוכז במסמך Word קצר של 6 עמודים, נוח להדפסה ולהפצה לכיתה. <a href="guide-rolling-project.docx" style="color:var(--coral);font-weight:800">הורדת המדריך לסטודנט (DOCX)</a></div>
-  <h2 class="sec">שני מסלולים שרצים במקביל</h2>
-  <p class="lead" style="margin-bottom:14px">בקורס יש שני פרויקטים זה לצד זה, וההבדל ביניהם מלווה אתכם עד הסוף.</p>
-  <div class="grid g2">
-    <div class="card y"><h4>המיזם המלווה: "החוג המושלם"</h4><p>נושא אחד וזהה לכל הכיתה. המרצה והתלמידים בונים אותו יחד בכיתה, שלב אחר שלב. זה מגרש האימונים: כאן רואים איך כל כלי נראה בפועל, ואפשר לטעות בלי מחיר. לא מוגש ואין עליו ציון.</p></div>
-    <div class="card n"><h4>הפרויקט המתגלגל: הנושא שלכם</h4><p>כל אחד בוחר נושא משלו בבחירה חופשית, ומפתח אותו במקביל לאורך כל הקורס. זה הפרויקט שנבדק, שמוגש, ושמוצג מול הכיתה במפגש האחרון, וזה מה שנשאר אצלכם ביד.</p></div>
-  </div>
-  <table style="margin-top:16px"><tr><th style="width:16%"></th><th style="width:42%">המיזם המלווה: "החוג המושלם"</th><th>הפרויקט המתגלגל: הנושא שלכם</th></tr>
-    <tr><td><b>הנושא</b></td><td>אחד וזהה לכל הכיתה</td><td>בחירה חופשית של כל תלמיד</td></tr>
-    <tr><td><b>מי בונה</b></td><td>המרצה והתלמידים יחד, בכיתה</td><td>כל אחד לבד, בסדנה ובבית</td></tr>
-    <tr><td><b>התפקיד</b></td><td>ללמוד כל כלי על מקרה מוכר ומודרך, ולטעות בלי מחיר</td><td>ליישם את אותו כלי על מקרה אמיתי שלכם</td></tr>
-    <tr><td><b>בסוף הקורס</b></td><td>נשאר כדוגמה משותפת. לא מוגש ואין עליו ציון</td><td>מוגש, מוצג מול הכיתה, ונשאר אצלכם</td></tr>
-  </table>
-  <p class="lead" style="margin-top:14px">אף אחד לא לומד לנהוג מקריאת ספר. קודם רואים, אחר כך נוהגים כשמישהו יושב לידכם, ורק אז נוסעים לבד. בכל מודול תעברו את אותו חומר פעמיים: פעם ראשונה יחד בכיתה על "החוג המושלם", ופעם שנייה לבד על הפרויקט שלכם.</p>
-  <h2 class="sec">מה יהיה לכם ביד בסוף</h2>
-  <div class="grid g2">
-    <div class="card"><h4>התוצרים</h4><ul class="tick"><li>אתר או אפליקציה חיה בכתובת ציבורית, שנפתחת מכל מחשב ומכל טלפון</li><li>מקום שבו המידע נשמר, כדי שהמערכת תזכור פניות ולקוחות</li><li>עוזר חכם: שאלון שמחזיר תשובה מותאמת, או צ׳אט שמדבר עם המשתמש</li><li>תהליכים שרצים לבד: מייל שנשלח, תזכורת שיוצאת, רשומה שנשמרת</li><li>תוכן משלכם: לוגו, תמונות, סרטון קצר ומצגת</li><li>הצגה של עשר דקות ותיק עבודות שאפשר לשלוח למעסיק או ללקוח</li></ul></div>
-    <div class="card dash"><h4>ומה נדרש מכם</h4><ul class="tick c"><li>לבחור נושא כבר במפגש הראשון ולהישאר איתו</li><li>לעבוד עליו קצת בין המפגשים. הקורס מקצה כ-95 שעות עבודה עצמית, וזה חלק מהמסלול ולא תוספת</li><li>לשמור סדר במקום אחד: תיקייה, קובץ קישורים, וג׳ימייל ייעודי לקורס</li></ul><div class="quote" style="margin-top:14px;font-size:14.5px">לא צריך לדעת לתכנת, לא צריך רעיון עסקי מנצח, ולא צריך תקציב.</div></div>
-  </div>
-  <h2 class="sec">המיזם המלווה: "החוג המושלם" 🤸</h2>
-  <p class="lead" style="margin-bottom:10px">מערכת לניהול סטודיו או חוג. נועה רוצה להתחיל להתאמן, נכנסת לאתר, רואה לוח שיעורים ארוך ומבולבל, וסוגרת אותו. זו הבעיה.</p>
-  <p class="lead" style="margin-bottom:10px">ב"החוג המושלם" היא עונה על חמש שאלות קצרות (מטרה, רמת ניסיון, ימים ושעות פנויים, סוג פעילות ותקציב), ומקבלת שלוש המלצות לשיעורים מתוך הלוח האמיתי, כל אחת עם נימוק ומועד קרוב. היא נרשמת, וההמשך קורה לבד: ההרשמה נשמרת, נשלח מייל אישי, ויום לפני יוצאת תזכורת.</p>
-  <div class="callout" style="margin-top:14px"><b>שימו לב:</b> המיזם המלווה אינו הפרויקט שלכם ואינו תחליף לו. אל תעתיקו אותו. השתמשו בו כמו בפתרון של תרגיל לדוגמה: מסתכלים איך זה נעשה, ואז עושים את התרגיל שלכם.</div>
-  <h2 class="sec">איך בוחרים נושא</h2>
+<div class="tpane" id="pj-t" role="tabpanel" aria-labelledby="tb-pj-t">
+<div class="plead"><b>ההחלטה המשמעותית בקורס, והיא נעשית כבר במפגש הראשון.</b> אין נושא נכון אחד, יש מבנה נכון: שלושה תנאים, שלוש שאלות שעוזרות למצוא, ורשימת רעיונות מוכנה למי שנתקע.</div>
+<h2 class="sec">איך בוחרים נושא</h2>
   <p class="lead" style="margin-bottom:16px">זו ההחלטה המשמעותית בקורס, והיא נעשית כבר במפגש הראשון. אין נושא נכון אחד, יש מבנה נכון.</p>
   <h3 style="margin-bottom:12px">שלושה תנאים לנושא טוב</h3>
   <div class="grid g3">
@@ -3045,26 +2734,18 @@ td b{color:var(--ink)}
     <tr><td>אפליקציה לניהול זמן</td><td><b>מערכת לסטודנט עובד: מזינים מטלות עם תאריכי הגשה ומשמרות עבודה, המערכת מציעה תוכנית שבועית שמכבדת את המשמרות, מזהירה מראש על שבוע עמוס מדי, מאפשרת לדחות מטלה ולראות מה זה עושה לשאר, ושולחת תזכורת בכל בוקר</b></td></tr>
   </table>
   <div class="callout" style="margin-top:16px"><b>ואם עדיין אין לכם רעיון:</b> אל תמשיכו לסעיף הבא. חזרו לשלוש השאלות למעלה, וכתבו תשובה לכל אחת מהן במשפט. הרעיון כמעט תמיד יושב בתשובה לשאלה הראשונה.</div>
-  <h2 class="sec">ארבע השכבות של הפרויקט</h2>
-<p class="lead" style="margin-bottom:16px">זו ההגדרה של פרויקט הגמר, בתמונה אחת. ארבע שכבות, שנבנות מלמטה למעלה, וכל אחת מהן נבנית במודול אחר. כשאתם בודקים בסוף הקורס האם הפרויקט שלכם שלם, זו הרשימה שבודקים מולה.</p>
-<div class="dgmw"><svg class="dgm" viewBox="0 0 1000 510" role="img" aria-labelledby="lay-t lay-d" xmlns="http://www.w3.org/2000/svg"><title id="lay-t">ארבע השכבות של פרויקט הגמר</title><desc id="lay-d">ארבע שכבות זו על זו. הבסיס הוא מסכים שאפשר להיכנס אליהם, ומעליו מידע שנשמר ונשלף, ומעליו שכבת AI שמחזירה תשובה מותאמת, ומעליו תהליכים שרצים לבד. לצד כל שכבה מצוין המודול שבונה אותה. מודול 4 בודק את כל השכבות ולא מוסיף שכבה, ומודול 7 מציג את מה שנבנה.</desc><defs><marker id="lay-ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5L9 5L0 9.5z" fill="#E4002B"/></marker><marker id="lay-ahg" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5L9 5L0 9.5z" fill="#8A8A8A"/></marker></defs><rect x="230" y="88" width="560" height="74" rx="11" fill="#E4002B"/><text x="510" y="119" text-anchor="middle" font-size="15.5" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">תהליכים שרצים לבד</text><text x="510" y="142" text-anchor="middle" font-size="12" font-weight="500" fill="#D6DCEF" font-family="Heebo, sans-serif">טופס שנשמר, מייל שנשלח, תזכורת שיוצאת</text><rect x="806" y="102" width="172" height="46" rx="9" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><text x="892" y="121" text-anchor="middle" font-size="12.5" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">מודול 6</text><text x="892" y="138" text-anchor="middle" font-size="10.5" font-weight="600" fill="#8A8A8A" font-family="Heebo, sans-serif">מפגשים 15-19</text><rect x="230" y="174" width="560" height="74" rx="11" fill="#1B2D6B"/><text x="510" y="205" text-anchor="middle" font-size="15.5" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">שכבת AI שמחזירה תשובה מותאמת</text><text x="510" y="228" text-anchor="middle" font-size="12" font-weight="500" fill="#D6DCEF" font-family="Heebo, sans-serif">לא תשובה גנרית. תשובה שנגזרת מהנתונים של המשתמש</text><rect x="806" y="188" width="172" height="46" rx="9" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><text x="892" y="207" text-anchor="middle" font-size="12.5" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">מודול 5</text><text x="892" y="224" text-anchor="middle" font-size="10.5" font-weight="600" fill="#8A8A8A" font-family="Heebo, sans-serif">מפגשים 12-14</text><rect x="230" y="260" width="560" height="74" rx="11" fill="#2A4090"/><text x="510" y="291" text-anchor="middle" font-size="15.5" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">מידע שנשמר ונשלף</text><text x="510" y="314" text-anchor="middle" font-size="12" font-weight="500" fill="#D6DCEF" font-family="Heebo, sans-serif">מה המערכת זוכרת בין ביקור לביקור</text><rect x="806" y="274" width="172" height="46" rx="9" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><text x="892" y="293" text-anchor="middle" font-size="12.5" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">מודול 3 ו-5</text><text x="892" y="310" text-anchor="middle" font-size="10.5" font-weight="600" fill="#8A8A8A" font-family="Heebo, sans-serif">מפגשים 5-14</text><rect x="230" y="346" width="560" height="74" rx="11" fill="#E7EAF4"/><text x="510" y="377" text-anchor="middle" font-size="15.5" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">מסכים שאפשר להיכנס אליהם</text><text x="510" y="400" text-anchor="middle" font-size="12" font-weight="500" fill="#555555" font-family="Heebo, sans-serif">הבסיס. בלי זה אין למה לחבר את השאר</text><rect x="806" y="360" width="172" height="46" rx="9" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><text x="892" y="379" text-anchor="middle" font-size="12.5" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">מודול 3</text><text x="892" y="396" text-anchor="middle" font-size="10.5" font-weight="600" fill="#8A8A8A" font-family="Heebo, sans-serif">מפגשים 5-9</text><text x="510" y="52" text-anchor="middle" font-size="18" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">ארבע השכבות שכל פרויקט גמר חייב</text><text x="510" y="72" text-anchor="middle" font-size="12.5" font-weight="500" fill="#555555" font-family="Heebo, sans-serif">נבנות מלמטה למעלה. כל שכבה יושבת על זו שמתחתיה</text><path d="M196 96 L178 96 L178 428 L196 428" stroke="#8A8A8A" stroke-width="2" fill="none" stroke-dasharray="6 5"/><rect x="22" y="232" width="146" height="60" rx="9" fill="#F6F5F3" stroke="#E2E2E2" stroke-width="1.6"/><text x="95" y="255" text-anchor="middle" font-size="12.5" font-weight="900" fill="#E4002B" font-family="Heebo, sans-serif">מודול 4</text><text x="95" y="275" text-anchor="middle" font-size="11.5" font-weight="600" fill="#555555" font-family="Heebo, sans-serif">בודק את כולן</text><text x="95" y="290" text-anchor="middle" font-size="11.5" font-weight="600" fill="#555555" font-family="Heebo, sans-serif">ולא מוסיף שכבה</text><path d="M168 262 L178 262" stroke="#8A8A8A" stroke-width="2"/><rect x="230" y="444" width="748" height="44" rx="9" fill="#FCE6EA"/><text x="604" y="472" text-anchor="middle" font-size="13" font-weight="800" fill="#B00020" font-family="Heebo, sans-serif">מודול 7 לא מוסיף שכבה. הוא מציג את מה שנבנה</text></svg></div>
-<div class="grid g2" style="margin-top:20px">
-  <div class="card"><h4>למה הסדר הזה</h4>
-    <p>אי אפשר לשמור מידע בלי מסך שדרכו מכניסים אותו, ואי אפשר להחזיר תשובה מותאמת בלי מידע שמור. כל שכבה יושבת על זו שמתחתיה, וזו הסיבה שסדר המודולים הוא כזה ולא אחר.</p>
-    <p>אם אתם נתקעים באמצע הקורס, שווה לבדוק איזו שכבה עדיין חסרה. לרוב זו התשובה.</p>
-  </div>
-  <div class="card"><h4>מה זה אומר בהגשה</h4>
-    <p>בהגשה השלישית, במפגש האחרון, כל אחת מארבע השכבות צריכה להיות קיימת ולעבוד. לא מרשימה, קיימת.</p>
-    <p>שכבה שלא הספקתם היא לא כישלון, אבל היא צריכה להיאמר במפורש בהצגה. "לא הספקתי את האוטומציות ולכן ההרשמה נשמרת אבל לא שולחת מייל" היא תשובה טובה. שקט הוא לא.</p>
-  </div>
-</div>
-<h2 class="sec">הפרומפט שבודק את הרעיון שלכם</h2><p class="lead" style="margin-bottom:14px">יש לכם רעיון גולמי. לפני שמתאהבים בו, שווה עשר דקות מול AI שיחקור אתכם עליו. הפרומפט עצמו, יחד עם כל שאר הפרומפטים של הקורס, נמצא עכשיו באזור אחד.</p><button class="btn lnk" data-go="prompts">פתיחת ארגז הפרומפטים</button><h2 class="sec">עשרה רעיונות לפרויקט גמר</h2>
+  <h2 class="sec">הפרומפט שבודק את הרעיון שלכם</h2><p class="lead" style="margin-bottom:14px">יש לכם רעיון גולמי. לפני שמתאהבים בו, שווה עשר דקות מול AI שיחקור אתכם עליו. הפרומפט עצמו, יחד עם כל שאר הפרומפטים של הקורס, נמצא עכשיו באזור אחד.</p><button class="btn lnk" data-go="prompts">פתיחת ארגז הפרומפטים</button><h2 class="sec">עשרה רעיונות לפרויקט גמר</h2>
   <p class="lead" style="margin-bottom:16px">אפשר לקחת רעיון כמו שהוא, להחליף בו את התחום, או להשתמש בו רק כהשראה לנושא משלכם. באתר כל רעיון מוצג בפירוט מלא: הבעיה, מי המשתמש, מה המערכת עושה, מה ה-AI מוסיף, ומה רץ לבד.</p>
   <div class="toolbar"><button class="btn" onclick="allEx(true)">פתיחת כל הרעיונות</button><button class="btn" onclick="allEx(false)">סגירת הכול</button></div>
   <div id="exlist"></div>
   <h3 style="margin:26px 0 12px">עוד רעיונות בקצרה</h3>
   <div class="card dash"><p>תיאום שיעורים פרטיים עם מעקב חומר שנלמד · ניהול מנויים למועדון עם התראה לפני שמנוי נגמר · מיון פניות תמיכה לפי דחיפות ונושא · זיווג בין מבקש עזרה למי שיכול לעזור · ניהול מלאי בעסק קטן עם התראה לפני שנגמר פריט · עוזר להכנת ראיונות עבודה לפי תפקיד וקורות חיים · ניהול פרויקט שיפוץ עם קבלנים והצעות מחיר · לוח מודעות שכונתי שממיין לפי מה שרלוונטי · ניהול כנס מהרשמה ועד סיכום אוטומטי · השוואת מסלולים לפי מצב אישי, על נתוני דוגמה.</p></div>
-  <h2 class="sec">המסע, מודול אחר מודול</h2>
+  
+</div>
+
+<div class="tpane" id="pj-j" role="tabpanel" aria-labelledby="tb-pj-j">
+<div class="plead"><b>אותו מבנה בכל מודול:</b> לומדים משהו חדש, רואים אותו קורה על "החוג המושלם", ומפעילים אותו על הפרויקט שלכם. הטבלה הראשונה היא המבט מלמעלה, ומתחתיה אותם שלבים בפירוט מלא.</div>
+<h2 class="sec">המסע, מודול אחר מודול</h2>
   <p class="lead" style="margin-bottom:16px">שבעה מודולים, ובכל אחד אותו מבנה: לומדים משהו חדש, רואים אותו קורה על "החוג המושלם", ומפעילים אותו על הפרויקט שלכם. מספרי המפגשים מוצגים לשתי המתכונות: ערב / בוקר. התוכן זהה בשתיהן.</p>
   <table><tr><th style="width:17%">מודול</th><th style="width:27%">מה לומדים</th><th style="width:30%">מה אתם עושים על הפרויקט שלכם</th><th>מה מוכן בסוף</th></tr>
     <tr><td><b>1. רעיון ופרומפטים</b><br><span class="muted" style="font-size:13px">מפגשים 1-3 / 1-2</span></td><td>מה זה AI ואיך הוא עובד, ואיך כותבים בקשה שמחזירה תשובה שאפשר להשתמש בה.</td><td>בוחרים נושא אחד, ומגדירים אותו בעשרה היבטים בעזרת פרומפט ראיון: מה הוא עושה, מה הוא לא עושה, המסכים, ה-Flow, מה ה-AI עושה, ואיפה המידע נשמר.</td><td>מסמך הגדרת מוצר, טיוטה, שחוזרים אליו לפני הגשה 2.</td></tr>
@@ -3076,56 +2757,73 @@ td b{color:var(--ink)}
     <tr><td><b>7. הצגת גמר</b><br><span class="muted" style="font-size:13px">29 / 20</span></td><td>כל אחד מציג את המערכת שלו בהדגמה חיה של כעשר דקות. מראים, לא מספרים.</td><td>בודקים שהקישור עובד מטלפון ומדפדפן אחר, ומתרגלים את ההדגמה פעם אחת עם שעון.</td><td>הצגה חיה, וקישור עובד שנשאר אחריכם.</td></tr>
   </table>
   <div class="callout" style="margin-top:16px">הפירוט המלא של כל מפגש, מה להכין מראש לכל מודול, ומה נבנה במיזם המלווה בכל שלב, נמצא באתר הקורס באזור "הפרויקט המתגלגל". <button class="lnk" data-go="project" style="background:none;border:0;color:var(--coral);font-weight:800;cursor:pointer;font:inherit;padding:0">מעבר לאזור הפרויקט המתגלגל</button></div>
+  <h2 class="sec">כל שלב בפירוט</h2>
+  <p class="lead" style="margin-bottom:14px">כל שלב בפירוט: מה כל תלמיד בונה בנושא שלו לפרויקט הגמר, ואיך אותו שלב נבנה יחד בכיתה במיזם המלווה.</p>
+  <div class="toolbar">
+    <button class="btn" onclick="allStages(true)">פתיחת כל השלבים</button>
+    <button class="btn" onclick="allStages(false)">סגירת הכול</button>
+  </div>
+  <div id="stages"></div>
+
+  <h2 class="sec">מצגת הכנה: איך נכנסים לכל שלב</h2>
+  <p class="lead" style="margin-bottom:16px">שקף לכל מודול: מה המטרה, מה להכין מראש, ואיזה פרומפט מפעילים. הפרומפטים הם תבניות. מחליפים את מה שבסוגריים המרובעים ואותה תבנית עובדת לכל נושא פרויקט ולכל מפגש.</p>
+
+  <div class="callout" style="margin-bottom:18px"><b>איך קוראים את זה:</b> לכל מודול יש שקף אחד עם תבנית פרומפט ייעודית, ולצידה דוגמה מלאה על המיזם המלווה, "החוג המושלם".</div>
+
+  <div class="toolbar">
+    <button class="btn" onclick="allSlides(true)">פתיחת כל השקפים</button>
+    <button class="btn" onclick="allSlides(false)">סגירת הכול</button>
+  </div>
+  <div id="slides"></div>
+
   <h2 class="sec">מה להכין מראש, פעם אחת</h2>
   <div class="card"><ul class="tick"><li>חשבון ג׳ימייל ייעודי לקורס, לא האישי. כל הרישומים לשירותים יעברו דרכו</li><li>חשבון באחד ממודלי השפה: ChatGPT, Claude או Gemini</li><li>לפני מודול 3: חשבונות בכלי השרטוט ובכלי הבנייה שתבחרו, והתקנת Git לפני מפגש ההעלאה לאוויר</li><li>לפני מודול 4: תוספי בדיקת הנגישות בדפדפן, ורשימה של הפרטים שהמערכת שלכם אוספת</li><li>לפני מודול 6: חשבון חינמי בכלי האוטומציה, זה לוקח כעשר דקות</li><li>תיקייה אחת לכל הפרויקט, וקובץ אחד בשם "קישורים" עם כל הכתובות והחשבונות</li></ul></div>
-  <h2 class="sec">ההגשות</h2>
-  <p class="lead" style="margin-bottom:16px">שלוש נקודות עצירה על הפרויקט שלכם: אחת לפתיחה בלי בדיקה, ושתי הגשות שנבדקות ומקבלות ציון. כל ההגשות הן על הפרויקט שלכם. המיזם המלווה אינו מוגש.</p>
-  <table><tr><th>הגשה</th><th>מה מוגש</th><th>סוף החומר (בוקר / ערב)</th><th>מתי להגיש</th><th>משקל</th></tr>
-    <tr><td><b style="font-family:Poppins">1</b></td><td><b>הנושא והגדרת המוצר בעשרה היבטים</b></td><td>מפגש 2 / 3</td><td>לפני המפגש הבא, ללא תאריך רשמי</td><td><b style="color:var(--coral);font-family:Poppins">ללא ציון</b></td></tr>
-    <tr><td><b style="font-family:Poppins">2</b></td><td><b>האפליקציה באוויר</b></td><td>מפגש 9 / 13</td><td>כשבועיים אחרי סוף המודול</td><td><b style="color:var(--coral);font-family:Poppins">20%</b></td></tr>
-    <tr><td><b style="font-family:Poppins">3</b></td><td><b>הפרויקט המלא והצגת הגמר</b></td><td>מפגש 20 / 29</td><td>במפגש האחרון, ההצגה היא ההגשה</td><td><b style="color:var(--coral);font-family:Poppins">80%</b></td></tr>
-  </table>
-  <div class="grid g3" style="margin-top:16px">
-    <div class="card dash"><h4>הגשה 1 · הנושא והגדרת המוצר</h4><p>מסמך אחד שמגדיר את הפרויקט בעשרה היבטים: מה הוא עושה ואיזו בעיה הוא פותר, המסך העיקרי, שלושה עד חמישה מסכים, ה-Flow, מה המערכת לא עושה, סוגי משתמשים, התוכן הדינמי ואיפה נשמר, מה ה-AI עושה, הטכנולוגיה, והאוטומציות. המסמך נוצר בעזרת פרומפט ראיון שנמצא באתר. אין ציון. זו טיוטה מכוונת: מותר לכתוב "עדיין לא יודע" בכל היבט שטרם נלמד, וחוזרים אליה לפני הגשה 2.</p></div>
-    <div class="card y"><h4>הגשה 2 · האפליקציה באוויר</h4><p>המינימום ההכרחי (שלוש עד חמש יכולות ליבה ומה נשאר בחוץ), תרשים מסלול המשתמש, המסכים והזהות הוויזואלית, וקישור ציבורי חי שנפתח בדפדפן אחר. בנוסף: הוכחה שהמידע נשמר, וצילום של מבנה הנתונים והפרומפט המרכזי. סף המעבר: אפשר להיכנס מהקישור, לבצע את הפעולה המרכזית, לראות שהיא נשמרה, ולהסביר בשלושים שניות מה המערכת עושה, למי, ומה היא לא עושה.</p></div>
-    <div class="card n"><h4>הגשה 3 · הפרויקט המלא</h4><p>זו בדיקת הפרויקט השלם, כולל כל מה שכבר נבדק בהגשה 2, ולא רק החלקים החדשים. מוגשים: מאגר הנתונים, הסוכן או הצ׳אטבוט, מיפוי התהליך, שני תרחישי אוטומציה פעילים, תיקוני הביקורת ממודול 4, והצגה חיה עם הקישור הסופי. סף המעבר: המערכת עובדת כמכלול אחד, טריגר אחד לפחות מפעיל שרשרת שמסתיימת בתוצאה אמיתית בלי מגע יד, ובסוף יש קישור שאפשר לשלוח למישהו מחוץ לכיתה.</p></div>
+  
+</div>
+
+<div class="tpane" id="pj-s" role="tabpanel" aria-labelledby="tb-pj-s">
+<div class="plead"><b>שלוש נקודות עצירה:</b> אחת לפתיחה בלי בדיקה, ושתי הגשות שנבדקות ומקבלות ציון. כל ההגשות הן על הפרויקט שלכם. המיזם המלווה נבנה יחד בכיתה ואינו מוגש.</div>
+<h2 class="sec">הגשות ובדיקה</h2>
+  <p class="lead" style="margin-bottom:16px">שלוש נקודות לאורך הקורס: אחת לפתיחה בלי בדיקה, ושתי הגשות נבדקות. לכל אחת: מה התלמיד מגיש, מתי להגיש, איך המרצה בודק, כמה זמן בדיקה זה לוקח, ומה סף המעבר. כל ההגשות הן על הפרויקט המתגלגל, כלומר על הנושא שכל תלמיד בחר לעצמו, והבדיקה האחרונה היא על הפרויקט השלם ולא רק על החלקים האחרונים. המיזם המלווה נבנה יחד בכיתה ואינו מוגש.</p>
+
+  <h3 style="margin-bottom:12px">לוח ההגשות</h3>
+  <table id="submap"></table>
+
+  <h3 style="margin:26px 0 12px">כל הגשה בפירוט</h3>
+  <div class="toolbar">
+    <button class="btn" onclick="allSubs(true)">פתיחת כל ההגשות</button>
+    <button class="btn" onclick="allSubs(false)">סגירת הכול</button>
   </div>
+  <div id="subs"></div>
   <div class="callout" style="margin-top:16px"><b>איך מגישים:</b> מסמך אחד, עמוד או שניים. בראשו השם, שם הפרויקט והקישור החי, ואחריו צילומי המסך והקבצים. לפני ששולחים, פתחו את הקישור בטלפון ובחלון פרטי, זו הבדיקה הראשונה שהמרצה עושה. הגשה שלא עומדת בסף חוזרת לתיקון פעם אחת עם תאריך חדש.</div>
-  <h2 class="sec">מילון מונחים, בעברית פשוטה</h2>
-  <p class="lead" style="margin-bottom:16px">המונחים כאן מופיעים לאורך הקורס. אין צורך לשנן אותם מראש, ולכן הם בסוף ולא בתחילת המדריך. חזרו לכאן כשמונח מופיע ולא ברור. </p>
-  <table><tr><th style="width:20%">מונח</th><th>מה זה אומר</th></tr>
-    <tr><td><b>אפיון</b></td><td>ההחלטה מראש מה המערכת עושה, מה היא לא עושה, ובאיזה סדר הדברים קורים. השלב שלפני הבנייה</td></tr>
-    <tr><td><b>MVP</b></td><td>המינימום ההכרחי. הגרסה הקטנה ביותר שכבר שימושית למישהו. תמיד אפשר להוסיף אחר כך</td></tr>
-    <tr><td><b>תרשים זרימה</b></td><td>שרטוט המסלול שהמשתמש עובר, מהרגע שנכנס ועד שקיבל את מה שרצה</td></tr>
-    <tr><td><b>Wireframe</b></td><td>שלד מסך. ריבועים וקווים שמראים מה יהיה איפה, לפני צבעים ועיצוב</td></tr>
-    <tr><td><b>UI ו-UX</b></td><td>UI הוא מה שרואים על המסך: כפתורים, טפסים וצבעים. UX הוא כמה קל וברור להשיג את מה שבאתם בשבילו</td></tr>
-    <tr><td><b>פרומפט</b></td><td>הבקשה שאתם כותבים ל-AI. ככל שהיא מדויקת ומכילה יותר הקשר, התשובה טובה יותר</td></tr>
-    <tr><td><b>הקשר (Context)</b></td><td>המידע שנתתם ל-AI מסביב לבקשה: מי אתם, מה הפרויקט, מה כבר קרה, ומה הפורמט הרצוי</td></tr>
-    <tr><td><b>מודל שפה (LLM)</b></td><td>המנוע שמאחורי ChatGPT, Claude ו-Gemini. אומן על כמות עצומה של טקסט וחוזה מה המילים הבאות</td></tr>
-    <tr><td><b>Vibe Coding ו-No-Code</b></td><td>בנייה בלי לכתוב קוד: או שמתארים במילים מה רוצים והכלי כותב, או שבונים בגרירה ולחיצה</td></tr>
-    <tr><td><b>בסיס נתונים</b></td><td>הזיכרון של המערכת. המקום שבו נשמרים הלקוחות, הפניות, המוצרים או ההרשמות</td></tr>
-    <tr><td><b>סוכן AI</b></td><td>עוזר שהגדרתם לו תפקיד קבוע: מה הוא, מה יודע, מה עליו לעשות, ומה אסור לו. בלי הגבולות האלה הוא ימציא</td></tr>
-    <tr><td><b>צ׳אטבוט</b></td><td>סוכן שמדבר עם המשתמש בשיחה, במקום שהמשתמש ימלא טופס</td></tr>
-    <tr><td><b>אוטומציה</b></td><td>שרשרת פעולות שרצה לבד: משהו קורה, והמערכת ממשיכה בלי שאף אחד לוחץ</td></tr>
-    <tr><td><b>טריגר</b></td><td>מה שמפעיל את השרשרת. למשל שליחת טופס באתר, שעה קבועה ביום, או מייל שנכנס</td></tr>
-    <tr><td><b>העלאה לאוויר</b></td><td>הפיכת המערכת שבניתם לזמינה בכתובת אינטרנט ציבורית שכל אחד יכול להיכנס אליה</td></tr>
-    <tr><td><b>Git ו-GitHub</b></td><td>שמירת גרסאות של הפרויקט ואחסון שלהן ברשת. אפשר לחזור אחורה כשמשהו נשבר, וגם לפרסם את האתר</td></tr>
-    <tr><td><b>נגישות</b></td><td>התאמת המערכת כך שגם אנשים עם מוגבלות יוכלו להשתמש בה: ניגודיות, טקסט קריא ותיאור לתמונות</td></tr>
-    <tr><td><b>פורטפוליו</b></td><td>תיק העבודות. אוסף מה שבניתם, עם קישורים חיים, שאפשר לשלוח למעסיק או ללקוח</td></tr>
-  </table>
+
+
+  
+</div>
 </section>
+
+<!-- ================= STUDENT GUIDE ================= -->
+
 
 
 <!-- ================= PROMPTS ================= -->
 <section class="page" id="p-prompts">
   <div class="hero" style="padding:38px 44px">
-    <span class="tag">ארגז כלים · פרומפטים מוכנים</span>
-    <h2 style="font-size:36px;max-width:28ch">ארגז הפרומפטים:<br>כל הפרומפטים של הקורס במקום אחד.</h2>
-    <p>עשרים ושלושה פרומפטים, כולם עם כפתור העתקה: ארבעה שמלווים את הפרויקט מהרעיון ועד התמונות, ותשעה עשר פרומפטי תרגול, אחד לכל מפגש. באמצע האזור תראו את הפלט המלא שהם מחזירים על "החוג המושלם".</p>
+    <span class="tag">חומר עיון · פתוח לאורך כל הקורס</span>
+    <h2 style="font-size:36px;max-width:28ch">ארגז כלים:<br>מה שמחפשים באמצע העבודה.</h2>
+    <p>כל מה שלא לומדים אלא ניגשים אליו: הפרומפטים של הקורס עם כפתור העתקה, ארכיון המושגים, טבלאות הכלים והמודלים, ודוגמאות פלט מלאות. ארבע הלשוניות למטה הן ארבע שאלות שונות, ולא ארבעה נושאים.</p>
   </div>
-  <div class="callout" style="margin-top:18px"><b>הכלל:</b> כל פרומפט רץ פעמיים. פעם ראשונה בכיתה על "החוג המושלם", כדי לראות איך נראית תשובה טובה. פעם שנייה על הפרויקט שלכם.</div>
 
-  <h2 class="sec">מה יש כאן, ומתי מריצים כל דבר</h2>
+<div class="ttabs" role="tablist" aria-label="ארגז הכלים">
+  <button class="ttab on" type="button" role="tab" id="tb-tl-p" data-p="tl-p" aria-selected="true" aria-controls="tl-p" tabindex="0">פרומפטים<small>25, עם העתקה</small></button>
+  <button class="ttab" type="button" role="tab" id="tb-tl-g" data-p="tl-g" aria-selected="false" aria-controls="tl-g" tabindex="-1">מושגים<small>155 מושגים וכלים</small></button>
+  <button class="ttab" type="button" role="tab" id="tb-tl-t" data-p="tl-t" aria-selected="false" aria-controls="tl-t" tabindex="-1">טבלאות<small>כלים, מודלים, מאגרים</small></button>
+  <button class="ttab" type="button" role="tab" id="tb-tl-x" data-p="tl-x" aria-selected="false" aria-controls="tl-x" tabindex="-1">דוגמאות<small>פלט מלא, מפורק</small></button>
+</div>
+
+<div class="tpane on" id="tl-p" role="tabpanel" aria-labelledby="tb-tl-p">
+<div class="plead"><b>עשרים וחמישה פרומפטים, כולם עם כפתור העתקה.</b> ארבעה מלווים את הפרויקט מהרעיון ועד התמונות, ותשעה עשר הם פרומפטי תרגול, אחד לכל מפגש. הכלל: כל פרומפט רץ פעמיים, פעם ראשונה בכיתה על "החוג המושלם" כדי לראות איך נראית תשובה טובה, ופעם שנייה על הפרויקט שלכם.</div>
+<h2 class="sec">מה יש כאן, ומתי מריצים כל דבר</h2>
   <table>
     <tr><th style="width:36%">הפרומפט</th><th style="width:30%">מתי מריצים</th><th>על מה</th></tr>
     <tr><td><b>בדיקת רעיון הפרויקט</b></td><td>מפגש 1, ושוב לפני ההגשה השנייה</td><td>הרעיון הגולמי, לפני שמתאהבים בו</td></tr>
@@ -3273,6 +2971,315 @@ td b{color:var(--ink)}
 ##Output Format
 פרומפטים מוכנים להעתקה, לפי הסדר שלמעלה. אם חסר לך משהו מהגדרת המוצר, כתוב את הפרומפט בכל זאת וסמן בסוף רשימה קצרה של מה שהנחת.</pre>
 </div>
+<h2 class="sec">תשעה עשר פרומפטי התרגול, מפגש אחר מפגש</h2><p class="lead" style="margin-bottom:16px">בכל מפגש מ-2 והלאה יש פרומפט תרגול אחד. כולם כאן, לפי סדר המפגשים. מה שבסוגריים המרובעים הוא מה שאתם ממלאים.</p><div class="bar" id="plibbar"></div>
+  <div id="plib"></div><h2 class="sec">ספריית הפרומפטים להורדה</h2>
+<p class="lead" style="margin-bottom:16px">כל עשרים פרומפטי התרגול של הקורס, ולצידם הפרומפט שבודק את רעיון הפרויקט, במסמך אחד מעוצב בעברית. עמוד לכל פרומפט, עם השדות למילוי מסומנים. אפשר לשלוח לכיתה בתחילת הקורס, או להדפיס.</p>
+<div class="scards">
+  <a class="scard" href="files/prompt-library-53500.docx" download>
+    <span class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h9l5 5v13a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M14 3v5h5"/><path d="M12 11.5v6M9.4 15l2.6 2.6L14.6 15"/></svg></span>
+    <span><span class="sn">קובץ Word · 21 עמודים</span><b>ספריית הפרומפטים של הקורס</b><span>עשרים ואחד פרומפטים, תוכן עניינים, ועמוד לכל אחד. מיושר לימין כמו שצריך.</span></span>
+  </a>
+</div>
+<div class="callout" style="margin-top:16px"><b>שימו לב:</b> המסמך נוצר מתוך הפרומפטים שבאתר. אם עדכנתם פרומפט באתר, צריך לייצר את המסמך מחדש כדי שהוא יתעדכן. האתר הוא המקור, המסמך הוא עותק.</div>
+
+
+
+</div>
+
+<div class="tpane" id="tl-g" role="tabpanel" aria-labelledby="tb-tl-g">
+<div class="plead">כל המושגים שנלמדים לאורך המסלול, בהגדרה קצרה בעברית ובציון המודול שבו הם נכנסים. התפריט שמימין פותח מודול אחד בכל פעם, כך שסטודנט רואה רק את מה שנלמד עד עכשיו. הלשונית האחרונה, כלים, מציגה את כל הכלים של הקורס עם המודולים שבהם הם מופיעים. אפשר גם לחדד לפי נושא, או לחפש בשם המושג בעברית ובאנגלית. כרטיס שמסומן בסימן פלוס נפתח לשקף הרחבה עם איור והסבר מעמיק, ואפשר לדפדף בין הכרטיסים בתוך השקף. כרגע קיים למודולים 1 עד 3 ולכל הכלים.</div>
+<h2 class="sec">מילון מונחים, בעברית פשוטה</h2>
+  <p class="lead" style="margin-bottom:16px">המונחים כאן מופיעים לאורך הקורס. אין צורך לשנן אותם מראש, ולכן הם בסוף ולא בתחילת המדריך. חזרו לכאן כשמונח מופיע ולא ברור. </p>
+  <table><tr><th style="width:20%">מונח</th><th>מה זה אומר</th></tr>
+    <tr><td><b>אפיון</b></td><td>ההחלטה מראש מה המערכת עושה, מה היא לא עושה, ובאיזה סדר הדברים קורים. השלב שלפני הבנייה</td></tr>
+    <tr><td><b>MVP</b></td><td>המינימום ההכרחי. הגרסה הקטנה ביותר שכבר שימושית למישהו. תמיד אפשר להוסיף אחר כך</td></tr>
+    <tr><td><b>תרשים זרימה</b></td><td>שרטוט המסלול שהמשתמש עובר, מהרגע שנכנס ועד שקיבל את מה שרצה</td></tr>
+    <tr><td><b>Wireframe</b></td><td>שלד מסך. ריבועים וקווים שמראים מה יהיה איפה, לפני צבעים ועיצוב</td></tr>
+    <tr><td><b>UI ו-UX</b></td><td>UI הוא מה שרואים על המסך: כפתורים, טפסים וצבעים. UX הוא כמה קל וברור להשיג את מה שבאתם בשבילו</td></tr>
+    <tr><td><b>פרומפט</b></td><td>הבקשה שאתם כותבים ל-AI. ככל שהיא מדויקת ומכילה יותר הקשר, התשובה טובה יותר</td></tr>
+    <tr><td><b>הקשר (Context)</b></td><td>המידע שנתתם ל-AI מסביב לבקשה: מי אתם, מה הפרויקט, מה כבר קרה, ומה הפורמט הרצוי</td></tr>
+    <tr><td><b>מודל שפה (LLM)</b></td><td>המנוע שמאחורי ChatGPT, Claude ו-Gemini. אומן על כמות עצומה של טקסט וחוזה מה המילים הבאות</td></tr>
+    <tr><td><b>Vibe Coding ו-No-Code</b></td><td>בנייה בלי לכתוב קוד: או שמתארים במילים מה רוצים והכלי כותב, או שבונים בגרירה ולחיצה</td></tr>
+    <tr><td><b>בסיס נתונים</b></td><td>הזיכרון של המערכת. המקום שבו נשמרים הלקוחות, הפניות, המוצרים או ההרשמות</td></tr>
+    <tr><td><b>סוכן AI</b></td><td>עוזר שהגדרתם לו תפקיד קבוע: מה הוא, מה יודע, מה עליו לעשות, ומה אסור לו. בלי הגבולות האלה הוא ימציא</td></tr>
+    <tr><td><b>צ׳אטבוט</b></td><td>סוכן שמדבר עם המשתמש בשיחה, במקום שהמשתמש ימלא טופס</td></tr>
+    <tr><td><b>אוטומציה</b></td><td>שרשרת פעולות שרצה לבד: משהו קורה, והמערכת ממשיכה בלי שאף אחד לוחץ</td></tr>
+    <tr><td><b>טריגר</b></td><td>מה שמפעיל את השרשרת. למשל שליחת טופס באתר, שעה קבועה ביום, או מייל שנכנס</td></tr>
+    <tr><td><b>העלאה לאוויר</b></td><td>הפיכת המערכת שבניתם לזמינה בכתובת אינטרנט ציבורית שכל אחד יכול להיכנס אליה</td></tr>
+    <tr><td><b>Git ו-GitHub</b></td><td>שמירת גרסאות של הפרויקט ואחסון שלהן ברשת. אפשר לחזור אחורה כשמשהו נשבר, וגם לפרסם את האתר</td></tr>
+    <tr><td><b>נגישות</b></td><td>התאמת המערכת כך שגם אנשים עם מוגבלות יוכלו להשתמש בה: ניגודיות, טקסט קריא ותיאור לתמונות</td></tr>
+    <tr><td><b>פורטפוליו</b></td><td>תיק העבודות. אוסף מה שבניתם, עם קישורים חיים, שאפשר לשלוח למעסיק או ללקוח</td></tr>
+  </table>
+
+<div class="glay">
+    <aside class="gside">
+      <div class="gside-h">סינון לפי מודול</div>
+      <div class="vtabs" id="modchips" role="tablist" aria-orientation="vertical" aria-label="סינון ארכיון המושגים לפי מודול"></div>
+    </aside>
+    <div class="gmain">
+      <div class="tools">
+        <div class="search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <label for="q" class="vh">חיפוש מושג בארכיון</label>
+          <input id="q" type="text" placeholder="חיפוש מושג בעברית או באנגלית, למשל: Webhook, MVP, סוכן, RAG">
+        </div>
+      </div>
+      <div class="gdrop" id="catdrop">
+        <button class="gdrop-btn" type="button" id="catbtn" aria-expanded="false" aria-controls="chips">
+          <span>לפי נושא</span><span class="gdrop-val" id="catval">הכול</span>
+          <svg class="cv" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="chips" id="chips" hidden></div>
+      </div>
+      <div class="count" id="count" style="margin-top:16px"></div>
+      <div class="terms" id="terms" role="tabpanel" aria-live="polite"></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="tpane" id="tl-t" role="tabpanel" aria-labelledby="tb-tl-t">
+<div class="plead"><b>טבלאות עיון.</b> אלה לא חומר שלומדים, אלא חומר שניגשים אליו באמצע עבודה: איזה כלי עושה מה, איזה מודל מפתחת איזו חברה, ואיפה מוצאים פרומפטים מוכנים.</div>
+<h2 class="sec">טבלת הכלים</h2>
+  <p class="lead" style="margin-bottom:14px">כל הכלים שמופיעים בסילבוס, עם מה עושים איתם, באילו מודולים הם נכנסים, מודל העלות ומידת ההעמקה. מסומן "טרם נקבע" בכל מקום שבו הכלי עדיין פתוח להחלטה.</p>
+  <div class="legend">
+    <span><i class="dotm" style="background:#FCE6EA;border:1px solid #F6C4CD"></i> <b>העמקה:</b> כלי ליבה, נלמד לעומק ומתורגל</span>
+    <span><i class="dotm" style="background:#E7EAF4;border:1px solid #A9BCEE"></i> <b>שימוש מעשי:</b> התלמידים עובדים איתו בפועל</span>
+    <span><i class="dotm" style="background:#EDEDED;border:1px solid #C9C9C9"></i> <b>הדגמה והיכרות:</b> מוצג ומוסבר, בלי תרגול מלא</span>
+  </div>
+  <div class="chips" id="tchips"></div>
+  <div class="count" id="tcount" style="margin-top:16px"></div>
+  <table id="toolstable"></table>
+  <div class="callout" style="margin-top:16px"><b>לתשומת לב:</b> מודלי העלות נכונים לזמן כתיבת הסילבוס ומשתנים לעתים קרובות. יש לאמת אותם מול הספקים לפני פתיחת המחזור, ולוודא שלכל תלמיד יש גישה לחשבונות הנדרשים לפני המפגש שבו הכלי נכנס.</div>
+<h2 class="sec">טבלת המודלים ומי מפתח אותם</h2>
+<p class="lead" style="margin-bottom:16px">לחיצה על משפחה פותחת את המודלים שבתוכה, עם חלון ההקשר, המחיר לכל מיליון טוקנים בקלט ובפלט, החוזק שלו, ומתי בוחרים דווקא בו. שלוש העמודות האחרונות הן מה שבאמת מכריע בבחירה, והמחיר הוא הסיבה שכדאי להסתכל בהן לפי הסדר.</p>
+<div class="callout calm-note" style="margin-bottom:18px"><b>לפני כל מחזור, בדיקה של שתי דקות:</b> הרשימה כאן נבדקה מול הדפים הרשמיים ב-6.9.2026. קצב ההשקות בתחום הוא שבועי, ולכן שמות וגרסאות משתנים. בכל משפחה יש קישור לדף הרשמי בתחתית, וזה גם הדף שכדאי לפתוח בכיתה כששואלים "מה הכי חדש".</div>
+<div class="macc">
+  <button class="macc-h" type="button" aria-expanded="false"><span class="macc-co">Anthropic</span><span class="macc-fam">Claude</span><span class="macc-str">כתיבה ארוכה, עבודה עם מסמכים, וכתיבת קוד. סביבת הבנייה שלה היא מה שהופך אותה לרלוונטית כאן</span><svg class="macc-cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+  <div class="macc-b" hidden>
+    <table>
+  <tr><th scope="col" style="width:21%">המודל</th><th scope="col" style="width:12%">חלון הקשר</th><th scope="col" style="width:24%">החוזק שלו</th><th scope="col" style="width:23%">מתי בוחרים בו</th><th scope="col">איפה זה בקורס</th></tr>
+  <tr><td><b>Claude Fable 5.1</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">claude-fable-5-1</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">קלט 10, פלט 50 דולר למיליון</span></td><td>מיליון טוקנים</td><td>החזק במשפחה. חשיבה מותאמת שתמיד פועלת, ומשימות ארוכות שרצות לבד</td><td>משימה ארוכה שדורשת עקביות על פני שעות, או בעיה שנכשלה במודלים אחרים</td><td>לא נדרש בקורס. שווה להזכיר כשמישהו שואל מה יש מעל</td></tr>
+  <tr><td><b>Claude Opus 5</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">claude-opus-5</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">קלט 5, פלט 25 דולר למיליון</span></td><td>מיליון טוקנים</td><td>ברירת המחדל המומלצת של אנתרופיק לרוב העבודה</td><td>אפיון, תכנון, החלטות, וכתיבת קוד ארוכה</td><td>מפגשים 7 ו-8, בבניית האפליקציה. וגם מפגש 5, באפיון</td></tr>
+  <tr><td><b>Claude Sonnet 5</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">claude-sonnet-5</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">קלט 2, פלט 10 דולר למיליון</span></td><td>מיליון טוקנים</td><td>איזון בין איכות למחיר. פי שניים וחצי זול מ-Opus</td><td>רוב העבודה היומיומית, כולל תיקונים ובנייה של מסך בודד</td><td>מפגש 2, בתרגול הפרומפטים. זה גם המודל שרוב הכיתה תשתמש בו בפועל</td></tr>
+  <tr><td><b>Claude Haiku 4.5</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">claude-haiku-4-5</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">קלט 1, פלט 5 דולר למיליון</span></td><td>200 אלף טוקנים</td><td>הזול והמהיר. חלון קטן יותר, ופלט קצר יותר</td><td>משימות חוזרות בנפח: סיווג, תיוג, סיכום קצר</td><td>מודול 6, בתוך תרחישי אוטומציה שרצים הרבה פעמים</td></tr>
+    </table>
+    <a class="macc-lk" href="https://platform.claude.com/docs/en/about-claude/models" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:14px;height:14px;flex:0 0 14px"><path d="M10.3 13.7a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1.2 1.2"/><path d="M13.7 10.3a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1.2-1.2"/></svg>הגרסאות הנוכחיות ותאריכי היציאה, בדף הרשמי: platform.claude.com/docs/en/about-claude/models</a>
+  </div>
+</div>
+<div class="macc">
+  <button class="macc-h" type="button" aria-expanded="false"><span class="macc-co">OpenAI</span><span class="macc-fam">GPT</span><span class="macc-str">המודל הכללי הנפוץ ביותר, וגם יצירת תמונות באותו ממשק. הכי הרבה תוספים ואינטגרציות</span><svg class="macc-cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+  <div class="macc-b" hidden>
+    <table>
+  <tr><th scope="col" style="width:21%">המודל</th><th scope="col" style="width:12%">חלון הקשר</th><th scope="col" style="width:24%">החוזק שלו</th><th scope="col" style="width:23%">מתי בוחרים בו</th><th scope="col">איפה זה בקורס</th></tr>
+  <tr><td><b>GPT-6 Astra</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gpt-6-astra</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">קלט 10, פלט 50 דולר למיליון</span></td><td>מיליון טוקנים</td><td>החזק במשפחה, לעבודה מורכבת מקצה לקצה</td><td>הבעיות הקשות. יקר, ולכן לא לשימוש יומיומי</td><td>לא נדרש בקורס</td></tr>
+  <tr><td><b>GPT-5.6 Sol</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gpt-5.6-sol</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">קלט 4, פלט 20 דולר למיליון</span></td><td>מיליון טוקנים</td><td>דגל לעבודה מקצועית מורכבת</td><td>אפיון, ניתוח, והחלטות שדורשות חשיבה</td><td>מפגש 5, בצמצום התכולה ובתרשים הזרימה</td></tr>
+  <tr><td><b>GPT-5.6 Terra</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gpt-5.6-terra</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">קלט 2, פלט 12 דולר למיליון</span></td><td>מיליון טוקנים</td><td>איזון בין יכולת לעלות</td><td>רוב העבודה היומיומית</td><td>מפגש 2, בתרגול הפרומפטים</td></tr>
+  <tr><td><b>GPT-5.6 Luna</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gpt-5.6-luna</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">קלט 0.20, פלט 1.20 דולר למיליון</span></td><td>מיליון טוקנים</td><td>הזול בהרבה. מותאם לעומסים רגישי עלות</td><td>משימות בנפח גדול שרצות שוב ושוב</td><td>מודול 6, בתוך תרחישי אוטומציה</td></tr>
+  <tr><td><b>GPT-Image-2</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gpt-image-2</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">לפי תמונה</span></td><td>לא רלוונטי</td><td>יצירת ועריכת תמונות</td><td>לוגו, באנרים, תמונות המחשה</td><td>מפגש 3, בסדנת ערכת התוכן</td></tr>
+    </table>
+    <a class="macc-lk" href="https://developers.openai.com/api/docs/models" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:14px;height:14px;flex:0 0 14px"><path d="M10.3 13.7a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1.2 1.2"/><path d="M13.7 10.3a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1.2-1.2"/></svg>הגרסאות הנוכחיות ותאריכי היציאה, בדף הרשמי: developers.openai.com/api/docs/models</a>
+  </div>
+</div>
+<div class="macc">
+  <button class="macc-h" type="button" aria-expanded="false"><span class="macc-co">Google</span><span class="macc-fam">Gemini</span><span class="macc-str">חלונות הקשר גדולים במיוחד, עבודה עם וידאו, וחיבור הדוק לכלי העבודה של גוגל</span><svg class="macc-cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+  <div class="macc-b" hidden>
+    <table>
+  <tr><th scope="col" style="width:21%">המודל</th><th scope="col" style="width:12%">חלון הקשר</th><th scope="col" style="width:24%">החוזק שלו</th><th scope="col" style="width:23%">מתי בוחרים בו</th><th scope="col">איפה זה בקורס</th></tr>
+  <tr><td><b>Gemini 3.8 Flash</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gemini-3.8-flash</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">ראו דף התמחור</span></td><td>גדול מאוד</td><td>החדש בסדרה. משימות ארוכות, סוכנים, ותהליכים ארגוניים</td><td>עבודה שרצה לאורך זמן ודורשת עקביות</td><td>מודול 5, בבניית הסוכן</td></tr>
+  <tr><td><b>Gemini 3.7 Flash</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gemini-3.7-flash</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">ראו דף התמחור</span></td><td>גדול מאוד</td><td>קוד מורכב וביצוע רב שלבי אמין</td><td>בנייה ותיקונים</td><td>מפגשים 7 ו-8, למי שעובד בסביבת גוגל</td></tr>
+  <tr><td><b>Gemini 3.6 Flash</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gemini-3.6-flash</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">ראו דף התמחור</span></td><td>גדול מאוד</td><td>איזון בין מהירות ליכולות מולטימודליות</td><td>עבודה יומיומית עם טקסט, תמונה ווידאו</td><td>מפגש 3, בניתוח תמונות וסרטונים</td></tr>
+  <tr><td><b>Gemini 3.5 Flash-Lite</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gemini-3.5-flash-lite</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">ראו דף התמחור</span></td><td>גדול</td><td>המהיר והזול ביותר בסדרה</td><td>נפח גבוה ותקציב נמוך</td><td>מודול 6, באוטומציות</td></tr>
+  <tr><td><b>Nano Banana Pro</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">gemini-3-pro-image</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">לפי תמונה</span></td><td>לא רלוונטי</td><td>תמונות באיכות סטודיו, כולל פריסות מורכבות וטקסט בתמונה</td><td>לוגו ובאנר שצריכים להיראות מקצועיים</td><td>מפגש 3, בסדנת התמונות</td></tr>
+  <tr><td><b>Gemini Deep Research</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">deep-research</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">לפי הרצה</span></td><td>לא רלוונטי</td><td>מחקר עצמאי על מאות מקורות, עם דוח מצוטט</td><td>שאלה גדולה שדורשת סקירה, ולא שאלה יומיומית</td><td>מפגש 2, בחלק ג של הנדסת פרומפטים</td></tr>
+    </table>
+    <a class="macc-lk" href="https://ai.google.dev/gemini-api/docs/models" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:14px;height:14px;flex:0 0 14px"><path d="M10.3 13.7a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1.2 1.2"/><path d="M13.7 10.3a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1.2-1.2"/></svg>הגרסאות הנוכחיות ותאריכי היציאה, בדף הרשמי: ai.google.dev/gemini-api/docs/models</a>
+  </div>
+</div>
+<div class="macc">
+  <button class="macc-h" type="button" aria-expanded="false"><span class="macc-co">xAI</span><span class="macc-fam">Grok</span><span class="macc-str">גישה ישירה למידע מרשת X, וטון פחות מסונן. פחות מתאים לעבודה מול לקוח</span><svg class="macc-cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+  <div class="macc-b" hidden>
+    <table>
+  <tr><th scope="col" style="width:21%">המודל</th><th scope="col" style="width:12%">חלון הקשר</th><th scope="col" style="width:24%">החוזק שלו</th><th scope="col" style="width:23%">מתי בוחרים בו</th><th scope="col">איפה זה בקורס</th></tr>
+  <tr><td><b>Grok 4.6</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">grok-4-6</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">ראו דף התמחור</span></td><td>גדול</td><td>החדש בסדרה, לעבודה כללית</td><td>למי שכבר עובד בסביבה הזו</td><td>לא נדרש בקורס</td></tr>
+  <tr><td><b>Grok 4.5</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">grok-4-5</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">ראו דף התמחור</span></td><td>גדול</td><td>הדור הקודם, זול יותר</td><td>משימות פשוטות יותר</td><td>לא נדרש בקורס</td></tr>
+    </table>
+    <p style="font-size:11.5px;color:var(--ink-2);margin:10px 2px 0">המשפחה הזו לא נדרשת לאף מטלה בקורס, והיא מופיעה כאן כדי שתלמיד שנתקל בשם יידע איפה הוא יושב.</p>
+    <a class="macc-lk" href="https://x.ai" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:14px;height:14px;flex:0 0 14px"><path d="M10.3 13.7a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1.2 1.2"/><path d="M13.7 10.3a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1.2-1.2"/></svg>הגרסאות הנוכחיות ותאריכי היציאה, בדף הרשמי: x.ai</a>
+  </div>
+</div>
+<div class="macc">
+  <button class="macc-h" type="button" aria-expanded="false"><span class="macc-co">Meta</span><span class="macc-fam">Llama</span><span class="macc-str">משקולות פתוחות. אפשר להוריד ולהריץ על שרת פרטי, וזה ההבדל שמעניין ארגונים</span><svg class="macc-cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+  <div class="macc-b" hidden>
+    <table>
+  <tr><th scope="col" style="width:21%">המודל</th><th scope="col" style="width:12%">חלון הקשר</th><th scope="col" style="width:24%">החוזק שלו</th><th scope="col" style="width:23%">מתי בוחרים בו</th><th scope="col">איפה זה בקורס</th></tr>
+  <tr><td><b>Llama, הדור הנוכחי</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">ראו הדף הרשמי</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">חינם להורדה, ומשלמים על החומרה</span></td><td>גדול</td><td>ריצה מקומית או על שרת של הארגון, בלי לשלוח מידע החוצה</td><td>כשהמידע לא יכול לצאת מהארגון</td><td>מוזכר במודול 4, בהקשר של פרטיות ואבטחה</td></tr>
+    </table>
+    <p style="font-size:11.5px;color:var(--ink-2);margin:10px 2px 0">הערך המרכזי כאן הוא לא איכות אלא בעלות: המודל רץ אצלכם, ולכן שום מידע לא נשלח לספק חיצוני.</p>
+    <a class="macc-lk" href="https://www.llama.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:14px;height:14px;flex:0 0 14px"><path d="M10.3 13.7a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1.2 1.2"/><path d="M13.7 10.3a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1.2-1.2"/></svg>הגרסאות הנוכחיות ותאריכי היציאה, בדף הרשמי: www.llama.com</a>
+  </div>
+</div>
+<div class="macc">
+  <button class="macc-h" type="button" aria-expanded="false"><span class="macc-co">DeepSeek</span><span class="macc-fam">DeepSeek</span><span class="macc-str">משקולות פתוחות, ועלות נמוכה במיוחד ביחס לביצועים</span><svg class="macc-cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+  <div class="macc-b" hidden>
+    <table>
+  <tr><th scope="col" style="width:21%">המודל</th><th scope="col" style="width:12%">חלון הקשר</th><th scope="col" style="width:24%">החוזק שלו</th><th scope="col" style="width:23%">מתי בוחרים בו</th><th scope="col">איפה זה בקורס</th></tr>
+  <tr><td><b>DeepSeek, הדור הנוכחי</b><br><span class="en" style="font-size:10.5px;color:var(--ink-3)">ראו הדף הרשמי</span><br><span style="font-size:10.5px;color:var(--red-dk);font-weight:800">זול משמעותית מהמתחרים</span></td><td>גדול</td><td>יחס ביצועים למחיר, במיוחד בקוד ובחשבון</td><td>עומסים גדולים בתקציב קטן</td><td>לא נדרש בקורס</td></tr>
+    </table>
+    <p style="font-size:11.5px;color:var(--ink-2);margin:10px 2px 0">שווה להזכיר במשפט: התחרות הזו היא הסיבה שמחירי המודלים ירדו, ולכן היא נוגעת לכם גם אם לא תשתמשו בה.</p>
+    <a class="macc-lk" href="https://www.deepseek.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:14px;height:14px;flex:0 0 14px"><path d="M10.3 13.7a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1.2 1.2"/><path d="M13.7 10.3a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1.2-1.2"/></svg>הגרסאות הנוכחיות ותאריכי היציאה, בדף הרשמי: www.deepseek.com</a>
+  </div>
+</div>
+<h2 class="sec">איך זה עובד, בתמונה</h2>
+<p class="lead" style="margin-bottom:16px">התרשים שמסביר את כל בלוק "כיצד LLM עובד" במפגש 1. הוא נמצא כאן ולא כתמונה במצגת, כדי שאפשר יהיה לעדכן אותו במקום אחד. אפשר גם לפתוח אותו כשקף להקרנה, מהכרטיס שמתחת לטבלת הזמנים של מפגש 1.</p>
+<div class="dgmw"><svg class="dgm" viewBox="0 0 1000 560" role="img" aria-labelledby="dgm-t dgm-d" xmlns="http://www.w3.org/2000/svg">
+  <title id="dgm-t">מסלול הפרומפט, מהמשתמש ועד התשובה</title>
+  <desc id="dgm-d">תרשים בחמישה שלבים. המשתמש כותב פרומפט. שכבת המעטפת מרכיבה הקשר מהודעת המערכת, מהיסטוריית השיחה, מהקבצים ומהפרומפט. ההקשר נשלח למודל, שמפרק אותו לטוקנים ומייצר טוקן אחר טוקן. אם דרוש כלי חיצוני, המודל עוצר, הכלי מוחזר כהודעת כלי, והייצור ממשיך. התשובה חוזרת למשתמש, ונוספת להיסטוריה, ולכן בפעם הבאה ההקשר גדול יותר.</desc>
+  <defs>
+    <marker id="hw-ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0.5L9 5L0 9.5z" fill="#E4002B"/>
+    </marker>
+    <marker id="hw-ahg" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0.5L9 5L0 9.5z" fill="#8A8A8A"/>
+    </marker>
+  </defs>
+
+  <!-- ============ 1. USER, far right ============ -->
+  <g>
+    <rect x="828" y="150" width="150" height="104" rx="12" fill="#1B2D6B"/>
+    <text x="903" y="185" text-anchor="middle" font-size="13" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">1 · המשתמש</text>
+    <text x="903" y="211" text-anchor="middle" font-size="14.5" font-weight="700" fill="#fff" font-family="Heebo, sans-serif">כותב פרומפט</text>
+    <text x="903" y="234" text-anchor="middle" font-size="12" fill="#B9C4E4" font-family="Heebo, sans-serif">שורה אחת בצ׳אט</text>
+  </g>
+
+  <!-- ============ 2. HARNESS ============ -->
+  <g>
+    <rect x="486" y="72" width="300" height="260" rx="14" fill="#fff" stroke="#E4002B" stroke-width="2.5"/>
+    <rect x="486" y="72" width="300" height="42" rx="14" fill="#E4002B"/>
+    <rect x="486" y="98" width="300" height="16" fill="#E4002B"/>
+    <text x="636" y="100" text-anchor="middle" font-size="14" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">2 · שכבת המעטפת, Harness</text>
+    <text x="636" y="140" text-anchor="middle" font-size="12.5" fill="#555555" font-family="Heebo, sans-serif">מרכיבה את ההקשר, Context</text>
+    <rect x="508" y="156" width="256" height="30" rx="7" fill="#E7EAF4"/>
+    <text x="636" y="176" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1B2D6B" font-family="Heebo, sans-serif">הודעת מערכת</text>
+    <rect x="508" y="192" width="256" height="30" rx="7" fill="#E7EAF4"/>
+    <text x="636" y="212" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1B2D6B" font-family="Heebo, sans-serif">כל היסטוריית השיחה</text>
+    <rect x="508" y="228" width="256" height="30" rx="7" fill="#E7EAF4"/>
+    <text x="636" y="248" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1B2D6B" font-family="Heebo, sans-serif">קבצים שהועלו</text>
+    <rect x="508" y="264" width="256" height="30" rx="7" fill="#E4002B"/>
+    <text x="636" y="284" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff" font-family="Heebo, sans-serif">והפרומפט החדש</text>
+    <text x="636" y="316" text-anchor="middle" font-size="11.5" fill="#8A8A8A" font-family="Heebo, sans-serif">המשתמש לא רואה את שלוש הראשונות</text>
+  </g>
+
+  <!-- ============ 3. MODEL ============ -->
+  <g>
+    <rect x="110" y="112" width="290" height="180" rx="14" fill="#1B2D6B"/>
+    <text x="255" y="146" text-anchor="middle" font-size="14" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">3 · המודל</text>
+    <text x="255" y="174" text-anchor="middle" font-size="12.5" fill="#B9C4E4" font-family="Heebo, sans-serif">מפרק את ההקשר לטוקנים</text>
+    <rect x="136" y="188" width="238" height="1.5" fill="#2A4090"/>
+    <text x="255" y="216" text-anchor="middle" font-size="13.5" font-weight="700" fill="#fff" font-family="Heebo, sans-serif">ומייצר טוקן אחר טוקן</text>
+    <text x="255" y="240" text-anchor="middle" font-size="12" fill="#B9C4E4" font-family="Heebo, sans-serif">כל טוקן חדש נכנס לחישוב הבא</text>
+    <text x="255" y="270" text-anchor="middle" font-size="11.5" fill="#8FA0D0" font-family="Heebo, sans-serif">אין כאן חיפוש אמת. יש הסתברות</text>
+  </g>
+
+  <!-- ============ 4. TOOLS, below the model ============ -->
+  <g>
+    <rect x="136" y="368" width="238" height="86" rx="12" fill="#fff" stroke="#8A8A8A" stroke-width="1.6" stroke-dasharray="5 4"/>
+    <text x="255" y="396" text-anchor="middle" font-size="13" font-weight="900" fill="#1E1E1E" font-family="Heebo, sans-serif">4 · כלי חיצוני, אם צריך</text>
+    <text x="255" y="419" text-anchor="middle" font-size="12" fill="#555555" font-family="Heebo, sans-serif">מחשבון, חיפוש, הרצת קוד</text>
+    <text x="255" y="440" text-anchor="middle" font-size="11.5" fill="#8A8A8A" font-family="Heebo, sans-serif">חוזר כהודעת כלי, והייצור ממשיך</text>
+  </g>
+  <path d="M222 292 L222 368" stroke="#8A8A8A" stroke-width="1.8" fill="none" marker-end="url(#hw-ahg)"/>
+  <path d="M290 368 L290 292" stroke="#8A8A8A" stroke-width="1.8" fill="none" marker-end="url(#hw-ahg)"/>
+
+  <!-- ============ arrows: user -> harness -> model ============ -->
+  <path d="M828 202 L790 202" stroke="#E4002B" stroke-width="2.6" fill="none" marker-end="url(#hw-ah)"/>
+  <path d="M486 202 L404 202" stroke="#E4002B" stroke-width="2.6" fill="none" marker-end="url(#hw-ah)"/>
+  <text x="445" y="192" text-anchor="middle" font-size="11" font-weight="700" fill="#E4002B" font-family="Heebo, sans-serif">ההקשר כולו</text>
+
+  <!-- ============ 5. return path, along the bottom ============ -->
+  <path d="M255 292 L255 330 L60 330 L60 500 L903 500 L903 258"
+        stroke="#E4002B" stroke-width="2.6" fill="none" stroke-linejoin="round" marker-end="url(#hw-ah)"/>
+  <rect x="360" y="478" width="290" height="44" rx="10" fill="#E4002B"/>
+  <text x="505" y="506" text-anchor="middle" font-size="13.5" font-weight="800" fill="#fff" font-family="Heebo, sans-serif">5 · התשובה חוזרת למשתמש</text>
+
+  <!-- ============ the loop note ============ -->
+  <rect x="672" y="384" width="306" height="76" rx="11" fill="#F6F5F3" stroke="#E2E2E2" stroke-width="1.5"/>
+  <text x="825" y="410" text-anchor="middle" font-size="12.5" font-weight="900" fill="#E4002B" font-family="Heebo, sans-serif">והנה הלולאה</text>
+  <text x="825" y="431" text-anchor="middle" font-size="12" fill="#1E1E1E" font-family="Heebo, sans-serif">התשובה נכנסת להיסטוריית השיחה</text>
+  <text x="825" y="450" text-anchor="middle" font-size="12" fill="#1E1E1E" font-family="Heebo, sans-serif">ולכן בפעם הבאה ההקשר גדול יותר</text>
+  <path d="M825 384 L825 340 L806 340 L806 207 L792 207" stroke="#8A8A8A" stroke-width="1.8" fill="none"
+        stroke-dasharray="6 5" stroke-linejoin="round" marker-end="url(#hw-ahg)"/>
+</svg></div>
+<h3 style="font-size:19px;font-weight:900;margin:30px 0 10px;color:var(--navy)">איך מעבירים אותו, חמש דקות</h3>
+<div class="grid g2">
+  <div class="card y"><h4>מה כן</h4>
+    <p><b>מספרים את המסלול, לא מקריאים את התיבות.</b> מתחילים מהמשתמש מימין ומלווים באצבע על המסך עד שחוזרים אליו.</p>
+    <p><b>עוצרים על תיבה 2.</b> זו התיבה היחידה שהכיתה לא מכירה, וזו גם התשובה לשאלה "למה השיחה שלי מתחילה לשכוח".</p>
+    <p><b>סוגרים על הלולאה.</b> השורה על ההיסטוריה שגדלה היא כל מה שצריך כדי להסביר בהמשך את חלון ההקשר וכלכלת הטוקנים.</p>
+  </div>
+  <div class="card n"><h4>מה לא</h4>
+    <p><b>לא נכנסים לתיבה 3.</b> איך המודל בוחר טוקן זה נושא לשקפים הבאים במצגת, ולא לתרשים.</p>
+    <p><b>לא מסבירים את הכלים לעומק.</b> תיבה 4 היא בסוגריים מקווקוים בכוונה, כי היא לא תמיד קורית. משפט אחד ומספיק.</p>
+    <p><b>לא מציגים אותו לפני המונחים.</b> התרשים עובד רק אחרי שהוגדרו הודעת מערכת, הקשר וטוקן. לפני זה הוא ג׳יבריש מצויר.</p>
+  </div>
+</div>
+<div class="callout" style="margin-top:16px"><b>המשפט שסוגר את התרשים:</b> "כל מה שראיתם עכשיו קורה מחדש בכל הודעה שאתם שולחים. המודל לא זוכר כלום. המעטפת מזכירה לו הכל, כל פעם מהתחלה." זה המשפט שמכין את הקרקע לכל מפגש 2.</div>
+<h2 class="sec">תבנית הפרומפט של הקורס</h2>
+<p class="lead" style="margin-bottom:14px">אותה תבנית בכל הקורס. במפגש 1 רק מציגים אותה בקצרה, ובמפגש 2 מתרגלים לעומק.</p>
+<table>
+  <tr><th style="width:110px">החלק</th><th style="width:30%">מה כותבים</th><th>למה זה משנה</th></tr>
+  <tr><td><b>תפקיד</b></td><td>מי המודל אמור להיות</td><td>"אתה מנהל מוצר" מחזיר תשובה אחרת לגמרי מ"אתה קופירייטר".</td></tr>
+  <tr><td><b>הקשר</b></td><td>מה הפרויקט, מי המשתמש, ומה כבר קיים</td><td>החלק שהתלמידים מדלגים עליו, והוא זה שקובע את איכות התשובה.</td></tr>
+  <tr><td><b>משימה</b></td><td>מה בדיוק לעשות, בפועל אחד</td><td>לא "תעזור לי עם", אלא "כתוב", "נסח", "הצע שלושה".</td></tr>
+  <tr><td><b>מגבלות</b></td><td>אורך, שפה, טון, ומה אסור</td><td>בלי מגבלות מקבלים תשובה כללית ובינונית.</td></tr>
+  <tr><td><b>פורמט פלט</b></td><td>טבלה, רשימה, מספר סעיפים</td><td>מה שלא ביקשתם, לא תקבלו באופן עקבי.</td></tr>
+  <tr><td><b>דוגמאות</b></td><td>דוגמה אחת או שתיים לפלט הרצוי</td><td>הדרך הזולה ביותר לשפר עקביות, ועובדת בכל מודל.</td></tr>
+</table>
+<div class="callout" style="margin-top:16px"><b>ההדגמה שסוגרת את זה:</b> לוקחים פרומפט גולמי של שורה אחת, מריצים, ואז בונים אותו מחדש בשישה החלקים ומריצים שוב. שתי התשובות זו לצד זו על המסך. אף פרומפט לא נשפט מהניסיון הראשון, שתי איטרציות הן המינימום.</div>
+
+<h2 class="sec">ששת חלקי הפרומפט</h2>
+<p class="lead" style="margin-bottom:16px">המבנה שחוזר בכל פרומפט בקורס, כולל בעשרים פרומפטי התרגול. מוצג בבלוק של 13:45 במפגש 2, ואחר כך חוזרים אליו כמעט בכל מודול.</p>
+<div class="dgmw"><svg class="dgm" viewBox="0 0 1000 404" role="img" aria-labelledby="prt-t prt-d" xmlns="http://www.w3.org/2000/svg"><title id="prt-t">ששת חלקי הפרומפט</title><desc id="prt-d">שש משבצות בסדר כתיבה. תפקיד, מי המודל אמור להיות. הקשר, מה הוא צריך לדעת לפני. משימה, מה בדיוק לעשות. מגבלות, מה לא לעשות. פורמט פלט, באיזה מבנה להחזיר. דוגמאות, איך נראית תוצאה נכונה. לכל משבצת דוגמה קצרה. החלק שהכי הרבה שוכחים הוא המגבלות.</desc><defs><marker id="prt-ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5L9 5L0 9.5z" fill="#E4002B"/></marker><marker id="prt-ahg" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5L9 5L0 9.5z" fill="#8A8A8A"/></marker></defs><rect x="672" y="76" width="308" height="140" rx="12" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><rect x="922" y="90" width="44" height="30" rx="8" fill="#E4002B"/><text x="944" y="111" text-anchor="middle" font-size="14" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">1</text><text x="904" y="116" text-anchor="start" font-size="16" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">תפקיד <tspan font-size="12.5" font-weight="600" fill="#8A8A8A">(Role)</tspan></text><text x="904" y="142" text-anchor="start" font-size="12.5" font-weight="600" fill="#555555" font-family="Heebo, sans-serif">מי המודל אמור להיות</text><line x1="690" y1="160" x2="962" y2="160" stroke="#E2E2E2" stroke-width="1.4"/><text x="904" y="184" text-anchor="start" font-size="12" font-weight="500" fill="#8A8A8A" font-family="Heebo, sans-serif">למשל: אתה מנחה פרויקטים בקורס</text><rect x="346" y="76" width="308" height="140" rx="12" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><rect x="596" y="90" width="44" height="30" rx="8" fill="#E4002B"/><text x="618" y="111" text-anchor="middle" font-size="14" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">2</text><text x="578" y="116" text-anchor="start" font-size="16" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">הקשר <tspan font-size="12.5" font-weight="600" fill="#8A8A8A">(Context)</tspan></text><text x="578" y="142" text-anchor="start" font-size="12.5" font-weight="600" fill="#555555" font-family="Heebo, sans-serif">מה הוא צריך לדעת לפני</text><line x1="364" y1="160" x2="636" y2="160" stroke="#E2E2E2" stroke-width="1.4"/><text x="578" y="184" text-anchor="start" font-size="12" font-weight="500" fill="#8A8A8A" font-family="Heebo, sans-serif">למשל: אני תלמיד בלי רקע בתכנות</text><rect x="20" y="76" width="308" height="140" rx="12" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><rect x="270" y="90" width="44" height="30" rx="8" fill="#E4002B"/><text x="292" y="111" text-anchor="middle" font-size="14" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">3</text><text x="252" y="116" text-anchor="start" font-size="16" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">משימה <tspan font-size="12.5" font-weight="600" fill="#8A8A8A">(Task)</tspan></text><text x="252" y="142" text-anchor="start" font-size="12.5" font-weight="600" fill="#555555" font-family="Heebo, sans-serif">מה בדיוק לעשות, פעולה אחת</text><line x1="38" y1="160" x2="310" y2="160" stroke="#E2E2E2" stroke-width="1.4"/><text x="252" y="184" text-anchor="start" font-size="12" font-weight="500" fill="#8A8A8A" font-family="Heebo, sans-serif">למשל: בדוק אם הרעיון מתאים</text><rect x="672" y="244" width="308" height="140" rx="12" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><rect x="922" y="258" width="44" height="30" rx="8" fill="#E4002B"/><text x="944" y="279" text-anchor="middle" font-size="14" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">4</text><text x="904" y="284" text-anchor="start" font-size="16" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">מגבלות <tspan font-size="12.5" font-weight="600" fill="#8A8A8A">(Constraints)</tspan></text><text x="904" y="310" text-anchor="start" font-size="12.5" font-weight="600" fill="#555555" font-family="Heebo, sans-serif">מה לא לעשות</text><line x1="690" y1="328" x2="962" y2="328" stroke="#E2E2E2" stroke-width="1.4"/><text x="904" y="352" text-anchor="start" font-size="12" font-weight="500" fill="#8A8A8A" font-family="Heebo, sans-serif">למשל: אל תציע לי רעיון אחר</text><rect x="346" y="244" width="308" height="140" rx="12" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><rect x="596" y="258" width="44" height="30" rx="8" fill="#E4002B"/><text x="618" y="279" text-anchor="middle" font-size="14" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">5</text><text x="578" y="284" text-anchor="start" font-size="16" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">פורמט פלט <tspan font-size="12.5" font-weight="600" fill="#8A8A8A">(Output Format)</tspan></text><text x="578" y="310" text-anchor="start" font-size="12.5" font-weight="600" fill="#555555" font-family="Heebo, sans-serif">באיזה מבנה להחזיר</text><line x1="364" y1="328" x2="636" y2="328" stroke="#E2E2E2" stroke-width="1.4"/><text x="578" y="352" text-anchor="start" font-size="12" font-weight="500" fill="#8A8A8A" font-family="Heebo, sans-serif">למשל: טבלה, ואז משפט הכרעה</text><rect x="20" y="244" width="308" height="140" rx="12" fill="#fff" stroke="#E2E2E2" stroke-width="1.6"/><rect x="270" y="258" width="44" height="30" rx="8" fill="#E4002B"/><text x="292" y="279" text-anchor="middle" font-size="14" font-weight="900" fill="#fff" font-family="Heebo, sans-serif">6</text><text x="252" y="284" text-anchor="start" font-size="16" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">דוגמאות <tspan font-size="12.5" font-weight="600" fill="#8A8A8A">(Examples)</tspan></text><text x="252" y="310" text-anchor="start" font-size="12.5" font-weight="600" fill="#555555" font-family="Heebo, sans-serif">איך נראית תוצאה נכונה</text><line x1="38" y1="328" x2="310" y2="328" stroke="#E2E2E2" stroke-width="1.4"/><text x="252" y="352" text-anchor="start" font-size="12" font-weight="500" fill="#8A8A8A" font-family="Heebo, sans-serif">למשל: קלט זה, פלט כזה</text><text x="500" y="42" text-anchor="middle" font-size="17" font-weight="900" fill="#1B2D6B" font-family="Heebo, sans-serif">ששת חלקי הפרומפט, בסדר שבו כותבים אותם</text></svg></div>
+<h2 class="sec">כלי וידאו שאפשר להשתמש בהם בלי לשלם</h2>
+<p class="lead" style="margin-bottom:16px">נבדק בספטמבר 2026. מכסות בתחום הזה משתנות כמעט כל חודש, ולכן הטבלה הזאת צריכה בדיקה קצרה לפני כל מחזור. העמודה שקובעת היא האחרונה.</p>
+<table>
+  <tr><th scope="col" style="width:16%">כלי</th><th scope="col" style="width:26%">מה מקבלים בחינם</th><th scope="col" style="width:10%">רזולוציה</th><th scope="col" style="width:12%">סימן מים</th><th scope="col">מתאים לכיתה</th></tr>
+  <tr><td><b style="font-family:Poppins">Kling</b></td><td>כשישה סרטונים ביום</td><td>720p</td><td>קטן</td><td>כן, ברירת המחדל של הסדנה</td></tr>
+  <tr><td><b style="font-family:Poppins">Hailuo</b></td><td>ללא הגבלה עם סימן מים, וכמה נקיים ביום</td><td>720p</td><td>תלוי במסלול</td><td>כן, הגיבוי הראשון</td></tr>
+  <tr><td><b style="font-family:Poppins">Pixverse</b></td><td>כ-80 נקודות ביום, שניים או שלושה סרטונים</td><td>540p עד 720p</td><td>תלוי במסלול</td><td>כן, גיבוי שני</td></tr>
+  <tr><td><b style="font-family:Poppins">Luma Dream Machine</b></td><td>כשלושים בחודש</td><td>720p</td><td>קטן</td><td>כן, אבל נגמר תוך יומיים של תרגול</td></tr>
+  <tr><td><b style="font-family:Poppins">Veo דרך Gemini</b></td><td>מכסה יומית קטנה מאוד</td><td>1080p</td><td>אין</td><td>האיכות הכי טובה, הכמות הכי קטנה</td></tr>
+  <tr><td><b style="font-family:Poppins">Runway</b></td><td>נקודות חד פעמיות, כחמישה סרטונים ואז נגמר</td><td>720p</td><td>קטן</td><td>לא לכיתה. נגמר לפני סוף הסדנה</td></tr>
+  <tr><td><b style="font-family:Poppins">Sora</b></td><td>מכסה שבועית קטנה</td><td>720p</td><td>קטן</td><td>תלוי בזמינות באזור. לא לסמוך עליו</td></tr>
+</table>
+<div class="callout" style="margin-top:16px"><b>הכלל שנאמר בתחילת הסדנה, ומונע את רוב התקיעות:</b> פותחים חשבון בשניים, לא באחד. כשהמכסה נגמרת עוברים לשני וממשיכים, במקום לשבת ולחכות. וכל החשבונות דרך הג׳ימייל הייעודי של הקורס.</div>
+<div class="callout calm-note" style="margin-top:12px"><b>מטלת ההכנה, נשלחת בסוף מפגש 3.</b> לפתוח חשבון ב-Kling וב-Hailuo, ולוודא שאפשר לייצר סרטון אחד. חמש דקות, בבית. זה לפי הכלל של אין התקנות בשיעור, וזה מה שמאפשר לסדנה של 11:30 להתחיל בזמן.</div>
+<h2 class="sec">כלי דיבוב וליפסינק, ומה מהם עובד בעברית</h2>
+<p class="lead" style="margin-bottom:16px">מלווה את הבלוק של 14:05 במפגש 4. זו טבלה להקרנה, לא לסדנה: רוב הכיתה לא תצטרך את זה בפרויקט, וחשוב שהם ידעו שזה קיים ומה המגבלה.</p>
+<table>
+  <tr><th scope="col" style="width:16%">כלי</th><th scope="col" style="width:24%">מה הוא עושה</th><th scope="col" style="width:34%">עברית</th><th scope="col">חינמי</th></tr>
+  <tr><td><b style="font-family:Poppins">ElevenLabs</b></td><td>קריינות ודיבוב</td><td>כן, והקריינות בעברית באמת טובה</td><td>מכסה חודשית קטנה</td></tr>
+  <tr><td><b style="font-family:Poppins">HeyGen</b></td><td>אווטארים ודיבוב</td><td>הדיבוב כן, האווטארים בעברית חלשים</td><td>כמה דקות בחודש</td></tr>
+  <tr><td><b style="font-family:Poppins">Hedra</b></td><td>ליפסינק מתמונה סטטית</td><td>האודיו כן, השפתיים בערך</td><td>מכסה יומית</td></tr>
+  <tr><td><b style="font-family:Poppins">CapCut</b></td><td>כתוביות אוטומטיות</td><td>כן, וזה החלק הכי שימושי מכולם</td><td>כן, בלי הגבלה מעשית</td></tr>
+</table>
+<div class="callout" style="margin-top:16px"><b>ההערה שחייבת להיאמר, כי היא חוסכת שעה של תסכול.</b> ליפסינק בעברית עדיין לא טוב. המודלים אומנו על אנגלית, והשפתיים לא באמת מתאימות לצלילים של העברית. מקרוב זה נראה מוזר, והכיתה תראה את זה מיד. מה שכן עובד, ומה שיהיה בסרטון של רוב הכיתה: קריינות בעברית מעל תמונות, בלי פנים מדברות. זה נשמע מצוין ולוקח שתי דקות. הפנים המדברות שמורות לאנגלית.</div>
+<h2 class="sec">מאגרי פרומפטים</h2>
+<p class="lead" style="margin-bottom:16px">מלווה את הבלוק של 15:00 במפגש 3. המאגרים לא יחסכו את הכתיבה, הם יחסכו את ההתחלה מאפס. פרומפט מהמאגר הוא נקודת מוצא, לא תוצר.</p>
+<table>
+  <tr><th scope="col" style="width:20%">המאגר</th><th scope="col" style="width:34%">מה יש בו</th><th scope="col">למי ומתי</th></tr>
+  <tr><td><b style="font-family:Poppins">ספריית הקורס</b></td><td>הפרומפטים של כל מפגש, בעברית</td><td>זו ברירת המחדל, והיא באתר</td></tr>
+  <tr><td><b style="font-family:Poppins">Higgsfield presets</b></td><td>סגנונות ותנועות מצלמה מוכנים, בלחיצה</td><td>הכי מהיר להתחיל, וטוב במיוחד לווידאו</td></tr>
+  <tr><td><b style="font-family:Poppins">PromptHero</b></td><td>פרומפטים עם התוצאה שלהם לצידם</td><td>ללמוד מה עושה מה, ולא רק להעתיק</td></tr>
+  <tr><td><b style="font-family:Poppins">Lexica</b></td><td>חיפוש לפי תמונה, ומחזיר את הפרומפט</td><td>כשראיתם סגנון ואתם רוצים אותו</td></tr>
+  <tr><td><b style="font-family:Poppins">Krea</b></td><td>סגנונות ועריכה בממשק נוח</td><td>בתשלום, כחמישה דולר. לא חובה לקורס</td></tr>
+</table>
+<div class="callout" style="margin-top:16px"><b>המיומנות היחידה שנלמדת בבלוק הזה.</b> לא איפה יש פרומפטים, אלא איך מתאימים פרומפט של מישהו אחר לפרויקט שלכם. כל פרומפט מורכב משני סוגי חלקים: חלקי סגנון, שאולי תשמרו, וחלקי נושא, שחייבים להחליף. והחלק שכולם שוכחים הוא שמשפט הסגנון בסוף חייב להיות שלכם, אחרת התמונה החדשה לא תשתלב בערכה שכבר בניתם.</div>
+
+</div>
+
+<div class="tpane" id="tl-x" role="tabpanel" aria-labelledby="tb-tl-x">
+<div class="plead"><b>דוגמאות פלט מלאות.</b> כל אחת מהן היא תוצאה אמיתית של פרומפט מהלשונית הראשונה, מוצגת במלואה כדי שיהיה ברור לאן מכוונים.</div>
 <h2 class="sec">פלט לדוגמה: ערכת התמונות של "החוג המושלם"</h2>
 <p class="lead" style="margin-bottom:16px">זו התשובה המלאה שפרומפט ה-META מחזיר, מורצת על המיזם המלווה. היא כאן משתי סיבות: כדי שיהיה מה להקרין כשמסבירים את הפרומפט, וכדי שהתלמיד יראה איך נראה פלט טוב לפני שהוא מריץ אותו על שלו. הפרומפטים באנגלית, כי כך מודלי תמונה עובדים טוב יותר.</p>
 <div class="callout" style="margin-bottom:18px"><b>הכלל שמחזיק את כל הערכה.</b> משפט הסגנון חוזר מילה במילה בסוף כל פרומפט. זה מה שגורם לתמונת היוגה, ללוגו ולאיור להיראות כאילו יצאו מאותו מקום, גם כשהם נוצרו בשלוש הרצות נפרדות ובימים שונים. אם מוחקים אותו מפרומפט אחד, אותה תמונה תיראה זרה בין השאר.</div>
@@ -3360,18 +3367,44 @@ To use this style for other illustrations: keep "a single continuous coral line 
 </table>
 <div class="callout calm-note" style="margin-top:4px"><b>ומה שהמודל הניח, כי זה לא היה בהגדרה.</b> שלושה דברים: שהקהל בישראל ולכן העברית קודמת, שהסטודיו אמיתי ופיזי ולא מקוון, ושהתמונות נועדו גם לרשתות ולא רק לאתר, ולכן יש באנר ב-16:9. זה בדיוק מה שהפרומפט מבקש לסמן בסוף, וזו הסיבה שכדאי לקרוא את הרשימה הזו לפני שמייצרים.</div>
 
-<h2 class="sec">תשעה עשר פרומפטי התרגול, מפגש אחר מפגש</h2><p class="lead" style="margin-bottom:16px">בכל מפגש מ-2 והלאה יש פרומפט תרגול אחד. כולם כאן, לפי סדר המפגשים. מה שבסוגריים המרובעים הוא מה שאתם ממלאים.</p><div class="bar" id="plibbar"></div>
-  <div id="plib"></div><h2 class="sec">ספריית הפרומפטים להורדה</h2>
-<p class="lead" style="margin-bottom:16px">כל עשרים פרומפטי התרגול של הקורס, ולצידם הפרומפט שבודק את רעיון הפרויקט, במסמך אחד מעוצב בעברית. עמוד לכל פרומפט, עם השדות למילוי מסומנים. אפשר לשלוח לכיתה בתחילת הקורס, או להדפיס.</p>
-<div class="scards">
-  <a class="scard" href="files/prompt-library-53500.docx" download>
-    <span class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h9l5 5v13a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M14 3v5h5"/><path d="M12 11.5v6M9.4 15l2.6 2.6L14.6 15"/></svg></span>
-    <span><span class="sn">קובץ Word · 21 עמודים</span><b>ספריית הפרומפטים של הקורס</b><span>עשרים ואחד פרומפטים, תוכן עניינים, ועמוד לכל אחד. מיושר לימין כמו שצריך.</span></span>
-  </a>
+<h2 class="sec">הסטוריבורד לדוגמה: פרסומת משלוחים, מפורקת לשישה שוטים</h2>
+<p class="lead" style="margin-bottom:16px">מוקרן בבלוק של 10:45 במפגש 4. זהו פירוק לאחור של פרסומת בסגנון מוכר, ולא הסטוריבורד המקורי של המפרסם: אנחנו מנחשים את הכוונה מהתוצאה. זו בדיוק אותה הנדסה הפוכה מתרגיל ה-Reverse Prompting של מפגש 2, הפעם על סרטון.</p>
+<div class="callout" style="margin-bottom:16px"><b>התסריט בשורה אחת:</b> מישהי רעבה בשעה לא הגיונית, מזמינה, והאוכל מגיע לפני שהיא הספיקה להתחרט.</div>
+<table>
+  <tr><th scope="col" style="width:4%">#</th><th scope="col" style="width:27%">מה רואים</th><th scope="col" style="width:15%">מצלמה</th><th scope="col" style="width:6%">שנ׳</th><th scope="col" style="width:24%">מה זז</th><th scope="col">אודיו</th></tr>
+  <tr><td><b style="font-family:Poppins">1</b></td><td>סלון ב-23:40. אישה על הספה מול טלוויזיה דולקת, מסתכלת לכיוון המטבח</td><td>סטטי, medium shot</td><td style="font-family:Poppins">3</td><td>רק הבהוב הטלוויזיה על הפנים, היא לא זזה</td><td>מוזיקה נכנסת, שקטה</td></tr>
+  <tr><td><b style="font-family:Poppins">2</b></td><td>מקרר נפתח, ובפנים שלושה דברים עצובים</td><td>סטטי, close up</td><td style="font-family:Poppins">2</td><td>הדלת נפתחת, האור נדלק</td><td>דלת מקרר</td></tr>
+  <tr><td><b style="font-family:Poppins">3</b></td><td>היא על הספה, הטלפון ביד, בוחרת</td><td>over the shoulder</td><td style="font-family:Poppins">3</td><td>האגודל גולל, המסך מואר</td><td>טאפ אחד</td></tr>
+  <tr><td><b style="font-family:Poppins">4</b></td><td>שליח על אופניים ברחוב לילה ריק</td><td>tracking מהצד</td><td style="font-family:Poppins">3</td><td>השליח נע שמאלה, הרקע זז</td><td>המוזיקה עולה</td></tr>
+  <tr><td><b style="font-family:Poppins">5</b></td><td>דלת נפתחת, שקית מוגשת, שני חיוכים</td><td>סטטי, medium</td><td style="font-family:Poppins">3</td><td>היד מושטת קדימה בלבד</td><td>צלצול בדלת</td></tr>
+  <tr><td><b style="font-family:Poppins">6</b></td><td>היא על הספה עם האוכל, אותה קומפוזיציה כמו שוט 1</td><td>סטטי, medium shot</td><td style="font-family:Poppins">3</td><td>קיטור עולה מהמנה</td><td>המוזיקה נסגרת</td></tr>
+</table>
+<div class="callout" style="margin-top:16px"><b>שלושה דברים להצביע עליהם, ולא לוותר.</b> <b>ראשית,</b> שוט 1 ושוט 6 הם אותה קומפוזיציה בדיוק. זה מה שהופך רצף לסיפור: הצופה רואה את אותו סלון לפני ואחרי, וזה עושה את כל העבודה בלי מילה אחת. <b>שנית,</b> המוצר נמצא על המסך שנייה וחצי בסך הכל. פרסומת טובה מוכרת את הרגע שאחרי, לא את הממשק. <b>ושלישית,</b> אין טקסט בשום שוט. הכל נכנס בעריכה, כי מודלי תמונה כותבים אותיות עקומות ובעברית זה גרוע במיוחד.</div>
+<div class="callout calm-note" style="margin-top:12px"><b>החשבון שמפתיע את הכיתה:</b> שישה שוטים כפול שלוש שניות זה שמונה עשרה שניות, וזו פרסומת שלמה. התלמידים בטוחים שהם צריכים דקה, וזו הסיבה שהסרטונים שלהם מתפרקים. והשאלה שסוגרת את הבלוק: איזה שוט אפשר היה להוריד בלי שהסיפור יישבר. התשובה כמעט תמיד היא שאי אפשר, וזו ההגדרה של סטוריבורד טוב.</div>
+<h2 class="sec">שש תנועות המצלמה, והשם שהמודל מבין</h2>
+<p class="lead" style="margin-bottom:16px">הטבלה שמלווה את בלוק ההנפשה של 09:10 במפגש 4. לכל תנועה יש דוגמה מהקולנוע ומילה מדויקת שכותבים בפרומפט. מקרינים קטע של עשרים שניות, ומיד אחריו את השם באנגלית. בסדר הזה זה נדבק.</p>
+<table>
+  <tr><th scope="col" style="width:15%">התנועה</th><th scope="col" style="width:26%">הדוגמה מהקולנוע</th><th scope="col" style="width:24%">מה כותבים בפרומפט</th><th scope="col">למה היא שם</th></tr>
+  <tr><td><b>דולי זום</b></td><td>ורטיגו של היצ׳קוק, ואחריו המדרגות ב״מלתעות״</td><td style="font-family:Poppins;direction:ltr;text-align:right;font-size:12.5px">dolly zoom</td><td>הרקע נמתח והנושא נשאר במקום. התנועה היחידה שהיא רגש טהור ולא מידע.</td></tr>
+  <tr><td><b>תנועה על תמונה סטטית</b></td><td>אפקט קן ברנס, מכל סרט תיעודי</td><td style="font-family:Poppins;direction:ltr;text-align:right;font-size:12.5px">slow push in on a still image</td><td>התנועה הכי בטוחה שיש. עובדת כמעט תמיד, וממנה מתחילים כשמודל מחזיר בלגן.</td></tr>
+  <tr><td><b>סיבוב סביב נושא</b></td><td>זמן הכדור ב״מטריקס״</td><td style="font-family:Poppins;direction:ltr;text-align:right;font-size:12.5px">camera orbits the subject</td><td>מראה את הנושא מכל הצדדים בלי לחתוך. מצוין לשוט של מוצר.</td></tr>
+  <tr><td><b>Match cut</b></td><td>העצם שהופכת לחללית ב״2001: אודיסאה בחלל״</td><td style="font-family:Poppins;direction:ltr;text-align:right;font-size:12.5px">נעשה בעריכה, לא בפרומפט</td><td>זו לא תנועה אלא חיבור בין שני שוטים. שווה להכיר כי היא מה שהופך שני שוטים לרעיון אחד.</td></tr>
+  <tr><td><b>Tracking</b></td><td>״הבנים של האדם״, או הכניסה למועדון ב״החברים של הנרי״</td><td style="font-family:Poppins;direction:ltr;text-align:right;font-size:12.5px">tracking shot following the subject</td><td>המצלמה נעה עם הנושא. הכי קשה למודל, ולכן שומרים אותה לשוט אחד ולא לכולם.</td></tr>
+  <tr><td><b>לופ</b></td><td>התמונות הזזות ב״הארי פוטר״</td><td style="font-family:Poppins;direction:ltr;text-align:right;font-size:12.5px">subtle looping motion, everything else still</td><td>פרט אחד זז והשאר קפוא. הכי חסכוני, והכי מתאים לרקע של אתר.</td></tr>
+</table>
+<div class="callout" style="margin-top:16px"><b>המשפט שסוגר את הבלוק.</b> חמש מתוך השש האלה קיימות בקולנוע כמעט מאה שנה, והמודל למד מהן. אתם לא ממציאים שפה חדשה, אתם מדברים בשפה של צלמים. וזו גם הסיבה שכדאי להכיר עוד מונחים: כל מונח שאתם יודעים הוא עוד שליטה.</div>
+<div class="callout calm-note" style="margin-top:12px"><b>הכלל שחוסך את רוב התקלות בסדנה:</b> תנועה אחת בכל שוט. או המצלמה זזה, או הנושא זז, לא שניהם. שניהם יחד זה בדיוק מה שהופך סרטון AI למרק, וזו הטעות הכי נפוצה.</div>
+<h2 class="sec">חמשת הכללים של שוט</h2>
+<p class="lead" style="margin-bottom:16px">נאמרים בקול לפני הסדנה, וכתובים על הלוח לאורכה. מי שעובד לפיהם מקבל סרטון, ומי שלא מקבל שישה קליפים ברצף.</p>
+<div class="grid g3" style="margin-bottom:4px">
+<div class="card"><h4>שוט הוא שלוש עד ארבע שניות</h4><p class="mo">כלל 1</p><p>לא יותר. מודלי וידאו מתפרקים אחרי חמש שניות, והצופה מתנתק אחרי שלוש.</p></div>
+<div class="card"><h4>תנועה אחת לשוט</h4><p class="mo">כלל 2</p><p>או המצלמה זזה, או הנושא זז. שניהם יחד זה מה שהופך סרטון AI לבלגן.</p></div>
+<div class="card"><h4>השוט הראשון הוא הבעיה, לא המוצר</h4><p class="mo">כלל 3</p><p>המוצר נכנס בשוט השלישי או הרביעי, ולא יותר משוט וחצי בסך הכל.</p></div>
+<div class="card"><h4>השוט האחרון הוא הפעולה</h4><p class="mo">כלל 4</p><p>מה הצופה אמור לעשות עכשיו. ואם אפשר, בקומפוזיציה של השוט הראשון.</p></div>
+<div class="card"><h4>כל שוט מתחיל מתמונה, לא מטקסט</h4><p class="mo">כלל 5</p><p>תמונה נותנת שליטה, טקסט נותן הפתעה. ובתמונה גרועה אין טעם להתחיל תנועה, היא תישאר גרועה גם כשהיא זזה.</p></div>
 </div>
-<div class="callout" style="margin-top:16px"><b>שימו לב:</b> המסמך נוצר מתוך הפרומפטים שבאתר. אם עדכנתם פרומפט באתר, צריך לייצר את המסמך מחדש כדי שהוא יתעדכן. האתר הוא המקור, המסמך הוא עותק.</div>
 
-
+</div>
 </section>
 
 <!-- ================= DECKS ================= -->
@@ -3385,38 +3418,6 @@ To use this style for other illustrations: keep "a single continuous coral line 
   <div id="deckidx"></div>
 </section>
 
-<!-- ================= GLOSSARY ================= -->
-<section class="page" id="p-glossary">
-  <div class="hero" style="padding:38px 44px">
-    <span class="tag">שפה מקצועית משותפת</span>
-    <h2 style="font-size:36px;max-width:26ch">ארכיון מושגים</h2>
-    <p>כל המושגים שנלמדים לאורך המסלול, בהגדרה קצרה בעברית ובציון המודול שבו הם נכנסים. התפריט שמימין פותח מודול אחד בכל פעם, כך שסטודנט רואה רק את מה שנלמד עד עכשיו. הלשונית האחרונה, כלים, מציגה את כל הכלים של הקורס עם המודולים שבהם הם מופיעים. אפשר גם לחדד לפי נושא, או לחפש בשם המושג בעברית ובאנגלית. כרטיס שמסומן בסימן פלוס נפתח לשקף הרחבה עם איור והסבר מעמיק, ואפשר לדפדף בין הכרטיסים בתוך השקף. כרגע קיים למודולים 1 עד 3 ולכל הכלים.</p>
-  </div>
-  <div class="glay">
-    <aside class="gside">
-      <div class="gside-h">סינון לפי מודול</div>
-      <div class="vtabs" id="modchips" role="tablist" aria-orientation="vertical" aria-label="סינון ארכיון המושגים לפי מודול"></div>
-    </aside>
-    <div class="gmain">
-      <div class="tools">
-        <div class="search">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-          <label for="q" class="vh">חיפוש מושג בארכיון</label>
-          <input id="q" type="text" placeholder="חיפוש מושג בעברית או באנגלית, למשל: Webhook, MVP, סוכן, RAG">
-        </div>
-      </div>
-      <div class="gdrop" id="catdrop">
-        <button class="gdrop-btn" type="button" id="catbtn" aria-expanded="false" aria-controls="chips">
-          <span>לפי נושא</span><span class="gdrop-val" id="catval">הכול</span>
-          <svg class="cv" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="chips" id="chips" hidden></div>
-      </div>
-      <div class="count" id="count" style="margin-top:16px"></div>
-      <div class="terms" id="terms" role="tabpanel" aria-live="polite"></div>
-    </div>
-  </div>
-</section>
 <!-- ================= MARKETING ================= -->
 <section class="page" id="p-marketing">
 
@@ -3947,7 +3948,7 @@ function edMt(s){ return curEd==='morn' ? s.mtM : s.mtE; }
 function renderStageMap(){
   let h='<tr><th style="width:64px">מודול</th><th>מה בונים</th><th style="width:16%">מיקום בקורס</th><th style="width:22%">כלי מרכזי</th></tr>';
   PROJECTMAP.forEach(s=>{h+=`<tr><td><b style="font-family:Poppins">${s.n}</b></td><td><b>${s.t}</b></td><td>${s.mod}, ${edMt(s)}</td><td>${s.tool}</td></tr>`;});
-  document.getElementById('stagemap').innerHTML=h;
+  {const el=document.getElementById('stagemap'); if(el) el.innerHTML=h;}
 }
 
 /* =============== RENDER: PROJECT MODULES (STAGES) =============== */
@@ -4713,9 +4714,11 @@ function fallback(txt,cb){
 }
 
 /* =============== ACCESS GATE =============== */
-const ROLE_LABEL={lecturer:'מרצה',admin:'מנהלה',student:'סטודנט',owner:'מנהל מערכת'};
-const FULL=['home','syllabus','project','guide','prompts','decks','teachers','marketing','glossary'];
-const ROLE_AREAS={lecturer:FULL,admin:FULL,owner:FULL,student:['syllabus','guide','prompts','decks','glossary']};
+const ROLE_LABEL={lecturer:'מרצה',admin:'מנהלה',student:'סטודנט',marketing:'מרקטינג',owner:'מנהל מערכת'};
+const FULL=['home','syllabus','project','prompts','decks','teachers','marketing'];
+const ROLE_AREAS={lecturer:FULL,admin:FULL,owner:FULL,
+                  student:['syllabus','project','prompts','decks'],
+                  marketing:['marketing','syllabus','project','prompts']};
 /* compact SHA-256, works everywhere including file:// (crypto.subtle needs a secure context) */
 function sha256(msg){
   const K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
@@ -4755,7 +4758,8 @@ const SALT='jb53500.gate.2026|';
 /* SHA-256 of SALT + code. The plain codes are not present in this file. */
 const CODES={lecturer:'8cd6434b0e5b2609b8720a07963764135b5f02ca2a0f3652ece78d13e38890c3',
              admin:'8cd6434b0e5b2609b8720a07963764135b5f02ca2a0f3652ece78d13e38890c3',
-             student:'ddd294a87c7f4c1ce6edf4c48fd9c89daedca6719bbeb35e275f38af47059ff5'};
+             student:'ddd294a87c7f4c1ce6edf4c48fd9c89daedca6719bbeb35e275f38af47059ff5',
+             marketing:'c052c030b0aea00578b098494812954ae29c777b31a118c3e37cf567ed075c9d'};
 const MASTER='7be0f1b891b4ff7a2a1e1ce826f7624929662a173f002de680c512e75b48f96d';
 const GKEY='jb53500.role';
 let ROLE=null;
