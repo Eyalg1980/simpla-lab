@@ -4665,6 +4665,11 @@ buildPlibBar();
 buildDeckIndex();
 initTabs();
 buildSections();
+/* the deck index is for browsing, so its meeting sections start open */
+document.querySelectorAll('#deckidx .sect').forEach(sc=>{
+  sc.classList.remove('closed');
+  const h=sc.querySelector('h2.sec'); if(h) h.setAttribute('aria-expanded','true');
+});
 wrapTables();
 a11yPass();
 window.addEventListener('resize',wrapTables);
