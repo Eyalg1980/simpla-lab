@@ -6338,7 +6338,7 @@ function buildDeckIndex(){
       });
       body+='</div>';
     }
-    tabs+='<button class="ttab'+(i===0?' on':'')+'" type="button" role="tab" data-t="dk-m'+num+'">'+
+    tabs+='<button class="ttab'+(i===0?' on':'')+'" type="button" role="tab" data-p="dk-m'+num+'">'+
           label+'<span>'+sub+' · '+cnt+'</span></button>';
     panes+='<div class="tpane'+(i===0?' on':'')+'" id="dk-m'+num+'" role="tabpanel">'+body+'</div>';
   });
@@ -6419,7 +6419,8 @@ function fallback(txt,cb){
 /* =============== ACCESS GATE =============== */
 const ROLE_LABEL={lecturer:'מרצה',admin:'מנהלה',student:'סטודנט',marketing:'מרקטינג',owner:'מנהל מערכת'};
 const FULL=['home','syllabus','project','prompts','decks','teachers','marketing'];
-const ROLE_AREAS={lecturer:FULL,admin:FULL,owner:FULL,
+const LECT=FULL.filter(x=>x!=='marketing');
+const ROLE_AREAS={lecturer:LECT,admin:FULL,owner:FULL,
                   student:['syllabus','project','prompts','decks'],
                   marketing:['marketing','syllabus','project','prompts']};
 /* compact SHA-256, works everywhere including file:// (crypto.subtle needs a secure context) */
