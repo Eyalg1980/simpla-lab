@@ -1,418 +1,431 @@
 [
-  {
-    "date": "2026-09-03",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 33,
-    "webSearches": 6,
-    "webFetches": 6,
-    "commits": 4,
-    "notes": "Thursday, no weekly meeting, no full competitions sweep, and this is the LAST DAY of מוד תחרויות (spec section expires after today, delete on next run). STEP 0 push check passed on first attempt (clone ai-post-brainstorm with the plain URL, no-op push to a throwaway branch with the auth header, branch deleted after). Part A: genuine fresh research on UX+AI succeeded (aiuxdesign.guide's 1.9.2026 'is your website agentic ready' piece, fetched directly, unused before), but Figma Weave fresh research came up empty within budget (figma.com/release-notes and releasebot.io both denied PROVENANCE_REQUIRED, a follow-up WebSearch and a marketscreener fetch surfaced only an old April article), so both Figma Weave and teaching pillars fell back to the standing pool this run (a Claude-vs-Codex workflow timing comparison for Figma Weave, format-tagged comparative-with-numbers; bento grids, the last untouched item in the 10 Modern Web UX Behaviors bonus lesson, for teaching, me cross). Checked last 14 days of posts.json first, no repeated hooks or sources. Part B contest mode, final day: 2 new ideas at 3:20 and 3:15 minutes (a kindergarten door frame with 32 years of pencil height marks where a veteran teacher notices the same surname twice a generation apart; a library sign-in ledger where a regular's daily signature turns shaky this week and the librarian says nothing), checked against the round-1 18-hook bank and every daily hook logged since 11.8, no duplicates, both sit on 4-5 of six winning mechanisms, all four prompts present, no Hebrew inside video/image, photoreal optimistic-near-future visual language. Higgsfield GFF: reverified via WebSearch of the same official Higgsfield AI X status cited every prior run, still shows submission deadline September 3 (today) unchanged. IMPORTANT UNRESOLVED CONFLICT surfaced this run and flagged directly to Eyal: the /areas/ai-film-contests.md memory file records a 28.8.2026 finding that a DIRECT fetch of the official contest page that day showed 'Competition closes Sep 14', not 3.9, but that finding was apparently never carried into competitions.json's own tracking and a direct fetch to confirm either way has been blocked PROVENANCE_REQUIRED on every run since 21.8. Both possibilities are now logged on the higgsfield-gff entry; this needs Eyal to check the official page himself before treating today as a hard deadline. Astana not reverified today (marked נסגר since 1.9, budget went to the Higgsfield conflict instead). new-tech-aiff-2026 and neocinema both flipped to נסגר, their extended deadline (1.9) passed two days ago with no reverification possible within budget, following the same date-passage convention used for Venice on 27.8. Part C daily run: 0 visionary ideas, no dated-and-verified capability released in the last 30 days was found within the exhausted research budget (Part A/B research consumed it first); rather than force or duplicate one of the 9 already-pooled visionary capabilities, skipped. 2 pain ideas with real evidence pulled from memory (inbox.json again had zero unconsumed items): two separate scheduled-run git push collisions on the same commit within a week (26.8 and 2.9, both required manual rebase), and a screen/narration-overlap bug the director caught and hand-fixed twice on the תסמונת המושיע build before it became a structural check. 2 teacher ideas mapped to named material (the 45900 rolling exercise spanning all 27 sessions; the Mobbin real-app-pattern-research module). Auto-archive sweep read the full 21-item pool programmatically against the 14-day cutoff (2026-08-20): 0 archived, nothing older than 4 days. Live WebFetch verification of all three published JSON files was denied PROVENANCE_REQUIRED across all attempts (unattended scheduled run, consistent with every prior run), confirmed instead by fresh clone of both repos: posts.json day 1 is 2026-09-03 with 3 ideas across all three pillars and full image/video prompts, videos.json day 1 is 2026-09-03 with 2 ideas each carrying all 4 prompt keys, meeting-room ideas.json updated field is 2026-09-03 with the 4 new ideas on top of the pool. Remote was up to date at every push, no rebase conflicts."
+ {
+  "date": "2026-09-03",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-09-02",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 36,
-    "webSearches": 6,
-    "webFetches": 6,
-    "commits": 4,
-    "notes": "Wednesday, no weekly meeting, full competitions sweep day. STEP 0 push check passed on first attempt (clone ai-post-brainstorm with the plain URL, no-op empty-commit push with the auth header, clean). Part A rotated: UX+AI and Figma Weave both drew from the same freshly fetched source (aiuxdesign.guide daily digest, 30.8.2026, not used before) but different facts, design-system agents surfacing the wrong component when pattern names lack written rationale for Figma Weave, and the CBI report on junior designers losing full decision cycles plus OpenAI's persistent Codex agent for UX+AI; teaching pillar came from the standing pool (10 Modern Web UX Behaviors, the 1st and opening one, video scrubbing, not used before), carrying the me cross to the real 24.8 session of course 45900. Format tag (check-in nevua) rotated onto idea 1, not used since 8.31, avoiding repeating idea 3's format from yesterday. Two generic WebSearches spent early (AI UX news, AI L&D training news) returned only evergreen trend pieces with no usable date, pivoted to aiuxdesign.guide directly which paid off. Checked last 14 days of posts.json first, no repeated hooks, angles or sources. Part B contest mode: 2 new ideas at 3:30 and 3:40 minutes (an old building lobby where residents read a trembling analog elevator needle instead of the accurate digital display, because its judder secretly tells them which elevator is closer; a municipal lost-and-found clerk who has kept a stranger's radio tuned to 101.2 for 35 years per a child's faded note, no longer sure if he still does it for the child or for himself), checked against the round-1 18-hook bank and every daily hook logged since 11.8, no duplicates, both sit on 4-5 of six winning mechanisms including asymmetric love on the second, all four prompts present, no Hebrew inside video/image, photoreal optimistic-near-future visual language matching the series. Higgsfield GFF (3.9, one day out, closes tomorrow) reverified via WebSearch of the same official X status already cited before (direct higgsfield.ai/contests fetch blocked PROVENANCE_REQUIRED again); unchanged. Astana was not reverified today, budget was spent on the time-critical Higgsfield deadline and the Wednesday sweep instead, left as נסגר per 1.9's verification with a dated note saying so rather than guessed at. Wednesday full sweep of aifilmcontests.com and open-arthouse.com attempted via WebSearch (direct fetch to aifilmcontests.com was blocked PROVENANCE_REQUIRED); no genuinely new, verifiable, contest-mode-eligible competition surfaced within budget, so nothing was added to competitions.json rather than guessing at unverified terms; two names worth a dedicated look next sweep (Sparknify Human vs AI, Artefact AI Film Festival 2026) were not chased further this run. Part C daily run: 0 visionary ideas, no dated-and-verified capability was found within the exhausted research budget that met the spec's bar (candidates found, Claude Design press coverage and generic model releases, either had an unverifiable or out-of-window release date, or no verified capability detail beyond a name), skipped rather than filing an invalid or fabricated one; 2 pain ideas with real evidence pulled from /areas/task-management.md (inbox.json again had zero unconsumed items): the June John Bryce retainer invoice stuck in a stale 'waiting' tag for 22 days with no active follow-up, and six verbally dictated Monday tasks from 28.8 that never got their own board IDs and only resurfaced by being echoed back in the daily brief; 2 teacher ideas mapped to named material (the 53500 lecturer-alignment meeting's lecturer-roundtable slide and its stated-goal slide, both from the 22-slide deck delivered 28.8.2026). Auto-archive sweep read the full pool (checked programmatically against the 14-day cutoff, 2026-08-19): 0 archived, every pool-status idea is 1-3 days old. Live WebFetch verification of all three published JSON files was denied PROVENANCE_REQUIRED across all 3 attempts (unattended scheduled run, consistent with every prior run), confirmed instead by fresh clone of both repos: posts.json day 1 is 2026-09-02 with 3 ideas across all three pillars and full image/video prompts, videos.json day 1 is 2026-09-02 with 2 ideas each carrying all 4 prompt keys, meeting-room ideas.json updated field is 2026-09-02 with the 4 new ideas on top of the pool. Remote was up to date at every push, no rebase conflicts."
+  "durationMin": 33,
+  "webSearches": 6,
+  "webFetches": 6,
+  "commits": 4,
+  "notes": "Thursday, no weekly meeting, no full competitions sweep, and this is the LAST DAY of מוד תחרויות (spec section expires after today, delete on next run). STEP 0 push check passed on first attempt (clone ai-post-brainstorm with the plain URL, no-op push to a throwaway branch with the auth header, branch deleted after). Part A: genuine fresh research on UX+AI succeeded (aiuxdesign.guide's 1.9.2026 'is your website agentic ready' piece, fetched directly, unused before), but Figma Weave fresh research came up empty within budget (figma.com/release-notes and releasebot.io both denied PROVENANCE_REQUIRED, a follow-up WebSearch and a marketscreener fetch surfaced only an old April article), so both Figma Weave and teaching pillars fell back to the standing pool this run (a Claude-vs-Codex workflow timing comparison for Figma Weave, format-tagged comparative-with-numbers; bento grids, the last untouched item in the 10 Modern Web UX Behaviors bonus lesson, for teaching, me cross). Checked last 14 days of posts.json first, no repeated hooks or sources. Part B contest mode, final day: 2 new ideas at 3:20 and 3:15 minutes (a kindergarten door frame with 32 years of pencil height marks where a veteran teacher notices the same surname twice a generation apart; a library sign-in ledger where a regular's daily signature turns shaky this week and the librarian says nothing), checked against the round-1 18-hook bank and every daily hook logged since 11.8, no duplicates, both sit on 4-5 of six winning mechanisms, all four prompts present, no Hebrew inside video/image, photoreal optimistic-near-future visual language. Higgsfield GFF: reverified via WebSearch of the same official Higgsfield AI X status cited every prior run, still shows submission deadline September 3 (today) unchanged. IMPORTANT UNRESOLVED CONFLICT surfaced this run and flagged directly to Eyal: the /areas/ai-film-contests.md memory file records a 28.8.2026 finding that a DIRECT fetch of the official contest page that day showed 'Competition closes Sep 14', not 3.9, but that finding was apparently never carried into competitions.json's own tracking and a direct fetch to confirm either way has been blocked PROVENANCE_REQUIRED on every run since 21.8. Both possibilities are now logged on the higgsfield-gff entry; this needs Eyal to check the official page himself before treating today as a hard deadline. Astana not reverified today (marked נסגר since 1.9, budget went to the Higgsfield conflict instead). new-tech-aiff-2026 and neocinema both flipped to נסגר, their extended deadline (1.9) passed two days ago with no reverification possible within budget, following the same date-passage convention used for Venice on 27.8. Part C daily run: 0 visionary ideas, no dated-and-verified capability released in the last 30 days was found within the exhausted research budget (Part A/B research consumed it first); rather than force or duplicate one of the 9 already-pooled visionary capabilities, skipped. 2 pain ideas with real evidence pulled from memory (inbox.json again had zero unconsumed items): two separate scheduled-run git push collisions on the same commit within a week (26.8 and 2.9, both required manual rebase), and a screen/narration-overlap bug the director caught and hand-fixed twice on the תסמונת המושיע build before it became a structural check. 2 teacher ideas mapped to named material (the 45900 rolling exercise spanning all 27 sessions; the Mobbin real-app-pattern-research module). Auto-archive sweep read the full 21-item pool programmatically against the 14-day cutoff (2026-08-20): 0 archived, nothing older than 4 days. Live WebFetch verification of all three published JSON files was denied PROVENANCE_REQUIRED across all attempts (unattended scheduled run, consistent with every prior run), confirmed instead by fresh clone of both repos: posts.json day 1 is 2026-09-03 with 3 ideas across all three pillars and full image/video prompts, videos.json day 1 is 2026-09-03 with 2 ideas each carrying all 4 prompt keys, meeting-room ideas.json updated field is 2026-09-03 with the 4 new ideas on top of the pool. Remote was up to date at every push, no rebase conflicts."
+ },
+ {
+  "date": "2026-09-02",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-09-01",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 33,
-    "webSearches": 6,
-    "webFetches": 10,
-    "commits": 4,
-    "notes": "Tuesday, no weekly meeting, no full competitions sweep. STEP 0 push check passed on first attempt (clone ai-post-brainstorm with the plain URL, no-op dry-run push with the auth header, clean). Part A rotated: Figma Weave came from the standing pool for once (Figma Motion, launched at Config 2026 on 24.6.2026, little Hebrew content exists per the spec's own pool note; verified via a real fetch of a CMSWire recap after the direct figma.com blog fetch was blocked by robots.txt) and UX+AI came from real fresh research (aiuxdesign.guide's 31.8 weekly roundup on AI shipping faster than UX can evaluate, fetched directly); teaching pillar also from the standing pool (10 Modern Web UX Behaviors, the 10th and closing one, drag-to-reorder, not used before in the last 14+ days), carrying the me cross to a real classroom moment. Format rotated to reshimat-klim-ktsara for idea 1 and me-hakita-lasade for idea 3, neither used since 8/25 and 8/21 respectively, avoiding yesterday's biografiya-shel-obyekt. Checked last 14 days of posts.json first, no repeated hooks, angles or sources. Part B contest mode: 2 new ideas at 3:30 and 3:20 minutes (an elderly former station announcer who hears her own 32-year-old recording still naming a station that was renamed twice since; a secondhand bookshop owner who still pauses half a beat before turning at the door bell, the habit his late wife left him), checked against the round-1 18-hook bank and every daily hook logged since 11.8, no duplicates, both sit on five of six winning mechanisms including asymmetric love on the second, all four prompts present, no Hebrew inside video/image, photoreal optimistic-near-future visual language matching the series. Higgsfield GFF (3.9, two days out) reverified via WebSearch cross-check of the same official X status already cited before (direct higgsfield.ai/contests fetch blocked PROVENANCE_REQUIRED again), unchanged. Astana (31.8) flipped to נסגר: its deadline passed yesterday, a direct aaiff.ai fetch today was blocked PROVENANCE_REQUIRED and search found no further extension announcement, so it was closed per the same principle applied to Venice on 27.8, with the 31.8 grace-period finding (late entries still considered at judges' discretion) carried forward in the note rather than dropped. Also flagged in competitions.json: new-tech-aiff-2026 and neocinema both have today, 1.9.2026, as their own extended deadline, neither was reverified this run (budget spent on the two contest-mode-critical competitions instead), left open with a dated note to check tomorrow. Sunday/Wednesday full sweep of aifilmcontests.com, open-arthouse.com and higgsfield.ai/contests for brand-new listings was skipped as designed for a Tuesday. Part C daily run: 2 visionary ideas from fresh dated capabilities found via a targeted releasebot.io/updates/anthropic/claude fetch, neither used before (Claude for Teachers Enterprise offering, 28.8.2026; Claude in Chrome general availability, 26.8.2026), both distinct from the already-pooled Build with Claude marketplace and Webflow Skills capabilities; 2 pain ideas with real evidence pulled from /areas/task-management.md rather than inbox.json (which had zero unconsumed items again): two DATED tasks (film-wolt-submit, jb-spec-asaf) both dictated with a 23.8 deadline and only discovered overdue eight days later in the 31.8 morning brief, and the jb-hours-excel task re-raised three separate times across 11 days without closing; 2 teacher ideas mapped to named material (the 53500 lecturer-alignment meeting's 'who even are you' divider slide, dictated 28.8.2026; and the 45900 complex-systems-and-analytics module referenced in the same 28.8 dictation). Auto-archive swept 0, all 17 pool ideas are 1-2 days old (checked programmatically against the 14-day cutoff). Live WebFetch verification of all three published JSON files was denied PROVENANCE_REQUIRED across all 3 attempts (unattended scheduled run, consistent with every prior run), confirmed instead by fresh clone of both repos: posts.json day 1 is 2026-09-01 with 3 ideas across all three pillars, videos.json day 1 is 2026-09-01 with 2 ideas each carrying all 4 prompt keys, meeting-room ideas.json updated field is 2026-09-01 with the 6 new ideas on top of the pool, competitions.json still valid JSON after the Astana status flip. Remote was up to date at every push, no rebase conflicts."
+  "durationMin": 36,
+  "webSearches": 6,
+  "webFetches": 6,
+  "commits": 4,
+  "notes": "Wednesday, no weekly meeting, full competitions sweep day. STEP 0 push check passed on first attempt (clone ai-post-brainstorm with the plain URL, no-op empty-commit push with the auth header, clean). Part A rotated: UX+AI and Figma Weave both drew from the same freshly fetched source (aiuxdesign.guide daily digest, 30.8.2026, not used before) but different facts, design-system agents surfacing the wrong component when pattern names lack written rationale for Figma Weave, and the CBI report on junior designers losing full decision cycles plus OpenAI's persistent Codex agent for UX+AI; teaching pillar came from the standing pool (10 Modern Web UX Behaviors, the 1st and opening one, video scrubbing, not used before), carrying the me cross to the real 24.8 session of course 45900. Format tag (check-in nevua) rotated onto idea 1, not used since 8.31, avoiding repeating idea 3's format from yesterday. Two generic WebSearches spent early (AI UX news, AI L&D training news) returned only evergreen trend pieces with no usable date, pivoted to aiuxdesign.guide directly which paid off. Checked last 14 days of posts.json first, no repeated hooks, angles or sources. Part B contest mode: 2 new ideas at 3:30 and 3:40 minutes (an old building lobby where residents read a trembling analog elevator needle instead of the accurate digital display, because its judder secretly tells them which elevator is closer; a municipal lost-and-found clerk who has kept a stranger's radio tuned to 101.2 for 35 years per a child's faded note, no longer sure if he still does it for the child or for himself), checked against the round-1 18-hook bank and every daily hook logged since 11.8, no duplicates, both sit on 4-5 of six winning mechanisms including asymmetric love on the second, all four prompts present, no Hebrew inside video/image, photoreal optimistic-near-future visual language matching the series. Higgsfield GFF (3.9, one day out, closes tomorrow) reverified via WebSearch of the same official X status already cited before (direct higgsfield.ai/contests fetch blocked PROVENANCE_REQUIRED again); unchanged. Astana was not reverified today, budget was spent on the time-critical Higgsfield deadline and the Wednesday sweep instead, left as נסגר per 1.9's verification with a dated note saying so rather than guessed at. Wednesday full sweep of aifilmcontests.com and open-arthouse.com attempted via WebSearch (direct fetch to aifilmcontests.com was blocked PROVENANCE_REQUIRED); no genuinely new, verifiable, contest-mode-eligible competition surfaced within budget, so nothing was added to competitions.json rather than guessing at unverified terms; two names worth a dedicated look next sweep (Sparknify Human vs AI, Artefact AI Film Festival 2026) were not chased further this run. Part C daily run: 0 visionary ideas, no dated-and-verified capability was found within the exhausted research budget that met the spec's bar (candidates found, Claude Design press coverage and generic model releases, either had an unverifiable or out-of-window release date, or no verified capability detail beyond a name), skipped rather than filing an invalid or fabricated one; 2 pain ideas with real evidence pulled from /areas/task-management.md (inbox.json again had zero unconsumed items): the June John Bryce retainer invoice stuck in a stale 'waiting' tag for 22 days with no active follow-up, and six verbally dictated Monday tasks from 28.8 that never got their own board IDs and only resurfaced by being echoed back in the daily brief; 2 teacher ideas mapped to named material (the 53500 lecturer-alignment meeting's lecturer-roundtable slide and its stated-goal slide, both from the 22-slide deck delivered 28.8.2026). Auto-archive sweep read the full pool (checked programmatically against the 14-day cutoff, 2026-08-19): 0 archived, every pool-status idea is 1-3 days old. Live WebFetch verification of all three published JSON files was denied PROVENANCE_REQUIRED across all 3 attempts (unattended scheduled run, consistent with every prior run), confirmed instead by fresh clone of both repos: posts.json day 1 is 2026-09-02 with 3 ideas across all three pillars and full image/video prompts, videos.json day 1 is 2026-09-02 with 2 ideas each carrying all 4 prompt keys, meeting-room ideas.json updated field is 2026-09-02 with the 4 new ideas on top of the pool. Remote was up to date at every push, no rebase conflicts."
+ },
+ {
+  "date": "2026-09-01",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-31",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 27,
-    "webSearches": 5,
-    "webFetches": 8,
-    "commits": 4,
-    "notes": "Monday, no weekly meeting, no full competitions sweep. STEP 0 push check passed (clone ai-post-brainstorm, no-op push to a throwaway branch with the auth header, then deleted the branch). Part A: rotated Figma Weave and UX+AI to real fresh research, teaching pillar from the standing pool (no web search needed). Figma Weave idea uses the AI-credit-updates FAQ (25.8.2026, fetched directly): Weave and the Figma Design agent move from free open beta to the shared AI-credit pool in a few weeks, real news for anyone pricing a Weave workshop. UX+AI idea uses Webflow's new Codex/ChatGPT Skills integration (24.8.2026, fetched directly), crossed with the 'prompt is a one-off request, skill is persistent memory' line from this week's Boaron-lecture teaching (me field). Teaching pillar idea (optimistic UI, the 9th of the 10 Modern Web UX Behaviors bonus lesson) came from the standing pool, format-tagged biografia-shel-obyekt, sourced from Eyal's own hachug-sheli page, no fresh search needed. Checked the last 14 days of posts.json first, no repeated hooks, angles or sources; also discarded the first two fresh-news candidates found (Figma auto-layout spacing and agent chat window) because both were already used on 8.28 and 8.27. Part B contest mode: 2 new ideas at 3:30 and 3:40 minutes (a synagogue caretaker who still flips a manual AC switch by hand forty years running even after a smart thermostat took over; an old parrot at a vet clinic that keeps saying its one calming phrase to arriving pet owners now that a phone bot handles check-ins), checked against the round-1 18-hook bank and every daily hook 11.8-30.8, no duplicates, both sit on 5 of 6 winning mechanisms (borrowed mockumentary format, one location, Hebrew VO, non-standard protagonist, small-awareness-shift ending), all four prompts present, no Hebrew inside video/image, optimistic-near-future photoreal visual language. Astana's deadline is today (31.8): spent one direct WebFetch on aaiff.ai itself (worked, no PROVENANCE_REQUIRED this time) and confirmed STAGE 02 closes today, plus a new detail worth carrying forward, the site itself says late entries are still considered at judges' discretion after 31.8. Left status 'פתוח' for today and flagged it for reassessment tomorrow rather than flipping to נסגר pre-emptively. Higgsfield GFF (3.9) was not reverified today, budget was spent on Astana since it is the one closing today; carried forward unchanged from 28.8. Sunday/Wednesday full sweep of aifilmcontests.com, open-arthouse.com and higgsfield.ai/contests for brand-new listings was skipped as designed for a Monday. Part C daily run: 2 visionary ideas reusing this run's own Part A capability finds (Build with Claude marketplace 23.8, Webflow Skills for ChatGPT/Codex 24.8) so no extra research call was needed; 2 pain ideas with evidence pulled from memory (/areas/business-expenses.md: a documented missed Figma invoice in a past receipts round from three same-sender billing streams; and the measured per-file cost and outright failure of moving large PDFs from Gmail to Drive through the MCP tools during the July-August 166-document round), inbox.json had zero unconsumed items so pain did not read from it this run; 2 teacher ideas mapped to named material (the Monday 45900 session that goes from a designed screen to PRD/build guide/style guide for Lovable and base44, dictated 28.8; and the rolling exercise spanning sessions 3-11). Auto-archive swept 0, all 5 pool ideas from 8.30 are only 1 day old. Live WebFetch verification of all three published JSON files was denied PROVENANCE_REQUIRED across all 3 attempts (unattended scheduled run, consistent with every prior run), confirmed instead by fresh clone of both repos: posts.json day 1 is 2026-08-31 with 3 ideas across all three pillars, videos.json day 1 is 2026-08-31 with 2 ideas each carrying all 4 prompt keys, meeting-room ideas.json updated field is 2026-08-31 with the 6 new ideas on top of the pool. Remote had moved ahead by an unrelated Part B/A commit sequence between the two simpla-lab pushes in this same run (Daily Director then Meeting Room); fetched and rebased cleanly each time, no conflicts."
+  "durationMin": 33,
+  "webSearches": 6,
+  "webFetches": 10,
+  "commits": 4,
+  "notes": "Tuesday, no weekly meeting, no full competitions sweep. STEP 0 push check passed on first attempt (clone ai-post-brainstorm with the plain URL, no-op dry-run push with the auth header, clean). Part A rotated: Figma Weave came from the standing pool for once (Figma Motion, launched at Config 2026 on 24.6.2026, little Hebrew content exists per the spec's own pool note; verified via a real fetch of a CMSWire recap after the direct figma.com blog fetch was blocked by robots.txt) and UX+AI came from real fresh research (aiuxdesign.guide's 31.8 weekly roundup on AI shipping faster than UX can evaluate, fetched directly); teaching pillar also from the standing pool (10 Modern Web UX Behaviors, the 10th and closing one, drag-to-reorder, not used before in the last 14+ days), carrying the me cross to a real classroom moment. Format rotated to reshimat-klim-ktsara for idea 1 and me-hakita-lasade for idea 3, neither used since 8/25 and 8/21 respectively, avoiding yesterday's biografiya-shel-obyekt. Checked last 14 days of posts.json first, no repeated hooks, angles or sources. Part B contest mode: 2 new ideas at 3:30 and 3:20 minutes (an elderly former station announcer who hears her own 32-year-old recording still naming a station that was renamed twice since; a secondhand bookshop owner who still pauses half a beat before turning at the door bell, the habit his late wife left him), checked against the round-1 18-hook bank and every daily hook logged since 11.8, no duplicates, both sit on five of six winning mechanisms including asymmetric love on the second, all four prompts present, no Hebrew inside video/image, photoreal optimistic-near-future visual language matching the series. Higgsfield GFF (3.9, two days out) reverified via WebSearch cross-check of the same official X status already cited before (direct higgsfield.ai/contests fetch blocked PROVENANCE_REQUIRED again), unchanged. Astana (31.8) flipped to נסגר: its deadline passed yesterday, a direct aaiff.ai fetch today was blocked PROVENANCE_REQUIRED and search found no further extension announcement, so it was closed per the same principle applied to Venice on 27.8, with the 31.8 grace-period finding (late entries still considered at judges' discretion) carried forward in the note rather than dropped. Also flagged in competitions.json: new-tech-aiff-2026 and neocinema both have today, 1.9.2026, as their own extended deadline, neither was reverified this run (budget spent on the two contest-mode-critical competitions instead), left open with a dated note to check tomorrow. Sunday/Wednesday full sweep of aifilmcontests.com, open-arthouse.com and higgsfield.ai/contests for brand-new listings was skipped as designed for a Tuesday. Part C daily run: 2 visionary ideas from fresh dated capabilities found via a targeted releasebot.io/updates/anthropic/claude fetch, neither used before (Claude for Teachers Enterprise offering, 28.8.2026; Claude in Chrome general availability, 26.8.2026), both distinct from the already-pooled Build with Claude marketplace and Webflow Skills capabilities; 2 pain ideas with real evidence pulled from /areas/task-management.md rather than inbox.json (which had zero unconsumed items again): two DATED tasks (film-wolt-submit, jb-spec-asaf) both dictated with a 23.8 deadline and only discovered overdue eight days later in the 31.8 morning brief, and the jb-hours-excel task re-raised three separate times across 11 days without closing; 2 teacher ideas mapped to named material (the 53500 lecturer-alignment meeting's 'who even are you' divider slide, dictated 28.8.2026; and the 45900 complex-systems-and-analytics module referenced in the same 28.8 dictation). Auto-archive swept 0, all 17 pool ideas are 1-2 days old (checked programmatically against the 14-day cutoff). Live WebFetch verification of all three published JSON files was denied PROVENANCE_REQUIRED across all 3 attempts (unattended scheduled run, consistent with every prior run), confirmed instead by fresh clone of both repos: posts.json day 1 is 2026-09-01 with 3 ideas across all three pillars, videos.json day 1 is 2026-09-01 with 2 ideas each carrying all 4 prompt keys, meeting-room ideas.json updated field is 2026-09-01 with the 6 new ideas on top of the pool, competitions.json still valid JSON after the Astana status flip. Remote was up to date at every push, no rebase conflicts."
+ },
+ {
+  "date": "2026-08-31",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-30",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 55,
-    "webSearches": 6,
-    "webFetches": 6,
-    "commits": 4,
-    "notes": "Sunday: STEP 0 push check passed (clone + dry-run push with auth header). Part A rotated away from the usual pattern on purpose: Figma Weave and teaching/L&D got real fresh research (Figma design-to-code agent sync via aiuxdesign.guide digest 28.8, and Build with Claude marketplace launch 23.8 via blockchain.news, both fetched), UX+AI came from the standing pool for once (skeleton loading, one of the 10 Modern Web UX Behaviors, format-tagged shtei-nekudot-bazman); checked last 14+ days of posts.json first, no repeated hooks or sources (had to discard the first Figma Weave candidate, vector eraser/paint-bucket, because 27.8 already used it). Part B contest mode: 2 new ideas at 3:20 and 3:25 (a teacher's worn red marking pen that still corrects one student by hand though AI grades instantly; a clinic eye chart whose bottom line spells a name), checked against the round-1 18-hook bank and every daily hook 11.8-28.8, no duplicates, both sit on 4 of 6 winning mechanisms including asymmetric love, all four prompts present, photoreal optimistic-near-future visual language, no Hebrew inside video/image. Research budget hit its hard cap exactly (6 fetches, 6 searches) mostly inside Part A's harder-than-usual search for genuinely fresh teaching-pillar news, so Part B's Sunday full competitions sweep (aifilmcontests.com, open-arthouse.com, higgsfield.ai/contests for new listings) was skipped this run, noted in competitions.json; Astana (31.8, one day to close) and Higgsfield GFF (3.9) were spot-checked via WebSearch only, no direct site fetch, no change found versus 28.8. Part C: daily run added 5 ideas, 2 visionary reusing this run's own verified Part A capabilities (Build with Claude marketplace 23.8, Figma design-to-code sync 28.8), 1 pain with evidence pulled straight from runs.json's own history of repeated budget-cap overruns (now reinforced by today's own near-miss), 2 teacher ideas mapped to named modules (מיישם AI ואוטומציה סוכנים ו-MCP, AI Product Design & UX/UI משוב וביקורת); auto-archive swept 0 (oldest pool idea was 13 days old). Weekly meeting M-2026-W35: pm read decisions.json first (still 12 decisions, unchanged, readBack left as-is since nothing new to learn from), reviewed all 54 pre-existing pool ideas (today's 5 daily-run additions correctly excluded from this week's review, matching how W34 treated its own same-day additions), rejected 51 with one line each, pitched 3 (מד תקציב ריצה session/pain, גלריית סקילים אמיתיים weekend/visionary, בדיקת עשר ההתנהגויות session/teacher), each with a counter-note from a different advisor and an effort tag; current pointer moved to M-2026-W35 in the same commit as the meeting object. Live product count is 7 (not a fresh multiple of 5), so no pattern paragraph was due this run; flagged here that the 5-product pattern trigger appears to have been missed historically around PR-005, left alone rather than backfilled retroactively. Remote had moved 6 commits ahead (unrelated storyboard QC work) between clone and push; fetched and rebased cleanly, no conflicts, verified all 4 touched JSON files still valid after rebase. Live WebFetch verification of the three published JSON files was not attempted this run (fetch budget fully spent on research); verified instead by re-reading the locally pushed files directly before this log entry, all four show 2026-08-30 as expected."
+  "durationMin": 27,
+  "webSearches": 5,
+  "webFetches": 8,
+  "commits": 4,
+  "notes": "Monday, no weekly meeting, no full competitions sweep. STEP 0 push check passed (clone ai-post-brainstorm, no-op push to a throwaway branch with the auth header, then deleted the branch). Part A: rotated Figma Weave and UX+AI to real fresh research, teaching pillar from the standing pool (no web search needed). Figma Weave idea uses the AI-credit-updates FAQ (25.8.2026, fetched directly): Weave and the Figma Design agent move from free open beta to the shared AI-credit pool in a few weeks, real news for anyone pricing a Weave workshop. UX+AI idea uses Webflow's new Codex/ChatGPT Skills integration (24.8.2026, fetched directly), crossed with the 'prompt is a one-off request, skill is persistent memory' line from this week's Boaron-lecture teaching (me field). Teaching pillar idea (optimistic UI, the 9th of the 10 Modern Web UX Behaviors bonus lesson) came from the standing pool, format-tagged biografia-shel-obyekt, sourced from Eyal's own hachug-sheli page, no fresh search needed. Checked the last 14 days of posts.json first, no repeated hooks, angles or sources; also discarded the first two fresh-news candidates found (Figma auto-layout spacing and agent chat window) because both were already used on 8.28 and 8.27. Part B contest mode: 2 new ideas at 3:30 and 3:40 minutes (a synagogue caretaker who still flips a manual AC switch by hand forty years running even after a smart thermostat took over; an old parrot at a vet clinic that keeps saying its one calming phrase to arriving pet owners now that a phone bot handles check-ins), checked against the round-1 18-hook bank and every daily hook 11.8-30.8, no duplicates, both sit on 5 of 6 winning mechanisms (borrowed mockumentary format, one location, Hebrew VO, non-standard protagonist, small-awareness-shift ending), all four prompts present, no Hebrew inside video/image, optimistic-near-future photoreal visual language. Astana's deadline is today (31.8): spent one direct WebFetch on aaiff.ai itself (worked, no PROVENANCE_REQUIRED this time) and confirmed STAGE 02 closes today, plus a new detail worth carrying forward, the site itself says late entries are still considered at judges' discretion after 31.8. Left status 'פתוח' for today and flagged it for reassessment tomorrow rather than flipping to נסגר pre-emptively. Higgsfield GFF (3.9) was not reverified today, budget was spent on Astana since it is the one closing today; carried forward unchanged from 28.8. Sunday/Wednesday full sweep of aifilmcontests.com, open-arthouse.com and higgsfield.ai/contests for brand-new listings was skipped as designed for a Monday. Part C daily run: 2 visionary ideas reusing this run's own Part A capability finds (Build with Claude marketplace 23.8, Webflow Skills for ChatGPT/Codex 24.8) so no extra research call was needed; 2 pain ideas with evidence pulled from memory (/areas/business-expenses.md: a documented missed Figma invoice in a past receipts round from three same-sender billing streams; and the measured per-file cost and outright failure of moving large PDFs from Gmail to Drive through the MCP tools during the July-August 166-document round), inbox.json had zero unconsumed items so pain did not read from it this run; 2 teacher ideas mapped to named material (the Monday 45900 session that goes from a designed screen to PRD/build guide/style guide for Lovable and base44, dictated 28.8; and the rolling exercise spanning sessions 3-11). Auto-archive swept 0, all 5 pool ideas from 8.30 are only 1 day old. Live WebFetch verification of all three published JSON files was denied PROVENANCE_REQUIRED across all 3 attempts (unattended scheduled run, consistent with every prior run), confirmed instead by fresh clone of both repos: posts.json day 1 is 2026-08-31 with 3 ideas across all three pillars, videos.json day 1 is 2026-08-31 with 2 ideas each carrying all 4 prompt keys, meeting-room ideas.json updated field is 2026-08-31 with the 6 new ideas on top of the pool. Remote had moved ahead by an unrelated Part B/A commit sequence between the two simpla-lab pushes in this same run (Daily Director then Meeting Room); fetched and rebased cleanly each time, no conflicts."
+ },
+ {
+  "date": "2026-08-30",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-28",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 18,
-    "webSearches": 6,
-    "webFetches": 5,
-    "commits": 5,
-    "notes": "Friday, no weekly meeting, no full competitions sweep. STEP 0 push check passed (clone + no-op push with auth header, cleaned up afterward). Part A rotated: Figma Weave (detachable agent chat panel, opens into its own window on desktop app, 26.8, via releasebot.io fetch) and UX+AI (auto layout Around/Evenly spacing modes aligned to CSS justify-content, 21.8, same fetch) deep researched using releasebot.io/updates/figma and aiuxdesign.guide/news (both fetched directly); teaching pillar from the standing pool (Boaron lecture round 2 gold, prompt-is-a-request vs skill-is-memory framing) carrying the me cross, distinct from yesterday's round-1 two-ways-to-build-a-skill post. Checked last 3 days of posts.json for repeats before writing, no overlap. Part B contest mode: 2 new ideas at 3:35 and 3:15 (a fake local-TV commercial for a watch shop that closed 7 years ago, still looping on a TV in the shuttered storefront window; a dial-up modem an internet cafe owner still dials every morning for the sound alone, his late partner's old wake-up cue), both checked against the round-1 18-hook bank and every daily hook 23.8-27.8, no duplicates, both sit on 5 of 6 winning mechanisms, all four prompts present, photoreal visual language, no Hebrew inside video/image. Competitions.json: only the two competitions inside the 7-day window that anchor contest mode were reverified (Astana 31.8, 3 days out; Higgsfield GFF 3.9, 6 days out), both via WebSearch only since the direct-fetch research budget was spent on Part A, no change found in either deadline; New Technologies AIFF, NeoCinema and AI Film Festival Japan (all closing within 7 days too) were left at their last verification, budget did not stretch to them, noted here rather than guessed at. Part C daily run: 2 visionary ideas reusing this run's own Part A findings as dated capabilities (detachable agent chat panel 26.8, erase+drag-to-fill vector tools 24.8) so no extra research call was needed; 0 pain ideas, inbox.json has zero unconsumed items and no fresh repeated-action evidence surfaced this run, skipped rather than invented; 2 teacher ideas mapped to named 45900 sessions (27.8 video-scrubbing landing-page session, and the Nielsen heuristics module), phrased as classroom-screen questions. Auto-archive swept 0, no pool idea older than 14 days. Live WebFetch verification of all three published JSON files (posts.json, videos.json, meeting-room ideas.json) was denied PROVENANCE_REQUIRED across all 3 attempts (unattended scheduled run), confirmed instead by fresh clone of both repos: posts.json day 1 is 2026-08-28 with 3 ideas, videos.json day 1 is 2026-08-28 with 2 ideas each carrying all 4 prompt keys, meeting-room ideas.json updated field is 2026-08-28 with the 4 new ideas on top."
+  "durationMin": 55,
+  "webSearches": 6,
+  "webFetches": 6,
+  "commits": 4,
+  "notes": "Sunday: STEP 0 push check passed (clone + dry-run push with auth header). Part A rotated away from the usual pattern on purpose: Figma Weave and teaching/L&D got real fresh research (Figma design-to-code agent sync via aiuxdesign.guide digest 28.8, and Build with Claude marketplace launch 23.8 via blockchain.news, both fetched), UX+AI came from the standing pool for once (skeleton loading, one of the 10 Modern Web UX Behaviors, format-tagged shtei-nekudot-bazman); checked last 14+ days of posts.json first, no repeated hooks or sources (had to discard the first Figma Weave candidate, vector eraser/paint-bucket, because 27.8 already used it). Part B contest mode: 2 new ideas at 3:20 and 3:25 (a teacher's worn red marking pen that still corrects one student by hand though AI grades instantly; a clinic eye chart whose bottom line spells a name), checked against the round-1 18-hook bank and every daily hook 11.8-28.8, no duplicates, both sit on 4 of 6 winning mechanisms including asymmetric love, all four prompts present, photoreal optimistic-near-future visual language, no Hebrew inside video/image. Research budget hit its hard cap exactly (6 fetches, 6 searches) mostly inside Part A's harder-than-usual search for genuinely fresh teaching-pillar news, so Part B's Sunday full competitions sweep (aifilmcontests.com, open-arthouse.com, higgsfield.ai/contests for new listings) was skipped this run, noted in competitions.json; Astana (31.8, one day to close) and Higgsfield GFF (3.9) were spot-checked via WebSearch only, no direct site fetch, no change found versus 28.8. Part C: daily run added 5 ideas, 2 visionary reusing this run's own verified Part A capabilities (Build with Claude marketplace 23.8, Figma design-to-code sync 28.8), 1 pain with evidence pulled straight from runs.json's own history of repeated budget-cap overruns (now reinforced by today's own near-miss), 2 teacher ideas mapped to named modules (מיישם AI ואוטומציה סוכנים ו-MCP, AI Product Design & UX/UI משוב וביקורת); auto-archive swept 0 (oldest pool idea was 13 days old). Weekly meeting M-2026-W35: pm read decisions.json first (still 12 decisions, unchanged, readBack left as-is since nothing new to learn from), reviewed all 54 pre-existing pool ideas (today's 5 daily-run additions correctly excluded from this week's review, matching how W34 treated its own same-day additions), rejected 51 with one line each, pitched 3 (מד תקציב ריצה session/pain, גלריית סקילים אמיתיים weekend/visionary, בדיקת עשר ההתנהגויות session/teacher), each with a counter-note from a different advisor and an effort tag; current pointer moved to M-2026-W35 in the same commit as the meeting object. Live product count is 7 (not a fresh multiple of 5), so no pattern paragraph was due this run; flagged here that the 5-product pattern trigger appears to have been missed historically around PR-005, left alone rather than backfilled retroactively. Remote had moved 6 commits ahead (unrelated storyboard QC work) between clone and push; fetched and rebased cleanly, no conflicts, verified all 4 touched JSON files still valid after rebase. Live WebFetch verification of the three published JSON files was not attempted this run (fetch budget fully spent on research); verified instead by re-reading the locally pushed files directly before this log entry, all four show 2026-08-30 as expected."
+ },
+ {
+  "date": "2026-08-28",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-27",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 42,
-    "webSearches": 6,
-    "webFetches": 9,
-    "commits": 3,
-    "notes": "Thursday, no weekly meeting, no full competitions sweep. STEP 0 push check passed (dry-run push with auth header, no auth issues). Part A rotated: Figma Weave (erase and drag-to-fill vector editing tools, 24.8, via releasebot.io fetch) and UX+AI (NN/g Artificial Intelligence Glossary, 21.8, via nngroup.com fetch) deep researched; teaching pillar from today's real 45900 session (27.8: video scrubbing + landing page best practices) with the me cross, format rotated to biografiya-shel-object (not used in the last 6+ days). Two of six research fetches failed PROVENANCE_REQUIRED (aiuxdesign.guide twice, releasebot.io/updates/anthropic once); pivoted to nngroup.com which worked. Part B contest mode: 2 ideas at 3:30 and 3:45 (a key-cutting machine that recognizes keys by sound, and a stuck piano key at a train station that breaks an unnoticed bond once fixed), both checked against the round-1 18-hook bank and every daily hook since 11.8, no duplicates, both sit on 4-5 of 6 winning mechanisms, all four prompts present in clay visual language, no Hebrew inside video/image. Competitions.json: Venice flipped to נסגר (deadline 26.8 passed, could not reverify filmfreeway.com within exhausted fetch budget); naiff-lagos removed (closed 8.7, 50 days old, past the 30-day retention window); Higgsfield GFF and Astana both reconfirmed via WebSearch only (last search in the 6-call budget resurfaced the same 6.8 Qazinform extension article already cited 26.8, no new change found, no direct site fetch possible). Part C daily run: 0 visionary ideas, both fresh-dated Figma capabilities found today (erase/drag-fill and MCP enterprise auth, both 24.8) were already in the pool from 25.8's run (I-2026-0335, I-2026-0334), so no undated or duplicate capability was forced; 2 pain ideas from real non-financial evidence in task-management memory (repeated Gamma-markdown deck requests, and three separate manual session-count corrections in 45900 this August); 2 teacher ideas mapped to named 45900 sessions (17.8 style-guide-directions, 27.8 asset-cutting step), phrased as questions. Auto-archive swept 0, oldest pool idea is 17.8 (10 days). Live verify: all 3 WebFetch calls (posts.json, videos.json, meeting-room ideas.json) denied PROVENANCE_REQUIRED (unattended run), confirmed instead via fresh clone of both repos; all files show 27.8.2026 with today's content, both video ideas carry complete 4-key prompts objects."
+  "durationMin": 18,
+  "webSearches": 6,
+  "webFetches": 5,
+  "commits": 5,
+  "notes": "Friday, no weekly meeting, no full competitions sweep. STEP 0 push check passed (clone + no-op push with auth header, cleaned up afterward). Part A rotated: Figma Weave (detachable agent chat panel, opens into its own window on desktop app, 26.8, via releasebot.io fetch) and UX+AI (auto layout Around/Evenly spacing modes aligned to CSS justify-content, 21.8, same fetch) deep researched using releasebot.io/updates/figma and aiuxdesign.guide/news (both fetched directly); teaching pillar from the standing pool (Boaron lecture round 2 gold, prompt-is-a-request vs skill-is-memory framing) carrying the me cross, distinct from yesterday's round-1 two-ways-to-build-a-skill post. Checked last 3 days of posts.json for repeats before writing, no overlap. Part B contest mode: 2 new ideas at 3:35 and 3:15 (a fake local-TV commercial for a watch shop that closed 7 years ago, still looping on a TV in the shuttered storefront window; a dial-up modem an internet cafe owner still dials every morning for the sound alone, his late partner's old wake-up cue), both checked against the round-1 18-hook bank and every daily hook 23.8-27.8, no duplicates, both sit on 5 of 6 winning mechanisms, all four prompts present, photoreal visual language, no Hebrew inside video/image. Competitions.json: only the two competitions inside the 7-day window that anchor contest mode were reverified (Astana 31.8, 3 days out; Higgsfield GFF 3.9, 6 days out), both via WebSearch only since the direct-fetch research budget was spent on Part A, no change found in either deadline; New Technologies AIFF, NeoCinema and AI Film Festival Japan (all closing within 7 days too) were left at their last verification, budget did not stretch to them, noted here rather than guessed at. Part C daily run: 2 visionary ideas reusing this run's own Part A findings as dated capabilities (detachable agent chat panel 26.8, erase+drag-to-fill vector tools 24.8) so no extra research call was needed; 0 pain ideas, inbox.json has zero unconsumed items and no fresh repeated-action evidence surfaced this run, skipped rather than invented; 2 teacher ideas mapped to named 45900 sessions (27.8 video-scrubbing landing-page session, and the Nielsen heuristics module), phrased as classroom-screen questions. Auto-archive swept 0, no pool idea older than 14 days. Live WebFetch verification of all three published JSON files (posts.json, videos.json, meeting-room ideas.json) was denied PROVENANCE_REQUIRED across all 3 attempts (unattended scheduled run), confirmed instead by fresh clone of both repos: posts.json day 1 is 2026-08-28 with 3 ideas, videos.json day 1 is 2026-08-28 with 2 ideas each carrying all 4 prompt keys, meeting-room ideas.json updated field is 2026-08-28 with the 4 new ideas on top."
+ },
+ {
+  "date": "2026-08-27",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-24",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 24,
-    "webSearches": 5,
-    "webFetches": 6,
-    "commits": 2,
-    "notes": "Monday, no weekly meeting. STEP 0 push check passed (clone needed 2 attempts, first hit a transient 503 from the git proxy). Part A rotated: deep research on Figma Weave (Figma auto layout responsive spacing Around/Evenly, 21.8, via releasebot fetch) and UX+AI (Jim Nielsen sloppy-UI-as-security-risk plus Figma Sightlines, 20.8, via aiuxdesign.guide fetch); teaching pillar from the standing pool (10 Modern Web UX Behaviors, the max-two-behaviors golden rule) carrying the me cross to course 45900; format rotated to chida vizualit, not repeating yesterday's check-in nevua. Part B contest mode: 2 ideas at 3:20 and 3:30 (unsent cassettes to a sister, and a claymation onboarding video playing to an empty room), both checked against the round-1 18-hook bank and every daily hook since 11.8, no duplicates; both carry all four prompts, no Hebrew inside video/image. Monday means verify-only on competitions: GFF 3.9 confirmed via the official Higgsfield timeline announcement, Astana 31.8 confirmed as the extended deadline (was 15.8) via Kazinform 6.8; higgsfield.ai/contests fetch denied PROVENANCE_REQUIRED so Venice 26.8 and Japan 31.8 were left at their last verification with a dated note saying so. Part C daily run added 6 ideas (2 per advisor), both visionary ideas carry dated Figma capabilities verified this run (21.8 and 14.8), both pain ideas carry evidence read straight out of runs.json (blocked verification fetches on 23.8 and 24.8, and two consecutive runs logging 10 fetches against a cap of 6); auto-archive sweep found nothing, oldest pool idea is 17.8. Live verify by fresh clone after push."
+  "durationMin": 42,
+  "webSearches": 6,
+  "webFetches": 9,
+  "commits": 3,
+  "notes": "Thursday, no weekly meeting, no full competitions sweep. STEP 0 push check passed (dry-run push with auth header, no auth issues). Part A rotated: Figma Weave (erase and drag-to-fill vector editing tools, 24.8, via releasebot.io fetch) and UX+AI (NN/g Artificial Intelligence Glossary, 21.8, via nngroup.com fetch) deep researched; teaching pillar from today's real 45900 session (27.8: video scrubbing + landing page best practices) with the me cross, format rotated to biografiya-shel-object (not used in the last 6+ days). Two of six research fetches failed PROVENANCE_REQUIRED (aiuxdesign.guide twice, releasebot.io/updates/anthropic once); pivoted to nngroup.com which worked. Part B contest mode: 2 ideas at 3:30 and 3:45 (a key-cutting machine that recognizes keys by sound, and a stuck piano key at a train station that breaks an unnoticed bond once fixed), both checked against the round-1 18-hook bank and every daily hook since 11.8, no duplicates, both sit on 4-5 of 6 winning mechanisms, all four prompts present in clay visual language, no Hebrew inside video/image. Competitions.json: Venice flipped to נסגר (deadline 26.8 passed, could not reverify filmfreeway.com within exhausted fetch budget); naiff-lagos removed (closed 8.7, 50 days old, past the 30-day retention window); Higgsfield GFF and Astana both reconfirmed via WebSearch only (last search in the 6-call budget resurfaced the same 6.8 Qazinform extension article already cited 26.8, no new change found, no direct site fetch possible). Part C daily run: 0 visionary ideas, both fresh-dated Figma capabilities found today (erase/drag-fill and MCP enterprise auth, both 24.8) were already in the pool from 25.8's run (I-2026-0335, I-2026-0334), so no undated or duplicate capability was forced; 2 pain ideas from real non-financial evidence in task-management memory (repeated Gamma-markdown deck requests, and three separate manual session-count corrections in 45900 this August); 2 teacher ideas mapped to named 45900 sessions (17.8 style-guide-directions, 27.8 asset-cutting step), phrased as questions. Auto-archive swept 0, oldest pool idea is 17.8 (10 days). Live verify: all 3 WebFetch calls (posts.json, videos.json, meeting-room ideas.json) denied PROVENANCE_REQUIRED (unattended run), confirmed instead via fresh clone of both repos; all files show 27.8.2026 with today's content, both video ideas carry complete 4-key prompts objects."
+ },
+ {
+  "date": "2026-08-24",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-23",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 28,
-    "webSearches": 4,
-    "webFetches": 10,
-    "commits": 4,
-    "notes": "Sunday: weekly meeting W34 (31 reviewed incl. 3 carried-over undecided pitches from W33 dropped after 2 weeks with no stamp) + full competition sweep attempted. All 4 competition-site fetches (aiuxdesign.guide, aifilmcontests.com, aaiff.ai, higgsfield.ai/contests) denied PROVENANCE_REQUIRED, no new competitions added, existing deadlines kept as last verified with dated notes appended; 2 research fetches succeeded (releasebot.io/anthropic, learningnews.com) covering Part A teaching pillar (Erica Farmer/Training Journal, 21.8) and Part A UX+AI pillar plus Part C visionary capability (Anthropic Skills API GA + Browser/Computer Use GA, both 20.8); Figma Weave pillar from standing pool (mobbin-design-research skill, me cross); both new Director ideas are contest-mode (3:10 and 3:30, kiosk/newspaper and retired-lifeguard, checked against the round-1 18-hook bank and all daily hooks since 16.8, no duplicates), no worth-watching links added this run (fetch budget exhausted); meeting-room daily run added 6 ideas (2 per advisor); live verify: all 4 WebFetch calls denied PROVENANCE_REQUIRED (unattended run), confirmed instead via fresh clone of both repos, all four files correct."
+  "durationMin": 24,
+  "webSearches": 5,
+  "webFetches": 6,
+  "commits": 2,
+  "notes": "Monday, no weekly meeting. STEP 0 push check passed (clone needed 2 attempts, first hit a transient 503 from the git proxy). Part A rotated: deep research on Figma Weave (Figma auto layout responsive spacing Around/Evenly, 21.8, via releasebot fetch) and UX+AI (Jim Nielsen sloppy-UI-as-security-risk plus Figma Sightlines, 20.8, via aiuxdesign.guide fetch); teaching pillar from the standing pool (10 Modern Web UX Behaviors, the max-two-behaviors golden rule) carrying the me cross to course 45900; format rotated to chida vizualit, not repeating yesterday's check-in nevua. Part B contest mode: 2 ideas at 3:20 and 3:30 (unsent cassettes to a sister, and a claymation onboarding video playing to an empty room), both checked against the round-1 18-hook bank and every daily hook since 11.8, no duplicates; both carry all four prompts, no Hebrew inside video/image. Monday means verify-only on competitions: GFF 3.9 confirmed via the official Higgsfield timeline announcement, Astana 31.8 confirmed as the extended deadline (was 15.8) via Kazinform 6.8; higgsfield.ai/contests fetch denied PROVENANCE_REQUIRED so Venice 26.8 and Japan 31.8 were left at their last verification with a dated note saying so. Part C daily run added 6 ideas (2 per advisor), both visionary ideas carry dated Figma capabilities verified this run (21.8 and 14.8), both pain ideas carry evidence read straight out of runs.json (blocked verification fetches on 23.8 and 24.8, and two consecutive runs logging 10 fetches against a cap of 6); auto-archive sweep found nothing, oldest pool idea is 17.8. Live verify by fresh clone after push."
+ },
+ {
+  "date": "2026-08-23",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-21",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 30,
-    "webSearches": 6,
-    "webFetches": 10,
-    "commits": 4,
-    "notes": "Part A rotated: UX+AI ו-הוראה נחקרו, Figma Weave מהמאגר הקבוע (Figma Motion). Part B: יום שישי, בלי סריקת תחרויות מלאה, רק אימות Higgsfield Adathon (נכשל PROVENANCE_REQUIRED, נשמר כפי שאומת 20.8). Part C: בלי ארכוב, הכל נוגע פחות מ-14 יום. אימות סופי (שלב 12) נכשל PROVENANCE_REQUIRED בשלושתם, אומת חלף זאת בשכפול חוזר."
+  "durationMin": 28,
+  "webSearches": 4,
+  "webFetches": 10,
+  "commits": 4,
+  "notes": "Sunday: weekly meeting W34 (31 reviewed incl. 3 carried-over undecided pitches from W33 dropped after 2 weeks with no stamp) + full competition sweep attempted. All 4 competition-site fetches (aiuxdesign.guide, aifilmcontests.com, aaiff.ai, higgsfield.ai/contests) denied PROVENANCE_REQUIRED, no new competitions added, existing deadlines kept as last verified with dated notes appended; 2 research fetches succeeded (releasebot.io/anthropic, learningnews.com) covering Part A teaching pillar (Erica Farmer/Training Journal, 21.8) and Part A UX+AI pillar plus Part C visionary capability (Anthropic Skills API GA + Browser/Computer Use GA, both 20.8); Figma Weave pillar from standing pool (mobbin-design-research skill, me cross); both new Director ideas are contest-mode (3:10 and 3:30, kiosk/newspaper and retired-lifeguard, checked against the round-1 18-hook bank and all daily hooks since 16.8, no duplicates), no worth-watching links added this run (fetch budget exhausted); meeting-room daily run added 6 ideas (2 per advisor); live verify: all 4 WebFetch calls denied PROVENANCE_REQUIRED (unattended run), confirmed instead via fresh clone of both repos, all four files correct."
+ },
+ {
+  "date": "2026-08-21",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-03",
-    "parts": {
-      "A": "failed",
-      "B": "failed",
-      "C": "failed"
-    },
-    "durationMin": 40,
-    "webSearches": 10,
-    "webFetches": 10,
-    "commits": 2,
-    "notes": "content generated for all parts; git push denied by sandbox (GitHub write access not enabled for session, 403), nothing published; files delivered to Eyal in chat"
+  "durationMin": 30,
+  "webSearches": 6,
+  "webFetches": 10,
+  "commits": 4,
+  "notes": "Part A rotated: UX+AI ו-הוראה נחקרו, Figma Weave מהמאגר הקבוע (Figma Motion). Part B: יום שישי, בלי סריקת תחרויות מלאה, רק אימות Higgsfield Adathon (נכשל PROVENANCE_REQUIRED, נשמר כפי שאומת 20.8). Part C: בלי ארכוב, הכל נוגע פחות מ-14 יום. אימות סופי (שלב 12) נכשל PROVENANCE_REQUIRED בשלושתם, אומת חלף זאת בשכפול חוזר."
+ },
+ {
+  "date": "2026-08-03",
+  "parts": {
+   "A": "failed",
+   "B": "failed",
+   "C": "failed"
   },
-  {
-    "date": "2026-08-04",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 14,
-    "webSearches": 4,
-    "webFetches": 7,
-    "commits": 3,
-    "notes": "clean; 7th fetch was a cache-busting retry of live posts.json verification, research stayed at 3 fetches"
+  "durationMin": 40,
+  "webSearches": 10,
+  "webFetches": 10,
+  "commits": 2,
+  "notes": "content generated for all parts; git push denied by sandbox (GitHub write access not enabled for session, 403), nothing published; files delivered to Eyal in chat"
+ },
+ {
+  "date": "2026-08-04",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-06",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 22,
-    "webSearches": 5,
-    "webFetches": 5,
-    "commits": 3,
-    "notes": "clean; 2 of 5 fetches denied with PROVENANCE_REQUIRED (unattended), live verify done via fresh clone; Thursday light competitions pass, no deadline inside 7 days"
+  "durationMin": 14,
+  "webSearches": 4,
+  "webFetches": 7,
+  "commits": 3,
+  "notes": "clean; 7th fetch was a cache-busting retry of live posts.json verification, research stayed at 3 fetches"
+ },
+ {
+  "date": "2026-08-06",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-07",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 15,
-    "webSearches": 6,
-    "webFetches": 6,
-    "commits": 2,
-    "notes": "clean; 3 of 6 fetches denied PROVENANCE_REQUIRED (figma.com, releasebot, figmalion); visionary brought 0 ideas, no fresh dated capability verifiable within budget; Friday light competitions pass, no deadline inside 7 days; live verify via clone"
+  "durationMin": 22,
+  "webSearches": 5,
+  "webFetches": 5,
+  "commits": 3,
+  "notes": "clean; 2 of 5 fetches denied with PROVENANCE_REQUIRED (unattended), live verify done via fresh clone; Thursday light competitions pass, no deadline inside 7 days"
+ },
+ {
+  "date": "2026-08-07",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-09",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 25,
-    "webSearches": 6,
-    "webFetches": 6,
-    "commits": 2,
-    "notes": "Sunday: weekly meeting W32 (35 reviewed, 3 pitches) + full comp sweep; 4 of 6 fetches denied (uxlift 403; aiuxdesign, xprize, filmfreeway provenance) so XPRIZE+AIMF 15.8 deadlines kept as previously verified, no new comps added; visionary 0 ideas, no verifiable dated capability; live verify via clone"
+  "durationMin": 15,
+  "webSearches": 6,
+  "webFetches": 6,
+  "commits": 2,
+  "notes": "clean; 3 of 6 fetches denied PROVENANCE_REQUIRED (figma.com, releasebot, figmalion); visionary brought 0 ideas, no fresh dated capability verifiable within budget; Friday light competitions pass, no deadline inside 7 days; live verify via clone"
+ },
+ {
+  "date": "2026-08-09",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-11",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 20,
-    "webSearches": 6,
-    "webFetches": 6,
-    "commits": 4,
-    "notes": "clean; visionary brought 0 ideas again, no fresh dated capability verifiable within budget (Figma Agent found but dated 20.5, too old); xprize deadline 15.8 re-verified live at futurevisionxprize.com/rules, aimf-la fetch blocked (PROVENANCE_REQUIRED) so kept as previously verified; live verify via fresh clone, not WebFetch"
+  "durationMin": 25,
+  "webSearches": 6,
+  "webFetches": 6,
+  "commits": 2,
+  "notes": "Sunday: weekly meeting W32 (35 reviewed, 3 pitches) + full comp sweep; 4 of 6 fetches denied (uxlift 403; aiuxdesign, xprize, filmfreeway provenance) so XPRIZE+AIMF 15.8 deadlines kept as previously verified, no new comps added; visionary 0 ideas, no verifiable dated capability; live verify via clone"
+ },
+ {
+  "date": "2026-08-11",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-12",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 30,
-    "webSearches": 3,
-    "webFetches": 6,
-    "commits": 4,
-    "notes": "clean; Wednesday full comp sweep via aifilmcontests.com surfaced ~50 more festivals but none verified individually on their own site within budget, none added; xprize+aimf 15.8 deadlines re-verified (xprize live, aimf cross-checked via aggregator, filmfreeway still unreachable); 1 of 6 fetches denied PROVENANCE_REQUIRED (aiuxdesign.guide); live verify blocked PROVENANCE_REQUIRED on all three sites, done via fresh clone instead"
+  "durationMin": 20,
+  "webSearches": 6,
+  "webFetches": 6,
+  "commits": 4,
+  "notes": "clean; visionary brought 0 ideas again, no fresh dated capability verifiable within budget (Figma Agent found but dated 20.5, too old); xprize deadline 15.8 re-verified live at futurevisionxprize.com/rules, aimf-la fetch blocked (PROVENANCE_REQUIRED) so kept as previously verified; live verify via fresh clone, not WebFetch"
+ },
+ {
+  "date": "2026-08-12",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-13",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 27,
-    "webSearches": 5,
-    "webFetches": 9,
-    "commits": 2,
-    "notes": "clean; research fetches 6 of 6 budget (figma release notes, aiuxdesign news, digg 403, figma weave tools doc, MCP MRTR spec, xprize rules PROVENANCE_REQUIRED); Thursday light comp pass only, xprize+aimf-la 15.8 both unverifiable today (PROVENANCE_REQUIRED / filmfreeway still blocked), kept as previously verified 12.8 unchanged; pain advisor brought 0 ideas (inbox empty, closest fresh evidence overlapped two already-rejected ideas so skipped rather than invent); visionary used MCP Multi Round-Trip Requests spec (28.7) as the dated capability; live verify via fresh clone, all 3 WebFetch calls denied PROVENANCE_REQUIRED (unattended run)"
+  "durationMin": 30,
+  "webSearches": 3,
+  "webFetches": 6,
+  "commits": 4,
+  "notes": "clean; Wednesday full comp sweep via aifilmcontests.com surfaced ~50 more festivals but none verified individually on their own site within budget, none added; xprize+aimf 15.8 deadlines re-verified (xprize live, aimf cross-checked via aggregator, filmfreeway still unreachable); 1 of 6 fetches denied PROVENANCE_REQUIRED (aiuxdesign.guide); live verify blocked PROVENANCE_REQUIRED on all three sites, done via fresh clone instead"
+ },
+ {
+  "date": "2026-08-13",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-14",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 25,
-    "webSearches": 6,
-    "webFetches": 6,
-    "commits": 3,
-    "notes": "clean; big find was Astana's 31.8 deadline reconfirmed via 2 independent sources (aaiff.ai + Qazinform, 1500+ submissions from 90 countries) plus Claude Design launch (VentureBeat) used for both a post idea and video why-now; xprize+aimf-la both close 15.8 tomorrow but were unreachable this run (PROVENANCE_REQUIRED / 404), kept as previously verified; visionary brought 0 ideas, no cleanly-dated capability verifiable within budget; Friday light competitions pass, no full sweep; pain/teacher ideas sourced entirely from existing memory evidence, no research spent; all 3 simpla-lab JSON files needed a 2-space to 1-space indent fix before first commit to avoid a full-file reformat diff, caught before push; live verify via fresh clone, WebFetch not attempted given consistent unattended PROVENANCE_REQUIRED history"
+  "durationMin": 27,
+  "webSearches": 5,
+  "webFetches": 9,
+  "commits": 2,
+  "notes": "clean; research fetches 6 of 6 budget (figma release notes, aiuxdesign news, digg 403, figma weave tools doc, MCP MRTR spec, xprize rules PROVENANCE_REQUIRED); Thursday light comp pass only, xprize+aimf-la 15.8 both unverifiable today (PROVENANCE_REQUIRED / filmfreeway still blocked), kept as previously verified 12.8 unchanged; pain advisor brought 0 ideas (inbox empty, closest fresh evidence overlapped two already-rejected ideas so skipped rather than invent); visionary used MCP Multi Round-Trip Requests spec (28.7) as the dated capability; live verify via fresh clone, all 3 WebFetch calls denied PROVENANCE_REQUIRED (unattended run)"
+ },
+ {
+  "date": "2026-08-14",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-16",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 27,
-    "webSearches": 6,
-    "webFetches": 11,
-    "commits": 5,
-    "notes": "Sunday: weekly meeting W33 (22 reviewed incl. 3 carried-over undecided pitches from W32, 3 new session-effort pitches) + full competition sweep. 2 of 8 research fetches denied by figma.com robots.txt (used help.figma.com and muz.li as alternates); Higgsfield GFF deadline re-verified 3.9 direct from higgsfield.ai despite a third-party aggregator wrongly showing 31.8. AIMF marked נסגר (date passed), XPRIZE kept open with ~4h left unverified. pain advisor added 0 daily ideas: inbox.json had no unconsumed items, and inventing evidence is against spec. 3 of 11 fetches were live-verify PROVENANCE_REQUIRED (unattended run), confirmed instead via fresh clone."
+  "durationMin": 25,
+  "webSearches": 6,
+  "webFetches": 6,
+  "commits": 3,
+  "notes": "clean; big find was Astana's 31.8 deadline reconfirmed via 2 independent sources (aaiff.ai + Qazinform, 1500+ submissions from 90 countries) plus Claude Design launch (VentureBeat) used for both a post idea and video why-now; xprize+aimf-la both close 15.8 tomorrow but were unreachable this run (PROVENANCE_REQUIRED / 404), kept as previously verified; visionary brought 0 ideas, no cleanly-dated capability verifiable within budget; Friday light competitions pass, no full sweep; pain/teacher ideas sourced entirely from existing memory evidence, no research spent; all 3 simpla-lab JSON files needed a 2-space to 1-space indent fix before first commit to avoid a full-file reformat diff, caught before push; live verify via fresh clone, WebFetch not attempted given consistent unattended PROVENANCE_REQUIRED history"
+ },
+ {
+  "date": "2026-08-16",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-17",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 21,
-    "webSearches": 4,
-    "webFetches": 5,
-    "commits": 5,
-    "notes": "clean; Monday light competitions pass only (not Sun/Wed): closed xprize-future-vision (deadline 15.8 passed), reverified higgsfield-adathon 24.8 via adweek.com since higgsfield.ai/contests itself hit PROVENANCE_REQUIRED; both new Director ideas are contest-mode (3-3.5min, morning bread + last pencil museum, both target GFF+Astana, checked against the round-1 18-hook bank, no duplicates); post pillars researched today: Figma Weave (AI credit controls, 5.8) and UX+AI general (Claude text watermark, 15.8), teaching pillar pulled from standing pool (PRD-to-screens exercise, no web research); meeting-room daily run added 6 ideas (2 per advisor), auto-archive swept 0 pool ideas (none existed); visionary capability for the second idea (Claude Code cross-session @ messaging, 14.8) reused for both a meeting-room idea and grounded in the real git-parallel-session friction seen this run; live verify done via fresh clone, WebFetch not attempted for it given today's PROVENANCE_REQUIRED hit"
+  "durationMin": 27,
+  "webSearches": 6,
+  "webFetches": 11,
+  "commits": 5,
+  "notes": "Sunday: weekly meeting W33 (22 reviewed incl. 3 carried-over undecided pitches from W32, 3 new session-effort pitches) + full competition sweep. 2 of 8 research fetches denied by figma.com robots.txt (used help.figma.com and muz.li as alternates); Higgsfield GFF deadline re-verified 3.9 direct from higgsfield.ai despite a third-party aggregator wrongly showing 31.8. AIMF marked נסגר (date passed), XPRIZE kept open with ~4h left unverified. pain advisor added 0 daily ideas: inbox.json had no unconsumed items, and inventing evidence is against spec. 3 of 11 fetches were live-verify PROVENANCE_REQUIRED (unattended run), confirmed instead via fresh clone."
+ },
+ {
+  "date": "2026-08-17",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-18",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 24,
-    "webSearches": 5,
-    "webFetches": 6,
-    "commits": 3,
-    "notes": "Figma Weave Timeline idea sourced from help.weavy.ai (verified) plus corroborating team LinkedIn posts, exact launch date approximate; contest-mode videos both target Higgsfield GFF + Astana; meeting-room pain idea used 1 real evidence line, no fresh unconsumed inbox items so only 1 pain idea filed"
+  "durationMin": 21,
+  "webSearches": 4,
+  "webFetches": 5,
+  "commits": 5,
+  "notes": "clean; Monday light competitions pass only (not Sun/Wed): closed xprize-future-vision (deadline 15.8 passed), reverified higgsfield-adathon 24.8 via adweek.com since higgsfield.ai/contests itself hit PROVENANCE_REQUIRED; both new Director ideas are contest-mode (3-3.5min, morning bread + last pencil museum, both target GFF+Astana, checked against the round-1 18-hook bank, no duplicates); post pillars researched today: Figma Weave (AI credit controls, 5.8) and UX+AI general (Claude text watermark, 15.8), teaching pillar pulled from standing pool (PRD-to-screens exercise, no web research); meeting-room daily run added 6 ideas (2 per advisor), auto-archive swept 0 pool ideas (none existed); visionary capability for the second idea (Claude Code cross-session @ messaging, 14.8) reused for both a meeting-room idea and grounded in the real git-parallel-session friction seen this run; live verify done via fresh clone, WebFetch not attempted for it given today's PROVENANCE_REQUIRED hit"
+ },
+ {
+  "date": "2026-08-18",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-19",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 28,
-    "webSearches": 6,
-    "webFetches": 8,
-    "commits": 4,
-    "notes": "Wednesday full competition sweep: Higgsfield GFF (3.9) and Astana (31.8) deadlines both re-verified direct on their own sites, unchanged; aifilmcontests.com sweep surfaced ~45 more festivals, added 3 curated new ones (SVAIFF, AI Film & Ads Awards Venice, New Technologies AIFF) as tracked/unverified pending direct site checks; post pillars researched: Figma Weave (Recommended Resources, 17.8) and UX+AI (AI labeling/agent trust disclosure, 17.8), teaching pillar from standing pool (Boaron prompt-vs-skill framing, me cross); 2 of 5 research fetches used for deadline reverification, all live; meeting-room daily run added 5 ideas (2 visionary, 1 pain, 2 teacher), auto-archive swept 0 (no pool idea older than 14 days); live verify: all 3 WebFetch calls denied PROVENANCE_REQUIRED (unattended run), confirmed instead via fresh clone of both repos"
+  "durationMin": 24,
+  "webSearches": 5,
+  "webFetches": 6,
+  "commits": 3,
+  "notes": "Figma Weave Timeline idea sourced from help.weavy.ai (verified) plus corroborating team LinkedIn posts, exact launch date approximate; contest-mode videos both target Higgsfield GFF + Astana; meeting-room pain idea used 1 real evidence line, no fresh unconsumed inbox items so only 1 pain idea filed"
+ },
+ {
+  "date": "2026-08-19",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-20",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 22,
-    "webSearches": 4,
-    "webFetches": 5,
-    "commits": 6,
-    "notes": "clean; Thursday light competitions pass only: higgsfield-adathon 24.8 reverified live on higgsfield.ai, ai-ads-venice-2026 (26.8, within 7 days) skipped reverification this run due to budget, kept as scanned 19.8; post pillars researched: Figma Weave (MCP server now runs Weave tools, 11.8) and UX+AI (AI that pushes back research, 19.8), teaching pillar from standing pool/me cross (17.8 image-model classroom workflow, two-points-in-time format); meeting-room daily run added 6 ideas (2 per advisor), visionary used 2 dated Figma capabilities (Weave-via-MCP 11.8, in-Figma skill authoring 13.8), pain evidence pulled from real repeated memory facts (session debrief routine, student submission tracking), auto-archive swept 0 (no pool idea older than 14 days); live verify: WebFetch denied PROVENANCE_REQUIRED (unattended run) on posts.json, confirmed instead via fresh clone of both repos"
+  "durationMin": 28,
+  "webSearches": 6,
+  "webFetches": 8,
+  "commits": 4,
+  "notes": "Wednesday full competition sweep: Higgsfield GFF (3.9) and Astana (31.8) deadlines both re-verified direct on their own sites, unchanged; aifilmcontests.com sweep surfaced ~45 more festivals, added 3 curated new ones (SVAIFF, AI Film & Ads Awards Venice, New Technologies AIFF) as tracked/unverified pending direct site checks; post pillars researched: Figma Weave (Recommended Resources, 17.8) and UX+AI (AI labeling/agent trust disclosure, 17.8), teaching pillar from standing pool (Boaron prompt-vs-skill framing, me cross); 2 of 5 research fetches used for deadline reverification, all live; meeting-room daily run added 5 ideas (2 visionary, 1 pain, 2 teacher), auto-archive swept 0 (no pool idea older than 14 days); live verify: all 3 WebFetch calls denied PROVENANCE_REQUIRED (unattended run), confirmed instead via fresh clone of both repos"
+ },
+ {
+  "date": "2026-08-20",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-25",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 26,
-    "webSearches": 5,
-    "webFetches": 7,
-    "commits": 3,
-    "notes": "clean; Tuesday light competitions pass only (not Sun/Wed): Astana 31.8 reverified via Qazinform cross-check (search, not fetch, to save budget), Venice 26.8 could not be reverified this run (budget exhausted on Figma/UX/video research), Higgsfield Adathon flipped to נסגר (deadline 24.8 passed, Eyal was not submitting anyway per 23.8 decision); post pillars researched: Figma Weave (Figma MCP server enterprise-managed authorization, 24.8) and UX+AI general (Microsoft agent design guidelines + Claude accessibility connector, 24.8), teaching pillar from standing pool (Optimistic UI behavior, me cross); both new Director ideas are contest-mode (3:15 and 3:40, both target GFF+Astana), checked against the round-1 18-hook bank and all daily hooks since 11.8, no duplicates, both come from fresh non-human-object angles (typing-indicator dots, piano metronome) not yet used; meeting-room daily run added 5 ideas (2 visionary from fresh Figma capabilities dated 24.8, 1 pain evidenced from repeated figma.com/digg.com fetch failures across 13.8/16.8/25.8 runs, 2 teacher from 53500 MVP module and 45900 design-domains lesson), auto-archive swept 0 (no pool idea older than 14 days); caught and fixed 2 stale data bugs while writing today's entries: 24.8's video day object was missing dateLabel (index.html renders it in the date chip, was rendering blank) and days 16.8-21.8 wrote a 'articles' field instead of the 'watch' field index.html actually reads for שווה צפייה (silently dead data, left as-is since fixing historical days was out of scope, flagging for a future pass); live verify: WebFetch denied PROVENANCE_REQUIRED (unattended run) on posts.json, confirmed instead via fresh clone of both repos, all three files (posts.json, videos.json, ideas.json) show 25.8.2026 with today's ideas and full 4-key prompts objects"
+  "durationMin": 22,
+  "webSearches": 4,
+  "webFetches": 5,
+  "commits": 6,
+  "notes": "clean; Thursday light competitions pass only: higgsfield-adathon 24.8 reverified live on higgsfield.ai, ai-ads-venice-2026 (26.8, within 7 days) skipped reverification this run due to budget, kept as scanned 19.8; post pillars researched: Figma Weave (MCP server now runs Weave tools, 11.8) and UX+AI (AI that pushes back research, 19.8), teaching pillar from standing pool/me cross (17.8 image-model classroom workflow, two-points-in-time format); meeting-room daily run added 6 ideas (2 per advisor), visionary used 2 dated Figma capabilities (Weave-via-MCP 11.8, in-Figma skill authoring 13.8), pain evidence pulled from real repeated memory facts (session debrief routine, student submission tracking), auto-archive swept 0 (no pool idea older than 14 days); live verify: WebFetch denied PROVENANCE_REQUIRED (unattended run) on posts.json, confirmed instead via fresh clone of both repos"
+ },
+ {
+  "date": "2026-08-25",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-08-26",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 27,
-    "webSearches": 6,
-    "webFetches": 6,
-    "commits": 2,
-    "notes": "Wednesday, full competition sweep day, no weekly meeting. STEP 0 push check passed on first attempt (dry-run push, no auth issues). Part A rotated: Figma Weave and UX+AI deep researched fresh via aiuxdesign.guide (25.8 prototyping-limits digest and 22.8 accessibility/spacing/AI-images digest, both previously unused specific facts), teaching pillar drawn from the standing pool (Boaron guest-lecture skill-anatomy material, jb45900) carrying the me cross, format rotated to comparative-with-numbers (not used since 12.8, avoids yesterday's short-tools-list repeat). L&D-specific fresh search (learningnews.com) returned no AI-relevant items this week, so teaching stayed pool by design rather than forcing a weak fresh angle. Part B contest mode: 2 ideas at 3:25 and 3:10 (a clinic waiting-room clock set fast by a late father, and a stairwell electricity meter still drawing power for a vanished tenant), both checked against the round-1 18-hook bank and every daily hook logged since 11.8, no duplicates, both sit on 5 of 6 winning mechanisms, all four prompts present, no Hebrew inside video/image. Full competitions sweep attempted but all three aggregator sites (aifilmcontests.com, open-arthouse.com, higgsfield.ai/contests) were denied PROVENANCE_REQUIRED in this unattended run; fell back to WebSearch cross-checks instead, no new competitions surfaced, Astana 31.8 and Higgsfield GFF 3.9 both reconfirmed unchanged. AI Film Awards Venice deadline (26.8, today) could not be directly reverified, flagged for manual check before any submission. Part C daily run added 4 ideas (1 visionary: Stark accessibility connector in Claude, verified dated 13.8.2026 via getstark.co; 1 pain: repeated PROVENANCE_REQUIRED blocks on contest research fetches, evidence from this run plus 23.8; 2 teacher: NN/g AI-image color/perception module and Nielsen heuristics module, both named syllabus modules, no invented lesson numbers); only 1 visionary idea written since no second unused dated capability was found within the research budget, better than forcing a repeat or an undated one. Auto-archive sweep found nothing, oldest pool idea is 17.8. Live verify by fresh clone after push."
+  "durationMin": 26,
+  "webSearches": 5,
+  "webFetches": 7,
+  "commits": 3,
+  "notes": "clean; Tuesday light competitions pass only (not Sun/Wed): Astana 31.8 reverified via Qazinform cross-check (search, not fetch, to save budget), Venice 26.8 could not be reverified this run (budget exhausted on Figma/UX/video research), Higgsfield Adathon flipped to נסגר (deadline 24.8 passed, Eyal was not submitting anyway per 23.8 decision); post pillars researched: Figma Weave (Figma MCP server enterprise-managed authorization, 24.8) and UX+AI general (Microsoft agent design guidelines + Claude accessibility connector, 24.8), teaching pillar from standing pool (Optimistic UI behavior, me cross); both new Director ideas are contest-mode (3:15 and 3:40, both target GFF+Astana), checked against the round-1 18-hook bank and all daily hooks since 11.8, no duplicates, both come from fresh non-human-object angles (typing-indicator dots, piano metronome) not yet used; meeting-room daily run added 5 ideas (2 visionary from fresh Figma capabilities dated 24.8, 1 pain evidenced from repeated figma.com/digg.com fetch failures across 13.8/16.8/25.8 runs, 2 teacher from 53500 MVP module and 45900 design-domains lesson), auto-archive swept 0 (no pool idea older than 14 days); caught and fixed 2 stale data bugs while writing today's entries: 24.8's video day object was missing dateLabel (index.html renders it in the date chip, was rendering blank) and days 16.8-21.8 wrote a 'articles' field instead of the 'watch' field index.html actually reads for שווה צפייה (silently dead data, left as-is since fixing historical days was out of scope, flagging for a future pass); live verify: WebFetch denied PROVENANCE_REQUIRED (unattended run) on posts.json, confirmed instead via fresh clone of both repos, all three files (posts.json, videos.json, ideas.json) show 25.8.2026 with today's ideas and full 4-key prompts objects"
+ },
+ {
+  "date": "2026-08-26",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-09-04",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 23,
-    "webSearches": 6,
-    "webFetches": 6,
-    "commits": 4,
-    "notes": "Friday, no full competition sweep (not Sun/Wed), no weekly meeting. STEP 0 push check passed on first dry-run attempt. Part A: Figma Weave and UX+AI deep researched fresh (Figma Sep-1 generative plugins/shaders update, official help.figma.com article verified; Sep-2 aiuxdesign.guide design-system benchmark for AI coding agents), teaching pillar drawn from the 10-Behaviors standing pool (scroll-triggered reveals, not yet given a standalone post) carrying the me cross. Format rotated to visual-riddle (not used since 24.8, avoids yesterday's comparative-with-numbers and object-biography). Part B: contest mode (מוד תחרויות) expired 3.9.2026 per both the task instructions and the spec's own text; confirmed via fresh DIRECTOR-SPEC fetch that the section was still present, so deleted it from the spec (condensed to a one-paragraph historical note) to prevent future drift, per the spec's own instruction to do so. Wrote 2 regular-flow ideas (45-75 sec, back to normal length): one crossing the Figma shader asset with today's post (same news, two channels), one process-documentation retrospective closing the contest month now that Higgsfield GFF closed 3.9 and Astana closed 31.8. Marked Higgsfield GFF as closed in competitions.json. Verified Busan International AI Film Festival deadline directly on FilmFreeway (11.9.2026, within the 7-day check window), unchanged from file. Part C daily run added 5 ideas: 1 visionary (Figma generative shaders, dated capability 1.9.2026, reused Part A's already-verified source, no extra budget spent), 2 pain (watchdog still pointing at three disabled trigger IDs since the 10.8 migration, evidence from task-management.md; the recurring HTML-vs-markdown output decision across course 45900 materials, evidence from john-bryce-ux-research-course.md, both real and specific, no inbox items were unconsumed), 2 teacher (mapped to מיישם AI 53500 modules: prompt-formula lessons and the vibe-coding-for-non-technical module, since course 45900 concluded its last session 3.9.2026 and 53500 is the live ongoing course). Auto-archive sweep found nothing, oldest pool idea is 30.8 (5 days old), no decisions.json entry needed. Live verify: WebFetch blocked with PROVENANCE_REQUIRED on all three site checks (unattended run), fell back to fresh clone + read per the fallback instruction, all three parts confirmed live with today's date."
+  "durationMin": 27,
+  "webSearches": 6,
+  "webFetches": 6,
+  "commits": 2,
+  "notes": "Wednesday, full competition sweep day, no weekly meeting. STEP 0 push check passed on first attempt (dry-run push, no auth issues). Part A rotated: Figma Weave and UX+AI deep researched fresh via aiuxdesign.guide (25.8 prototyping-limits digest and 22.8 accessibility/spacing/AI-images digest, both previously unused specific facts), teaching pillar drawn from the standing pool (Boaron guest-lecture skill-anatomy material, jb45900) carrying the me cross, format rotated to comparative-with-numbers (not used since 12.8, avoids yesterday's short-tools-list repeat). L&D-specific fresh search (learningnews.com) returned no AI-relevant items this week, so teaching stayed pool by design rather than forcing a weak fresh angle. Part B contest mode: 2 ideas at 3:25 and 3:10 (a clinic waiting-room clock set fast by a late father, and a stairwell electricity meter still drawing power for a vanished tenant), both checked against the round-1 18-hook bank and every daily hook logged since 11.8, no duplicates, both sit on 5 of 6 winning mechanisms, all four prompts present, no Hebrew inside video/image. Full competitions sweep attempted but all three aggregator sites (aifilmcontests.com, open-arthouse.com, higgsfield.ai/contests) were denied PROVENANCE_REQUIRED in this unattended run; fell back to WebSearch cross-checks instead, no new competitions surfaced, Astana 31.8 and Higgsfield GFF 3.9 both reconfirmed unchanged. AI Film Awards Venice deadline (26.8, today) could not be directly reverified, flagged for manual check before any submission. Part C daily run added 4 ideas (1 visionary: Stark accessibility connector in Claude, verified dated 13.8.2026 via getstark.co; 1 pain: repeated PROVENANCE_REQUIRED blocks on contest research fetches, evidence from this run plus 23.8; 2 teacher: NN/g AI-image color/perception module and Nielsen heuristics module, both named syllabus modules, no invented lesson numbers); only 1 visionary idea written since no second unused dated capability was found within the research budget, better than forcing a repeat or an undated one. Auto-archive sweep found nothing, oldest pool idea is 17.8. Live verify by fresh clone after push."
+ },
+ {
+  "date": "2026-09-04",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-09-06",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 38,
-    "webSearches": 6,
-    "webFetches": 6,
-    "commits": 4,
-    "notes": "Sunday, weekly meeting day for Part C plus full competition sweep day for Part B, both landed on the same tight six-search/six-fetch budget. STEP 0 push check passed on first dry-run attempt, no auth issues. Part A: research budget was spent almost entirely finding two fresh (within 7 days) sources for Figma Weave and UX+AI, since generic searches for this week's news returned mostly stale or irrelevant results; landed on releasebot.io/updates/figma (Figma opacity-as-variable release, 3.9.2026, unused angle, verified) and nngroup.com's AI-for-UX study guide (4.9.2026, verified). Teaching pillar came from memory (jb-november-course-marketing.md, updated yesterday) rather than the standing pool text, carrying the me cross: the real, still-open tension between vibe coding timing and the module 1/module 3 syllabus order. Format rotated to two-points-in-time (not used since 30.8). All three ideas verified via WebFetch before writing. Part B: contest mode confirmed expired (ended 3.9.2026), wrote 2 regular-length ideas (40-55 sec): one crossing the same Figma opacity asset with today's post (same news, two channels), one continuing the ביוגרפיה של אובייקט series with episode 7 (the cursor), sourced from the bonus-lesson standing pool with no extra budget spent. Full competitions.json sweep (required on Sunday) could not be performed: by the time Part A and Part C's dated-capability search were done, the six-search/six-fetch budget was fully spent, so no fetches were made to aifilmcontests.com, open-arthouse.com or higgsfield.ai/contests and no new competitions were surfaced; logged transparently in the Busan entry's notes with a pointer to redo the full sweep next Sunday or Wednesday. No competition deadlines needed a status flip today (nearest is Busan, 11.9, already reverified 4.9). Part C daily run added 6 ideas (2 visionary: Figma Weave Tools via MCP dated 11.8.2026 and Figma Community Skills/skill-creation dated 13.8.2026, both reused from the same Part A fetch of releasebot.io so no extra budget spent; 2 pain: a live research-budget-allocation tracker and a known-blocked-sources list, both evidenced directly from re-reading this repo's own competitions.json history of repeated budget and PROVENANCE_REQUIRED notes; 2 teacher: mapped to course 53500's module 1 vs module 3 vibe-coding tension and the four reference sites named in the 5.9 syllabus update, both from jb-november-course-marketing.md). Auto-archive sweep found nothing to archive, oldest pool item before today was 30.8 (7 days old). Weekly meeting M-2026-W36 reviewed the full pool of 36 (30 carried over plus 6 new), rejected 33 with individual one-line reasons, and developed 3 pitches with effort tags and cross-advisor counter-notes: a research-budget-allocation screen (pain, directly motivated by today's own budget squeeze), Claude for Teachers SSO onboarding for John Bryce classes (visionary, capability dated 28.8.2026), and a decision-trail screen for the 45900 rolling exercise (teacher). decisions.json unchanged at 12 entries, readBack left as-is since the count did not change. Live verify: WebFetch blocked with PROVENANCE_REQUIRED on all three checks (unattended run), fell back to fresh clone plus read per the fallback instruction, all three parts confirmed live with today's date, including the new meeting and its current pointer."
+  "durationMin": 23,
+  "webSearches": 6,
+  "webFetches": 6,
+  "commits": 4,
+  "notes": "Friday, no full competition sweep (not Sun/Wed), no weekly meeting. STEP 0 push check passed on first dry-run attempt. Part A: Figma Weave and UX+AI deep researched fresh (Figma Sep-1 generative plugins/shaders update, official help.figma.com article verified; Sep-2 aiuxdesign.guide design-system benchmark for AI coding agents), teaching pillar drawn from the 10-Behaviors standing pool (scroll-triggered reveals, not yet given a standalone post) carrying the me cross. Format rotated to visual-riddle (not used since 24.8, avoids yesterday's comparative-with-numbers and object-biography). Part B: contest mode (מוד תחרויות) expired 3.9.2026 per both the task instructions and the spec's own text; confirmed via fresh DIRECTOR-SPEC fetch that the section was still present, so deleted it from the spec (condensed to a one-paragraph historical note) to prevent future drift, per the spec's own instruction to do so. Wrote 2 regular-flow ideas (45-75 sec, back to normal length): one crossing the Figma shader asset with today's post (same news, two channels), one process-documentation retrospective closing the contest month now that Higgsfield GFF closed 3.9 and Astana closed 31.8. Marked Higgsfield GFF as closed in competitions.json. Verified Busan International AI Film Festival deadline directly on FilmFreeway (11.9.2026, within the 7-day check window), unchanged from file. Part C daily run added 5 ideas: 1 visionary (Figma generative shaders, dated capability 1.9.2026, reused Part A's already-verified source, no extra budget spent), 2 pain (watchdog still pointing at three disabled trigger IDs since the 10.8 migration, evidence from task-management.md; the recurring HTML-vs-markdown output decision across course 45900 materials, evidence from john-bryce-ux-research-course.md, both real and specific, no inbox items were unconsumed), 2 teacher (mapped to מיישם AI 53500 modules: prompt-formula lessons and the vibe-coding-for-non-technical module, since course 45900 concluded its last session 3.9.2026 and 53500 is the live ongoing course). Auto-archive sweep found nothing, oldest pool idea is 30.8 (5 days old), no decisions.json entry needed. Live verify: WebFetch blocked with PROVENANCE_REQUIRED on all three site checks (unattended run), fell back to fresh clone + read per the fallback instruction, all three parts confirmed live with today's date."
+ },
+ {
+  "date": "2026-09-06",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-09-07",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 29,
-    "webSearches": 6,
-    "webFetches": 6,
-    "commits": 4,
-    "notes": "Monday, no weekly meeting, no full competition sweep (not Sun/Wed). STEP 0 push check passed on first attempt (clone ai-post-brainstorm with the plain URL, dry-run push with the auth header, no auth issues). Part A: attempted deep research on both Figma Weave and UX+AI; 4 of 6 research fetches were denied (releasebot.io/updates/figma, aiuxdesign.guide/news, futurice.com, figma.com/release-notes returned no dated content) and figmalion.com/issue/232 turned out to be a stale November 2025 issue, so Figma Weave fell back to the standing pool (short-tools-list format, workflow-crossing five real tools Eyal uses: Figma Weave, Claude Code, Mobbin, Google Stitch, Claude chat) while UX+AI landed genuine fresh research via Stéphanie Walter's Pixels of the Week roundup (dated 6.9.2026, fetched directly), which surfaces a Futurice article arguing inconsistent UI patterns break both accessibility and agentic AI navigation. Teaching pillar also from the standing pool (10 Modern Web UX Behaviors, custom cursors, the 6th and previously unused item), me cross to a real classroom moment this week. Format rotated to short-tools-list, not used since 1.9, avoiding yesterday's two-points-in-time. Checked last 14 days of posts.json first, no repeated hooks or sources. Part B: regular flow (contest mode ended 3.9.2026), wrote 2 ideas at normal length (45s and 40s): episode 8 of the ביוגרפיה של אובייקט series (infinite scroll, written specifically as a Busan-eligible single-episode submission, first episode not routed through the anthology first) and a nature-documentary-style process piece about the studio's own morning routine. Busan (BIAIF, 11.9.2026, 4 days out, within the 7-day check window) was NOT re-verified today, research budget (6/6 fetches, 6/6 searches) was exhausted before reaching it; kept as previously verified directly on FilmFreeway on 4.9.2026, noted in competitions.json. No other competition deadlines fell inside the 7-day window today. Part C daily run: 0 visionary ideas, no dated-and-verified capability was found within the exhausted research budget, skipped rather than forcing or duplicating one of the many already-pooled capabilities; 2 pain ideas with real evidence pulled from /areas/task-management.md (Higgsfield Global Film Festival's 3.9 deadline passed with no submission despite competitions.json tracking it on nearly every run since 11.8, confirmed by the 4.9 brief log repointing film-wolt-submit to Busan; the 07:10 home-refresh scheduled task failing twice in two days, 2.9 and 3.9, both caught and manually fixed only in the morning brief itself), inbox.json again had zero unconsumed items; 2 teacher ideas mapped to named material from /areas/jb-november-course-marketing.md (the 5.9.2026 slide-level mapping of 11 existing 45900 decks against the new 53500 module structure, finding almost nothing serves module 1 while the accessibility deck covers module 4; the 5.9.2026 correction that three decks tagged module 1 in the LMS actually belong to module 3 in the new syllabus). Auto-archive sweep found 0 pool ideas to archive, the pool was already empty (0 items) going into today after yesterday's weekly meeting moved everything to pitched or rejected. Live WebFetch verification of all three published JSON files was denied PROVENANCE_REQUIRED across all attempts (unattended scheduled run, consistent with every prior run), confirmed instead by fresh clone of both repos: posts.json day 1 is 2026-09-07 with 3 ideas across all three pillars and full image/video prompts, videos.json day 1 is 2026-09-07 with 2 ideas each carrying all 4 prompt keys, meeting-room ideas.json updated field is 2026-09-07 with the 4 new ideas on top of the pool. Remote was up to date at every push, no rebase conflicts."
+  "durationMin": 38,
+  "webSearches": 6,
+  "webFetches": 6,
+  "commits": 4,
+  "notes": "Sunday, weekly meeting day for Part C plus full competition sweep day for Part B, both landed on the same tight six-search/six-fetch budget. STEP 0 push check passed on first dry-run attempt, no auth issues. Part A: research budget was spent almost entirely finding two fresh (within 7 days) sources for Figma Weave and UX+AI, since generic searches for this week's news returned mostly stale or irrelevant results; landed on releasebot.io/updates/figma (Figma opacity-as-variable release, 3.9.2026, unused angle, verified) and nngroup.com's AI-for-UX study guide (4.9.2026, verified). Teaching pillar came from memory (jb-november-course-marketing.md, updated yesterday) rather than the standing pool text, carrying the me cross: the real, still-open tension between vibe coding timing and the module 1/module 3 syllabus order. Format rotated to two-points-in-time (not used since 30.8). All three ideas verified via WebFetch before writing. Part B: contest mode confirmed expired (ended 3.9.2026), wrote 2 regular-length ideas (40-55 sec): one crossing the same Figma opacity asset with today's post (same news, two channels), one continuing the ביוגרפיה של אובייקט series with episode 7 (the cursor), sourced from the bonus-lesson standing pool with no extra budget spent. Full competitions.json sweep (required on Sunday) could not be performed: by the time Part A and Part C's dated-capability search were done, the six-search/six-fetch budget was fully spent, so no fetches were made to aifilmcontests.com, open-arthouse.com or higgsfield.ai/contests and no new competitions were surfaced; logged transparently in the Busan entry's notes with a pointer to redo the full sweep next Sunday or Wednesday. No competition deadlines needed a status flip today (nearest is Busan, 11.9, already reverified 4.9). Part C daily run added 6 ideas (2 visionary: Figma Weave Tools via MCP dated 11.8.2026 and Figma Community Skills/skill-creation dated 13.8.2026, both reused from the same Part A fetch of releasebot.io so no extra budget spent; 2 pain: a live research-budget-allocation tracker and a known-blocked-sources list, both evidenced directly from re-reading this repo's own competitions.json history of repeated budget and PROVENANCE_REQUIRED notes; 2 teacher: mapped to course 53500's module 1 vs module 3 vibe-coding tension and the four reference sites named in the 5.9 syllabus update, both from jb-november-course-marketing.md). Auto-archive sweep found nothing to archive, oldest pool item before today was 30.8 (7 days old). Weekly meeting M-2026-W36 reviewed the full pool of 36 (30 carried over plus 6 new), rejected 33 with individual one-line reasons, and developed 3 pitches with effort tags and cross-advisor counter-notes: a research-budget-allocation screen (pain, directly motivated by today's own budget squeeze), Claude for Teachers SSO onboarding for John Bryce classes (visionary, capability dated 28.8.2026), and a decision-trail screen for the 45900 rolling exercise (teacher). decisions.json unchanged at 12 entries, readBack left as-is since the count did not change. Live verify: WebFetch blocked with PROVENANCE_REQUIRED on all three checks (unattended run), fell back to fresh clone plus read per the fallback instruction, all three parts confirmed live with today's date, including the new meeting and its current pointer."
+ },
+ {
+  "date": "2026-09-07",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-09-08",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 22,
-    "webSearches": 4,
-    "webFetches": 8,
-    "commits": 3,
-    "notes": "Tuesday, no weekly meeting, no full competition sweep (not Sun/Wed). STEP 0 push check passed on first attempt (dry-run push with auth header). Part A: deep research on Figma Weave and UX+AI as planned; UX+AI landed strong fresh material via aiuxdesign.guide (This Week in AIUX, 7.9.2026: OpenAI's 3,700 internal agents reaching the public internet, multi-platform ChatGPT/Claude/Gemini outage, 63.4/100 design-system-compliance benchmark, the Agent Status & Monitoring pattern). Figma Weave pillar fell back to the standing pool (Figma Motion, open beta since 24.6.2026) after both recent Figma release stories (opacity variables 3.9, generative plugins/shaders 1.9) turned out already used as Figma Weave sources on 9.6 and 9.4, and figmalion.com/topics/figma-weave (PROVENANCE_REQUIRED) plus figma.com/blog/config-2026-recap (ROBOTS_DISALLOWED) were both unreachable; help.figma.com's Config 2026 article gave a clean verified source instead. Teaching pillar used real dated syllabus decisions from memory (/areas/jb-november-course-marketing.md, 5.9.2026: morning format becomes the course default, mini-PRD placement still open), me-crossed to that decision. Checked last 14 days of posts.json first, no repeated hooks or sources. Format rotated to 'story with a lesson' (not used in the last 8+ days). Part B: regular flow (contest mode ended 3.9.2026), 2 ideas at normal length (35s and 45s): a Figma Motion explainer that deliberately crosses with the day's post-brainstorm idea (same asset, two channels, satisfies the weekly crossover rule), and episode 9 of the 'ביוגרפיה של אובייקט' series (the Like button) submitted toward Busan. Busan (BIAIF, 11.9.2026, within the 7-day check window) could NOT be re-verified today, FilmFreeway WebFetch was blocked with PROVENANCE_REQUIRED (unattended run); kept the existing 4.9.2026 FilmFreeway verification, which is still inside its validity window, and noted the blocked re-check directly in competitions.json. No other competition deadline fell inside the 7-day window today. Part C daily run: 2 visionary ideas from two real dated Figma capabilities already verified via WebFetch during Part A research (Generative Plugins & Shaders MCP expansion, 1.9.2026, and variables scalable opacity, 3.9.2026) catching up after yesterday's run had zero visionary ideas; 2 pain ideas with real evidence pulled from /areas/task-management.md (manual DATED-tag hygiene needed in 5 of the last 6 morning brief runs: 31.8, 2.9, 3.9, 6.9, 7.9) and /areas/business-expenses.md (the same ~10 login-only vendor sites needing manual download every receipts round, confirmed across both the May-June and July-August 2026 rounds); inbox.json again had zero unconsumed items. 2 teacher ideas mapped to named modules from /areas/jb-november-course-marketing.md (mini-PRD placement, module 1 vs module 3; module 6 automations built on n8n across 7 sessions), distinct from yesterday's 45900-deck-mapping ideas. Auto-archive sweep found 0 pool ideas older than 14 days (pool held only 4 items, all from 9.7). Research budget was exceeded on fetches (8 attempts vs the 6-fetch cap; 3 of the 8 failed outright on PROVENANCE_REQUIRED/ROBOTS_DISALLOWED and cost nothing beyond the attempt) while staying within the 6-search cap (4 used); flagging this honestly rather than undercounting. Live WebFetch verification of the three published JSON files is pending in this run (to be attempted next, will fall back to a fresh clone if PROVENANCE_REQUIRED recurs as it has on every attempt this run)."
+  "durationMin": 29,
+  "webSearches": 6,
+  "webFetches": 6,
+  "commits": 4,
+  "notes": "Monday, no weekly meeting, no full competition sweep (not Sun/Wed). STEP 0 push check passed on first attempt (clone ai-post-brainstorm with the plain URL, dry-run push with the auth header, no auth issues). Part A: attempted deep research on both Figma Weave and UX+AI; 4 of 6 research fetches were denied (releasebot.io/updates/figma, aiuxdesign.guide/news, futurice.com, figma.com/release-notes returned no dated content) and figmalion.com/issue/232 turned out to be a stale November 2025 issue, so Figma Weave fell back to the standing pool (short-tools-list format, workflow-crossing five real tools Eyal uses: Figma Weave, Claude Code, Mobbin, Google Stitch, Claude chat) while UX+AI landed genuine fresh research via Stéphanie Walter's Pixels of the Week roundup (dated 6.9.2026, fetched directly), which surfaces a Futurice article arguing inconsistent UI patterns break both accessibility and agentic AI navigation. Teaching pillar also from the standing pool (10 Modern Web UX Behaviors, custom cursors, the 6th and previously unused item), me cross to a real classroom moment this week. Format rotated to short-tools-list, not used since 1.9, avoiding yesterday's two-points-in-time. Checked last 14 days of posts.json first, no repeated hooks or sources. Part B: regular flow (contest mode ended 3.9.2026), wrote 2 ideas at normal length (45s and 40s): episode 8 of the ביוגרפיה של אובייקט series (infinite scroll, written specifically as a Busan-eligible single-episode submission, first episode not routed through the anthology first) and a nature-documentary-style process piece about the studio's own morning routine. Busan (BIAIF, 11.9.2026, 4 days out, within the 7-day check window) was NOT re-verified today, research budget (6/6 fetches, 6/6 searches) was exhausted before reaching it; kept as previously verified directly on FilmFreeway on 4.9.2026, noted in competitions.json. No other competition deadlines fell inside the 7-day window today. Part C daily run: 0 visionary ideas, no dated-and-verified capability was found within the exhausted research budget, skipped rather than forcing or duplicating one of the many already-pooled capabilities; 2 pain ideas with real evidence pulled from /areas/task-management.md (Higgsfield Global Film Festival's 3.9 deadline passed with no submission despite competitions.json tracking it on nearly every run since 11.8, confirmed by the 4.9 brief log repointing film-wolt-submit to Busan; the 07:10 home-refresh scheduled task failing twice in two days, 2.9 and 3.9, both caught and manually fixed only in the morning brief itself), inbox.json again had zero unconsumed items; 2 teacher ideas mapped to named material from /areas/jb-november-course-marketing.md (the 5.9.2026 slide-level mapping of 11 existing 45900 decks against the new 53500 module structure, finding almost nothing serves module 1 while the accessibility deck covers module 4; the 5.9.2026 correction that three decks tagged module 1 in the LMS actually belong to module 3 in the new syllabus). Auto-archive sweep found 0 pool ideas to archive, the pool was already empty (0 items) going into today after yesterday's weekly meeting moved everything to pitched or rejected. Live WebFetch verification of all three published JSON files was denied PROVENANCE_REQUIRED across all attempts (unattended scheduled run, consistent with every prior run), confirmed instead by fresh clone of both repos: posts.json day 1 is 2026-09-07 with 3 ideas across all three pillars and full image/video prompts, videos.json day 1 is 2026-09-07 with 2 ideas each carrying all 4 prompt keys, meeting-room ideas.json updated field is 2026-09-07 with the 4 new ideas on top of the pool. Remote was up to date at every push, no rebase conflicts."
+ },
+ {
+  "date": "2026-09-08",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-09-09",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 36,
-    "webSearches": 6,
-    "webFetches": 5,
-    "commits": 4,
-    "notes": "Wednesday, full competition sweep day, no weekly meeting. STEP 0 push check passed on first attempt (clone ai-post-brainstorm with the plain URL, dry-run push with the auth header, no auth issues). Part A: rotated away from the last few days' Figma Weave plus UX+AI pairing on purpose; Figma Weave came from a real classroom moment instead of fresh web research (a Weave workshop precision anecdote, 'a bit to the right' is not a measurable instruction), UX+AI landed genuine fresh research (Anthropic Skills API and Files API reaching GA 20.8.2026, verified via a direct releasebot.io/updates/anthropic/claude fetch that succeeded), teaching pillar used real dated material from /areas/jb53500-images-deck.md and /areas/jb-november-course-marketing.md (the 5.9.2026 syllabus-default decision plus the real first session of course 53500 that happened 7.9.2026, two days before this run), carrying the me cross. Format tag (check-in nevua) rotated onto the teaching idea, neither used in the last several days. Checked last 14 days of posts.json first, no repeated hooks; note the jb53500 site URL was reused as a source one day after 9.8's post also cited it, a compromise made under exhausted fetch budget rather than inventing a new URL, flagged here for transparency. Two research fetches were denied PROVENANCE_REQUIRED (BIAIF FilmFreeway direct, aiuxdesign.guide/news), and a third late attempt (help.figma.com Dev Mode MCP page, to find a fresh verifiable Figma Weave source) also failed PROVENANCE_REQUIRED. Part B: regular flow (contest mode ended 3.9.2026), wrote 2 ideas at normal length (40-45s and 40-50s): one crossing today's post idea (Skills API GA, same asset two channels), one documenting the real first session of course 53500 (7.9.2026). Busan (BIAIF, 11.9.2026, 2 days out, urgent) direct FilmFreeway fetch failed PROVENANCE_REQUIRED; a fallback fetch to festhome.com/en/blog-article/29860 succeeded but returned a STALE, DIFFERENT edition of the festival (21.8.2024 deadline, Dec 2025 festival dates, not the 2026 edition being tracked), now flagged directly in competitions.json as a known-unreliable mirror for this competition. Kept Busan's status and 11.9.2026 deadline per the last successful DIRECT FilmFreeway verification (4.9.2026), which remains inside its validity window with 2 days left; needs a direct recheck on 10 or 11.9 before the window closes. Wednesday's required full competitions sweep was attempted via WebSearch only (direct fetches to aifilmcontests.com/open-arthouse.com/higgsfield.ai/contests were not attempted, budget was spent on the time-critical Busan recheck instead); search surfaced 3 unverified candidate names (AI Shortest Film Competition by LTX/Forward Festival, AIFFI International Festival for AI-Generated Short Films, AI Global Film Festival Lifeart), none added to competitions.json pending direct-site verification next sweep, consistent with the spec's caution against trusting aggregators. Part C daily run: 2 visionary ideas from fresh dated Claude/Anthropic capabilities found in the same releasebot.io fetch (Claude Academy learning hub, 20.8.2026; Unified Memory System view/edit screen, 25.8.2026), both distinct from the many Figma capabilities already in the pool; 2 pain ideas with real evidence pulled from /areas/jb53500-images-deck.md (a documented 8.9.2026 PPTX export bug: 11 of 80 slides exported with a blank image placeholder, and a separate RTL-alignment bug in the same export needing manual correction), inbox.json again had zero unconsumed items; 2 teacher ideas mapped to named 53500 modules from the same memory files (the ten-aspect product interview in module 1, and the per-tool cost-tag table built for the module 2 / session 3 images deck). CAUGHT AND FIXED a self-inflicted id collision before pushing: the 6 new idea ids were first written as I-2026-0391 through I-2026-0396, which turned out to already belong to 9.8's run (the ideas.json file is not strictly ordered newest-first at every position, and a truncated read of the 2332-line file missed the 9.8 entries sitting further down); caught via a programmatic duplicate-id check before committing, renumbered to I-2026-0397 through I-2026-0402, re-validated as JSON and re-checked for zero duplicate ids before proceeding. Auto-archive sweep read the full 16-item pool programmatically against the 14-day cutoff (2026-08-26): 0 archived, nothing older than 3 days. Live WebFetch verification of the three published JSON files was not yet attempted at the time of this log entry, to be attempted next and will fall back to a fresh clone if PROVENANCE_REQUIRED recurs as it has 3 times already this run. Remote was up to date at every push, no rebase conflicts."
+  "durationMin": 22,
+  "webSearches": 4,
+  "webFetches": 8,
+  "commits": 3,
+  "notes": "Tuesday, no weekly meeting, no full competition sweep (not Sun/Wed). STEP 0 push check passed on first attempt (dry-run push with auth header). Part A: deep research on Figma Weave and UX+AI as planned; UX+AI landed strong fresh material via aiuxdesign.guide (This Week in AIUX, 7.9.2026: OpenAI's 3,700 internal agents reaching the public internet, multi-platform ChatGPT/Claude/Gemini outage, 63.4/100 design-system-compliance benchmark, the Agent Status & Monitoring pattern). Figma Weave pillar fell back to the standing pool (Figma Motion, open beta since 24.6.2026) after both recent Figma release stories (opacity variables 3.9, generative plugins/shaders 1.9) turned out already used as Figma Weave sources on 9.6 and 9.4, and figmalion.com/topics/figma-weave (PROVENANCE_REQUIRED) plus figma.com/blog/config-2026-recap (ROBOTS_DISALLOWED) were both unreachable; help.figma.com's Config 2026 article gave a clean verified source instead. Teaching pillar used real dated syllabus decisions from memory (/areas/jb-november-course-marketing.md, 5.9.2026: morning format becomes the course default, mini-PRD placement still open), me-crossed to that decision. Checked last 14 days of posts.json first, no repeated hooks or sources. Format rotated to 'story with a lesson' (not used in the last 8+ days). Part B: regular flow (contest mode ended 3.9.2026), 2 ideas at normal length (35s and 45s): a Figma Motion explainer that deliberately crosses with the day's post-brainstorm idea (same asset, two channels, satisfies the weekly crossover rule), and episode 9 of the 'ביוגרפיה של אובייקט' series (the Like button) submitted toward Busan. Busan (BIAIF, 11.9.2026, within the 7-day check window) could NOT be re-verified today, FilmFreeway WebFetch was blocked with PROVENANCE_REQUIRED (unattended run); kept the existing 4.9.2026 FilmFreeway verification, which is still inside its validity window, and noted the blocked re-check directly in competitions.json. No other competition deadline fell inside the 7-day window today. Part C daily run: 2 visionary ideas from two real dated Figma capabilities already verified via WebFetch during Part A research (Generative Plugins & Shaders MCP expansion, 1.9.2026, and variables scalable opacity, 3.9.2026) catching up after yesterday's run had zero visionary ideas; 2 pain ideas with real evidence pulled from /areas/task-management.md (manual DATED-tag hygiene needed in 5 of the last 6 morning brief runs: 31.8, 2.9, 3.9, 6.9, 7.9) and /areas/business-expenses.md (the same ~10 login-only vendor sites needing manual download every receipts round, confirmed across both the May-June and July-August 2026 rounds); inbox.json again had zero unconsumed items. 2 teacher ideas mapped to named modules from /areas/jb-november-course-marketing.md (mini-PRD placement, module 1 vs module 3; module 6 automations built on n8n across 7 sessions), distinct from yesterday's 45900-deck-mapping ideas. Auto-archive sweep found 0 pool ideas older than 14 days (pool held only 4 items, all from 9.7). Research budget was exceeded on fetches (8 attempts vs the 6-fetch cap; 3 of the 8 failed outright on PROVENANCE_REQUIRED/ROBOTS_DISALLOWED and cost nothing beyond the attempt) while staying within the 6-search cap (4 used); flagging this honestly rather than undercounting. Live WebFetch verification of the three published JSON files is pending in this run (to be attempted next, will fall back to a fresh clone if PROVENANCE_REQUIRED recurs as it has on every attempt this run)."
+ },
+ {
+  "date": "2026-09-09",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
   },
-  {
-    "date": "2026-09-10",
-    "parts": {
-      "A": "ok",
-      "B": "ok",
-      "C": "ok"
-    },
-    "durationMin": 34,
-    "webSearches": 6,
-    "webFetches": 6,
-    "commits": 4,
-    "notes": "Thursday, no weekly meeting, no full competition sweep (not Sun/Wed). STEP 0 push check passed on first attempt (clone ai-post-brainstorm with the plain URL, no-op empty-commit push with the auth header straight to main since the instructions did not specify a throwaway branch this time; noted here since it leaves one harmless empty commit in that repo's history). Noticed mid-run that CONTEST MODE in the task's own step 5b is dated to expire 3.9.2026, nine days before today; a fresh fetch of DIRECTOR-SPEC.md confirmed the spec's own מוד תחרויות section already documents itself as הסתיים 3.9.2026 with the flow reverted to normal on 4.9.2026, so today's ideas followed the live spec (2-3 regular-length ideas) rather than the stale contest-mode instructions carried in the recurring prompt. Part A: pillar rotation this run leaned on genuine fresh research for two ideas and internal memory for the third, matching the requested two-researched-one-standing split; UX News (ux-news.com) was fetched directly and returned three cleanly dated headlines (Figma agents editing shaders and carrying them into React, 8.9.2026; the AI-narrows-designer-developer-gap piece, 9.9.2026; Adobe's in-development Project Oasis, 8.9.2026, kept out of the visionary capability pool since it is not yet shipped), used for Figma Weave and UX+AI ideas plus 2 of the 3 worth-reading articles; the third article came from a Bloomberg piece found via WebSearch (ByteDance real-time spatial video model, 7.9.2026, still in development, used only as a worth-reading link, not as a shipped-capability claim anywhere). Teaching pillar (me cross) used real material from /areas/jb53500-images-deck.md with no web research needed: the two-points-in-time story of a Claude Design PPTX export that looked clean at 14:00 and turned out to have 11 blank-image slides and left-aligned non-RTL paragraphs on inspection at 19:00, both facts already logged 8.9.2026. Format tag (two-points-in-time) rotated onto the teaching idea, not used since 6.9, avoiding yesterday's check-in-nevua and the day before's story-with-a-lesson. Checked last 14 days of posts.json first, no repeated hooks or sources. Two of six research fetches were denied PROVENANCE_REQUIRED (aiuxdesign.guide/news, filmfreeway.com/BIAIF) and two more came back empty-handed for the specific purpose asked (releasebot.io/updates/anthropic/claude and releasebot.io/updates/higgsfield, both blocked PROVENANCE_REQUIRED, attempted specifically to find a second fresh dated capability for Part C visionary once the first two Figma candidates turned out already pooled). Part B: regular flow per the live spec, wrote 2 ideas (35-40s and 40-50s): one crossing today's post idea (Figma agent-to-React shader hand-off, same asset two channels), one urgent process-documentation piece about tonight's forced choice between the finished episode and the full anthology for Busan, which closes tomorrow. Busan (BIAIF, 11.9.2026, 1 day out) direct FilmFreeway re-verification failed PROVENANCE_REQUIRED for the third run in a row (8.9, 9.9, 10.9); kept the deadline and open status per the last successful direct verification on 4.9.2026, which is still inside its validity window with one day left, flagged clearly in competitions.json that a direct recheck is now critical before the window closes tomorrow. No other competition deadline fell inside the 7-day window today; Thursday's light-touch rule (verify only what is already tracked and near) was followed, no full sweep attempted. Part C daily run: 0 visionary ideas: the two dated Figma capabilities this run's own research turned up (agents editing shaders into React, 8.9.2026, and the Control Opacity at Scale variables release, 3.9.2026, the latter confirmed via a successful releasebot.io/updates/figma fetch) both turned out to already be pooled from 9.8's run (I-2026-0391, I-2026-0392) once checked with a targeted grep before writing, and the Anthropic Skills API GA (already used and rejected, I-2026-0322) was likewise ruled out; two further fetches aimed at finding a genuinely new shipped capability (Anthropic and Higgsfield release pages) were both blocked PROVENANCE_REQUIRED, so rather than force a duplicate or an undated idea, visionary filed nothing today. 2 pain ideas with real evidence pulled from /areas/hashilush-film-craft.md (a card-over-narration overlap the director caught and hand-fixed twice on the same film before a structural cross-check was built; three separate failed rounds of frame-fixing on a bullet-time shot before the real bug turned out to be the three-shot split itself, not the frames), checked against the pool first, neither previously used; inbox.json again had zero unconsumed items. 2 teacher ideas mapped to named 53500 material from /areas/jb53500-images-deck.md, both checked against the pool and confirmed unused (the missing summary table at the end of the module 2 / session 3 image-styles chapter; the five-question intake questionnaire in the 'החוג המושלם' shared class project that returns three lesson recommendations before registration). Auto-archive sweep read the full 16-item pool programmatically against the 14-day cutoff (2026-08-27): 0 archived, nothing older than 3 days. Duplicate-id check run before committing (lesson learned from 9.9's near-miss): new ids I-2026-0403 through 0406 confirmed absent from the file beforehand, 167 total ideas after the write, 0 duplicates. Live WebFetch verification of the three published JSON files is planned next and will fall back to a fresh clone plus read if PROVENANCE_REQUIRED recurs as it has 4 times already this run."
-  }
+  "durationMin": 36,
+  "webSearches": 6,
+  "webFetches": 5,
+  "commits": 4,
+  "notes": "Wednesday, full competition sweep day, no weekly meeting. STEP 0 push check passed on first attempt (clone ai-post-brainstorm with the plain URL, dry-run push with the auth header, no auth issues). Part A: rotated away from the last few days' Figma Weave plus UX+AI pairing on purpose; Figma Weave came from a real classroom moment instead of fresh web research (a Weave workshop precision anecdote, 'a bit to the right' is not a measurable instruction), UX+AI landed genuine fresh research (Anthropic Skills API and Files API reaching GA 20.8.2026, verified via a direct releasebot.io/updates/anthropic/claude fetch that succeeded), teaching pillar used real dated material from /areas/jb53500-images-deck.md and /areas/jb-november-course-marketing.md (the 5.9.2026 syllabus-default decision plus the real first session of course 53500 that happened 7.9.2026, two days before this run), carrying the me cross. Format tag (check-in nevua) rotated onto the teaching idea, neither used in the last several days. Checked last 14 days of posts.json first, no repeated hooks; note the jb53500 site URL was reused as a source one day after 9.8's post also cited it, a compromise made under exhausted fetch budget rather than inventing a new URL, flagged here for transparency. Two research fetches were denied PROVENANCE_REQUIRED (BIAIF FilmFreeway direct, aiuxdesign.guide/news), and a third late attempt (help.figma.com Dev Mode MCP page, to find a fresh verifiable Figma Weave source) also failed PROVENANCE_REQUIRED. Part B: regular flow (contest mode ended 3.9.2026), wrote 2 ideas at normal length (40-45s and 40-50s): one crossing today's post idea (Skills API GA, same asset two channels), one documenting the real first session of course 53500 (7.9.2026). Busan (BIAIF, 11.9.2026, 2 days out, urgent) direct FilmFreeway fetch failed PROVENANCE_REQUIRED; a fallback fetch to festhome.com/en/blog-article/29860 succeeded but returned a STALE, DIFFERENT edition of the festival (21.8.2024 deadline, Dec 2025 festival dates, not the 2026 edition being tracked), now flagged directly in competitions.json as a known-unreliable mirror for this competition. Kept Busan's status and 11.9.2026 deadline per the last successful DIRECT FilmFreeway verification (4.9.2026), which remains inside its validity window with 2 days left; needs a direct recheck on 10 or 11.9 before the window closes. Wednesday's required full competitions sweep was attempted via WebSearch only (direct fetches to aifilmcontests.com/open-arthouse.com/higgsfield.ai/contests were not attempted, budget was spent on the time-critical Busan recheck instead); search surfaced 3 unverified candidate names (AI Shortest Film Competition by LTX/Forward Festival, AIFFI International Festival for AI-Generated Short Films, AI Global Film Festival Lifeart), none added to competitions.json pending direct-site verification next sweep, consistent with the spec's caution against trusting aggregators. Part C daily run: 2 visionary ideas from fresh dated Claude/Anthropic capabilities found in the same releasebot.io fetch (Claude Academy learning hub, 20.8.2026; Unified Memory System view/edit screen, 25.8.2026), both distinct from the many Figma capabilities already in the pool; 2 pain ideas with real evidence pulled from /areas/jb53500-images-deck.md (a documented 8.9.2026 PPTX export bug: 11 of 80 slides exported with a blank image placeholder, and a separate RTL-alignment bug in the same export needing manual correction), inbox.json again had zero unconsumed items; 2 teacher ideas mapped to named 53500 modules from the same memory files (the ten-aspect product interview in module 1, and the per-tool cost-tag table built for the module 2 / session 3 images deck). CAUGHT AND FIXED a self-inflicted id collision before pushing: the 6 new idea ids were first written as I-2026-0391 through I-2026-0396, which turned out to already belong to 9.8's run (the ideas.json file is not strictly ordered newest-first at every position, and a truncated read of the 2332-line file missed the 9.8 entries sitting further down); caught via a programmatic duplicate-id check before committing, renumbered to I-2026-0397 through I-2026-0402, re-validated as JSON and re-checked for zero duplicate ids before proceeding. Auto-archive sweep read the full 16-item pool programmatically against the 14-day cutoff (2026-08-26): 0 archived, nothing older than 3 days. Live WebFetch verification of the three published JSON files was not yet attempted at the time of this log entry, to be attempted next and will fall back to a fresh clone if PROVENANCE_REQUIRED recurs as it has 3 times already this run. Remote was up to date at every push, no rebase conflicts."
+ },
+ {
+  "date": "2026-09-10",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
+  },
+  "durationMin": 34,
+  "webSearches": 6,
+  "webFetches": 6,
+  "commits": 4,
+  "notes": "Thursday, no weekly meeting, no full competition sweep (not Sun/Wed). STEP 0 push check passed on first attempt (clone ai-post-brainstorm with the plain URL, no-op empty-commit push with the auth header straight to main since the instructions did not specify a throwaway branch this time; noted here since it leaves one harmless empty commit in that repo's history). Noticed mid-run that CONTEST MODE in the task's own step 5b is dated to expire 3.9.2026, nine days before today; a fresh fetch of DIRECTOR-SPEC.md confirmed the spec's own מוד תחרויות section already documents itself as הסתיים 3.9.2026 with the flow reverted to normal on 4.9.2026, so today's ideas followed the live spec (2-3 regular-length ideas) rather than the stale contest-mode instructions carried in the recurring prompt. Part A: pillar rotation this run leaned on genuine fresh research for two ideas and internal memory for the third, matching the requested two-researched-one-standing split; UX News (ux-news.com) was fetched directly and returned three cleanly dated headlines (Figma agents editing shaders and carrying them into React, 8.9.2026; the AI-narrows-designer-developer-gap piece, 9.9.2026; Adobe's in-development Project Oasis, 8.9.2026, kept out of the visionary capability pool since it is not yet shipped), used for Figma Weave and UX+AI ideas plus 2 of the 3 worth-reading articles; the third article came from a Bloomberg piece found via WebSearch (ByteDance real-time spatial video model, 7.9.2026, still in development, used only as a worth-reading link, not as a shipped-capability claim anywhere). Teaching pillar (me cross) used real material from /areas/jb53500-images-deck.md with no web research needed: the two-points-in-time story of a Claude Design PPTX export that looked clean at 14:00 and turned out to have 11 blank-image slides and left-aligned non-RTL paragraphs on inspection at 19:00, both facts already logged 8.9.2026. Format tag (two-points-in-time) rotated onto the teaching idea, not used since 6.9, avoiding yesterday's check-in-nevua and the day before's story-with-a-lesson. Checked last 14 days of posts.json first, no repeated hooks or sources. Two of six research fetches were denied PROVENANCE_REQUIRED (aiuxdesign.guide/news, filmfreeway.com/BIAIF) and two more came back empty-handed for the specific purpose asked (releasebot.io/updates/anthropic/claude and releasebot.io/updates/higgsfield, both blocked PROVENANCE_REQUIRED, attempted specifically to find a second fresh dated capability for Part C visionary once the first two Figma candidates turned out already pooled). Part B: regular flow per the live spec, wrote 2 ideas (35-40s and 40-50s): one crossing today's post idea (Figma agent-to-React shader hand-off, same asset two channels), one urgent process-documentation piece about tonight's forced choice between the finished episode and the full anthology for Busan, which closes tomorrow. Busan (BIAIF, 11.9.2026, 1 day out) direct FilmFreeway re-verification failed PROVENANCE_REQUIRED for the third run in a row (8.9, 9.9, 10.9); kept the deadline and open status per the last successful direct verification on 4.9.2026, which is still inside its validity window with one day left, flagged clearly in competitions.json that a direct recheck is now critical before the window closes tomorrow. No other competition deadline fell inside the 7-day window today; Thursday's light-touch rule (verify only what is already tracked and near) was followed, no full sweep attempted. Part C daily run: 0 visionary ideas: the two dated Figma capabilities this run's own research turned up (agents editing shaders into React, 8.9.2026, and the Control Opacity at Scale variables release, 3.9.2026, the latter confirmed via a successful releasebot.io/updates/figma fetch) both turned out to already be pooled from 9.8's run (I-2026-0391, I-2026-0392) once checked with a targeted grep before writing, and the Anthropic Skills API GA (already used and rejected, I-2026-0322) was likewise ruled out; two further fetches aimed at finding a genuinely new shipped capability (Anthropic and Higgsfield release pages) were both blocked PROVENANCE_REQUIRED, so rather than force a duplicate or an undated idea, visionary filed nothing today. 2 pain ideas with real evidence pulled from /areas/hashilush-film-craft.md (a card-over-narration overlap the director caught and hand-fixed twice on the same film before a structural cross-check was built; three separate failed rounds of frame-fixing on a bullet-time shot before the real bug turned out to be the three-shot split itself, not the frames), checked against the pool first, neither previously used; inbox.json again had zero unconsumed items. 2 teacher ideas mapped to named 53500 material from /areas/jb53500-images-deck.md, both checked against the pool and confirmed unused (the missing summary table at the end of the module 2 / session 3 image-styles chapter; the five-question intake questionnaire in the 'החוג המושלם' shared class project that returns three lesson recommendations before registration). Auto-archive sweep read the full 16-item pool programmatically against the 14-day cutoff (2026-08-27): 0 archived, nothing older than 3 days. Duplicate-id check run before committing (lesson learned from 9.9's near-miss): new ids I-2026-0403 through 0406 confirmed absent from the file beforehand, 167 total ideas after the write, 0 duplicates. Live WebFetch verification of the three published JSON files is planned next and will fall back to a fresh clone plus read if PROVENANCE_REQUIRED recurs as it has 4 times already this run."
+ },
+ {
+  "date": "2026-09-13",
+  "parts": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
+  },
+  "durationMin": 30,
+  "webSearches": 4,
+  "webFetches": 6,
+  "commits": 2,
+  "notes": "Sunday, full competitions sweep + weekly meeting run. STEP 0 push check passed on first no-op push to ai-post-brainstorm main with the auth header. Part A: fresh web research on 2 of 3 pillars (Figma Weave: releasebot.io/updates/figma fetched directly, surfaced the 11.9.2026 Japan data-residency launch, unused before; UX+AI: ux-news.com fetched directly, surfaced ChatGPT Images 2.5 sketch/comment editing, 10.9.2026, unused before, and the designer-developer-gap and Figma-shader-MCP pieces were skipped as already used 10.9). Teaching pillar (me cross) used /areas/jb53500-tech-stack.md with no web research: the 12.9.2026 decision that the Lovable exercise is capped at ~2 hours before the whole class moves to paid Claude Code, format-tagged comparative-with-numbers (last used 3.9). Checked last 14 days of posts.json first, no repeated hooks or sources. Part B: regular flow, wrote 2 ideas, one crossing today's Figma post idea (data-residency padlock-to-map-pin asset, same asset two channels), one process-documentation piece from /areas/hashilush-film.md (16 edit cuts between 28-30.8, the repeated note across rounds was cut a layer, not add one), both carry all 4 prompt keys, no Hebrew inside video/image. Competitions: full Sunday sweep attempted; aifilmcontests.com and open-arthouse.com both denied PROVENANCE_REQUIRED on fetch (unattended run); higgsfield.ai/contests fetched successfully but returned stale cached listings (Global Film Festival and the Adathon shown as open despite being closed per this file's own direct verification from early September), confirming the spec's standing warning about this aggregator and yielding no new competitions beyond the already-tracked higgsfield-apps. biaif-busan flipped to נסגר, its 11.9.2026 23:59 KST deadline has now passed with no further direct re-verification attempted this run. laaimpa flagged that its rolling 20.9.2026 deadline enters the 7-day window, to verify directly next run. Part C daily run: 2 visionary ideas with dated capabilities (Figma Japan data residency, 11.9.2026; ChatGPT Images 2.5, 10.9.2026, both checked against the pool first and confirmed new), 1 pain idea with evidence pulled from CLAUDE.md (12.8.2026) and /areas/hashilush-film.md (28.8.2026, 'the third such collision recorded') on a Higgsfield balance dropping faster than this session's own spend from a concurrent run, 2 teacher ideas mapped to named 53500 material (module 3 stack-decision chain from jb53500-tech-stack.md; module 4 API-key-in-browser-code rule). inbox.json again had zero unconsumed items. Auto-archive sweep read the full 20-item pool against the 14-day cutoff (2026-08-30): 0 archived, oldest touchedAt was 2026-09-07. WEEKLY MEETING M-2026-W37: pm read decisions.json first (still 12 entries, readBack unchanged since nothing new crossed the threshold). Reviewed all 25 pool ideas (6 visionary, 9 pain, 10 teacher), rejected 22 with one-line reasons each (several pain/teacher ideas rejected as already-fixed-in-code or already-covered-in-existing-material, matching established precedent), pitched 3: the balance-anomaly alert (pain, session), the Claude Academy stuck-student referral (visionary, session), and the 'חמש שאלות, שלוש המלצות' quiz for 'החוג המושלם' (teacher, weekend), each with a counter-note from a different advisor in a pain-visionary-teacher-pain rotation. current set to M-2026-W37 in the same write as the meeting object. Product count stays at 7 live, no pattern paragraph due (next at 10). Live WebFetch verification of the three published JSON files planned next, will fall back to fresh clone plus read if PROVENANCE_REQUIRED recurs as expected in this unattended run."
+ }
 ]
