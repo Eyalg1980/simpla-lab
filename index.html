@@ -752,7 +752,16 @@ td b{color:var(--ink)}
 .pcopy:focus-visible{outline:2px solid #fff;outline-offset:2px}
 .pcopy.done{background:#2F6B4F}
 .ptpl pre{margin:0;padding:20px 22px;font-family:'Heebo',system-ui,sans-serif;font-size:14px;line-height:1.75;
-  white-space:pre-wrap;word-break:break-word;color:var(--ink);background:var(--cream);max-height:520px;overflow:auto;direction:rtl;text-align:right}
+  white-space:pre-wrap;word-break:break-word;color:var(--ink);background:var(--cream);overflow:visible;direction:rtl;text-align:right}
+.ptpl{position:relative}
+.ptpl.mini pre{max-height:104px;overflow:hidden}
+.ptpl.mini::after{content:'';position:absolute;left:0;right:0;bottom:0;height:74px;background:linear-gradient(to top,var(--cream) 28%,rgba(255,255,255,0));pointer-events:none}
+.pmin{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:rgba(255,255,255,.72);padding:5px 10px;border-radius:99px;transition:.16s}
+.pmin:hover{color:#fff;background:rgba(255,255,255,.12)}
+.pmin:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.pmin svg{width:13px;height:13px;flex:none;transition:transform .18s}
+.ptpl:not(.mini) .pmin svg{transform:rotate(180deg)}
+.ptpl-bar .grow{flex:1 1 auto}
 .ptpl.ltr pre{direction:ltr;text-align:left}
 #plibbar{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px}
 #plibbar .chip{font:inherit;font-size:12.5px;font-weight:700;border:1px solid var(--line);background:var(--paper);color:var(--ink-3);padding:5px 11px;border-radius:999px;cursor:pointer}
@@ -765,7 +774,8 @@ td b{color:var(--ink)}
 .imgs figcaption{padding:9px 12px 11px;font-size:12px;color:var(--ink-2);line-height:1.55;border-top:1px dashed var(--dash)}
 .imgs figcaption b{color:var(--ink);font-size:12.5px}
 @media(max-width:760px){.imgs.c3,.imgs.c2{grid-template-columns:1fr}}
-@media (max-width:700px){.ptpl pre{font-size:13px;padding:15px 16px;max-height:460px;overflow:auto;overscroll-behavior:contain}
+@media (max-width:700px){.ptpl pre{font-size:13px;padding:15px 16px}
+.ptpl.mini pre{max-height:92px}
 }
 
 /* =============== ACCESS GATE =============== */
@@ -6575,6 +6585,7 @@ function buildPromptLib(){
   }
   host.innerHTML=out.length?out.join(''):'<div class="callout">לא נמצאו פרומפטי תרגול.</div>';
   host.dataset.b='1';
+  initPtpl(host);
 }
 /* =============== DECK INDEX =============== */
 const DKMETA={"ai_in_flow":["מושג או תרשים",0],"agent_tools":["מושג או תרשים",0],"run_cost":["מושג או תרשים",0],"rag_build":["מושג או תרשים",0],"m6_close":["מושג או תרשים",0],"pitch_struct":["מושג או תרשים",0],"after_course":["מושג או תרשים",0],"proc_map":["מושג או תרשים",0],"filters3":["מושג או תרשים",0],"n8n_canvas":["מושג או תרשים",0],"n8n_first":["מושג או תרשים",0],"triggers":["מושג או תרשים",0],"n8n_tables":["מושג או תרשים",0],"api_read":["מושג או תרשים",0],"install":["לוגיסטיקה",1],"ex1":["תרגיל",0],"ex3":["תרגיל",0],"ex4":["תרגיל",0],"ex5":["תרגיל",0],"ex6":["תרגיל",0],"ex7":["תרגיל",0],"ex8":["תרגיל",0],"ex9":["תרגיל",0],"ex10":["תרגיל",0],"ex11":["תרגיל",0],"ex12":["תרגיל",0],"ex13":["תרגיל",0],"ex14":["תרגיל",0],"ex15":["תרגיל",0],"ex16":["תרגיל",0],"ex17":["תרגיל",0],"ex18":["תרגיל",0],"ex19":["תרגיל",0],"ex20":["תרגיל",0],"timeline":["מושג או תרשים",0],"semantic":["מושג או תרשים",0],"howitworks":["מושג או תרשים",0],"scope":["מושג או תרשים",0],"agent":["מושג או תרשים",0],"rag":["מושג או תרשים",0],"c_sets":["מושג או תרשים",0],"c_token":["מושג או תרשים",0],"c_next":["מושג או תרשים",0],"c_ctx":["מושג או תרשים",0],"c_live":["מושג או תרשים",0],"c_inj":["מושג או תרשים",0],"c_hook":["מושג או תרשים",0],"c_json":["מושג או תרשים",0],"harness":["מושג או תרשים",0],"intro":["לוגיסטיקה",1],"pe_parts":["מושג או תרשים",0],"pe_tech":["מושג או תרשים",0],"pe_demo":["הדגמה",0],"pe_lab":["הסבר",0],"img_ratio":["מושג או תרשים",0],"vid_two":["הסבר",0],"vid_shots":["מושג או תרשים",0],"doc_in":["הסבר",0],"sheet_ai":["הסבר",0],"notebook":["הסבר",0],"nb_lab":["הסבר",0],"deck_gen":["הסבר",0],"deck_fix":["הסבר",0],"close2":["סגירה",1],"need_first":["מושג או תרשים",0],"mvp_scope":["מושג או תרשים",0],"flow_shapes":["מושג או תרשים",0],"close5":["סגירה",1],"wire_why":["הסבר",0],"flow2screen":["הסבר",0],"screen_lab":["הסבר",0],"visual_id":["הסבר",0],"first_build":["הסבר",0],"close6":["סגירה",0],"envs":["מושג או תרשים",0],"pae":["הסבר",0],"proj_setup":["הסבר",0],"skill_conn":["הסבר",0],"close7":["סגירה",0],"persist":["הסבר",0],"core_action":["הסבר",0],"debug":["הסבר",0],"close8":["סגירה",0],"repo":["הסבר",0],"upload_lab":["הסבר",0],"publish":["הסבר",0],"private_test":["הסבר",0],"close3":["סגירה",0],"ex_md":["תרגיל",0],"ethics5":["מושג או תרשים",0],"wcag4":["מושג או תרשים",0],"audit_run":["הדגמה",0],"close10":["סגירה",1],"clientside":["מושג או תרשים",0],"attack_demo":["הדגמה",1],"close4":["סגירה",0],"tables":["מושג או תרשים",0],"connscope":["הסבר",0],"close12":["סגירה",1],"agent_build":["הסבר",0],"agent_demo":["הדגמה",0],"close13":["סגירה",1],"botform":["הסבר",0],"botflow":["מושג או תרשים",0],"bot_demo":["הדגמה",0],"ex_meta":["תרגיל",0],"ex_rev":["תרגיל",0],"ex_vent":["תרגיל",0],"game_models":["תרגיל",0],"house_model":["תרגיל",0],"prompt_banks":["הסבר",0],"anim_tech":["מושג או תרשים",0],"anim_moves":["מושג או תרשים",0],"sb_wolt":["הדגמה",0],"ex_ad":["תרגיל",0],"lipsync":["הסבר",0]};
@@ -6672,6 +6683,36 @@ function a11yPass(){
     } else { w.removeAttribute('tabindex'); w.removeAttribute('role'); w.removeAttribute('aria-label'); }
   });
 }
+
+/* =============== PROMPT TEMPLATE, MINIMISED BY DEFAULT =============== */
+function initPtpl(root){
+  const PMIN_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+  (root||document).querySelectorAll('.ptpl').forEach(box=>{
+    if(box.dataset.min) return;
+    box.dataset.min='1';
+    box.classList.add('mini');
+    const bar=box.querySelector('.ptpl-bar'); if(!bar) return;
+    const grow=document.createElement('span'); grow.className='grow'; 
+    const btn=document.createElement('button');
+    btn.type='button'; btn.className='pmin';
+    btn.setAttribute('aria-expanded','false');
+    btn.innerHTML=PMIN_SVG+'<span class="pmin-t">הגדלה</span>';
+    const copy=bar.querySelector('.pcopy');
+    if(copy){ bar.insertBefore(grow,copy); bar.insertBefore(btn,copy); }
+    else { bar.appendChild(grow); bar.appendChild(btn); }
+    const pre=box.querySelector('pre');
+    if(pre && !pre.id){ pre.id='pm'+Math.random().toString(36).slice(2,9); }
+    if(pre) btn.setAttribute('aria-controls',pre.id);
+  });
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.pmin'); if(!b) return;
+  const box=b.closest('.ptpl'); if(!box) return;
+  const mini=box.classList.toggle('mini');
+  b.setAttribute('aria-expanded', mini?'false':'true');
+  const t=b.querySelector('.pmin-t'); if(t) t.textContent = mini?'הגדלה':'כיווץ';
+});
+initPtpl();
 
 /* =============== PROMPT TEMPLATE COPY =============== */
 document.addEventListener('click',e=>{
