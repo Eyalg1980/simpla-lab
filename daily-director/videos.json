@@ -1,6 +1,47 @@
 {
  "days": [
   {
+   "date": "2026-09-14",
+   "ideas": [
+    {
+     "id": "2026-09-14-1",
+     "world": "סרטוני הסבר",
+     "color": "#71F73C",
+     "hook": "דניאל בוארון בקורס שלי לא פתח מצגת, הוא הדביק לינק לפיגמה, והסוכן כבר ידע מה לבדוק.",
+     "concept": "לינק לקובץ פיגמה נפתח לתוך שתי קואורדינטות זוהרות, fileKey ו-nodeId, בלי שאף אחד הסביר מילה. משם הסוכן סורק שורה אחר שורה של טקסט במסך מול מדריך סגנון קיים, ומסמן במקום שבו יש התאמה. קריינות עברית קצרה מספרת שעד עכשיו תיאור מסך לסוכן היה עבודה בפני עצמה, ועכשיו לינק אחד הוא כבר קונטקסט מלא.",
+     "execution": "שפת editorial kinetic, פריימי פתיחה ב-Nano Banana, אנימציה ב-Higgsfield Cinema Studio, 30 עד 35 שניות, 9:16 ראשי ועותק 1:1, קריינות עברית קצרה, בלי דיאלוג נוסף.",
+     "why": "אותו נכס עומד גם ברעיון הראשון של הבריינסטורמר של היום, נכס אחד, שני ערוצים.",
+     "competition": null,
+     "srcUrl": "https://eyalg1980.github.io/simpla-lab/",
+     "srcLabel": "מהסטודיו של סימפלה, הרצאת אורח בקורס",
+     "prompts": {
+      "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, 9:16. A hand-drawn link-chain icon unfurls and a thin scanning line sweeps down across a small design frame, extracting two glowing coordinate tags, then the scanning line moves across a block of text lines checking each one against a faint style-guide ruler, a small checkmark settles beside a matched line, camera holds static, calm confident pacing, single warm accent light, no text overlay, no logos.",
+      "script": "פתח לי את רעיון הווידאו \"לינק במקום מצגת\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: בהרצאת אורח של דניאל בוארון בקורס שלי הוא הדגים בלייב איך סוכן AI מקבל לינק לפיגמה, מפרש ממנו fileKey ו-nodeId, וסורק את הטקסטים במסך מול מדריך סגנון קיים. אותו נכס עומד גם בפוסט המקביל של היום. שפת editorial kinetic, קריינות עברית קצרה.",
+      "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. A small link-chain icon beside a design frame with two glowing coordinate tags and a faint checklist of text lines, one line marked with a small checkmark, 1:1",
+      "raw": "הוק: דניאל בוארון בקורס שלי לא פתח מצגת, הוא הדביק לינק לפיגמה, והסוכן כבר ידע מה לבדוק.\nעולם: סרטוני הסבר\nקונספט: לינק נפתח לתוך קואורדינטות של קובץ פיגמה, סוכן סורק את הטקסטים במסך מול מדריך סגנון ומסמן התאמות.\nביצוע: שפת editorial kinetic, Nano Banana לפריימים, Higgsfield Cinema Studio לאנימציה, 30 עד 35 שניות, 9:16 ו-1:1, קריינות עברית.\nלמה עכשיו: אותו נכס עומד גם בפוסט המקביל של היום, נכס אחד שני ערוצים."
+     }
+    },
+    {
+     "id": "2026-09-14-2",
+     "world": "תיעוד תהליך",
+     "color": "#71F73C",
+     "hook": "מ-11.9 עד 13.9.2026 בניתי סרט חימר אחד ברינדור רציף של עשרים וחמש שניות, וחתכתי אותו לשישה פרקים בלי שהתפר ייראה אף פעם.",
+     "concept": "יד עוברת על שישה פרקי חימר זעירים שנחתכים בדיוק מאותה רצועה רציפה. חתיכת חימר גסה ומעוכה ביד הופכת בהדרגה לחתיכה מדויקת וחלקה, בלי קאט אחד. קריינות עברית קצרה, אם בכלל, מספרת שרינדור רציף אחד ואפס הרכבה בין פרקים הם מה שמנע לגמרי בעיית תפרים.",
+     "execution": "שפת clay, אותה שפה של הסרט עצמו, פריים סטייל פלייט קבוע מראש, רינדור ב-seedance_2_5, חיתוך מקומי ב-ffmpeg לשישה פרקים, שני יחסי גובה-רוחב 16:9 ו-9:16, בלי דיאלוג, מוזיקה בלבד.",
+     "why": "התהליך קרה השבוע, 11 עד 13.9.2026, והוא עדיין טרי מספיק שכל ההחלטות זכורות לי מדויק.",
+     "competition": null,
+     "srcUrl": "https://eyalg1980.github.io/simpla-lab/",
+     "srcLabel": "מהסטודיו של סימפלה, בניית האתר בחימר",
+     "prompts": {
+      "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. A rough hand-pinched clay lump slowly smooths and sharpens into a precise exact shape, then a single continuous clay strip splits cleanly into six equal tiles that settle in a row, camera holds a static wide shot, gentle stop-motion flicker, 9:16, 8 seconds.",
+      "script": "פתח לי את רעיון הווידאו \"שישה פרקים מלקיחה אחת\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: בין 11.9 ל-13.9.2026 בניתי את סרט אתר סימפלה בחימר כרינדור רציף אחד של עשרים וחמש שניות בשני יחסי גובה-רוחב, וחתכתי אותו מקומית ב-ffmpeg לשישה פרקים בדיוק, כך שהתפרים בין הפרקים מדויקים כי הם פרוסות עוקבות מאותה לקיחה. הקשת החומרית עוברת מחימר גס ומעוך ביד לחימר מדויק וחלק עד סוף הסרט. שפת clay, בלי דיאלוג, מוזיקה בלבד.",
+      "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field. A single rough hand-pinched clay lump sitting beside a row of six small precise clay tiles cut from one continuous strip, no text, 1:1",
+      "raw": "הוק: מ-11.9 עד 13.9.2026 בניתי סרט חימר אחד ברינדור רציף של עשרים וחמש שניות, וחתכתי אותו לשישה פרקים בלי תפר.\nעולם: תיעוד תהליך\nקונספט: לקיחה רציפה אחת, נחתכת מקומית לשישה פרקים מדויקים, הקשת החומרית עוברת מחימר גס לחימר מדויק.\nביצוע: שפת clay, seedance_2_5 לרינדור, ffmpeg לחיתוך, 16:9 ו-9:16, בלי דיאלוג, מוזיקה בלבד.\nלמה עכשיו: התהליך קרה השבוע, 11 עד 13.9.2026."
+     }
+    }
+   ]
+  },
+  {
    "date": "2026-09-13",
    "ideas": [
     {
