@@ -1,6 +1,47 @@
 {
   "days": [
     {
+      "date": "2026-09-16",
+      "ideas": [
+        {
+          "id": "2026-09-16-1",
+          "world": "תיעוד תהליך",
+          "color": "#71F73C",
+          "hook": "כל שוט בלופ החלק של אתר החימר הוא בעצם ארבע שניות ששיחקתי קדימה ואז אחורה, לא לופ אמיתי.",
+          "concept": "תקריב על סרט חימר קטן שנע בלופ מושלם, בלי שום קאט נראה. אז המצלמה נסוגה וחושפת שזה בעצם אותם ארבע שניות שמתנגנות קדימה ואז חוזרות אחורה, תפורות בול על הפריים האחרון. קריינות עברית קצרה מסבירה למה זו לא רק טריק עריכה אלא החלטת UX.",
+          "execution": "שפת clay, אותה שפה שהוכחה בסטוריבורד ההמבורגר ובאתר החימר עצמו, פריימי פתיחה ב-Nano Banana, אנימציה ב-Higgsfield Cinema Studio, 35 עד 40 שניות, 9:16 ראשי ועותק 1:1, קריינות עברית קצרה בלבד.",
+          "why": "אותו נכס עומד גם ברעיון השני של הבריינסטורמר של היום, נכס אחד, שני ערוצים. וזו החלטת ייצור אמיתית מ-13.9.2026 באתר החימר של סימפלה.",
+          "competition": null,
+          "srcUrl": "https://eyalg1980.github.io/simpla-lab/",
+          "srcLabel": "מהסטודיו של סימפלה, אתר החימר, אזור העבודה",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. A small clay filmstrip loops smoothly with no visible seam, camera slowly pulls back to reveal the same short strip playing forward then reversing seamlessly back on itself, static centered camera, gentle stop-motion flicker, 9:16, 8 seconds.",
+            "script": "פתח לי את רעיון הווידאו \"הלופ שבעצם רק ארבע שניות\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: ב-13.9.2026 בניתי את אזור העבודה באתר החימר של סימפלה, שלושה קליפים שקטים בלופ, 960 על 540, שמונה שניות כל אחד, בנויים מארבע שניות שמנוגנות קדימה ואז אחורה כך שהלופ תפור בלי קרוספייד. אותו נכס עומד גם בפוסט המקביל של היום. שפת clay, קריינות עברית קצרה.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field. A small clay filmstrip forming a closed loop with no visible seam, one frame subtly brighter where forward motion turns to reverse, no text, 1:1",
+            "raw": "הוק: כל שוט בלופ החלק של אתר החימר הוא בעצם ארבע שניות ששיחקתי קדימה ואז אחורה, לא לופ אמיתי.\nעולם: תיעוד תהליך\nקונספט: תקריב על לופ חימר מושלם, המצלמה נסוגה וחושפת שזה אותן ארבע שניות קדימה ואחורה.\nביצוע: שפת clay, Nano Banana לפריימים, Higgsfield Cinema Studio לאנימציה, 35 עד 40 שניות, 9:16 ו-1:1, קריינות עברית קצרה.\nלמה עכשיו: אותו נכס עומד גם בפוסט המקביל של היום, נכס אחד שני ערוצים, מ-13.9.2026 באתר החימר."
+          }
+        },
+        {
+          "id": "2026-09-16-2",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "כלי קיוריישן ללמידה ארגונית מקצר שעה לדקות, ואני עדיין מכריח תלמידים לעשות את זה ביד קודם.",
+          "concept": "טיפוגרפיה קינטית על רקע כהה. שעון גדול מסתובב אחורה במהירות משעה שלמה לשתי דקות, וחמישה אריחי נושא מפוזרים נכנסים זה לתוך זה לערימה אחת מסודרת. קריינות עברית קצרה מסבירה את הפיצ'ר החדש ואת השאלה הפדגוגית שהוא פותח.",
+          "execution": "שפת editorial kinetic, רקע אנתרציט כהה, גופן קינטי בקורל וצהוב, פריימי פתיחה ב-Nano Banana, אנימציה ב-Higgsfield Cinema Studio, 30 עד 35 שניות, 9:16 ראשי ועותק 1:1, קריינות עברית קצרה.",
+          "why": "אותו נכס עומד גם ברעיון השלישי של הבריינסטורמר של היום, נכס אחד, שני ערוצים. OpenSesame הרחיבו את עוזר הקיוריישן שלהם ב-15.9.2026.",
+          "competition": null,
+          "srcUrl": "https://www.globenewswire.com/news-release/2026/09/15/3361975/0/en/opensesame-expands-ai-powered-curation-to-help-l-d-teams-turn-complex-learning-needs-into-action-faster.html",
+          "srcLabel": "OpenSesame, הודעה לעיתונות 15.9",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, kinetic typography, coral and warm yellow accents, minimal geometric composition, generous negative space. A large clock face spins its hour hand rapidly backward from a full circle down to a small arc, while five scattered rectangular topic tiles slide and snap together into one neat vertical stack beside it, brisk confident motion, 9:16, 8 seconds.",
+            "script": "פתח לי את רעיון הווידאו \"הקיוריישן שגומרת שעה בשתי דקות\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: OpenSesame הרחיבו ב-15.9.2026 את עוזר הקיוריישן שלהם לטיפול בכמה נושאים בשיחה אחת, ומקצרים בניית קטלוג של חמישה נושאים משעה לדקות. אותו נכס עומד גם בפוסט המקביל של היום. שפת editorial kinetic, קריינות עברית קצרה.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A clock face with its hour hand mid-sweep backward, five small rectangular topic tiles collapsing toward one stack, no text, 1:1",
+            "raw": "הוק: כלי קיוריישן ללמידה ארגונית מקצר שעה לדקות, ואני עדיין מכריח תלמידים לעשות את זה ביד קודם.\nעולם: סרטוני הסבר\nקונספט: שעון מסתובב אחורה משעה לשתי דקות, חמישה אריחי נושא נכנסים לערימה אחת.\nביצוע: שפת editorial kinetic, Nano Banana לפריימים, Higgsfield Cinema Studio לאנימציה, 30 עד 35 שניות, 9:16 ו-1:1, קריינות עברית קצרה.\nלמה עכשיו: OpenSesame הרחיבו את עוזר הקיוריישן ב-15.9.2026, אותו נכס עומד גם בפוסט המקביל של היום."
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-09-15",
       "ideas": [
         {
