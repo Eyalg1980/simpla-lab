@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-15",
+  "updated": "2026-09-16",
   "ideas": [
     {
       "id": "I-2026-0403",
@@ -2695,6 +2695,79 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-09-15"
+    },
+    {
+      "id": "I-2026-0422",
+      "title": "סלאש קומנד לכל מעצב",
+      "line": "ראיתי שפיגמה מייק נתנו סקילים מותאמים אישית כפקודות סלאש, מחוברים ל-9,000 אפליקציות דרך Zapier",
+      "advisor": "visionary",
+      "createdAt": "2026-09-16",
+      "capability": {
+        "name": "Figma Make custom skills (slash commands) + Zapier connector",
+        "releasedAt": "2026-09-15"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-16"
+    },
+    {
+      "id": "I-2026-0423",
+      "title": "מה שקרה למזג האסטרולוגי פעמיים",
+      "line": "פעמיים, ב-7.9 וב-15.9.2026, WebFetch נחסם בריצת הבוקר ומזג ירד לגרסה כללית במקום מקור חי",
+      "advisor": "pain",
+      "createdAt": "2026-09-16",
+      "capability": null,
+      "evidence": "תועד ב-task-management.md בשתי ריצות בוקר נפרדות (7.9 וגם 15.9.2026): כשה-WebFetch נחסם ב-PROVENANCE_REQUIRED בריצה ללא השגחה, הקריאה האסטרולוגית בלוח נופלת אוטומטית לתוכן כללי (נושא מאזניים, איזון והחלטה) במקום מקור חי, ושתי הפעמים זה נרשם בפירוש כפתרון עוקף ולא כתיקון.",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-16"
+    },
+    {
+      "id": "I-2026-0424",
+      "title": "משימת הבוקר שיורה פעמיים",
+      "line": "שלוש פעמים לפחות (26.8, ועוד פעם, ואז שוב ב-15.9.2026) משימת התדריך של 08:00 ירתה כפול באותו בוקר",
+      "advisor": "pain",
+      "createdAt": "2026-09-16",
+      "capability": null,
+      "evidence": "task-management.md מתעד את זה בפירוש כ'שלישית שזה קורה, גם ב-26.8, כדאי לבדוק למה המשימה של 08:00 יורה כפול בכמה בקרים'. בכל פעם ריצה אחת מוותרת על הדחיפה שלה לפי חוק ריצה מקבילה, אבל הסיבה השורשית לירי הכפול עצמו עדיין לא נבדקה.",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-16"
+    },
+    {
+      "id": "I-2026-0425",
+      "title": "מסך הלקוח בטלפון, מסך הניהול במחשב",
+      "line": "איך נראה על מסך הכיתה הרגע שסטודנט מבין שהוא בונה שני מסכים לשני מכשירים, לא אחד",
+      "advisor": "teacher",
+      "createdAt": "2026-09-16",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מודול 3 (בנייה) בקורס 53500: ההכרעה הטכנית מ-12.9.2026 קובעת שמסך הלקוח נבנה ונבדק מהטלפון ומסך הניהול נבנה מהמחשב, אבל שניהם חייבים לעבוד גם וגם בשני המכשירים.",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-16"
+    },
+    {
+      "id": "I-2026-0426",
+      "title": "התלמיד שלא מקליד פקודת גיט",
+      "line": "איך נראה על מסך הכיתה הרגע שסטודנט לוחץ כפתור ב-GitHub Desktop במקום להקליד git commit",
+      "advisor": "teacher",
+      "createdAt": "2026-09-16",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מודול 3 (בנייה) בקורס 53500: כלל הגיט לכיתה מ-12.9.2026, התלמיד לא מקליד פקודות בעצמו, הוא מבקש מ-Claude Code או לוחץ ב-GitHub Desktop, ריפו ציבורי אחד לפרויקט, ענף main בלבד, תגית checkpoint בסוף כל מודול.",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-16"
     }
   ]
 }
