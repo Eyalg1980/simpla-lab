@@ -1,6 +1,47 @@
 {
   "days": [
     {
+      "date": "2026-09-17",
+      "ideas": [
+        {
+          "id": "2026-09-17-1",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "הריצה הראשונה של סוכן AI על המוצר שלך יקרה. העשירית כמעט בחינם, אם כתבת קובץ אחד נכון.",
+          "concept": "טיפוגרפיה קינטית. עשרות אייקוני רכיבי ממשק קטנים נעים פנימה מקצוות המסך וממוססים אחד אחד לתוך מסמך זוהר אחד במרכז. קריינות עברית קצרה מסבירה שריצה ראשונה של סוכן על מוצר סורקת הכל וזה יקר, וכל ריצה אחרי זה רק קוראת את הקובץ הזה, וזה כמעט חינם.",
+          "execution": "שפת editorial kinetic, רקע אנתרציט כהה, גופן קינטי בקורל וצהוב, פריימי פתיחה ב-Nano Banana, אנימציה ב-Higgsfield Cinema Studio, 25 עד 30 שניות, 9:16 ראשי ועותק 1:1, קריינות עברית קצרה, בלי דיאלוג נוסף.",
+          "why": "אותו נכס עומד גם ברעיון הראשון של הבריינסטורמר של היום, נכס אחד, שני ערוצים. מהסבב השני של הרצאת האורח של דניאל בוארון בקורס שלי.",
+          "competition": null,
+          "srcUrl": "https://eyalg1980.github.io/simpla-lab/",
+          "srcLabel": "מהסטודיו של סימפלה, הרצאת האורח של דניאל בוארון, סבב שני",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, 9:16. Dozens of tiny scattered UI component icons drift inward from the edges of the frame and dissolve one by one into a single glowing document icon at center, then a single thin dashed line pulses gently outward from it, camera holds static, calm confident pacing, single warm accent light, no text overlay, no logos.",
+            "script": "פתח לי את רעיון הווידאו \"הריצה הראשונה יקרה, העשירית כמעט חינם\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: מהרצאת האורח השנייה של דניאל בוארון בקורס שלי, כל פרויקט שסוכן AI עובד עליו צריך DESIGN_CONTEXT.md, קובץ שממפה את מערכת העיצוב. הריצה הראשונה שבונה את הקובץ סורקת את כל המוצר ויקרה, וכל ריצה אחרי זה רק קוראת את הקובץ וזולה. אותו נכס עומד גם בפוסט המקביל של היום. שפת editorial kinetic, קריינות עברית קצרה.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. A single glowing document icon at center surrounded by a faint ring of small UI component icons mid-dissolve into it, one thin dashed line extending outward, 1:1",
+            "raw": "הוק: הריצה הראשונה של סוכן AI על המוצר שלך יקרה, העשירית כמעט חינם, אם כתבת קובץ אחד נכון.\nעולם: סרטוני הסבר\nקונספט: עשרות אייקוני רכיבים נעים וממוססים לתוך מסמך זוהר אחד, ואז קו מקווקו אחד ממשיך לפעום ממנו.\nביצוע: שפת editorial kinetic, Nano Banana לפריימים, Higgsfield Cinema Studio לאנימציה, 25 עד 30 שניות, 9:16 ו-1:1, קריינות עברית קצרה.\nלמה עכשיו: מהרצאת האורח השנייה של דניאל בוארון בקורס שלי, אותו נכס עומד גם בפוסט המקביל של היום."
+          }
+        },
+        {
+          "id": "2026-09-17-2",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "קלוד עכשיו מריץ בעצמו 43 זרימות עבודה לעסק קטן, כולל חיבור ישיר לזאפייר, סטרייפ ושופיפיי.",
+          "concept": "שפת חימר. חנות זעירה מחימר עומדת במרכז, וקווי חוט קורל דקים יוצאים ממנה אחד אחד ומתחברים לאובייקטי חימר קטנים מסביב, קופה, לוח זמנים, קבלה. קריינות עברית קצרה מסבירה שההרחבה החדשה של קלוד לעסקים קטנים מריצה בעצמה את התהליך המלא, מליד ועד דוח, בלי לכתוב קוד.",
+          "execution": "שפת clay, פריימי פתיחה ב-Nano Banana, אנימציה ב-Higgsfield Cinema Studio, 30 עד 35 שניות, 9:16 ראשי ועותק 1:1, קריינות עברית קצרה בלבד.",
+          "why": "אותו נכס עומד גם ברעיון השני של הבריינסטורמר של היום, נכס אחד, שני ערוצים. אנתרופיק הרחיבו את Claude for Small Business ב-15.9.2026.",
+          "competition": null,
+          "srcUrl": "https://releasebot.io/updates/anthropic/claude",
+          "srcLabel": "Releasebot, עדכוני Claude 15.9",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. A small clay storefront sits at center as thin coral thread lines extend outward one at a time connecting to small clay objects arranged around it, a cash register, a calendar, a receipt, each lighting up softly as the thread reaches it, camera holds static centered, gentle stop-motion flicker, 9:16, 8 seconds.",
+            "script": "פתח לי את רעיון הווידאו \"קלוד מריץ את העסק הקטן בעצמו\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: ב-15.9.2026 הרחיבה אנתרופיק את Claude for Small Business ל-43 זרימות עבודה חדשות ו-27 אינטגרציות כולל Shopify, Stripe, Xero וזאפייר, יותר מ-900 אלף התקנות מאז מאי. אותו נכס עומד גם בפוסט המקביל של היום. שפת clay, קריינות עברית קצרה.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field. A small clay storefront at center with thin coral thread lines reaching out to a few small clay objects nearby, a cash register and a receipt, no text, 1:1",
+            "raw": "הוק: קלוד עכשיו מריץ בעצמו 43 זרימות עבודה לעסק קטן, כולל חיבור ישיר לזאפייר, סטרייפ ושופיפיי.\nעולם: סרטוני הסבר\nקונספט: חנות חימר זעירה במרכז, קווי חוט קורל מתחברים אחד אחד לאובייקטים סביבה.\nביצוע: שפת clay, Nano Banana לפריימים, Higgsfield Cinema Studio לאנימציה, 30 עד 35 שניות, 9:16 ו-1:1, קריינות עברית קצרה.\nלמה עכשיו: אנתרופיק הרחיבו את Claude for Small Business ב-15.9.2026, אותו נכס עומד גם בפוסט המקביל של היום."
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-09-16",
       "ideas": [
         {
