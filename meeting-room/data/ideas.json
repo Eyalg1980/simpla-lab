@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-17",
+  "updated": "2026-09-18",
   "ideas": [
     {
       "id": "I-2026-0427",
@@ -2858,6 +2858,65 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-09-16"
+    },
+    {
+      "id": "I-2026-0433",
+      "title": "המנועים שלך כקובץ אחד",
+      "line": "ראיתי שב-3.9.2026 יצאה פקודת ant apply, תשתית כקוד לסוכנים, סקילים וסביבות עם קובץ lock, בדיוק כשארבע המשימות המתוזמנות שלך עדיין מנוהלות ביד ובזיכרון.",
+      "advisor": "visionary",
+      "createdAt": "2026-09-18",
+      "capability": {
+        "name": "ant apply, תשתית כקוד ל-Claude (CLI v1.30.0)",
+        "releasedAt": "2026-09-03"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-18"
+    },
+    {
+      "id": "I-2026-0434",
+      "title": "שתי הנחיתות באותו חודש",
+      "line": "פעמיים החודש בנית מאפס הגדרת תפקיד, כמה גרסאות קו\"ח ולוח זמנים, לגיל ב-10.9 ולאורן הדר קודם, בלי תבנית אחת משותפת.",
+      "advisor": "pain",
+      "createdAt": "2026-09-18",
+      "capability": null,
+      "evidence": "שני תהליכי חיפוש עבודה מלאים באותו חודש, גיל (התחיל 10.9.2026, שישה קבצי קו\"ח, שלושה מסלולים, לוח זמנים) ואורן הדר (הגדרת תפקיד, שלוש גרסאות קו\"ח, מפת דרכים ל-14 שבועות), כל אחד נבנה מאפס בלי שום תבנית חוזרת.",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-18"
+    },
+    {
+      "id": "I-2026-0435",
+      "title": "התג שסוגר מודול",
+      "line": "איך נראה על מסך התלמיד הרגע שמודול נסגר בתגית checkpoint אחת בגיט, לפני שהוא בכלל פותח את המודול הבא בתרגיל המתגלגל?",
+      "advisor": "teacher",
+      "createdAt": "2026-09-18",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מודול 3, כלל הגיט לכיתה בקורס 53500: ריפו ציבורי אחד, ענף main בלבד, תגית checkpoint בסוף כל מודול (הוחלט 12.9.2026)",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-18"
+    },
+    {
+      "id": "I-2026-0436",
+      "title": "לבחור סטאק בלי לפחד ממנו",
+      "line": "איך נראה על מסך התלמיד הרגע שהוא רואה למה נבחר HTML/CSS/JS סטטי, Supabase ו-n8n, לפני שהוא שואל את קלוד קוד שאלה אחת?",
+      "advisor": "teacher",
+      "createdAt": "2026-09-18",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מודול 1, הסטאק הדיפולטיבי של הפרויקט המתגלגל בקורס 53500 (הוחלט 12.9.2026): HTML/CSS/JS סטטי, Supabase לנתונים, n8n לאוטומציות, GitHub Pages לאחסון",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-18"
     }
   ]
 }

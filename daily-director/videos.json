@@ -1,6 +1,49 @@
 {
   "days": [
     {
+      "date": "2026-09-18",
+      "ideas": [
+        {
+          "id": "2026-09-18-1",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "פיגמה עצמה קוראת לזה סקיל עכשיו, ויש לסוכן שלה קונקטורים לנוטיון, סלאק וגיטהאב.",
+          "concept": "מ-Config 2026 של פיגמה: סוכן הפיגמה יצא לכל המשתמשים, אפשר לארוז לו זרימת עבודה כסקיל קבוע, לחבר אותו לנוטיון וסלאק וגיטהאב, ושיחות הסוכן גלויות לצוות כברירת מחדל. Weave עצמו יוצא מהניסוי הפרטי, אפשר לפרסם זרימה כתבנית ובקרוב ככלי קהילה.",
+          "execution": "שפת editorial kinetic, רקע אנתרציט כהה, גופן קינטי בקורל וצהוב, וידאו של 45 שניות, יחס 9:16, קריינות עברית קצרה מוקלטת של אייל, בנוי ב-Higgsfield Shorts Studio, בלי אווטאר.",
+          "why": "כי כשהחברה שבונה את הכלי מאמצת את המילה סקיל כתשתית רשמית, זה הרגע להראות את זה בווידאו, לא רק לכתוב עליו. אותו נכס עומד גם ברעיון הראשון של הבריינסטורמר של היום, נכס אחד, שני ערוצים.",
+          "competition": null,
+          "srcUrl": "https://www.figma.com/blog/config-2026-recap/",
+          "srcLabel": "Figma Blog, סיכום Config 2026",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. A small folder icon made of thin coral lines assembles at center from scattered geometric fragments drifting inward, then three thin dashed lines extend outward from it to three minimal platform icons which pulse briefly one after another, camera static, confident steady pacing, 9:16, 8 seconds",
+            "script": "פתח תסריט על בסיס ההוק \"פיגמה עצמה קוראת לזה סקיל עכשיו, ויש לסוכן שלה קונקטורים לנוטיון, סלאק וגיטהאב\". תן לוגליין, קריינות עברית מתוזמנת לפי שניות, פירוק שוטים עם משך וקאמרה לכל שוט, ופרומפט ג'נרציה באנגלית לכל שוט.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. A single small folder icon at center made of thin coral lines, three thin dashed lines extending outward from it to three minimal platform icons, clean flat vector shapes, no gradients",
+            "raw": "הוק: פיגמה עצמה קוראת לזה סקיל עכשיו, ויש לסוכן שלה קונקטורים לנוטיון, סלאק וגיטהאב.\nעולם: סרטוני הסבר\nקונספט: סוכן הפיגמה יצא לכל המשתמשים מ-Config 2026, אפשר לארוז לו זרימת עבודה כסקיל קבוע, לחבר אותו לנוטיון וסלאק וגיטהאב, ושיחות הסוכן גלויות לצוות כברירת מחדל. Weave יוצא מהניסוי הפרטי, אפשר לפרסם זרימה כתבנית ובקרוב ככלי קהילה.\nביצוע: טיפוגרפיה קינטית, 45 שניות, יחס 9:16, קריינות עברית מוקלטת, Higgsfield Shorts Studio.\nלמה עכשיו: כשהחברה שבונה את הכלי מאמצת את המילה סקיל כתשתית רשמית, זה הרגע להראות את זה."
+          },
+          "used": false
+        },
+        {
+          "id": "2026-09-18-2",
+          "world": "קונספטואלי",
+          "color": "#71F73C",
+          "hook": "קלוד עכשיו עוצר באמצע ושואל אם ממשיכים, וזו בדיוק ההחלטה שאף עיצוב לא פתר יפה.",
+          "concept": "ב-10.9.2026 קלוד שחרר מצב אישורים אוטומטי לסוכנים מנוהלים: לפני כל קריאת כלי, השרת עצמו מחליט אם להריץ, לחסום, או לעצור ולבקש אישור אנושי. סרטון קונספטואלי קצר שממחיש את שלוש האפשרויות כתנועה רציפה אחת של אור על שביל שמתפצל.",
+          "execution": "אור ים תיכוני חם, חול קרם וטורקיז רך, אנושי ותקוותי ולא קר, עומק שדה רדוד. Higgsfield Cinema Studio, 30 שניות, יחס 1:1, בלי אווטאר, בלי דיאלוג מסונכרן.",
+          "why": "כי כל מוצר סוכנים היום מגיע לרגע הזה, וכמעט אף אחד לא מעצב אותו יפה, ותיעוד רשמי כבר קורא לזה בשם. חוצה עם רעיון הפוסט השני של היום, אותו נכס לשני ערוצים.",
+          "competition": null,
+          "srcUrl": "https://platform.claude.com/docs/en/release-notes/overview",
+          "srcLabel": "Claude Platform, הערות שחרור, 10.9.2026",
+          "prompts": {
+            "video": "Optimistic near future visual language, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field, no text. A single glowing dashed pathway forks into three thin branches under warm golden hour light, a small light travels along the straight branch smoothly and continues off frame, then a second small light travels toward the curved branch and gently slows to a stop at a soft pause symbol made of two rounded bars, camera holds static, calm deliberate pacing, 9:16, 8 seconds",
+            "script": "פתח תסריט על בסיס ההוק \"קלוד עכשיו עוצר באמצע ושואל אם ממשיכים\". תן לוגליין, קריינות עברית מתוזמנת או שקט מלא אם מתאים, פירוק שוטים עם משך וקאמרה לכל שוט, ופרומפט ג'נרציה באנגלית לכל שוט.",
+            "image": "Optimistic near future visual language, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field, no text. A single glowing dashed pathway forking into three thin branches under warm golden hour light, one branch continuing forward, one gently curving to a soft pause symbol made of two rounded bars, one curving to a small stop shape, clean minimal composition",
+            "raw": "הוק: קלוד עכשיו עוצר באמצע ושואל אם ממשיכים, וזו בדיוק ההחלטה שאף עיצוב לא פתר יפה.\nעולם: קונספטואלי\nקונספט: ב-10.9.2026 קלוד שחרר מצב אישורים אוטומטי לסוכנים, השרת מחליט להריץ, לחסום או לעצור לאישור אנושי.\nביצוע: אור ים תיכוני חם, Higgsfield Cinema Studio, 30 שניות, יחס 1:1.\nלמה עכשיו: כל מוצר סוכנים מגיע לרגע הזה, וכמעט אף אחד לא מעצב אותו יפה."
+          },
+          "used": false
+        }
+      ]
+    },
+    {
       "date": "2026-09-17",
       "ideas": [
         {
