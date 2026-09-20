@@ -1,6 +1,96 @@
 {
-  "updated": "2026-09-18",
+  "updated": "2026-09-20",
   "ideas": [
+    {
+      "id": "I-2026-0433",
+      "title": "Weave node שמחבר קובץ קיים",
+      "line": "ראיתי שב-17.9.2026 פיגמה שחררו node חדש ל-Weave שמחבר קובץ עיצוב קיים ישירות לקנבס הזרימה, כולל ייבוא פריימים וסנכרון חי. עכשיו אפשר לתדרך זרימת עבודה על ידי מסירת קובץ במקום לתאר אותו במילים.",
+      "advisor": "visionary",
+      "createdAt": "2026-09-20",
+      "capability": {
+        "name": "Figma Weave node, חיבור קובץ עיצוב קיים ישירות לקנבס הזרימה עם סנכרון חי",
+        "releasedAt": "2026-09-17"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "rejected",
+      "snoozes": 0,
+      "touchedAt": "2026-09-20"
+    },
+    {
+      "id": "I-2026-0434",
+      "title": "מסמך ושקפים באותה שיחה",
+      "line": "ראיתי שב-16.9.2026 אנתרופיק מיזגו את קאוורק והצ'אט לאפליקציה אחת, עם Claude Docs ו-Claude Slides בבטא באותה שיחה. עכשיו שלושת המנועים היומיים שלי רצים בדיוק בתוך הסביבה המאוחדת הזאת, בלי לצאת לכלי נפרד לתיעוד או להצגה.",
+      "advisor": "visionary",
+      "createdAt": "2026-09-20",
+      "capability": {
+        "name": "Claude Cowork ו-Chat מתמזגים לאפליקציה אחת, Claude Docs ו-Claude Slides בבטא",
+        "releasedAt": "2026-09-16"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pitched",
+      "snoozes": 0,
+      "touchedAt": "2026-09-20"
+    },
+    {
+      "id": "I-2026-0435",
+      "title": "חילוץ טוקן שנכשל בלי אזהרה",
+      "line": "מסך שמראה מראש אם חילוץ טוקן הדיפלוי של היום נחסם או עבד, לפני שריצה שלמה נתקעת בגלל זה באמצע.",
+      "advisor": "pain",
+      "createdAt": "2026-09-20",
+      "capability": null,
+      "evidence": "לפי git-deploy.md, חילוץ הטוקן מתוך prompt המשימה המתוזמנת נחסם על ידי הסיווג הבטיחותי של הסביבה פעמיים, ב-8.9 וב-10.9.2026, גם בכתיבה לקובץ וגם בקריאה למשתנה שורת פקודה, ועבד שוב רק ב-12.9.2026 בלי שום מנגנון שמראה מראש אם ריצה נתונה תיתקל בזה",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pitched",
+      "snoozes": 0,
+      "touchedAt": "2026-09-20"
+    },
+    {
+      "id": "I-2026-0436",
+      "title": "קובץ שגדל מעבר למה שריצה קוראת",
+      "line": "מעביר ידני שמזיז ל-archive.json כל רעיון או ישיבה שכבר הוכרעו לפני יותר משבועיים, לפני שקובץ הדאטה גדל מעבר למה שריצה יכולה לקרוא בבת אחת.",
+      "advisor": "pain",
+      "createdAt": "2026-09-20",
+      "capability": null,
+      "evidence": "בריצה של 20.9.2026 שלושה מתוך קבצי הדאטה של חדר הישיבות, ideas.json, meetings.json ו-competitions.json, חצו את מגבלת קריאת הטוקן במכה אחת ודרשו קריאה שנייה עם offset כדי להשלים, אחרי ש-ideas.json לבדו גדל ל-2,922 שורות כשרוב התוכן כבר הוכרע (rejected או pitched) לפני שבועות",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pitched",
+      "snoozes": 0,
+      "touchedAt": "2026-09-20"
+    },
+    {
+      "id": "I-2026-0437",
+      "title": "שימוש-הרחבה-המצאה על מסך הכיתה",
+      "line": "איך נראה על מסך התלמיד הרגע שהוא מחבר קובץ פיגמה קיים ישירות לקנבס workflow ורואה בעצמו למה לא צריך לתאר אותו במילים?",
+      "advisor": "teacher",
+      "createdAt": "2026-09-20",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מיישם AI ואוטומציה 53500, מודול 3 (בנייה), עקרון שימוש-הרחבה-המצאה מהרצאת האורח של דניאל בוארון",
+      "sourceInboxId": null,
+      "status": "rejected",
+      "snoozes": 0,
+      "touchedAt": "2026-09-20"
+    },
+    {
+      "id": "I-2026-0438",
+      "title": "המסמך והשקפים כבר בשיחה",
+      "line": "איך נראה על מסך התלמיד הרגע שהוא מגלה שהמסמך והשקפים של 'החוג המושלם' כבר יושבים באותה שיחה שבנתה את הפרויקט עצמו, בלי כלי נפרד?",
+      "advisor": "teacher",
+      "createdAt": "2026-09-20",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מיישם AI ואוטומציה 53500, מודול 1 (משלב הרעיון למוצר), תרגילי 'החוג המושלם'",
+      "sourceInboxId": null,
+      "status": "rejected",
+      "snoozes": 0,
+      "touchedAt": "2026-09-20"
+    },
     {
       "id": "I-2026-0427",
       "title": "צנרת לקוחות בלי CRM נפרד",
@@ -14,7 +104,7 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-09-17"
     },
@@ -31,7 +121,7 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-09-17"
     },
@@ -45,7 +135,7 @@
       "evidence": "בבניית אתר סימפלה בחימר ב-11.9.2026, הכלל `.scroll-scrub__route { display: none }` לא עשה כלום כי מנוע הסקרול קובע display:flex באותה ספציפיות, וזה עלה סבב תיקון שלם עד שהתגלה שדריסת תכונה שהמנוע כבר מצהיר עליה דורשת !important או ספציפיות גבוהה יותר, בעוד דריסת תכונה שהמנוע לא נוגע בה עובדת ישר.",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-09-17"
     },
@@ -59,7 +149,7 @@
       "evidence": "ריפו jb53500 נחסם על ידי מסנן הבטיחות בזמן הזדהות הדחיפה ארבע פעמים נפרדות, 8.9, 10.9 ו-14.9.2026, ובכל פעם הפתרון היה זהה, מסירת הקובץ המוכן בצ'אט להעלאה ידנית באמצעות תיקיית jb53500-DD-MM, בלי שהחסימה עצמה נפתרה.",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-09-17"
     },
@@ -73,7 +163,7 @@
       "evidence": null,
       "lesson": "מיישם AI ואוטומציה 53500, ייעוץ פרויקט מתגלגל לתלמיד אייל כהן מ-15.9.2026: מערכת ניתוח מכרזים לעסקים קטנים, שלושה סוכנים (פרופיל, ניתוח, התאמה), תוצר דוח סיווג עומד בתנאי, קיים פער או דורש בדיקה, בלי החלטת Go/No-Go אוטומטית",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-09-17"
     },
@@ -87,7 +177,7 @@
       "evidence": null,
       "lesson": "מיישם AI ואוטומציה 53500, מודול 3 (בנייה), פיצול תוצר 5 שנקבע 12.9.2026: תבנית CLAUDE.md, פרומפט מראיין שמוציא אותה מעשרת ההיבטים, ופרומפט נפרד לפתיחת כל מפגש",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-09-17"
     },
@@ -2872,7 +2962,7 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-09-18"
     },
@@ -2886,7 +2976,7 @@
       "evidence": "שני תהליכי חיפוש עבודה מלאים באותו חודש, גיל (התחיל 10.9.2026, שישה קבצי קו\"ח, שלושה מסלולים, לוח זמנים) ואורן הדר (הגדרת תפקיד, שלוש גרסאות קו\"ח, מפת דרכים ל-14 שבועות), כל אחד נבנה מאפס בלי שום תבנית חוזרת.",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
       "touchedAt": "2026-09-18"
     },
@@ -2900,7 +2990,7 @@
       "evidence": null,
       "lesson": "מודול 3, כלל הגיט לכיתה בקורס 53500: ריפו ציבורי אחד, ענף main בלבד, תגית checkpoint בסוף כל מודול (הוחלט 12.9.2026)",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
       "touchedAt": "2026-09-18"
     },
@@ -2914,7 +3004,7 @@
       "evidence": null,
       "lesson": "מודול 1, הסטאק הדיפולטיבי של הפרויקט המתגלגל בקורס 53500 (הוחלט 12.9.2026): HTML/CSS/JS סטטי, Supabase לנתונים, n8n לאוטומציות, GitHub Pages לאחסון",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
       "touchedAt": "2026-09-18"
     }

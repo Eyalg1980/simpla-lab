@@ -1,6 +1,49 @@
 {
   "days": [
     {
+      "date": "2026-09-20",
+      "ideas": [
+        {
+          "id": "2026-09-20-1",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "פיגמה עכשיו נותנת לקנבס לקרוא קובץ עיצוב קיים ישירות, בלי שמישהו יתאר לו מילה אחת ממה שיש בו.",
+          "concept": "טיפוגרפיה קינטית. אייקון קובץ עיצוב נגרר ישירות לתוך node על קנבס זרימת עבודה, ננעל במקום, וקו מקווקו דק פועם ביניהם כל הזמן, מסמל סנכרון חי. קריינות עברית קצרה מסבירה שעד עכשיו קונטקסט לזרימת עבודה נכתב במילים, ועכשיו זה חיבור ישיר לקובץ עצמו.",
+          "execution": "שפת editorial kinetic, רקע אנתרציט כהה, גופן קינטי בקורל וצהוב, פריימי פתיחה ב-Nano Banana, אנימציה ב-Higgsfield Cinema Studio, 25 עד 30 שניות, 9:16 ראשי ועותק 1:1, קריינות עברית קצרה.",
+          "why": "אותו נכס עומד גם ברעיון הראשון של הבריינסטורמר של היום, נכס אחד שני ערוצים. פיגמה שחררו את ה-node הזה ל-Weave ב-17.9.2026.",
+          "competition": null,
+          "srcUrl": "https://releasebot.io/updates/figma",
+          "srcLabel": "Releasebot, עדכוני פיגמה, 17.9.2026",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. A single design file icon glides smoothly into a workflow canvas node and locks into place, then a thin dashed line pulses steadily between the file and the node showing continuous live sync, camera holds static, calm confident pacing, 9:16, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"קובץ עיצוב שנכנס ישר לקנבס הזרימה\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: ב-17.9.2026 פיגמה שחררו node חדש ל-Weave שמחבר קבצי פיגמה קיימים ישירות לקנבס הזרימה, כולל ייבוא פריימים וסנכרון חי מהקובץ המקורי, בדיוק עקרון שימוש-הרחבה-המצאה שאני מלמד בקורס. אותו נכס עומד גם בפוסט המקביל של היום. שפת editorial kinetic, קריינות עברית קצרה.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. A single design file icon resting inside a workflow canvas node, one thin dashed sync line connecting them, clean flat vector shapes, no gradients",
+            "raw": "הוק: פיגמה עכשיו נותנת לקנבס לקרוא קובץ עיצוב קיים ישירות, בלי שמישהו יתאר לו מילה אחת.\nעולם: סרטוני הסבר\nקונספט: אייקון קובץ נגרר לתוך node על קנבס זרימה, קו מקווקו דק פועם ביניהם.\nביצוע: שפת editorial kinetic, Nano Banana לפריימים, Higgsfield Cinema Studio לאנימציה, 25 עד 30 שניות, 9:16 ו-1:1, קריינות עברית קצרה.\nלמה עכשיו: פיגמה שחררו את זה ב-17.9.2026, אותו נכס עומד גם בפוסט המקביל של היום."
+          },
+          "used": false
+        },
+        {
+          "id": "2026-09-20-2",
+          "world": "קונספטואלי",
+          "color": "#71F73C",
+          "hook": "קלוד מיזג היום את הצ'אט ואת קאוורק לאפליקציה אחת, ושלושת המנועים היומיים שלי רצים בדיוק בתוך המיזוג הזה.",
+          "concept": "שני חלונות אפליקציה נפרדים נעים זה לעבר זה על רקע אור ים תיכוני חם, ומתמזגים לחלון אחד. אייקון מסמך קטן ואייקון שקפים קטן מתיישבים בפנים ופועמים פעם אחת. קריינות עברית קצרה או שקט מלא מסביר שהכלים שהיו נפרדים התאחדו לסביבה אחת.",
+          "execution": "שפת optimistic near-future, אור ים תיכוני חם, חול קרם וטורקיז רך, Higgsfield Cinema Studio, 25 עד 30 שניות, 9:16 ראשי ועותק 1:1, בלי אווטאר, קריינות עברית קצרה או שקט מלא.",
+          "why": "אותו נכס עומד גם ברעיון השני של הבריינסטורמר של היום, נכס אחד שני ערוצים. אנתרופיק מיזגו את Cowork והצ'אט ב-16.9.2026, ושלושת המנועים שלי רצים בדיוק בתוך הסביבה הזאת.",
+          "competition": null,
+          "srcUrl": "https://releasebot.io/updates/anthropic/claude-code",
+          "srcLabel": "Releasebot, עדכוני קלוד, 16.9.2026",
+          "prompts": {
+            "video": "Optimistic near future visual language, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field, no text. Two separate rounded app windows glide toward each other across a warm golden light and merge smoothly into one single window, a small document icon and a small slide icon settle inside it and glow softly once, camera holds static, calm deliberate pacing, 9:16, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"שני כלים שהתמזגו לאחד\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: ב-16.9.2026 אנתרופיק איחדו את Claude Cowork והצ'אט לאפליקציה אחת עם Claude Docs ו-Claude Slides בבטא, ושלושת המנועים היומיים שלי רצים בדיוק בתוך הסביבה הזאת. אותו נכס עומד גם בפוסט המקביל של היום. שפת optimistic near-future, קריינות עברית קצרה או שקט מלא.",
+            "image": "Optimistic near future visual language, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field, no text. Two rounded app windows merging into one single window under warm golden light, a small document icon and a small slide icon settled inside it, clean minimal composition",
+            "raw": "הוק: קלוד מיזג היום את הצ'אט ואת קאוורק לאפליקציה אחת, ושלושת המנועים היומיים שלי רצים בדיוק בתוך המיזוג הזה.\nעולם: קונספטואלי\nקונספט: שני חלונות אפליקציה נעים זה לעבר זה ומתמזגים לחלון אחד, אייקון מסמך ואייקון שקפים מתיישבים בפנים.\nביצוע: שפת optimistic near-future, Higgsfield Cinema Studio, 25 עד 30 שניות, 9:16 ו-1:1, קריינות עברית קצרה או שקט מלא.\nלמה עכשיו: אנתרופיק מיזגו את Cowork והצ'אט ב-16.9.2026, אותו נכס עומד גם בפוסט המקביל של היום."
+          },
+          "used": false
+        }
+      ]
+    },
+    {
       "date": "2026-09-18",
       "ideas": [
         {
