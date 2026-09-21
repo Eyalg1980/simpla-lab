@@ -1,6 +1,63 @@
 {
   "days": [
     {
+      "date": "2026-09-21",
+      "ideas": [
+        {
+          "id": "2026-09-21-1",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "פיגמה עכשיו נותנת לקוד לקרוא ישירות את הטוקנים והקומפוננטות מתוך קובץ העיצוב, בלי שאף אחד יתאר בטקסט מה יש שם.",
+          "concept": "טיפוגרפיה קינטית. קומפוננטות וטוקנים קטנים זוהרים נגררים מתוך פריים עיצוב אל תוך עורך קוד, ומתארגנים שם לשורות קוד אמיתיות שמתכתבות. קריינות עברית קצרה מסבירה שעד עכשיו הקשר הזה נכתב במילים, ועכשיו זו גישה חיה לקובץ עצמו.",
+          "execution": "שפת editorial kinetic, רקע אנתרציט כהה, פריימי פתיחה ב-Nano Banana, אנימציה ב-Higgsfield Cinema Studio, 25 עד 30 שניות, 9:16 ראשי ועותק 1:1, קריינות עברית קצרה.",
+          "why": "פיגמה השיקו שרת MCP רשמי ב-14.9.2026 שנותן לכלי קידוד AI גישה בזמן אמת לקומפוננטות ולטוקנים מתוך קובץ עיצוב חי. זה בדיוק העיקרון של שימוש-הרחבה-המצאה שאני מלמד בקורס, רק שעכשיו זו תשתית רשמית של פיגמה ולא רק הדגמה בכיתה.",
+          "competition": null,
+          "srcUrl": "https://spyingbee.com/updates/figma/2026-09",
+          "srcLabel": "Spyingbee, עדכוני פיגמה, 14.9.2026",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. Small glowing component and token icons drift out of a design file frame and flow smoothly into a code editor window, arranging themselves into clean lines of code that light up as they connect, camera holds static, calm confident pacing, 9:16, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"טוקנים שזורמים ישר מהעיצוב לתוך הקוד\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: ב-14.9.2026 פיגמה השיקו שרת MCP רשמי שנותן לכלי קידוד AI גישה בזמן אמת לקומפוננטות, טוקנים וסגנונות מתוך קובץ עיצוב חי, בדיוק עקרון שימוש-הרחבה-המצאה שאני מלמד בקורס. שפת editorial kinetic, קריינות עברית קצרה.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. A design file frame on the left holding small glowing component and token icons, thin dashed lines carrying them toward a code editor window on the right where they become clean lines of code, no camera move",
+            "raw": "הוק: פיגמה עכשיו נותנת לקוד לקרוא ישירות את הטוקנים והקומפוננטות מתוך קובץ העיצוב.\nעולם: סרטוני הסבר\nקונספט: טוקנים וקומפוננטות זוהרים זורמים מהעיצוב לתוך עורך קוד ומתארגנים לשורות קוד.\nביצוע: שפת editorial kinetic, Nano Banana לפריימים, Higgsfield Cinema Studio לאנימציה, 25 עד 30 שניות, 9:16 ו-1:1, קריינות עברית קצרה.\nלמה עכשיו: פיגמה השיקו שרת MCP רשמי ל-AI ב-14.9.2026, גישה בזמן אמת לקומפוננטות וטוקנים."
+          },
+          "used": false
+        },
+        {
+          "id": "2026-09-21-2",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "כלי חדש נותן לכל עובד להזין מסמך אחד ולקבל ערכת הדרכה שלמה, בלי לעבור דרך צוות ה-L&D.",
+          "concept": "אור ים תיכוני חם. מסמך בודד במרכז הפריים מתפצל לארבעה אייקונים שנפרשים בקשת, קורס קצר, בוחן, תרחיש, מצגת. קריינות עברית קצרה מסבירה שעד עכשיו זה עבר דרך צוות הדרכה שלם, ועכשיו זה קורה ממסמך אחד.",
+          "execution": "שפת optimistic near-future, אור ים תיכוני חם, חול קרם וטורקיז רך, Higgsfield Cinema Studio, 25 עד 30 שניות, 9:16 ראשי ועותק 1:1, קריינות עברית קצרה.",
+          "why": "אותו נכס עומד גם ברעיון השלישי של הבריינסטורמר של היום, נכס אחד שני ערוצים. כתבה מ-17.9.2026 מתארת איך כלים כמו Articulate Frontline הופכים מסמך קיים לערכת הדרכה שלמה, בדיוק הפילוסופיה שאני מלמד בקורס למיישמי AI.",
+          "competition": null,
+          "srcUrl": "https://businessexplainer.co.za/tech/ai/2026/09/17/ai-is-decentralising-corporate-training/",
+          "srcLabel": "Business Explainer, AI מבזר את ההדרכה הארגונית, 17.9.2026",
+          "prompts": {
+            "video": "Optimistic near future visual language, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field, no text. A single document icon rests center frame under warm golden light, then splits smoothly into four smaller distinct icons, a short course icon, a quiz icon, a scenario card icon, a slide deck icon, that spread outward into a gentle arc, camera holds static, calm deliberate pacing, 9:16, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"מסמך אחד שהופך לערכת הדרכה שלמה\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: כתבה מ-17.9.2026 מתארת איך כלים כמו Articulate Frontline מאפשרים למומחה תוכן, לא לאיש הדרכה, להזין מסמכים קיימים ולקבל ערכת הדרכה שלמה. אותו נכס עומד גם בפוסט המקביל של היום. שפת optimistic near-future, קריינות עברית קצרה.",
+            "image": "Optimistic near future visual language, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field, no text. A single document icon centered under warm golden light with four faint dashed lines extending outward to four small distinct icons, a short course icon, a quiz icon, a scenario card icon, a slide deck icon, clean minimal composition",
+            "raw": "הוק: כלי חדש נותן לכל עובד להזין מסמך אחד ולקבל ערכת הדרכה שלמה.\nעולם: סרטוני הסבר\nקונספט: מסמך בודד מתפצל לארבעה אייקונים של ערכת הדרכה מלאה.\nביצוע: שפת optimistic near-future, Higgsfield Cinema Studio, 25 עד 30 שניות, 9:16 ו-1:1, קריינות עברית קצרה.\nלמה עכשיו: כתבה מ-17.9.2026 על כלים כמו Articulate Frontline שמבזרים את יצירת תוכן ההדרכה הארגונית."
+          },
+          "used": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "Veo 3.1 — AI Video Generation on Higgsfield",
+          "desc": "עדכון על גרסת Veo 3.1 שרץ בתוך היגספילד, שווה בשביל להשוות מול קלינג שאתה עובד איתו הכי הרבה.",
+          "meta": "Higgsfield",
+          "url": "https://higgsfield.ai/veo3.1"
+        },
+        {
+          "title": "The 5 Best AI Video Models in 2026, Tested and Compared",
+          "desc": "השוואה מעודכנת בין מודלי הווידאו המובילים, טוב בתור בדיקת מציאות תקופתית.",
+          "meta": "Higgsfield Blog",
+          "url": "https://higgsfield.ai/blog/5-Best-AI-Video-Models-2026-Tested-Compared"
+        }
+      ]
+    },
+    {
       "date": "2026-09-20",
       "ideas": [
         {
