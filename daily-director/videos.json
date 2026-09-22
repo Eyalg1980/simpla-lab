@@ -1,6 +1,63 @@
 {
   "days": [
     {
+      "date": "2026-09-22",
+      "ideas": [
+        {
+          "id": "2026-09-22-1",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "פיגמה עכשיו נותנת לכל מעצב לפרסם כלי Weave לקהילה, וקנבס העיצוב הופך לחנות אפליקציות.",
+          "concept": "שפת editorial kinetic. אייקוני כלים קטנים וזוהרים יוצאים מתוך פריים קנבס בודד ומתארגנים למדף גלריה מסודר, כמו חנות אפליקציות. קריינות עברית קצרה מסבירה שעד עכשיו כלי Weave היו אישיים, ועכשיו הם נכס משותף.",
+          "execution": "שפת editorial kinetic, רקע אנתרציט כהה, פריימי פתיחה ב-Nano Banana, אנימציה ב-Higgsfield Cinema Studio, 25 עד 30 שניות, 9:16 ראשי ועותק 1:1, קריינות עברית קצרה.",
+          "why": "אותו נכס עומד גם ברעיון הראשון של הבריינסטורמר של היום, נכס אחד שני ערוצים. ב-16.9.2026 פיגמה פתחו פרסום קהילתי לכלי Weave מותאמים אישית, בדיוק העיקרון של שימוש-הרחבה-המצאה שאני מלמד.",
+          "competition": null,
+          "srcUrl": "https://releasebot.io/updates/figma",
+          "srcLabel": "Releasebot, עדכוני פיגמה, 16.9.2026",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. Small glowing tool icons drift out of a single design canvas frame and arrange themselves into a neat gallery grid like an app store shelf, camera holds static, calm confident pacing, 9:16, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"כלי Weave שהופכים לחנות אפליקציות\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: ב-16.9.2026 פיגמה פתחו את הפרסום לכלי Weave מותאמים אישית לכל הקהילה, כלים ליצירת תמונות ווקטורים שמישהו בנה בתוך workflow. שפת editorial kinetic, קריינות עברית קצרה.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. A single design canvas frame at center with small glowing tool icons arranged in a neat grid beside it like a gallery shelf, no camera move",
+            "raw": "הוק: פיגמה עכשיו נותנת לכל מעצב לפרסם כלי Weave לקהילה.\nעולם: סרטוני הסבר\nקונספט: אייקוני כלים יוצאים מקנבס בודד ומתארגנים לחנות אפליקציות.\nביצוע: שפת editorial kinetic, Nano Banana לפריימים, Higgsfield Cinema Studio לאנימציה, 25 עד 30 שניות, 9:16 ו-1:1, קריינות עברית קצרה.\nלמה עכשיו: ב-16.9.2026 פיגמה פתחו פרסום קהילתי לכלי Weave מותאמים אישית."
+          },
+          "used": false
+        },
+        {
+          "id": "2026-09-22-2",
+          "world": "קונספטואלי",
+          "color": "#71F73C",
+          "hook": "היגספילד עכשיו נותן גישה לכל מודלי הווידאו הגדולים מתוך סביבה אחת, וזה הרגע שהיוצר הבודד מתחיל לנצח את האולפן.",
+          "concept": "שפת optimistic near-future. כמה זרמי וידאו נפרדים, כל אחד בצבע וטקסטורה משלו, זורמים לתוך לוח בקרה אחד מרכזי ומתמזגים לסרט רציף אחד שממשיך לרוץ ולא נחתך, מייצג את המעבר מכלים מבודדים לסביבת עבודה מאוחדת עם שוטים מקושרים.",
+          "execution": "שפת optimistic near-future, אור ים תיכוני חם, חול קרם וטורקיז רך, Higgsfield Cinema Studio, 25 עד 30 שניות, 9:16 ראשי ועותק 1:1, קריינות עברית קצרה.",
+          "why": "סיכום ספטמבר 2026 מראה שהפלטפורמות מתכנסות לסביבת עבודה אחת, גישה למספר מודלים, שוטים מקושרים באורך של עד 30 שניות, ואודיו משולב בבריף. זה בדיוק האופן שבו אני כבר עובד בהיגספילד, רק שעכשיו זה הסטנדרט של התעשייה.",
+          "competition": null,
+          "srcUrl": "https://blog.mean.ceo/ai-video-news-september-2026/",
+          "srcLabel": "Mean.ceo, AI Video News, ספטמבר 2026",
+          "prompts": {
+            "video": "Optimistic near future visual language, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field, no text. Several separate glowing video streams, each a different color and texture, flow inward toward a single central control panel and merge into one continuous unbroken ribbon of film that keeps extending outward, camera holds static, calm deliberate pacing, 9:16, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"כל כלי הווידאו מתכנסים לסביבה אחת\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: סיכום ספטמבר 2026 של עולם וידאו ה-AI מראה התכנסות של פלטפורמות לסביבת עבודה אחת עם גישה למספר מודלים, שוטים מקושרים ואודיו משולב, בדיוק אופן העבודה שלי בהיגספילד. שפת optimistic near-future, קריינות עברית קצרה.",
+            "image": "Optimistic near future visual language, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field, no text. Several distinct glowing video streams converging toward a single central control panel at the frame center, clean minimal composition",
+            "raw": "הוק: היגספילד נותן גישה לכל מודלי הווידאו מתוך סביבה אחת.\nעולם: קונספטואלי\nקונספט: זרמי וידאו נפרדים מתמזגים לסביבת עבודה אחת ולסרט רציף.\nביצוע: שפת optimistic near-future, Higgsfield Cinema Studio, 25 עד 30 שניות, 9:16 ו-1:1, קריינות עברית קצרה.\nלמה עכשיו: סיכום ספטמבר 2026 מראה התכנסות של פלטפורמות וידאו AI לסביבה אחידה."
+          },
+          "used": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "AI Video Generation News: 2026 Latest Models & Updates",
+          "desc": "סיכום מודלים וכלים חדשים בעולם וידאו ה-AI, טוב בתור בדיקת מציאות תקופתית.",
+          "meta": "WaveSpeed Blog · ספטמבר 2026",
+          "url": "https://wavespeed.ai/blog/posts/ai-video-generation-news-2026/"
+        },
+        {
+          "title": "AI Video Generation Trends, September 2026",
+          "desc": "מגמות בעולם הסטארטאפים של וידאו AI החודש, כולל עבודה מרובת שוטים ואודיו משולב.",
+          "meta": "blog.mean.ceo",
+          "url": "https://blog.mean.ceo/ai-video-generation-trends-september-2026/"
+        }
+      ]
+    },
+    {
       "date": "2026-09-21",
       "ideas": [
         {

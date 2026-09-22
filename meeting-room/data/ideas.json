@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-21",
+  "updated": "2026-09-22",
   "ideas": [
     {
       "id": "I-2026-0433",
@@ -3097,6 +3097,51 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-09-21"
+    },
+    {
+      "id": "I-2026-0445",
+      "title": "חנות כלי Weave",
+      "line": "ראיתי שב-16.9.2026 פיגמה פתחה פרסום קהילתי לכלי Weave מותאמים אישית, אפשר לארוז כלי מהסדנאות שלך כתשתית שמורידים ולא רק שמלמדים.",
+      "advisor": "visionary",
+      "createdAt": "2026-09-22",
+      "capability": {
+        "name": "Figma Weave, פרסום קהילתי לכלי Weave מותאמים אישית",
+        "releasedAt": "2026-09-16"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-22"
+    },
+    {
+      "id": "I-2026-0448",
+      "title": "הסוכן ששואל רשות",
+      "line": "איך נראה על מסך הכיתה הרגע שסוכן עוצר באמצע ושואל אם להמשיך, במודול הסוכנים האוטונומיים (53500)?",
+      "advisor": "teacher",
+      "createdAt": "2026-09-22",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מיישם AI ואוטומציה 53500, מודול הסוכנים האוטונומיים, עצירה לאישור אנושי",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-22"
+    },
+    {
+      "id": "I-2026-0449",
+      "title": "הדארק פטרן שבנית בטעות",
+      "line": "איך נראה על מסך הכיתה הרגע שתלמיד מזהה שהוא עצמו בנה דארק פטרן בלי לשים לב, בשיעור דארק פטרנס וחוקי UX (45900)?",
+      "advisor": "teacher",
+      "createdAt": "2026-09-22",
+      "capability": null,
+      "evidence": null,
+      "lesson": "UI/UX מרקטינג 45900, שיעור דארק פטרנס וחוקי UX (גשטלט, היק, פיטס, ג׳ייקוב)",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-22"
     }
   ]
 }
