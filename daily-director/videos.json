@@ -1,6 +1,57 @@
 {
   "days": [
     {
+      "date": "2026-09-25",
+      "ideas": [
+        {
+          "id": "2026-09-25-1",
+          "world": "קונספטואלי",
+          "color": "#71F73C",
+          "hook": "קלוד קיבל השבוע זיכרון של מיליון טוקן, וזה אומר שסוף סוף אפשר לספר סיפור אחד בלי לחתוך אותו לפרקים.",
+          "concept": "שפת optimistic near-future. שוט אחד רציף בלי חיתוך, מצלמה שממשיכה לעקוב אחרי אותה דמות מרגע הרעיון ועד הרגע שהיא מחזיקה תוצר גמור, בלי שאף קאט שובר את הרצף. מייצג זיכרון שלא נחתך.",
+          "execution": "שפת optimistic near-future, אור ים תיכוני חם, חול קרם וטורקיז רך, Higgsfield Cinema Studio, טייק רציף אחד, 25 עד 30 שניות, 9:16 ראשי ועותק 1:1, קריינות עברית קצרה.",
+          "why": "אותו נכס עומד גם ברעיון השני של הבריינסטורמר של היום, נכס אחד שני ערוצים. ב-22.9.2026 אנתרופיק שחררו את Opus 5.5 עם חלון הקשר של מיליון טוקן ועלות נמוכה ב-40 אחוז.",
+          "competition": null,
+          "srcUrl": "https://releasebot.io/updates/anthropic",
+          "srcLabel": "Releasebot, עדכוני אנתרופיק, 22.9.2026",
+          "prompts": {
+            "video": "Optimistic near future visual language, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field, no text. One single unbroken continuous shot, camera slowly follows one figure from sketching an idea on a small tablet to holding a finished glowing object, no cuts, no edits, steady uninterrupted motion throughout, 9:16, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"השיחה שלא נחתכת\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: ב-22.9.2026 אנתרופיק שחררו את Opus 5.5, עם חלון הקשר של מיליון טוקן, חשיבה אדפטיבית ברקע ועלות נמוכה ב-40 אחוז. שפת optimistic near-future, קריינות עברית קצרה, דגש על שוט רציף אחד בלי חיתוך.",
+            "image": "Optimistic near future visual language, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field, no text. A single human figure holding a finished glowing object at the end of a long unbroken path, no camera move",
+            "raw": "הוק: קלוד קיבל מיליון טוקן של זיכרון, סוף סוף אפשר לא לחתוך את הסיפור.\nעולם: קונספטואלי\nקונספט: שוט רציף אחד בלי קאט, מרעיון ועד תוצר גמור.\nביצוע: שפת optimistic near-future, Higgsfield Cinema Studio, טייק רציף, 25 עד 30 שניות, 9:16 ו-1:1, קריינות עברית קצרה.\nלמה עכשיו: ב-22.9.2026 אנתרופיק שחררו את Opus 5.5 עם חלון הקשר של מיליון טוקן ועלות נמוכה ב-40 אחוז."
+          },
+          "used": false
+        },
+        {
+          "id": "2026-09-25-2",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "עד השבוע וידאו, אודיו ותמונה היו שלושה כלים נפרדים. הדגם החדש של קלינג עושה את שלושתם בארכיטקטורה אחת.",
+          "concept": "שפת editorial kinetic. שלושה מודולים נפרדים, וידאו, אודיו ותמונה, כל אחד בצורה גיאומטרית משלו, נעים זה לקראת זה ומתמזגים לצורה אחת מאוחדת שממשיכה לפעום.",
+          "execution": "שפת editorial kinetic, רקע אנתרציט כהה, פריים פתיחה ב-Nano Banana, אנימציה ב-Higgsfield Cinema Studio, 25 עד 30 שניות, 9:16 ראשי ועותק 1:1, קריינות עברית קצרה.",
+          "why": "Kling 3.0 מציג ארכיטקטורה מולטימודלית אחודה, וידאו, אודיו ותמונה יחד, במקום לשרשר כמה כלים נפרדים כמו שאני עושה היום כמעט בכל פרויקט.",
+          "competition": null,
+          "srcUrl": "https://higgsfield.ai/kling-3.0",
+          "srcLabel": "Higgsfield, Kling 3.0",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. Three distinct small geometric shapes representing video, audio and image drift toward each other from separate corners and merge into one unified pulsing shape at center, camera holds static, calm confident pacing, 9:16, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"שלושה כלים שהפכו לאחד\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: Kling 3.0 של היגספילד הוא הדגם המולטימודלי המאוחד הראשון שמייצר וידאו, אודיו ותמונה בתוך אותה ארכיטקטורה, כולל עד שש חיתוכי מצלמה בג'נרציה אחת. שפת editorial kinetic, קריינות עברית קצרה.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. Three small geometric shapes already merged into one unified pulsing shape at center, no camera move",
+            "raw": "הוק: עד השבוע וידאו, אודיו ותמונה היו שלושה כלים נפרדים.\nעולם: סרטוני הסבר\nקונספט: שלושה מודולים נעים זה לקראת זה ומתמזגים לצורה אחת.\nביצוע: שפת editorial kinetic, Nano Banana לפריים, Higgsfield Cinema Studio לאנימציה, 25 עד 30 שניות, 9:16 ו-1:1, קריינות עברית קצרה.\nלמה עכשיו: Kling 3.0 מייצר וידאו, אודיו ותמונה בארכיטקטורה מולטימודלית אחת, בלי לשרשר כלים נפרדים."
+          },
+          "used": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "Kling 3.0",
+          "desc": "הדגם המולטימודלי המאוחד של היגספילד, וידאו אודיו ותמונה יחד, עד שש חיתוכי מצלמה בג'נרציה אחת.",
+          "meta": "Higgsfield · ספטמבר 2026",
+          "url": "https://higgsfield.ai/kling-3.0"
+        }
+      ]
+    },
+    {
       "date": "2026-09-24",
       "ideas": [
         {
