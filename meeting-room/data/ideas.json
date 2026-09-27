@@ -1,6 +1,51 @@
 {
-  "updated": "2026-09-25",
+  "updated": "2026-09-27",
   "ideas": [
+    {
+      "id": "I-2026-0465",
+      "title": "מודל מוצא דבר שאף אחד לא חיפש",
+      "line": "ראיתי שב-24.9.2026 אנתרופיק דיווחו שקלוד זיהה בעצמו מערכת אנזימים דמוית CRISPR מתוך ניתוח רצפים, בלי שאף מדען כיוון אותו לשם. עכשיו אפשר לתת לסוכן ערימת דאטה גולמי ולצפות לתובנה שאף אחד לא ניסח כשאלה מראש, לא רק סיכום של מה שכבר יודעים לחפש.",
+      "advisor": "visionary",
+      "createdAt": "2026-09-27",
+      "capability": {
+        "name": "Claude מזהה עצמאית מערכת אנזימים דמוית CRISPR מניתוח רצפים",
+        "releasedAt": "2026-09-24"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "rejected",
+      "snoozes": 0,
+      "touchedAt": "2026-09-27"
+    },
+    {
+      "id": "I-2026-0466",
+      "title": "חיפוש שמחזיר ותק במקום חדשות",
+      "line": "מסך שמסמן מראש אם תוצאות חיפוש מהיום הן כתבות ותק כלליות או ידיעה מתוארכת אמיתית, לפני שריצה שלמה נבנית על מקור שאין בו תאריך.",
+      "advisor": "pain",
+      "createdAt": "2026-09-27",
+      "capability": null,
+      "evidence": "בריצה של היום, 27.9.2026, חמישה מתוך שישה חיפושי WebSearch בחלק א' החזירו רק כתבות טרנדים כלליות של 2026 בלי תאריך פרסום מובחן במקום ידיעה אחת מתוארכת מהשבוע האחרון, מה שבזבז את רוב תקציב המחקר של הריצה על תוצאות שלא ניתן לצטט כמקור חדש",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "rejected",
+      "snoozes": 0,
+      "touchedAt": "2026-09-27"
+    },
+    {
+      "id": "I-2026-0467",
+      "title": "ממפגש 10 לדק הזום",
+      "line": "איך נראה על מסך התלמיד הרגע שהוא עובר ממפגש 10 שקורה מחר, 28.9.2026, לדק הזום שצריך להיות מוכן עד 30.9.2026, כשנשאר רק מפגש אחד אחרי זה עד השיחה עצמה באוקטובר?",
+      "advisor": "teacher",
+      "createdAt": "2026-09-27",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס UI/UX 45900, מפגש 10 (28.9.2026), דדליין דק זום 30.9.2026, שיחת זום 18 עד 19.10.2026",
+      "sourceInboxId": null,
+      "status": "rejected",
+      "snoozes": 0,
+      "touchedAt": "2026-09-27"
+    },
     {
       "id": "I-2026-0459",
       "title": "מיליון טוקן לכל מנוע",
@@ -14,9 +59,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-25"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0460",
@@ -31,9 +76,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-25"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0461",
@@ -45,9 +90,9 @@
       "evidence": "לפי יומן הרצות תדריך הבוקר, משימת הרענון של 07:10 נכשלה בשקט לפחות חמש פעמים בחודש האחרון, 7.9, 10.9, 13.9, 15.9 ו-17.9.2026, ובכל פעם רק תדריך הבוקר של 08:00 גילה את זה דרך בדיקת DAILY.stamp ותיקן ידנית",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-25"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0462",
@@ -59,9 +104,9 @@
       "evidence": "לפי יומן הרצות, תדריך הבוקר רץ פעמיים באותו בוקר לפחות שלוש פעמים נפרדות, 26.8 ו-15.9.2026 מתועדים במפורש בקובץ, ובכל פעם הריצה השנייה נאלצה לוותר ולהתיישר מול מה שהריצה הראשונה כבר דחפה, בלי שאף אחד אבחן למה הטריגר יורה פעמיים",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-25"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0463",
@@ -73,9 +118,9 @@
       "evidence": null,
       "lesson": "קורס UI/UX 45900, מפגש 9 (24.9.2026), דדליין דק זום 30.9.2026, שיחת זום 18 עד 19.10.2026",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-25"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0464",
@@ -87,9 +132,9 @@
       "evidence": null,
       "lesson": "מיישם AI ואוטומציה 53500, מודול 1, שינוי כיוון 6.9.2026",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-25"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0433",
@@ -121,9 +166,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pitched",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-20"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0435",
@@ -135,9 +180,9 @@
       "evidence": "לפי git-deploy.md, חילוץ הטוקן מתוך prompt המשימה המתוזמנת נחסם על ידי הסיווג הבטיחותי של הסביבה פעמיים, ב-8.9 וב-10.9.2026, גם בכתיבה לקובץ וגם בקריאה למשתנה שורת פקודה, ועבד שוב רק ב-12.9.2026 בלי שום מנגנון שמראה מראש אם ריצה נתונה תיתקל בזה",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pitched",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-20"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0436",
@@ -149,9 +194,9 @@
       "evidence": "בריצה של 20.9.2026 שלושה מתוך קבצי הדאטה של חדר הישיבות, ideas.json, meetings.json ו-competitions.json, חצו את מגבלת קריאת הטוקן במכה אחת ודרשו קריאה שנייה עם offset כדי להשלים, אחרי ש-ideas.json לבדו גדל ל-2,922 שורות כשרוב התוכן כבר הוכרע (rejected או pitched) לפני שבועות",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pitched",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-20"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0437",
@@ -2833,9 +2878,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-14"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0413",
@@ -2847,9 +2892,9 @@
       "evidence": "לפי יומן ריצות הבוקר, ה-07:10 נכשל בשקט ותוקן ידנית ב-2.9, 3.9, 4.9, 7.9 ופעמיים ב-10.9.2026, וההערה על שלושת ה-trigger id הישנים בפרומפט השומר עדיין לא תוקנה נכון ל-3.9.2026",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-14"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0414",
@@ -2861,9 +2906,9 @@
       "evidence": "היגספילד גלובל נסגרה 3.9.2026 בלי הגשה, בוסאן נסגרה 11.9.2026 בלי הגשה, ושתי הפעמים המשימה film-wolt-submit הועברה ידנית לתחרות הבאה בתדרוך הבוקר",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-14"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0415",
@@ -2875,9 +2920,9 @@
       "evidence": null,
       "lesson": "מיישם AI ואוטומציה 53500, מודול 3 (בניית אפליקציות, מפגשים 7 עד 13), החלטת הסטאק הדיפולטיבי מ-12.9.2026",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-14"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0416",
@@ -2889,9 +2934,9 @@
       "evidence": null,
       "lesson": "מיישם AI ואוטומציה 53500, מודול 3, מעבר Lovable ל-Claude Code שנקבע ב-12.9.2026, לפני מפגש 5",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-14"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0417",
@@ -2906,9 +2951,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-15"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0418",
@@ -2920,9 +2965,9 @@
       "evidence": "07:10 ריענון נכשל בשקט ארבע פעמים בשבועיים האחרונים (7.9, 9.9, 10.9, 13.9), כל פעם התגלה רק בבדיקה ידנית",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
-      "touchedAt": "2026-09-15"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0419",
@@ -2934,9 +2979,9 @@
       "evidence": "תיוג ידני מחדש של תגי מפגש קרה בלפחות ארבע ריצות נפרדות בשבועיים האחרונים (7.9, 8.9, 10.9, 13.9)",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-15"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0420",
@@ -2948,9 +2993,9 @@
       "evidence": null,
       "lesson": "קורס 53500, מודול 3, המעבר מ-Lovable ל-Claude Code ו-Supabase",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-15"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0421",
@@ -2962,9 +3007,9 @@
       "evidence": null,
       "lesson": "קורס 45900, נקודת ההחלטה בסוף מפגש 7, מתחת לשבעים אחוז מוצר חי מבקשים מפגש נוסף",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
-      "touchedAt": "2026-09-15"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0422",
@@ -2979,9 +3024,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-16"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0423",
@@ -2993,9 +3038,9 @@
       "evidence": "תועד ב-task-management.md בשתי ריצות בוקר נפרדות (7.9 וגם 15.9.2026): כשה-WebFetch נחסם ב-PROVENANCE_REQUIRED בריצה ללא השגחה, הקריאה האסטרולוגית בלוח נופלת אוטומטית לתוכן כללי (נושא מאזניים, איזון והחלטה) במקום מקור חי, ושתי הפעמים זה נרשם בפירוש כפתרון עוקף ולא כתיקון.",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-16"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0424",
@@ -3007,9 +3052,9 @@
       "evidence": "task-management.md מתעד את זה בפירוש כ'שלישית שזה קורה, גם ב-26.8, כדאי לבדוק למה המשימה של 08:00 יורה כפול בכמה בקרים'. בכל פעם ריצה אחת מוותרת על הדחיפה שלה לפי חוק ריצה מקבילה, אבל הסיבה השורשית לירי הכפול עצמו עדיין לא נבדקה.",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-16"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0425",
@@ -3021,9 +3066,9 @@
       "evidence": null,
       "lesson": "מודול 3 (בנייה) בקורס 53500: ההכרעה הטכנית מ-12.9.2026 קובעת שמסך הלקוח נבנה ונבדק מהטלפון ומסך הניהול נבנה מהמחשב, אבל שניהם חייבים לעבוד גם וגם בשני המכשירים.",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-16"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0426",
@@ -3035,9 +3080,9 @@
       "evidence": null,
       "lesson": "מודול 3 (בנייה) בקורס 53500: כלל הגיט לכיתה מ-12.9.2026, התלמיד לא מקליד פקודות בעצמו, הוא מבקש מ-Claude Code או לוחץ ב-GitHub Desktop, ריפו ציבורי אחד לפרויקט, ענף main בלבד, תגית checkpoint בסוף כל מודול.",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-16"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0433",
@@ -3066,9 +3111,9 @@
       "evidence": "שני תהליכי חיפוש עבודה מלאים באותו חודש, גיל (התחיל 10.9.2026, שישה קבצי קו\"ח, שלושה מסלולים, לוח זמנים) ואורן הדר (הגדרת תפקיד, שלוש גרסאות קו\"ח, מפת דרכים ל-14 שבועות), כל אחד נבנה מאפס בלי שום תבנית חוזרת.",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pitched",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-18"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0435",
@@ -3080,9 +3125,9 @@
       "evidence": null,
       "lesson": "מודול 3, כלל הגיט לכיתה בקורס 53500: ריפו ציבורי אחד, ענף main בלבד, תגית checkpoint בסוף כל מודול (הוחלט 12.9.2026)",
       "sourceInboxId": null,
-      "status": "pitched",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-18"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0436",
@@ -3094,9 +3139,9 @@
       "evidence": null,
       "lesson": "מודול 1, הסטאק הדיפולטיבי של הפרויקט המתגלגל בקורס 53500 (הוחלט 12.9.2026): HTML/CSS/JS סטטי, Supabase לנתונים, n8n לאוטומציות, GitHub Pages לאחסון",
       "sourceInboxId": null,
-      "status": "pitched",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-18"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0439",
@@ -3111,9 +3156,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
-      "touchedAt": "2026-09-21"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0440",
@@ -3128,9 +3173,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-21"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0441",
@@ -3142,9 +3187,9 @@
       "evidence": "יומן ריצות הבוקר מתעד תיוג ידני מחדש של c45-deck-skill ו-c45-deck-roll למפגש הנוכחי ארבע פעמים: 7.9 (ממפגש 3 לעבר, למפגש 4 הערב), 8.9 (ממפגש 4 לעבר, למפגש 5 חמישי 10/9), 15.9 (ממפגש 5, למפגש 7 חמישי 17/9), 18.9 (ממפגש 7, למפגש 8 שני 21/9)",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-21"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0442",
@@ -3156,9 +3201,9 @@
       "evidence": "uiux-check תויג באיחור ב-6.9 (דדליין 2.9) וב-15.9 (דדליין 10.9), mkt-wow תויג באיחור ב-17.9 (דדליין 15.9), pers-blood תויג באיחור ב-13.9 (דדליין 3.8, כחודש קודם), הכל לפי יומן ריצות הבוקר ב-task-management.md",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-21"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0443",
@@ -3170,9 +3215,9 @@
       "evidence": null,
       "lesson": "קורס 45900, מפת תכני הקורס מ-4.9.2026: מודול 7 (Figma MCP with AI בפעולה) רץ בפועל לפני מודול 6 (עיצוב מערכות מורכבות ואנליטיקות)",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-21"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0444",
@@ -3184,9 +3229,9 @@
       "evidence": null,
       "lesson": "קורס מיישם AI ואוטומציה 53500, תוצר 5 מ-12.9.2026: תבנית CLAUDE.md ופרומפט מראיין שפולט אותה מעשרה היבטים",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-21"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0445",
@@ -3201,9 +3246,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-22"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0448",
@@ -3215,9 +3260,9 @@
       "evidence": null,
       "lesson": "מיישם AI ואוטומציה 53500, מודול הסוכנים האוטונומיים, עצירה לאישור אנושי",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-22"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0449",
@@ -3229,9 +3274,9 @@
       "evidence": null,
       "lesson": "UI/UX מרקטינג 45900, שיעור דארק פטרנס וחוקי UX (גשטלט, היק, פיטס, ג׳ייקוב)",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-22"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0450",
@@ -3246,9 +3291,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-23"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0451",
@@ -3263,9 +3308,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-23"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0452",
@@ -3277,9 +3322,9 @@
       "evidence": "לפי CLAUDE.md ו-simpla-clay-site.md: המעקף (קומיט הנכס לסימפלה לאב, שמירת ה-SHA, קומיט מחיקה, שליפה מהיגספילד סנדבוקס דרך raw.githubusercontent.com בנקודת ה-SHA הקפואה) תועד לראשונה 8.8.2026 לאתר הבד, ונדרש שוב במלואו 11 עד 13.9.2026 לבניית אתר החימר, בלי שהבעיה השורשית (Cowork לא מגיע ל-CDN של היגספילד) נפתרה בין לבין.",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-23"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0453",
@@ -3291,9 +3336,9 @@
       "evidence": null,
       "lesson": "מיישם AI ואוטומציה 53500, מודול 3 (בנייה), הרצאת האורח של דניאל בוארון סבב שני: שתי דרכים לבנות סקיל, תעשה ואז תסכם מול תתאר ותייצר",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-23"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0454",
@@ -3305,9 +3350,9 @@
       "evidence": null,
       "lesson": "מיישם AI ואוטומציה 53500, מודול 1 (רעיון ופרומפטים): מיפוי הקשר לפי שלוש השכבות ממחקר NN Group מ-18.9.2026",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-23"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0455",
@@ -3322,9 +3367,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-24"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0456",
@@ -3339,9 +3384,9 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-24"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0457",
@@ -3353,9 +3398,9 @@
       "evidence": null,
       "lesson": "מיישם AI ואוטומציה (53500), מודול 1 (רעיון ופרומפטים): מדריך הפרויקט המתגלגל לסטודנט (guide-rolling-project.docx) מציג עשרה רעיונות פתיחה לבחירה",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-24"
+      "touchedAt": "2026-09-27"
     },
     {
       "id": "I-2026-0458",
@@ -3367,9 +3412,9 @@
       "evidence": null,
       "lesson": "UI/UX מרקטינג 45900, מפת תכני הקורס מ-4.9.2026: Figma Weave ממוקם במודול 8 (פרקטיקה מקצועית ותיק עבודות) אבל לא קשור אליו מבחינת תוכן",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
-      "touchedAt": "2026-09-24"
+      "touchedAt": "2026-09-27"
     }
   ]
 }

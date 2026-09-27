@@ -1,6 +1,57 @@
 {
   "days": [
     {
+      "date": "2026-09-27",
+      "ideas": [
+        {
+          "id": "2026-09-27-1",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "יש אלמנט אחד בפיגמה שכל מעצב לוחץ עליו בלי לחשוב, ועד לפני עשור הוא בכלל לא היה קיים בתור אזרח מן השורה בקנבס.",
+          "concept": "שפת קלייה. ביוגרפיה קצרה של ה-Frame בפיגמה, מארטבורד קפוא בפוטושופ למסגרת חיה עם אוטו-לייאאוט וקינון, ועכשיו שדרוג שני: Weave הופך אותה לצומת בזרימת עבודה עם סוכן. אותו נכס יוצא גם כפוסט של היום, שני ערוצים לאותה תובנה.",
+          "execution": "שפת קלייה, Higgsfield Cinema Studio, שוט נעילה אחד על מסגרת בודדת שמשתנה, Nano Banana Pro לפריים המפתח, קלינג 3.0 סטד לתנועה, 9:16 ראשי, 30 עד 40 שניות, קריינות עברית קצרה אופציונלית בעריכה.",
+          "why": "אותו נכס בדיוק יוצא היום גם כפוסט על Figma Weave בבריינסטורמר, שני ערוצים לאותה תובנה על אותו אובייקט.",
+          "competition": null,
+          "srcUrl": "https://help.figma.com/hc/en-us/articles/360041539473-Frames-in-Figma-Design",
+          "srcLabel": "Frames in Figma Design, Figma Help Center",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, no text. A single rectangular clay picture-frame standing on a small pedestal, camera locked, a second smaller clay frame slides in from off frame and nests neatly inside the first, both frames glowing softly at the seam where they meet, gentle handcrafted stop-motion rhythm, no camera movement, 9:16, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"המסגרת שקיבלה שדרוג שני\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: ה-Frame בפיגמה עבר משמעות מארטבורד קפוא בפוטושופ למסגרת חיה עם אוטו-לייאאוט וקינון, ועכשיו Weave הופך אותה לצומת בזרימת עבודה עם סוכן. שפת קלייה, קריינות עברית קצרה, אותו נכס משרת גם פוסט מקביל.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field, no text. A single rectangular clay picture-frame standing upright on a small pedestal with a smaller clay frame nested neatly inside it",
+            "raw": "הוק: יש אלמנט אחד בפיגמה שכל מעצב לוחץ עליו בלי לחשוב, ועד לפני עשור הוא לא היה קיים.\nעולם: סרטוני הסבר\nקונספט: ביוגרפיה של ה-Frame בפיגמה, מארטבורד קפוא ועד מסגרת חיה עם Weave כשדרוג שני.\nביצוע: שפת קלייה, Higgsfield Cinema Studio, שוט נעילה אחד, Nano Banana Pro לפריים, קלינג 3.0 סטד, 9:16, 30 עד 40 שניות.\nלמה עכשיו: אותו נכס יוצא גם כפוסט היום, שני ערוצים לאותה תובנה."
+          },
+          "used": false
+        },
+        {
+          "id": "2026-09-27-2",
+          "world": "קונספטואלי",
+          "color": "#71F73C",
+          "hook": "השבוע קלוד מצא בעצמו מערכת אנזימים שאף אחד לא חיפש, ופתאום השאלה היא לא מה AI עונה אלא מה הוא מוצא בלי שביקשו.",
+          "concept": "שפת עריכה קינטית. מעבר חזותי מ-AI כמבצע (שאלה נכנסת, תשובה יוצאת) ל-AI כגלאי (דאטה גולמי נכנס, תובנה שלא נשאלה יוצאת), על רקע ההודעה של אנתרופיק מ-24.9.2026 שקלוד זיהה מערכת אנזימים דמוית CRISPR מניתוח רצפים גולמי.",
+          "execution": "שפת עריכה קינטית, רקע אנתרציט כהה, Nano Banana Pro לפריימים, קלינג 3.0 לתנועת הצורות, 9:16 ראשי, 25 עד 35 שניות, בלי דיאלוג.",
+          "why": "ב-24.9.2026 אנתרופיק דיווחו שקלוד זיהה עצמאית מערכת אנזימים דמוית CRISPR, שינוי בתפקיד ה-AI ממבצע לשותף שמציע לאן להסתכל.",
+          "competition": null,
+          "srcUrl": "https://www.aljazeera.com/economy/2026/9/24/ai-model-claude-discovers-crispr-like-enzyme-system-anthropic-says",
+          "srcLabel": "Al Jazeera, Anthropic, 24.9.2026",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. A single glowing dashed line winds slowly through a scattered field of small dots with no fixed destination then arrives at one dot which pulses and glows brighter than the rest as the others fade, clean smooth motion, no camera movement, 9:16, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"התובנה שאף אחד לא ביקש\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: ב-24.9.2026 אנתרופיק דיווחו שקלוד זיהה עצמאית מערכת אנזימים דמוית CRISPR מניתוח רצפים גולמי, בלי שביקשו ממנו למצוא את זה. שפת עריכה קינטית, קריינות עברית קצרה, דגש על המעבר ממבצע לגלאי.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. A glowing dashed line winding through a scattered field of small dots arriving at one dot that glows brighter than the rest",
+            "raw": "הוק: קלוד מצא בעצמו מערכת אנזימים שאף אחד לא חיפש.\nעולם: קונספטואלי\nקונספט: מעבר מ-AI כמבצע ל-AI כגלאי.\nביצוע: שפת עריכה קינטית, Nano Banana Pro, קלינג 3.0, 9:16, 25 עד 35 שניות.\nלמה עכשיו: ידיעה מתוארכת מ-24.9.2026 על תגלית אנזים דמוית CRISPR על ידי קלוד."
+          },
+          "used": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "AI model Claude discovers CRISPR-like enzyme system, Anthropic says",
+          "desc": "הידיעה המלאה על התגלית, רקע טוב למי שרוצה לצטט מספרים מדויקים בתסריט",
+          "meta": "Al Jazeera · 24.9.2026",
+          "url": "https://www.aljazeera.com/economy/2026/9/24/ai-model-claude-discovers-crispr-like-enzyme-system-anthropic-says"
+        }
+      ]
+    },
+    {
       "date": "2026-09-25",
       "ideas": [
         {
