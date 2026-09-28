@@ -1,6 +1,63 @@
 {
   "days": [
     {
+      "date": "2026-09-28",
+      "ideas": [
+        {
+          "id": "2026-09-28-1",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "לפריים בפיגמה יש עכשיו תפקיד שלישי, אחרי מארטבורד קפוא וצומת בזרימת סוכן, הוא הפך לעד המקורי שהקוד נבדק מולו.",
+          "concept": "המשך שפת קלייה לאותה ביוגרפיה של הפריים. פרק שלישי: פיצ'ר Design Baselines של פיגמה (אינטגרציה עם Applitools, 15.9.2026) הופך כל פריים לבייסליין ויזואלי שנבדק אוטומטית מול הקוד שנוצר ממנו, בלי ייצוא סקרינשוטים ידני.",
+          "execution": "שפת קלייה, Higgsfield Cinema Studio, שוט נעילה אחד, Nano Banana Pro לפריים המפתח, קלינג 3.0 סטד לתנועה, 9:16 ראשי, 30 עד 40 שניות.",
+          "why": "אותו נכס בדיוק יוצא היום גם כפוסט על Figma Weave בבריינסטורמר, שני ערוצים לאותה תובנה, ופיצ'ר Design Baselines שוחרר רק לפני שבועיים.",
+          "competition": null,
+          "srcUrl": "https://webdesignerdepot.com/ai-can-build-your-ui-now-figma-can-tell-it-when-it-screwed-up/",
+          "srcLabel": "Web Designer Depot, 15.9.2026",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, no text. A single rectangular clay picture-frame stands on a pedestal, a faint glowing clay outline duplicate hovers slightly behind it and drifts out of alignment, then a small clay stamp descends and presses the duplicate back into perfect alignment with a soft click, gentle handcrafted stop-motion rhythm, no camera movement, 9:16, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"הפריים שהפך לעד\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: פיגמה השיקו ב-15.9.2026 את Design Baselines, אינטגרציה עם Applitools שהופכת כל פריים לבייסליין ויזואלי שנבדק אוטומטית מול הקוד שנוצר ממנו. זה הפרק השלישי בסדרת הביוגרפיה של הפריים, אחרי מארטבורד קפוא וצומת בזרימת סוכן. שפת קלייה, קריינות עברית קצרה, אותו נכס משרת גם פוסט מקביל.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, no text. A single rectangular clay picture-frame standing upright on a pedestal with a faint glowing duplicate outline hovering slightly behind it",
+            "raw": "הוק: לפריים בפיגמה יש תפקיד שלישי, הוא הפך לעד שהקוד נבדק מולו.\nעולם: סרטוני הסבר\nקונספט: פרק שלישי בביוגרפיית הפריים, Design Baselines הופך אותו לבייסליין ויזואלי מול קוד.\nביצוע: שפת קלייה, Higgsfield Cinema Studio, שוט נעילה אחד, Nano Banana Pro, קלינג 3.0 סטד, 9:16, 30 עד 40 שניות.\nלמה עכשיו: פיצ'ר Design Baselines שוחרר ב-15.9.2026, ואותו נכס יוצא גם כפוסט היום."
+          },
+          "used": false
+        },
+        {
+          "id": "2026-09-28-2",
+          "world": "קונספטואלי",
+          "color": "#71F73C",
+          "hook": "כל כלי וידאו AI היה איזור מבודד, והשבוע הם התחילו להתמזג לסטודיו אחד.",
+          "concept": "שפת עריכה קינטית. במקום עוד כלי מבודד, היגספילד ואחרים מאחדים גישה למספר מודלים (Veo, קלינג, סורה, וואן, סידאנס) יחד עם קונטרול תנועת מצלמה ועקביות דמות תחת גג אחד, וקליפים בודדים הופכים לרצפים מחוברים של עד 30 שניות במקום ניסויים של חמש שניות.",
+          "execution": "שפת עריכה קינטית, רקע אנתרציט כהה, Nano Banana Pro לפריימים, קלינג 3.0 לתנועת הצורות, 9:16 ראשי, 25 עד 35 שניות, בלי דיאלוג.",
+          "why": "דוח AI Video News ספטמבר 2026 מצביע על מעבר תעשייתי מניסויים בודדים לסטודיו וירטואלי מאוחד, בדיוק הכיוון שהיגספילד כבר לוקחת.",
+          "competition": null,
+          "srcUrl": "https://blog.mean.ceo/ai-video-news-september-2026/",
+          "srcLabel": "AI Video News, mean.ceo, ספטמבר 2026",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. Several small separate glowing icon tiles representing different video model logos scattered across the frame slide smoothly toward the center and merge into one larger glowing tile, clean smooth motion, no camera movement, 9:16, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"הסטודיו שנולד מאיחוד\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: דוח AI Video News ספטמבר 2026 מתאר איחוד כלי וידאו AI נפרדים (Veo, קלינג, סורה, וואן, סידאנס) תחת סטודיו אחד עם קונטרול תנועת מצלמה ועקביות דמות, ומעבר מקליפים בודדים לרצפים מחוברים של עד 30 שניות. שפת עריכה קינטית, קריינות עברית קצרה, דגש על האיחוד.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. Several small separate glowing icon tiles positioned around a frame all pointing inward toward one larger empty glowing tile at the center",
+            "raw": "הוק: כלי וידאו AI נפרדים התחילו להתמזג לסטודיו אחד.\nעולם: קונספטואלי\nקונספט: איחוד גישה למספר מודלים תחת גג אחד, ורצפים מחוברים במקום קליפים בודדים.\nביצוע: שפת עריכה קינטית, Nano Banana Pro, קלינג 3.0, 9:16, 25 עד 35 שניות.\nלמה עכשיו: דוח AI Video News ספטמבר 2026 על איחוד כלי הווידאו."
+          },
+          "used": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "AI Video News, September 2026",
+          "desc": "סקירת המגמה של איחוד כלי הווידאו תחת סטודיו אחד, רקע טוב לרעיון של היום",
+          "meta": "mean.ceo · ספטמבר 2026",
+          "url": "https://blog.mean.ceo/ai-video-news-september-2026/"
+        },
+        {
+          "title": "Higgsfield News, September 2026",
+          "desc": "מה חדש אצל היגספילד עצמו החודש, הכלי הראשי של הסדרה",
+          "meta": "mean.ceo · ספטמבר 2026",
+          "url": "https://blog.mean.ceo/higgsfield-news-september-2026/"
+        }
+      ]
+    },
+    {
       "date": "2026-09-27",
       "ideas": [
         {
