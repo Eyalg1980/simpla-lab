@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-27",
+  "updated": "2026-09-28",
   "ideas": [
     {
       "id": "I-2026-0465",
@@ -3415,6 +3415,68 @@
       "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-09-27"
+    },
+    {
+      "id": "I-2026-0468",
+      "title": "רשת ביטחון למסירה",
+      "line": "עכשיו כשפיגמה שומרת כל פריים כבייסליין ומשווה אותו אוטומטית לגרסה הבאה, אפשר לדעת בדיוק מתי דניאל שינה משהו בקובץ Weave אחרי שכבר אושר, בלי לעבור גרסה מול גרסה ידנית בכל מסירה.",
+      "advisor": "visionary",
+      "createdAt": "2026-09-28",
+      "capability": {
+        "name": "Figma Design Baselines, אינטגרציה עם Applitools",
+        "releasedAt": "2026-09-15"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-28"
+    },
+    {
+      "id": "I-2026-0469",
+      "title": "כרטיס שהופך למסמך",
+      "line": "עכשיו כשקלוד פותח Docs ו-Slides בתוך אותה שיחה, כרטיס פיץ' מחדר הישיבות יכול לצאת כמסמך אמיתי, ניתן לעריכה ולשיתוף, בלי לצאת לכלי חיצוני ולהעתיק שדות ידנית.",
+      "advisor": "visionary",
+      "createdAt": "2026-09-28",
+      "capability": {
+        "name": "מיזוג Claude Cowork והצ'אט, השקת Docs, Slides ו-Design",
+        "releasedAt": "2026-09-16"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-28"
+    },
+    {
+      "id": "I-2026-0470",
+      "title": "ארבעת החוקים כמסך",
+      "line": "איך זה נראה על המסך בכיתה כשמלמדים את ארבעת החוקים של שיעור הבונוס (נגישות מעל וואו, מובייל קודם, מקסימום שני אפקטים, תקציב ביצועים), לא כרשימה סטטית אלא ככלי שמסנן בזמן אמת אילו טרנדים כדאי לתלמיד בכלל לשקול לעמוד שלו?",
+      "advisor": "teacher",
+      "createdAt": "2026-09-28",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס UI/UX 45900, שיעור בונוס C, עשר התנהגויות UX מודרניות וארבעת חוקי הזהב",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-28"
+    },
+    {
+      "id": "I-2026-0471",
+      "title": "הרגע שהרעיון נהיה MVP",
+      "line": "איך זה נראה על המסך בכיתה ברגע המדויק שתלמיד עובר מרעיון פתוח לתיאור מוצר מינימלי אחד למבחן, יש לזה מסך משלו או שזה תמיד נשאר שיחה מדוברת שנעלמת בסוף השיעור?",
+      "advisor": "teacher",
+      "createdAt": "2026-09-28",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס מיישם AI 53500, מודול חשיבת MVP",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-28"
     }
   ]
 }
