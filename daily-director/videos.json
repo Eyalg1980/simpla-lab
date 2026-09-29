@@ -1,6 +1,63 @@
 {
   "days": [
     {
+      "date": "2026-09-29",
+      "ideas": [
+        {
+          "id": "2026-09-29-1",
+          "world": "סרטוני הסבר",
+          "color": "#71F73C",
+          "hook": "לפריים בפיגמה יש עכשיו יכולת רביעית, הוא נשבר לעמודות בדיוק כמו קוד responsive אמיתי.",
+          "concept": "פרק חדש בסדרת ביוגרפיית הפריים, אחרי מארטבורד קפוא, צומת בזרימת סוכן ו-Design Baselines: Vertical Wrap ב-Auto Layout, פיצ'ר מ-25.9.2026, נותן לפריים להתנהג בדיוק כמו flex-wrap ב-CSS, עודף תוכן יורד לעמודה חדשה במקום לגלוש.",
+          "execution": "שפת קלייה, Higgsfield Cinema Studio, שוט נעילה אחד, Nano Banana Pro לפריים המפתח, קלינג 3.0 סטד לתנועה, 9:16 ראשי, 20 עד 30 שניות.",
+          "why": "אותו נכס בדיוק יוצא היום גם כפוסט על Figma Weave בבריינסטורמר, שני ערוצים לאותה תובנה, והפיצ'ר שוחרר רק לפני ארבעה ימים.",
+          "competition": null,
+          "srcUrl": "https://www.figma.com/release-notes/",
+          "srcLabel": "Figma Release Notes, 25.9.2026",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, no text. A single wide clay picture-frame stands on a pedestal, small clay blocks inside it shift and one block gently drops down into a new row beneath the others as the frame widens slightly to hold it, gentle handcrafted stop-motion rhythm, no camera movement, 9:16, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"הפריים ששובר עמודה\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: פיגמה השיקו ב-25.9.2026 פיצ'ר Vertical Wrap ב-Auto Layout, שנותן לפריים להתנהג בדיוק כמו flex-wrap ב-CSS, עודף תוכן יורד לעמודה חדשה במקום לגלוש. זה פרק חדש בסדרת ביוגרפיית הפריים. שפת קלייה, קריינות עברית קצרה, אותו נכס משרת גם פוסט מקביל על Figma Weave.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, no text. A single wide clay picture-frame standing upright on a pedestal with small clay blocks arranged inside it in two uneven rows",
+            "raw": "הוק: לפריים בפיגמה יש עכשיו יכולת רביעית, הוא נשבר לעמודות כמו קוד אמיתי.\nעולם: סרטוני הסבר\nקונספט: Vertical Wrap ב-Auto Layout, פרק חדש בביוגרפיית הפריים.\nביצוע: שפת קלייה, Higgsfield Cinema Studio, שוט נעילה אחד, Nano Banana Pro, קלינג 3.0 סטד, 9:16, 20 עד 30 שניות.\nלמה עכשיו: הפיצ'ר שוחרר ב-25.9.2026, ואותו נכס יוצא גם כפוסט היום."
+          },
+          "used": false
+        },
+        {
+          "id": "2026-09-29-2",
+          "world": "תיעוד תהליך",
+          "color": "#71F73C",
+          "hook": "אני בונה עכשיו סקיל וידאו בשם המפיק, וכל קליפ שהוא יוציא מעלה את אותה שאלה, מתי צריך להגיד שזה AI.",
+          "concept": "תיעוד תהליך אמיתי מהסטודיו: המפיק מראיין אותי על הרעיון, בונה תסריט, סטוריבורד ב-Nano Banana, ואז מנפיק קליפ שלם עם מנוע טקסט קינטי בהשראת עראן בן יעקב. NN Group פרסמו ב-25.9.2026 מסגרת PACED לקבלת החלטת גילוי, וזה בדיוק הצעד הבא בבניית הכלי.",
+          "execution": "שפת עריכה קינטית, מסך מפוצל בין ממשק הסקיל לתוצאה הסופית, Nano Banana Pro לפריימים, קלינג 3.0 לתנועה, קריינות עברית, 9:16 ראשי, 25 עד 35 שניות.",
+          "why": "כי זה לא תרגיל מחשבתי, זו ההחלטה הבאה שאני בעצמי צריך לקבל על כל קליפ שהמפיק יוציא ללקוח.",
+          "competition": null,
+          "srcUrl": "https://www.nngroup.com/articles/disclose-ai-paced/",
+          "srcLabel": "Nielsen Norman Group, 25.9.2026",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. A small screen-shaped outline on the left plays a looping interview icon, while on the right a finished video frame outline pulses, a thin dashed line connects them and a small question mark icon fades in and out between the two, clean smooth motion, no camera movement, 9:16, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"השאלה שהמפיק מעלה\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: אני בסבב בניית סקיל וידאו אישי בשם המפיק, שמראיין אותי על רעיון ואז מייצר תסריט, סטוריבורד וקליפ שלם. NN Group פרסמו ב-25.9.2026 מסגרת PACED לקביעת מתי לגלות שימוש ב-AI. שפת עריכה קינטית, קריינות עברית קצרה, תיעוד תהליך אמיתי מהסטודיו.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. A small interview icon outline on the left connected by a thin dashed line to a finished video frame outline on the right, a small question mark icon floating between them",
+            "raw": "הוק: אני בונה סקיל וידאו בשם המפיק, וכל קליפ מעלה את אותה שאלת גילוי.\nעולם: תיעוד תהליך\nקונספט: תיעוד בניית המפיק לצד מסגרת PACED של NN Group מ-25.9.2026.\nביצוע: שפת עריכה קינטית, Nano Banana Pro, קלינג 3.0, 9:16, 25 עד 35 שניות.\nלמה עכשיו: זו ההחלטה הבאה שצריך לקבל על כל קליפ שיוצא ללקוח."
+          },
+          "used": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "When Should You Disclose AI Use? The PACED Framework",
+          "desc": "המסגרת שמאחורי רעיון הווידאו של היום, שווה קריאה לפני שמחליטים על תג AI בקליפ",
+          "meta": "Nielsen Norman Group · 25.9.2026",
+          "url": "https://www.nngroup.com/articles/disclose-ai-paced/"
+        },
+        {
+          "title": "Figma product news and release notes",
+          "desc": "עדכוני פיגמה של השבוע האחרון, כולל ה-wrap שברעיון של היום",
+          "meta": "Figma · ספטמבר 2026",
+          "url": "https://www.figma.com/release-notes/"
+        }
+      ]
+    },
+    {
       "date": "2026-09-28",
       "ideas": [
         {
