@@ -1,6 +1,51 @@
 {
-  "updated": "2026-09-28",
+  "updated": "2026-09-29",
   "ideas": [
+    {
+      "id": "I-2026-0472",
+      "title": "וריאנט אחד שנשבר לבד",
+      "line": "ראיתי שב-25.9.2026 פיגמה הוסיפו Vertical Wrap ל-Auto Layout, פריים נשבר לעמודה חדשה כשתוכן גולש, בדיוק כמו flex-wrap ב-CSS. עכשיו אפשר לבנות מסך אחד עם Auto Layout שמדגים בעצמו responsive אמיתי בלי לצייר בכלל וריאנט שני למסך צר.",
+      "advisor": "visionary",
+      "createdAt": "2026-09-29",
+      "capability": {
+        "name": "Figma Auto Layout, Vertical Wrap",
+        "releasedAt": "2026-09-25"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-29"
+    },
+    {
+      "id": "I-2026-0473",
+      "title": "שלושה שמות שחוזרים שבעה ימים",
+      "line": "משבעה ימים ברצף, מ-23.9 עד 29.9.2026, אותם שלושה שמות בדיוק, aiff-japan, wearehuman-paris ו-runway-aif, מסומנים בקובץ התחרויות כחוצים את חלון שבעת הימים בלי אימות טרי, כי תקציב המחקר תמיד נגמר על חלקים א' וב' קודם. מסך שמריץ קודם את שתי או שלוש התחרויות הכי קרובות לדדליין, לפני שנוגעים בפוסטים ובווידאו.",
+      "advisor": "pain",
+      "createdAt": "2026-09-29",
+      "capability": null,
+      "evidence": "competitions.json מתעד את אותה שורה, שלוש תחרויות בסטטוס פתוח או מעקב חוצות את חלון שבעת הימים, בעדכונים של 23.9, 24.9, 25.9, 27.9, 28.9 ו-29.9.2026, שישה ימים רצופים בלי אימות ישיר חדש לאף אחת מהשלוש",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-29"
+    },
+    {
+      "id": "I-2026-0474",
+      "title": "תיוג שקיפות לפני ההגשה",
+      "line": "איך נראה מסך שמבקש מהתלמיד לתייג כל חלק בפרויקט שלו, נוצר לבד, נערך עם AI או ידני לגמרי, ולתרגל בעצמו החלטת גילוי לפני שהוא מציג את זה כאילו הוא היחיד שכתב הכל?",
+      "advisor": "teacher",
+      "createdAt": "2026-09-29",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס AI Product Design & UX/UI, שיעור על אתיקה וגילוי שימוש ב-AI",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-09-29"
+    },
     {
       "id": "I-2026-0465",
       "title": "מודל מוצא דבר שאף אחד לא חיפש",

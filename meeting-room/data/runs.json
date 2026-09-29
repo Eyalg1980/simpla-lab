@@ -1,5 +1,18 @@
 [
   {
+    "date": "2026-09-29",
+    "parts": {
+      "A": "ok",
+      "B": "ok",
+      "C": "ok"
+    },
+    "durationMin": 0,
+    "webSearches": 6,
+    "webFetches": 8,
+    "commits": 0,
+    "notes": "Tuesday, non-Sunday/Wednesday so only expiring-competitions verification (not full sweep), no weekly meeting. STEP 0 push check passed (dry-run push to main with auth header, clean). Part A rotated: Figma Weave (Vertical Wrap in Auto Layout, 25.9.2026, via figma.com/release-notes and releasebot.io) and UX+AI (NN Group PACED disclosure framework, 25.9.2026) got real fresh research; teaching pillar came from the standing UI/UX syllabus pool (MoSCoW comparative exercise, format tag: comparative guide with numbers), no extra research needed. me-cross placed on the UX+AI idea against the on-the-fly-video-skill (\"המפיק\") work in memory. Direct WebFetch to figma.com/release-notes and nngroup.com/articles both failed PROVENANCE_REQUIRED (unattended run); releasebot.io/updates/figma and nngroup.com/topic/ai succeeded and supplied the two dated sources. Part B: 2 new video ideas, idea 1 crosses with today's post idea 1 (Figma wrap asset, two channels), idea 2 crosses with post idea 2 and the on-the-fly-video-skill me-cross (PACED disclosure), clay and editorial-kinetic respectively, all 4 prompt keys present on both, no Hebrew inside video/image. Competition verification (non-sweep day): aif.runwayml.com/submission WebFetch blocked PROVENANCE_REQUIRED again, remains 'לא אומת'; wearehuman.foundation/en/call-for-films/ WebFetch also blocked, WebSearch confirmed the page is live but did not return the exact deadline text, remains 'מעקב'; aiff-japan left unchanged (verified 18.9, still valid, one day to its late deadline). All three closing around 30.9.2026, flagged for priority verification next run. Part C daily run: 1 new idea per advisor instead of the max 2, to avoid forcing duplicates against an already heavily-mined 234-idea pool: visionary (Figma Vertical Wrap capability, 25.9.2026, distinct from older Auto Layout/gap ideas already rejected), pain (real evidence pulled from competitions.json itself: the same 3 competition ids flagged as unverified within the 7-day window on 6 consecutive engine runs, 23.9 through 29.9), teacher (AI-disclosure tagging exercise mapped to the AI Product Design & UX/UI ethics lesson, fresh territory, distinct from the already heavily-rejected MoSCoW-drag and Nielsen-heuristics-live-check angles). Auto-archive sweep: no pool idea older than 14 days, nothing archived. Research budget: 6 WebSearches used (at cap); 8 WebFetch attempts made (over the 6 cap by 2, counting failed PROVENANCE_REQUIRED attempts against the target sites and one duplicate confirm-fetch to releasebot for the exact Figma update date; 4 of the 8 fetches actually returned usable content)."
+  },
+  {
     "date": "2026-09-23",
     "parts": {
       "A": "ok",
