@@ -1,6 +1,63 @@
 {
  "days": [
   {
+   "date": "2026-10-01",
+   "ideas": [
+    {
+     "id": "2026-10-01-1",
+     "color": "#71F73C",
+     "world": "תיעוד תהליך",
+     "competition": null,
+     "hook": "אתמול, 30.9.2026, HeyGen הציגו יצירת סצנה מלאה מטקסט או תמונה בקריאת API אחת, קליפ של עשר שניות יוצא תוך 3.7 שניות, בפחות מסנט לשנייה במחיר ההשקה.",
+     "concept": "מד זמן חי מול מד זמן חי, בצד אחד התהליך הישן: אידאה, סטוריבורד, רינדור, המתנה. בצד השני: טקסט אחד, קריאת API אחת, סצנה מוכנה. השעון הישן עדיין רץ כשהחדש כבר נגמר.",
+     "execution": "שפת עריכה קינטית, Higgsfield Shorts Studio לקצב המהיר והמעברים, מוקאפ ממשק מסך מפוצל, HeyGen לא נדרש בפועל להפקה עצמה, 9:16 ראשי, 15 עד 20 שניות.",
+     "why": "כי הסקיל האישי שלי, המפיק, מתמודד בדיוק עם השאלה הזאת, כמה מהתהליך אפשר לכווץ לקריאה אחת בלי לאבד שליטה על התוצאה.",
+     "srcUrl": "https://theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-september-30-2026",
+     "srcLabel": "theneuron.ai, 30.9.2026",
+     "prompts": {
+      "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. Split screen composition, left half shows a slow ticking stopwatch above three stacked dashed process icons lighting up one by one, right half shows a single glowing document icon instantly blooming into a finished video-frame icon, camera holds static, 9:16, 8 seconds",
+      "script": "פתח לי את רעיון הווידאו \"עשר שניות בשביל סצנה אחת\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: theneuron.ai דיווחו ב-30.9.2026 ש-HeyGen Video מייצרים סצנה מלאה מטקסט או תמונה בקריאת API אחת, קליפ של עשר שניות תוך 3.7 שניות, במחיר של כסנט לשנייה בהשקה. שפת תיעוד תהליך, קריינות עברית קצרה, חיבור לסקיל האישי שלי המפיק.",
+      "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. Split screen frame, left half a slow stopwatch above a stacked row of three dashed process icons, right half a single glowing document icon beside one finished video-frame icon, 1:1",
+      "raw": "הוק: אתמול HeyGen הציגו יצירת סצנה מלאה מטקסט או תמונה בקריאת API אחת, עשר שניות תוך 3.7 שניות, פחות מסנט לשנייה.\nעולם: תיעוד תהליך\nתחרות: אין\nקונספט: מד זמן מול מד זמן, תהליך ישן מול קריאה אחת, השעון הישן עדיין רץ כשהחדש כבר נגמר.\nביצוע: שפת עריכה קינטית, Higgsfield Shorts Studio, מוקאפ מסך מפוצל, 9:16, 15 עד 20 שניות.\nלמה עכשיו: שאלת הצמצום הזו היא בדיוק מה שהסקיל האישי שלי המפיק מתמודד איתו."
+     },
+     "used": false
+    },
+    {
+     "id": "2026-10-01-2",
+     "color": "#71F73C",
+     "world": "סרטוני הסבר",
+     "competition": null,
+     "hook": "לוטי, פורמט האנימציה שכל אפליקציה בטלפון שלך רצה עליו, נולד ב-2017 כדי לפתור תקלה אחת, אנימציה שמתה ברגע שהיא עוברת מאפטר אפקטס לקוד. אתמול פיגמה סגרו לו את המעגל.",
+     "concept": "ציר זמן קצר בקלאיי: 2017, קובץ JSON זעיר נולד לצד קובץ וידאו כבד שמתפורר. היום, אייקון קטן ומתנדנד יוצא מתוך דלת פלאגין שמתפוררת לאבק אל תוך פריים פיגמה פתוח, בלי לעצור אף פעם. אותו נכס כמו הפוסט המקביל של היום, ביוגרפיה של אובייקט.",
+     "execution": "שפת קלאיי עקבית מתחילה ועד סוף, מתכתבת עם איור הפוסט המקביל, Higgsfield Cinema Studio לעיצוב ולתנועה, HeyGen לא נדרש, 9:16 ראשי, 20 עד 25 שניות.",
+     "why": "אותה תובנה בדיוק עולה היום בפוסט ברייסטורם, אותו נכס לשני ערוצים, וזו הפעם השבועית שהמנועים חוצים.",
+     "srcUrl": "https://releases.sh/figma",
+     "srcLabel": "Figma release notes, 30.9.2026",
+     "prompts": {
+      "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. Camera tracks a small bouncing clay icon figure walking out of a crumbling plugin-shaped clay doorway, clay dust falling behind it, straight into an open clay picture frame that keeps gently looping its own motion, 9:16, 8 seconds",
+      "script": "פתח לי את רעיון הווידאו \"לוטי סוגר מעגל\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: ב-2017 איירבנבי פתחו בקוד פתוח את Bodymovin ליצירת קובצי Lottie, ואתמול, 30.9.2026, Figma Motion הוסיפו סטיילים מותאמים אישית, אודיו, אנימציית טקסט וייצוא Lottie ישיר בלי פלאגין חיצוני (releases.sh/figma). שפת קלאיי עקבית, קריינות עברית קצרה, אותו נכס משרת גם פוסט מקביל בבריינסטורמר.",
+      "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. A tiny clay bouncing icon figure caught mid-step between a crumbling plugin-shaped doorway and an open clay picture frame, no text, 1:1",
+      "raw": "הוק: לוטי נולד ב-2017 כדי לפתור בעיה אחת, אתמול פיגמה סגרו לו את המעגל.\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: ציר זמן קלאיי, 2017 מול היום, אייקון יוצא מפלאגין שמתפורר אל תוך פריים פיגמה פתוח.\nביצוע: שפת קלאיי עקבית, Higgsfield Cinema Studio, 9:16, 20 עד 25 שניות.\nלמה עכשיו: אותו נכס בדיוק כמו הפוסט המקביל של היום, הפעם השבועית שהמנועים חוצים."
+     },
+     "used": false
+    }
+   ],
+   "watch": [
+    {
+     "title": "Everything That Happened in AI Today (30.9.2026)",
+     "desc": "העוגן העובדתי לרעיון ה-HeyGen של היום, שווה קריאה לפני שבוחרים כלי וידאו הבא",
+     "meta": "theneuron.ai · 30.9.2026",
+     "url": "https://theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-september-30-2026"
+    },
+    {
+     "title": "State of AI Video Tools 2026",
+     "desc": "מיפוי מקיף של כלי וידאו AI, אווטארים ועורכים לקראת הרבעון האחרון של השנה",
+     "meta": "kingy.ai",
+     "url": "https://kingy.ai/blog/state-of-ai-video-tools-2026/"
+    }
+   ]
+  },
+  {
    "date": "2026-09-30",
    "ideas": [
     {

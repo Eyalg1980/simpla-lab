@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-30",
+ "updated": "2026-10-01",
  "ideas": [
   {
    "id": "I-2026-0475",
@@ -3567,6 +3567,54 @@
    "status": "pool",
    "snoozes": 0,
    "touchedAt": "2026-09-28"
+  },
+  {
+   "id": "I-2026-0478",
+   "title": "קלטת ההוראות שמתעדכנת לבד",
+   "line": "ראיתי שב-30.9.2026 אנתרופיק שחררו Context Language Models, מודל שמתייחס להקשר כקובץ ניתן לעריכה ולא כפרומפט קפוא. מסך שמחזיק קובץ הנחיות חי אחד לכל קורס, שהמודל עצמו מעדכן בסוף כל מפגש במקום שאתה תכתוב מחדש תדריך כל פעם.",
+   "advisor": "visionary",
+   "createdAt": "2026-10-01",
+   "capability": {
+    "name": "Anthropic Context Language Models",
+    "releasedAt": "2026-09-30"
+   },
+   "evidence": null,
+   "lesson": null,
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-10-01"
+  },
+  {
+   "id": "I-2026-0479",
+   "title": "הטריילר שיוצא מתוך המסך המאושר",
+   "line": "ראיתי שב-30.9.2026 פיגמה הוסיפו ל-Figma Motion סטיילים מותאמים אישית, אודיו ואנימציית טקסט עם ייצוא Lottie ישיר. מסך שלוקח ערכת מסכים מאושרת ב-Weave ומוציא ממנה טיזר מונפש עם קריינות, בלי לצאת לכלי עריכה חיצוני.",
+   "advisor": "visionary",
+   "createdAt": "2026-10-01",
+   "capability": {
+    "name": "Figma Motion native audio + text animation + Lottie export",
+    "releasedAt": "2026-09-30"
+   },
+   "evidence": null,
+   "lesson": null,
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-10-01"
+  },
+  {
+   "id": "I-2026-0480",
+   "title": "מה שואלים בתדריך כשאין מפגש הבא",
+   "line": "איך נראה תדריך חמש השורות שאתה כותב לי אחרי כל מפגש, כשמפגש 11 היום הוא האחרון בקורס UI/UX 45900 ואין מפגש הבא להשתפר בשבילו, רק הקורס הבא בעוד כמה חודשים?",
+   "advisor": "teacher",
+   "createdAt": "2026-10-01",
+   "capability": null,
+   "evidence": null,
+   "lesson": "קורס UI/UX 45900, מפגש 11 (האחרון, 1.10.2026), תדריך חמש השורות אחרי כל מפגש",
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-10-01"
   }
  ]
 }
