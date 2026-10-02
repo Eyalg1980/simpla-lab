@@ -1,6 +1,63 @@
 {
  "days": [
   {
+   "date": "2026-10-02",
+   "ideas": [
+    {
+     "id": "2026-10-02-1",
+     "color": "#71F73C",
+     "world": "סרטוני הסבר",
+     "competition": null,
+     "hook": "אתמול, 30.9.2026, היגספילד שחררו Genjutsu Restyle, פיצ'ר שצובע מחדש סרטון שלם בסטייל חזותי אחר בלי לפגוע בתנועה ובמצלמה המקורית.",
+     "concept": "אותו שוט נראה בשתי שפות חזותיות רצופות, פלאט עריכה קינטית ואז קלאיי, בלי שהתנועה או המצלמה משתנות בכלל, רק הצבע והטקסטורה. מדגים שהסיפור והביצוע הם שתי שכבות נפרדות, בדיוק כמו הרעיון מהפוסט המקביל על מוח מול יד בסקיל.",
+     "execution": "Higgsfield Genjutsu Restyle לשינוי הסטייל על קליפ המקור, Higgsfield Cinema Studio להפקת קליפ המקור, HeyGen לא נדרש, 9:16 ראשי, 15 עד 20 שניות.",
+     "why": "כי אותה תובנה בדיוק עולה היום בפוסט ברייסטורם על context skill מול action skill, כאן בפורמט חזותי שמראה את ההפרדה בין סיפור לביצוע במקום לתאר אותה במילים, ואותו נכס לשני ערוצים.",
+     "srcUrl": "https://higgsfield.ai/creator-hub/changelog",
+     "srcLabel": "Higgsfield Changelog, 30.9.2026",
+     "prompts": {
+      "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. Camera holds static on a single looping shot, a flat vector icon of a frame holding a sphere mid-bounce, the frame's edges and sphere texture dissolve into plasticine clay grain mid shot while the bounce motion and camera angle stay perfectly identical, 9:16, 8 seconds",
+      "script": "פתח לי את רעיון הווידאו \"צובעים מחדש בלי לפגוע בתנועה\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: היגספילד שחררו ב-30.9.2026 את Genjutsu Restyle, פיצ'ר שצובע מחדש סרטון שלם בסטייל ויזואלי חדש בלי לפגוע בתנועה ובמצלמה המקורית. שפת עריכה קינטית עוברת לקלאיי באותו שוט, קריינות עברית קצרה, חיבור לפוסט המקביל על context skill מול action skill.",
+      "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text. A flat vector icon of a bouncing sphere inside an open frame, the right half of the frame rendered in plasticine clay texture and the left half in flat vector line art, a single vertical seam between them",
+      "raw": "הוק: אתמול היגספילד שחררו Genjutsu Restyle, פיצ'ר שצובע מחדש סרטון שלם בלי לפגוע בתנועה.\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: אותו שוט בשתי שפות חזותיות רצופות בלי שינוי תנועה או מצלמה.\nביצוע: Higgsfield Genjutsu Restyle, Higgsfield Cinema Studio, 9:16, 15 עד 20 שניות.\nלמה עכשיו: אותה תובנה עולה היום בפוסט על מוח מול יד בסקיל, אותו נכס שני ערוצים."
+     },
+     "used": false
+    },
+    {
+     "id": "2026-10-02-2",
+     "color": "#71F73C",
+     "world": "תיעוד תהליך",
+     "competition": null,
+     "hook": "אתמול, 30.9.2026, היגספילד השיקו תוסף לצ'אטג'יפיטי שמריץ ג'נרציה של תמונה, וידאו ותוכן ממותג ישר מתוך הצ'אט, בפקודות סלאש כמו /effects ו-/genjutsu.",
+     "concept": "מסך צ'אט רגיל מקבל פקודת סלאש אחת ופורש ממנו תוך שנייה כרטיס ג'נרציה מלא, בלי לצאת לכלי נפרד. מדגים ויזואלית את העיקרון של הפוסט המקביל היום, קובץ הנחיות אחד שחוסך מעבר בין כלים.",
+     "execution": "מסך מפוצל בין ממשק הצ'אט לתוצאה, שפת עתיד קרוב אופטימי, Higgsfield Shorts Studio לקצב, HeyGen לא נדרש, 9:16 ראשי, 15 עד 20 שניות.",
+     "why": "כי אותה תובנה בדיוק עולה היום בפוסט ברייסטורם על DESIGN.md כשכבת הנחיות קבועה, כאן ממחיש שהשכבה הזאת כבר זולגת לכלי וידאו ולא רק לעיצוב קוד.",
+     "srcUrl": "https://higgsfield.ai/creator-hub/changelog",
+     "srcLabel": "Higgsfield Changelog, 30.9.2026",
+     "prompts": {
+      "video": "Optimistic near-future visual style, Mediterranean warm light, sand cream and soft teal palette, human and hopeful mood, shallow depth of field, no text. A glowing chat bubble interface floats in warm studio light, a single slash command types itself into the bubble and a small generation card blooms open beside it showing a finished image frame, camera holds a gentle push in, warm rim lighting, 9:16, 8 seconds",
+      "script": "פתח לי את רעיון הווידאו \"פקודת סלאש אחת, בלי לצאת מהצ'אט\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: היגספילד השיקו ב-30.9.2026 תוסף לצ'אטג'יפיטי שמריץ ג'נרציה של תמונה, וידאו ותוכן ממותג ישר מתוך הצ'אט בפקודות סלאש כמו /effects ו-/genjutsu. שפת עתיד קרוב אופטימי, קריינות עברית קצרה, חיבור לפוסט המקביל על DESIGN.md כשכבת הנחיות.",
+      "image": "Optimistic near-future visual style, Mediterranean warm light, sand cream and soft teal palette, human and hopeful mood, shallow depth of field, no text. A glowing chat bubble interface with a single slash command typed inside it, a small generation card blooming open just beside it showing a finished image frame",
+      "raw": "הוק: אתמול היגספילד השיקו תוסף לצ'אטג'יפיטי עם פקודות סלאש ליצירת תוכן ישירות בצ'אט.\nעולם: תיעוד תהליך\nתחרות: אין\nקונספט: מסך צ'אט עם פקודת סלאש אחת שפורשת כרטיס ג'נרציה מלא.\nביצוע: שפת עתיד קרוב אופטימי, Higgsfield Shorts Studio, 9:16, 15 עד 20 שניות.\nלמה עכשיו: אותה תובנה עולה היום בפוסט על DESIGN.md כשכבת הנחיות קבועה."
+     },
+     "used": false
+    }
+   ],
+   "watch": [
+    {
+     "title": "Higgsfield Creator Hub Changelog",
+     "desc": "FLUX 3 Image, Genjutsu Restyle ותוסף הצ'אטג'יפיטי, כל השחרורים של השבוע האחרון",
+     "meta": "higgsfield.ai · 1.10.2026",
+     "url": "https://higgsfield.ai/creator-hub/changelog"
+    },
+    {
+     "title": "Week in Review: Higgsfield On Track for $1 Billion Run Rate",
+     "desc": "קצב ההכנסות של היגספילד, הקשר שוק לפני שבוחרים לאן להשקיע זמן הפקה",
+     "meta": "VideoWeek · 25.9.2026",
+     "url": "https://videoweek.com/2026/09/25/week-in-review-netflix-ads-expands-in-europe-higgsfield-on-track-for-1-billion-run-rate-and-tvs-account-for-half-of-uk-youtube-viewing/"
+    }
+   ]
+  },
+  {
    "date": "2026-10-01",
    "ideas": [
     {
