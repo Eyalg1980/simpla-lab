@@ -1,6 +1,82 @@
 {
-  "updated": "2026-10-04",
+  "updated": "2026-10-05",
   "ideas": [
+    {
+      "id": "I-2026-0489",
+      "title": "תבנית נוד לכל סוג פריים",
+      "line": "כל פריים חוזר בסדנת Weave מקבל נוד מוכן מראש במקום חיווט ידני מאפס בכל פעם.",
+      "advisor": "visionary",
+      "createdAt": "2026-10-05",
+      "capability": {
+        "name": "Figma Node מתחבר לכל פריים בזרימת Weave עם סנכרון חי",
+        "releasedAt": "2026-09-17"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-05"
+    },
+    {
+      "id": "I-2026-0490",
+      "title": "שכבת גישה מדורגת לכלי חדש",
+      "line": "לפני שכלי AI חדש יוצא לכל הכיתה, מעגל קטן של שלושה תלמידים בודק אותו קודם ומחליט אם הוא מחזיק.",
+      "advisor": "visionary",
+      "createdAt": "2026-10-05",
+      "capability": {
+        "name": "Gemini 4 Argon שוחרר קודם רק לקבוצת אמון סגורה דרך תוכנית Fairwind",
+        "releasedAt": "2026-09-30"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-05"
+    },
+    {
+      "id": "I-2026-0491",
+      "title": "אותם חוקים, שלושה מקומות",
+      "line": "שלוש פעמים תועד שעותק של אותן הוראות במקום שני מתיישן ומוביל לריצה שנכשלת נגד גרסה ישנה.",
+      "advisor": "pain",
+      "createdAt": "2026-10-05",
+      "capability": null,
+      "evidence": "DEPLOY-RUNBOOK מתעד איך עותק שני של כללי הפריסה בזיכרון התיישן ב-5.8.2026 וגרם לתדריך הבוקר להיכשל נגד הוראות ישנות. קבצי הסקיל daily-director ו-meeting-room כותבים במפורש שהעתקת חוקים גרמה לדריפט שהרג גרסאות קודמות של המנועים. ומשימת שומר הבוקר עדיין מצביעה, נכון להיום, על שלושה מזהי טריגר ישנים שהוחלפו ב-10.8.2026 ומעולם לא תוקנו.",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-05"
+    },
+    {
+      "id": "I-2026-0492",
+      "title": "מסך החלטת הסטאק",
+      "line": "איזה מסך יראה לתלמיד את הרגע שבו הוא עובר מ-Lovable לקלוד קוד, לא רק מתי אלא למה.",
+      "advisor": "teacher",
+      "createdAt": "2026-10-05",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס מיישם AI 53500, מודול 3, החלטת סטאק טכנולוגי לפרויקט המתגלגל",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-05"
+    },
+    {
+      "id": "I-2026-0493",
+      "title": "לוח השראה מול לוח שנוצר",
+      "line": "איך נראה מסך שמציב מוד-בורד שתלמיד בנה ביד לצד גרסאות AI לאותה בקשה בדיוק.",
+      "advisor": "teacher",
+      "createdAt": "2026-10-05",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס UI/UX 45900, שיעור מוד-בורדים עם Midjourney",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-05"
+    },
     {
       "id": "I-2026-0486",
       "title": "רימיקס שנשאר בתיק עבודות",

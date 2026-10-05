@@ -1,6 +1,63 @@
 {
   "days": [
     {
+      "date": "2026-10-05",
+      "ideas": [
+        {
+          "id": "2026-10-05-1",
+          "color": "#71F73C",
+          "world": "סרטוני הסבר",
+          "competition": null,
+          "hook": "2019, מעצב שולח מסך קפוא ומצרף קובץ וידאו נפרד כדי להראות איך הוא אמור לזוז. 2026, אותו מעצב שולח פריים אחד שכבר זז ונשמע נכון.",
+          "concept": "סרטון הסבר קצר בשני חלקי מסך, חצי שמאלי מציג סטודיו עיצוב ב-2019 עם מסך סטטי ופתק נייר, חצי ימני מציג את אותו חלל ב-2026 עם פריים שמלווה בציר זמן אודיו. קאט יחיד באמצע בין שני העולמות, בלי מילה אחת עד הסוף.",
+          "execution": "Higgsfield Cinema Studio, שני קליפים של 4 שניות כל אחד עם start image ו-end image, סטייל editorial kinetic, 9:16, קריינות עברית קצרה רק בשנייה האחרונה שאומרת את המשפט הסוגר.",
+          "why": "פיגמה הוסיפו ל-Motion ציר זמן אודיו וייצוא ישיר ב-30.9.2026, שישה ימים לפני היום, אותו עדכון שמניע את רעיון הפוסט הראשון של היום, אותו נכס לשני ערוצים.",
+          "srcUrl": "https://releasebot.io/updates/figma",
+          "srcLabel": "Figma Release Notes, releasebot.io, 30.9.2026",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text, split screen composition, left half shows a flat frozen rectangular frame with a small paperclip icon beside it, right half shows an identical frame now animating gently with a thin glowing audio waveform underneath it, camera holds static, calm confident mood, 9:16 aspect ratio",
+            "script": "פתח לי את רעיון הווידאו \"משני עולמות לפריים אחד\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: פיגמה הוסיפו ב-30.9.2026 ל-Motion ציר זמן אודיו, סטיילים מותאמים אישית ואנימציית טקסט עם ייצוא ישיר. שפה חזותית: עריכה קינטית, חצי מסך 2019 מול חצי מסך 2026, חיבור לפוסט המקביל על אותו עדכון.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text, a flat frozen rectangular frame split down the middle, left side plain and still, right side showing the same frame with a thin glowing audio waveform line beneath it",
+            "raw": "הוק: 2019, מעצב שולח מסך קפוא ומצרף קובץ וידאו נפרד. 2026, אותו מעצב שולח פריים אחד שכבר זז ונשמע נכון.\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: סרטון בשני חלקי מסך, 2019 מול 2026, אותו מעצב אותה בעיה, כלי שונה.\nביצוע: Higgsfield Cinema Studio, שני קליפים של 4 שניות, סטייל editorial kinetic, 9:16, קריינות קצרה רק בסוף.\nלמה עכשיו: פיגמה הוסיפו ל-Motion ציר זמן אודיו וייצוא ישיר ב-30.9.2026."
+          },
+          "used": false
+        },
+        {
+          "id": "2026-10-05-2",
+          "color": "#71F73C",
+          "world": "קונספטואלי",
+          "competition": null,
+          "hook": "גוגל לא שחררו את Gemini 4 Argon לכולם. הם נתנו אותו קודם רק למעגל סגור של מגיני סייבר מהימנים.",
+          "concept": "סרטון קונספטואלי קצר, קבוצה קטנה ומוארת של נקודות אור במרכז הפריים, מעגל גדול ועמום של נקודות מסביב שמתחיל להידלק אחת אחת מבפנים החוצה. בלי דמויות, רק תנועת אור שמספרת את הסיפור של אמון שנבנה בשלבים.",
+          "execution": "Higgsfield Kling 3.0 std, קליפ אחד של 8 שניות, תנועת מצלמה סטטית, סטייל optimistic near-future, 9:16, בלי קריינות, רק סאונד דיזיין עדין.",
+          "why": "ההכרזה על Gemini 4 Argon מ-30.9.2026 ממחישה דפוס שחוזר אצל כל חברות המודלים הגדולות, להשיק קודם לקבוצת אמון קטנה, בדיוק מה שמניע את רעיון הפוסט השני של היום.",
+          "srcUrl": "https://www.digitalapplied.com/blog/ai-model-releases-october-2026-tracker",
+          "srcLabel": "AI Model Releases Tracker, Digital Applied, 30.9.2026",
+          "prompts": {
+            "video": "Optimistic near-future style, Mediterranean warm light, sand cream and soft teal palette, human and hopeful mood rather than cold sci-fi, shallow depth of field, a tight cluster of three small warm glowing dots at the center of frame, a much larger loose ring of dim dots surrounding it at a distance in soft darkness, camera holds static, the outer ring slowly begins lighting up one dot at a time from the inside out, calm deliberate pacing, 9:16 aspect ratio, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"מעגל האמון\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: גוגל שחררו ב-30.9.2026 את Gemini 4 Argon קודם רק למעגל סגור של מגיני סייבר מהימנים דרך תוכנית Fairwind. שפה חזותית: optimistic near-future, בלי דמויות, רק תנועת אור, חיבור לפוסט המקביל על אותו עדכון.",
+            "image": "Optimistic near-future style, Mediterranean warm light, sand cream and soft teal palette, human and hopeful mood, shallow depth of field, a tight cluster of three small warm glowing dots at the center of frame surrounded by a much larger loose ring of dim unlit dots in soft darkness, no text",
+            "raw": "הוק: גוגל לא שחררו את Gemini 4 Argon לכולם. הם נתנו אותו קודם רק למעגל סגור של מגיני סייבר מהימנים.\nעולם: קונספטואלי\nתחרות: אין\nקונספט: תנועת אור בלבד, קבוצה קטנה מוארת במרכז, טבעת גדולה עמומה מסביב שנדלקת בהדרגה.\nביצוע: Higgsfield Kling 3.0 std, קליפ אחד 8 שניות, סטייל optimistic near-future, 9:16, בלי קריינות.\nלמה עכשיו: Gemini 4 Argon שוחרר ב-30.9.2026 קודם רק לקבוצת אמון סגורה."
+          },
+          "used": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "How to Keep AI Persona Consistent Using Higgsfield Popcorn",
+          "desc": "זיכרון חזותי בין פריימים למניעת character drift, רלוונטי לכל סדרת וידאו עם אותה דמות חוזרת",
+          "meta": "higgsfield.ai · 30.6.2026",
+          "url": "https://higgsfield.ai/blog/how-to-keep-ai-persona-consistent-higgsfield-popcorn"
+        },
+        {
+          "title": "AI Model Releases: October 2026 Tracker",
+          "desc": "יומן תאריכים של שחרורי מודלים בתחילת אוקטובר, רקע לפני שבוחרים איזה סיפור AI הופך לסרטון",
+          "meta": "Digital Applied · 10.2026",
+          "url": "https://www.digitalapplied.com/blog/ai-model-releases-october-2026-tracker"
+        }
+      ]
+    },
+    {
       "date": "2026-10-04",
       "ideas": [
         {
