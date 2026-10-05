@@ -13,8 +13,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script>(function(){try{var s=JSON.parse(localStorage.getItem('jbgit.v1')||'{}');if(s.theme)document.documentElement.setAttribute('data-theme',s.theme);if(s.os)document.documentElement.setAttribute('data-os',s.os);}catch(e){}})();</script>
 <style>
-:root{--paper:#F7F5F0;--surface:#FFFFFF;--ink:#141F3D;--soft:#5F6C8A;--line:#E4E0D6;--acc:#1B2D6B;--acc-ink:#FFFFFF;--acc-soft:#E8ECF7;--yel:#FFE94A;--yel-ink:#141F3D;--yel-soft:#FFF8C7;--ok:#15803D;--bad:#B91C1C;--term:#141F3D;--term-ink:#E8ECF7;--bar:rgba(247,245,240,.94);--r:18px}
-:root[data-theme="dark"]{--paper:#0D1533;--surface:#16204A;--ink:#EDEFF7;--soft:#8B93B8;--line:rgba(237,239,247,.13);--acc:#9DB0FF;--acc-ink:#0D1533;--acc-soft:rgba(157,176,255,.13);--yel-soft:rgba(255,233,74,.12);--ok:#6FDB93;--bad:#FF8A8A;--term:#070C22;--term-ink:#DDE3FF;--bar:rgba(13,21,51,.94)}
+:root{--paper:#F7F5F0;--surface:#FFFFFF;--ink:#141F3D;--soft:#5F6C8A;--line:#E4E0D6;--acc:#1B2D6B;--acc-ink:#FFFFFF;--acc-soft:#E8ECF7;--yel:#FFE94A;--yel-ink:#141F3D;--yel-soft:#FFF8C7;--ok:#15803D;--bad:#B91C1C;--term:#141F3D;--term-ink:#E8ECF7;--bar:rgba(247,245,240,.94);--r:18px;--b:#B45309;--b-ink:#FFFFFF;--b-soft:#FDEBD6}
+:root[data-theme="dark"]{--paper:#0D1533;--surface:#16204A;--ink:#EDEFF7;--soft:#8B93B8;--line:rgba(237,239,247,.13);--acc:#9DB0FF;--acc-ink:#0D1533;--acc-soft:rgba(157,176,255,.13);--yel-soft:rgba(255,233,74,.12);--ok:#6FDB93;--bad:#FF8A8A;--term:#070C22;--term-ink:#DDE3FF;--bar:rgba(13,21,51,.94);--b:#FDBA74;--b-ink:#0D1533;--b-soft:rgba(253,186,116,.13)}
 html:not([data-os]) [data-for="mac"],html[data-os="win"] [data-for="mac"],html[data-os="mac"] [data-for="win"]{display:none}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth;scroll-padding-top:120px}
@@ -81,7 +81,30 @@ details.err>div{padding:0 14px 12px;font-size:14.5px}
 .final p{font-size:15px}
 .reset{font-size:13px;font-weight:600;color:var(--soft);text-decoration:underline;text-underline-offset:3px;margin-top:10px}
 footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border-top:1.5px dashed var(--line);padding-top:14px}
+.pick2{display:grid;gap:10px;margin:22px 0 4px}
+.pcard{display:block;text-decoration:none;border-radius:var(--r);padding:14px 18px 16px;border:2px solid var(--acc);background:var(--surface)}
+.pcard.b{border-color:var(--b)}
+.pcard .pl{font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--acc)}
+.pcard.b .pl{color:var(--b)}
+.pcard b{display:block;font-size:19px;font-weight:800;line-height:1.25;margin:2px 0}
+.pcard span{display:block;font-size:14px;color:var(--soft)}
+.part{margin:44px -16px 16px;padding:22px 16px 24px;background:var(--acc);color:var(--acc-ink)}
+.part.b{background:var(--b);color:var(--b-ink)}
+.part .pl{font-size:12px;font-weight:700;letter-spacing:.12em;opacity:.85}
+.part h2{font-size:26px;font-weight:800;line-height:1.2;margin:2px 0 6px}
+.part p{font-size:14.5px;max-width:36em}
+.trackA .step{border-inline-start:5px solid var(--acc)}
+.trackB .step{border-inline-start:5px solid var(--b)}
+.trackB .n{background:var(--b-soft);color:var(--b);padding:0 6px;font-family:"Rubik",sans-serif}
+.trackB .label{color:var(--b)}
+.trackB .tip b{color:var(--b)}
+.prompt{position:relative;margin:8px 0}
+.prompt pre{white-space:pre-wrap;font-family:"Rubik",sans-serif;font-size:14.5px;line-height:1.7;background:var(--b-soft);border:1.5px dashed var(--b);border-radius:12px;padding:38px 14px 14px}
+.prompt .cp{position:absolute;top:8px;inset-inline-end:10px;font-size:12px;font-weight:600;padding:3px 12px;border-radius:999px;border:1.5px dashed var(--b);background:var(--surface)}
+.prompt .cp.ok{border-color:var(--ok);color:var(--ok)}
+.prompt .pt{position:absolute;top:10px;inset-inline-start:14px;font-size:11.5px;font-weight:700;color:var(--b)}
 @media (max-width:520px){.idea{grid-template-columns:1fr}.body{padding-inline-start:0}}
+@media (min-width:1024px){.pick2{grid-template-columns:1fr 1fr}.part{border-radius:var(--r);margin-inline:0;padding:26px 28px 28px}}
 </style>
 </head>
 <body>
@@ -95,13 +118,13 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <span>המחשב שלי:</span>
   <button class="os" type="button" data-os="win">Windows</button>
   <button class="os" type="button" data-os="mac">Mac</button>
-  <span class="prog" id="prog">0 מתוך 11</span>
+  <span class="prog" id="prog">א 0/11 · ב 0/6</span>
 </div>
 
 <header class="hero">
   <span class="kicker">מפגש 8 · מיישם AI ואוטומציה</span>
   <h1>Git צעד אחר צעד <b>מהטרמינל הראשון לקומיט הראשון</b></h1>
-  <p class="lead">עושים את זה פעם אחת ביד, כדי להבין מה קורה מתחת. מכאן והלאה Claude Code עושה את זה בשבילכם במשפט אחד.</p>
+  <p class="lead">שני חלקים. בחלק א עושים את זה פעם אחת ביד, כדי להבין מה קורה מתחת. בחלק ב Claude מקליד, ואתם קוראים ומאשרים.</p>
   <div class="pick">בחרו למעלה Windows או Mac, והמדריך יציג רק את מה שרלוונטי למחשב שלכם.</div>
 </header>
 
@@ -109,6 +132,11 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <div><b>Git</b>מצלמה שמצלמת את התיקייה שלכם בכל פעם שתבקשו</div>
   <div><b>Commit</b>צילום אחד, עם משפט שמסביר מה השתנה</div>
   <div><b>GitHub</b>האלבום באינטרנט, שממנו האתר עולה לאוויר</div>
+</div>
+
+<div class="pick2">
+  <a class="pcard" href="#partA"><span class="pl">חלק א</span><b>ביד, בטרמינל</b><span>בכיתה, פעם אחת. עשרה שלבים, מהטרמינל הראשון לקומיט הראשון</span></a>
+  <a class="pcard b" href="#partB"><span class="pl">חלק ב</span><b>עם Claude</b><span>הוא מקליד, אתם מאשרים. כולל התקנת Git, ושישה שלבים</span></a>
 </div>
 
 <div class="label">לפני המפגש, בבית</div>
@@ -125,6 +153,13 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
     </ol>
   </div>
 </article>
+
+<section class="trackA" id="partA">
+<div class="part">
+  <div class="pl">חלק א</div>
+  <h2>ביד, בטרמינל</h2>
+  <p>פעם אחת, בכיתה. מקלידים כל פקודה בעצמכם, כדי לדעת מה אתם מאשרים כש-Claude יקליד אותה בשבילכם.</p>
+</div>
 
 <div class="label">בכיתה: הטרמינל</div>
 
@@ -247,17 +282,120 @@ git log --oneline</pre></div>
   </div>
 </article>
 
-<div class="label">כשמשהו לא עובד</div>
+</section>
+
+<section class="trackB" id="partB">
+<div class="part b">
+  <div class="pl">חלק ב</div>
+  <h2>עם Claude: הוא מקליד, אתם מאשרים</h2>
+  <p>אותן פעולות בדיוק כמו בחלק א. Claude מציג כל פקודה לפני שהוא מריץ אותה, ואתם קוראים ומאשרים. מתאים מכאן והלאה, ולמי שנתקע בטרמינל.</p>
+</div>
+
+<article class="step" data-s="c1">
+  <div class="sh"><span class="n">ב1</span><h2>מה צריך<small>ארבעה דברים, פעם אחת</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li><b>Claude Desktop:</b> מורידים מ-<a href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a>, מתקינים ומתחברים</li>
+      <li><b>תוכנית בתשלום:</b> הלשונית Code לא כלולה בתוכנית החינמית. צריך Pro ומעלה</li>
+      <li><b>Git מותקן במחשב:</b> Claude מריץ את Git, הוא לא מחליף אותו. ההתקנה בשלב הבא</li>
+      <li><b>חשבון GitHub:</b> ב-<a href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a>, עם הג׳ימייל של הקורס</li>
+    </ol>
+  </div>
+</article>
+
+<article class="step" data-s="c2">
+  <div class="sh"><span class="n">ב2</span><h2>מתקינים Git<small data-for="win">ב-Windows, כחמש דקות</small><small data-for="mac">ב-Mac, כעשר דקות</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol data-for="win">
+      <li>מורידים את Git for Windows מ-<a href="https://git-scm.com/downloads/win" target="_blank" rel="noopener">git-scm.com</a></li>
+      <li>מריצים את הקובץ שירד, ולוחצים <b>Next</b> בכל המסכים. ברירות המחדל מתאימות</li>
+      <li>סוגרים את Claude Desktop לגמרי ופותחים אותו מחדש, כדי שיזהה את Git</li>
+    </ol>
+    <ol data-for="mac">
+      <li>במחשבי Mac מגיע Git יחד עם כלי הפיתוח של אפל. לוחצים <b>Cmd</b> ו<b>רווח</b> יחד, מקלידים <b>Terminal</b> ולוחצים Enter</li>
+      <li>מדביקים את הפקודה הזו ולוחצים Enter:</li>
+    </ol>
+    <div class="term" data-for="mac"><button class="cp" type="button">העתק</button><pre>xcode-select --install</pre></div>
+    <ol data-for="mac" start="3">
+      <li>בחלון שנפתח לוחצים <b>Install</b>, ומחכים כמה דקות</li>
+      <li>אם כתוב שהכלים כבר מותקנים, Git כבר אצלכם. דרכים נוספות יש ב-<a href="https://git-scm.com/downloads/mac" target="_blank" rel="noopener">git-scm.com</a></li>
+      <li>סוגרים את Claude Desktop לגמרי ופותחים אותו מחדש</li>
+    </ol>
+    <div class="tip"><b>כבר התקנתם לפי שלב 0?</b> מדלגים לשלב הבא.</div>
+  </div>
+</article>
+
+<article class="step" data-s="c3">
+  <div class="sh"><span class="n">ב3</span><h2>פותחים את תיקיית הפרויקט בלשונית Code</h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>פותחים את Claude Desktop, ולוחצים על הלשונית <b>Code</b></li>
+      <li>באזור תיבת ההודעה בוחרים <b>Local</b>, ואז את תיקיית הפרויקט שלכם</li>
+      <li>במצב ההרשאות, ליד כפתור השליחה, בוחרים <b>Manual</b>. ככה Claude שואל לפני כל פקודה</li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> שם תיקיית הפרויקט שלכם, ליד תיבת ההודעה.</p>
+  </div>
+</article>
+
+<article class="step" data-s="c4">
+  <div class="sh"><span class="n">ב4</span><h2>מבקשים מ-Claude להכין את התיקייה<small>מחליף את שלבים 1 עד 8 של חלק א</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p>מעתיקים, מדביקים בתיבת ההודעה ושולחים:</p>
+    <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>הכן את התיקייה הזו לעבודה עם Git.
+1. בדוק ש-Git מותקן. אם לא, עצור ואמור לי.
+2. בדוק אם השם והמייל שלי כבר מוגדרים ב-Git. אם לא, שאל אותי מה הם, והגדר אותם. הגדר גם ש-main הוא הענף הראשי.
+3. הפוך את התיקייה לריפו, אם היא עדיין לא ריפו.
+4. צור קומיט ראשון עם כל הקבצים, בהודעה: Spec documents, first version.
+לפני כל פקודה הצג אותה, והסבר במשפט אחד בעברית מה היא עושה.
+אל תריץ שום דבר בלי אישור שלי, ואל תעלה שום דבר לאינטרנט.</pre></div>
+    <p>כש-Claude שואל על השם והמייל: השם באנגלית, והמייל הוא הג׳ימייל של הקורס.</p>
+  </div>
+</article>
+
+<article class="step" data-s="c5">
+  <div class="sh"><span class="n">ב5</span><h2>קוראים לפני שמאשרים<small>אלה הפקודות ש-Claude יציג, לפי הסדר</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <table class="tbl">
+      <thead><tr><th>הפקודה</th><th>מה היא עושה</th></tr></thead>
+      <tbody>
+        <tr><td><code>git --version</code></td><td>בודקת ש-Git מותקן</td></tr>
+        <tr><td><code>git config</code></td><td>רושמת את השם והמייל שלכם, פעם אחת במחשב</td></tr>
+        <tr><td><code>git init</code></td><td>הופכת את התיקייה לריפו</td></tr>
+        <tr><td><code>git add .</code></td><td>מכניסה את כל הקבצים לפריים</td></tr>
+        <tr><td><code>git commit -m</code></td><td>מצלמת, עם משפט שמסביר מה בצילום</td></tr>
+      </tbody>
+    </table>
+    <div class="tip"><b>עוצרים ושואלים לפני שמאשרים:</b> כל פקודה עם <code>--force</code>, עם <code>reset --hard</code>, עם <code>rm</code>, או <code>push</code> שלא ביקשתם. אלה פקודות שמוחקות או מעלות לאינטרנט.</div>
+    <p class="see"><b>אמור להופיע:</b> בסוף Claude מדווח שנוצר קומיט אחד, עם כל הקבצים.</p>
+  </div>
+</article>
+
+<article class="step" data-s="c6">
+  <div class="sh"><span class="n">ב6</span><h2>בודקים, וממשיכים ככה<small>מכאן והלאה, משפט אחד בסוף כל שינוי</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p>בודקים שהקומיט נוצר:</p>
+    <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>הצג לי את היסטוריית הקומיטים, שורה אחת לכל קומיט.</pre></div>
+    <p class="see"><b>אמור להופיע:</b> שורה אחת, עם קוד קצר ואחריו ההודעה.</p>
+    <p>ובסוף כל שינוי שבדקתם ועובד:</p>
+    <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>בדקתי, הכל עובד. צור קומיט עם הודעה ברורה על מה שהשתנה.</pre></div>
+    <p><b>לאינטרנט:</b> בדיוק כמו בחלק א, שלב 10. פותחים את GitHub Desktop, בוחרים Add local repository, ולוחצים Publish repository.</p>
+  </div>
+</article>
+</section>
+
+<div class="label">כשמשהו לא עובד, בשני החלקים</div>
 
 <details class="err" data-for="win"><summary><span class="pm">+</span><u>'git' is not recognized</u></summary><div>סוגרים את הטרמינל ופותחים חדש. הטרמינל שהיה פתוח בזמן ההתקנה לא מכיר את Git. אם זה עדיין קורה, מתקינים שוב עם ברירות המחדל.</div></details>
 <details class="err" data-for="mac"><summary><span class="pm">+</span><u>xcrun: error: invalid active developer path</u></summary><div>חסרים כלי הפיתוח של אפל. מריצים <code>xcode-select --install</code>, מאשרים בחלון שנפתח, ומחכים כמה דקות.</div></details>
-<details class="err"><summary><span class="pm">+</span><u>Author identity unknown, או Please tell me who you are</u></summary><div>דילגתם על שלב 4. מריצים את שתי פקודות ה-config, ומנסים שוב את ה-commit.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>Author identity unknown, או Please tell me who you are</u></summary><div>דילגתם על שלב 4. מריצים את שתי פקודות ה-config, ומנסים שוב את ה-commit. בחלק ב: כותבים ל-Claude את השם והמייל, ומבקשים שיגדיר אותם.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>Claude אומר ש-Git לא מותקן, אבל התקנתי</u></summary><div>Claude Desktop היה פתוח בזמן ההתקנה, ולכן הוא עדיין לא מכיר את Git. סוגרים אותו לגמרי, פותחים מחדש, ושולחים שוב את הבקשה.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>אין לי לשונית Code, או שמבקשים ממני לשדרג</u></summary><div>הלשונית Code דורשת תוכנית בתשלום. עד שיש לכם, עובדים לפי חלק א.</div></details>
 <details class="err"><summary><span class="pm">+</span><u>fatal: not a git repository</u></summary><div>אתם לא בתיקיית הפרויקט. <code>pwd</code> כדי לראות איפה אתם, ו-<code>cd</code> כדי להגיע לתיקייה הנכונה.</div></details>
 <details class="err"><summary><span class="pm">+</span><u>נפתח מסך מוזר אחרי commit, ואי אפשר לצאת</u></summary><div>שכחתם את <code>-m</code> והמשפט, ו-Git פתח עורך. לוחצים Esc, מקלידים <code>:q!</code> ולוחצים Enter. ואז מריצים שוב את ה-commit, הפעם עם <code>-m "..."</code>.</div></details>
 <details class="err"><summary><span class="pm">+</span><u>nothing to commit, working tree clean</u></summary><div>זו לא שגיאה. אין שום שינוי מאז הצילום האחרון, אז אין מה לצלם.</div></details>
 <details class="err"><summary><span class="pm">+</span><u>שמות קבצים בעברית נראים כמו ג׳יבריש</u></summary><div>זה רק באופן שבו הטרמינל מציג אותם. הקבצים בסדר. בכל זאת, שמות קבצים של הפרויקט באנגלית ובלי רווחים חוסכים תקלות בהמשך, במיוחד כשהאתר עולה לשרת.</div></details>
 
-<div class="label">דף הסיכום</div>
+<div class="label">דף הסיכום, לשני החלקים</div>
 <table class="tbl">
   <thead><tr><th>פקודה</th><th>מה היא עושה</th></tr></thead>
   <tbody>
@@ -272,11 +410,11 @@ git log --oneline</pre></div>
 
 <div class="final">
   <h2>ומכאן והלאה</h2>
-  <p>אתם לא מקלידים את זה יותר. בסוף כל Milestone כותבים ל-Claude Code: "הכל עובד. צור קומיט עם הודעה ברורה על מה שנבנה." הוא מריץ בדיוק את מה שהרצתם היום ביד. עכשיו אתם יודעים מה הוא עושה.</p>
+  <p>עובדים לפי חלק ב. בסוף כל Milestone כותבים ל-Claude: "הכל עובד. צור קומיט עם הודעה ברורה על מה שנבנה." הוא מריץ בדיוק את מה שהרצתם ביד בחלק א, ועכשיו אתם יודעים מה אתם מאשרים.</p>
   <button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button>
 </div>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v1 · 30.9.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v2 · 5.10.2026</footer>
 
 <script>
 (function(){
@@ -293,12 +431,12 @@ git log --oneline</pre></div>
   if(!S.os){var mac=/Mac|iPhone|iPad/.test(navigator.platform||navigator.userAgent||'');S.os=mac?'mac':'win';}
   osb.forEach(function(b){b.addEventListener('click',function(){S.os=b.dataset.os;save();paintOs();});});paintOs();
   var steps=[].slice.call(document.querySelectorAll('.step'));
-  function paintSteps(){var n=0;steps.forEach(function(st){var on=!!S.done[st.dataset.s];st.classList.toggle('done',on);st.querySelector('.chk').setAttribute('aria-checked',String(on));if(on)n++;});document.getElementById('prog').textContent=n+' מתוך '+steps.length;}
+  function paintSteps(){var a=0,b=0,ta=0,tb=0;steps.forEach(function(st){var on=!!S.done[st.dataset.s],isB=!!st.closest('.trackB');st.classList.toggle('done',on);st.querySelector('.chk').setAttribute('aria-checked',String(on));if(isB){tb++;if(on)b++;}else{ta++;if(on)a++;}});document.getElementById('prog').textContent='א '+a+'/'+ta+' · ב '+b+'/'+tb;}
   steps.forEach(function(st){st.querySelector('.chk').addEventListener('click',function(){var id=st.dataset.s;if(S.done[id])delete S.done[id];else S.done[id]=1;save();paintSteps();});});paintSteps();
   document.getElementById('resetBtn').addEventListener('click',function(){S.done={};save();paintSteps();});
   document.querySelectorAll('details.err').forEach(function(d){d.addEventListener('toggle',function(){d.querySelector('.pm').textContent=d.open?'-':'+';});});
   function fallback(t){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
-  document.querySelectorAll('.term .cp').forEach(function(b){b.addEventListener('click',function(){var t=b.parentNode.querySelector('pre').innerText;var ok=function(){b.textContent='הועתק';b.classList.add('ok');setTimeout(function(){b.textContent='העתק';b.classList.remove('ok');},1500);};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,function(){fallback(t);ok();});else{fallback(t);ok();}});});
+  document.querySelectorAll('.term .cp,.prompt .cp').forEach(function(b){b.addEventListener('click',function(){var t=b.parentNode.querySelector('pre').innerText;var ok=function(){b.textContent='הועתק';b.classList.add('ok');setTimeout(function(){b.textContent='העתק';b.classList.remove('ok');},1500);};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,function(){fallback(t);ok();});else{fallback(t);ok();}});});
 })();
 </script>
 </body>
