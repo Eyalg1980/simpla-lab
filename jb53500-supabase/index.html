@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Supabase צעד אחר צעד לתלמידי קורס 53500: פרויקט, טבלה, מפתחות, שלושת המנעולים, ובנייה עם Claude דרך המחבר.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F5F0">
+<title>Supabase צעד אחר צעד · 53500</title>
+<link rel="icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Crect width="32" height="32" rx="8" fill="%231B2D6B"/%3E%3Cellipse cx="16" cy="10" rx="8" ry="3.2" fill="none" stroke="%23FFE94A" stroke-width="2.2"/%3E%3Cpath d="M8 10v12c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V10M8 16c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2" fill="none" stroke="%23FFE94A" stroke-width="2.2"/%3E%3C/svg%3E'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem('jbsupa.v1')||'{}');if(s.theme)document.documentElement.setAttribute('data-theme',s.theme);}catch(e){}})();</script>
+<style>
+:root{--paper:#F7F5F0;--surface:#FFFFFF;--ink:#141F3D;--soft:#5F6C8A;--line:#E4E0D6;--acc:#1B2D6B;--acc-ink:#FFFFFF;--acc-soft:#E8ECF7;--yel:#FFE94A;--yel-ink:#141F3D;--yel-soft:#FFF8C7;--ok:#15803D;--ok-soft:#E3F3E8;--bad:#B91C1C;--bad-soft:#FBE6E6;--term:#141F3D;--term-ink:#E8ECF7;--bar:rgba(247,245,240,.94);--r:18px;--b:#B45309;--b-ink:#FFFFFF;--b-soft:#FDEBD6}
+:root[data-theme="dark"]{--paper:#0D1533;--surface:#16204A;--ink:#EDEFF7;--soft:#8B93B8;--line:rgba(237,239,247,.13);--acc:#9DB0FF;--acc-ink:#0D1533;--acc-soft:rgba(157,176,255,.13);--yel-soft:rgba(255,233,74,.12);--ok:#6FDB93;--ok-soft:rgba(111,219,147,.12);--bad:#FF8A8A;--bad-soft:rgba(255,138,138,.12);--term:#070C22;--term-ink:#DDE3FF;--bar:rgba(13,21,51,.94);--b:#FDBA74;--b-ink:#0D1533;--b-soft:rgba(253,186,116,.13)}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{font-family:"Rubik","Heebo",-apple-system,sans-serif;background:var(--paper);color:var(--ink);max-width:760px;margin:0 auto;padding:0 16px 64px;line-height:1.65;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.ic{width:1.1em;height:1.1em;flex:none;vertical-align:-.18em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.88em;direction:ltr;unicode-bidi:isolate;background:var(--acc-soft);padding:1px 6px;border-radius:6px}
+.appbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:10px;background:var(--bar);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin:0 -16px;padding:calc(10px + env(safe-area-inset-top)) 16px 10px}
+.rbtn{width:36px;height:36px;min-width:36px;border-radius:50%;border:1.5px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink);text-decoration:none}
+.rbtn .ic{width:18px;height:18px}
+.logo{flex:1;text-align:center;font-family:"Poppins",sans-serif;font-size:15px;font-weight:300;letter-spacing:1.8px;text-transform:uppercase}
+.logo b{font-weight:700}
+.osbar{position:sticky;top:calc(56px + env(safe-area-inset-top));z-index:39;background:var(--bar);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin:0 -16px;padding:6px 16px 12px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+.osbar span{font-size:13px;color:var(--soft);font-weight:600}
+.jump{font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;border:1.5px dashed var(--line);color:var(--soft);text-decoration:none}
+.prog{margin-inline-start:auto;font-size:12.5px;color:var(--soft);font-weight:600;white-space:nowrap}
+.hero{padding:30px 0 6px;text-align:center}
+.kicker{display:inline-flex;gap:6px;align-items:center;background:var(--acc);color:var(--acc-ink);font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:999px;margin-bottom:12px}
+h1{font-weight:300;font-size:clamp(30px,8vw,44px);line-height:1.1}
+h1 b{font-weight:800;display:block}
+.lead{color:var(--soft);max-width:34em;margin:12px auto 0}
+.fresh{margin:16px auto 0;max-width:34em;border:1.5px dashed var(--line);border-radius:14px;padding:10px 14px;font-size:13.5px;color:var(--soft)}
+.idea{margin:26px 0 6px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.idea div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;font-size:13.5px}
+.idea b{display:block;font-size:15px;margin-bottom:2px}
+.label{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--acc);margin:34px 0 8px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 16px 14px;margin-bottom:10px}
+.step.done{opacity:.62}
+.sh{display:flex;gap:12px;align-items:flex-start}
+.n{min-width:34px;height:34px;border-radius:10px;background:var(--acc-soft);color:var(--acc);display:flex;align-items:center;justify-content:center;font-family:"Poppins",sans-serif;font-weight:700}
+.sh h2{flex:1;font-size:17px;font-weight:700;line-height:1.35;margin-top:4px}
+.sh h2 small{display:block;font-size:13px;font-weight:400;color:var(--soft)}
+.chk{width:30px;height:30px;min-width:30px;border-radius:9px;border:1.5px dashed var(--soft);display:flex;align-items:center;justify-content:center;color:transparent}
+.chk .ic{width:17px;height:17px;stroke-width:2.6}
+.chk[aria-checked="true"]{background:var(--ok);border:1.5px solid var(--ok);color:#fff}
+.body{margin-top:10px;padding-inline-start:46px}
+.body p{margin-bottom:8px;font-size:15px}
+.body ul,.body ol{padding-inline-start:18px;margin-bottom:8px}
+.body li{margin-bottom:4px;font-size:15px}
+.term{position:relative;background:var(--term);color:var(--term-ink);border-radius:12px;padding:40px 14px 12px;margin:8px 0;direction:ltr;text-align:left;font-family:ui-monospace,Consolas,monospace;font-size:13.5px;line-height:1.7;overflow-x:auto}
+.term .cp{position:absolute;top:8px;right:8px;font-family:"Rubik",sans-serif;font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.3);color:var(--term-ink)}
+.term .cp.ok{border-color:#6FDB93;color:#6FDB93}
+.term pre{white-space:pre;font:inherit}
+.see{font-size:14px;border-inline-start:3px solid var(--ok);padding:4px 10px;margin:8px 0;color:var(--soft)}
+.see b{color:var(--ok)}
+.tip{font-size:14px;border:1.5px dashed var(--line);border-radius:12px;padding:8px 12px;margin:8px 0}
+.tip b{color:var(--acc)}
+.warn{font-size:14px;border:1.5px solid var(--bad);background:var(--bad-soft);border-radius:12px;padding:8px 12px;margin:8px 0}
+.warn b{color:var(--bad)}
+details.err{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:8px}
+details.err>summary{list-style:none;cursor:pointer;padding:12px 14px;font-weight:600;font-size:14.5px;display:flex;gap:8px;align-items:center}
+details.err>summary::-webkit-details-marker{display:none}
+details.err>summary .pm{font-family:"Poppins",sans-serif;color:var(--bad);width:12px}
+details.err>summary u{text-underline-offset:3px}
+details.err>div{padding:0 14px 12px;font-size:14.5px}
+.tblwrap{overflow-x:auto;border-radius:14px;margin:8px 0}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);border-radius:14px;overflow:hidden}
+.body .tbl{border:1px solid var(--line)}
+.tbl th{font-size:12px;color:var(--soft);text-align:start;padding:9px 10px;border-bottom:1.5px solid var(--line)}
+.tbl td{padding:9px 10px;border-bottom:1px dashed var(--line);vertical-align:top}
+.tbl td:first-child{white-space:nowrap}
+.final{margin-top:28px;border:2px solid var(--acc);border-radius:var(--r);padding:16px 18px;background:var(--surface)}
+.final h2{font-size:18px;font-weight:700;margin-bottom:6px}
+.final p{font-size:15px;margin-bottom:6px}
+.reset{font-size:13px;font-weight:600;color:var(--soft);text-decoration:underline;text-underline-offset:3px;margin-top:10px}
+footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border-top:1.5px dashed var(--line);padding-top:14px}
+.pick2{display:grid;gap:10px;margin:22px 0 4px}
+.pcard{display:block;text-decoration:none;border-radius:var(--r);padding:14px 18px 16px;border:2px solid var(--acc);background:var(--surface)}
+.pcard.b{border-color:var(--b)}
+.pcard .pl{font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--acc)}
+.pcard.b .pl{color:var(--b)}
+.pcard b{display:block;font-size:19px;font-weight:800;line-height:1.25;margin:2px 0}
+.pcard span{display:block;font-size:14px;color:var(--soft)}
+.part{margin:44px -16px 16px;padding:22px 16px 24px;background:var(--acc);color:var(--acc-ink)}
+.part.b{background:var(--b);color:var(--b-ink)}
+.part .pl{font-size:12px;font-weight:700;letter-spacing:.12em;opacity:.85}
+.part h2{font-size:26px;font-weight:800;line-height:1.2;margin:2px 0 6px}
+.part p{font-size:14.5px;max-width:36em}
+.trackA .step{border-inline-start:5px solid var(--acc)}
+.trackB .step{border-inline-start:5px solid var(--b)}
+.trackB .n{background:var(--b-soft);color:var(--b);padding:0 6px;font-family:"Rubik",sans-serif}
+.trackB .tip b{color:var(--b)}
+.prompt{position:relative;margin:8px 0}
+.prompt pre{white-space:pre-wrap;font-family:"Rubik",sans-serif;font-size:14.5px;line-height:1.7;background:var(--b-soft);border:1.5px dashed var(--b);border-radius:12px;padding:38px 14px 14px}
+.prompt .cp{position:absolute;top:8px;inset-inline-end:10px;font-size:12px;font-weight:600;padding:3px 12px;border-radius:999px;border:1.5px dashed var(--b);background:var(--surface)}
+.prompt .cp.ok{border-color:var(--ok);color:var(--ok)}
+.prompt .pt{position:absolute;top:10px;inset-inline-start:14px;font-size:11.5px;font-weight:700;color:var(--b)}
+.locks{display:grid;gap:8px;margin:8px 0}
+.acts{display:grid;gap:8px;margin:8px 0}
+.acts .lock b{margin-bottom:3px}
+.lock{border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14.5px;background:var(--paper)}
+.lock b{display:block;font-size:15px}
+.lock code{background:var(--surface)}
+.check{border:2px solid var(--acc);border-radius:14px;padding:14px;margin:10px 0;background:var(--paper)}
+.check h3{font-size:16px;font-weight:700;margin-bottom:2px}
+.check .sub{font-size:13.5px;color:var(--soft);margin-bottom:10px}
+.check label{display:block;font-size:13px;font-weight:600;margin:8px 0 3px}
+.check input{width:100%;font:inherit;font-family:ui-monospace,Consolas,monospace;font-size:14px;direction:ltr;text-align:left;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:9px 12px}
+.check input:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
+.go{margin-top:12px;background:var(--acc);color:var(--acc-ink);font-weight:700;font-size:15px;padding:10px 26px;border-radius:999px}
+.go[disabled]{opacity:.55;cursor:default}
+.res{margin-top:12px;border-radius:12px;padding:12px 14px;font-size:14.5px;display:none}
+.res.show{display:block}
+.res.good{background:var(--ok-soft);border:1.5px solid var(--ok)}
+.res.stop{background:var(--bad-soft);border:1.5px solid var(--bad)}
+.res.mid{background:var(--yel-soft);border:1.5px solid var(--line)}
+.res b.t{display:block;font-size:16px;margin-bottom:2px}
+.res .raw{margin-top:8px;font-family:ui-monospace,Consolas,monospace;font-size:12.5px;direction:ltr;text-align:left;background:var(--surface);border-radius:8px;padding:8px 10px;overflow-x:auto;white-space:pre-wrap;word-break:break-word}
+.res table{margin-top:8px;border-collapse:collapse;font-size:13px;width:100%}
+.res th,.res td{border:1px solid var(--line);padding:4px 8px;text-align:start}
+@media (max-width:520px){.idea{grid-template-columns:1fr}.body{padding-inline-start:0}}
+@media (min-width:1024px){.pick2{grid-template-columns:1fr 1fr}.part{border-radius:var(--r);margin-inline:0;padding:26px 28px 28px}.locks{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="appbar">
+  <a class="rbtn" href="https://eyalg1980.github.io/simpla-lab/jb53500/" aria-label="לאתר הקורס"><svg class="ic" viewBox="0 0 24 24"><path d="m9.5 5 6.5 7-6.5 7"/></svg></a>
+  <div class="logo">Supabase <b>53500</b></div>
+  <button class="rbtn" id="themeBtn" type="button" aria-label="מצב כהה"></button>
+</div>
+<div class="osbar">
+  <a class="jump" href="#partA">חלק א</a>
+  <a class="jump" href="#partB">חלק ב</a>
+  <a class="jump" href="#check">בודק</a>
+  <span class="prog" id="prog">א 0/6 · ב 0/6</span>
+</div>
+
+<header class="hero">
+  <span class="kicker">מודול 3 · מיישם AI ואוטומציה</span>
+  <h1>Supabase צעד אחר צעד <b>מהטבלה הראשונה לאתר שקורא ממנה</b></h1>
+  <p class="lead">שני חלקים. בחלק א מקימים פרויקט וטבלה ביד, כדי להבין מה Claude עומד לבנות. בחלק ב Claude בונה את בסיס הנתונים של המוצר, ואתם קוראים ומאשרים.</p>
+  <div class="fresh">מעודכן ל-5.10.2026, לפי התיעוד הרשמי של Supabase. הדשבורד משתנה מדי פעם, אז שם של כפתור יכול לזוז. העיקרון נשאר.</div>
+</header>
+
+<div class="idea">
+  <div><b>פרויקט</b>בסיס נתונים אחד למוצר אחד, עם כתובת משלו באינטרנט</div>
+  <div><b>טבלה</b>כמו גיליון: עמודות קבועות, ושורה לכל פריט</div>
+  <div><b>שלושה מנעולים</b>Grant,‏ RLS ו-Policy. עד שפותחים את שלושתם, האתר לא רואה כלום</div>
+</div>
+
+<div class="pick2">
+  <a class="pcard" href="#partA"><span class="pl">חלק א</span><b>ביד, בדשבורד</b><span>פעם אחת, כחצי שעה. פרויקט, טבלה, מפתחות, ושלושת המנעולים</span></a>
+  <a class="pcard b" href="#partB"><span class="pl">חלק ב</span><b>עם Claude</b><span>הוא בונה מתוך מסמך הארכיטקטורה, אתם קוראים ומאשרים</span></a>
+</div>
+
+<section class="trackA" id="partA">
+<div class="part">
+  <div class="pl">חלק א</div>
+  <h2>ביד, בדשבורד</h2>
+  <p>פעם אחת. עושים כל צעד בעצמכם, כדי לדעת מה אתם מאשרים כש-Claude יעשה אותו בשבילכם.</p>
+</div>
+
+<article class="step" data-s="a1">
+  <div class="sh"><span class="n">1</span><h2>פותחים חשבון, ארגון ופרויקט<small>פרויקט אחד למוצר שלכם</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>נכנסים ל-<a href="https://supabase.com/dashboard" target="_blank" rel="noopener">supabase.com/dashboard</a>, ונרשמים עם הג׳ימייל של הקורס</li>
+      <li>יוצרים <b>ארגון</b> (Organization) על שם הקורס, בתוכנית <b>Free</b></li>
+      <li>יוצרים <b>פרויקט חדש</b>: שם באנגלית, סיסמה לבסיס הנתונים, ואזור באירופה</li>
+      <li>את הסיסמה שומרים במקום בטוח. לא בתיקיית המוצר, ולא בצ׳אט</li>
+    </ol>
+    <div class="tip"><b>למה ארגון נפרד לקורס:</b> בחלק ב Claude מקבל גישה לכל הפרויקטים שבארגון שתבחרו. ארגון שיש בו רק את פרויקט הקורס שומר על כל השאר בחוץ.</div>
+    <p class="see"><b>אמור להופיע:</b> אחרי דקה או שתיים, מסך הבית של הפרויקט.</p>
+  </div>
+</article>
+
+<article class="step" data-s="a2">
+  <div class="sh"><span class="n">2</span><h2>יוצרים טבלת תרגול<small>טבלה אחת, שתי עמודות</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>בתפריט הצד נכנסים ל-<b>Table Editor</b>, ולוחצים <b>New table</b></li>
+      <li>שם הטבלה: <code>practice</code></li>
+      <li>את העמודות <code>id</code> ו-<code>created_at</code> משאירים. Supabase מוסיף אותן לבד</li>
+      <li>לוחצים <b>Add column</b> פעמיים: <code>title</code> מסוג <code>text</code>, ו-<code>price</code> מסוג <code>int4</code></li>
+      <li>את הסימון של Row Level Security משאירים דולק, ולוחצים <b>Save</b></li>
+    </ol>
+    <div class="tip"><b>שמות:</b> טבלאות ועמודות באנגלית, באותיות קטנות, עם קו תחתון במקום רווח. התוכן עצמו בעברית.</div>
+  </div>
+</article>
+
+<article class="step" data-s="a3">
+  <div class="sh"><span class="n">3</span><h2>מכניסים חמש שורות<small>בעברית, כמו שהמוצר ייראה</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>פותחים את הטבלה <code>practice</code> ב-Table Editor</li>
+      <li>מעל הטבלה לוחצים <b>Insert</b>, ובוחרים <b>Insert row</b></li>
+      <li>ממלאים <code>title</code> ו-<code>price</code>, ושומרים. חוזרים על זה חמש פעמים</li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> חמש שורות בטבלה, כל אחת עם מספר <code>id</code> משלה.</p>
+  </div>
+</article>
+
+<article class="step" data-s="a4">
+  <div class="sh"><span class="n">4</span><h2>מוצאים את הכתובת ואת המפתח הציבורי<small>שני הדברים היחידים שנכנסים לקוד של האתר</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p>לוחצים על <b>Connect</b> בראש המסך, או נכנסים ל-<b>Settings</b> ואז <b>API Keys</b>.</p>
+    <div class="locks">
+      <div class="lock"><b>כתובת הפרויקט</b><code>https://xxxx.supabase.co</code><br>נכנסת לקוד של האתר</div>
+      <div class="lock"><b>מפתח ציבורי</b><code>sb_publishable_...</code><br>נכנס לקוד של האתר</div>
+      <div class="lock"><b>מפתח סודי</b><code>sb_secret_...</code><br>לא נכנס לשום מקום שאנחנו בונים</div>
+    </div>
+    <div class="warn"><b>המפתח הסודי עוקף את כל המנעולים.</b> הוא לא נכנס לקוד, לא לריפו, לא לתיקיית המוצר, ולא לצ׳אט עם Claude. הריפו שלכם ציבורי.</div>
+    <p>מפתח ארוך שמתחיל ב-<code>eyJ</code> שייך לשיטה הישנה: <code>anon</code> הוא הציבורי, ו-<code>service_role</code> הוא הסודי. שתי השיטות עובדות.</p>
+  </div>
+</article>
+
+<article class="step" data-s="a5" id="check">
+  <div class="sh"><span class="n">5</span><h2>בודקים מהדפדפן, ונתקעים בכוונה<small>ככה האתר שלכם רואה את הטבלה כרגע</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p>הטבלה מלאה, ובדשבורד רואים אותה. האתר עדיין לא. ממלאים את שלושת השדות ולוחצים על הכפתור:</p>
+    <div class="check">
+      <h3>בודק החיבור</h3>
+      <p class="sub">הפנייה יוצאת מהדפדפן שלכם ישר לפרויקט שלכם. הדף לא שומר את מה שהקלדתם.</p>
+      <label for="cUrl">כתובת הפרויקט</label>
+      <input id="cUrl" type="url" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://xxxx.supabase.co">
+      <label for="cKey">המפתח הציבורי בלבד</label>
+      <input id="cKey" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="sb_publishable_...">
+      <label for="cTable">שם הטבלה</label>
+      <input id="cTable" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" value="practice">
+      <button class="go" id="cGo" type="button">בדוק מה האתר רואה</button>
+      <div class="res" id="cRes" role="status" aria-live="polite"></div>
+    </div>
+    <p class="see"><b>אמור להופיע:</b> שגיאת <code>permission denied</code>, או אפס שורות. שתיהן אומרות אותו דבר: האתר עדיין לא רשאי לקרוא.</p>
+  </div>
+</article>
+
+<article class="step" data-s="a6">
+  <div class="sh"><span class="n">6</span><h2>פותחים שלושה מנעולים<small>ארבע שורות SQL, פעם אחת ביד</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <div class="locks">
+      <div class="lock"><b>1. Grant</b>האם לתפקיד הזה מותר לגשת לטבלה בכלל</div>
+      <div class="lock"><b>2. RLS</b>מנעול על כל השורות. דולק: אף שורה לא יוצאת בלי כלל</div>
+      <div class="lock"><b>3. Policy</b>הכלל: אילו שורות מותר, ולמי</div>
+    </div>
+    <p>בתפריט הצד נכנסים ל-<b>SQL Editor</b>, מדביקים, ולוחצים <b>Run</b>:</p>
+    <div class="term"><button class="cp" type="button">העתק</button><pre>grant select on public.practice to anon;
+
+alter table public.practice enable row level security;
+
+create policy "public can read practice"
+on public.practice
+for select to anon
+using (true);</pre></div>
+    <p>בעברית: לגולש אנונימי (<code>anon</code>) מותר לקרוא (<code>select</code>) את כל השורות (<code>true</code>). לא לכתוב, לא לשנות, ולא למחוק.</p>
+    <p>חוזרים ל<a href="#check">בודק שבשלב 5</a> ולוחצים שוב.</p>
+    <p class="see"><b>אמור להופיע:</b> חמש השורות שהכנסתם.</p>
+    <div class="tip"><b>למה מדריכים ישנים לא מזכירים את ה-grant:</b> עד 2026 כל טבלה חדשה נחשפה לאתר אוטומטית. מ-30.5.2026 זה כבר לא כך בפרויקטים חדשים, ומ-30.10.2026 גם בפרויקטים קיימים.</div>
+  </div>
+</article>
+</section>
+
+<section class="trackB" id="partB">
+<div class="part b">
+  <div class="pl">חלק ב</div>
+  <h2>עם Claude: הוא בונה, אתם מאשרים</h2>
+  <p>אותם צעדים בדיוק כמו בחלק א, הפעם על הטבלאות האמיתיות של המוצר. Claude מציג כל פעולה לפני שהיא רצה, ואתם קוראים ומאשרים.</p>
+</div>
+
+<article class="step" data-s="b1">
+  <div class="sh"><span class="n">ב1</span><h2>מה צריך<small>ארבעה דברים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li><b>Claude Desktop ותוכנית בתשלום:</b> הלשונית Code לא כלולה בתוכנית החינמית</li>
+      <li><b>תיקיית המוצר:</b> עם <code>ARCHITECTURE.md</code>,‏ <code>PRD.md</code> ו-<code>course-stack.md</code></li>
+      <li><b>הפרויקט מחלק א:</b> בארגון של הקורס ב-Supabase</li>
+      <li><b>בלי נתונים אמיתיים:</b> בפרויקט יש רק נתוני דוגמה. לא לקוחות, לא טלפונים, לא מיילים</li>
+    </ol>
+  </div>
+</article>
+
+<article class="step" data-s="b2">
+  <div class="sh"><span class="n">ב2</span><h2>מחברים את Supabase ל-Claude<small>פעם אחת</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>ב-Claude Desktop לוחצים <b>Customize</b> בסרגל הצד, ואז <b>Connectors</b></li>
+      <li>לוחצים על ה-<b>+</b> שליד Connectors, ומחפשים <b>Supabase</b></li>
+      <li>לוחצים <b>Connect</b>. נפתח דפדפן</li>
+      <li>מתחברים ל-Supabase, ובוחרים את <b>הארגון של הקורס</b>. לא ארגון אחר</li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> Supabase ברשימת המחברים שלכם, מחובר.</p>
+  </div>
+</article>
+
+<article class="step" data-s="b3">
+  <div class="sh"><span class="n">ב3</span><h2>פותחים את תיקיית המוצר, ומדליקים את המחבר</h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>בלשונית <b>Code</b> בוחרים <b>Local</b>, ואז את תיקיית המוצר</li>
+      <li>במצב ההרשאות, ליד כפתור השליחה, בוחרים <b>Manual</b></li>
+      <li>לוחצים על ה-<b>+</b> שליד תיבת ההודעה, בוחרים <b>Connectors</b>, ומוודאים ש-Supabase דולק</li>
+    </ol>
+    <div class="tip"><b>בדיקה מהירה:</b> שואלים את Claude "אילו מחברים זמינים לך בשיחה הזו?". Supabase אמור להופיע בתשובה.</div>
+  </div>
+</article>
+
+<article class="step" data-s="b4">
+  <div class="sh"><span class="n">ב4</span><h2>מבקשים מ-Claude לבנות את בסיס הנתונים<small>מתוך מסמך הארכיטקטורה שכבר כתבתם</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p>מעתיקים, מדביקים בתיבת ההודעה ושולחים:</p>
+    <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>בנה את בסיס הנתונים של המוצר ב-Supabase, דרך המחבר.
+
+קרא קודם, מתיקיית המוצר: ARCHITECTURE.md (הסעיף "מבנה הנתונים"), PRD.md ו-course-stack.md.
+
+1. הצג לי את הפרויקטים שיש בארגון, ושאל אותי באיזה מהם לעבוד. אל תיצור פרויקט חדש.
+2. אם יש טבלה בשם practice, זו טבלת תרגול. שאל אותי אם למחוק אותה.
+3. הצג לי את הטבלאות שאתה מתכנן: שמות, עמודות וסוגים. חכה לאישור שלי לפני שאתה יוצר משהו.
+4. צור את הטבלאות ב-migration. לכל טבלה שלושה דברים יחד: grant לכל תפקיד רק על מה שהוא צריך, הפעלת Row Level Security, ו-policy לכל פעולה שמותרת.
+5. הכנס לכל טבלה חמש שורות דוגמה בעברית.
+6. הרץ את בדיקת האבטחה של Supabase (advisors), והצג לי מה נמצא.
+7. בסוף הצג לי: הטבלאות, מי רשאי לעשות מה בכל אחת, כתובת הפרויקט, והמפתח הציבורי.
+
+לפני כל פעולה הסבר במשפט אחד בעברית מה היא עושה.
+אל תמחק טבלה או נתונים בלי לשאול אותי. את המפתח הסודי אל תבקש ואל תציג.
+אם משהו שונה ממה שכתוב ב-ARCHITECTURE.md, אמור לי. אל תעדכן את המסמך לבד.</pre></div>
+  </div>
+</article>
+
+<article class="step" data-s="b5">
+  <div class="sh"><span class="n">ב5</span><h2>קוראים לפני שמאשרים<small>אלה הפעולות ש-Claude יציג</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <div class="acts">
+      <div class="lock"><b><code>list_projects</code> <code>list_tables</code></b>קריאה בלבד. מאשרים</div>
+      <div class="lock"><b><code>apply_migration</code></b>יוצרת או משנה טבלאות. קוראים את ה-SQL ומחפשים בו את שלושת המנעולים: <code>grant</code>,‏ <code>enable row level security</code> ו-<code>create policy</code></div>
+      <div class="lock"><b><code>execute_sql</code></b>מריצה SQL. <code>insert</code> הוא נתוני הדוגמה. על כל דבר אחר עוצרים וקוראים</div>
+      <div class="lock"><b><code>get_advisors</code></b>בדיקת האבטחה של Supabase. קריאה בלבד</div>
+      <div class="lock"><b><code>get_project_url</code> <code>get_publishable_keys</code></b>מביאות את הכתובת ואת המפתח הציבורי</div>
+      <div class="lock"><b><code>create_project</code></b>פרויקט חדש. לא אמור לקרות, כבר יש לכם אחד. לא מאשרים</div>
+    </div>
+    <div class="warn"><b>עוצרים ושואלים לפני שמאשרים:</b> <code>drop</code>,‏ <code>delete</code>,‏ <code>truncate</code>,‏ <code>grant all</code>, או <code>disable row level security</code>. וגם policy של כתיבה, שינוי או מחיקה לתפקיד <code>anon</code> עם <code>(true)</code>: זה אומר שכל גולש יכול לשנות את הטבלה.</div>
+    <div class="tip"><b>אישור חד-פעמי:</b> כש-Claude מציע לאשר פעולה "תמיד", לא בוחרים בזה לפעולות שכותבות. מאשרים כל פעם מחדש.</div>
+  </div>
+</article>
+
+<article class="step" data-s="b6">
+  <div class="sh"><span class="n">ב6</span><h2>בודקים, ומחברים את האתר<small>Claude בונה, אתם מאמתים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li><b>בדשבורד:</b> פותחים את Table Editor. הטבלאות שם, ובכל אחת חמש שורות</li>
+      <li><b>ב<a href="#check">בודק החיבור</a>:</b> מקלידים את שם הטבלה המרכזית. חוזרות שורות</li>
+      <li><b>בטבלה שאסור לגולש לקרוא:</b> אותה בדיקה. הפעם אמורה לחזור שגיאה, או אפס שורות</li>
+    </ol>
+    <p>כשהגעתם ל-Milestone שצריך נתונים, מחברים את האתר:</p>
+    <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>חבר את האתר לנתונים שב-Supabase.
+השתמש בספרייה supabase-js מה-CDN, בלי כלי בנייה. בקוד מותר לשים רק את כתובת הפרויקט ואת המפתח הציבורי.
+הצג במסך הראשי את הנתונים מהטבלה המרכזית, במקום נתוני הדמה.
+אם הנתונים לא מגיעים, הצג לי את השגיאה המדויקת לפני שאתה משנה משהו ב-Supabase.</pre></div>
+    <p>זה מה ש-Claude אמור לכתוב, בערך. שתי שורות חיבור, ושורת קריאה:</p>
+    <div class="term"><button class="cp" type="button">העתק</button><pre>&lt;script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"&gt;&lt;/script&gt;
+&lt;script&gt;
+  const { createClient } = window.supabase;
+  const db = createClient('PROJECT_URL', 'PUBLISHABLE_KEY');
+
+  async function load() {
+    const { data, error } = await db.from('practice').select('*');
+    console.log(data, error);
+  }
+  load();
+&lt;/script&gt;</pre></div>
+  </div>
+</article>
+</section>
+
+<div class="label">כשמשהו לא עובד</div>
+
+<details class="err"><summary><span class="pm">+</span><u>permission denied for table, קוד 42501</u></summary><div>המנעול הראשון סגור: חסר <code>grant</code>. מריצים את שורת ה-grant משלב 6, או מבקשים מ-Claude: "האתר מקבל 42501 על הטבלה הזו. הצג לי איזה grant חסר, ותקן רק אותו." לא פותרים את זה עם <code>grant all</code>.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>אין שגיאה, אבל חוזרות אפס שורות</u></summary><div>או שהטבלה ריקה, או ש-RLS דולק ואין policy שמתירה לקרוא. בודקים בדשבורד שיש שורות, ואז מוסיפים policy כמו בשלב 6. זו לא תקלה: ככה Supabase מגן על טבלה שלא הגדרתם לה כלל.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>Invalid API key</u></summary><div>המפתח הועתק חלקית, או שהוא שייך לפרויקט אחר. מעתיקים שוב את המפתח הציבורי, מ-Connect או מ-Settings ואז API Keys.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>Could not find the table</u></summary><div>שם הטבלה לא מדויק. בודקים איות ואותיות קטנות. אם הטבלה נוצרה לפני רגע, מחכים כמה שניות ומנסים שוב.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>policy already exists</u></summary><div>הרצתם את ה-SQL של שלב 6 פעמיים. הכלל כבר קיים, ואין מה לתקן.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>האתר עבד בשבוע שעבר, והיום לא מגיע לפרויקט</u></summary><div>בתוכנית החינמית פרויקט מושהה אחרי כשבוע בלי פעילות. נכנסים לדשבורד, בוחרים את הפרויקט, ולוחצים <b>Resume project</b>. הנתונים חוזרים כמו שהיו.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>אי אפשר ליצור פרויקט נוסף</u></summary><div>התוכנית החינמית מאפשרת שני פרויקטים פעילים. למוצר שלכם מספיק אחד.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>Claude לא רואה את Supabase</u></summary><div>לוחצים על ה-<b>+</b> שליד תיבת ההודעה, בוחרים <b>Connectors</b>, ומדליקים את Supabase. אם הוא לא ברשימה, חוזרים לשלב ב2.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>Claude מבקש את המפתח הסודי, או את סיסמת בסיס הנתונים</u></summary><div>לא נותנים. המחבר כבר מחובר לחשבון שלכם, ו-Claude לא צריך אף אחד מהם. כותבים לו: "עבוד רק דרך המחבר, ובלי המפתח הסודי."</div></details>
+<details class="err"><summary><span class="pm">+</span><u>הדבקתי בטעות את המפתח הסודי בקוד או בצ׳אט</u></summary><div>מחליפים אותו מיד: בדשבורד, ב-Settings ואז API Keys, יוצרים מפתח סודי חדש ומוחקים את הישן. מפתח שנחשף פעם אחת נחשב חשוף.</div></details>
+
+<div class="label">דף הסיכום</div>
+<div class="tblwrap"><table class="tbl">
+  <thead><tr><th>המושג</th><th>מה הוא</th></tr></thead>
+  <tbody>
+    <tr><td>Project URL</td><td>הכתובת של הפרויקט. נכנסת לקוד</td></tr>
+    <tr><td>Publishable key</td><td>המפתח הציבורי. נכנס לקוד, ומוגן בשלושת המנעולים</td></tr>
+    <tr><td>Secret key</td><td>עוקף את המנעולים. לא נכנס לשום מקום שאנחנו בונים</td></tr>
+    <tr><td>Grant</td><td>מנעול 1: לאיזה תפקיד מותר לגשת לטבלה</td></tr>
+    <tr><td>RLS</td><td>מנעול 2: בלי כלל, אף שורה לא יוצאת</td></tr>
+    <tr><td>Policy</td><td>מנעול 3: הכלל עצמו. אילו שורות, ולמי</td></tr>
+    <tr><td>anon</td><td>התפקיד של גולש שלא התחבר</td></tr>
+    <tr><td>Migration</td><td>שינוי במבנה הטבלאות, שנשמר בהיסטוריה של הפרויקט</td></tr>
+  </tbody>
+</table></div>
+
+<div class="final">
+  <h2>ומה עם ה-AI</h2>
+  <p>מפתח של מודל הוא סוד, כמו המפתח הסודי של Supabase. הוא לא נכנס לקוד של האתר. הוא נשמר כסוד בצד השרת, ב-Edge Function של Supabase או ב-n8n, והדפדפן פונה רק לכתובת של הפונקציה.</p>
+  <p>את החלק הזה בונים יחד בכיתה, אחרי שהנתונים עובדים.</p>
+  <button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button>
+</div>
+
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v1 · 5.10.2026</footer>
+
+<script>
+(function(){
+  'use strict';
+  var KEY='jbsupa.v1',S={theme:null,done:{}};
+  try{var s=JSON.parse(localStorage.getItem(KEY)||'{}');for(var k in s)S[k]=s[k];}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+  var root=document.documentElement,tb=document.getElementById('themeBtn');
+  var SUN='<svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>',MOON='<svg class="ic" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>';
+  function paint(){var d=root.getAttribute('data-theme')==='dark';tb.innerHTML=d?SUN:MOON;tb.setAttribute('aria-label',d?'מצב בהיר':'מצב כהה');}
+  tb.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);S.theme=n;save();paint();});paint();
+  var steps=[].slice.call(document.querySelectorAll('.step'));
+  function paintSteps(){var a=0,b=0,ta=0,tb2=0;steps.forEach(function(st){var on=!!S.done[st.dataset.s],isB=!!st.closest('.trackB');st.classList.toggle('done',on);st.querySelector('.chk').setAttribute('aria-checked',String(on));if(isB){tb2++;if(on)b++;}else{ta++;if(on)a++;}});document.getElementById('prog').textContent='א '+a+'/'+ta+' · ב '+b+'/'+tb2;}
+  steps.forEach(function(st){st.querySelector('.chk').addEventListener('click',function(){var id=st.dataset.s;if(S.done[id])delete S.done[id];else S.done[id]=1;save();paintSteps();});});paintSteps();
+  document.getElementById('resetBtn').addEventListener('click',function(){S.done={};save();paintSteps();});
+  document.querySelectorAll('details.err').forEach(function(d){d.addEventListener('toggle',function(){d.querySelector('.pm').textContent=d.open?'-':'+';});});
+  function fallback(t){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
+  document.querySelectorAll('.term .cp,.prompt .cp').forEach(function(b){b.addEventListener('click',function(){var t=b.parentNode.querySelector('pre').innerText;var ok=function(){b.textContent='הועתק';b.classList.add('ok');setTimeout(function(){b.textContent='העתק';b.classList.remove('ok');},1500);};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,function(){fallback(t);ok();});else{fallback(t);ok();}});});
+
+  /* בודק החיבור */
+  var LIB='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+  var go=document.getElementById('cGo'),res=document.getElementById('cRes');
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+  function show(kind,title,text,raw,rows){
+    res.className='res show '+kind;res.textContent='';
+    res.appendChild(el('b','t',title));
+    if(text)res.appendChild(el('div','',text));
+    if(rows&&rows.length){
+      var cols=Object.keys(rows[0]).slice(0,5),t=el('table'),hr=el('tr');
+      cols.forEach(function(c){hr.appendChild(el('th','',c));});t.appendChild(hr);
+      rows.forEach(function(r){var tr=el('tr');cols.forEach(function(c){var v=r[c];tr.appendChild(el('td','',v==null?'':String(typeof v==='object'?JSON.stringify(v):v).slice(0,60)));});t.appendChild(tr);});
+      res.appendChild(t);
+    }
+    if(raw)res.appendChild(el('div','raw',raw));
+  }
+  function legacyRole(k){try{var p=k.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');while(p.length%4)p+='=';return JSON.parse(atob(p)).role||'';}catch(e){return '';}}
+  function loadLib(cb){
+    if(window.supabase&&window.supabase.createClient)return cb(null);
+    var sc=document.createElement('script');sc.src=LIB;
+    sc.onload=function(){cb(window.supabase&&window.supabase.createClient?null:new Error('lib'));};
+    sc.onerror=function(){cb(new Error('lib'));};
+    document.head.appendChild(sc);
+  }
+  function busy(on){go.disabled=on;go.textContent=on?'בודק...':'בדוק מה האתר רואה';}
+  function run(){
+    var url=document.getElementById('cUrl').value.trim().replace(/\/+$/,''),
+        key=document.getElementById('cKey').value.trim(),
+        table=document.getElementById('cTable').value.trim();
+    if(!url||!key||!table)return show('mid','חסר שדה','ממלאים את שלושת השדות: כתובת, מפתח ציבורי ושם טבלה.');
+    if(key.indexOf('sb_secret_')===0||legacyRole(key)==='service_role'){
+      document.getElementById('cKey').value='';
+      return show('stop','זה המפתח הסודי','מחקתי אותו מהשדה. המפתח הסודי לא נכנס לדף הזה, ולא לשום אתר. אם הדבקתם אותו גם במקום אחר, מחליפים אותו בדשבורד, ב-Settings ואז API Keys.');
+    }
+    if(!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(url))return show('mid','הכתובת לא נראית כמו כתובת של פרויקט','כתובת של פרויקט נראית כך: https://xxxx.supabase.co, בלי שום דבר אחריה.');
+    if(!/^[a-z_][a-z0-9_]*$/i.test(table))return show('mid','שם הטבלה לא תקין','שם טבלה הוא מילה אחת באנגלית, באותיות קטנות, עם קו תחתון במקום רווח.');
+    busy(true);
+    loadLib(function(err){
+      if(err){busy(false);return show('mid','הספרייה של Supabase לא נטענה','בודקים את החיבור לאינטרנט, ומנסים שוב.');}
+      var db;
+      try{db=window.supabase.createClient(url,key,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});}
+      catch(e){busy(false);return show('mid','לא הצלחתי ליצור חיבור','בודקים את הכתובת ואת המפתח.',String(e&&e.message||e));}
+      db.from(table).select('*').limit(5).then(function(r){
+        busy(false);
+        var e=r.error,st=r.status||0;
+        if(!e){
+          var n=(r.data||[]).length;
+          if(n)return show('good','עובד. האתר רואה את הטבלה',n===5?'אלה חמש השורות הראשונות:':'חזרו '+n+' שורות:',null,r.data);
+          return show('mid','אין שגיאה, אבל חזרו אפס שורות','או שהטבלה ריקה, או שמנעול 3 סגור: RLS דולק, ואין policy שמתירה לקרוא.');
+        }
+        var code=e.code||'',msg=e.message||'',raw=(code?code+': ':'')+msg+(e.hint?'\n'+e.hint:'')+(st?'\nHTTP '+st:'');
+        if(code==='42501')return show('stop','מנעול 1 סגור: אין grant','האתר לא רשאי לגשת לטבלה הזו. אם עוד לא הרצתם את שלב 6, זה בדיוק מה שאמור לקרות.',raw);
+        if(code==='PGRST205'||code==='42P01'||/could not find the table/i.test(msg)||st===404)return show('mid','לא נמצאה טבלה בשם הזה','בודקים איות ואותיות קטנות.',raw);
+        if(/invalid api key/i.test(msg)||(st===401&&!code))return show('mid','המפתח לא התקבל','מעתיקים שוב את המפתח הציבורי, במלואו, מאותו פרויקט.',raw);
+        if(/failed to fetch|networkerror|load failed/i.test(msg)||st===0)return show('mid','לא הצלחתי להגיע לפרויקט','בודקים את הכתובת, ושהפרויקט לא מושהה (Paused) בדשבורד.',raw);
+        show('mid','חזרה שגיאה אחרת','מעתיקים את השורות האלה ל-Claude, ושואלים מה הן אומרות:',raw);
+      },function(x){busy(false);show('mid','לא הצלחתי להגיע לפרויקט','בודקים את הכתובת, ושהפרויקט לא מושהה (Paused) בדשבורד.',String(x&&x.message||x));});
+    });
+  }
+  go.addEventListener('click',run);
+})();
+</script>
+</body>
+</html>
