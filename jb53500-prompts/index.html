@@ -8,7 +8,6 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F7F5F0">
 <title>שבעת הפרומפטים · 53500</title>
-<script src="/simpla-lab/gate.js"></script>
 <link rel="icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Crect width="32" height="32" rx="8" fill="%231B2D6B"/%3E%3Cpath d="M9 10h14M9 16h14M9 22h8" fill="none" stroke="%23FFE94A" stroke-width="2.6" stroke-linecap="round"/%3E%3C/svg%3E'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,6 +79,9 @@ details.pre0>summary .pm{font-family:"Poppins",sans-serif;color:var(--acc);width
 details.pre0>summary u{text-underline-offset:3px}
 details.pre0>div{padding:0 14px 12px;font-size:14.5px}
 .dl{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:14px;text-decoration:none;padding:8px 16px;border-radius:999px;background:var(--acc);color:var(--acc-ink)}
+.final{margin-top:8px;border:2px solid var(--acc);border-radius:var(--r);padding:16px 18px;background:var(--surface)}
+.final h2{font-size:18px;font-weight:700;margin-bottom:6px}
+.final p{font-size:15px;margin-bottom:8px}
 footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border-top:1.5px dashed var(--line);padding-top:14px}
 @media (min-width:1024px){
   body{max-width:880px;padding:0 28px 80px}
@@ -91,7 +93,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 <body>
 
 <div class="appbar">
-  <a class="rbtn" href="../jb53500-plan/#m7" aria-label="לתוכנית העבודה"><svg class="ic" viewBox="0 0 24 24"><path d="m9.5 5 6.5 7-6.5 7"/></svg></a>
+  <a class="rbtn" href="https://eyalg1980.github.io/simpla-lab/jb53500/" aria-label="לאתר הקורס"><svg class="ic" viewBox="0 0 24 24"><path d="m9.5 5 6.5 7-6.5 7"/></svg></a>
   <div class="logo">Prompts <b>53500</b></div>
   <button class="rbtn" id="themeBtn" type="button" aria-label="מצב כהה"></button>
 </div>
@@ -99,7 +101,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 <header class="hero">
   <span class="kicker">מפגש 7 · מיישם AI ואוטומציה</span>
   <h1>שבעת הפרומפטים <b>מעשרת ההיבטים לשבעה מסמכים</b></h1>
-  <p class="lead">כל מסמך נבנה ממה שכבר קיים בתיקיית המוצר: תיקייה אחת, קבצים בשמות קבועים. הפרומפטים האלה מחליפים את שקפי הפרומפטים במצגת האפיון.</p>
+  <p class="lead">כל מסמך נבנה ממה שכבר קיים בתיקיית המוצר: תיקייה אחת, קבצים בשמות קבועים. מעתיקים, מדביקים ומריצים, לפי הסדר.</p>
 </header>
 
 <div class="idea">
@@ -136,6 +138,15 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <p><b>מה נוצר:</b></p>
   <p><code>PRD.md</code> <code>ARCHITECTURE.md</code> <code>DESIGN.md</code> <code>MILESTONES.md</code> · ארבעת המסמכים</p>
   <p><code>wireframes.png</code> <code>style-guide.png</code> <code>mockups.png</code> · שלוש התמונות, ואיתן <code>inspiration-board.png</code></p>
+</div></details>
+
+<details class="pre0"><summary><span class="pm">+</span><u>טבלת MoSCoW, בסוף מסמך עשרת ההיבטים</u></summary><div>
+  <p>הפרומפטים נשענים על טבלת MoSCoW. מי שעוד לא בנה אותה מריץ את זה, מתקן ביד, ומוסיף את הטבלה כסעיף חדש בסוף המסמך.</p>
+  <div class="prompt"><span class="pt">כל צ׳אט, עם המסמך מצורף</span><button class="cp" type="button">העתק</button><pre>מצורף מסמך עשרת ההיבטים של המוצר שלי.
+חלץ ממנו את כל היכולות והפיצ'רים שמוזכרים בו, ומיין אותם לטבלת MoSCoW: Must, Should, Could, Won't.
+הכלל ל-Must: בלי זה הפעולה המרכזית של המוצר לא עובדת מקצה לקצה.
+אל תוסיף יכולות שלא מופיעות במסמך. אם משהו לא ברור, שאל אותי.
+בסוף הצג שלוש יכולות שלדעתך שמתי גבוה מדי, ונמק כל אחת במשפט.</pre></div>
 </div></details>
 
 <details class="pre0"><summary><span class="pm">+</span><u>סטאק הקורס: הקובץ course-stack.md</u></summary><div>
@@ -235,7 +246,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 <div class="label">שבעת הפרומפטים</div>
 
 <article class="step" id="p1">
-  <div class="sh"><span class="n">1</span><h2>PRD<small>מסמך דרישות המוצר: מה בונים ולמה · מחליף את שקף 102</small></h2></div>
+  <div class="sh"><span class="n">1</span><h2>PRD<small>מסמך דרישות המוצר: מה בונים ולמה</small></h2></div>
   <div class="body">
     <div class="from"><span>נבנה מתוך:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">הסקיצה שנבחרה</span></div>
     <div class="prompt"><span class="pt">Claude, בפרויקט</span><button class="cp" type="button">העתק</button><pre>צור את המסמך PRD.md.
@@ -247,16 +258,16 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 
 המשימה, בשלושה שלבים
 
-שלב 1, מיפוי. הצג לי טבלה של שבעת סעיפי ה-PRD: מה כבר ידוע על כל סעיף, מאיזה היבט זה הגיע, ומה חסר.
-1. רקע ומטרות: מטרת המוצר במשפט, הבעיה, הפתרון, חזון ה-MVP. המקור: ההיבט "מה הכלי עושה".
-2. קהלי יעד וצרכי משתמשים: פרסונות, וסיפורי משתמש בפורמט "כ[סוג משתמש], אני רוצה [פעולה], כדי שאוכל [ערך]". המקור: ההיבט "משתמשים, תפקידים והרשאות".
-3. זרימות וחוויית משתמש: מסע המשתמש, זרימות, דרישות UX. המקור: ההיבטים "מסך ראשי", "מסכים מרכזיים", "זרימה מרכזית" ו-"Onboarding", והסקיצה.
-4. דרישות פונקציונליות: הפיצ'רים והדרישות של כל אחד, מקרי קצה ושגיאות. המקור: Must ו-Should מטבלת ה-MoSCoW, וההיבטים "תוכן דינמי" ו"אוטומציות".
-5. דרישות טכניות ואילוצים. המקור: ההיבטים "איפה נשמר המידע" ו"טכנולוגיה", ומשפט החלטת הפלטפורמה.
+שלב 1, מיפוי. הצג לי טבלה של שבעת סעיפי ה-PRD: מה כבר ידוע על כל סעיף, מאיזה חלק במסמך זה הגיע, ומה חסר.
+1. רקע ומטרות: מטרת המוצר במשפט, הבעיה, הפתרון, חזון ה-MVP. המקור: "הבעיה" ו"מה הכלי עושה".
+2. קהלי יעד וצרכי משתמשים: פרסונות, וסיפורי משתמש בפורמט "כ[סוג משתמש], אני רוצה [פעולה], כדי שאוכל [ערך]". המקור: "סוגי משתמשים והרשאות".
+3. זרימות וחוויית משתמש: מסע המשתמש, זרימות, דרישות UX. המקור: "המסך העיקרי", "המסכים המרכזיים", "ה-Flow המרכזי", והסקיצה.
+4. דרישות פונקציונליות: הפיצ'רים והדרישות של כל אחד, מקרי קצה ושגיאות. המקור: Must ו-Should מטבלת ה-MoSCoW, "התוכן הדינמי ואיפה נשמר", "שכבת ה-AI והפרומפט המרכזי" ו"אוטומציות".
+5. דרישות טכניות ואילוצים. המקור: "טכנולוגיה", ומשפט החלטת הפלטפורמה.
 6. מדדי הצלחה: קריטריונים ו-KPIs. בדרך כלל חסר.
-7. מחוץ לטווח. המקור: Could ו-Won't מטבלת ה-MoSCoW.
+7. מחוץ לטווח. המקור: "מה המערכת לא עושה", ו-Could ו-Won't מטבלת ה-MoSCoW.
 
-שלב 2, השלמות. שאל אותי רק על מה שחסר, שאלה אחת בכל פעם, ולא יותר משמונה שאלות.
+שלב 2, השלמות. שאל אותי רק על מה שחסר, שאלה אחת בכל פעם, ולא יותר משמונה שאלות. התחל ממה שרשום תחת "פערים ושאלות פתוחות".
 
 שלב 3, כתיבה. כתוב את המסמך בעברית, בפורמט Markdown, לפי שבעת הסעיפים.
 
@@ -272,13 +283,13 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 </article>
 
 <article class="step" id="p2">
-  <div class="sh"><span class="n">2</span><h2>Architecture<small>הטכנולוגיות ומבנה המערכת · מחליף את שקפים 107 ו-109</small></h2></div>
+  <div class="sh"><span class="n">2</span><h2>Architecture<small>הטכנולוגיות ומבנה המערכת</small></h2></div>
   <div class="body">
     <div class="from"><span>נבנה מתוך:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">סטאק הקורס</span><span class="chip">PRD</span></div>
     <div class="prompt"><span class="pt">Claude, בפרויקט</span><button class="cp" type="button">העתק</button><pre>צור את המסמך ARCHITECTURE.md.
 
 קרא קודם, מתיקיית המוצר:
-- הקובץ <span dir="ltr">00-product-definition.md</span>: עשרת ההיבטים. במיוחד "איפה נשמר המידע", "טכנולוגיה", "אוטומציות", ומשפט החלטת הפלטפורמה.
+- הקובץ <span dir="ltr">00-product-definition.md</span>: עשרת ההיבטים. במיוחד "התוכן הדינמי ואיפה נשמר", "שכבת ה-AI והפרומפט המרכזי", "טכנולוגיה" ו"אוטומציות".
 - הקובץ course-stack.md: סטאק הקורס והכללים הטכניים.
 - הקובץ PRD.md.
 אם קובץ חסר, עצור ואמור לי מה חסר. אל תמשיך בלעדיו.
@@ -291,7 +302,8 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 - מבנה המערכת בשלוש שכבות: צד לקוח, לוגיקה, נתונים. מה יש בכל אחת.
 - מבנה הנתונים: טבלאות, שדות וקשרים.
 - התחברות והרשאות, לפי התפקידים שב-PRD.
-- אינטגרציות ואוטומציות.
+- שכבת ה-AI: מה נשלח למודל, מה חוזר, ודרך מה הקריאה עוברת.
+- אינטגרציות, APIs ואוטומציות.
 - איפה יושב כל מפתח API, ומה אסור שיגיע לדפדפן.
 - מבנה התיקיות של הקוד.
 
@@ -300,6 +312,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 - תרגם כל דרישה ב-PRD להחלטה טכנית פשוטה. אל תוסיף רכיב שאף דרישה לא צריכה.
 - אם חסר מידע טכני, קבל החלטה סבירה, פשוטה ובשלה, והסבר אותה במשפט.
 - אם יש סתירה בין ה-PRD לבין עשרת ההיבטים, הצג אותה לפני הכתיבה.
+- כתוב ברור ומפורט מספיק כדי ש-AI יוכל לבנות לפי המסמך.
 - בלי Milestones, משימות או לוחות זמנים. הם במסמך נפרד.
 
 התוצר
@@ -309,7 +322,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 </article>
 
 <article class="step img" id="p3">
-  <div class="sh"><span class="n">3</span><h2>Wireframes<small>תרשימי השלד של המסכים, כתמונה אחת · מחליף את שקף 114</small></h2></div>
+  <div class="sh"><span class="n">3</span><h2>Wireframes<small>תרשימי השלד של המסכים, כתמונה אחת</small></h2></div>
   <div class="body">
     <div class="from"><span>מצרפים מהתיקייה:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">PRD</span><span class="chip">הסקיצה שנבחרה</span></div>
     <div class="prompt"><span class="pt">ChatGPT או Gemini, יצירת תמונה</span><button class="cp" type="button">העתק</button><pre>מצורפים שלושה קבצים מתיקיית המוצר: מסמך עשרת ההיבטים, מסמך ה-PRD, והסקיצה שבחרתי למסך המרכזי.
@@ -325,6 +338,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 
 הכללים
 - בכל מסך הצג את רכיבי ה-UI: כותרות, כפתורים, שדות, תפריטים ורשימות.
+- שמור על היררכיה וניווט ברורים ועקביים בין המסכים.
 - התאם לפלטפורמה, לגודל המסך ולכיוון השפה שמוגדרים ב-PRD.
 - שחור, לבן ואפור בלבד, ללא עיצוב גרפי.
 - אל תוסיף מסכים או פיצ'רים שלא מופיעים במסמכים.
@@ -334,7 +348,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 </article>
 
 <article class="step img" id="p4">
-  <div class="sh"><span class="n">4</span><h2>Style Guide<small>צבעים, טיפוגרפיה ורכיבים, על לוח אחד · מחליף את שקף 134</small></h2></div>
+  <div class="sh"><span class="n">4</span><h2>Style Guide<small>צבעים, טיפוגרפיה ורכיבים, על לוח אחד</small></h2></div>
   <div class="body">
     <div class="from"><span>מצרפים מהתיקייה:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">לוגו, צבעים, משפט הסגנון</span><span class="chip">לוח ההשראה</span></div>
     <div class="prompt"><span class="pt">ChatGPT או Gemini, יצירת תמונה</span><button class="cp" type="button">העתק</button><pre>מצורפים מתיקיית המוצר: מסמך עשרת ההיבטים, הלוגו, פלטת הצבעים, משפט הסגנון, ותמונת לוח ההשראה.
@@ -362,7 +376,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 </article>
 
 <article class="step img" id="p5">
-  <div class="sh"><span class="n">5</span><h2>Mockups<small>המסכים המעוצבים, כתמונה אחת · מחליף את שקף 142</small></h2></div>
+  <div class="sh"><span class="n">5</span><h2>Mockups<small>המסכים המעוצבים, כתמונה אחת</small></h2></div>
   <div class="body">
     <div class="from"><span>מצרפים מהתיקייה:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">Wireframes</span><span class="chip">Style Guide</span></div>
     <div class="prompt"><span class="pt">ChatGPT או Gemini, יצירת תמונה</span><button class="cp" type="button">העתק</button><pre>מצורפים שלושה קבצים מתיקיית המוצר: מסמך עשרת ההיבטים, התמונה wireframes.png, והתמונה style-guide.png.
@@ -385,7 +399,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 </article>
 
 <article class="step" id="p6">
-  <div class="sh"><span class="n">6</span><h2>DESIGN<small>מסמך העיצוב: המסכים והשפה החזותית · מחליף את שקף 146</small></h2></div>
+  <div class="sh"><span class="n">6</span><h2>DESIGN<small>מסמך העיצוב: המסכים והשפה החזותית</small></h2></div>
   <div class="body">
     <div class="from"><span>נבנה מתוך:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">PRD</span><span class="chip">שלוש התמונות</span><span class="chip">המיתוג</span></div>
     <div class="prompt"><span class="pt">Claude, בפרויקט</span><button class="cp" type="button">העתק</button><pre>צור את המסמך DESIGN.md.
@@ -420,7 +434,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 </article>
 
 <article class="step" id="p7">
-  <div class="sh"><span class="n">7</span><h2>Milestones<small>שלבי הבנייה, אחד אחד · מחליף את שקף 156</small></h2></div>
+  <div class="sh"><span class="n">7</span><h2>Milestones<small>שלבי הבנייה, אחד אחד</small></h2></div>
   <div class="body">
     <div class="from"><span>נבנה מתוך:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">PRD</span><span class="chip">Architecture</span><span class="chip">DESIGN</span></div>
     <div class="prompt"><span class="pt">Claude, בפרויקט</span><button class="cp" type="button">העתק</button><pre>צור את המסמך MILESTONES.md.
@@ -434,7 +448,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 חלק את הבנייה לאבני דרך ברורות, שאפשר לבדוק כל אחת מהן לפני שממשיכים.
 - Milestone 1 הוא Walking Skeleton: התשתית רצה מקצה לקצה, בלי אף פיצ'ר.
 - משם, כל Milestone הוא Vertical Slice: יכולת משתמש אחת שלמה שעובדת מקצה לקצה, ולא שכבה טכנית נפרדת.
-- הסדר לפי טבלת ה-MoSCoW: קודם כל ה-Must, אחר כך ה-Should. Could ו-Won't לא נכנסים.
+- הסדר לפי טבלת ה-MoSCoW: קודם כל ה-Must, אחר כך ה-Should. Could ו-Won't לא נכנסים. בתוך זה, לפי תלויות: מה שיכולת אחרת נשענת עליו בא קודם.
 - לכל Milestone: שם ומטרה, מה מממשים, התוצר המצופה, ותנאי השלמה (Definition of Done) שאפשר לבדוק.
 
 הכללים
@@ -448,7 +462,16 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   </div>
 </article>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v2 · 5.10.2026</footer>
+<div class="label" id="skill">הכל בסקיל אחד</div>
+<div class="final">
+  <h2>הסקיל: כל התהליך, מכל שלב</h2>
+  <p>אותם פרומפטים, ארוזים בסקיל אחד ש-Claude מפעיל לבד. הוא בודק מה כבר קיים בתיקייה, ממשיך מהשלב הנכון, ועוצר בסוף כל מסמך. הוא כולל גם את ראיון עשרת ההיבטים, למי שמתחיל מוצר חדש.</p>
+  <p><a class="dl" href="spec-driven-docs.zip" download="spec-driven-docs.zip"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> הורדת הסקיל</a></p>
+  <p><b>התקנה:</b> ב-Claude פותחים Customize, ואז Skills. לוחצים על הפלוס, בוחרים Create skill, ואז Upload a skill, ומעלים את קובץ ה-ZIP כמו שהוא. צריך שהרצת קוד תהיה מופעלת בהגדרות.</p>
+  <p><b>שימוש:</b> בתוך הפרויקט כותבים "מצב" כדי לראות מה קיים ומה חסר, "המשך" כדי להריץ את השלב הבא, או את שם השלב, למשל "PRD".</p>
+</div>
+
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v3 · 5.10.2026</footer>
 
 <script>
 (function(){
