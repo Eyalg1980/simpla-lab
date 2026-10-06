@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-05",
+  "updated": "2026-10-06",
   "ideas": [
     {
       "id": "I-2026-0489",
@@ -3812,6 +3812,68 @@
       "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-01"
+    },
+    {
+      "id": "I-2026-0494",
+      "title": "סצנה שלמה בקריאה אחת",
+      "line": "ראיתי שב-30.9.2026 HeyGen הוסיפו יצירת סצנה מלאה מטקסט או תמונה בקריאת API אחת, בלי להרכיב אווטאר ורקע וסקריפט בנפרד. עכשיו שקף שיעור יכול לצאת כווידאו מורה בלי שלב הרכבה.",
+      "advisor": "visionary",
+      "createdAt": "2026-10-06",
+      "capability": {
+        "name": "HeyGen Scene Generation API, סצנה מלאה מטקסט או תמונה בקריאה אחת",
+        "releasedAt": "2026-09-30"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-06"
+    },
+    {
+      "id": "I-2026-0495",
+      "title": "יצירה בלי לעזוב את השיחה",
+      "line": "ראיתי שב-30.9.2026 היגספילד השיקו תוסף לצ'אטג'יפיטי שמריץ ג'נרציית תמונות בלי לצאת מהשיחה. עכשיו אפשר לבנות לכיתה תרגיל רפרנס ויזואלי שלם בלי שהתלמיד יחליף טאב אפילו פעם אחת.",
+      "advisor": "visionary",
+      "createdAt": "2026-10-06",
+      "capability": {
+        "name": "Higgsfield ChatGPT plugin, ג'נרציית תמונות בתוך השיחה",
+        "releasedAt": "2026-09-30"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-06"
+    },
+    {
+      "id": "I-2026-0496",
+      "title": "המסך שמפרק לינק פיגמה בלייב",
+      "line": "איך זה נראה על מסך הכיתה ברגע שדניאל מדביק לינק Figma באמצע השיעור והסוכן כבר יודע לשלוף ממנו fileKey ו-node, בלי שאף תלמיד הקליד מילה?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-06",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מיישם AI ואוטומציה 53500, מודול 3 (בנייה), הרצאת האורח של דניאל בוארון סבב שני, הדמו החי של figma-use",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-06"
+    },
+    {
+      "id": "I-2026-0497",
+      "title": "סקיל שרואה מול סקיל שעושה",
+      "line": "איך נראה על הלוח ברגע שמסבירים לתלמיד שיש סקיל קונטקסט שרק קורא ומבין, ויש סקיל פעולה עם ידיים דרך Figma MCP, ושניהם לא אותו דבר?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-06",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מיישם AI ואוטומציה 53500, מודול 3 (בנייה), הרצאת האורח של דניאל בוארון סבב שני, context skill מול action skill",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-06"
     }
   ]
 }

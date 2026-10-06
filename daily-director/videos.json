@@ -1,6 +1,63 @@
 {
   "days": [
     {
+      "date": "2026-10-06",
+      "ideas": [
+        {
+          "id": "2026-10-06-1",
+          "color": "#71F73C",
+          "world": "סרטוני הסבר",
+          "competition": null,
+          "hook": "דניאל בוארון אמר לי בכיתה משפט אחד. פרומפט הוא בקשה. סקיל הוא זיכרון. איך מספרים את זה בלי מילה אחת.",
+          "concept": "סרטון הסבר קצר, פריים אחד נייח של תיקיה זוהרת, ומתוכה בזה אחר זה נדלקות שש תיקיות זהות שמתרחקות ממנה כמו גל זיכרון שמתפשט. בלי דמויות, רק אור שמתפשט כדי לספר שזיכרון עובר הלאה, לא רק נשמר במקום אחד.",
+          "execution": "Higgsfield Cinema Studio, קליפ אחד 8 שניות, סטייל editorial kinetic, 9:16, קריינות עברית קצרה רק בשנייה האחרונה שאומרת את המשפט הסוגר, פרומפט ליצירה בתגובה הראשונה.",
+          "why": "אותו נכס ואותו רעיון כמו הפוסט הראשון של היום, סקיל כזיכרון מתמשך. נכס אחד, שני ערוצים, בדיוק הצלבה שבועית שמתבקשת.",
+          "srcUrl": "https://skills.sh",
+          "srcLabel": "skills.sh · leaderboard סקילים",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text, a single glowing folder icon centered in frame, thin coral light trails pulsing outward one at a time toward six duplicate folder icons that light up in sequence around it, each pulse slightly brighter than the last, camera holds static, calm confident mood, 9:16 aspect ratio, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"סקיל הוא זיכרון\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: דניאל בוארון, מרצה אורח בקורס שלי, מסגר פרומפט כבקשה חד פעמית לא עקבית וסקיל כזיכרון מתמשך אוטומטי ועקבי שמשותף לכל הצוות. שפה חזותית: editorial kinetic, תיקיה אחת זוהרת מפיצה אור לעוד תיקיות, חיבור לפוסט המקביל על אותו רעיון.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text, a single glowing folder icon centered in frame with thin coral light trails radiating outward toward six smaller dim folder icons around it",
+            "raw": "הוק: דניאל בוארון אמר לי בכיתה משפט אחד. פרומפט הוא בקשה. סקיל הוא זיכרון.\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: תיקיה זוהרת מפיצה גל אור לשש תיקיות זהות, זיכרון שמתפשט.\nביצוע: Higgsfield Cinema Studio, קליפ אחד 8 שניות, סטייל editorial kinetic, 9:16, קריינות קצרה רק בסוף.\nלמה עכשיו: הצלבה עם פוסט המקביל של היום על פרומפט מול סקיל."
+          },
+          "used": false
+        },
+        {
+          "id": "2026-10-06-2",
+          "color": "#71F73C",
+          "world": "קונספטואלי",
+          "competition": null,
+          "hook": "היגספילד גייסו 400 מיליון דולר בסיריס בי, וכלי שהתחיל כצעצוע ל-UGC הופך לתשתית שאף אחד לא מצלם.",
+          "concept": "סרטון קונספטואלי קצר, נקודת אור בודדת שנראית קטנה ובודדת, מצלמה נסוגה לאט וחושפת שהנקודה היא בעצם קצה של רשת עצומה של נקודות דומות הנמשכת מתחת למרקם של עיר שלמה. בלי דמויות, רק תנועת מצלמה אחת שמגלה סקייל.",
+          "execution": "Higgsfield Kling 3.0 std, קליפ אחד 8 שניות, תנועת מצלמה נסיגה אחת לאט, סטייל optimistic near-future, 9:16, בלי קריינות, רק סאונד דיזיין עדין שמתעבה עם החשיפה.",
+          "why": "גיוס של 400 מיליון דולר הוא חדשות ממשיות על הקצב שבו שוק כלי הווידאו של AI מתכנס לכמה שחקנים, שווה לתפוס את הרגע לפני שהוא נהיה חדשות ישנות.",
+          "srcUrl": "https://building.it.com/articles/higgsfield-400m-series-b-funding",
+          "srcLabel": "Higgsfield $400M Series B · building.it.com",
+          "prompts": {
+            "video": "Optimistic near-future style, Mediterranean warm light, sand cream and soft teal palette, human and hopeful mood rather than cold sci-fi, shallow depth of field, a single small glowing dot isolated in frame, camera slowly pulls back revealing the dot is one node in a vast grid of identical glowing dots stretching beneath the textured surface of a city skyline silhouette, calm deliberate pacing, 9:16 aspect ratio, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"התשתית שאף אחד לא מצלם\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: היגספילד גייסו 400 מיליון דולר בסיריס בי, כלי שהתחיל מתכונות UGC הופך לתשתית וידאו בקנה מידה גדול. שפה חזותית: optimistic near-future, מצלמה אחת שנסוגה וחושפת סקייל, בלי דמויות.",
+            "image": "Optimistic near-future style, Mediterranean warm light, sand cream and soft teal palette, human and hopeful mood, shallow depth of field, a single small glowing dot at the center of a vast faint grid of identical dots stretching into the distance beneath a city skyline silhouette, no text",
+            "raw": "הוק: היגספילד גייסו 400 מיליון דולר בסיריס בי, וכלי שהתחיל כצעצוע ל-UGC הופך לתשתית שאף אחד לא מצלם.\nעולם: קונספטואלי\nתחרות: אין\nקונספט: מצלמה נסוגה מנקודת אור בודדת לרשת עצומה של נקודות מתחת לעיר.\nביצוע: Higgsfield Kling 3.0 std, קליפ אחד 8 שניות, סטייל optimistic near-future, 9:16, בלי קריינות.\nלמה עכשיו: גיוס 400 מיליון דולר, שוק כלי הווידאו של AI מתכנס."
+          },
+          "used": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "Higgsfield at $230M ARR",
+          "desc": "ניתוח עומק של Sacra על קצב הצמיחה של היגספילד, רקע למה הגיוס האחרון כל כך גדול",
+          "meta": "Sacra Research · 10.2026",
+          "url": "https://sacra.com/research/higgsfield-at-230m-arr/"
+        },
+        {
+          "title": "Higgsfield vs Runway: Quality, Cost per Second",
+          "desc": "השוואה מעשית בין שני הכלים המובילים לווידאו AI, רלוונטי לכל בחירת סטאק הפקה",
+          "meta": "Creatify.ai",
+          "url": "https://creatify.ai/blog/higgsfield-vs-runway-(2026)-quality-cost-per-second-and-which-to-use-for-ads"
+        }
+      ]
+    },
+    {
       "date": "2026-10-05",
       "ideas": [
         {
