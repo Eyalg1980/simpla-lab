@@ -121,7 +121,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
     <li><b>שם הקובץ.</b> שנו את שם הקובץ של מסמך עשרת ההיבטים ל-<code>product-10-definitions.md</code>, ושימו אותו בתיקיית המוצר. מעכשיו כל הפרומפטים, וגם אנחנו בכיתה, קוראים לו בשם הזה. אם המסמך שלכם ב-Word, בקשו מ-Claude להמיר אותו ל-Markdown בלי לשנות את התוכן.</li>
     <li><b>סטאק הקורס.</b> הורידו את הקובץ <code>course-stack.md</code>, ושימו אותו באותה תיקייה, בלי לשנות את השם. <a class="dl sm" href="course-stack.md" download="course-stack.md"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> הורדה</a></li>
     <li><b>פרויקט.</b> פתחו ב-Claude פרויקט למוצר שלכם, והדביקו ב-Instructions של הפרויקט את <a href="#pre-inst">הטקסט שמופיע למטה</a>. מי שיכול מחבר את הפרויקט לתיקיית המוצר. מי שלא, מעלה אליו את הקבצים.</li>
-    <li><b>MVP.</b> הריצו בפרויקט את <a href="#pre-mvp">פרומפט ה-MoSCoW</a>. הוא יוצר קובץ חדש בשם <code>MVP.md</code>. קראו אותו, תקנו, ושמרו בתיקייה.</li>
+    <li><b>MVP.</b> הריצו בפרויקט את <a href="#pre-mvp">פרומפט ה-MoSCoW</a>. הוא עובד בארבעה שלבים, ושואל לפני כל מעבר: פיצ'רים, זמן פיתוח, דירוג, ומסלול ל-MVP. בסיום נוצר קובץ חדש בשם <code>MVP.md</code>.</li>
     <li><b>בדיקה.</b> בתיקייה יש עכשיו שלושה קבצים: <code>product-10-definitions.md</code>, <code>course-stack.md</code> ו-<code>MVP.md</code>.</li>
   </ol>
   <p class="hwn">שבעת הפרומפטים שבהמשך הדף הם העבודה של מפגש 8. נריץ אותם יחד בכיתה.</p>
@@ -157,7 +157,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <p><code>product-10-definitions.md</code> · עשרת ההיבטים. זה השם הקבוע של הקובץ, גם אם אצלכם הוא נקרא היום אחרת</p>
   <p><code>course-stack.md</code> · סטאק הקורס. מורידים אותו מהדף הזה, למטה, ושמים בתיקייה</p>
   <p><b>מה יוצרים לפני שמתחילים:</b></p>
-  <p><code>MVP.md</code> · טבלת MoSCoW: מה נכנס לגרסה הראשונה ומה לא. נוצר בפרומפט שלמטה</p>
+  <p><code>MVP.md</code> · הפיצ'רים, דירוג MoSCoW והמסלול ל-MVP. נוצר בפרומפט שלמטה</p>
   <p><b>רשות, למי שיש לו:</b></p>
   <p><code>brand-logo</code> <code>brand-palette</code> <code>brand-style</code> · הלוגו, פלטת הצבעים ומשפט הסגנון ממודול 2</p>
   <p><code>sketch-main</code> · הסקיצה שנבחרה למסך המרכזי, בגרסה 2</p>
@@ -168,27 +168,16 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <p><code>wireframes.png</code> <code>style-guide.png</code> <code>mockups.png</code> · שלוש התמונות, ואיתן <code>inspiration-board.png</code></p>
 </div></details>
 
-<details class="pre0" id="pre-mvp"><summary><span class="pm">+</span><u>טבלת MoSCoW: יוצרים את הקובץ MVP.md</u></summary><div>
-  <p>הפרומפטים נשענים על טבלת MoSCoW, והיא יושבת בקובץ משלה: <code>MVP.md</code>. הפרומפט קורא את עשרת ההיבטים, מציג טבלה, מחכה לתיקונים שלכם, ורק אז שומר. מי שעובד בלי תיקייה מחוברת מקבל את הקובץ להורדה, ושומר אותו בתיקיית המוצר.</p>
-  <div class="prompt"><span class="pt">Claude, בפרויקט</span><button class="cp" type="button">העתק</button><pre>צור את הקובץ MVP.md.
-
-קרא קודם, מתיקיית המוצר:
-- הקובץ <span dir="ltr">product-10-definitions.md</span>: עשרת ההיבטים. זה מקור האמת.
-אם הקובץ חסר, עצור ואמור לי. אל תמשיך בלעדיו.
-
-המשימה
-חלץ מהמסמך את כל היכולות והפיצ'רים שמוזכרים בו, ומיין אותם לטבלת MoSCoW: Must, Should, Could, Won't.
-- הכלל ל-Must: בלי זה הפעולה המרכזית של המוצר לא עובדת מקצה לקצה. כל השאר יורד שלב.
-- מה שכתוב תחת "מה המערכת לא עושה" נכנס ל-Won't.
-- אם במסמך כבר יש טבלת MoSCoW, התחל ממנה.
-- אל תוסיף יכולות שלא מופיעות במסמך. אם משהו לא ברור, שאל אותי.
-
-לפני השמירה
-הצג לי את הטבלה, ואיתה שלוש יכולות שלדעתך דורגו גבוה מדי, עם נימוק של משפט לכל אחת. המתן לתיקונים שלי.
-
-התוצר
-אחרי שאאשר, שמור בשם MVP.md: בראש הקובץ משפט אחד שמתאר את הגרסה הראשונה, ואחריו הטבלה. עצור.</pre></div>
-  <div class="see"><b>לפני שממשיכים:</b> ב-Must יש רק מה שהפעולה המרכזית לא עובדת בלעדיו, ו-Won't לא ריק.</div>
+<details class="pre0" id="pre-mvp"><summary><span class="pm">+</span><u>MoSCoW ו-MVP: יוצרים את הקובץ MVP.md</u></summary><div>
+  <p>הפרומפט עובד בארבעה שלבים: רשימת הפיצ'רים, עלות בזמן פיתוח לכל אחד, דירוג MoSCoW, ומסלול ריאלי ל-MVP. בסוף כל שלב הוא עוצר ושואל אם להמשיך, וזה הרגע לתקן אותו. בסיום הוא יוצר קובץ חדש, <code>MVP.md</code>, ושאר הפרומפטים קוראים אותו. מי שעובד בלי תיקייה מחוברת מקבל את הקובץ להורדה, ושומר אותו בתיקיית המוצר.</p>
+  <div class="prompt"><span class="pt">Claude, בפרויקט</span><button class="cp" type="button">העתק</button><pre>על בסיס הקובץ <span dir="ltr">product-10-definitions.md</span> שנמצא בתיקייה, אנא:
+1. צור רשימה של כל הפיצ'רים במוצר שלי.
+2. תן לכל פיצ'ר עלות בזמן פיתוח.
+3. דרג את הפיצ'רים לפי שיטת MoSCoW.
+4. הצע מסלול ריאלי ל-MVP.
+עשה כל שלב בנפרד, ושאל אותי אם להמשיך לשלב הבא.
+בסיום צור מסמך בשם MVP.md, ושים אותו בתיקייה.</pre></div>
+  <div class="see"><b>לפני שממשיכים:</b> ב-Must יש רק מה שהפעולה המרכזית של המוצר לא עובדת בלעדיו, והמסלול ל-MVP נראה לכם אפשרי.</div>
 </div></details>
 
 <details class="pre0" id="pre-stack"><summary><span class="pm">+</span><u>סטאק הקורס: מורידים את הקובץ course-stack.md</u></summary><div>
@@ -270,7 +259,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 
 מקור האמת
 - הקובץ <span dir="ltr">product-10-definitions.md</span> הוא מסמך עשרת ההיבטים. כל מסמך אחר נגזר ממנו.
-- הקובץ MVP.md הוא טבלת MoSCoW: מה נכנס לגרסה הראשונה, ומה לא.
+- הקובץ MVP.md מחזיק את הפיצ'רים, את דירוג ה-MoSCoW שלהם ואת המסלול ל-MVP: מה נכנס לגרסה הראשונה, ומה לא.
 - אם משהו במסמך חדש סותר אחד מהם, עצור ושאל אותי. אל תכריע לבד.
 
 הקבצים בתיקייה, בשמות קבועים ובלי תיקיות משנה
@@ -310,7 +299,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 
 קרא קודם, מתיקיית המוצר:
 - הקובץ <span dir="ltr">product-10-definitions.md</span>: עשרת ההיבטים. זה מקור האמת.
-- הקובץ MVP.md: טבלת MoSCoW, מה נכנס לגרסה הראשונה ומה לא.
+- הקובץ MVP.md: הפיצ'רים, דירוג ה-MoSCoW שלהם, והמסלול ל-MVP.
 - אם קיים בתיקייה, גם הקובץ sketch-main: הסקיצה שנבחרה למסך המרכזי. אם אין סקיצה, המשך בלעדיה.
 אם מסמך עשרת ההיבטים או הקובץ MVP.md חסר, עצור ואמור לי מה חסר. אל תמשיך בלעדיהם.
 
@@ -520,7 +509,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 
 קרא קודם, מתיקיית המוצר:
 - הקובץ <span dir="ltr">product-10-definitions.md</span>: עשרת ההיבטים.
-- הקובץ MVP.md: טבלת MoSCoW.
+- הקובץ MVP.md: דירוג ה-MoSCoW והמסלול ל-MVP.
 - שלושת המסמכים: PRD.md, ARCHITECTURE.md, DESIGN.md.
 אם קובץ חסר, עצור ואמור לי מה חסר. אל תמשיך בלעדיו.
 
@@ -528,7 +517,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 חלק את הבנייה לאבני דרך ברורות, שאפשר לבדוק כל אחת מהן לפני שממשיכים.
 - Milestone 1 הוא Walking Skeleton: התשתית רצה מקצה לקצה, בלי אף פיצ'ר.
 - משם, כל Milestone הוא Vertical Slice: יכולת משתמש אחת שלמה שעובדת מקצה לקצה, ולא שכבה טכנית נפרדת.
-- הסדר לפי טבלת ה-MoSCoW שבקובץ MVP.md: קודם כל ה-Must, אחר כך ה-Should. Could ו-Won't לא נכנסים. בתוך זה, לפי תלויות: מה שיכולת אחרת נשענת עליו בא קודם.
+- הסדר לפי דירוג ה-MoSCoW שבקובץ MVP.md: קודם כל ה-Must, אחר כך ה-Should. Could ו-Won't לא נכנסים. בתוך זה, לפי תלויות: מה שיכולת אחרת נשענת עליו בא קודם.
 - לכל Milestone: שם ומטרה, מה מממשים, התוצר המצופה, ותנאי השלמה (Definition of Done) שאפשר לבדוק.
 
 הכללים
@@ -551,7 +540,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <p><b>שימוש:</b> בתוך הפרויקט כותבים "מצב" כדי לראות מה קיים ומה חסר, "המשך" כדי להריץ את השלב הבא, או את שם השלב, למשל "PRD".</p>
 </div>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v6 · 7.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v7 · 7.10.2026</footer>
 
 <script>
 (function(){
