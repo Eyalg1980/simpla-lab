@@ -114,6 +114,7 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
   <button class="rbtn" id="themeBtn" type="button" aria-label="מצב כהה"></button>
 </div>
 <nav class="secnav" aria-label="ניווט בעמוד">
+  <a href="#v2">עדכון 7.10</a>
   <a href="#found">מה מצאתי</a>
   <a href="#rules">העקרונות</a>
   <a href="#phases">שלבי העבודה</a>
@@ -128,26 +129,45 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
   <p class="lead">האתר נבנה לפי הסילבוס מאוגוסט. הקורס בפועל הלך בדרך אחרת, והאתר מלמד היום דברים שלא מלמדים, בסדר שלא מלמדים. המטרה: שכל מה שבאתר יתאים ל<a href="../jb53500-plan/">תוכנית העבודה</a>, ושום דבר מעבר.</p>
   <div class="stats">
     <div class="stat"><b>1.48MB</b><span>קובץ אחד, 6,967 שורות</span></div>
-    <div class="stat"><b>111</b><span>מצגונים, 192 שקפים</span></div>
+    <div class="stat"><b>112</b><span>מצגונים, 193 שקפים</span></div>
     <div class="stat"><b>197</b><span>מושגים וכלים</span></div>
-    <div class="stat"><b>x2</b><span>כל תוכן כתוב פעמיים, בוקר וערב</span></div>
+    <div class="stat"><b>x2</b><span>כל תוכן כתוב פעמיים. הערב מוסתר</span></div>
   </div>
 </header>
+
+<section class="blk" id="v2">
+  <div class="label">עדכון 7.10</div>
+  <h2 class="t">מה השתנה <b>מאז שהמסמך נכתב</b></h2>
+  <p class="intro">המסמך נכתב ב-30.9. מאז קרו שלושה דברים: תוכנית העבודה זזה במפגש אחד אחרי מפגש 7, Vercel נכנס לסטאק, ושלב 1 של היישור בוצע באתר. הכל כבר משולב בשלבים, במפה וברשימות שלמטה.</p>
+  <div class="find">
+    <div class="f hi"><b>התוכנית זזה במפגש אחד</b>מפגש 7 הגיע עד בניית ה-PRD. ההיכרות עם Claude ושבעת המסמכים עברו למפגש 8, שיעור Git עבר למפגש 9, שלוש השכבות עם Claude Code למפגש 10, וההשלמות עם דף הנחיתה למפגש 11. מודול 3 הוא עכשיו מפגשים 5 עד 11.</div>
+    <div class="f hi"><b>עוד פתוח</b>איפה נכנס מודול 4. ב-6.10 הוחלט על מפגש 11, אבל מפגש 11 הוא עכשיו בנייה. האפשרויות: מפגש 12, ואז מודולים 5 עד 7 מתכווצים במפגש אחד, או חצי יום במפגש 11. פתוחים גם: AirTable והכלים של מודולים 5 ו-6, איך פותחים n8n, וכלי הצ׳אטבוט.</div>
+    <div class="f"><b>נסגר</b>מתכונת הערב מוסתרת, ונבנית מחדש בסוף היישור. סך השעות 220: 6.25 למפגש, 125 שעות לימוד ו-95 על הפרויקט. במודול 3: Supabase לנתונים, Firebase יורד, ו-Netlify מוזכר כמקבילה של Vercel. הריפו מחובר לסשן, ועובדים ב-git רגיל.</div>
+    <div class="f"><b>שלב 1 בוצע ב-7.10</b>שבעה קומיטים באתר: הערב מוסתר, <code>close5</code> פוצל ל-<code>close5</code> ול-<code>close14</code>, השעות עודכנו, מצגוני מפגש 1 תואמים ללוח, שמות האזורים עודכנו, Cowork הוחלף, ו-Vercel נכנס במקום Firebase. מה שנשאר משלב 1 מחכה להחלטה על מודולים 5 ו-6.</div>
+    <div class="f"><b>Vercel נכנס לסטאק</b>שלוש שכבות, שלוש כתובות: האתר ב-GitHub Pages, צד השרת ב-Vercel, והנתונים ב-Supabase. הקריאה למודל עוברת דרך פונקציה, והמפתח לא יושב בדפדפן. לשונית הבנייה ותבנית CLAUDE.md באתר עוד מתארות את הסטאק הישן.</div>
+    <div class="f"><b>שלושה מדריכים לתלמידים</b><a href="../jb53500-git/">Git</a> למפגש 9, <a href="../jb53500-vercel/">Vercel</a> ו-<a href="../jb53500-supabase/">Supabase</a> למפגש 10. כל אחד מקבל קישור בכרטיס המפגש ובמטלות ההכנה.</div>
+    <div class="f"><b>דף הפרומפטים הוא המקור</b>הפרומפטים נמצאים ב-<a href="../jb53500-prompts/">jb53500-prompts</a>, זהים למצגת ולסקיל. האתר מקשר לדף ולא מעתיק, אחרת נוצר עותק רביעי שיסטה.</div>
+    <div class="f"><b>אין יותר לשונית Cowork</b>מ-16.9 היכולת נמצאת בפרויקט שמחובר לתיקייה. באתר זה כבר תוקן. במפה, המצגון <code>cowork_folder</code> הוחלף ב-<code>folder_health</code>.</div>
+    <div class="f"><b>ארכיטקטורה בשני שלבים, ו-Milestones לעומק</b>קודם מחקר סטאק אל tech-stack.md, ואז ARCHITECTURE.md. קובצי המיתוג והסקיצה הם רשות. Milestones הוא התרגיל השביעי של מפגש 8, ושם גם המצגון שלו.</div>
+    <div class="f"><b>כרטיס ומצגונים באותו קומיט</b>שלבים 3 ו-4 נעשים יחד, מפגש אחרי מפגש. מצגון שזז מקבל כרטיס במפגש היעד באותו קומיט, כך שהאתר תקין אחרי כל דחיפה.</div>
+    <div class="f"><b>התוכנית קובעת, לא המסמך הזה</b>תוכנית העבודה משתנה אחרי כל מפגש. לפני כל סשן קוראים אותה מחדש. אם היא חדשה מהתאריך שבתחתית הדף, מעדכנים קודם את המסמך, ורק אז נוגעים באתר.</div>
+  </div>
+</section>
 
 <section class="blk" id="found">
   <div class="label">מה מצאתי</div>
   <h2 class="t">עשרה ממצאים, <b>לפי חומרה</b></h2>
-  <p class="intro">נשלף מהקוד החי ב-30.9.2026, בלי לשנות כלום. הממצאים המסומנים באדום חוסמים את היישור.</p>
+  <p class="intro">נשלף מהקוד החי ב-30.9.2026, ואומת שוב ב-6.10. הממצאים המסומנים באדום חוסמים את היישור. מה שתוקן בשלב 1 מסומן בסוף הממצא.</p>
   <div class="find">
     <div class="f hi"><b>שני סילבוסים שסותרים</b>הסילבוס שמוצג לתלמידים ישן יותר מחדר המרצים. הוא עוד מציג Base44 ו-Lovable כמסלול, Firebase, Netlify, Snowflake, Hermes, Voiceflow ו-Manychat.</div>
-    <div class="f hi"><b>AirTable מול Supabase</b>Supabase מוגדר כמאגר מהבנייה ועד הסוף, אבל מפגשים 12 ו-17 בנויים על AirTable, ו-Supabase לא מופיע בטבלת הכלים בכלל.</div>
+    <div class="f hi"><b>AirTable מול Supabase</b>Supabase מוגדר כמאגר מהבנייה ועד הסוף, אבל מפגשים 12 ו-17 בנויים על AirTable, ו-Supabase לא מופיע בטבלת הכלים בכלל. ב-7.10 נוספה שורת Supabase לטבלת הכלים. השאר מחכה להחלטה.</div>
     <div class="f hi"><b>מפגשים 5 עד 10 לא תואמים</b>באתר: MVP, תרשים זרימה, Lovable, Claude Code, שמירת נתונים, העלאה. בפועל: UI/UX, עקרונות עיצוב, אפיון מונחה מפרט, Git, יום Claude, בנייה.</div>
-    <div class="f hi"><b>מצגון כפול</b>המזהה <code>close5</code> מוגדר פעמיים. הסגירה של מודול 5 דורסת את הסגירה של מפגש 5, וכרטיס מפגש 5 פותח את מצגון מפגש 14.</div>
-    <div class="f"><b>שעות שלא מסתכמות</b>6.5 שעות למפגש בנתונים, 6.25 בלוחות הזמנים, ובחדר המרצים שעות הערב מופיעות במודולים של הבוקר.</div>
+    <div class="f hi"><b>מצגון כפול</b>המזהה <code>close5</code> מוגדר פעמיים. הסגירה של מודול 5 דורסת את הסגירה של מפגש 5, וכרטיס מפגש 5 פותח את מצגון מפגש 14. תוקן ב-7.10.</div>
+    <div class="f"><b>שעות שלא מסתכמות</b>6.5 שעות למפגש בנתונים, 6.25 בלוחות הזמנים, ובחדר המרצים שעות הערב מופיעות במודולים של הבוקר. תוקן ב-7.10: 6.25 למפגש, 220 בסך הכל.</div>
     <div class="f"><b>15 מצגונים יתומים</b>קיימים רק באינדקס השקפים, בלי כרטיס מפגש. רובם במפגשים 15 עד 20, כלומר מודול n8n כמעט בלי חומר מחובר.</div>
     <div class="f"><b>60 תמונות מושגים חסרות</b>כל המושגים של מודולים 4 עד 7. הדף מסתיר אותן בשקט, ולכן זה לא נראה כמו תקלה.</div>
     <div class="f"><b>מושגים שלא מלמדים, ומושגים שמלמדים וחסרים</b>Latent Space ו-Swimlanes קיימים. Fitts, Hick, גשטלט, PWA, PRD ו-Walking Skeleton חסרים. חוק היק אפילו הוסר ב-10.9 כ"לא נלמד", ועכשיו הוא נלמד.</div>
-    <div class="f"><b>שמות אזורים ישנים</b>ב-meta.json וב-טבלאות הלינקים של מודול 7 מופיעים "מדריך פרויקט הגמר" ו"ארכיון מושגים", שכבר לא קיימים בתפריט.</div>
+    <div class="f"><b>שמות אזורים ישנים</b>ב-meta.json וב-טבלאות הלינקים של מודול 7 מופיעים "מדריך פרויקט הגמר" ו"ארכיון מושגים", שכבר לא קיימים בתפריט. תוקן ב-6.10 וב-7.10.</div>
     <div class="f"><b>14 פעמים "טרם נקבע"</b>בכלים של מפגשים 11 ו-15, ובעלות ובעומק של ארבעה כלים שממילא יורדים.</div>
   </div>
 </section>
@@ -160,24 +180,24 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
     <div class="rule"><span><b>מה שלא מלמדים, לא מופיע.</b> לא מושג, לא כלי, ולא שקף "למקרה ש".</span></div>
     <div class="rule"><span><b>כל מצגון שייך למפגש.</b> אין מצגון בלי כרטיס מפגש, ואין כרטיס שמצביע על מצגון של מפגש אחר.</span></div>
     <div class="rule"><span><b>מצגון קטן.</b> שניים עד ארבעה שקפים לנושא, בסגנון הבית, כמו שהוחלט ב-14.9.</span></div>
-    <div class="rule"><span><b>מתכונת אחת.</b> כל עוד אין מחזור ערב, בלוקי הערב מוסתרים ולא נערכים.</span></div>
-    <div class="rule"><span><b>סטאק אחד.</b> Claude, Supabase, GitHub Pages, n8n. כל כלי אחר מופיע רק אם מלמדים אותו באותו מפגש.</span></div>
-    <div class="rule"><span><b>המצגות הגדולות מקושרות, לא משוכפלות.</b> האתר מקשר ל-Google Slides עם טווח שקפים, ולא מעתיק אותן פנימה.</span></div>
+    <div class="rule"><span><b>מתכונת אחת.</b> כל עוד אין מחזור ערב, בלוקי הערב מוסתרים ולא נערכים. הם נבנים מחדש בסוף, מתוך הבוקר המיושר.</span></div>
+    <div class="rule"><span><b>סטאק אחד.</b> Claude, GitHub Pages, Vercel, Supabase, n8n. כל כלי אחר מופיע רק אם מלמדים אותו באותו מפגש.</span></div>
+    <div class="rule"><span><b>המצגות הגדולות מקושרות, לא משוכפלות.</b> האתר מקשר ל-Google Slides עם טווח שקפים, ולא מעתיק אותן פנימה. אותו דבר לפרומפטים ולמדריכים.</span></div>
     <div class="rule"><span><b>שינוי אחד, קומיט אחד.</b> כל שלב נבדק ונדחף לבד, כדי שאפשר יהיה לחזור ממנו.</span></div>
   </div>
 </section>
 
 <section class="blk" id="phases">
   <div class="label">שלבי העבודה</div>
-  <h2 class="t">שבעה שלבים, <b>בסדר הזה</b></h2>
-  <p class="intro">כל שלב הוא סשן עבודה אחד בערך. הסימון נשמר בדפדפן. שלב 0 תלוי בהחלטות שלך בתוכנית העבודה.</p>
+  <h2 class="t">שמונה שלבים, <b>בסדר הזה</b></h2>
+  <p class="intro">כל שלב הוא סשן עבודה אחד בערך. הסימון נשמר בדפדפן, ומה שבוצע עד 7.10 כבר מסומן. שלבים 3 ו-4 נעשים יחד, מפגש אחרי מפגש, לפי הסדר בלוח: 5 עד 7 שכבר נלמדו, אחר כך 8 ו-9, אחר כך 10 ו-11. שלב 7 הוא מתכונת הערב, והוא אחרון.</p>
   <div id="phaseList"></div>
 </section>
 
 <section class="blk" id="map">
   <div class="label">מפגש מפגש</div>
   <h2 class="t">מה קורה לכל מצגון, <b>בכל אחד מ-20 המפגשים</b></h2>
-  <p class="intro">המזהים הם המפתחות באובייקט <code>DECKS</code>. מצגון שזז מופיע גם במפגש שממנו יצא וגם במפגש שאליו נכנס.</p>
+  <p class="intro">המזהים הם המפתחות באובייקט <code>DECKS</code>. מצגון שזז מופיע גם במפגש שממנו יצא וגם במפגש שאליו נכנס. המפה מעודכנת לתוכנית העבודה מ-7.10. מודול 4 מופיע בשורה משלו, בין 11 ל-12, עד שייקבע לו מפגש.</p>
   <div class="key"><span class="a keep">נשאר</span><span class="a move">זז</span><span class="a new">חדש</span><span class="a fix">לתקן</span><span class="a cut">יורד</span></div>
   <div id="mapList"></div>
 </section>
@@ -188,17 +208,17 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
   <p class="intro">השוואה בין 155 המושגים באתר לבין המצגות שהועברו בפועל ולתוכנית. המושגים של הנדסת פרומפטים צריכים בדיקה פרטנית, כי חלקם כבר קיימים בשם אחר.</p>
   <div class="cols">
     <div class="box"><h3>להוסיף<span class="a new">נלמד וחסר</span></h3><ul>
-      <li>UI</li><li>UX</li><li>חוק Fitts</li><li>חוק Hick</li><li>היררכיה חזותית</li><li>עקרונות גשטלט</li><li>60-30-10</li><li>יחס ניגודיות, להעביר ממודול 4</li><li>Crazy 8</li><li>Dot Voting</li><li>אנטומיה של אפליקציה</li><li>Native App</li><li>Cross-Platform</li><li>Hybrid App</li><li>Mobile Web ו-Responsive</li><li>Mobile-First</li><li>PWA</li><li>Three-Tier Architecture</li><li>Frontend</li><li>Backend</li><li>Relational ו-NoSQL</li><li>SQL</li><li>POC</li><li>Prototype</li><li>Spec-Driven Development</li><li>PRD</li><li>User Persona</li><li>User Story</li><li>User Journey</li><li>Tech Stack</li><li>Inspiration Board</li><li>Style Guide</li><li>Mockup</li><li>DESIGN.md</li><li>Milestone</li><li>Vertical Slice</li><li>Walking Skeleton</li><li>CLAUDE.md</li><li>Terminal</li><li>Commit</li><li>Cowork</li><li>MCP</li><li>מחבר</li><li>Memory</li>
-    </ul><p>כ-44 מושגים. רובם כבר כתובים במצגות שלך, ורק צריך לקצר לשורה.</p></div>
+      <li>UI</li><li>UX</li><li>חוק Fitts</li><li>חוק Hick</li><li>היררכיה חזותית</li><li>עקרונות גשטלט</li><li>60-30-10</li><li>יחס ניגודיות, להעביר ממודול 4</li><li>Crazy 8</li><li>Dot Voting</li><li>אנטומיה של אפליקציה</li><li>Native App</li><li>Cross-Platform</li><li>Hybrid App</li><li>Mobile Web ו-Responsive</li><li>Mobile-First</li><li>PWA</li><li>Three-Tier Architecture</li><li>Frontend</li><li>Backend</li><li>Relational ו-NoSQL</li><li>SQL</li><li>POC</li><li>Prototype</li><li>Spec-Driven Development</li><li>PRD</li><li>User Persona</li><li>User Story</li><li>User Journey</li><li>Tech Stack</li><li>Inspiration Board</li><li>Style Guide</li><li>Mockup</li><li>DESIGN.md</li><li>Milestone</li><li>Vertical Slice</li><li>Walking Skeleton</li><li>CLAUDE.md</li><li>Terminal</li><li>Commit</li><li>פרויקט שמחובר לתיקייה</li><li>MCP</li><li>מחבר</li><li>Memory</li><li>פונקציית צד שרת</li><li>משתנה סביבה</li><li>CORS</li>
+    </ul><p>כ-43 מושגים חדשים. יחס ניגודיות, MoSCoW, MVP, Wireframe ו-Flowchart כבר קיימים באתר, וצריכים רק תווית מפגש חדשה. שלושת האחרונים ברשימה שייכים למפגש 10. רובם כבר כתובים במצגות שלך, ורק צריך לקצר לשורה.</p></div>
     <div class="box"><h3>להוריד או לבדוק<span class="a cut">לא נלמד</span></h3><ul>
       <li>Latent Space</li><li>Seed</li><li>Negative Prompt</li><li>Progressive Reveal</li><li>AS-IS / TO-BE</li><li>Swimlanes</li><li>Touchpoint</li><li>רכיב בחירה סגור</li><li>Text-to-App</li><li>Zapier</li><li>Airtable</li><li>Linked Field</li><li>Airtable Interfaces</li><li>IDP</li><li>OCR / Vision</li><li>Confidence</li><li>Voiceflow, אם נבחר n8n Chat</li>
     </ul><p>לפני מחיקה: לבדוק שהמושג לא מופיע באף מצגת. Negative Prompt ו-Seed למשל עשויים לעלות בעל פה.</p></div>
     <div class="box"><h3>לשכתב<span class="a fix">הגדרה שגויה או ישנה</span></h3><ul>
-      <li>Supabase: לא "מובנה ב-Lovable", אלא מאגר הנתונים של הקורס</li><li>Skills: לא "משימות סוכן", אלא הוראות שקלוד טוען כשצריך</li><li>KPI ו-Dashboard: ממודול 5 למפגש 7, כחלק מה-PRD</li><li>Flowchart: כ-User Flow בתוך ה-PRD</li><li>ששת חלקי הפרומפט: ליישר לתגיות של חלק ג</li>
+      <li>Supabase: לא "משולב בכלי הבנייה", אלא מאגר הנתונים של הקורס</li><li>GitHub Pages, Vercel ו-Netlify: עודכנו ב-7.10</li><li>Skills: לא "משימות סוכן", אלא הוראות שקלוד טוען כשצריך</li><li>KPI ו-Dashboard: ממודול 5 למפגש 7, כחלק מה-PRD</li><li>Flowchart: כ-User Flow בתוך ה-PRD</li><li>ששת חלקי הפרומפט: ליישר לתגיות של חלק ג</li>
     </ul></div>
     <div class="box"><h3>לשייך<span class="a fix">חסרה תווית מפגש</span></h3><ul>
       <li>מרחב סמנטי</li><li>הודעת כלי</li><li>פלט מובנה</li><li>עיגון</li><li>שרשור פרומפטים</li>
-    </ul><p>כולם נלמדו במפגשים 1 ו-2. ובנוסף: 60 התמונות החסרות של מודולים 4 עד 7.</p></div>
+    </ul><p>כולם נלמדו במפגשים 1 ו-2. ובנוסף: כ-30 מושגים קיימים עם תווית של מספר מפגש ישן, ו-60 התמונות החסרות של מודולים 4 עד 7.</p></div>
   </div>
 </section>
 
@@ -211,17 +231,23 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
 1. תוכנית העבודה: https://eyalg1980.github.io/simpla-lab/jb53500-plan/
 2. מסמך היישור: https://eyalg1980.github.io/simpla-lab/jb53500-align/
 3. האתר החי: jb53500/index.html בריפו simpla-lab. קרא אותו טרי מהריפו, לא מזיכרון.
+4. דף הפרומפטים: https://eyalg1980.github.io/simpla-lab/jb53500-prompts/ . האתר מקשר אליו ולא מעתיק ממנו.
+לפני שמתחילים: קרא את תוכנית העבודה מחדש. אם היא חדשה מהתאריך שבתחתית מסמך היישור, היא קובעת, ומעדכנים קודם את המסמך.
 כללים:
 - שינוי אחד לכל קומיט, וכל שלב בנפרד.
 - לפני דחיפה: node --check על בלוק הסקריפט, ו-Playwright בכל התפקידים, ב-390 וב-1440.
 - אין מקף ארוך, אין תווי חץ, טקסט לטיני בתוך span עם class="en".
 - מצגון חדש: 2 עד 4 שקפים, kick בפורמט "מפגש N · HH:MM · נושא", ומחובר לכרטיס המפגש.
+- כרטיס המפגש והמצגונים שלו באותו קומיט. מצגון שזז מקבל כרטיס במפגש היעד באותו קומיט.
+- עורכים רק את בלוקי הבוקר. הערב מוסתר, ונבנה מחדש בשלב 7.
+- לא נוגעים בכותרות של ראיון עשרת ההיבטים. הפרומפטים והסקיל ממפים לפיהן.
+- בסוף הסשן: אפס מזהים כפולים, אפס הפניות למצגון שלא קיים, ומספר היתומים לא עולה.
 - אם משהו במסמך לא תואם למה שאתה רואה בקוד, עצור ושאל.
 בסוף: טבלה של מה שונה, מה נבדק, והקומיט.</pre></div>
-  <p class="intro" style="margin-top:14px">דרך הדחיפה: שרת ה-GitHub המקומי במחשב שלך (push_files ישירות), או קלון עם הכותרת לפי DEPLOY-RUNBOOK. לא לדחוף את הגרסה מתיקיית site-update-10-09, היא בארכיון.</p>
+  <p class="intro" style="margin-top:14px">דרך הדחיפה: מצרפים את הריפו simpla-lab לסשן עם הרשאת דחיפה, ועובדים ב-git רגיל: fetch, rebase, בדיקת תחביר, ו-push ל-main. שרת ה-GitHub המקומי מתאים רק לקבצים קטנים, כי הוא שולח את כל הקובץ כטקסט בכל קומיט. הגיבוי: הענף <code>before-align</code>. לא לדחוף את הגרסה מתיקיית site-update-10-09, היא בארכיון.</p>
 </section>
 
-<footer>Simpla Lab · נבנה עם Claude · v1 · 30.9.2026 · מבוסס על קריאה של האתר החי, המצגות, ומערך השיעורים המקורי</footer>
+<footer>Simpla Lab · נבנה עם Claude · v2 · 7.10.2026 · מבוסס על קריאה של האתר החי, המצגות, ומערך השיעורים המקורי. מעודכן לתוכנית העבודה מ-7.10</footer>
 
 <script>
 (function(){
@@ -237,49 +263,61 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
   /* ---------- phases ---------- */
   var P=[
     ['PHASE 0','החלטות וגיבוי',[
-      ['p0a','לסגור בתוכנית העבודה את ההחלטות 1 עד 6: מתכונת, מודול 4, Supabase, n8n, צ׳אטבוט, Snowflake'],
-      ['p0b','תגית גיבוי בריפו לפני כל שינוי: before-align'],
-      ['p0c','לארכב את site-update-10-09 סופית, כדי שאף סשן לא ידחוף אותו']]],
+      ['p0a','החלטות. נסגרו: הערב מוסתר ונבנה בסוף, 220 שעות, ובמודול 3 הנתונים ב-Supabase וצד השרת ב-Vercel, בלי Firebase. פתוחות: מיקום מודול 4, AirTable והכלים של מודולים 5 ו-6, n8n, צ׳אטבוט'],
+      ['p0b','גיבוי לפני כל שינוי: הענף before-align, מ-6.10'],
+      ['p0c','site-update-10-09: ב-6.10 נוסף בה קובץ אזהרה. נשאר להעביר או למחוק את התיקייה ידנית'],
+      ['p0d','מסלול הדחיפה: הריפו מחובר לסשן, ועובדים ב-git רגיל. נסגר ב-7.10']]],
     ['PHASE 1','ניקוי מבני',[
-      ['p1a','להסתיר את מתכונת הערב: ברירת מחדל בוקר, ולהסיר את כפתור ההחלפה'],
+      ['p1a','להסתיר את מתכונת הערב: ברירת מחדל בוקר, בלי כפתור ההחלפה. התוכן נשאר בקובץ עד שלב 7'],
       ['p1b','לתקן את close5 הכפול: לפצל ל-close5 ול-close14, ולחבר כל אחד למפגש שלו'],
-      ['p1c','שעות: 6.25 למפגש בכל מקום, ולעדכן את סכומי המודולים ואת דף הבית'],
-      ['p1d','meta.json: שמות האזורים הנוכחיים, ותאריך עדכון'],
-      ['p1e','למחוק כל "טרם נקבע", ואת Snowflake, Hermes, OpenClaw, Voiceflow, Manychat, Firebase, Netlify מהכלים ומהסילבוס'],
-      ['p1f','AirTable ל-Supabase בכל מקום, וכתיב אחיד לכל שם כלי'],
-      ['p1g','install: kick 16:15 וכותרת "להתקנה בבית". ex1: kick 14:55'],
-      ['p1h','טבלאות הלינקים של מודול 7: שמות האזורים הנוכחיים']]],
+      ['p1c','שעות: 6.25 למפגש, 125 שעות לימוד ו-220 בסך הכל, בנתונים, בסכומי המודולים ובדף הבית'],
+      ['p1d','meta.json: שמות האזורים הנוכחיים, מתכונת אחת, ותאריך עדכון. שדה הגרסה מתעדכן בשלב 2'],
+      ['p1e','חלק א בוצע: Firebase ירד, Vercel נכנס, ו-Netlify הוא המקבילה שלו. חלק ב מחכה להחלטה: "טרם נקבע", Snowflake, Hermes, OpenClaw, Voiceflow ו-Manychat'],
+      ['p1f','מחכה להחלטה: AirTable ל-Supabase במודולים 5 ו-6, וכתיב אחיד לכל שם כלי. שורת Supabase כבר בטבלת הכלים'],
+      ['p1g','install: kick 16:15 וכותרת "להתקנה בבית". ex1: kick 14:55, 45 דקות'],
+      ['p1h','שמות האזורים הנוכחיים בלוח של מפגש 1 ובטבלאות הלינקים של מודול 7'],
+      ['p1i','Cowork: חמישה אזכורים הוחלפו בפרויקט שמחובר לתיקייה']]],
     ['PHASE 2','הסילבוס שהתלמידים רואים',[
-      ['p2a','לשכתב את אובייקט ED לפי 20 המפגשים בתוכנית: כותרת, נושאים, כלים'],
+      ['p2a','לשכתב את אובייקט ED לפי 20 המפגשים בתוכנית: כותרת, נושאים, כלים. מפגשים 5 עד 11 הם מודול 3'],
       ['p2b','מפת המסע של הפרויקט (PROJECTMAP) ושקפי ההכנה (PREP) לפי אותו סדר'],
-      ['p2c','הגשות: הגשה 2 בסוף מפגש 10, והמועד שבועיים אחריו'],
-      ['p2d','טבלת מטלות ההכנה: Claude בתשלום אחרי 6, Git ו-Obsidian אחרי 7, Supabase אחרי 9, n8n לפי ההחלטה']]],
-    ['PHASE 3','חדר המרצים, מפגשים 5 עד 10',[
+      ['p2c','הגשות: הגשה 2 בסוף מפגש 11, והמועד שבועיים אחריו'],
+      ['p2d','טבלת מטלות ההכנה: Claude Desktop ותיקיית המוצר לפני 8, Git לפני 9, חשבון Vercel ומפתח Gemini לפני 10, Supabase לפני 10 למי ששומר נתונים. עם קישור לשלושת המדריכים'],
+      ['p2e','גבולות המודולים: מודול 3 הוא מפגשים 5 עד 11. מודול 4 ומה שאחריו מחכים להחלטה. MODS, סכומי השעות, לשוניות חדר המרצים, ושדה הגרסה ב-meta.json']]],
+    ['PHASE 3','חדר המרצים, מפגשים 5 עד 11',[
       ['p3a','מפגש 5: UI ו-UX וקרייזי 8, לפי הטבלה למטה'],
       ['p3b','מפגש 6: עקרונות עיצוב ושיטות מובייל'],
-      ['p3c','מפגש 7: שבעת מסמכי האפיון'],
-      ['p3d','מפגש 8: Obsidian ו-Git'],
-      ['p3e','מפגש 9: יום Claude, עם שבעת הפרומפטים'],
-      ['p3f','מפגש 10: יום בנייה והעלאה'],
-      ['p3g','לכל מפגש: לוח זמנים, מצגות עם טווח שקפים, תרגילים, שיעורי בית']]],
+      ['p3c','מפגש 7: שלוש שכבות, תיקוף מוצר ותחילת האפיון'],
+      ['p3d','מפגש 8: Claude אחד, ושבעת מסמכי האפיון'],
+      ['p3e','מפגש 9: Git מהטרמינל, GitHub ו-Obsidian'],
+      ['p3f','מפגש 10: Claude Code, ושלוש שכבות באוויר'],
+      ['p3h','מפגש 11: השלמת שלוש השכבות, ודף נחיתה ב-Base44 וב-Lovable'],
+      ['p3g','לכל מפגש: לוח זמנים, מצגות עם טווח שקפים, תרגילים, שיעורי בית, וקישור למדריך ולדף הפרומפטים אם יש']]],
     ['PHASE 4','מצגונים',[
-      ['p4a','ליצור את 28 המצגונים החדשים שבטבלה, 2 עד 4 שקפים כל אחד'],
-      ['p4b','להזיז את כ-30 המצגונים שזזים, ולעדכן kick ומספר מפגש'],
+      ['p4a','ליצור את 33 המצגונים החדשים שבטבלה, 2 עד 4 שקפים כל אחד, באותו קומיט עם כרטיס המפגש שלהם'],
+      ['p4b','להזיז את כ-35 המצגונים שזזים, ולעדכן kick ומספר מפגש. כרטיס במפגש היעד באותו קומיט'],
       ['p4c','לחבר את 15 היתומים לכרטיסי המפגשים 4 ו-15 עד 20'],
       ['p4d','להוריד את flow_shapes ואת ex5 הישן, או להעביר לארכיון'],
-      ['p4e','לשכתב tables, n8n_tables ו-agent_build ל-Supabase']]],
+      ['p4e','מחכה להחלטה: לשכתב tables, n8n_tables ו-agent_build ל-Supabase']]],
     ['PHASE 5','מושגים',[
-      ['p5a','להוסיף את כ-44 המושגים החסרים, עם תווית מפגש'],
+      ['p5a','להוסיף את כ-43 המושגים החסרים, עם תווית מפגש'],
       ['p5b','להוריד את המושגים שלא נלמדים, אחרי בדיקה מול המצגות'],
       ['p5c','לשכתב את ההגדרות השגויות, ולשייך את חמשת המושגים בלי תווית'],
-      ['p5d','60 התמונות החסרות: לייצר, או להסיר את השדה עד שיש']]],
+      ['p5d','60 התמונות החסרות: להסיר את השדה עד שיש. הייצור הוא פרויקט נפרד'],
+      ['p5e','תוויות מפגש חדשות לכ-30 מושגים קיימים שהמפגש שלהם זז']]],
     ['PHASE 6','ארגז הכלים ובדיקת הפיקסל',[
-      ['p6a','ארגז הפרומפטים: שרשרת האפיון (PRD עד Milestones) ושבעת פרומפטי יום Claude'],
-      ['p6b','למפות מחדש את פרומפטי התרגול ptpl5 עד ptpl10 למפגשים החדשים'],
+      ['p6a','ארגז הפרומפטים: קישור לדף jb53500-prompts, לא העתקה'],
+      ['p6b','למפות מחדש את פרומפטי התרגול ptpl5 עד ptpl11 למפגשים החדשים'],
       ['p6c','מעבר פיקסל: כל אזור, בכל תפקיד, ב-390 וב-1440, בבהיר ובכהה'],
       ['p6d','בדיקת כיווניות: כל מונח לטיני בתוך span.en, בלי מילים הפוכות'],
-      ['p6e','תגיות: אדום לראשונה, כחול לשנייה, בכל המצגונים החדשים']]]
+      ['p6e','תגיות: אדום לראשונה, כחול לשנייה, בכל המצגונים החדשים'],
+      ['p6f','לשונית הבנייה ותבנית CLAUDE.md: ליישר ל-course-stack.md מ-7.10, עם Vercel כצד שרת']]],
+    ['PHASE 7','מתכונת הערב, בסוף',[
+      ['p7a','לבנות מחדש את בלוקי הערב מתוך הבוקר המיושר: 29 ערבים, אותם מצגונים, שעות ערב'],
+      ['p7b','להחזיר את כפתור ההחלפה, ולבדוק את שתי המתכונות בכל התפקידים'],
+      ['p7c','meta.json: להחזיר את מתכונת הערב לרשימה']]]
   ];
+  /* done up to 7.10.2026, ticked once so the checklist starts from the real state */
+  if(!S.pre0710){['p0b','p0d','p1a','p1b','p1c','p1d','p1g','p1h','p1i'].forEach(function(id){S.done[id]=1;});S.pre0710=1;save();}
   var pEl=document.getElementById('phaseList');
   function renderP(){pEl.innerHTML=P.map(function(p){var d=p[2].filter(function(t){return S.done[t[0]];}).length;return '<div class="phase"><div class="ph"><span class="pn">'+p[0]+'</span><h3>'+p[1]+'</h3><span class="pc">'+d+'/'+p[2].length+'</span></div>'+p[2].map(function(t){var on=!!S.done[t[0]];return '<div class="task" role="checkbox" tabindex="0" aria-checked="'+on+'" data-t="'+t[0]+'"><span class="chk">'+CHK+'</span><span class="tx">'+t[1]+'</span></div>';}).join('')+'</div>';}).join('');}
   function tog(el){var id=el.dataset.t;if(S.done[id])delete S.done[id];else S.done[id]=1;save();renderP();}
@@ -292,8 +330,7 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
   var M=[
     [1,'יסודות AI','יסודות AI','תואם. תיקונים קטנים בלבד.',[
       ['intro, timeline, c_sets, howitworks, harness, semantic, c_next, c_token','keep','תואמים למצגת AI Basics'],
-      ['install','fix','kick 16:15, "להתקנה בבית"'],
-      ['ex1','fix','kick 14:55'],
+      ['install, ex1','keep','תוקנו ב-7.10: install ב-16:15 כמטלת בית, ex1 ב-14:55'],
       ['ex_md','fix','לאמת שהתרגיל נעשה בפועל. אם לא, לארגז הכלים'],
       ['ex_vent','fix','בפועל התרגיל נפתח כבר במפגש 1, בסגנון Interview. לשייך גם לכאן']]],
     [2,'הנדסת פרומפטים','הנדסת פרומפטים, שלושה חלקים','תואם. תבנית הפרומפט לא תואמת לחלק ג.',[
@@ -315,76 +352,94 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
       ['need_first, mvp_scope, scope','move','למפגש 7, לתיקוף המוצר ו-MoSCoW'],
       ['flow_shapes','cut','User Flow נכנס לתוך ה-PRD. לארכיון'],
       ['ex5','cut','מוחלף בקרייזי 8'],
-      ['close5','fix','לפצל מ-close14 ולכתוב מחדש: "שמונה סקיצות, מסך אחד"'],
+      ['close5','fix','הפיצול מ-close14 בוצע ב-7.10. נשאר לכתוב מחדש: "שמונה סקיצות, מסך אחד"'],
       ['ui_ux','new','UI מול UX, ומה השילוב נותן'],
       ['anatomy14','new','14 מסכים בחמש קטגוריות, טבלה אחת'],
       ['rules6','new','שישה כללי זהב למסכים'],
       ['crazy8','new','התרגיל: שמונה סקיצות בשמונה דקות']]],
-    [6,'מסכים, עיצוב ובנייה ראשונה','עקרונות עיצוב ושיטות מובייל','המפגש כולו מתחלף.',[
-      ['wire_why, flow2screen, screen_lab','move','למפגש 7, לחלק ה-Wireframes'],
-      ['visual_id, ref_style','move','למפגש 7, ללוח ההשראה ולסטייל גייד'],
-      ['assets_make, assets_split','move','למפגש 10, לבניית האסטים בקוד'],
-      ['build_flow','move','למפגש 9'],
-      ['first_build','move','למפגש 10, כדף הנחיתה של Lovable ו-Base44'],
-      ['ex6, close6','fix','לכתוב מחדש לפי התרגילים, וסגירה: "מנוי Claude לפני מפגש 9"'],
+    [6,'מסכים, עיצוב ובנייה ראשונה','עקרונות עיצוב, ומשם לאפיון','המפגש כולו מתחלף.',[
+      ['wire_why, flow2screen, screen_lab','move','למפגש 8, לתרגיל ה-Wireframes'],
+      ['visual_id, ref_style','move','למפגש 8, ללוח ההשראה ולסטייל גייד'],
+      ['build_flow','move','למפגש 10'],
+      ['assets_make, assets_split, first_build','move','למפגש 11: בניית האסטים בספרינט, ודף הנחיתה ב-Base44 וב-Lovable'],
+      ['ex6, close6','fix','לכתוב מחדש לפי התרגילים, וסגירה: מה מביאים למפגש 7'],
       ['dot_vote','new','Dot Voting בשלשות, חמישה צעדים'],
       ['fitts_hick','new','שני החוקים, דוגמאות, והציד באפליקציה'],
       ['hierarchy4','new','ארבעת הכלים ומבחן הפזילה'],
       ['gestalt6','new','ששת העקרונות על מסך אחד'],
       ['color60','new','60-30-10 ויחסי ניגודיות 4.5 ו-3'],
       ['mobile5','new','חמש השיטות בטבלה, ואיך בוחרים']]],
-    [7,'בניית האפליקציה, חלק א','אפיון מונחה מפרט','המפגש כולו מתחלף.',[
-      ['envs, pae, proj_setup, skill_conn','move','למפגש 9'],
-      ['close7','keep','"מתקינים Git עכשיו" מתאים בדיוק לכאן'],
-      ['ex7','fix','לשכתב לסדנת שבעת המסמכים'],
+    [7,'בניית האפליקציה, חלק א','שלוש שכבות, תיקוף מוצר, ותחילת האפיון','בוצע ב-7.10. המפגש הגיע עד בניית ה-PRD, ו-Claude עם שבעת התרגילים עברו למפגש 8.',[
+      ['envs, pae, proj_setup, skill_conn','move','למפגש 10, לפתיחת Claude Code'],
       ['need_first, mvp_scope, scope','move','ממפגש 5'],
-      ['wire_why, flow2screen, screen_lab, visual_id, ref_style','move','ממפגש 6'],
+      ['ex7','fix','לשכתב לתרגיל MoSCoW: סיבוב א על החוג המושלם, סיבוב ב על המוצר האישי'],
+      ['close7','fix','לכתוב מחדש: מה מביאים למפגש 8. Claude Desktop, תיקיית המוצר, ועשרת ההיבטים עם טבלת MoSCoW'],
       ['three_tier','new','שלוש שכבות ודוגמת החיפוש'],
       ['validate3','new','POC, Prototype, MVP: מה כל אחד בודק'],
-      ['sdd7','new','שרשרת שבעת המסמכים, מה נכנס למה'],
+      ['sdd7','new','שרשרת שבעת המסמכים, מה נכנס למה. כולל tech-stack.md, ומה רשות'],
       ['prd7','new','שבעת סעיפי ה-PRD'],
-      ['milestones','new','פרוסה אנכית מול אופקית, ו-Walking Skeleton']]],
-    [8,'בניית האפליקציה, חלק ב','Obsidian ו-Git','המפגש כולו מתחלף.',[
-      ['persist, core_action, debug','move','למפגש 10'],
-      ['ex8, close8','fix','סדנת Git, וסגירה: מה חייב להיות מוכן ליום Claude'],
-      ['repo','move','ממפגש 9'],
-      ['obsidian','new','Vault, קריאת MD, והגדרת RTL'],
+      ['קישורים','new','App Specification ב-Google Slides, עד בניית ה-PRD']]],
+    [8,'בניית האפליקציה, חלק ב','Claude אחד, ומעשרת ההיבטים לשבעה מסמכים','המפגש הבא, 14.10. המפגש כולו מתחלף.',[
+      ['persist','move','למפגש 10, לשלב הנתונים'],
+      ['core_action, debug','move','למפגש 11, לספרינט'],
+      ['wire_why, flow2screen, screen_lab, visual_id, ref_style','move','ממפגש 6'],
+      ['ex8','fix','לשכתב לשבעת התרגילים, מ-PRD ועד Milestones, עם קישור לדף הפרומפטים'],
+      ['close8','fix','מה משלימים בבית, והתקנת Git לפני מפגש 9. הטקסט של close7 הישן מתאים כאן'],
+      ['claude_blocks','new','חמש אבני הבניין: פרויקט, תיקייה, ארטיפקטים, מחברים, מיומנויות'],
+      ['folder_setup','new','תיקיית המוצר: שמות קבועים, מה חובה ומה רשות, ושלושת המסלולים'],
+      ['claude_map','new','המושגים של Claude, משפט אחד לכל אחד. הטבלה מתוכנית העבודה'],
+      ['milestones','new','פרוסה אנכית מול אופקית, Walking Skeleton, וכתיבת MILESTONES.md'],
+      ['קישורים','new','ארבע המצגות ב-Drive עם טווח שקפים, דף הפרומפטים, course-stack.md מ-7.10, הסקיל, ומדריך Git כשיעורי בית']]],
+    [9,'העלאה לאוויר','Git מהטרמינל, GitHub ו-Obsidian','המפגש כולו מתחלף.',[
+      ['repo','keep','ניהול גרסאות. כבר במפגש הזה'],
+      ['c_live, upload_lab, publish, private_test','move','למפגש 10, לשלב ה-Frontend'],
+      ['close3','move','למפגש 11, עם הגשה 2'],
+      ['ex9','fix','לשכתב לסדנת Git: config, init, status, add, commit, log, ופרסום ב-GitHub Desktop'],
+      ['obsidian','new','Vault על תיקיית המוצר, קריאת MD, והגדרת RTL'],
       ['terminal4','new','pwd, ls, cd, mkdir'],
-      ['git_loop','new','status, add, commit, log, ושוב. עם קישור למדריך']]],
-    [9,'העלאה לאוויר','יום Claude','המפגש כולו מתחלף.',[
-      ['c_live, upload_lab, publish, private_test, close3','move','למפגש 10'],
-      ['repo','move','למפגש 8'],
-      ['ex9','fix','לשכתב לסדנת Milestone 1'],
+      ['git_loop','new','status, add, commit, log, ושוב. עם קישור למדריך'],
+      ['folder_health','new','בדיקת בריאות לתיקייה ובדיקת סתירות בין המסמכים, לפני Claude Code'],
+      ['close9','new','מה חייב להיות מוכן למפגש 10: ריפו מפורסם, חשבון Vercel, מפתח Gemini'],
+      ['קישורים','new','מדריך Git לתלמידים, ומדריך Vercel לשיעורי הבית. מצגת Git של אסף נכנסת כשיש קישור']]],
+    [10,'אתיקה והנגשה','Claude Code, ושלוש שכבות באוויר','המפגש כולו מתחלף. האתר ב-GitHub Pages, צד השרת ב-Vercel, והנתונים ב-Supabase.',[
+      ['ethics5, wcag4, audit_run','move','למודול 4, שמחכה למיקום חדש'],
       ['envs, pae, proj_setup, skill_conn','move','ממפגש 7'],
       ['build_flow','move','ממפגש 6'],
-      ['claude_map','new','שלושה חדרים ותשעה פרקים, הטבלה מתוכנית העבודה'],
-      ['cowork_folder','new','סידור, בדיקת סתירות, CLAUDE.md'],
-      ['skill_first','new','הסקיל milestone-check']]],
-    [10,'אתיקה והנגשה','יום בנייה והעלאה','המפגש כולו מתחלף.',[
-      ['ethics5, wcag4, audit_run, ex10, close10','move','למפגש 11'],
-      ['persist, core_action, debug','move','ממפגש 8'],
-      ['c_live, upload_lab, publish, private_test, close3','move','ממפגש 9. close3 כולל את הגשה 2'],
+      ['c_live, upload_lab, publish, private_test','move','ממפגש 9'],
+      ['persist','move','ממפגש 8'],
+      ['ex10','fix','לפצל: בדיקת הנגישות זזה עם מודול 4 בשם חדש, ו-ex10 נכתב מחדש לחמשת התרגילים של היום'],
+      ['close10','fix','נכתב מחדש: מבחן שלוש השכבות, ומה ממשיכים במפגש 11'],
+      ['status_board','new','לוח רמזור בפתיחה: ריפו, חשבון Vercel, מפתח'],
+      ['three_urls','new','שלוש שכבות, שלוש כתובות: מה נבנה בכל שלב, ואיך יודעים שזה עובד'],
+      ['vercel_secret','new','למה צריך צד שרת, איפה גר הסוד, ולמה צריך Redeploy'],
+      ['קישורים','new','מדריך Vercel, מדריך Supabase, וחלק ב במדריך Git']]],
+    [11,'אבטחת קוד ו-AI','השלמת שלוש השכבות, ודף נחיתה ב-Base44 וב-Lovable','המפגש כולו מתחלף. כאן נסגרת הגשה 2.',[
+      ['clientside, c_inj, attack_demo, close4','move','למודול 4, שמחכה למיקום חדש'],
+      ['core_action, debug','move','ממפגש 8'],
       ['assets_make, assets_split, first_build','move','ממפגש 6'],
-      ['status_board','new','לוח רמזור בפתיחה'],
-      ['lovable_base44','new','אותו בריף בשני כלים, וטבלת השוואה']]],
-    [11,'אבטחת קוד ו-AI','נגישות, אתיקה ואבטחה','שני מפגשים נכנסים לאחד, אם ההחלטה היא מפגש אחד.',[
-      ['ethics5, wcag4, audit_run, ex10','move','ממפגש 10'],
-      ['clientside, c_inj, attack_demo, ex11, close4','keep',''],
-      ['close10','cut','נבלע בתוך close4']]],
-    [12,'נתונים וכלים חיצוניים','נתונים ומחברים','AirTable מתחלף ב-Supabase.',[
+      ['close3','move','ממפגש 9. כולל את הגשה 2'],
+      ['ex11','fix','לפצל: צ׳ק ליסט האבטחה זז עם מודול 4 בשם חדש, ו-ex11 נכתב מחדש לספרינט ולמבחן שלוש השכבות'],
+      ['lovable_base44','new','אותו בריף בשני כלים, וטבלת השוואה'],
+      ['skill_first','new','רשות: הסקיל milestone-check']]],
+    ['מ4','מפגשים 10 ו-11','מודול 4: נגישות, אתיקה ואבטחה','מחכה למיקום חדש. האפשרויות: מפגש 12, או חצי יום במפגש 11. המצגונים מוכנים, ורק ה-kick והכרטיס ישתנו.',[
+      ['ethics5, wcag4, audit_run','move','ממפגש 10'],
+      ['clientside, c_inj, attack_demo, close4','move','ממפגש 11'],
+      ['התרגילים','fix','בדיקת הנגישות וצ׳ק ליסט האבטחה מקבלים מזהים חדשים, אחרי ש-ex10 ו-ex11 נכתבו מחדש'],
+      ['close10 הישן','cut','נבלע בתוך close4']]],
+    [12,'נתונים וכלים חיצוניים','נתונים ומחברים','AirTable מתחלף ב-Supabase, מחכה להחלטה. אם מודול 4 נכנס למפגש 12, המפגשים מכאן זזים באחד.',[
       ['c_json','fix','בלי XML. YAML רק כמה שנדרש לקריאת סקיל'],
       ['tables','fix','לשכתב ל-Supabase: מפתחות ויחס אחד לרבים'],
       ['connscope, ex12, close12','keep','']]],
-    [13,'סוכני AI','סוכני AI','בלי Snowflake.',[
+    [13,'סוכני AI','סוכני AI','בלי Snowflake, מחכה להחלטה.',[
       ['agent, agent_demo, ex13, close13','keep',''],
       ['agent_build','fix','ההדגמה: משימה מתוזמנת ב-Claude שקוראת מ-Supabase']]],
     [14,'צ׳אטבוט','צ׳אטבוט באתר','הכלי לפי ההחלטה.',[
       ['botform, botflow, bot_demo, ex14','keep',''],
-      ['close5 (הגרסה של מודול 5)','fix','שם חדש: close14'],
+      ['close14','keep','פוצל מ-close5 ב-7.10'],
       ['n8n_chat','new','Chat Trigger, AI Agent, והטמעה, אם נבחר n8n']]],
     [15,'ניתוח עסק','ניתוח עסק','רק לחבר.',[['ex15','keep',''],['proc_map, filters3','fix','יתומים. לחבר לכרטיס']]],
     [16,'n8n, יסודות','n8n, יסודות','רק לחבר.',[['ex16','keep',''],['n8n_canvas, n8n_first, triggers','fix','יתומים. לחבר לכרטיס']]],
-    [17,'n8n, נתונים ו-APIs','n8n, נתונים, API ו-Webhook','Supabase, וקשר לדף הנחיתה ממפגש 10.',[['c_hook, ex17','keep',''],['n8n_tables','fix','יתום, ולשכתב ל-Supabase'],['api_read','fix','יתום. לחבר לכרטיס']]],
+    [17,'n8n, נתונים ו-APIs','n8n, נתונים, API ו-Webhook','Supabase, וקשר לדף הנחיתה ממפגש 11.',[['c_hook, ex17','keep',''],['n8n_tables','fix','יתום, ולשכתב ל-Supabase'],['api_read','fix','יתום. לחבר לכרטיס']]],
     [18,'n8n עם AI','n8n עם AI','רק לחבר.',[['ex18','keep',''],['ai_in_flow, agent_tools, run_cost','fix','יתומים. לחבר לכרטיס']]],
     [19,'RAG וסגירת הפרויקט','RAG וסגירת הפרויקט','רק לחבר.',[['rag, ex19','keep',''],['rag_build, m6_close','fix','יתומים. לחבר לכרטיס']]],
     [20,'הצגת פרויקטי הגמר','הצגת פרויקטי הגמר','רק לחבר.',[['ex20','keep',''],['pitch_struct, after_course','fix','יתומים. לחבר לכרטיס']]]
