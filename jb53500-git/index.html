@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Git צעד אחר צעד לתלמידי קורס 53500: התקנה, טרמינל, config, init, add, commit, ופרסום ל-GitHub. ל-Windows ול-Mac.">
+<meta name="description" content="תרגיל התקנה בבית לתלמידי קורס 53500: התקנת Git, חשבון GitHub ו-GitHub Desktop. ל-Windows ול-Mac. ההמשך, מהטרמינל ועד הקומיט הראשון, בכיתה.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F7F5F0">
 <title>Git צעד אחר צעד · 53500</title>
@@ -105,12 +105,50 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 .prompt .pt{position:absolute;top:10px;inset-inline-start:14px;font-size:11.5px;font-weight:700;color:var(--b)}
 @media (max-width:520px){.idea{grid-template-columns:1fr}.body{padding-inline-start:0}}
 @media (min-width:1024px){.pick2{grid-template-columns:1fr 1fr}.part{border-radius:var(--r);margin-inline:0;padding:26px 28px 28px}}
+
+/* v3, 7.10.2026: home zone on top, class material folded */
+:root{--ok-soft:#E3F3E8;--bad-soft:#FBE6E6}
+:root[data-theme="dark"]{--ok-soft:rgba(111,219,147,.12);--bad-soft:rgba(255,138,138,.12)}
+.hero{padding-bottom:0}
+.trackH .step{border-inline-start:5px solid var(--acc)}
+.n .ic{width:19px;height:19px;vertical-align:0}
+.warn{font-size:14px;border:1.5px solid var(--bad);background:var(--bad-soft);border-radius:12px;padding:8px 12px;margin:8px 0}
+.warn b{color:var(--bad)}
+.donew{display:flex;gap:10px;align-items:flex-start;border:2px dashed var(--line);background:var(--surface);border-radius:var(--r);padding:12px 16px;margin:12px 0 4px;font-size:15px}
+.donew .ic{width:22px;height:22px;margin-top:2px;stroke-width:2.6;color:var(--soft)}
+.donew b{color:var(--ink)}
+.donew.on{border:2px solid var(--ok);background:var(--ok-soft)}
+.donew.on .ic,.donew.on b{color:var(--ok)}
+details.zone{margin-bottom:10px}
+details.zone>summary{list-style:none;cursor:pointer;position:relative;padding-inline-end:54px}
+details.zone>summary::-webkit-details-marker{display:none}
+details.zone>summary .pm{position:absolute;inset-inline-end:18px;top:50%;transform:translateY(-50%);font-family:"Poppins",sans-serif;font-style:normal;font-size:24px;font-weight:600;line-height:1;color:var(--acc)}
+details.zone.b>summary .pm{color:var(--b)}
+details.zone[open]>summary{margin-bottom:12px}
+details.zone .zp{font-size:14.5px;color:var(--soft);margin:0 2px 12px}
+details.zone .label{margin-top:22px}
+details.err.more>summary .pm{color:var(--soft)}
+details.err.more>div p{margin-bottom:8px}
+details.err.more>div ul{padding-inline-start:18px}
+.next{display:grid;gap:10px;margin-top:30px}
+.nx{position:relative;display:block;text-decoration:none;border-radius:var(--r);padding:14px 18px 16px;padding-inline-end:52px;border:2px solid var(--acc);background:var(--acc);color:var(--acc-ink)}
+.nx .pl{font-size:11.5px;font-weight:700;letter-spacing:.1em;opacity:.85}
+.nx b{display:block;font-size:19px;font-weight:800;line-height:1.25;margin:2px 0}
+.nx span{display:block;font-size:14px;opacity:.9}
+.nx>.ic{position:absolute;inset-inline-end:16px;top:50%;margin-top:-11px;width:22px;height:22px}
+.nx.home,.nx.last{background:var(--surface);color:var(--ink);border:1.5px dashed var(--line)}
+.nx.home .pl,.nx.last .pl{color:var(--acc)}
+.nx.home span:not(.pl),.nx.last span:not(.pl){color:var(--soft)}
+.foot2{margin-top:26px;text-align:center}
+footer{margin-top:10px}
+@media (max-width:520px){.osbar>span:first-child{display:none}}
+@media (min-width:1024px){.next{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 
 <div class="appbar">
-  <a class="rbtn" href="https://eyalg1980.github.io/simpla-lab/jb53500/" aria-label="לאתר הקורס"><svg class="ic" viewBox="0 0 24 24"><path d="m9.5 5 6.5 7-6.5 7"/></svg></a>
+  <a class="rbtn" href="../jb53500-home/" aria-label="לדף הראשי"><svg class="ic" viewBox="0 0 24 24"><path d="m9.5 5 6.5 7-6.5 7"/></svg></a>
   <div class="logo">Git <b>53500</b></div>
   <button class="rbtn" id="themeBtn" type="button" aria-label="מצב כהה"></button>
 </div>
@@ -118,50 +156,71 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <span>המחשב שלי:</span>
   <button class="os" type="button" data-os="win">Windows</button>
   <button class="os" type="button" data-os="mac">Mac</button>
-  <span class="prog" id="prog">א 0/11 · ב 0/6</span>
+  <span class="prog" id="prog"></span>
 </div>
 
 <header class="hero">
-  <span class="kicker">מפגש 9 · מיישם AI ואוטומציה</span>
-  <h1>Git צעד אחר צעד <b>מהטרמינל הראשון לקומיט הראשון</b></h1>
-  <p class="lead">שני חלקים. בחלק א עושים את זה פעם אחת ביד, כדי להבין מה קורה מתחת. בחלק ב Claude מקליד, ואתם קוראים ומאשרים.</p>
-  <div class="pick">בחרו למעלה Windows או Mac, והמדריך יציג רק את מה שרלוונטי למחשב שלכם.</div>
+  <span class="kicker">תרגיל התקנה בבית · 2 מתוך 4</span>
+  <h1>Git ו-GitHub <b>התקנה וחשבון</b></h1>
+  <p class="lead">כעשרים דקות. מתקינים Git ו-GitHub Desktop, ופותחים חשבון GitHub.</p>
 </header>
 
-<div class="idea">
-  <div><b>Git</b>מצלמה שמצלמת את התיקייה שלכם בכל פעם שתבקשו</div>
-  <div><b>Commit</b>צילום אחד, עם משפט שמסביר מה השתנה</div>
-  <div><b>GitHub</b>האלבום באינטרנט, שממנו האתר עולה לאוויר</div>
-</div>
+<section class="trackH" id="home">
+<div class="label">בבית · עושים עכשיו</div>
 
-<div class="pick2">
-  <a class="pcard" href="#partA"><span class="pl">חלק א</span><b>ביד, בטרמינל</b><span>בכיתה, פעם אחת. עשרה שלבים, מהטרמינל הראשון לקומיט הראשון</span></a>
-  <a class="pcard b" href="#partB"><span class="pl">חלק ב</span><b>עם Claude</b><span>הוא מקליד, אתם מאשרים. כולל התקנת Git, ושישה שלבים</span></a>
-</div>
-
-<div class="label">לפני המפגש, בבית</div>
-
-<article class="step" data-s="s0">
-  <div class="sh"><span class="n">0</span><h2>ארבע התקנות, כחצי שעה<small>לא מתקינים בכיתה. התקנה שנכשלת באמצע השיעור עולה בלוק שלם</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="h1">
+  <div class="sh"><span class="n"><svg class="ic" viewBox="0 0 24 24"><path d="M4 11.5 12 4l8 7.5M6.5 9.8V20h11V9.8M10 20v-5.5h4V20"/></svg></span><h2>מתקינים Git<small>ובודקים שהוא עובד</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
-    <ol>
-      <li data-for="win"><b>Git:</b> מורידים מ-<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git-scm.com</a>, ובהתקנה לוחצים Next בכל המסכים. ברירות המחדל מתאימות</li>
-      <li data-for="mac"><b>Git:</b> פותחים Terminal, מקלידים <code>git --version</code> ולוחצים Enter. אם Git לא מותקן, נפתח חלון שמציע להתקין Command Line Tools. לוחצים Install ומחכים</li>
-      <li><b>Obsidian:</b> מ-<a href="https://obsidian.md/download" target="_blank" rel="noopener">obsidian.md</a>. בו קוראים את קבצי ה-MD של הפרויקט</li>
-      <li><b>GitHub Desktop:</b> מ-<a href="https://desktop.github.com/" target="_blank" rel="noopener">desktop.github.com</a></li>
-      <li><b>חשבון GitHub:</b> ב-<a href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a>, עם הג׳ימייל של הקורס</li>
+    <ol data-for="win">
+      <li>מורידים את Git מ-<a href="https://git-scm.com/downloads/win" target="_blank" rel="noopener">git-scm.com</a></li>
+      <li>מריצים את הקובץ שירד, ולוחצים <b>Next</b> בכל המסכים. ברירות המחדל מתאימות</li>
+      <li>פותחים טרמינל <b>חדש</b>, מקלידים את השורה הזו ולוחצים Enter:</li>
     </ol>
+    <p data-for="mac">פותחים טרמינל, מקלידים את השורה הזו ולוחצים Enter:</p>
+    <div class="term"><button class="cp" type="button">העתק</button><pre>git --version</pre></div>
+    <p data-for="mac">אם נפתח חלון שמציע להתקין Command Line Tools, לוחצים <b>Install</b>, מחכים כמה דקות, ומריצים שוב.</p>
+    <p class="see"><b>אמור להופיע:</b> משהו כמו <code>git version 2.47.1</code>. המספר המדויק לא משנה.</p>
+    <p>עוד לא פתחתם טרמינל אף פעם? מתחילים ב<a href="../jb53500-terminal/">דף הטרמינל</a>.</p>
   </div>
 </article>
 
-<section class="trackA" id="partA">
-<div class="part">
-  <div class="pl">חלק א</div>
-  <h2>ביד, בטרמינל</h2>
-  <p>פעם אחת, בכיתה. מקלידים כל פקודה בעצמכם, כדי לדעת מה אתם מאשרים כש-Claude יקליד אותה בשבילכם.</p>
-</div>
+<article class="step" data-s="h2">
+  <div class="sh"><span class="n"><svg class="ic" viewBox="0 0 24 24"><path d="M4 11.5 12 4l8 7.5M6.5 9.8V20h11V9.8M10 20v-5.5h4V20"/></svg></span><h2>פותחים חשבון GitHub<small>עם הג׳ימייל של הקורס</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>נכנסים ל-<a href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a>, ונרשמים עם הג׳ימייל של הקורס</li>
+      <li>שם המשתמש באנגלית, בלי רווחים. הוא יופיע בכתובת של האתר שלכם</li>
+      <li>מאשרים את המייל ש-GitHub שולח</li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> אתם מחוברים ב-github.com, עם תמונת פרופיל בפינה העליונה.</p>
+  </div>
+</article>
 
-<div class="label">בכיתה: הטרמינל</div>
+<article class="step" data-s="h3">
+  <div class="sh"><span class="n"><svg class="ic" viewBox="0 0 24 24"><path d="M4 11.5 12 4l8 7.5M6.5 9.8V20h11V9.8M10 20v-5.5h4V20"/></svg></span><h2>מתקינים GitHub Desktop, ומתחברים<small>דרכו נעלה את הפרויקט לאינטרנט, בלי פקודות</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>מורידים מ-<a href="https://desktop.github.com/" target="_blank" rel="noopener">desktop.github.com</a>, ומתקינים</li>
+      <li>בפתיחה הראשונה לוחצים <b>Sign in to GitHub.com</b>, ומאשרים בדפדפן שנפתח</li>
+      <li>במסך <b>Configure Git</b> משאירים את הבחירה כמו שהיא, ולוחצים <b>Finish</b></li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> מסך הפתיחה של GitHub Desktop, מחובר לחשבון שלכם.</p>
+  </div>
+</article>
+
+<div class="donew" id="doneBox"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><div><b>סיימתם כש:</b> <code>git --version</code> מציג מספר גרסה, ו-GitHub Desktop פתוח ומחובר לחשבון שלכם.</div></div>
+</section>
+
+<div class="label">בכיתה · לא צריך להכין בבית</div>
+
+<details class="zone" id="partA">
+<summary class="pcard"><span class="pl">בכיתה · חלק א</span><b>ביד, בטרמינל</b><span>עשרה שלבים, מהטרמינל הראשון לקומיט הראשון</span><i class="pm" aria-hidden="true">+</i></summary>
+<div class="trackA">
+<p class="zp">מקלידים כל פקודה בעצמכם, פעם אחת. Git הוא מצלמה: כל commit הוא צילום של התיקייה, עם משפט שמסביר מה השתנה. GitHub הוא האלבום באינטרנט.</p>
+
+<div class="tip"><b>פותחים את המפגש בהתקנת Obsidian:</b> מ-<a href="https://obsidian.md/download" target="_blank" rel="noopener">obsidian.md</a>. בו קוראים את קובצי ה-MD של הפרויקט.</div>
+
+<div class="label">הטרמינל</div>
 
 <article class="step" data-s="s1">
   <div class="sh"><span class="n">1</span><h2>פותחים טרמינל</h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
@@ -185,7 +244,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <div class="body">
     <div class="term"><button class="cp" type="button">העתק</button><pre>pwd
 ls
-cd Documents
+cd Downloads
 cd ..</pre></div>
     <ul>
       <li><code>pwd</code> מראה באיזו תיקייה אתם עכשיו</li>
@@ -197,7 +256,7 @@ cd ..</pre></div>
   </div>
 </article>
 
-<div class="label">בכיתה: Git</div>
+<div class="label">Git</div>
 
 <article class="step" data-s="s4">
   <div class="sh"><span class="n">4</span><h2>מציגים את עצמכם ל-Git<small>פעם אחת בכל מחשב. Git מצמיד את השם הזה לכל צילום</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
@@ -267,7 +326,7 @@ git log --oneline</pre></div>
   </div>
 </article>
 
-<div class="label">בכיתה: לאינטרנט</div>
+<div class="label">לאינטרנט</div>
 
 <article class="step" data-s="s10">
   <div class="sh"><span class="n">10</span><h2>מעלים את הריפו ל-GitHub, בלי פקודות</h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
@@ -281,52 +340,27 @@ git log --oneline</pre></div>
     <div class="tip"><b>ציבורי או פרטי?</b> כדי שהאתר יעלה לאוויר בחינם ב-GitHub Pages, הריפו צריך להיות ציבורי. לכן אף פעם לא שמים בו סיסמה או מפתח API.</div>
   </div>
 </article>
-
-</section>
-
-<section class="trackB" id="partB">
-<div class="part b">
-  <div class="pl">חלק ב</div>
-  <h2>עם Claude: הוא מקליד, אתם מאשרים</h2>
-  <p>אותן פעולות בדיוק כמו בחלק א. Claude מציג כל פקודה לפני שהוא מריץ אותה, ואתם קוראים ומאשרים. מתאים מכאן והלאה, ולמי שנתקע בטרמינל.</p>
 </div>
+</details>
+
+<details class="zone b" id="partB">
+<summary class="pcard b"><span class="pl">בכיתה · חלק ב</span><b>עם Claude</b><span>הוא מקליד, אתם קוראים ומאשרים. חמישה שלבים</span><i class="pm" aria-hidden="true">+</i></summary>
+<div class="trackB">
+<p class="zp">אותן פעולות כמו בחלק א. Claude מציג כל פקודה לפני שהוא מריץ אותה. מתאים מכאן והלאה, ולמי שנתקע בטרמינל.</p>
 
 <article class="step" data-s="c1">
-  <div class="sh"><span class="n">ב1</span><h2>מה צריך<small>ארבעה דברים, פעם אחת</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">ב1</span><h2>מה צריך<small>שני דברים, פעם אחת</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li><b>Claude Desktop:</b> מורידים מ-<a href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a>, מתקינים ומתחברים</li>
       <li><b>תוכנית בתשלום:</b> הלשונית Code לא כלולה בתוכנית החינמית. צריך Pro ומעלה</li>
-      <li><b>Git מותקן במחשב:</b> Claude מריץ את Git, הוא לא מחליף אותו. ההתקנה בשלב הבא</li>
-      <li><b>חשבון GitHub:</b> ב-<a href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a>, עם הג׳ימייל של הקורס</li>
     </ol>
-  </div>
-</article>
-
-<article class="step" data-s="c2">
-  <div class="sh"><span class="n">ב2</span><h2>מתקינים Git<small data-for="win">ב-Windows, כחמש דקות</small><small data-for="mac">ב-Mac, כעשר דקות</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
-    <ol data-for="win">
-      <li>מורידים את Git for Windows מ-<a href="https://git-scm.com/downloads/win" target="_blank" rel="noopener">git-scm.com</a></li>
-      <li>מריצים את הקובץ שירד, ולוחצים <b>Next</b> בכל המסכים. ברירות המחדל מתאימות</li>
-      <li>סוגרים את Claude Desktop לגמרי ופותחים אותו מחדש, כדי שיזהה את Git</li>
-    </ol>
-    <ol data-for="mac">
-      <li>במחשבי Mac מגיע Git יחד עם כלי הפיתוח של אפל. לוחצים <b>Cmd</b> ו<b>רווח</b> יחד, מקלידים <b>Terminal</b> ולוחצים Enter</li>
-      <li>מדביקים את הפקודה הזו ולוחצים Enter:</li>
-    </ol>
-    <div class="term" data-for="mac"><button class="cp" type="button">העתק</button><pre>xcode-select --install</pre></div>
-    <ol data-for="mac" start="3">
-      <li>בחלון שנפתח לוחצים <b>Install</b>, ומחכים כמה דקות</li>
-      <li>אם כתוב שהכלים כבר מותקנים, Git כבר אצלכם. דרכים נוספות יש ב-<a href="https://git-scm.com/downloads/mac" target="_blank" rel="noopener">git-scm.com</a></li>
-      <li>סוגרים את Claude Desktop לגמרי ופותחים אותו מחדש</li>
-    </ol>
-    <div class="tip"><b>כבר התקנתם לפי שלב 0?</b> מדלגים לשלב הבא.</div>
+    <p>Git וחשבון GitHub כבר יש לכם, מהתרגיל בבית.</p>
   </div>
 </article>
 
 <article class="step" data-s="c3">
-  <div class="sh"><span class="n">ב3</span><h2>פותחים את תיקיית הפרויקט בלשונית Code</h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">ב2</span><h2>פותחים את תיקיית הפרויקט בלשונית Code</h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li>פותחים את Claude Desktop, ולוחצים על הלשונית <b>Code</b></li>
@@ -338,7 +372,7 @@ git log --oneline</pre></div>
 </article>
 
 <article class="step" data-s="c4">
-  <div class="sh"><span class="n">ב4</span><h2>מבקשים מ-Claude להכין את התיקייה<small>מחליף את שלבים 1 עד 8 של חלק א</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">ב3</span><h2>מבקשים מ-Claude להכין את התיקייה<small>מחליף את שלבים 1 עד 8 של חלק א</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <p>מעתיקים, מדביקים בתיבת ההודעה ושולחים:</p>
     <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>הכן את התיקייה הזו לעבודה עם Git.
@@ -353,7 +387,7 @@ git log --oneline</pre></div>
 </article>
 
 <article class="step" data-s="c5">
-  <div class="sh"><span class="n">ב5</span><h2>קוראים לפני שמאשרים<small>אלה הפקודות ש-Claude יציג, לפי הסדר</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">ב4</span><h2>קוראים לפני שמאשרים<small>אלה הפקודות ש-Claude יציג, לפי הסדר</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <table class="tbl">
       <thead><tr><th>הפקודה</th><th>מה היא עושה</th></tr></thead>
@@ -371,21 +405,23 @@ git log --oneline</pre></div>
 </article>
 
 <article class="step" data-s="c6">
-  <div class="sh"><span class="n">ב6</span><h2>בודקים, וממשיכים ככה<small>מכאן והלאה, משפט אחד בסוף כל שינוי</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">ב5</span><h2>בודקים, וממשיכים ככה<small>מכאן והלאה, משפט אחד בסוף כל שינוי</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <p>בודקים שהקומיט נוצר:</p>
     <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>הצג לי את היסטוריית הקומיטים, שורה אחת לכל קומיט.</pre></div>
     <p class="see"><b>אמור להופיע:</b> שורה אחת, עם קוד קצר ואחריו ההודעה.</p>
     <p>ובסוף כל שינוי שבדקתם ועובד:</p>
     <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>בדקתי, הכל עובד. צור קומיט עם הודעה ברורה על מה שהשתנה.</pre></div>
-    <p><b>לאינטרנט:</b> בדיוק כמו בחלק א, שלב 10. פותחים את GitHub Desktop, בוחרים Add local repository, ולוחצים Publish repository.</p>
+    <p><b>לאינטרנט:</b> כמו בחלק א, שלב 10. פותחים את GitHub Desktop, בוחרים Add local repository, ולוחצים Publish repository.</p>
   </div>
 </article>
-</section>
+</div>
+</details>
 
-<div class="label">כשמשהו לא עובד, בשני החלקים</div>
+<div class="label">כשמשהו לא עובד</div>
 
 <details class="err" data-for="win"><summary><span class="pm">+</span><u>'git' is not recognized</u></summary><div>סוגרים את הטרמינל ופותחים חדש. הטרמינל שהיה פתוח בזמן ההתקנה לא מכיר את Git. אם זה עדיין קורה, מתקינים שוב עם ברירות המחדל.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>GitHub Desktop לא ביקש ממני להתחבר</u></summary><div><span data-for="win">בתפריט העליון בוחרים <b>File</b>, ואז <b>Options</b>, ואז <b>Accounts</b>.</span><span data-for="mac">בתפריט העליון בוחרים <b>GitHub Desktop</b>, ואז <b>Settings</b> או <b>Preferences</b>, ואז <b>Accounts</b>.</span> לוחצים <b>Sign in</b> ליד GitHub.com, ומאשרים בדפדפן.</div></details>
 <details class="err" data-for="mac"><summary><span class="pm">+</span><u>xcrun: error: invalid active developer path</u></summary><div>חסרים כלי הפיתוח של אפל. מריצים <code>xcode-select --install</code>, מאשרים בחלון שנפתח, ומחכים כמה דקות.</div></details>
 <details class="err"><summary><span class="pm">+</span><u>Author identity unknown, או Please tell me who you are</u></summary><div>דילגתם על שלב 4. מריצים את שתי פקודות ה-config, ומנסים שוב את ה-commit. בחלק ב: כותבים ל-Claude את השם והמייל, ומבקשים שיגדיר אותם.</div></details>
 <details class="err"><summary><span class="pm">+</span><u>Claude אומר ש-Git לא מותקן, אבל התקנתי</u></summary><div>Claude Desktop היה פתוח בזמן ההתקנה, ולכן הוא עדיין לא מכיר את Git. סוגרים אותו לגמרי, פותחים מחדש, ושולחים שוב את הבקשה.</div></details>
@@ -395,7 +431,9 @@ git log --oneline</pre></div>
 <details class="err"><summary><span class="pm">+</span><u>nothing to commit, working tree clean</u></summary><div>זו לא שגיאה. אין שום שינוי מאז הצילום האחרון, אז אין מה לצלם.</div></details>
 <details class="err"><summary><span class="pm">+</span><u>שמות קבצים בעברית נראים כמו ג׳יבריש</u></summary><div>זה רק באופן שבו הטרמינל מציג אותם. הקבצים בסדר. בכל זאת, שמות קבצים של הפרויקט באנגלית ובלי רווחים חוסכים תקלות בהמשך, במיוחד כשהאתר עולה לשרת.</div></details>
 
-<div class="label">דף הסיכום, לשני החלקים</div>
+<div class="label">נספח</div>
+
+<details class="err more"><summary><span class="pm">+</span><u>דף סיכום: שש הפקודות</u></summary><div>
 <table class="tbl">
   <thead><tr><th>פקודה</th><th>מה היא עושה</th></tr></thead>
   <tbody>
@@ -407,34 +445,62 @@ git log --oneline</pre></div>
     <tr><td><code>git config</code></td><td>פעם אחת במחשב: מי אתם</td></tr>
   </tbody>
 </table>
+</div></details>
 
-<div class="final">
-  <h2>ומכאן והלאה</h2>
-  <p>עובדים לפי חלק ב. בסוף כל Milestone כותבים ל-Claude: "הכל עובד. צור קומיט עם הודעה ברורה על מה שנבנה." הוא מריץ בדיוק את מה שהרצתם ביד בחלק א, ועכשיו אתם יודעים מה אתם מאשרים.</p>
-  <button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button>
-</div>
+<nav class="next" aria-label="לאן ממשיכים">
+  <a class="nx" href="../jb53500-supabase/"><span class="pl">התרגיל הבא · 3 מתוך 4</span><b>Supabase</b><span>חשבון ופרויקט</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
+  <a class="nx home" href="../jb53500-home/"><span class="pl">53500</span><b>הדף הראשי</b><span>כל התרגילים, הקבצים והמצגות</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
+</nav>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v2 · 5.10.2026</footer>
+<div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v3 · 7.10.2026</footer>
 
 <script>
 (function(){
   'use strict';
-  var KEY='jbgit.v1',S={theme:null,os:null,done:{}};
+  var KEY='jbgit.v1',S={theme:null,os:null,done:{},open:{}};
   try{var s=JSON.parse(localStorage.getItem(KEY)||'{}');for(var k in s)S[k]=s[k];}catch(e){}
+  if(!S.done||typeof S.done!=='object')S.done={};
+  if(!S.open||typeof S.open!=='object')S.open={};
   function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
   var root=document.documentElement,tb=document.getElementById('themeBtn');
   var SUN='<svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>',MOON='<svg class="ic" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>';
   function paint(){var d=root.getAttribute('data-theme')==='dark';tb.innerHTML=d?SUN:MOON;tb.setAttribute('aria-label',d?'מצב בהיר':'מצב כהה');}
   tb.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);S.theme=n;save();paint();});paint();
   var osb=[].slice.call(document.querySelectorAll('.os'));
-  function paintOs(){osb.forEach(function(b){b.setAttribute('aria-pressed',String(S.os===b.dataset.os));});if(S.os)root.setAttribute('data-os',S.os);}
-  if(!S.os){var mac=/Mac|iPhone|iPad/.test(navigator.platform||navigator.userAgent||'');S.os=mac?'mac':'win';}
-  osb.forEach(function(b){b.addEventListener('click',function(){S.os=b.dataset.os;save();paintOs();});});paintOs();
-  var steps=[].slice.call(document.querySelectorAll('.step'));
-  function paintSteps(){var a=0,b=0,ta=0,tb=0;steps.forEach(function(st){var on=!!S.done[st.dataset.s],isB=!!st.closest('.trackB');st.classList.toggle('done',on);st.querySelector('.chk').setAttribute('aria-checked',String(on));if(isB){tb++;if(on)b++;}else{ta++;if(on)a++;}});document.getElementById('prog').textContent='א '+a+'/'+ta+' · ב '+b+'/'+tb;}
-  steps.forEach(function(st){st.querySelector('.chk').addEventListener('click',function(){var id=st.dataset.s;if(S.done[id])delete S.done[id];else S.done[id]=1;save();paintSteps();});});paintSteps();
-  document.getElementById('resetBtn').addEventListener('click',function(){S.done={};save();paintSteps();});
-  document.querySelectorAll('details.err').forEach(function(d){d.addEventListener('toggle',function(){d.querySelector('.pm').textContent=d.open?'-':'+';});});
+  if(osb.length){
+    var paintOs=function(){osb.forEach(function(b){b.setAttribute('aria-pressed',String(S.os===b.dataset.os));});if(S.os)root.setAttribute('data-os',S.os);};
+    if(!S.os){var mac=/Mac|iPhone|iPad/.test(navigator.platform||navigator.userAgent||'');S.os=mac?'mac':'win';}
+    osb.forEach(function(b){b.addEventListener('click',function(){S.os=b.dataset.os;save();paintOs();});});paintOs();
+  }
+  var steps=[].slice.call(document.querySelectorAll('.step[data-s]')),prog=document.getElementById('prog'),box=document.getElementById('doneBox');
+  function paintSteps(){
+    var h=0,th=0;
+    steps.forEach(function(st){var on=!!S.done[st.dataset.s];st.classList.toggle('done',on);st.querySelector('.chk').setAttribute('aria-checked',String(on));if(st.closest('.trackH')){th++;if(on)h++;}});
+    S.home=[h,th];
+    prog.textContent=h===th?'בבית: הושלם':'בבית '+h+'/'+th;
+    if(box)box.classList.toggle('on',h===th);
+  }
+  steps.forEach(function(st){st.querySelector('.chk').addEventListener('click',function(){var id=st.dataset.s;if(S.done[id])delete S.done[id];else S.done[id]=1;paintSteps();save();});});
+  paintSteps();save();
+  document.getElementById('resetBtn').addEventListener('click',function(){S.done={};paintSteps();save();});
+  var zones=[].slice.call(document.querySelectorAll('details.zone'));
+  zones.forEach(function(z){if(S.open[z.id])z.open=true;});
+  document.querySelectorAll('details').forEach(function(d){
+    var pm=d.querySelector('summary .pm');
+    function mark(){if(pm)pm.textContent=d.open?'-':'+';}
+    mark();
+    d.addEventListener('toggle',function(){mark();if(d.classList.contains('zone')){if(d.open)S.open[d.id]=1;else delete S.open[d.id];save();}});
+  });
+  function reveal(id){
+    var t=id&&document.getElementById(id);if(!t)return null;
+    var d=t.tagName==='DETAILS'?t:t.closest('details');
+    while(d){d.open=true;d=d.parentElement?d.parentElement.closest('details'):null;}
+    return t;
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){reveal(a.getAttribute('href').slice(1));});});
+  window.addEventListener('hashchange',function(){reveal(location.hash.slice(1));});
+  if(location.hash.length>1){var t0=reveal(location.hash.slice(1));if(t0)setTimeout(function(){t0.scrollIntoView();},60);}
   function fallback(t){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
   document.querySelectorAll('.term .cp,.prompt .cp').forEach(function(b){b.addEventListener('click',function(){var t=b.parentNode.querySelector('pre').innerText;var ok=function(){b.textContent='הועתק';b.classList.add('ok');setTimeout(function(){b.textContent='העתק';b.classList.remove('ok');},1500);};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,function(){fallback(t);ok();});else{fallback(t);ok();}});});
 })();

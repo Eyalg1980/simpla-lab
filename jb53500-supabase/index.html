@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Supabase צעד אחר צעד לתלמידי קורס 53500: פרויקט, טבלה, מפתחות, שלושת המנעולים, ובנייה עם Claude דרך המחבר.">
+<meta name="description" content="תרגיל התקנה בבית לתלמידי קורס 53500: חשבון, ארגון ופרויקט ב-Supabase. ההמשך, מהטבלה הראשונה ועד אתר שקורא ממנה, בכיתה.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F7F5F0">
 <title>Supabase צעד אחר צעד · 53500</title>
@@ -127,49 +127,71 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 .res th,.res td{border:1px solid var(--line);padding:4px 8px;text-align:start}
 @media (max-width:520px){.idea{grid-template-columns:1fr}.body{padding-inline-start:0}}
 @media (min-width:1024px){.pick2{grid-template-columns:1fr 1fr}.part{border-radius:var(--r);margin-inline:0;padding:26px 28px 28px}.locks{grid-template-columns:repeat(3,1fr)}}
+
+/* v3, 7.10.2026: home zone on top, class material folded */
+:root{--ok-soft:#E3F3E8;--bad-soft:#FBE6E6}
+:root[data-theme="dark"]{--ok-soft:rgba(111,219,147,.12);--bad-soft:rgba(255,138,138,.12)}
+.hero{padding-bottom:0}
+.trackH .step{border-inline-start:5px solid var(--acc)}
+.n .ic{width:19px;height:19px;vertical-align:0}
+.warn{font-size:14px;border:1.5px solid var(--bad);background:var(--bad-soft);border-radius:12px;padding:8px 12px;margin:8px 0}
+.warn b{color:var(--bad)}
+.donew{display:flex;gap:10px;align-items:flex-start;border:2px dashed var(--line);background:var(--surface);border-radius:var(--r);padding:12px 16px;margin:12px 0 4px;font-size:15px}
+.donew .ic{width:22px;height:22px;margin-top:2px;stroke-width:2.6;color:var(--soft)}
+.donew b{color:var(--ink)}
+.donew.on{border:2px solid var(--ok);background:var(--ok-soft)}
+.donew.on .ic,.donew.on b{color:var(--ok)}
+details.zone{margin-bottom:10px}
+details.zone>summary{list-style:none;cursor:pointer;position:relative;padding-inline-end:54px}
+details.zone>summary::-webkit-details-marker{display:none}
+details.zone>summary .pm{position:absolute;inset-inline-end:18px;top:50%;transform:translateY(-50%);font-family:"Poppins",sans-serif;font-style:normal;font-size:24px;font-weight:600;line-height:1;color:var(--acc)}
+details.zone.b>summary .pm{color:var(--b)}
+details.zone[open]>summary{margin-bottom:12px}
+details.zone .zp{font-size:14.5px;color:var(--soft);margin:0 2px 12px}
+details.zone .label{margin-top:22px}
+details.err.more>summary .pm{color:var(--soft)}
+details.err.more>div p{margin-bottom:8px}
+details.err.more>div ul{padding-inline-start:18px}
+.next{display:grid;gap:10px;margin-top:30px}
+.nx{position:relative;display:block;text-decoration:none;border-radius:var(--r);padding:14px 18px 16px;padding-inline-end:52px;border:2px solid var(--acc);background:var(--acc);color:var(--acc-ink)}
+.nx .pl{font-size:11.5px;font-weight:700;letter-spacing:.1em;opacity:.85}
+.nx b{display:block;font-size:19px;font-weight:800;line-height:1.25;margin:2px 0}
+.nx span{display:block;font-size:14px;opacity:.9}
+.nx>.ic{position:absolute;inset-inline-end:16px;top:50%;margin-top:-11px;width:22px;height:22px}
+.nx.home,.nx.last{background:var(--surface);color:var(--ink);border:1.5px dashed var(--line)}
+.nx.home .pl,.nx.last .pl{color:var(--acc)}
+.nx.home span:not(.pl),.nx.last span:not(.pl){color:var(--soft)}
+.foot2{margin-top:26px;text-align:center}
+footer{margin-top:10px}
+@media (max-width:520px){.osbar>span:first-child{display:none}}
+@media (min-width:1024px){.next{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 
 <div class="appbar">
-  <a class="rbtn" href="https://eyalg1980.github.io/simpla-lab/jb53500/" aria-label="לאתר הקורס"><svg class="ic" viewBox="0 0 24 24"><path d="m9.5 5 6.5 7-6.5 7"/></svg></a>
+  <a class="rbtn" href="../jb53500-home/" aria-label="לדף הראשי"><svg class="ic" viewBox="0 0 24 24"><path d="m9.5 5 6.5 7-6.5 7"/></svg></a>
   <div class="logo">Supabase <b>53500</b></div>
   <button class="rbtn" id="themeBtn" type="button" aria-label="מצב כהה"></button>
 </div>
 <div class="osbar">
+  <a class="jump" href="#home">בבית</a>
   <a class="jump" href="#partA">חלק א</a>
   <a class="jump" href="#partB">חלק ב</a>
-  <a class="jump" href="#check">בודק</a>
-  <span class="prog" id="prog">א 0/6 · ב 0/6</span>
+  <span class="prog" id="prog"></span>
 </div>
 
 <header class="hero">
-  <span class="kicker">מודול 3 · מיישם AI ואוטומציה</span>
-  <h1>Supabase צעד אחר צעד <b>מהטבלה הראשונה לאתר שקורא ממנה</b></h1>
-  <p class="lead">שני חלקים. בחלק א מקימים פרויקט וטבלה ביד, כדי להבין מה Claude עומד לבנות. בחלק ב Claude בונה את בסיס הנתונים של המוצר, ואתם קוראים ומאשרים.</p>
-  <div class="fresh">מעודכן ל-5.10.2026, לפי התיעוד הרשמי של Supabase. הדשבורד משתנה מדי פעם, אז שם של כפתור יכול לזוז. העיקרון נשאר.</div>
+  <span class="kicker">תרגיל התקנה בבית · 3 מתוך 4</span>
+  <h1>Supabase <b>חשבון ופרויקט</b></h1>
+  <p class="lead">כעשר דקות. פותחים חשבון, ארגון ופרויקט אחד.</p>
 </header>
 
-<div class="idea">
-  <div><b>פרויקט</b>בסיס נתונים אחד למוצר אחד, עם כתובת משלו באינטרנט</div>
-  <div><b>טבלה</b>כמו גיליון: עמודות קבועות, ושורה לכל פריט</div>
-  <div><b>שלושה מנעולים</b>Grant,‏ RLS ו-Policy. עד שפותחים את שלושתם, האתר לא רואה כלום</div>
-</div>
-
-<div class="pick2">
-  <a class="pcard" href="#partA"><span class="pl">חלק א</span><b>ביד, בדשבורד</b><span>פעם אחת, כחצי שעה. פרויקט, טבלה, מפתחות, ושלושת המנעולים</span></a>
-  <a class="pcard b" href="#partB"><span class="pl">חלק ב</span><b>עם Claude</b><span>הוא בונה מתוך מסמך הארכיטקטורה, אתם קוראים ומאשרים</span></a>
-</div>
-
-<section class="trackA" id="partA">
-<div class="part">
-  <div class="pl">חלק א</div>
-  <h2>ביד, בדשבורד</h2>
-  <p>פעם אחת. עושים כל צעד בעצמכם, כדי לדעת מה אתם מאשרים כש-Claude יעשה אותו בשבילכם.</p>
-</div>
+<section class="trackH" id="home">
+<div class="label">בבית · עושים עכשיו</div>
 
 <article class="step" data-s="a1">
-  <div class="sh"><span class="n">1</span><h2>פותחים חשבון, ארגון ופרויקט<small>פרויקט אחד למוצר שלכם</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n"><svg class="ic" viewBox="0 0 24 24"><path d="M4 11.5 12 4l8 7.5M6.5 9.8V20h11V9.8M10 20v-5.5h4V20"/></svg></span><h2>פותחים חשבון, ארגון ופרויקט<small>פרויקט אחד, למוצר שלכם</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li>נכנסים ל-<a href="https://supabase.com/dashboard" target="_blank" rel="noopener">supabase.com/dashboard</a>, ונרשמים עם הג׳ימייל של הקורס</li>
@@ -177,10 +199,21 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
       <li>יוצרים <b>פרויקט חדש</b>: שם באנגלית, סיסמה לבסיס הנתונים, ואזור באירופה</li>
       <li>את הסיסמה שומרים במקום בטוח. לא בתיקיית המוצר, ולא בצ׳אט</li>
     </ol>
-    <div class="tip"><b>למה ארגון נפרד לקורס:</b> בחלק ב Claude מקבל גישה לכל הפרויקטים שבארגון שתבחרו. ארגון שיש בו רק את פרויקט הקורס שומר על כל השאר בחוץ.</div>
+    <div class="tip"><b>למה ארגון נפרד לקורס:</b> בכיתה Claude יקבל גישה לכל הפרויקטים שבארגון שתבחרו. ארגון שיש בו רק את פרויקט הקורס שומר על כל השאר בחוץ.</div>
     <p class="see"><b>אמור להופיע:</b> אחרי דקה או שתיים, מסך הבית של הפרויקט.</p>
+    <div class="tip"><b>פרויקט חינמי נרדם:</b> אחרי כשבוע בלי פעילות הוא מושהה. אם זה קרה עד הכיתה, נכנסים לדשבורד ולוחצים <b>Resume project</b>.</div>
   </div>
 </article>
+
+<div class="donew" id="doneBox"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><div><b>סיימתם כש:</b> מסך הבית של הפרויקט נפתח, והסיסמה של בסיס הנתונים שמורה אצלכם.</div></div>
+</section>
+
+<div class="label">בכיתה · לא צריך להכין בבית</div>
+
+<details class="zone" id="partA">
+<summary class="pcard"><span class="pl">בכיתה · חלק א</span><b>ביד, בדשבורד</b><span>שלבים 2 עד 6: טבלה, מפתחות, ושלושת המנעולים</span><i class="pm" aria-hidden="true">+</i></summary>
+<div class="trackA">
+<p class="zp">עושים כל צעד בעצמכם, פעם אחת, כדי לדעת מה אתם מאשרים כש-Claude יעשה אותו בשבילכם.</p>
 
 <article class="step" data-s="a2">
   <div class="sh"><span class="n">2</span><h2>יוצרים טבלת תרגול<small>טבלה אחת, שתי עמודות</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
@@ -262,17 +295,15 @@ using (true);</pre></div>
     <p>בעברית: לגולש אנונימי (<code>anon</code>) מותר לקרוא (<code>select</code>) את כל השורות (<code>true</code>). לא לכתוב, לא לשנות, ולא למחוק.</p>
     <p>חוזרים ל<a href="#check">בודק שבשלב 5</a> ולוחצים שוב.</p>
     <p class="see"><b>אמור להופיע:</b> חמש השורות שהכנסתם.</p>
-    <div class="tip"><b>למה מדריכים ישנים לא מזכירים את ה-grant:</b> עד 2026 כל טבלה חדשה נחשפה לאתר אוטומטית. מ-30.5.2026 זה כבר לא כך בפרויקטים חדשים, ומ-30.10.2026 גם בפרויקטים קיימים.</div>
   </div>
 </article>
-</section>
-
-<section class="trackB" id="partB">
-<div class="part b">
-  <div class="pl">חלק ב</div>
-  <h2>עם Claude: הוא בונה, אתם מאשרים</h2>
-  <p>אותם צעדים בדיוק כמו בחלק א, הפעם על הטבלאות האמיתיות של המוצר. Claude מציג כל פעולה לפני שהיא רצה, ואתם קוראים ומאשרים.</p>
 </div>
+</details>
+
+<details class="zone b" id="partB">
+<summary class="pcard b"><span class="pl">בכיתה · חלק ב</span><b>עם Claude</b><span>הוא בונה מתוך מסמך הארכיטקטורה, אתם קוראים ומאשרים</span><i class="pm" aria-hidden="true">+</i></summary>
+<div class="trackB">
+<p class="zp">אותם צעדים, הפעם על הטבלאות האמיתיות של המוצר. Claude מציג כל פעולה לפני שהיא רצה.</p>
 
 <article class="step" data-s="b1">
   <div class="sh"><span class="n">ב1</span><h2>מה צריך<small>ארבעה דברים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
@@ -280,7 +311,7 @@ using (true);</pre></div>
     <ol>
       <li><b>Claude Desktop ותוכנית בתשלום:</b> הלשונית Code לא כלולה בתוכנית החינמית</li>
       <li><b>תיקיית המוצר:</b> עם <code>ARCHITECTURE.md</code>,‏ <code>PRD.md</code> ו-<code>course-stack.md</code></li>
-      <li><b>הפרויקט מחלק א:</b> בארגון של הקורס ב-Supabase</li>
+      <li><b>הפרויקט שפתחתם בבית:</b> בארגון של הקורס ב-Supabase</li>
       <li><b>בלי נתונים אמיתיים:</b> בפרויקט יש רק נתוני דוגמה. לא לקוחות, לא טלפונים, לא מיילים</li>
     </ol>
   </div>
@@ -376,7 +407,8 @@ using (true);</pre></div>
 &lt;/script&gt;</pre></div>
   </div>
 </article>
-</section>
+</div>
+</details>
 
 <div class="label">כשמשהו לא עובד</div>
 
@@ -391,7 +423,9 @@ using (true);</pre></div>
 <details class="err"><summary><span class="pm">+</span><u>Claude מבקש את המפתח הסודי, או את סיסמת בסיס הנתונים</u></summary><div>לא נותנים. המחבר כבר מחובר לחשבון שלכם, ו-Claude לא צריך אף אחד מהם. כותבים לו: "עבוד רק דרך המחבר, ובלי המפתח הסודי."</div></details>
 <details class="err"><summary><span class="pm">+</span><u>הדבקתי בטעות את המפתח הסודי בקוד או בצ׳אט</u></summary><div>מחליפים אותו מיד: בדשבורד, ב-Settings ואז API Keys, יוצרים מפתח סודי חדש ומוחקים את הישן. מפתח שנחשף פעם אחת נחשב חשוף.</div></details>
 
-<div class="label">דף הסיכום</div>
+<div class="label">נספח</div>
+
+<details class="err more"><summary><span class="pm">+</span><u>דף סיכום: שמונה מושגים</u></summary><div>
 <div class="tblwrap"><table class="tbl">
   <thead><tr><th>המושג</th><th>מה הוא</th></tr></thead>
   <tbody>
@@ -405,31 +439,62 @@ using (true);</pre></div>
     <tr><td>Migration</td><td>שינוי במבנה הטבלאות, שנשמר בהיסטוריה של הפרויקט</td></tr>
   </tbody>
 </table></div>
+</div></details>
 
-<div class="final">
-  <h2>ומה עם ה-AI</h2>
-  <p>מפתח של מודל הוא סוד, כמו המפתח הסודי של Supabase. הוא לא נכנס לקוד של האתר. הוא נשמר כסוד בצד השרת, בפונקציה ב-Vercel, והדפדפן פונה רק לכתובת של הפונקציה.</p>
-  <p>לזה יש מדריך נפרד: <a href="../jb53500-vercel/">Vercel צעד אחר צעד</a>.</p>
-  <button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button>
-</div>
+<nav class="next" aria-label="לאן ממשיכים">
+  <a class="nx" href="../jb53500-vercel/"><span class="pl">התרגיל הבא · 4 מתוך 4</span><b>Vercel</b><span>חשבון ומפתח</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
+  <a class="nx home" href="../jb53500-home/"><span class="pl">53500</span><b>הדף הראשי</b><span>כל התרגילים, הקבצים והמצגות</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
+</nav>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v1.1 · 7.10.2026</footer>
+<div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v2 · 7.10.2026</footer>
 
 <script>
 (function(){
   'use strict';
-  var KEY='jbsupa.v1',S={theme:null,done:{}};
+  var KEY='jbsupa.v1',S={theme:null,os:null,done:{},open:{}};
   try{var s=JSON.parse(localStorage.getItem(KEY)||'{}');for(var k in s)S[k]=s[k];}catch(e){}
+  if(!S.done||typeof S.done!=='object')S.done={};
+  if(!S.open||typeof S.open!=='object')S.open={};
   function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
   var root=document.documentElement,tb=document.getElementById('themeBtn');
   var SUN='<svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>',MOON='<svg class="ic" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>';
   function paint(){var d=root.getAttribute('data-theme')==='dark';tb.innerHTML=d?SUN:MOON;tb.setAttribute('aria-label',d?'מצב בהיר':'מצב כהה');}
   tb.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);S.theme=n;save();paint();});paint();
-  var steps=[].slice.call(document.querySelectorAll('.step'));
-  function paintSteps(){var a=0,b=0,ta=0,tb2=0;steps.forEach(function(st){var on=!!S.done[st.dataset.s],isB=!!st.closest('.trackB');st.classList.toggle('done',on);st.querySelector('.chk').setAttribute('aria-checked',String(on));if(isB){tb2++;if(on)b++;}else{ta++;if(on)a++;}});document.getElementById('prog').textContent='א '+a+'/'+ta+' · ב '+b+'/'+tb2;}
-  steps.forEach(function(st){st.querySelector('.chk').addEventListener('click',function(){var id=st.dataset.s;if(S.done[id])delete S.done[id];else S.done[id]=1;save();paintSteps();});});paintSteps();
-  document.getElementById('resetBtn').addEventListener('click',function(){S.done={};save();paintSteps();});
-  document.querySelectorAll('details.err').forEach(function(d){d.addEventListener('toggle',function(){d.querySelector('.pm').textContent=d.open?'-':'+';});});
+  var osb=[].slice.call(document.querySelectorAll('.os'));
+  if(osb.length){
+    var paintOs=function(){osb.forEach(function(b){b.setAttribute('aria-pressed',String(S.os===b.dataset.os));});if(S.os)root.setAttribute('data-os',S.os);};
+    if(!S.os){var mac=/Mac|iPhone|iPad/.test(navigator.platform||navigator.userAgent||'');S.os=mac?'mac':'win';}
+    osb.forEach(function(b){b.addEventListener('click',function(){S.os=b.dataset.os;save();paintOs();});});paintOs();
+  }
+  var steps=[].slice.call(document.querySelectorAll('.step[data-s]')),prog=document.getElementById('prog'),box=document.getElementById('doneBox');
+  function paintSteps(){
+    var h=0,th=0;
+    steps.forEach(function(st){var on=!!S.done[st.dataset.s];st.classList.toggle('done',on);st.querySelector('.chk').setAttribute('aria-checked',String(on));if(st.closest('.trackH')){th++;if(on)h++;}});
+    S.home=[h,th];
+    prog.textContent=h===th?'בבית: הושלם':'בבית '+h+'/'+th;
+    if(box)box.classList.toggle('on',h===th);
+  }
+  steps.forEach(function(st){st.querySelector('.chk').addEventListener('click',function(){var id=st.dataset.s;if(S.done[id])delete S.done[id];else S.done[id]=1;paintSteps();save();});});
+  paintSteps();save();
+  document.getElementById('resetBtn').addEventListener('click',function(){S.done={};paintSteps();save();});
+  var zones=[].slice.call(document.querySelectorAll('details.zone'));
+  zones.forEach(function(z){if(S.open[z.id])z.open=true;});
+  document.querySelectorAll('details').forEach(function(d){
+    var pm=d.querySelector('summary .pm');
+    function mark(){if(pm)pm.textContent=d.open?'-':'+';}
+    mark();
+    d.addEventListener('toggle',function(){mark();if(d.classList.contains('zone')){if(d.open)S.open[d.id]=1;else delete S.open[d.id];save();}});
+  });
+  function reveal(id){
+    var t=id&&document.getElementById(id);if(!t)return null;
+    var d=t.tagName==='DETAILS'?t:t.closest('details');
+    while(d){d.open=true;d=d.parentElement?d.parentElement.closest('details'):null;}
+    return t;
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){reveal(a.getAttribute('href').slice(1));});});
+  window.addEventListener('hashchange',function(){reveal(location.hash.slice(1));});
+  if(location.hash.length>1){var t0=reveal(location.hash.slice(1));if(t0)setTimeout(function(){t0.scrollIntoView();},60);}
   function fallback(t){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
   document.querySelectorAll('.term .cp,.prompt .cp').forEach(function(b){b.addEventListener('click',function(){var t=b.parentNode.querySelector('pre').innerText;var ok=function(){b.textContent='הועתק';b.classList.add('ok');setTimeout(function(){b.textContent='העתק';b.classList.remove('ok');},1500);};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,function(){fallback(t);ok();});else{fallback(t);ok();}});});
 
