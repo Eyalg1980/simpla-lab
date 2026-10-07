@@ -78,6 +78,11 @@ details.pre0>summary::-webkit-details-marker{display:none}
 details.pre0>summary .pm{font-family:"Poppins",sans-serif;color:var(--acc);width:12px}
 details.pre0>summary u{text-underline-offset:3px}
 details.pre0>div{padding:0 14px 12px;font-size:14.5px}
+details.pre0.apx{background:transparent;border-style:dashed;color:var(--soft)}
+details.pre0.apx>summary{font-weight:500}
+details.pre0.apx>summary .pm{color:var(--soft)}
+details.pre0.apx .prompt pre{background:transparent;color:var(--soft)}
+details.pre0.apx .prompt .pt{color:var(--soft)}
 .dl{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:14px;text-decoration:none;padding:8px 16px;border-radius:999px;background:var(--acc);color:var(--acc-ink)}
 .final{margin-top:8px;border:2px solid var(--acc);border-radius:var(--r);padding:16px 18px;background:var(--surface)}
 .final h2{font-size:18px;font-weight:700;margin-bottom:6px}
@@ -118,7 +123,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <h2>מכינים את תיקיית המוצר, לפני מפגש 8</h2>
   <p>במפגש 7 הגענו עד ה-PRD. כדי שבמפגש 8 נתחיל ישר מהמסמכים, כל אחד מגיע עם תיקיית מוצר מוכנה ועם פרויקט ב-Claude. חמישה צעדים. כל מה שצריך נמצא בדף הזה, תחת "לפני שמתחילים".</p>
   <ol>
-    <li><b>שם הקובץ.</b> שנו את שם הקובץ של מסמך עשרת ההיבטים ל-<code>product-10-definitions.md</code>, ושימו אותו בתיקיית המוצר. מעכשיו כל הפרומפטים, וגם אנחנו בכיתה, קוראים לו בשם הזה. אם המסמך שלכם ב-Word, בקשו מ-Claude להמיר אותו ל-Markdown בלי לשנות את התוכן.</li>
+    <li><b>שם הקובץ.</b> שנו את שם הקובץ של מסמך עשרת ההיבטים ל-<code>product-10-definitions.md</code>, ושימו אותו בתיקיית המוצר. מעכשיו כל הפרומפטים, וגם אנחנו בכיתה, קוראים לו בשם הזה. אם המסמך שלכם ב-Word, בקשו מ-Claude להמיר אותו ל-Markdown בלי לשנות את התוכן. מי שעוד אין לו מסמך מוצא את הפרומפט שיוצר אותו <a href="#pre-apx">בנספח</a>.</li>
     <li><b>סטאק הקורס.</b> הורידו את הקובץ <code>course-stack.md</code>, ושימו אותו באותה תיקייה, בלי לשנות את השם. <a class="dl sm" href="course-stack.md" download="course-stack.md"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> הורדה</a></li>
     <li><b>פרויקט.</b> פתחו ב-Claude פרויקט למוצר שלכם, והדביקו ב-Instructions של הפרויקט את <a href="#pre-inst">הטקסט שמופיע למטה</a>. מי שיכול מחבר את הפרויקט לתיקיית המוצר. מי שלא, מעלה אליו את הקבצים.</li>
     <li><b>MVP.</b> הריצו בפרויקט את <a href="#pre-mvp">פרומפט ה-MoSCoW</a>. הוא עובד בארבעה שלבים, ושואל לפני כל מעבר: פיצ'רים, זמן פיתוח, דירוג, ומסלול ל-MVP. בסיום נוצר קובץ חדש בשם <code>MVP.md</code>.</li>
@@ -138,47 +143,18 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 <div class="scroll"><table class="tbl">
   <thead><tr><th></th><th>המסמך</th><th>נבנה מתוך</th></tr></thead>
   <tbody>
-    <tr><td class="num">1</td><td><a href="#p1">PRD</a> <span class="where">Claude</span><small class="ltr">PRD.md</small></td><td>עשרת ההיבטים, MVP, והסקיצה אם יש</td></tr>
+    <tr><td class="num">1</td><td><a href="#p1">PRD</a> <span class="where">Claude</span><small class="ltr">PRD.md</small></td><td>עשרת ההיבטים, MVP</td></tr>
     <tr><td class="num">2</td><td><a href="#p2">Architecture</a> <span class="where">Claude</span><small class="ltr">ARCHITECTURE.md</small></td><td>עשרת ההיבטים, PRD, סטאק הקורס, ומחקר הסטאק <small class="ltr">tech-stack.md</small></td></tr>
-    <tr><td class="num">3</td><td><a href="#p3">Wireframes</a> <span class="where img">תמונה</span><small class="ltr">wireframes.png</small></td><td>עשרת ההיבטים, PRD, והסקיצה אם יש</td></tr>
-    <tr><td class="num">4</td><td><a href="#p4">Style Guide</a> <span class="where img">תמונה</span><small class="ltr">style-guide.png</small></td><td>עשרת ההיבטים, לוח ההשראה, והמיתוג אם יש</td></tr>
+    <tr><td class="num">3</td><td><a href="#p3">Wireframes</a> <span class="where img">תמונה</span><small class="ltr">wireframes.png</small></td><td>עשרת ההיבטים, PRD</td></tr>
+    <tr><td class="num">4</td><td><a href="#p4">Style Guide</a> <span class="where img">תמונה</span><small class="ltr">style-guide.png</small></td><td>עשרת ההיבטים, לוח ההשראה</td></tr>
     <tr><td class="num">5</td><td><a href="#p5">Mockups</a> <span class="where img">תמונה</span><small class="ltr">mockups.png</small></td><td>עשרת ההיבטים, Wireframes, Style Guide</td></tr>
-    <tr><td class="num">6</td><td><a href="#p6">DESIGN</a> <span class="where">Claude</span><small class="ltr">DESIGN.md</small></td><td>עשרת ההיבטים, PRD, שלוש התמונות, והמיתוג אם יש</td></tr>
+    <tr><td class="num">6</td><td><a href="#p6">DESIGN</a> <span class="where">Claude</span><small class="ltr">DESIGN.md</small></td><td>עשרת ההיבטים, PRD, שלוש התמונות</td></tr>
     <tr><td class="num">7</td><td><a href="#p7">Milestones</a> <span class="where">Claude</span><small class="ltr">MILESTONES.md</small></td><td>עשרת ההיבטים, MVP, PRD, Architecture, DESIGN</td></tr>
   </tbody>
 </table></div>
 <div class="tip"><b>כל פרומפט בנוי אותו דבר:</b> מה לקרוא קודם, המשימה, הכללים, ואיפה שומרים. מי שעובד בלי תיקייה מחוברת מעלה את אותם קבצים לפרויקט או מצרף אותם לשיחה. הפרומפט נשאר זהה.</div>
 
 <div class="label">לפני שמתחילים, פעם אחת</div>
-
-<details class="pre0" open><summary><span class="pm">-</span><u>מה צריך להיות בתיקייה</u></summary><div>
-  <p>תיקייה אחת, בלי תיקיות משנה. מה שחשוב הוא השמות הקבועים: לפיהם Claude מוצא כל קובץ, והם זהים גם למי שמעלה קבצים לפרויקט רגיל.</p>
-  <p><b>מה מביאים:</b></p>
-  <p><code>product-10-definitions.md</code> · עשרת ההיבטים. זה השם הקבוע של הקובץ, גם אם אצלכם הוא נקרא היום אחרת</p>
-  <p><code>course-stack.md</code> · סטאק הקורס. מורידים אותו מהדף הזה, למטה, ושמים בתיקייה</p>
-  <p><b>מה יוצרים לפני שמתחילים:</b></p>
-  <p><code>MVP.md</code> · הפיצ'רים, דירוג MoSCoW והמסלול ל-MVP. נוצר בפרומפט שלמטה</p>
-  <p><b>רשות, למי שיש לו:</b></p>
-  <p><code>brand-logo</code> <code>brand-palette</code> <code>brand-style</code> · הלוגו, פלטת הצבעים ומשפט הסגנון ממודול 2</p>
-  <p><code>sketch-main</code> · הסקיצה שנבחרה למסך המרכזי, בגרסה 2</p>
-  <p>מי שאין לו אחד מהם ממשיך בלעדיו. הפרומפטים בודקים מה קיים, ומסתדרים עם מה שיש.</p>
-  <p><b>מה נוצר:</b></p>
-  <p><code>PRD.md</code> <code>ARCHITECTURE.md</code> <code>DESIGN.md</code> <code>MILESTONES.md</code> · ארבעת המסמכים</p>
-  <p><code>tech-stack.md</code> · מחקר הסטאק, שלב א של הארכיטקטורה</p>
-  <p><code>wireframes.png</code> <code>style-guide.png</code> <code>mockups.png</code> · שלוש התמונות, ואיתן <code>inspiration-board.png</code></p>
-</div></details>
-
-<details class="pre0" id="pre-mvp"><summary><span class="pm">+</span><u>MoSCoW ו-MVP: יוצרים את הקובץ MVP.md</u></summary><div>
-  <p>הפרומפט עובד בארבעה שלבים: רשימת הפיצ'רים, עלות בזמן פיתוח לכל אחד, דירוג MoSCoW, ומסלול ריאלי ל-MVP. בסוף כל שלב הוא עוצר ושואל אם להמשיך, וזה הרגע לתקן אותו. בסיום הוא יוצר קובץ חדש, <code>MVP.md</code>, ושאר הפרומפטים קוראים אותו. מי שעובד בלי תיקייה מחוברת מקבל את הקובץ להורדה, ושומר אותו בתיקיית המוצר.</p>
-  <div class="prompt"><span class="pt">Claude, בפרויקט</span><button class="cp" type="button">העתק</button><pre>על בסיס הקובץ <span dir="ltr">product-10-definitions.md</span> שנמצא בתיקייה, אנא:
-1. צור רשימה של כל הפיצ'רים במוצר שלי.
-2. תן לכל פיצ'ר עלות בזמן פיתוח.
-3. דרג את הפיצ'רים לפי שיטת MoSCoW.
-4. הצע מסלול ריאלי ל-MVP.
-עשה כל שלב בנפרד, ושאל אותי אם להמשיך לשלב הבא.
-בסיום צור מסמך בשם MVP.md, ושים אותו בתיקייה.</pre></div>
-  <div class="see"><b>לפני שממשיכים:</b> ב-Must יש רק מה שהפעולה המרכזית של המוצר לא עובדת בלעדיו, והמסלול ל-MVP נראה לכם אפשרי.</div>
-</div></details>
 
 <details class="pre0" id="pre-stack"><summary><span class="pm">+</span><u>סטאק הקורס: מורידים את הקובץ course-stack.md</u></summary><div>
   <p><b>חובה להוריד.</b> קובץ אחד שמחזיק את הכלים ואת הכללים הטכניים של הקורס. מורידים אותו בכפתור, ושמים אותו בתיקיית המוצר בלי לשנות את השם. שני פרומפטי הארכיטקטורה קוראים אותו משם. מי שעובד בלי תיקייה מחוברת מעלה אותו לפרויקט.</p>
@@ -253,6 +229,18 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 3. הצע את התוספת הקטנה ביותר שפותרת את זה. אל תחליף את כל הסטאק בגלל דרישה אחת.</pre></div>
 </div></details>
 
+<details class="pre0" id="pre-mvp"><summary><span class="pm">+</span><u>MoSCoW ו-MVP: יוצרים את הקובץ MVP.md</u></summary><div>
+  <p>הפרומפט עובד בארבעה שלבים: רשימת הפיצ'רים, עלות בזמן פיתוח לכל אחד, דירוג MoSCoW, ומסלול ריאלי ל-MVP. בסוף כל שלב הוא עוצר ושואל אם להמשיך, וזה הרגע לתקן אותו. בסיום הוא יוצר קובץ חדש, <code>MVP.md</code>, ושאר הפרומפטים קוראים אותו. מי שעובד בלי תיקייה מחוברת מקבל את הקובץ להורדה, ושומר אותו בתיקיית המוצר.</p>
+  <div class="prompt"><span class="pt">Claude, בפרויקט</span><button class="cp" type="button">העתק</button><pre>על בסיס הקובץ <span dir="ltr">product-10-definitions.md</span> שנמצא בתיקייה, אנא:
+1. צור רשימה של כל הפיצ'רים במוצר שלי.
+2. תן לכל פיצ'ר עלות בזמן פיתוח.
+3. דרג את הפיצ'רים לפי שיטת MoSCoW.
+4. הצע מסלול ריאלי ל-MVP.
+עשה כל שלב בנפרד, ושאל אותי אם להמשיך לשלב הבא.
+בסיום צור מסמך בשם MVP.md, ושים אותו בתיקייה.</pre></div>
+  <div class="see"><b>לפני שממשיכים:</b> ב-Must יש רק מה שהפעולה המרכזית של המוצר לא עובדת בלעדיו, והמסלול ל-MVP נראה לכם אפשרי.</div>
+</div></details>
+
 <details class="pre0" id="pre-inst"><summary><span class="pm">+</span><u>ה-Instructions של הפרויקט: הטקסט להדבקה</u></summary><div>
   <p>זה הטקסט ששמים בשדה Instructions של הפרויקט ב-Claude. מדביקים אותו פעם אחת, ומאותו רגע הוא חל על כל שיחה בפרויקט. לפני ההדבקה מחליפים את שני הסוגריים שבשורה הראשונה: שם המוצר, ומשפט אחד שמתאר אותו.</p>
   <div class="prompt"><span class="pt">Claude, ה-Instructions של הפרויקט</span><button class="cp" type="button">העתק</button><pre>אתה עוזר לי לאפיין ולבנות מוצר אחד: [שם המוצר], [משפט אחד: מה הוא עושה ולמי].
@@ -264,8 +252,6 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 
 הקבצים בתיקייה, בשמות קבועים ובלי תיקיות משנה
 - סטאק הקורס והכללים הטכניים: course-stack.md.
-- המיתוג, אם יש: brand-logo, brand-palette, brand-style.
-- הסקיצה שנבחרה למסך המרכזי, אם יש: sketch-main.
 - מסמכי האפיון: PRD.md, tech-stack.md, ARCHITECTURE.md, DESIGN.md, MILESTONES.md.
 - התמונות: wireframes.png, style-guide.png, mockups.png, inspiration-board.png.
 
@@ -280,27 +266,63 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 - בכל החלטה טכנית, הקובץ course-stack.md קובע, ואחרי שאישרתי אותו גם הקובץ tech-stack.md. אל תחרוג מהם בלי לשאול אותי.</pre></div>
 </div></details>
 
-<details class="pre0"><summary><span class="pm">+</span><u>סידור התיקייה</u></summary><div>
-  <div class="prompt"><span class="pt">Claude, בפרויקט</span><button class="cp" type="button">העתק</button><pre>זו תיקיית המוצר שלי. יש בה כרגע קבצים בשמות לא אחידים.
-1. אל תיצור תיקיות משנה. הכל נשאר בתיקייה אחת.
-2. תן לקבצים שקיימים את השמות הקבועים, ושמור על הסיומת המקורית של כל קובץ: הלוגו brand-logo, פלטת הצבעים brand-palette, משפט הסגנון brand-style, והסקיצה שנבחרה למסך המרכזי sketch-main. מה שאין לי, דלג עליו.
-3. את מסמך עשרת ההיבטים שמור בשם <span dir="ltr">product-10-definitions.md</span>. אם הוא בפורמט אחר, המר אותו ל-Markdown בלי לשנות את התוכן.
-4. אל תמחק שום קובץ. אם אתה לא בטוח מהו קובץ מסוים, השאר אותו ושאל.
-5. בסוף הצג לי את רשימת הקבצים, ומה חסר מתוך הרשימה שב-Instructions של הפרויקט. הלוגו, פלטת הצבעים, משפט הסגנון והסקיצה הם רשות.</pre></div>
+<details class="pre0 apx" id="pre-apx"><summary><span class="pm">+</span><u>נספח: פרומפט עשרת ההיבטים של המוצר</u></summary><div>
+  <p>כל הפרומפטים בדף מתחילים ממסמך עשרת ההיבטים של המוצר. מי שעוד אין לו מסמך, או שמתחיל מוצר חדש, מריץ את הראיון הזה בצ׳אט חדש. הוא שואל שאלה אחת בכל פעם, ובסוף מחזיר מסמך אחד. את המסמך שומרים בתיקיית המוצר בשם <code>product-10-definitions.md</code>.</p>
+  <div class="prompt"><span class="pt">כל צ׳אט</span><button class="cp" type="button">העתק</button><pre>##Role
+אתה מראיין בתחום ניהול המוצר.
+
+##Context
+המוצר שלי: [שם הפרויקט, ובמשפט אחד מה הוא]
+
+שני דברים נתונים מראש ואל תשאל עליהם:
+- הטכנולוגיה היא Responsive Web App. בקש ממני רק לאשר, ואם אני אומר משהו אחר, בקש נימוק אחד.
+- זו טיוטה ראשונה. עוד לא למדתי אפיון, תרשימי זרימה ובסיסי נתונים, ולכן מותר לי לענות "עדיין לא יודע". כשזה קורה, רשום את זה כפער והמשך. אל תלחץ עלי לנחש.
+
+##Task
+הוצא ממני הגדרה שלמה של המוצר בעשרה היבטים, ובסוף החזר מסמך אחד מסודר.
+
+עשרת ההיבטים, בסדר הזה:
+1. מה הכלי עושה, ואיזו בעיה הוא פותר. שני משפטים: מה המשתמש מקבל שלא היה לו קודם, ומה הוא עושה היום במקום זה.
+2. מהו המסך העיקרי. המסך שרואים הכי הרבה, ומה נמצא בו.
+3. שלושה עד חמישה מסכים מרכזיים, ולא יותר. אם יש Onboarding, הוא אחד מהם.
+4. מהו ה-Flow המרכזי. מהכניסה ועד קבלת הערך, צעד אחר צעד.
+5. מה המערכת לא עושה. שלושה עד חמישה דברים שמישהו יצפה למצוא בה ולא ימצא. אם אני מדלג על ההיבט הזה, אל תוותר לי עליו.
+6. למי המוצר מתאים. כמה סוגי משתמשים יש, ומה כל סוג יכול לעשות שהאחרים לא.
+7. מהו התוכן הדינמי ואיפה הוא נשמר. מה נשמר, מי יוצר אותו, מתי הוא משתנה, ובאיזה כלי.
+8. מה ה-AI עושה כאן. מה בדיוק המודל מקבל, מה בדיוק הוא מחזיר, ואילו שלוש מגבלות חייבות להיות בפרומפט המרכזי כדי שהוא לא ימציא.
+9. טכנולוגיה. אישור בלבד, כאמור למעלה.
+10. אילו אוטומציות יהיו, ומאיזה סוג כל אחת: מתוזמנת, אירועית, או ידנית.
+
+##Constraints
+- שאלה אחת בכל פעם. שאל, עצור, וחכה לתשובה שלי. אל תשאל שתי שאלות באותה הודעה ואל תרוץ קדימה.
+- ההיבטים והסדר שלהם קבועים. הניסוח של השאלות נתון לך: שאל בשפה שמתאימה למוצר שלי, ואם היבט דורש שתי שאלות כדי להיסגר, שאל אותן אחת אחרי השנייה.
+- אחרי כל תשובה שלי, נסח אותה מחדש בשורה אחת ושאל אם זה מדויק. אם עניתי לא, תקן ואל תמשיך.
+- אם התשובה שלי כללית מדי, כלומר אפשר להגיד אותה בדיוק ככה על כל מוצר אחר, אמור את זה במפורש ושאל שאלת המשך אחת. רק אחת. אחריה המשך גם אם התשובה עדיין לא מושלמת.
+- אם אני תקוע, תן לי שתי דוגמאות קצרות לתשובות אפשריות ובקש שאבחר או שאנסח שלישית משלי.
+- אל תמציא לי תשובות ואל תמלא פערים בעצמך. מה שלא אמרתי, לא נכנס למסמך.
+- אל תסביר לי מה זה אפיון ואל תיתן לי טיפים.
+
+##Output Format
+כשסיימנו את כל העשרה, ורק אז, החזר מסמך אחד ב-Markdown עם הכותרות האלה בדיוק, לפי הסדר:
+שם המוצר / הבעיה / מה הכלי עושה / המסך העיקרי / המסכים המרכזיים / ה-Flow המרכזי / מה המערכת לא עושה / סוגי משתמשים והרשאות / התוכן הדינמי ואיפה נשמר / שכבת ה-AI והפרומפט המרכזי / טכנולוגיה / אוטומציות / פערים ושאלות פתוחות.
+
+תחת "פערים ושאלות פתוחות" רשום כל מקום שבו עניתי "עדיין לא יודע", וכן שלוש שאלות שלדעתך יכריעו את הפרויקט.
+
+התחל עכשיו בשאלה הראשונה בלבד.</pre></div>
 </div></details>
+
 
 <div class="label">שבעת הפרומפטים</div>
 
 <article class="step" id="p1">
   <div class="sh"><span class="n">1</span><h2>PRD<small>מסמך דרישות המוצר: מה בונים ולמה</small></h2></div>
   <div class="body">
-    <div class="from"><span>נבנה מתוך:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">MVP</span><span class="chip">הסקיצה, אם יש</span></div>
+    <div class="from"><span>נבנה מתוך:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">MVP</span></div>
     <div class="prompt"><span class="pt">Claude, בפרויקט</span><button class="cp" type="button">העתק</button><pre>צור את המסמך PRD.md.
 
 קרא קודם, מתיקיית המוצר:
 - הקובץ <span dir="ltr">product-10-definitions.md</span>: עשרת ההיבטים. זה מקור האמת.
 - הקובץ MVP.md: הפיצ'רים, דירוג ה-MoSCoW שלהם, והמסלול ל-MVP.
-- אם קיים בתיקייה, גם הקובץ sketch-main: הסקיצה שנבחרה למסך המרכזי. אם אין סקיצה, המשך בלעדיה.
 אם מסמך עשרת ההיבטים או הקובץ MVP.md חסר, עצור ואמור לי מה חסר. אל תמשיך בלעדיהם.
 
 המשימה, בשלושה שלבים
@@ -308,7 +330,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 שלב 1, מיפוי. הצג לי טבלה של שבעת סעיפי ה-PRD: מה כבר ידוע על כל סעיף, מאיזה חלק במסמך זה הגיע, ומה חסר.
 1. רקע ומטרות: מטרת המוצר במשפט, הבעיה, הפתרון, חזון ה-MVP. המקור: "הבעיה" ו"מה הכלי עושה".
 2. קהלי יעד וצרכי משתמשים: פרסונות, וסיפורי משתמש בפורמט "כ[סוג משתמש], אני רוצה [פעולה], כדי שאוכל [ערך]". המקור: "סוגי משתמשים והרשאות".
-3. זרימות וחוויית משתמש: מסע המשתמש, זרימות, דרישות UX. המקור: "המסך העיקרי", "המסכים המרכזיים", "ה-Flow המרכזי", והסקיצה אם יש.
+3. זרימות וחוויית משתמש: מסע המשתמש, זרימות, דרישות UX. המקור: "המסך העיקרי", "המסכים המרכזיים" ו"ה-Flow המרכזי".
 4. דרישות פונקציונליות: הפיצ'רים והדרישות של כל אחד, מקרי קצה ושגיאות. המקור: Must ו-Should מהקובץ MVP.md, "התוכן הדינמי ואיפה נשמר", "שכבת ה-AI והפרומפט המרכזי" ו"אוטומציות".
 5. דרישות טכניות ואילוצים. המקור: "טכנולוגיה", ומשפט החלטת הפלטפורמה.
 6. מדדי הצלחה: קריטריונים ו-KPIs. בדרך כלל חסר.
@@ -390,17 +412,16 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 <article class="step img" id="p3">
   <div class="sh"><span class="n">3</span><h2>Wireframes<small>תרשימי השלד של המסכים, כתמונה אחת</small></h2></div>
   <div class="body">
-    <div class="from"><span>מצרפים מהתיקייה:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">PRD</span><span class="chip">הסקיצה, אם יש</span></div>
-    <div class="prompt"><span class="pt">ChatGPT או Gemini, יצירת תמונה</span><button class="cp" type="button">העתק</button><pre>מצורפים מתיקיית המוצר: מסמך עשרת ההיבטים ומסמך ה-PRD. אם יש לי סקיצה למסך המרכזי, צירפתי גם אותה.
-קרא את כל מה שמצורף לפני שאתה מתחיל.
+    <div class="from"><span>מצרפים מהתיקייה:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">PRD</span></div>
+    <div class="prompt"><span class="pt">ChatGPT או Gemini, יצירת תמונה</span><button class="cp" type="button">העתק</button><pre>מצורפים מתיקיית המוצר: מסמך עשרת ההיבטים ומסמך ה-PRD.
+קרא את שניהם לפני שאתה מתחיל.
 
 המשימה
 צור Wireframes פשוטים (Low-Fidelity) לכל המסכים המרכזיים במוצר, כתמונה אחת.
 
 מאיפה לוקחים מה
 - רשימת המסכים והזרימה המרכזית: מעשרת ההיבטים ומה-PRD.
-- המסך המרכזי, אם צירפתי סקיצה: לפי הסקיצה. אותו מבנה ואותו סדר רכיבים. אל תמציא לו פריסה חדשה.
-- המסך המרכזי, אם אין סקיצה: לפי התיאור של "המסך העיקרי" בעשרת ההיבטים, בפריסה פשוטה ומקובלת.
+- המסך המרכזי: לפי התיאור של "המסך העיקרי" בעשרת ההיבטים, בפריסה פשוטה ומקובלת.
 - שאר המסכים: באותו היגיון פריסה של המסך המרכזי.
 
 הכללים
@@ -417,17 +438,17 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 <article class="step img" id="p4">
   <div class="sh"><span class="n">4</span><h2>Style Guide<small>צבעים, טיפוגרפיה ורכיבים, על לוח אחד</small></h2></div>
   <div class="body">
-    <div class="from"><span>מצרפים מהתיקייה:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">לוח ההשראה</span><span class="chip">לוגו, צבעים ומשפט סגנון, אם יש</span></div>
-    <div class="prompt"><span class="pt">ChatGPT או Gemini, יצירת תמונה</span><button class="cp" type="button">העתק</button><pre>מצורפים מתיקיית המוצר: מסמך עשרת ההיבטים ותמונת לוח ההשראה. אם יש לי לוגו, פלטת צבעים או משפט סגנון, צירפתי גם אותם.
-קרא את כל מה שמצורף לפני שאתה מתחיל.
+    <div class="from"><span>מצרפים מהתיקייה:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">לוח ההשראה</span></div>
+    <div class="prompt"><span class="pt">ChatGPT או Gemini, יצירת תמונה</span><button class="cp" type="button">העתק</button><pre>מצורפים מתיקיית המוצר: מסמך עשרת ההיבטים ותמונת לוח ההשראה.
+קרא את שניהם לפני שאתה מתחיל.
 
 המשימה
 צור Style Guide חזותי למוצר, על לוח אחד נקי ומסודר.
 
 מאיפה לוקחים מה
-- למי המוצר ומה האווירה שלו: מעשרת ההיבטים, וממשפט הסגנון אם צירפתי.
-- לוגו וצבעים שצירפתי: השתמש בהם כמו שהם, ואל תחליף אותם. מותר להוסיף גוונים ניטרליים וצבעי מצב להצלחה ולשגיאה.
-- מה שלא צירפתי: בחר צבעים מלוח ההשראה, לפי האווירה של המוצר. במקום לוגו כתוב את שם המוצר בגופן הכותרות, ואל תמציא סמל.
+- למי המוצר ומה האווירה שלו: מעשרת ההיבטים.
+- הצבעים: מלוח ההשראה, לפי האווירה של המוצר. מותר להוסיף גוונים ניטרליים וצבעי מצב להצלחה ולשגיאה.
+- שם המוצר: כתוב אותו בגופן הכותרות, ואל תמציא לו סמל.
 - כל השאר: מלוח ההשראה. טיפוגרפיה, סגנון כפתורים, שדות, כרטיסים ואייקונים, צורות, פינות, מרווחים, צללים וסגנון תמונות.
 
 ה-Style Guide כולל ארבעה חלקים
@@ -439,7 +460,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 הכללים
 - ניגודיות של 4.5:1 לפחות בין טקסט לרקע.
 - אל תמציא שפה עיצובית חדשה.</pre></div>
-    <div class="see"><b>לפני שממשיכים:</b> שומרים בשם <code>style-guide.png</code>. מי שיש לו קובץ <code>brand-palette</code> בודק שקודי ה-HEX בתמונה זהים לאלה שבו.</div>
+    <div class="see"><b>לפני שממשיכים:</b> שומרים בשם <code>style-guide.png</code>. הצבעים בתמונה מתאימים ללוח ההשראה, ולכל צבע יש קוד HEX.</div>
   </div>
 </article>
 
@@ -469,21 +490,20 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 <article class="step" id="p6">
   <div class="sh"><span class="n">6</span><h2>DESIGN<small>מסמך העיצוב: המסכים והשפה החזותית</small></h2></div>
   <div class="body">
-    <div class="from"><span>נבנה מתוך:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">PRD</span><span class="chip">שלוש התמונות</span><span class="chip">המיתוג, אם יש</span></div>
+    <div class="from"><span>נבנה מתוך:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">PRD</span><span class="chip">שלוש התמונות</span></div>
     <div class="prompt"><span class="pt">Claude, בפרויקט</span><button class="cp" type="button">העתק</button><pre>צור את המסמך DESIGN.md.
 
 קרא קודם, מתיקיית המוצר:
 - הקובץ <span dir="ltr">product-10-definitions.md</span>: עשרת ההיבטים.
 - הקובץ PRD.md.
 - שלוש התמונות: wireframes.png, mockups.png, style-guide.png.
-- אם קיימים בתיקייה, גם קובצי המיתוג: brand-logo, brand-palette, brand-style. אם אין, המשך בלעדיהם.
-אם אחד מהקבצים האחרים חסר, עצור ואמור לי מה חסר. אל תמשיך בלעדיו.
+אם קובץ חסר, עצור ואמור לי מה חסר. אל תמשיך בלעדיו.
 
 המשימה, בשני שלבים
 
 שלב 1, בדיקה. לפני הכתיבה בדוק שלושה דברים, והצג לי מה מצאת:
 - מסך שמופיע בתמונות ולא מופיע ב-PRD, או להפך.
-- צבע במסכים שלא מופיע ב-style-guide.png, או שלא תואם לקובץ brand-palette אם הוא קיים.
+- צבע במסכים שלא מופיע ב-style-guide.png.
 - עיקרון UX מה-PRD שלא בא לידי ביטוי במסכים.
 
 שלב 2, כתיבה. אחרי שאאשר, כתוב את המסמך בשני חלקים, ושלב בו את שלוש התמונות כקישורים מוטמעים:
@@ -540,7 +560,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <p><b>שימוש:</b> בתוך הפרויקט כותבים "מצב" כדי לראות מה קיים ומה חסר, "המשך" כדי להריץ את השלב הבא, או את שם השלב, למשל "PRD".</p>
 </div>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v7 · 7.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v8 · 7.10.2026</footer>
 
 <script>
 (function(){
