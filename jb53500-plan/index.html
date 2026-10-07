@@ -96,6 +96,8 @@ h2.t b{font-weight:800}
 .filters{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 14px}
 .chip{font-size:12.5px;font-weight:600;padding:5px 13px;border-radius:999px;border:1.5px dashed var(--line);color:var(--soft)}
 .chip[aria-pressed="true"]{border:1.5px solid var(--yel);background:var(--yel-soft);color:var(--ink)}
+.chip .cnt{display:inline-block;min-width:19px;padding:0 6px;margin-inline-start:5px;border-radius:999px;background:#D7263D;color:#fff;font-family:"Poppins",sans-serif;font-size:11px;font-weight:700;line-height:19px;text-align:center;vertical-align:1px}
+.chip .cnt.z{background:transparent;color:var(--soft);box-shadow:inset 0 0 0 1.5px var(--line)}
 :root[data-theme="light"] .chip[aria-pressed="true"]{border-color:#E0C800}
 .empty{border:1.5px dashed var(--line);border-radius:16px;padding:24px;text-align:center;color:var(--soft);font-size:14px}
 
@@ -1269,7 +1271,7 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
   </div>
 </section>
 
-<footer>Simpla Lab · נבנה עם Claude · v4.4 · 7.10.2026<br>תאריכי העבר שוחזרו מהלוח: 7.9, 9.9, 14.9, 16.9, 23.9. מ-12.10 אין מפגש ברשימה ששלחת, ולכן 11 עד 20 משוערים לפי שני ורביעי מ-26.10.</footer>
+<footer>Simpla Lab · נבנה עם Claude · v4.5 · 7.10.2026<br>תאריכי העבר שוחזרו מהלוח: 7.9, 9.9, 14.9, 16.9, 23.9. מ-12.10 אין מפגש ברשימה ששלחת, ולכן 11 עד 20 משוערים לפי שני ורביעי מ-26.10.</footer>
 
 <script>
 (function(){
@@ -1302,7 +1304,7 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
   var F=[{id:'all',t:'הכל'},{id:'st-done',t:'בוצע'},{id:'st-up',t:'מתוכנן והבא'},{id:'st-draft',t:'טיוטה'},{id:'gap',t:'אני לומד לפני'}].concat(MODS.map(function(m){return {id:'m'+m.n,t:'מודול '+m.n};}));
   var fEl=document.getElementById('filters');
   function match(c,f){if(f==='all')return true;if(f==='st-done')return c.dataset.st==='done';if(f==='st-up')return c.dataset.st==='next'||c.dataset.st==='plan';if(f==='st-draft')return c.dataset.st==='draft';if(f==='gap')return !!c.querySelector('.gapbox');return 'm'+c.dataset.mod===f;}
-  function renderFilters(){fEl.innerHTML=F.map(function(f){var n=cards.filter(function(c){return match(c,f.id);}).length;return '<button type="button" class="chip" data-f="'+f.id+'" aria-pressed="'+(S.filter===f.id)+'">'+f.t+' <span style="opacity:.7">'+n+'</span></button>';}).join('');}
+  function renderFilters(){fEl.innerHTML=F.map(function(f){var n=cards.filter(function(c){return match(c,f.id);}).length;return '<button type="button" class="chip" data-f="'+f.id+'" aria-pressed="'+(S.filter===f.id)+'">'+f.t+' <span class="cnt'+(n?'':' z')+'">'+n+'</span></button>';}).join('');}
   function applyFilter(){var any=false;cards.forEach(function(c){var ok=match(c,S.filter);c.hidden=!ok;if(ok)any=true;});document.getElementById('noResults').hidden=any;}
   fEl.addEventListener('click',function(e){var b=e.target.closest('[data-f]');if(!b)return;S.filter=b.dataset.f;save();renderFilters();applyFilter();});
   renderFilters();applyFilter();
