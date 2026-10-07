@@ -135,23 +135,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <p class="hwn">שבעת הפרומפטים שבהמשך הדף הם העבודה של מפגש 8. נריץ אותם יחד בכיתה.</p>
 </section>
 
-<div class="label">המפה</div>
-<p class="intro">ארבעה מסמכים נכתבים ב-Claude, בתוך הפרויקט שמחובר לתיקייה. לפני מסמך הארכיטקטורה Claude מריץ מחקר קצר על הסטאק. שלושה הם תמונות: Claude לא מייצר תמונות כמו ChatGPT ו-Gemini, ולכן הן נוצרות שם, מקבצים שמצרפים מהתיקייה, וחוזרות אליה.</p>
-<div class="scroll"><table class="tbl">
-  <thead><tr><th></th><th>המסמך</th><th>נבנה מתוך</th></tr></thead>
-  <tbody>
-    <tr><td class="num">1</td><td><a href="#p1">PRD</a> <span class="where">Claude</span><small class="ltr">PRD.md</small></td><td>עשרת ההיבטים, MVP</td></tr>
-    <tr><td class="num">2</td><td><a href="#p2">Architecture</a> <span class="where">Claude</span><small class="ltr">ARCHITECTURE.md</small></td><td>עשרת ההיבטים, PRD, סטאק הקורס, ומחקר הסטאק <code>tech-stack.md</code></td></tr>
-    <tr><td class="num">3</td><td><a href="#p3">Wireframes</a> <span class="where img">תמונה</span><small class="ltr">wireframes.png</small></td><td>עשרת ההיבטים, PRD</td></tr>
-    <tr><td class="num">4</td><td><a href="#p4">Style Guide</a> <span class="where img">תמונה</span><small class="ltr">style-guide.png</small></td><td>עשרת ההיבטים, לוח ההשראה</td></tr>
-    <tr><td class="num">5</td><td><a href="#p5">Mockups</a> <span class="where img">תמונה</span><small class="ltr">mockups.png</small></td><td>עשרת ההיבטים, Wireframes, Style Guide</td></tr>
-    <tr><td class="num">6</td><td><a href="#p6">DESIGN</a> <span class="where">Claude</span><small class="ltr">DESIGN.md</small></td><td>עשרת ההיבטים, PRD, שלוש התמונות</td></tr>
-    <tr><td class="num">7</td><td><a href="#p7">Milestones</a> <span class="where">Claude</span><small class="ltr">MILESTONES.md</small></td><td>עשרת ההיבטים, MVP, PRD, Architecture, DESIGN</td></tr>
-  </tbody>
-</table></div>
-<div class="tip"><b>כל פרומפט בנוי אותו דבר:</b> מה לקרוא קודם, המשימה, הכללים, ואיפה שומרים. מי שעובד בלי תיקייה מחוברת מעלה את אותם קבצים לפרויקט או מצרף אותם לשיחה. הפרומפט נשאר זהה.</div>
-
-<div class="label">לפני שמתחילים, פעם אחת</div>
+<div class="label" id="prep">להכנת התיקייה - פרומפטים (לבצע לפני שמתחילים)</div>
 
 <details class="pre0" id="pre-stack"><summary><span class="pm">+</span><u>סטאק הקורס: מורידים את הקובץ course-stack.md</u></summary><div>
   <p><b>חובה להוריד.</b> קובץ אחד שמחזיק את הכלים ואת הכללים הטכניים של הקורס. מורידים אותו בכפתור, ושמים אותו בתיקיית המוצר בלי לשנות את השם. שני פרומפטי הארכיטקטורה קוראים אותו משם. מי שעובד בלי תיקייה מחוברת מעלה אותו לפרויקט.</p>
@@ -308,6 +292,22 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 התחל עכשיו בשאלה הראשונה בלבד.</pre></div>
 </div></details>
 
+
+<div class="label">המפה</div>
+<p class="intro">ארבעה מסמכים נכתבים ב-Claude, בתוך הפרויקט שמחובר לתיקייה. לפני מסמך הארכיטקטורה Claude מריץ מחקר קצר על הסטאק. שלושה הם תמונות: Claude לא מייצר תמונות כמו ChatGPT ו-Gemini, ולכן הן נוצרות שם, מקבצים שמצרפים מהתיקייה, וחוזרות אליה.</p>
+<div class="scroll"><table class="tbl">
+  <thead><tr><th></th><th>המסמך</th><th>נבנה מתוך</th></tr></thead>
+  <tbody>
+    <tr><td class="num">1</td><td><a href="#p1">PRD</a> <span class="where">Claude</span><small class="ltr">PRD.md</small></td><td>עשרת ההיבטים, MVP</td></tr>
+    <tr><td class="num">2</td><td><a href="#p2">Architecture</a> <span class="where">Claude</span><small class="ltr">ARCHITECTURE.md</small></td><td>עשרת ההיבטים, PRD, סטאק הקורס, ומחקר הסטאק <code>tech-stack.md</code></td></tr>
+    <tr><td class="num">3</td><td><a href="#p3">Wireframes</a> <span class="where img">תמונה</span><small class="ltr">wireframes.png</small></td><td>עשרת ההיבטים, PRD</td></tr>
+    <tr><td class="num">4</td><td><a href="#p4">Style Guide</a> <span class="where img">תמונה</span><small class="ltr">style-guide.png</small></td><td>עשרת ההיבטים, לוח ההשראה</td></tr>
+    <tr><td class="num">5</td><td><a href="#p5">Mockups</a> <span class="where img">תמונה</span><small class="ltr">mockups.png</small></td><td>עשרת ההיבטים, Wireframes, Style Guide</td></tr>
+    <tr><td class="num">6</td><td><a href="#p6">DESIGN</a> <span class="where">Claude</span><small class="ltr">DESIGN.md</small></td><td>עשרת ההיבטים, PRD, שלוש התמונות</td></tr>
+    <tr><td class="num">7</td><td><a href="#p7">Milestones</a> <span class="where">Claude</span><small class="ltr">MILESTONES.md</small></td><td>עשרת ההיבטים, MVP, PRD, Architecture, DESIGN</td></tr>
+  </tbody>
+</table></div>
+<div class="tip"><b>כל פרומפט בנוי אותו דבר:</b> מה לקרוא קודם, המשימה, הכללים, ואיפה שומרים. מי שעובד בלי תיקייה מחוברת מעלה את אותם קבצים לפרויקט או מצרף אותם לשיחה. הפרומפט נשאר זהה.</div>
 
 <div class="label">שבעת הפרומפטים</div>
 
@@ -559,7 +559,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <p><b>שימוש:</b> בתוך הפרויקט כותבים "מצב" כדי לראות מה קיים ומה חסר, "המשך" כדי להריץ את השלב הבא, או את שם השלב, למשל "PRD".</p>
 </div>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v10 · 7.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v11 · 7.10.2026</footer>
 
 <script>
 (function(){
