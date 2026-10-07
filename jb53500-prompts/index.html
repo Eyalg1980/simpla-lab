@@ -82,6 +82,15 @@ details.pre0>div{padding:0 14px 12px;font-size:14.5px}
 .final{margin-top:8px;border:2px solid var(--acc);border-radius:var(--r);padding:16px 18px;background:var(--surface)}
 .final h2{font-size:18px;font-weight:700;margin-bottom:6px}
 .final p{font-size:15px;margin-bottom:8px}
+.hw{margin:24px 0 4px;background:var(--surface);border:2px solid var(--acc);border-radius:var(--r);padding:18px 18px 14px}
+.hwk{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--acc);background:var(--acc-soft);padding:3px 12px;border-radius:999px;margin-bottom:8px}
+.hw h2{font-size:19px;font-weight:700;line-height:1.3;margin-bottom:6px}
+.hw p{font-size:14.5px;margin-bottom:8px}
+.hw ol{margin:6px 0 10px;padding-inline-start:22px;display:grid;gap:9px;font-size:14.5px}
+.hw ol li::marker{font-family:"Poppins",sans-serif;font-weight:700;color:var(--acc)}
+.hw a{text-underline-offset:3px}
+.hw .hwn{color:var(--soft);font-size:13.5px;margin:0}
+.dl.sm{font-size:12.5px;padding:3px 12px;margin-inline-start:4px;vertical-align:1px}
 footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border-top:1.5px dashed var(--line);padding-top:14px}
 @media (min-width:1024px){
   body{max-width:880px;padding:0 28px 80px}
@@ -99,10 +108,24 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 </div>
 
 <header class="hero">
-  <span class="kicker">מפגש 8 · מיישם AI ואוטומציה</span>
+  <span class="kicker">תרגיל בית · לקראת מפגש 8</span>
   <h1>שבעת הפרומפטים <b>מעשרת ההיבטים לשבעה מסמכים</b></h1>
   <p class="lead">כל מסמך נבנה ממה שכבר קיים בתיקיית המוצר: תיקייה אחת, קבצים בשמות קבועים. מעתיקים, מדביקים ומריצים, לפי הסדר.</p>
 </header>
+
+<section class="hw" id="hw">
+  <span class="hwk">תרגיל בית</span>
+  <h2>מכינים את תיקיית המוצר, לפני מפגש 8</h2>
+  <p>במפגש 7 הגענו עד ה-PRD. כדי שבמפגש 8 נתחיל ישר מהמסמכים, כל אחד מגיע עם תיקיית מוצר מוכנה ועם פרויקט ב-Claude. חמישה צעדים. כל מה שצריך נמצא בדף הזה, תחת "לפני שמתחילים".</p>
+  <ol>
+    <li><b>שם הקובץ.</b> שנו את שם הקובץ של מסמך עשרת ההיבטים ל-<code>product-10-definitions.md</code>, ושימו אותו בתיקיית המוצר. מעכשיו כל הפרומפטים, וגם אנחנו בכיתה, קוראים לו בשם הזה. אם המסמך שלכם ב-Word, בקשו מ-Claude להמיר אותו ל-Markdown בלי לשנות את התוכן.</li>
+    <li><b>סטאק הקורס.</b> הורידו את הקובץ <code>course-stack.md</code>, ושימו אותו באותה תיקייה, בלי לשנות את השם. <a class="dl sm" href="course-stack.md" download="course-stack.md"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> הורדה</a></li>
+    <li><b>פרויקט.</b> פתחו ב-Claude פרויקט למוצר שלכם, והדביקו ב-Instructions של הפרויקט את <a href="#pre-inst">הטקסט שמופיע למטה</a>. מי שיכול מחבר את הפרויקט לתיקיית המוצר. מי שלא, מעלה אליו את הקבצים.</li>
+    <li><b>MVP.</b> הריצו בפרויקט את <a href="#pre-mvp">פרומפט ה-MoSCoW</a>. הוא יוצר קובץ חדש בשם <code>MVP.md</code>. קראו אותו, תקנו, ושמרו בתיקייה.</li>
+    <li><b>בדיקה.</b> בתיקייה יש עכשיו שלושה קבצים: <code>product-10-definitions.md</code>, <code>course-stack.md</code> ו-<code>MVP.md</code>.</li>
+  </ol>
+  <p class="hwn">שבעת הפרומפטים שבהמשך הדף הם העבודה של מפגש 8. נריץ אותם יחד בכיתה.</p>
+</section>
 
 <div class="idea">
   <div><b>תמיד עשרת ההיבטים</b>כל פרומפט פותח באותו קובץ. הוא מקור האמת, ושום מסמך לא סותר אותו</div>
@@ -115,13 +138,13 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 <div class="scroll"><table class="tbl">
   <thead><tr><th></th><th>המסמך</th><th>נבנה מתוך</th></tr></thead>
   <tbody>
-    <tr><td class="num">1</td><td><a href="#p1">PRD</a> <span class="where">Claude</span><small class="ltr">PRD.md</small></td><td>עשרת ההיבטים, והסקיצה אם יש</td></tr>
+    <tr><td class="num">1</td><td><a href="#p1">PRD</a> <span class="where">Claude</span><small class="ltr">PRD.md</small></td><td>עשרת ההיבטים, MVP, והסקיצה אם יש</td></tr>
     <tr><td class="num">2</td><td><a href="#p2">Architecture</a> <span class="where">Claude</span><small class="ltr">ARCHITECTURE.md</small></td><td>עשרת ההיבטים, PRD, סטאק הקורס, ומחקר הסטאק <small class="ltr">tech-stack.md</small></td></tr>
     <tr><td class="num">3</td><td><a href="#p3">Wireframes</a> <span class="where img">תמונה</span><small class="ltr">wireframes.png</small></td><td>עשרת ההיבטים, PRD, והסקיצה אם יש</td></tr>
     <tr><td class="num">4</td><td><a href="#p4">Style Guide</a> <span class="where img">תמונה</span><small class="ltr">style-guide.png</small></td><td>עשרת ההיבטים, לוח ההשראה, והמיתוג אם יש</td></tr>
     <tr><td class="num">5</td><td><a href="#p5">Mockups</a> <span class="where img">תמונה</span><small class="ltr">mockups.png</small></td><td>עשרת ההיבטים, Wireframes, Style Guide</td></tr>
     <tr><td class="num">6</td><td><a href="#p6">DESIGN</a> <span class="where">Claude</span><small class="ltr">DESIGN.md</small></td><td>עשרת ההיבטים, PRD, שלוש התמונות, והמיתוג אם יש</td></tr>
-    <tr><td class="num">7</td><td><a href="#p7">Milestones</a> <span class="where">Claude</span><small class="ltr">MILESTONES.md</small></td><td>עשרת ההיבטים, PRD, Architecture, DESIGN</td></tr>
+    <tr><td class="num">7</td><td><a href="#p7">Milestones</a> <span class="where">Claude</span><small class="ltr">MILESTONES.md</small></td><td>עשרת ההיבטים, MVP, PRD, Architecture, DESIGN</td></tr>
   </tbody>
 </table></div>
 <div class="tip"><b>כל פרומפט בנוי אותו דבר:</b> מה לקרוא קודם, המשימה, הכללים, ואיפה שומרים. מי שעובד בלי תיקייה מחוברת מעלה את אותם קבצים לפרויקט או מצרף אותם לשיחה. הפרומפט נשאר זהה.</div>
@@ -131,8 +154,10 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 <details class="pre0" open><summary><span class="pm">-</span><u>מה צריך להיות בתיקייה</u></summary><div>
   <p>תיקייה אחת, בלי תיקיות משנה. מה שחשוב הוא השמות הקבועים: לפיהם Claude מוצא כל קובץ, והם זהים גם למי שמעלה קבצים לפרויקט רגיל.</p>
   <p><b>מה מביאים:</b></p>
-  <p><code>00-product-definition.md</code> · עשרת ההיבטים, ובסופם טבלת MoSCoW</p>
-  <p><code>course-stack.md</code> · סטאק הקורס. הקובץ למטה, להורדה</p>
+  <p><code>product-10-definitions.md</code> · עשרת ההיבטים. זה השם הקבוע של הקובץ, גם אם אצלכם הוא נקרא היום אחרת</p>
+  <p><code>course-stack.md</code> · סטאק הקורס. מורידים אותו מהדף הזה, למטה, ושמים בתיקייה</p>
+  <p><b>מה יוצרים לפני שמתחילים:</b></p>
+  <p><code>MVP.md</code> · טבלת MoSCoW: מה נכנס לגרסה הראשונה ומה לא. נוצר בפרומפט שלמטה</p>
   <p><b>רשות, למי שיש לו:</b></p>
   <p><code>brand-logo</code> <code>brand-palette</code> <code>brand-style</code> · הלוגו, פלטת הצבעים ומשפט הסגנון ממודול 2</p>
   <p><code>sketch-main</code> · הסקיצה שנבחרה למסך המרכזי, בגרסה 2</p>
@@ -143,18 +168,31 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <p><code>wireframes.png</code> <code>style-guide.png</code> <code>mockups.png</code> · שלוש התמונות, ואיתן <code>inspiration-board.png</code></p>
 </div></details>
 
-<details class="pre0"><summary><span class="pm">+</span><u>טבלת MoSCoW, בסוף מסמך עשרת ההיבטים</u></summary><div>
-  <p>הפרומפטים נשענים על טבלת MoSCoW. מי שעוד לא בנה אותה מריץ את זה, מתקן ביד, ומוסיף את הטבלה כסעיף חדש בסוף המסמך.</p>
-  <div class="prompt"><span class="pt">כל צ׳אט, עם המסמך מצורף</span><button class="cp" type="button">העתק</button><pre>מצורף מסמך עשרת ההיבטים של המוצר שלי.
-חלץ ממנו את כל היכולות והפיצ'רים שמוזכרים בו, ומיין אותם לטבלת MoSCoW: Must, Should, Could, Won't.
-הכלל ל-Must: בלי זה הפעולה המרכזית של המוצר לא עובדת מקצה לקצה. כל השאר יורד שלב.
-מה שכתוב תחת "מה המערכת לא עושה" נכנס ל-Won't.
-אל תוסיף יכולות שלא מופיעות במסמך. אם משהו לא ברור, שאל אותי.
-בסוף הצג שלוש יכולות שלדעתך דורגו גבוה מדי, ונמק כל אחת במשפט.</pre></div>
+<details class="pre0" id="pre-mvp"><summary><span class="pm">+</span><u>טבלת MoSCoW: יוצרים את הקובץ MVP.md</u></summary><div>
+  <p>הפרומפטים נשענים על טבלת MoSCoW, והיא יושבת בקובץ משלה: <code>MVP.md</code>. הפרומפט קורא את עשרת ההיבטים, מציג טבלה, מחכה לתיקונים שלכם, ורק אז שומר. מי שעובד בלי תיקייה מחוברת מקבל את הקובץ להורדה, ושומר אותו בתיקיית המוצר.</p>
+  <div class="prompt"><span class="pt">Claude, בפרויקט</span><button class="cp" type="button">העתק</button><pre>צור את הקובץ MVP.md.
+
+קרא קודם, מתיקיית המוצר:
+- הקובץ <span dir="ltr">product-10-definitions.md</span>: עשרת ההיבטים. זה מקור האמת.
+אם הקובץ חסר, עצור ואמור לי. אל תמשיך בלעדיו.
+
+המשימה
+חלץ מהמסמך את כל היכולות והפיצ'רים שמוזכרים בו, ומיין אותם לטבלת MoSCoW: Must, Should, Could, Won't.
+- הכלל ל-Must: בלי זה הפעולה המרכזית של המוצר לא עובדת מקצה לקצה. כל השאר יורד שלב.
+- מה שכתוב תחת "מה המערכת לא עושה" נכנס ל-Won't.
+- אם במסמך כבר יש טבלת MoSCoW, התחל ממנה.
+- אל תוסיף יכולות שלא מופיעות במסמך. אם משהו לא ברור, שאל אותי.
+
+לפני השמירה
+הצג לי את הטבלה, ואיתה שלוש יכולות שלדעתך דורגו גבוה מדי, עם נימוק של משפט לכל אחת. המתן לתיקונים שלי.
+
+התוצר
+אחרי שאאשר, שמור בשם MVP.md: בראש הקובץ משפט אחד שמתאר את הגרסה הראשונה, ואחריו הטבלה. עצור.</pre></div>
+  <div class="see"><b>לפני שממשיכים:</b> ב-Must יש רק מה שהפעולה המרכזית לא עובדת בלעדיו, ו-Won't לא ריק.</div>
 </div></details>
 
-<details class="pre0"><summary><span class="pm">+</span><u>סטאק הקורס: הקובץ course-stack.md</u></summary><div>
-  <p>קובץ אחד שמחזיק את הכלים ואת הכללים הטכניים של הקורס. שמים אותו בתיקיית המוצר, ושני פרומפטי הארכיטקטורה קוראים אותו משם. מי שעובד בלי תיקייה מחוברת מצרף אותו לפרומפט.</p>
+<details class="pre0" id="pre-stack"><summary><span class="pm">+</span><u>סטאק הקורס: מורידים את הקובץ course-stack.md</u></summary><div>
+  <p><b>חובה להוריד.</b> קובץ אחד שמחזיק את הכלים ואת הכללים הטכניים של הקורס. מורידים אותו בכפתור, ושמים אותו בתיקיית המוצר בלי לשנות את השם. שני פרומפטי הארכיטקטורה קוראים אותו משם. מי שעובד בלי תיקייה מחוברת מעלה אותו לפרויקט.</p>
   <p><a class="dl" href="course-stack.md" download="course-stack.md"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> הורדת הקובץ</a></p>
   <div class="prompt"><span class="pt">course-stack.md</span><button class="cp" type="button">העתק</button><pre># סטאק הקורס, 53500
 
@@ -226,12 +264,14 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 3. הצע את התוספת הקטנה ביותר שפותרת את זה. אל תחליף את כל הסטאק בגלל דרישה אחת.</pre></div>
 </div></details>
 
-<details class="pre0"><summary><span class="pm">+</span><u>הוראות הפרויקט</u></summary><div>
-  <div class="prompt"><span class="pt">Claude, הוראות הפרויקט</span><button class="cp" type="button">העתק</button><pre>אתה עוזר לי לאפיין ולבנות מוצר אחד: [שם המוצר], [משפט אחד: מה הוא עושה ולמי].
+<details class="pre0" id="pre-inst"><summary><span class="pm">+</span><u>ה-Instructions של הפרויקט: הטקסט להדבקה</u></summary><div>
+  <p>זה הטקסט ששמים בשדה Instructions של הפרויקט ב-Claude. מדביקים אותו פעם אחת, ומאותו רגע הוא חל על כל שיחה בפרויקט. לפני ההדבקה מחליפים את שני הסוגריים שבשורה הראשונה: שם המוצר, ומשפט אחד שמתאר אותו.</p>
+  <div class="prompt"><span class="pt">Claude, ה-Instructions של הפרויקט</span><button class="cp" type="button">העתק</button><pre>אתה עוזר לי לאפיין ולבנות מוצר אחד: [שם המוצר], [משפט אחד: מה הוא עושה ולמי].
 
 מקור האמת
-- הקובץ <span dir="ltr">00-product-definition.md</span> הוא מסמך עשרת ההיבטים, ובסופו טבלת MoSCoW. כל מסמך אחר נגזר ממנו.
-- אם משהו במסמך חדש סותר אותו, עצור ושאל אותי. אל תכריע לבד.
+- הקובץ <span dir="ltr">product-10-definitions.md</span> הוא מסמך עשרת ההיבטים. כל מסמך אחר נגזר ממנו.
+- הקובץ MVP.md הוא טבלת MoSCoW: מה נכנס לגרסה הראשונה, ומה לא.
+- אם משהו במסמך חדש סותר אחד מהם, עצור ושאל אותי. אל תכריע לבד.
 
 הקבצים בתיקייה, בשמות קבועים ובלי תיקיות משנה
 - סטאק הקורס והכללים הטכניים: course-stack.md.
@@ -255,9 +295,9 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <div class="prompt"><span class="pt">Claude, בפרויקט</span><button class="cp" type="button">העתק</button><pre>זו תיקיית המוצר שלי. יש בה כרגע קבצים בשמות לא אחידים.
 1. אל תיצור תיקיות משנה. הכל נשאר בתיקייה אחת.
 2. תן לקבצים שקיימים את השמות הקבועים, ושמור על הסיומת המקורית של כל קובץ: הלוגו brand-logo, פלטת הצבעים brand-palette, משפט הסגנון brand-style, והסקיצה שנבחרה למסך המרכזי sketch-main. מה שאין לי, דלג עליו.
-3. את מסמך עשרת ההיבטים שמור בשם <span dir="ltr">00-product-definition.md</span>. אם הוא בפורמט אחר, המר אותו ל-Markdown בלי לשנות את התוכן.
+3. את מסמך עשרת ההיבטים שמור בשם <span dir="ltr">product-10-definitions.md</span>. אם הוא בפורמט אחר, המר אותו ל-Markdown בלי לשנות את התוכן.
 4. אל תמחק שום קובץ. אם אתה לא בטוח מהו קובץ מסוים, השאר אותו ושאל.
-5. בסוף הצג לי את רשימת הקבצים, ומה חסר מתוך הרשימה שבהוראות הפרויקט. הלוגו, פלטת הצבעים, משפט הסגנון והסקיצה הם רשות.</pre></div>
+5. בסוף הצג לי את רשימת הקבצים, ומה חסר מתוך הרשימה שב-Instructions של הפרויקט. הלוגו, פלטת הצבעים, משפט הסגנון והסקיצה הם רשות.</pre></div>
 </div></details>
 
 <div class="label">שבעת הפרומפטים</div>
@@ -265,13 +305,14 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 <article class="step" id="p1">
   <div class="sh"><span class="n">1</span><h2>PRD<small>מסמך דרישות המוצר: מה בונים ולמה</small></h2></div>
   <div class="body">
-    <div class="from"><span>נבנה מתוך:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">הסקיצה, אם יש</span></div>
+    <div class="from"><span>נבנה מתוך:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">MVP</span><span class="chip">הסקיצה, אם יש</span></div>
     <div class="prompt"><span class="pt">Claude, בפרויקט</span><button class="cp" type="button">העתק</button><pre>צור את המסמך PRD.md.
 
 קרא קודם, מתיקיית המוצר:
-- הקובץ <span dir="ltr">00-product-definition.md</span>: עשרת ההיבטים, ובסופם טבלת MoSCoW. זה מקור האמת.
+- הקובץ <span dir="ltr">product-10-definitions.md</span>: עשרת ההיבטים. זה מקור האמת.
+- הקובץ MVP.md: טבלת MoSCoW, מה נכנס לגרסה הראשונה ומה לא.
 - אם קיים בתיקייה, גם הקובץ sketch-main: הסקיצה שנבחרה למסך המרכזי. אם אין סקיצה, המשך בלעדיה.
-אם מסמך עשרת ההיבטים חסר, או שאין בו טבלת MoSCoW, עצור ואמור לי מה חסר. אל תמשיך בלעדיהם.
+אם מסמך עשרת ההיבטים או הקובץ MVP.md חסר, עצור ואמור לי מה חסר. אל תמשיך בלעדיהם.
 
 המשימה, בשלושה שלבים
 
@@ -279,10 +320,10 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 1. רקע ומטרות: מטרת המוצר במשפט, הבעיה, הפתרון, חזון ה-MVP. המקור: "הבעיה" ו"מה הכלי עושה".
 2. קהלי יעד וצרכי משתמשים: פרסונות, וסיפורי משתמש בפורמט "כ[סוג משתמש], אני רוצה [פעולה], כדי שאוכל [ערך]". המקור: "סוגי משתמשים והרשאות".
 3. זרימות וחוויית משתמש: מסע המשתמש, זרימות, דרישות UX. המקור: "המסך העיקרי", "המסכים המרכזיים", "ה-Flow המרכזי", והסקיצה אם יש.
-4. דרישות פונקציונליות: הפיצ'רים והדרישות של כל אחד, מקרי קצה ושגיאות. המקור: Must ו-Should מטבלת ה-MoSCoW, "התוכן הדינמי ואיפה נשמר", "שכבת ה-AI והפרומפט המרכזי" ו"אוטומציות".
+4. דרישות פונקציונליות: הפיצ'רים והדרישות של כל אחד, מקרי קצה ושגיאות. המקור: Must ו-Should מהקובץ MVP.md, "התוכן הדינמי ואיפה נשמר", "שכבת ה-AI והפרומפט המרכזי" ו"אוטומציות".
 5. דרישות טכניות ואילוצים. המקור: "טכנולוגיה", ומשפט החלטת הפלטפורמה.
 6. מדדי הצלחה: קריטריונים ו-KPIs. בדרך כלל חסר.
-7. מחוץ לטווח. המקור: "מה המערכת לא עושה", ו-Could ו-Won't מטבלת ה-MoSCoW.
+7. מחוץ לטווח. המקור: "מה המערכת לא עושה", ו-Could ו-Won't מהקובץ MVP.md.
 
 שלב 2, השלמות. שאל אותי רק על מה שחסר, שאלה אחת בכל פעם, ולא יותר משמונה שאלות. התחל ממה שרשום תחת "פערים ושאלות פתוחות".
 
@@ -307,7 +348,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 
 קרא קודם, מתיקיית המוצר:
 - הקובץ PRD.md.
-- הקובץ <span dir="ltr">00-product-definition.md</span>: עשרת ההיבטים. במיוחד "התוכן הדינמי ואיפה נשמר", "שכבת ה-AI והפרומפט המרכזי", "טכנולוגיה" ו"אוטומציות".
+- הקובץ <span dir="ltr">product-10-definitions.md</span>: עשרת ההיבטים. במיוחד "התוכן הדינמי ואיפה נשמר", "שכבת ה-AI והפרומפט המרכזי", "טכנולוגיה" ו"אוטומציות".
 - הקובץ course-stack.md: סטאק הקורס והכללים הטכניים. זו נקודת המוצא של המחקר.
 אם קובץ חסר, עצור ואמור לי מה חסר. אל תמשיך בלעדיו.
 
@@ -332,7 +373,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 - הקובץ PRD.md.
 - הקובץ tech-stack.md: ה-Technology Stack שאישרתי.
 - הקובץ course-stack.md: הכללים הטכניים של הקורס.
-- הקובץ <span dir="ltr">00-product-definition.md</span>: עשרת ההיבטים.
+- הקובץ <span dir="ltr">product-10-definitions.md</span>: עשרת ההיבטים.
 אם קובץ חסר, עצור ואמור לי מה חסר. אל תמשיך בלעדיו.
 
 המשימה
@@ -443,7 +484,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
     <div class="prompt"><span class="pt">Claude, בפרויקט</span><button class="cp" type="button">העתק</button><pre>צור את המסמך DESIGN.md.
 
 קרא קודם, מתיקיית המוצר:
-- הקובץ <span dir="ltr">00-product-definition.md</span>: עשרת ההיבטים.
+- הקובץ <span dir="ltr">product-10-definitions.md</span>: עשרת ההיבטים.
 - הקובץ PRD.md.
 - שלוש התמונות: wireframes.png, mockups.png, style-guide.png.
 - אם קיימים בתיקייה, גם קובצי המיתוג: brand-logo, brand-palette, brand-style. אם אין, המשך בלעדיהם.
@@ -474,11 +515,12 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 <article class="step" id="p7">
   <div class="sh"><span class="n">7</span><h2>Milestones<small>שלבי הבנייה, אחד אחד</small></h2></div>
   <div class="body">
-    <div class="from"><span>נבנה מתוך:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">PRD</span><span class="chip">Architecture</span><span class="chip">DESIGN</span></div>
+    <div class="from"><span>נבנה מתוך:</span><span class="chip core">עשרת ההיבטים</span><span class="chip">MVP</span><span class="chip">PRD</span><span class="chip">Architecture</span><span class="chip">DESIGN</span></div>
     <div class="prompt"><span class="pt">Claude, בפרויקט</span><button class="cp" type="button">העתק</button><pre>צור את המסמך MILESTONES.md.
 
 קרא קודם, מתיקיית המוצר:
-- הקובץ <span dir="ltr">00-product-definition.md</span>: עשרת ההיבטים. במיוחד טבלת ה-MoSCoW שבסופו.
+- הקובץ <span dir="ltr">product-10-definitions.md</span>: עשרת ההיבטים.
+- הקובץ MVP.md: טבלת MoSCoW.
 - שלושת המסמכים: PRD.md, ARCHITECTURE.md, DESIGN.md.
 אם קובץ חסר, עצור ואמור לי מה חסר. אל תמשיך בלעדיו.
 
@@ -486,7 +528,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 חלק את הבנייה לאבני דרך ברורות, שאפשר לבדוק כל אחת מהן לפני שממשיכים.
 - Milestone 1 הוא Walking Skeleton: התשתית רצה מקצה לקצה, בלי אף פיצ'ר.
 - משם, כל Milestone הוא Vertical Slice: יכולת משתמש אחת שלמה שעובדת מקצה לקצה, ולא שכבה טכנית נפרדת.
-- הסדר לפי טבלת ה-MoSCoW: קודם כל ה-Must, אחר כך ה-Should. Could ו-Won't לא נכנסים. בתוך זה, לפי תלויות: מה שיכולת אחרת נשענת עליו בא קודם.
+- הסדר לפי טבלת ה-MoSCoW שבקובץ MVP.md: קודם כל ה-Must, אחר כך ה-Should. Could ו-Won't לא נכנסים. בתוך זה, לפי תלויות: מה שיכולת אחרת נשענת עליו בא קודם.
 - לכל Milestone: שם ומטרה, מה מממשים, התוצר המצופה, ותנאי השלמה (Definition of Done) שאפשר לבדוק.
 
 הכללים
@@ -496,7 +538,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 
 התוצר
 שמור בשם MILESTONES.md, ועצור.</pre></div>
-    <div class="see"><b>לפני שממשיכים:</b> כל Must מטבלת ה-MoSCoW מופיע ב-Milestone כלשהו, ואין Milestone בשם "עיצוב", "Backend" או "Database".</div>
+    <div class="see"><b>לפני שממשיכים:</b> כל Must מהקובץ MVP.md מופיע ב-Milestone כלשהו, ואין Milestone בשם "עיצוב", "Backend" או "Database".</div>
   </div>
 </article>
 
@@ -509,7 +551,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <p><b>שימוש:</b> בתוך הפרויקט כותבים "מצב" כדי לראות מה קיים ומה חסר, "המשך" כדי להריץ את השלב הבא, או את שם השלב, למשל "PRD".</p>
 </div>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v5 · 7.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v6 · 7.10.2026</footer>
 
 <script>
 (function(){
@@ -522,6 +564,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   function paint(){var d=root.getAttribute('data-theme')==='dark';tb.innerHTML=d?SUN:MOON;tb.setAttribute('aria-label',d?'מצב בהיר':'מצב כהה');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',d?'#0D1533':'#F7F5F0');}
   tb.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);S.theme=n;save();paint();});paint();
   document.querySelectorAll('details.pre0').forEach(function(d){d.addEventListener('toggle',function(){d.querySelector('.pm').textContent=d.open?'-':'+';});});
+  document.querySelectorAll('a[href^="#pre-"]').forEach(function(l){l.addEventListener('click',function(){var d=document.querySelector(l.getAttribute('href'));if(d)d.open=true;});});
   function fallback(t){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
   document.querySelectorAll('.prompt .cp').forEach(function(b){b.addEventListener('click',function(){var t=b.parentNode.querySelector('pre').innerText;var ok=function(){b.textContent='הועתק';b.classList.add('ok');setTimeout(function(){b.textContent='העתק';b.classList.remove('ok');},1500);};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,function(){fallback(t);ok();});else{fallback(t);ok();}});});
 })();
