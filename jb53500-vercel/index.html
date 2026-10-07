@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Vercel צעד אחר צעד לתלמידי קורס 53500: חיבור הריפו, פונקציה ראשונה, משתנה סביבה סודי, ופונקציית AI שנכתבת עם Claude Code.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F5F0">
+<title>Vercel צעד אחר צעד · 53500</title>
+<link rel="icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Crect width="32" height="32" rx="8" fill="%231B2D6B"/%3E%3Crect x="7" y="8" width="18" height="6" rx="2" fill="none" stroke="%23FFE94A" stroke-width="2.2"/%3E%3Crect x="7" y="18" width="18" height="6" rx="2" fill="none" stroke="%23FFE94A" stroke-width="2.2"/%3E%3Ccircle cx="11" cy="11" r="1.1" fill="%23FFE94A"/%3E%3Ccircle cx="11" cy="21" r="1.1" fill="%23FFE94A"/%3E%3C/svg%3E'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem('jbvercel.v1')||'{}');if(s.theme)document.documentElement.setAttribute('data-theme',s.theme);}catch(e){}})();</script>
+<style>
+:root{--paper:#F7F5F0;--surface:#FFFFFF;--ink:#141F3D;--soft:#5F6C8A;--line:#E4E0D6;--acc:#1B2D6B;--acc-ink:#FFFFFF;--acc-soft:#E8ECF7;--yel:#FFE94A;--yel-ink:#141F3D;--yel-soft:#FFF8C7;--ok:#15803D;--ok-soft:#E3F3E8;--bad:#B91C1C;--bad-soft:#FBE6E6;--term:#141F3D;--term-ink:#E8ECF7;--bar:rgba(247,245,240,.94);--r:18px;--b:#B45309;--b-ink:#FFFFFF;--b-soft:#FDEBD6}
+:root[data-theme="dark"]{--paper:#0D1533;--surface:#16204A;--ink:#EDEFF7;--soft:#8B93B8;--line:rgba(237,239,247,.13);--acc:#9DB0FF;--acc-ink:#0D1533;--acc-soft:rgba(157,176,255,.13);--yel-soft:rgba(255,233,74,.12);--ok:#6FDB93;--ok-soft:rgba(111,219,147,.12);--bad:#FF8A8A;--bad-soft:rgba(255,138,138,.12);--term:#070C22;--term-ink:#DDE3FF;--bar:rgba(13,21,51,.94);--b:#FDBA74;--b-ink:#0D1533;--b-soft:rgba(253,186,116,.13)}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{font-family:"Rubik","Heebo",-apple-system,sans-serif;background:var(--paper);color:var(--ink);max-width:760px;margin:0 auto;padding:0 16px 64px;line-height:1.65;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.ic{width:1.1em;height:1.1em;flex:none;vertical-align:-.18em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.88em;direction:ltr;unicode-bidi:isolate;background:var(--acc-soft);padding:1px 6px;border-radius:6px}
+.appbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:10px;background:var(--bar);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin:0 -16px;padding:calc(10px + env(safe-area-inset-top)) 16px 10px}
+.rbtn{width:36px;height:36px;min-width:36px;border-radius:50%;border:1.5px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink);text-decoration:none}
+.rbtn .ic{width:18px;height:18px}
+.logo{flex:1;text-align:center;font-family:"Poppins",sans-serif;font-size:15px;font-weight:300;letter-spacing:1.8px;text-transform:uppercase}
+.logo b{font-weight:700}
+.osbar{position:sticky;top:calc(56px + env(safe-area-inset-top));z-index:39;background:var(--bar);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin:0 -16px;padding:6px 16px 12px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+.osbar span{font-size:13px;color:var(--soft);font-weight:600}
+.jump{font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;border:1.5px dashed var(--line);color:var(--soft);text-decoration:none}
+.prog{margin-inline-start:auto;font-size:12.5px;color:var(--soft);font-weight:600;white-space:nowrap}
+.hero{padding:30px 0 6px;text-align:center}
+.kicker{display:inline-flex;gap:6px;align-items:center;background:var(--acc);color:var(--acc-ink);font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:999px;margin-bottom:12px}
+h1{font-weight:300;font-size:clamp(30px,8vw,44px);line-height:1.1}
+h1 b{font-weight:800;display:block}
+.lead{color:var(--soft);max-width:34em;margin:12px auto 0}
+.fresh{margin:16px auto 0;max-width:34em;border:1.5px dashed var(--line);border-radius:14px;padding:10px 14px;font-size:13.5px;color:var(--soft)}
+.idea{margin:26px 0 6px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.idea div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;font-size:13.5px}
+.idea b{display:block;font-size:15px;margin-bottom:2px}
+.label{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--acc);margin:34px 0 8px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 16px 14px;margin-bottom:10px}
+.step.done{opacity:.62}
+.sh{display:flex;gap:12px;align-items:flex-start}
+.n{min-width:34px;height:34px;border-radius:10px;background:var(--acc-soft);color:var(--acc);display:flex;align-items:center;justify-content:center;font-family:"Poppins",sans-serif;font-weight:700}
+.sh h2{flex:1;font-size:17px;font-weight:700;line-height:1.35;margin-top:4px}
+.sh h2 small{display:block;font-size:13px;font-weight:400;color:var(--soft)}
+.chk{width:30px;height:30px;min-width:30px;border-radius:9px;border:1.5px dashed var(--soft);display:flex;align-items:center;justify-content:center;color:transparent}
+.chk .ic{width:17px;height:17px;stroke-width:2.6}
+.chk[aria-checked="true"]{background:var(--ok);border:1.5px solid var(--ok);color:#fff}
+.body{margin-top:10px;padding-inline-start:46px}
+.body p{margin-bottom:8px;font-size:15px}
+.body ul,.body ol{padding-inline-start:18px;margin-bottom:8px}
+.body li{margin-bottom:4px;font-size:15px}
+.term{position:relative;background:var(--term);color:var(--term-ink);border-radius:12px;padding:40px 14px 12px;margin:8px 0;direction:ltr;text-align:left;font-family:ui-monospace,Consolas,monospace;font-size:13.5px;line-height:1.7;overflow-x:auto}
+.term .cp{position:absolute;top:8px;right:8px;font-family:"Rubik",sans-serif;font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.3);color:var(--term-ink)}
+.term .cp.ok{border-color:#6FDB93;color:#6FDB93}
+.term pre{white-space:pre;font:inherit}
+.see{font-size:14px;border-inline-start:3px solid var(--ok);padding:4px 10px;margin:8px 0;color:var(--soft)}
+.see b{color:var(--ok)}
+.tip{font-size:14px;border:1.5px dashed var(--line);border-radius:12px;padding:8px 12px;margin:8px 0}
+.tip b{color:var(--acc)}
+.warn{font-size:14px;border:1.5px solid var(--bad);background:var(--bad-soft);border-radius:12px;padding:8px 12px;margin:8px 0}
+.warn b{color:var(--bad)}
+details.err{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:8px}
+details.err>summary{list-style:none;cursor:pointer;padding:12px 14px;font-weight:600;font-size:14.5px;display:flex;gap:8px;align-items:center}
+details.err>summary::-webkit-details-marker{display:none}
+details.err>summary .pm{font-family:"Poppins",sans-serif;color:var(--bad);width:12px}
+details.err>summary u{text-underline-offset:3px}
+details.err>div{padding:0 14px 12px;font-size:14.5px}
+.tblwrap{overflow-x:auto;border-radius:14px;margin:8px 0}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);border-radius:14px;overflow:hidden}
+.body .tbl{border:1px solid var(--line)}
+.tbl th{font-size:12px;color:var(--soft);text-align:start;padding:9px 10px;border-bottom:1.5px solid var(--line)}
+.tbl td{padding:9px 10px;border-bottom:1px dashed var(--line);vertical-align:top}
+.tbl td:first-child{white-space:nowrap}
+.final{margin-top:28px;border:2px solid var(--acc);border-radius:var(--r);padding:16px 18px;background:var(--surface)}
+.final h2{font-size:18px;font-weight:700;margin-bottom:6px}
+.final p{font-size:15px;margin-bottom:6px}
+.reset{font-size:13px;font-weight:600;color:var(--soft);text-decoration:underline;text-underline-offset:3px;margin-top:10px}
+footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border-top:1.5px dashed var(--line);padding-top:14px}
+.pick2{display:grid;gap:10px;margin:22px 0 4px}
+.pcard{display:block;text-decoration:none;border-radius:var(--r);padding:14px 18px 16px;border:2px solid var(--acc);background:var(--surface)}
+.pcard.b{border-color:var(--b)}
+.pcard .pl{font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--acc)}
+.pcard.b .pl{color:var(--b)}
+.pcard b{display:block;font-size:19px;font-weight:800;line-height:1.25;margin:2px 0}
+.pcard span{display:block;font-size:14px;color:var(--soft)}
+.part{margin:44px -16px 16px;padding:22px 16px 24px;background:var(--acc);color:var(--acc-ink)}
+.part.b{background:var(--b);color:var(--b-ink)}
+.part .pl{font-size:12px;font-weight:700;letter-spacing:.12em;opacity:.85}
+.part h2{font-size:26px;font-weight:800;line-height:1.2;margin:2px 0 6px}
+.part p{font-size:14.5px;max-width:36em}
+.trackA .step{border-inline-start:5px solid var(--acc)}
+.trackB .step{border-inline-start:5px solid var(--b)}
+.trackB .n{background:var(--b-soft);color:var(--b);padding:0 6px;font-family:"Rubik",sans-serif}
+.trackB .tip b{color:var(--b)}
+.prompt{position:relative;margin:8px 0}
+.prompt pre{white-space:pre-wrap;font-family:"Rubik",sans-serif;font-size:14.5px;line-height:1.7;background:var(--b-soft);border:1.5px dashed var(--b);border-radius:12px;padding:38px 14px 14px}
+.prompt .cp{position:absolute;top:8px;inset-inline-end:10px;font-size:12px;font-weight:600;padding:3px 12px;border-radius:999px;border:1.5px dashed var(--b);background:var(--surface)}
+.prompt .cp.ok{border-color:var(--ok);color:var(--ok)}
+.prompt pre .ltr{display:block;direction:ltr;text-align:left;unicode-bidi:isolate;font-family:ui-monospace,Consolas,monospace;font-size:13.5px;line-height:1.6;margin:8px 0;padding:10px 12px;border-radius:8px;background:var(--surface)}
+.prompt .pt{position:absolute;top:10px;inset-inline-start:14px;font-size:11.5px;font-weight:700;color:var(--b)}
+.locks{display:grid;gap:8px;margin:8px 0}
+.acts{display:grid;gap:8px;margin:8px 0}
+.acts .lock b{margin-bottom:3px}
+.lock{border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14.5px;background:var(--paper)}
+.lock b{display:block;font-size:15px}
+.lock code{background:var(--surface)}
+.check{border:2px solid var(--acc);border-radius:14px;padding:14px;margin:10px 0;background:var(--paper)}
+.check h3{font-size:16px;font-weight:700;margin-bottom:2px}
+.check .sub{font-size:13.5px;color:var(--soft);margin-bottom:10px}
+.check label{display:block;font-size:13px;font-weight:600;margin:8px 0 3px}
+.check input{width:100%;font:inherit;font-family:ui-monospace,Consolas,monospace;font-size:14px;direction:ltr;text-align:left;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:9px 12px}
+.check input:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
+.go{margin-top:12px;background:var(--acc);color:var(--acc-ink);font-weight:700;font-size:15px;padding:10px 26px;border-radius:999px}
+.go[disabled]{opacity:.55;cursor:default}
+.res{margin-top:12px;border-radius:12px;padding:12px 14px;font-size:14.5px;display:none}
+.res.show{display:block}
+.res.good{background:var(--ok-soft);border:1.5px solid var(--ok)}
+.res.stop{background:var(--bad-soft);border:1.5px solid var(--bad)}
+.res.mid{background:var(--yel-soft);border:1.5px solid var(--line)}
+.res b.t{display:block;font-size:16px;margin-bottom:2px}
+.res .raw{margin-top:8px;font-family:ui-monospace,Consolas,monospace;font-size:12.5px;direction:ltr;text-align:left;background:var(--surface);border-radius:8px;padding:8px 10px;overflow-x:auto;white-space:pre-wrap;word-break:break-word}
+.res table{margin-top:8px;border-collapse:collapse;font-size:13px;width:100%}
+.res th,.res td{border:1px solid var(--line);padding:4px 8px;text-align:start}
+@media (max-width:520px){.idea{grid-template-columns:1fr}.body{padding-inline-start:0}}
+@media (min-width:1024px){.pick2{grid-template-columns:1fr 1fr}.part{border-radius:var(--r);margin-inline:0;padding:26px 28px 28px}.locks{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="appbar">
+  <a class="rbtn" href="https://eyalg1980.github.io/simpla-lab/jb53500/" aria-label="לאתר הקורס"><svg class="ic" viewBox="0 0 24 24"><path d="m9.5 5 6.5 7-6.5 7"/></svg></a>
+  <div class="logo">Vercel <b>53500</b></div>
+  <button class="rbtn" id="themeBtn" type="button" aria-label="מצב כהה"></button>
+</div>
+<div class="osbar">
+  <a class="jump" href="#partA">חלק א</a>
+  <a class="jump" href="#partB">חלק ב</a>
+  <a class="jump" href="#netlify">Netlify</a>
+  <span class="prog" id="prog">א 0/6 · ב 0/7</span>
+</div>
+
+<header class="hero">
+  <span class="kicker">מודול 3 · מיישם AI ואוטומציה</span>
+  <h1>Vercel צעד אחר צעד <b>הצד של המוצר שהגולש לא רואה</b></h1>
+  <p class="lead">שני חלקים. בחלק א מחברים את הריפו ל-Vercel, מעלים פונקציה ראשונה ושומרים סוד ראשון. בחלק ב Claude Code כותב את הפונקציה של המוצר, ואתם קוראים ומאשרים.</p>
+  <div class="fresh">מעודכן ל-7.10.2026, לפי התיעוד הרשמי של Vercel. הדשבורד משתנה מדי פעם, אז שם של כפתור יכול לזוז. העיקרון נשאר.</div>
+</header>
+
+<div class="idea">
+  <div><b>פונקציה</b>קובץ קוד קטן שרץ בשרת ולא בדפדפן. יש לה כתובת משלה</div>
+  <div><b>משתנה סביבה</b>המקום שבו השרת שומר סוד: מחוץ לקוד, ומחוץ לריפו</div>
+  <div><b>פריסה</b>כל דחיפה ל-GitHub מעלה גרסה חדשה לאוויר, לבד</div>
+</div>
+
+<div class="label">למה צריך צד שרת</div>
+<div class="step">
+  <div class="body" style="padding-inline-start:0;margin-top:0">
+    <p>האתר שלכם ב-GitHub Pages הוא קבצים שנשלחים לדפדפן. כל מה שכתוב בהם, כל גולש יכול לקרוא. מפתח של מודל AI שווה כסף, ולכן הוא לא יכול לשבת שם.</p>
+    <p>הפתרון: הדפדפן פונה לפונקציה. הפונקציה מוסיפה את המפתח, פונה למודל, ומחזירה לדפדפן רק את התשובה.</p>
+    <div class="locks">
+      <div class="lock"><b>צד הלקוח · GitHub Pages</b><code>username.github.io</code><br>מה שהגולש רואה. הכל גלוי</div>
+      <div class="lock"><b>צד השרת · Vercel</b><code>project.vercel.app/api</code><br>כאן רץ הקוד שמחזיק סוד</div>
+      <div class="lock"><b>הנתונים · Supabase</b><code>xxxx.supabase.co</code><br>כאן הטבלאות. מדריך נפרד</div>
+    </div>
+    <p>אלה שלוש השכבות מהמצגת של מפגש 7. לכל שכבה יש עכשיו כתובת משלה.</p>
+  </div>
+</div>
+
+<div class="pick2">
+  <a class="pcard" href="#partA"><span class="pl">חלק א</span><b>פעם אחת, לאט</b><span>כארבעים דקות. חשבון, חיבור הריפו, פונקציה ראשונה וסוד ראשון</span></a>
+  <a class="pcard b" href="#partB"><span class="pl">חלק ב</span><b>עם Claude Code</b><span>הוא כותב את הפונקציה של המוצר, אתם קוראים ומאשרים</span></a>
+</div>
+
+<section class="trackA" id="partA">
+<div class="part">
+  <div class="pl">חלק א</div>
+  <h2>פעם אחת, לאט</h2>
+  <p>עושים כל צעד בעצמכם ועוצרים לראות מה קרה. מכאן והלאה Claude Code יעשה את רוב העבודה, ואתם תדעו מה אתם מאשרים.</p>
+</div>
+
+<article class="step" data-s="a1">
+  <div class="sh"><span class="n">1</span><h2>מה צריך<small>שלושה דברים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li><b>ריפו ב-GitHub, בחשבון שלכם:</b> עם אתר שכבר עובד ב-GitHub Pages. אתם הבעלים של הריפו</li>
+      <li><b>תיקיית המוצר במחשב:</b> מחוברת לריפו, כמו במדריך Git</li>
+      <li><b>מפתח API של מודל:</b> בכיתה עובדים עם Gemini. נכנסים ל-<a href="https://aistudio.google.com/api-keys" target="_blank" rel="noopener">Google AI Studio</a>, לדף API keys, ומעתיקים את המפתח</li>
+    </ol>
+    <div class="tip"><b>למה Gemini:</b> יש לו שכבה חינמית, והיא מספיקה לתרגול. בשכבה החינמית Google רשאית להשתמש בתוכן כדי לשפר את המוצרים שלה, ולכן לא שולחים אליו מידע אישי או מידע של לקוחות. כל ספק אחר, כמו Anthropic או OpenAI, עובד באותה שיטה בדיוק.</div>
+    <div class="warn"><b>המפתח לא נכנס לתיקיית המוצר.</b> לא לקובץ, לא לצ׳אט עם Claude, ולא להודעת וואטסאפ. מעתיקים אותו פעם אחת, ישר לתוך Vercel, בשלב 6.</div>
+  </div>
+</article>
+
+<article class="step" data-s="a2">
+  <div class="sh"><span class="n">2</span><h2>פותחים חשבון Vercel<small>עם חשבון ה-GitHub של הקורס</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>נכנסים ל-<a href="https://vercel.com/signup" target="_blank" rel="noopener">vercel.com/signup</a></li>
+      <li>נרשמים עם <b>GitHub</b>, באותו חשבון שבו נמצא הריפו</li>
+      <li>בוחרים בתוכנית <b>Hobby</b>, החינמית</li>
+    </ol>
+    <div class="tip"><b>Hobby היא לשימוש אישי ולא מסחרי.</b> פרויקט של קורס הוא שימוש אישי. אתר שגובה כסף, מפרסם מוצר למכירה או מציג פרסומות צריך את התוכנית בתשלום. בקשת תרומות לא נחשבת שימוש מסחרי.</div>
+  </div>
+</article>
+
+<article class="step" data-s="a3">
+  <div class="sh"><span class="n">3</span><h2>מחברים את הריפו<small>פעם אחת. מכאן כל דחיפה נפרסת לבד</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>בדשבורד של Vercel לוחצים <b>New Project</b></li>
+      <li>ברשימת הריפו בוחרים את הריפו של המוצר. אם הוא לא מופיע, נותנים ל-Vercel גישה אליו בחלון של GitHub שנפתח</li>
+      <li>ב-<b>Framework Preset</b> בוחרים <b>Other</b>. את שאר ההגדרות משאירים כמו שהן</li>
+      <li>לוחצים <b>Deploy</b></li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> אחרי דקה בערך, כתובת בסגנון <code>my-product.vercel.app</code>. האתר שלכם נפתח גם ממנה.</p>
+    <div class="tip"><b>שתי כתובות, אתר אחד:</b> מעכשיו אותו ריפו מתפרסם בשני מקומות. הכתובת שאתם שולחים לאנשים נשארת זו של GitHub Pages. את Vercel צריך בשביל הפונקציות.</div>
+  </div>
+</article>
+
+<article class="step" data-s="a4">
+  <div class="sh"><span class="n">4</span><h2>מעלים פונקציה ראשונה<small>שני קבצים קטנים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p>פותחים את תיקיית המוצר בלשונית <b>Code</b> של Claude, ושולחים:</p>
+    <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>צור שני קבצים, בדיוק כמו שכתוב כאן, ואל תשנה שום קובץ אחר.
+
+1. בשורש התיקייה, קובץ package.json:<span class="ltr">{
+  "private": true,
+  "type": "module"
+}</span>
+2. תיקייה חדשה בשם api בשורש, ובתוכה קובץ hello.js:<span class="ltr">export default {
+  fetch(request) {
+    return Response.json({
+      message: 'שלום מצד השרת',
+      time: new Date().toISOString(),
+    });
+  },
+};</span>
+אחר כך צור קומיט בשם "First Vercel function" ודחוף ל-GitHub.</pre></div>
+    <p>מה כתוב בקובץ <code>hello.js</code>: כשמגיעה בקשה, הפונקציה מחזירה תשובה בפורמט JSON, עם הודעה ועם השעה בשרת. זה הכל.</p>
+    <div class="locks">
+      <div class="lock"><b>הקובץ</b><code>api/hello.js</code><br>בתיקיית api שבשורש הריפו</div>
+      <div class="lock"><b>הכתובת</b><code>/api/hello</code><br>שם הקובץ הוא שם הכתובת</div>
+      <div class="lock"><b>הקובץ השני</b><code>package.json</code><br>אומר ל-Vercel באיזה תחביר הקוד כתוב</div>
+    </div>
+    <p class="see"><b>אמור להופיע:</b> ב-Vercel, תחת <b>Deployments</b>, פריסה חדשה עם שם הקומיט שלכם. אחרי דקה בערך היא מסומנת Ready.</p>
+  </div>
+</article>
+
+<article class="step" data-s="a5">
+  <div class="sh"><span class="n">5</span><h2>בודקים שהפונקציה חיה<small>בדפדפן, ואז בלוגים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>פותחים בדפדפן את כתובת הפרויקט ב-Vercel, ומוסיפים בסופה <code>/api/hello</code></li>
+      <li>מרעננים את הדף פעמיים</li>
+      <li>ב-Vercel, בתפריט הצד של הפרויקט, פותחים את <b>Logs</b></li>
+    </ol>
+    <div class="term"><button class="cp" type="button">העתק</button><pre>https://my-product.vercel.app/api/hello</pre></div>
+    <p class="see"><b>אמור להופיע:</b> בדפדפן, ההודעה והשעה. בכל רענון השעה מתעדכנת, כי הקוד רץ בשרת מחדש בכל פנייה. ב-Logs, שורה לכל פנייה שלכם.</p>
+    <div class="tip"><b>Logs הוא המקום הראשון לחפש בו כשמשהו נשבר.</b> בתוכנית Hobby הלוגים נשמרים שעה אחת, אז בודקים מיד אחרי התקלה.</div>
+  </div>
+</article>
+
+<article class="step" data-s="a6">
+  <div class="sh"><span class="n">6</span><h2>שומרים סוד, ונתקעים בכוונה<small>למה צריך פריסה חדשה אחרי כל שינוי במשתנה</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p>קודם פונקציה שבודקת אם הסוד קיים, בלי לחשוף אותו. שולחים ל-Claude:</p>
+    <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>צור בתיקיית api קובץ check.js, בדיוק כך, ואל תשנה שום קובץ אחר:<span class="ltr">export default {
+  fetch(request) {
+    return Response.json({
+      hasKey: Boolean(process.env.GEMINI_API_KEY),
+    });
+  },
+};</span>
+אחר כך צור קומיט בשם "Add key check" ודחוף ל-GitHub.</pre></div>
+    <p>מחכים שהפריסה תסתיים, ופותחים את <code>/api/check</code>. התשובה: <code>{"hasKey": false}</code>. עכשיו מוסיפים את הסוד:</p>
+    <ol>
+      <li>ב-Vercel, בתפריט הצד של הפרויקט, פותחים את <b>Environment Variables</b></li>
+      <li>תחת <b>Type</b> בוחרים <b>Secret</b></li>
+      <li>בשם כותבים <code>GEMINI_API_KEY</code>, אות באות</li>
+      <li>בערך מדביקים את המפתח מ-Google AI Studio. את הסביבות משאירים כמו שהן, ולוחצים <b>Save</b></li>
+      <li>מרעננים את <code>/api/check</code></li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> עדיין <code>false</code>. זו לא תקלה. משתנה חדש נכנס רק לפריסה חדשה.</p>
+    <p>ב-<b>Deployments</b> פותחים את תפריט שלוש הנקודות של הפריסה האחרונה ובוחרים <b>Redeploy</b>. אפשר גם פשוט לדחוף קומיט חדש. מרעננים שוב.</p>
+    <p class="see"><b>אמור להופיע:</b> <code>{"hasKey": true}</code>.</p>
+    <div class="locks">
+      <div class="lock"><b>Config</b>ערך שאפשר לקרוא שוב אחרי השמירה. מתאים להגדרות שאינן סוד</div>
+      <div class="lock"><b>Secret</b>אחרי השמירה אי אפשר לראות אותו שוב, רק להחליף. מתאים למפתחות</div>
+      <div class="lock"><b>בקוד</b><code>process.env.NAME</code><br>כך הפונקציה קוראת את הערך</div>
+    </div>
+    <div class="warn"><b>הפונקציה מחזירה רק כן או לא.</b> לא כותבים פונקציה שמחזירה את המפתח עצמו, גם לא לבדיקה. מה שפונקציה מחזירה, כל גולש יכול לקרוא.</div>
+  </div>
+</article>
+</section>
+
+<section class="trackB" id="partB">
+<div class="part b">
+  <div class="pl">חלק ב</div>
+  <h2>עם Claude Code: הפונקציה של המוצר</h2>
+  <p>אותם רכיבים כמו בחלק א, הפעם על המוצר שלכם: פונקציה שמקבלת שאלה מהאתר, פונה למודל עם המפתח הסודי, ומחזירה תשובה.</p>
+</div>
+
+<article class="step" data-s="b1">
+  <div class="sh"><span class="n">ב1</span><h2>מה צריך<small>ארבעה דברים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li><b>Claude Desktop ותוכנית בתשלום:</b> הלשונית Code לא כלולה בתוכנית החינמית</li>
+      <li><b>תיקיית המוצר:</b> עם <code>ARCHITECTURE.md</code>,‏ <code>PRD.md</code>,‏ <code>course-stack.md</code> ומסמך עשרת ההיבטים</li>
+      <li><b>הפרויקט ב-Vercel מחלק א:</b> מחובר לריפו, עם הסוד <code>GEMINI_API_KEY</code></li>
+      <li><b>מסך ראשי שעובד:</b> עם כפתור או טופס שאמור להפעיל את ה-AI</li>
+    </ol>
+  </div>
+</article>
+
+<article class="step" data-s="b2">
+  <div class="sh"><span class="n">ב2</span><h2>רושמים שתי כתובות<small>Claude יצטרך את שתיהן</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <div class="acts">
+      <div class="lock"><b>כתובת האתר</b><code>https://username.github.io</code><br>רק עד הסיומת <code>github.io</code>. בלי שם הריפו, ובלי לוכסן בסוף</div>
+      <div class="lock"><b>כתובת הפרויקט ב-Vercel</b><code>https://my-product.vercel.app</code><br>הכתובת הקצרה שמופיעה בדשבורד תחת Domains</div>
+    </div>
+    <div class="tip"><b>למה בלי שם הריפו:</b> הדפדפן מזהה אתר לפי תחילת הכתובת בלבד, מה שנקרא Origin. הפונקציה תשווה את ה-Origin של מי שפונה אליה לכתובת הזו, אות באות.</div>
+  </div>
+</article>
+
+<article class="step" data-s="b3">
+  <div class="sh"><span class="n">ב3</span><h2>מבקשים מ-Claude לכתוב את הפונקציה<small>קודם תוכנית, אחר כך קוד</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p>בלשונית Code, במצב <b>Manual</b>. ממלאים את שתי הכתובות, ושולחים:</p>
+    <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>הוסף למוצר פונקציית צד שרת ב-Vercel, שקוראת למודל ה-AI.
+
+קרא קודם, מתיקיית המוצר:
+- course-stack.md: הסעיפים "חוק הברזל: מפתחות" ו"צד השרת".
+- ARCHITECTURE.md: הסעיף "שכבת ה-AI".
+- 00-product-definition.md: הסעיף "שכבת ה-AI והפרומפט המרכזי".
+
+הפרטים שלי:
+- כתובת האתר ב-GitHub Pages: [להדביק כאן]
+- כתובת הפרויקט ב-Vercel: [להדביק כאן]
+- המפתח שמור ב-Vercel כ-Environment Variable בשם GEMINI_API_KEY. אל תבקש אותו, ואל תכתוב אותו בשום קובץ.
+
+המשימה:
+1. הצג לי תוכנית: אילו קבצים תיצור או תשנה, מה הפונקציה מקבלת ומה היא מחזירה. חכה לאישור שלי.
+2. צור את הפונקציה בקובץ api/ask.js, במבנה שהתיעוד העדכני של Vercel מגדיר לפרויקט בלי framework.
+3. לפני שאתה כותב את הקריאה למודל, קרא את התיעוד העדכני של הספק, ובדוק את שם המודל.
+4. הפונקציה מקבלת POST עם JSON, מגבילה את אורך הקלט, ומחזירה תמיד JSON, גם בשגיאה. היא לא מחזירה את המפתח, ולא הודעת שגיאה גולמית של הספק.
+5. הפונקציה מאשרת בקשות רק מכתובת האתר שלי, בכותרות CORS, ועונה גם לבקשת OPTIONS.
+6. חבר את הכפתור במסך הראשי: הוא פונה לכתובת המלאה של הפונקציה ב-Vercel, מציג מצב טעינה, ומציג את התשובה או הודעת שגיאה בעברית.
+7. בסוף הסבר לי איך אני בודק, ופרט מה לא יכולת לבדוק בעצמך.
+
+אל תדחוף ל-GitHub לפני שאישרתי.</pre></div>
+  </div>
+</article>
+
+<article class="step" data-s="b4">
+  <div class="sh"><span class="n">ב4</span><h2>קוראים לפני שמאשרים<small>חמישה דברים לחפש בקוד</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <div class="acts">
+      <div class="lock"><b><code>process.env.GEMINI_API_KEY</code></b>כך הפונקציה קוראת את הסוד. המפתח עצמו לא מופיע בשום קובץ</div>
+      <div class="lock"><b><code>Access-Control-Allow-Origin</code></b>הערך הוא כתובת האתר שלכם. לא כוכבית</div>
+      <div class="lock"><b><code>OPTIONS</code></b>לפני בקשת POST הדפדפן שואל את השרת אם מותר. הפונקציה צריכה לענות גם על השאלה הזו</div>
+      <div class="lock"><b><code>slice</code> או בדיקת אורך</b>הגבלה על אורך הטקסט שנשלח למודל. בלי זה, כל גולש יכול לשלוח ספר שלם על חשבונכם</div>
+      <div class="lock"><b><code>console.error</code></b>מה שנכתב כאן מופיע ב-Logs של Vercel. הגולש מקבל רק הודעה קצרה</div>
+    </div>
+    <div class="warn"><b>עוצרים ושואלים לפני שמאשרים:</b> מפתח שכתוב בקובץ. כוכבית ב-<code>Access-Control-Allow-Origin</code>. פונקציה שמחזירה ערך מתוך <code>process.env</code>. ספרייה חדשה שלא ביקשתם. שינוי בקבצים שלא קשורים למשימה.</div>
+    <p>זה מה ש-Claude אמור לכתוב, בערך. שם המודל והפרומפט יהיו שלכם:</p>
+    <div class="term"><button class="cp" type="button">העתק</button><pre>const SITE = 'https://username.github.io';
+const MODEL = 'gemini-3.8-flash';
+const ROLE = 'הפרומפט המרכזי של המוצר';
+
+const cors = {
+  'Access-Control-Allow-Origin': SITE,
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
+
+function reply(body, status = 200) {
+  return Response.json(body, { status, headers: cors });
+}
+
+export default {
+  async fetch(request) {
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { status: 204, headers: cors });
+    }
+    if (request.method !== 'POST') {
+      return reply({ error: 'POST only' }, 405);
+    }
+
+    let question = '';
+    try {
+      const body = await request.json();
+      question = String(body.question || '').trim().slice(0, 500);
+    } catch (e) {
+      return reply({ error: 'bad request' }, 400);
+    }
+    if (!question) {
+      return reply({ error: 'missing question' }, 400);
+    }
+
+    const key = process.env.GEMINI_API_KEY;
+    if (!key) {
+      console.error('GEMINI_API_KEY is missing');
+      return reply({ error: 'server is not configured' }, 500);
+    }
+
+    const url = 'https://generativelanguage.googleapis.com/v1beta/models/'
+      + MODEL + ':generateContent';
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'x-goog-api-key': key, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system_instruction: { parts: [{ text: ROLE }] },
+        contents: [{ parts: [{ text: question }] }],
+      }),
+    });
+
+    if (!res.ok) {
+      console.error('model error', res.status, await res.text());
+      return reply({ error: 'model did not answer' }, 502);
+    }
+
+    const data = await res.json();
+    const parts = data.candidates?.[0]?.content?.parts || [];
+    const answer = parts.map((p) => p.text || '').join('').trim();
+    return reply({ answer });
+  },
+};</pre></div>
+    <p>ובצד של האתר, הכפתור פונה לפונקציה כך:</p>
+    <div class="term"><button class="cp" type="button">העתק</button><pre>const API = 'https://my-product.vercel.app/api/ask';
+
+async function ask(question) {
+  const res = await fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ question }),
+  });
+  const data = await res.json();
+  return data.answer || data.error;
+}</pre></div>
+    <div class="tip"><b>הקוד של הפונקציה גלוי בריפו, וזה בסדר.</b> כל אחד יכול לקרוא איך היא עובדת. את המפתח אף אחד לא רואה, כי הוא לא בקוד.</div>
+  </div>
+</article>
+
+<article class="step" data-s="b5">
+  <div class="sh"><span class="n">ב5</span><h2>דוחפים ובודקים, בארבעה מקומות<small>האתר, הרשת, הקוד והלוגים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p>מאשרים ל-Claude ליצור קומיט ולדחוף. מחכים שהפריסה ב-Vercel תסומן Ready, ושגם GitHub Pages יתעדכן, בדרך כלל דקה או שתיים.</p>
+    <ol>
+      <li><b>באתר:</b> פותחים את כתובת GitHub Pages בחלון פרטי, ומפעילים את הכפתור. מגיעה תשובה מהמודל</li>
+      <li><b>ברשת:</b> פותחים את כלי המפתחים (F12, וב-Mac ‏Cmd+Option+I), עוברים ל-<b>Network</b>, ומפעילים שוב. מופיעה בקשה אל <code>vercel.app</code>. אין בקשה ישירה אל ספק המודל</li>
+      <li><b>בקוד:</b> בכלי המפתחים מחפשים בכל קובצי הדף (Ctrl+Shift+F, וב-Mac ‏Cmd+Option+F) את השם <code>GEMINI_API_KEY</code>. הוא לא מופיע. השם קיים רק בפונקציה שבשרת</li>
+      <li><b>בלוגים:</b> ב-Vercel, תחת Logs, מופיעה שורה לכל לחיצה שלכם</li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> תשובה באתר, בקשה אחת ל-Vercel, אפס מפתחות בדפדפן.</p>
+  </div>
+</article>
+
+<article class="step" data-s="b6">
+  <div class="sh"><span class="n">ב6</span><h2>רואים את המנעול עובד<small>שגיאת CORS, בכוונה</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>פותחים את הקובץ <code>index.html</code> ישר מהמחשב, בלחיצה כפולה</li>
+      <li>פותחים את כלי המפתחים, ועוברים ל-<b>Console</b></li>
+      <li>מפעילים את הכפתור</li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> שגיאה אדומה שמזכירה את המילה CORS. הבקשה נחסמה.</p>
+    <p>זו לא תקלה. הפונקציה עונה רק לאתר שבכתובת שהגדרתם, וקובץ מקומי הוא לא האתר הזה. מעכשיו בודקים את ה-AI מהאתר החי.</p>
+    <div class="tip"><b>CORS עוצר אתרים אחרים, לא את כל העולם.</b> מי שמכיר את כתובת הפונקציה יכול לפנות אליה מתוכנה, בלי דפדפן. לכן מגבילים את אורך הקלט, ועוקבים אחרי השימוש אצל ספק המודל. נחזור לזה במפגש האבטחה.</div>
+  </div>
+</article>
+
+<article class="step" data-s="b7">
+  <div class="sh"><span class="n">ב7</span><h2>רשות: מחברים את Vercel ל-Claude<small>כדי ש-Claude יקרא פריסות ולוגים במקומכם</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>ב-Claude Desktop לוחצים <b>Customize</b> בסרגל הצד, ואז <b>Connectors</b></li>
+      <li>לוחצים על ה-<b>+</b>, מחפשים <b>Vercel</b>, ולוחצים <b>Connect</b>. נפתח דפדפן, ומתחברים לחשבון</li>
+      <li>בלשונית Code לוחצים על ה-<b>+</b> שליד תיבת ההודעה, בוחרים <b>Connectors</b>, ומוודאים ש-Vercel דולק</li>
+    </ol>
+    <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>בדוק דרך המחבר של Vercel את הפריסה האחרונה של הפרויקט שלי.
+אם היא נכשלה, הצג לי את השגיאה מתוך הלוג, והסבר אותה בעברית במשפט אחד.
+אל תשנה שום דבר, לא בקוד ולא ב-Vercel.</pre></div>
+    <div class="acts">
+      <div class="lock"><b><code>list_projects</code> <code>list_deployments</code> <code>get_deployment</code></b>קריאה בלבד. מאשרים</div>
+      <div class="lock"><b><code>get_deployment_events</code></b>הלוג של פריסה. קריאה בלבד</div>
+      <div class="lock"><b><code>search_vercel_documentation</code></b>חיפוש בתיעוד של Vercel</div>
+    </div>
+    <div class="warn"><b>המחבר מקבל את אותה גישה שיש לחשבון שלכם ב-Vercel.</b> הוא יודע גם לפרוס ולשנות הגדרות. נשארים במצב Manual, קוראים כל פעולה, ולא מאשרים "תמיד" לפעולה שמשנה משהו. בקורס הפריסה נשארת דרך GitHub.</div>
+  </div>
+</article>
+</section>
+
+<div class="label">כשמשהו לא עובד</div>
+
+<details class="err"><summary><span class="pm">+</span><u>הכתובת <code>/api/hello</code> מחזירה 404</u></summary><div>הקובץ לא נמצא בתיקיית <code>api</code> שבשורש הריפו, או שהפריסה עוד לא הסתיימה. בודקים ב-Deployments שהפריסה האחרונה מסומנת Ready, ושהקומיט שלכם מופיע בה. בודקים גם ב-GitHub שהתיקייה <code>api</code> נמצאת ליד <code>index.html</code>, ולא בתוך תיקייה אחרת.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>הפונקציה מחזירה שגיאה 500</u></summary><div>פותחים את Logs ב-Vercel, מוצאים את השורה האדומה, ומעתיקים אותה ל-Claude: "זו השגיאה מהלוג של Vercel. הסבר לי מה היא אומרת לפני שאתה מתקן." הסיבה הנפוצה: המשתנה לא הוגדר, או שלא הייתה פריסה חדשה אחרי שהוגדר.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>הכתובת <code>/api/check</code> ממשיכה להחזיר <code>false</code></u></summary><div>או שהשם לא זהה אות באות ל-<code>GEMINI_API_KEY</code>, או שלא הייתה פריסה חדשה אחרי השמירה. בודקים את השם ב-Environment Variables, ועושים Redeploy.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>בקונסול מופיעה שגיאת CORS</u></summary><div>הכתובת שכתובה בפונקציה לא זהה לכתובת האתר. בודקים: מתחילה ב-<code>https</code>, נגמרת ב-<code>github.io</code>, בלי שם הריפו ובלי לוכסן בסוף. או שפתחתם את האתר מקובץ מקומי, ואז זו ההתנהגות הנכונה.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>הפריסה נכשלת, והשגיאה מזכירה export או module</u></summary><div>חסר בשורש הריפו הקובץ <code>package.json</code> עם השורה <code>"type": "module"</code>. חוזרים לשלב 4.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>דחפתי, ואין פריסה חדשה</u></summary><div>ב-Vercel, בהגדרות הפרויקט תחת Git, בודקים שהפרויקט מחובר לריפו הנכון. בודקים ב-GitHub שהקומיט באמת הגיע לענף <code>main</code>. אם הכל נראה תקין, פותחים את Deployments ויוצרים פריסה ידנית עם Create Deployment.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>הכתובת מבקשת ממני להתחבר ל-Vercel</u></summary><div>בדרך כלל זה אומר שפתחתם כתובת של פריסה מסוימת: ארוכה, עם אותיות ומספרים באמצע. משתמשים בכתובת הקצרה של הפרויקט, שמופיעה בדשבורד תחת Domains.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>האתר מציג הודעת שגיאה במקום תשובה</u></summary><div>הפונקציה עובדת, והספק החזיר שגיאה. הסיבה המדויקת כתובה ב-Logs. בשכבה החינמית זו בדרך כלל מכסה לדקה: מחכים רגע ומנסים שוב. אם השגיאה מזכירה שם של מודל, מבקשים מ-Claude לבדוק את שם המודל בתיעוד העדכני.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>עובד מכתובת Vercel, ולא מכתובת GitHub Pages</u></summary><div>שתי בדיקות. האחת, שהכפתור פונה לכתובת המלאה של הפונקציה, עם <code>https://</code> ושם הפרויקט, ולא רק ל-<code>/api/ask</code>. השנייה, ש-GitHub Pages כבר התעדכן: לפעמים הוא מתעדכן דקה או שתיים אחרי Vercel.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>המפתח נדחף בטעות לריפו</u></summary><div>מחליפים אותו מיד: ב-Google AI Studio מוחקים את המפתח ויוצרים חדש, מעדכנים את הערך ב-Vercel, ועושים Redeploy. למחוק את השורה מהקוד לא מספיק, כי ההיסטוריה של Git שומרת כל גרסה. מפתח שנחשף פעם אחת נחשב חשוף.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>Claude מבקש את המפתח</u></summary><div>לא נותנים. כותבים לו: "המפתח שמור ב-Vercel. קרא אותו בקוד מתוך process.env, ואל תבקש אותו ממני."</div></details>
+
+<div class="label" id="netlify">Netlify: אותו רעיון, שמות אחרים</div>
+<div class="step">
+  <div class="body" style="padding-inline-start:0;margin-top:0">
+    <p>Netlify עושה את אותה עבודה: מחברים ריפו, כל דחיפה נפרסת, ופונקציות רצות בשרת עם סודות. מי שמבין את Vercel מבין גם את Netlify.</p>
+    <div class="tblwrap"><table class="tbl">
+      <thead><tr><th></th><th>Vercel</th><th>Netlify</th></tr></thead>
+      <tbody>
+        <tr><td>הקובץ</td><td><code>api/ask.js</code></td><td><code>netlify/functions/ask.mjs</code></td></tr>
+        <tr><td>הכתובת</td><td>לפי שם הקובץ: <code>/api/ask</code></td><td>נקבעת בתוך הקובץ, בשורת <code>config</code></td></tr>
+        <tr><td>הסוד</td><td>Environment Variables, מסוג Secret</td><td>Environment variables, בהגדרות הפרויקט</td></tr>
+        <tr><td>בקוד</td><td><code>process.env.NAME</code></td><td><code>process.env.NAME</code></td></tr>
+        <tr><td>פריסה</td><td>כל דחיפה ל-main</td><td>כל דחיפה ל-main</td></tr>
+        <tr><td>בחינם</td><td>Hobby: מיליון קריאות לפונקציה בחודש, ועד 100 פריסות ביום. שימוש אישי בלבד</td><td>Free: 300 קרדיטים בחודש. כל פריסה לאוויר עולה 15, כלומר כעשרים פריסות בחודש</td></tr>
+        <tr><td>מחבר ל-Claude</td><td>יש</td><td>יש</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tip"><b>מה בוחרים:</b> בכיתה כולנו על Vercel, כדי שאפשר יהיה לעזור לכל אחד. מי שכבר עובד עם Netlify יכול להישאר שם, אבל כדאי לשים לב למכסת הפריסות: בקורס דוחפים כמה פעמים ביום, ו-300 קרדיטים נגמרים מהר.</div>
+  </div>
+</div>
+
+<div class="label">דף הסיכום</div>
+<div class="tblwrap"><table class="tbl">
+  <thead><tr><th>המושג</th><th>מה הוא</th></tr></thead>
+  <tbody>
+    <tr><td>Function</td><td>קובץ קוד שרץ בשרת בכל פעם שפונים לכתובת שלו</td></tr>
+    <tr><td>api</td><td>התיקייה בשורש הריפו. כל קובץ בה הוא פונקציה</td></tr>
+    <tr><td>Environment Variable</td><td>ערך שנשמר ב-Vercel ולא בקוד. הפונקציה קוראת אותו ב-<code>process.env</code></td></tr>
+    <tr><td>Secret</td><td>סוג של משתנה שאי אפשר לקרוא שוב אחרי השמירה. למפתחות</td></tr>
+    <tr><td>Deployment</td><td>גרסה אחת של הפרויקט באוויר. נוצרת בכל דחיפה</td></tr>
+    <tr><td>Redeploy</td><td>פריסה מחדש בלי שינוי בקוד. נדרשת אחרי שינוי במשתנה</td></tr>
+    <tr><td>Logs</td><td>מה שקרה בכל פנייה לפונקציה. ב-Hobby נשמר שעה</td></tr>
+    <tr><td>Origin</td><td>תחילת הכתובת של אתר: <code>https</code> ושם הדומיין, בלי ההמשך</td></tr>
+    <tr><td>CORS</td><td>הכלל שקובע אילו אתרים רשאים לפנות לפונקציה מהדפדפן</td></tr>
+    <tr><td>Hobby</td><td>התוכנית החינמית של Vercel. לשימוש אישי ולא מסחרי</td></tr>
+  </tbody>
+</table></div>
+
+<div class="final">
+  <h2>ומה הלאה</h2>
+  <p>עכשיו יש למוצר שתי שכבות: צד לקוח ב-GitHub Pages, וצד שרת ב-Vercel. השכבה השלישית היא הנתונים. ממשיכים ל<a href="../jb53500-supabase/">מדריך Supabase</a>.</p>
+  <p>אחרי שסיימתם, אפשר למחוק את <code>api/check.js</code>. הוא שימש רק לתרגול.</p>
+  <button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button>
+</div>
+
+<div class="label">מקורות</div>
+<div class="step">
+  <div class="body" style="padding-inline-start:0;margin-top:0">
+    <ul>
+      <li><a href="https://vercel.com/docs/functions/quickstart" target="_blank" rel="noopener">Vercel: Getting started with Vercel Functions</a></li>
+      <li><a href="https://vercel.com/docs/functions/functions-api-reference" target="_blank" rel="noopener">Vercel: Functions API Reference</a></li>
+      <li><a href="https://vercel.com/docs/environment-variables/sensitive-environment-variables" target="_blank" rel="noopener">Vercel: Config and Secret environment variables</a></li>
+      <li><a href="https://vercel.com/docs/git" target="_blank" rel="noopener">Vercel: Deploying Git Repositories</a></li>
+      <li><a href="https://vercel.com/docs/plans/hobby" target="_blank" rel="noopener">Vercel: Hobby Plan</a> ו-<a href="https://vercel.com/docs/limits/fair-use-guidelines" target="_blank" rel="noopener">Fair Use Guidelines</a></li>
+      <li><a href="https://vercel.com/kb/guide/how-to-enable-cors" target="_blank" rel="noopener">Vercel: How to enable CORS</a></li>
+      <li><a href="https://docs.netlify.com/build/functions/get-started/" target="_blank" rel="noopener">Netlify: Get started with functions</a></li>
+      <li><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Google: Gemini Developer API pricing</a></li>
+    </ul>
+  </div>
+</div>
+
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v1 · 7.10.2026</footer>
+
+<script>
+(function(){
+  'use strict';
+  var KEY='jbvercel.v1',S={theme:null,done:{}};
+  try{var s=JSON.parse(localStorage.getItem(KEY)||'{}');for(var k in s)S[k]=s[k];}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+  var root=document.documentElement,tb=document.getElementById('themeBtn');
+  var SUN='<svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>',MOON='<svg class="ic" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>';
+  function paint(){var d=root.getAttribute('data-theme')==='dark';tb.innerHTML=d?SUN:MOON;tb.setAttribute('aria-label',d?'מצב בהיר':'מצב כהה');}
+  tb.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);S.theme=n;save();paint();});paint();
+  var steps=[].slice.call(document.querySelectorAll('.step[data-s]'));
+  function paintSteps(){var a=0,b=0,ta=0,tb2=0;steps.forEach(function(st){var on=!!S.done[st.dataset.s],isB=!!st.closest('.trackB');st.classList.toggle('done',on);st.querySelector('.chk').setAttribute('aria-checked',String(on));if(isB){tb2++;if(on)b++;}else{ta++;if(on)a++;}});document.getElementById('prog').textContent='א '+a+'/'+ta+' · ב '+b+'/'+tb2;}
+  steps.forEach(function(st){st.querySelector('.chk').addEventListener('click',function(){var id=st.dataset.s;if(S.done[id])delete S.done[id];else S.done[id]=1;save();paintSteps();});});paintSteps();
+  document.getElementById('resetBtn').addEventListener('click',function(){S.done={};save();paintSteps();});
+  document.querySelectorAll('details.err').forEach(function(d){d.addEventListener('toggle',function(){d.querySelector('.pm').textContent=d.open?'-':'+';});});
+  function fallback(t){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
+  document.querySelectorAll('.term .cp,.prompt .cp').forEach(function(b){b.addEventListener('click',function(){var t=b.parentNode.querySelector('pre').innerText;var ok=function(){b.textContent='הועתק';b.classList.add('ok');setTimeout(function(){b.textContent='העתק';b.classList.remove('ok');},1500);};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,function(){fallback(t);ok();});else{fallback(t);ok();}});});
+
+})();
+</script>
+</body>
+</html>
