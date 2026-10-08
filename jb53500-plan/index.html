@@ -830,10 +830,11 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
 </details>
 
 <details class="mt" id="m10" data-mod="3" data-st="plan">
-  <summary><span class="num"><b>10</b><small>מודול 3</small></span><span class="sh"><span class="d">יום רביעי 21.10</span><h3>Claude Code, ושלוש שכבות באוויר</h3><span class="tags"><span class="pill st-plan">מתוכנן</span><span class="pill mod">Claude Code</span><span class="pill mod">Frontend: GitHub Pages</span><span class="pill mod">Backend: Vercel</span><span class="pill mod">Data: Supabase</span><span class="pill gap">לפני המפגש אני לומד</span><span class="pill conf">Vercel נכנס לסטאק</span></span></span><svg class="ic chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
+  <summary><span class="num"><b>10</b><small>מודול 3</small></span><span class="sh"><span class="d">יום רביעי 21.10</span><h3>Claude Code, ושלוש שכבות באוויר</h3><span class="tags"><span class="pill st-plan">מתוכנן</span><span class="pill mod">Claude Code</span><span class="pill mod">Frontend: GitHub Pages</span><span class="pill mod">Backend: Vercel או Netlify</span><span class="pill mod">Data: Supabase או Airtable</span><span class="pill gap">לפני המפגש אני לומד</span><span class="pill conf">סטאק 8.10</span></span></span><svg class="ic chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
   <div class="mb">
-    <p class="goal"><b>היעד:</b> לכל תלמיד שלד מהלך של המוצר שלו: מסך אחד באוויר ב-GitHub Pages, פונקציה אחת ב-Vercel שקוראת למודל, וטבלה אחת ב-Supabase שהמסך קורא ממנה. שלוש שכבות, שלוש כתובות.</p>
+    <p class="goal"><b>היעד:</b> לכל תלמיד שלד מהלך של המוצר שלו: מסך אחד באוויר ב-GitHub Pages, פונקציה אחת ב-Vercel או ב-Netlify שקוראת למודל, וטבלה אחת ב-Supabase או ב-Airtable שהמסך קורא ממנה. שלוש שכבות, שלוש כתובות.</p>
     <p class="note">זה ה-Walking Skeleton ממפגש 8: פרוסה דקה אחת שעוברת דרך כל השכבות. לא בונים היום את המוצר, בונים את השלד שעליו הוא ייבנה.</p>
+    <div class="warn"><b>סטאק הקורס התעדכן ב-8.10. מה זה משנה כאן:</b><ul><li><b>צד שרת:</b> Vercel או Netlify, אחת לכל פרויקט. המדריך והמצגת על Vercel, ועדיף שרוב הכיתה עליו, כדי שאפשר לעזור לכולם. מי שבוחר Netlify עובד לפי הנספח במדריך Vercel. בתוכנית החינמית של Netlify כל פריסה לאוויר עולה 15 מתוך 300 קרדיטים בחודש.</li><li><b>נתונים:</b> Supabase כברירת מחדל. Airtable מותר רק לרמות כניסה 0 ו-1, ורק דרך הפונקציה: אין לו מפתח ציבורי, ולכן המסך לא קורא ממנו ישירות. אין לזה מדריך עדיין.</li><li><b>Airtable בתוכנית החינמית:</b> 1,000 קריאות API בחודש לכל Workspace. אחרי תקופת חסד הקריאות נחסמות עד החודש הבא. אתר שקורא את הטבלה בכל טעינה יכול לגמור את זה לפני ההגשה.</li><li><b>מבנה הנתונים:</b> עד שלוש טבלאות, במקום שתיים. רשימה ששייכת לשורה נשמרת בעמודת JSON, ורשימה קבועה בקובץ JSON בריפו. זה מה ש-Claude אמור לבנות בתרגיל 4.</li><li><b>רמות כניסה:</b> היום כולם ברמה 0, בלי כניסה. רמות 1 ו-2 נבנות במפגש 11, רק אצל מי שה-PRD שלו צריך.</li></ul></div>
 
     <h4>שלושת השלבים</h4>
     <div class="scroll"><table class="tbl">
@@ -877,7 +878,7 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
 כלול בו:
 1. המוצר במשפט אחד, ולמי הוא.
 2. איפה נמצא כל מסמך, ומה הוא קובע.
-3. הסטאק, מתוך course-stack.md, tech-stack.md ו-ARCHITECTURE.md: מה רץ ב-GitHub Pages, מה ב-Vercel, ומה ב-Supabase.
+3. הסטאק, מתוך course-stack.md, tech-stack.md ו-ARCHITECTURE.md: מה רץ ב-GitHub Pages, מה בפונקציות ב-Vercel או ב-Netlify, ומה בכלי הנתונים, Supabase או Airtable.
 4. כללי העבודה:
  - עובדים על Milestone אחד בכל פעם, ועוצרים לאישור שלי בסופו.
  - לא מוסיפים יכולת שלא מופיעה ב-PRD.
@@ -930,14 +931,16 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
         <li>לפי מדריך Supabase. חלק א, כחצי שעה: פרויקט, טבלת תרגול, חמש שורות, המפתח הציבורי, ושלושת המנעולים</li>
         <li>חלק ב: מחברים את Supabase ל-Claude, ו-Claude בונה את הטבלה המרכזית מתוך "מבנה הנתונים" שב-ARCHITECTURE.md</li>
         <li>מחליפים את קובץ ה-JSON: המסך הראשי קורא עכשיו מהטבלה. הפרומפט נמצא במדריך, בשלב ב6</li>
-        <li><b>סיימתי כש:</b> אני משנה שורה בדשבורד של Supabase, מרענן את האתר, והשינוי מופיע</li>
+        <li><b>מי שבחר Airtable:</b> חלק א של מדריך Supabase כתרגול, ואז Claude Code מוסיף לפונקציה קריאה לטבלה ב-Airtable, עם טוקן שנשמר כמשתנה סביבה סודי. המסך קורא מהפונקציה, לא מ-Airtable</li>
+        <li><b>סיימתי כש:</b> אני משנה שורה בדשבורד של Supabase או ב-Airtable, מרענן את האתר, והשינוי מופיע</li>
       </ul>
       <p class="note">זה התרגיל שהכי סביר שלא ייסגר היום. מפגש 11 נפתח בהשלמה שלו.</p>
     </div></details>
     <details class="sub"><summary><span class="pm">+</span><u>תרגיל 5: מבחן שלוש השכבות, בזוגות, 10 דקות</u></summary><div class="in">
       <ul>
         <li>כל אחד פותח את האתר של בן הזוג בחלון פרטי, עם כלי המפתחים פתוחים על Network</li>
-        <li>מפעילים את הפעולה המרכזית, ומחפשים שלוש כתובות: <span dir="ltr">github.io</span>, <span dir="ltr">vercel.app</span> ו-<span dir="ltr">supabase.co</span></li>
+        <li>מפעילים את הפעולה המרכזית, ומחפשים שלוש כתובות: <span dir="ltr">github.io</span>, <span dir="ltr">vercel.app</span> (או <span dir="ltr">netlify.app</span>) ו-<span dir="ltr">supabase.co</span></li>
+        <li>אצל מי שעל Airtable יש רק שתיים: הפונקציה פונה ל-Airtable מהשרת, ולכן הדפדפן לא רואה את הכתובת הזו. זה בדיוק העניין</li>
         <li>לכל כתובת עונים במשפט: מה נשלח אליה, ומה חזר</li>
         <li><b>סיימתי כש:</b> מצאתי את שלוש הכתובות, ואני יודע להגיד איזו שכבה היא כל אחת</li>
       </ul>
@@ -1034,6 +1037,12 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
 הוא לא מתקן שום דבר. רק בודק ומדווח.</pre></div>
     </div></details>
 
+    <div class="warn"><b>מה מסטאק 8.10 נכנס לספרינט, רק למי שה-PRD שלו צריך:</b><ul><li><b>רמה 1 או 2:</b> כניסה עם משתמש שנוצר ידנית בדשבורד של Supabase, והרשאות טבלה לפי המשתמש. בלי מסך הרשמה ובלי שחזור סיסמה. ב-Airtable, רמה 1 בלבד: הסיסמה נשמרת כמשתנה סביבה, והפונקציה בודקת אותה</li><li><b>קבצים:</b> העלאה ל-Supabase Storage, לתיקייה פרטית, אחרי הקטנה בדפדפן. הפונקציה מקבלת את כתובת הקובץ, לא את הקובץ</li><li><b>פעולה ששני משתמשים עושים באותו רגע:</b> עדכון מותנה אחד, ובדיקה שהשורה באמת עודכנה</li></ul></div>
+    <h4>שיעורי בית</h4>
+    <ul>
+      <li>ai-tests.md בריפו: עשרה קלטי דמה לפעולה של ה-AI, התוצאה הצפויה לכל אחד, ואחוז ההצלחה. הסטאק דורש אותו, ובמפגש 18 מריצים אותו שוב</li>
+      <li>יום לפני ההגשה: בודקים שפרויקט Supabase פעיל. פרויקט חינמי מושהה אחרי כשבוע בלי פעילות</li>
+    </ul>
     <div class="warn"><b>איפה Base44 ו-Lovable מול הסטאק של הקורס:</b> שניהם בונים ומארחים הכל במקום אחד, כולל צד שרת ונתונים. זה מהיר, ופחות שקוף. אחרי מפגש 10 הכיתה יודעת מה מסתתר מאחורי הכפתור: שלוש השכבות קיימות גם שם, רק בלי כתובות נפרדות.</div>
     <div class="warn"><b>מודול 4 נדחק מהמפגש הזה.</b> נגישות, אתיקה ואבטחה תוכננו כאן. שתי אפשרויות: מפגש 12, ואז מודולים 5 עד 7 מתכווצים במפגש אחד. או חצי יום כאן, אם שלוש השכבות נסגרות כבר במפגש 10. התוכן שמור למטה, וההחלטה ברשימת ההחלטות.</div>
     <details class="sub"><summary><span class="pm">+</span><u>מודול 4: נגישות, אתיקה ואבטחה. מחכה למיקום חדש</u></summary><div class="in">
@@ -1055,19 +1064,20 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
 
 <!-- ============ MODULE 5 ============ -->
 <details class="mt" id="m12" data-mod="5" data-st="draft">
-  <summary><span class="num"><b>12</b><small>מודול 5</small></span><span class="sh"><span class="d">יום רביעי 28.10 · משוער</span><h3>נתונים ומחברים</h3><span class="tags"><span class="pill st-draft">טיוטה</span><span class="pill conf">Supabase במקום AirTable</span></span></span><svg class="ic chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
+  <summary><span class="num"><b>12</b><small>מודול 5</small></span><span class="sh"><span class="d">יום רביעי 28.10 · משוער</span><h3>נתונים ומחברים</h3><span class="tags"><span class="pill st-draft">טיוטה</span><span class="pill conf">Supabase, ו-Airtable כחלופה</span></span></span><svg class="ic chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
   <div class="mb">
     <p class="goal"><b>היעד:</b> כל תלמיד מבין איך המידע שלו נראה למכונה, יש לו מבנה טבלאות שהסוכן יעבוד עליו, ומחבר אחד שעושה משהו.</p>
     <div class="scroll"><table class="tbl">
       <thead><tr><th>שעה</th><th>מה</th><th>באתר</th></tr></thead>
       <tbody>
         <tr><td class="tm">09:10</td><td>איך מידע נראה למכונה: אובייקט, מערך, JSON. YAML רק כמה שצריך כדי לקרוא סקיל. בלי XML</td><td>c_json</td></tr>
-        <tr><td class="tm">10:45</td><td>מבנה נתונים ב-Supabase: למה מפרידים לטבלאות, מפתח ראשי וזר, יחס אחד לרבים</td><td>tables, לשכתב ל-Supabase</td></tr>
+        <tr><td class="tm">10:45</td><td>מבנה נתונים לפי הסטאק: עד שלוש טבלאות, מפתח ראשי וזר, ומתי רשימה נשארת בעמודת JSON או בקובץ JSON בריפו. ואז Airtable כחלופה: אותו מבנה, בלי מפתח ציבורי</td><td>tables, לשכתב לפי הסטאק</td></tr>
         <tr><td class="tm">12:15</td><td>מחברים: Gmail, Calendar, Drive, Canva, Slack. מה כל מחבר מקבל גישה אליו, ו-MCP במשפט</td><td>connscope</td></tr>
         <tr><td class="tm">14:25</td><td>סדנה: הטבלאות של הפרויקט, ומחבר אחד שמשרת אותו <span class="ty">תרגיל</span></td><td>ex12</td></tr>
       </tbody>
     </table></div>
-    <div class="warn"><b>שינוי מהמקור:</b> במקור השיעור בנוי על AirTable, אבל מ-12.9 הסטאק הוא Supabase, והתלמידים כבר פתחו בו טבלאות במפגש 10. שני כלי נתונים באותו קורס מבלבלים. AirTable יכול להישאר שקף אחד, "מה עוד קיים".</div>
+    <div class="warn"><b>שינוי מהמקור, ועדכון 8.10:</b> במקור השיעור בנוי על AirTable. מ-12.9 הסטאק הוא Supabase, ומ-8.10 Airtable חזר כחלופה: לרמות כניסה 0 ו-1, ורק דרך פונקציה או n8n. אם מלמדים אותו, המקום הוא כאן, כחצי שעה על אותו מבנה טבלאות. אחרת שקף אחד, "מה עוד קיים".</div>
+    <p class="note">קבצים שמשתמש מעלה נכנסו לסטאק ב-8.10: Supabase Storage, בתיקייה פרטית. מצגת ה-OCR מתאימה לכאן, אם מקצרים את המחברים לחצי שעה.</p>
     <div class="gapbox"><b>לפני המפגש אני לומד:</b> JSON, API, Webhook ו-MCP, מתוך <a href="../data-automations-agents/#concepts" target="_blank" rel="noopener">מפת המושגים</a>, והקורס של Anthropic על MCP עד סוף ההסברים.</div>
   </div>
 </details>
@@ -1080,7 +1090,7 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
       <thead><tr><th>שעה</th><th>מה</th><th>באתר</th></tr></thead>
       <tbody>
         <tr><td class="tm">09:10</td><td>פרומפט מול סוכן, Workflow מול סוכן, כלי, לולאה, זיכרון ו-Human in the Loop. הסרטון של IBM</td><td>agent</td></tr>
-        <tr><td class="tm">10:45</td><td>חמשת הצעדים של בניית סוכן, והדגמה ב-Claude: משימה מתוזמנת שקוראת מ-Supabase ושולחת סיכום במייל</td><td>agent_build</td></tr>
+        <tr><td class="tm">10:45</td><td>חמשת הצעדים של בניית סוכן, והדגמה ב-Claude: משימה מתוזמנת שקוראת מ-Supabase ושולחת סיכום במייל. במוצר של התלמיד, מייל וחיבור ל-Google עוברים רק דרך n8n, לפי הסטאק מ-8.10</td><td>agent_build</td></tr>
         <tr><td class="tm">12:15</td><td>אותו סוכן, שתי הרצות, על החוג המושלם. ואז צוות סוכנים: מתי זה נכון ומתי מיותר</td><td>agent_demo, close13</td></tr>
         <tr><td class="tm">14:25</td><td>סדנה: סוכן שעושה משהו אמיתי <span class="ty">תרגיל</span></td><td>ex13</td></tr>
       </tbody>
@@ -1135,7 +1145,7 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
       <thead><tr><th>שעה</th><th>מה</th><th>באתר</th></tr></thead>
       <tbody>
         <tr><td class="tm">09:10</td><td>הסביבה, ומה עובר בין הנודים: Items, JSON ו-Expressions</td><td>n8n_canvas, לחבר</td></tr>
-        <tr><td class="tm">10:45</td><td>התרחיש הראשון, שלושה נודים: טופס, גיליון, מייל. Credentials של Google</td><td>n8n_first, לחבר</td></tr>
+        <tr><td class="tm">10:45</td><td>התרחיש הראשון, שלושה נודים: טופס, גיליון, מייל לכתובות בדיקה בלבד. Credentials של Google, לחשבון אחד של בעל המוצר</td><td>n8n_first, לחבר</td></tr>
         <tr><td class="tm">12:15</td><td>ארבעה טריגרים: ידני, תזמון, Webhook, אירוע באפליקציה. ו-IF</td><td>triggers, לחבר</td></tr>
         <tr><td class="tm">14:25</td><td>סדנה: התרחיש הראשון שלכם <span class="ty">תרגיל</span></td><td>ex16</td></tr>
       </tbody>
@@ -1145,13 +1155,14 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
 </details>
 
 <details class="mt" id="m17" data-mod="6" data-st="draft">
-  <summary><span class="num"><b>17</b><small>מודול 6</small></span><span class="sh"><span class="d">יום שני 16.11 · משוער</span><h3>n8n, נתונים, API ו-Webhook</h3><span class="tags"><span class="pill st-draft">טיוטה</span><span class="pill conf">Supabase במקום AirTable</span></span></span><svg class="ic chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
+  <summary><span class="num"><b>17</b><small>מודול 6</small></span><span class="sh"><span class="d">יום שני 16.11 · משוער</span><h3>n8n, נתונים, API ו-Webhook</h3><span class="tags"><span class="pill st-draft">טיוטה</span><span class="pill conf">Supabase או Airtable</span></span></span><svg class="ic chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
   <div class="mb">
     <p class="goal"><b>היעד:</b> הטופס מדף הנחיתה של מפגש 11 נכנס לטבלה, ומפעיל מייל המשך.</p>
+    <div class="warn"><b>מי שעל Airtable:</b> בתוכנית החינמית יש 1,000 קריאות API בחודש. טריגר של Airtable ב-n8n בודק את הטבלה כל כמה זמן, וכל בדיקה נספרת. עדיף שהתרחיש יתחיל מ-Webhook של הטופס, כמו בבלוק של 12:15.</div>
     <div class="scroll"><table class="tbl">
       <thead><tr><th>שעה</th><th>מה</th><th>באתר</th></tr></thead>
       <tbody>
-        <tr><td class="tm">09:10</td><td>ארבע הפעולות על טבלה מתוך תרחיש, בנוד Supabase</td><td>n8n_tables, לשכתב ולחבר</td></tr>
+        <tr><td class="tm">09:10</td><td>ארבע הפעולות על טבלה מתוך תרחיש, בנוד Supabase, או בנוד Airtable למי שבחר בו</td><td>n8n_tables, לשכתב ולחבר</td></tr>
         <tr><td class="tm">10:45</td><td>מה זה API, ואיך קוראים תיעוד. HTTP Request ל-API ציבורי</td><td>api_read, לחבר</td></tr>
         <tr><td class="tm">12:15</td><td>Webhook: הטופס מדף הנחיתה מפעיל את התרחיש</td><td>c_hook</td></tr>
         <tr><td class="tm">14:25</td><td>סדנה: מהטופס לטבלה, ומייל המשך <span class="ty">תרגיל</span></td><td>ex17</td></tr>
@@ -1167,7 +1178,7 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
     <div class="scroll"><table class="tbl">
       <thead><tr><th>שעה</th><th>מה</th><th>באתר</th></tr></thead>
       <tbody>
-        <tr><td class="tm">09:10</td><td>מתי מוסיפים מודל לתרחיש ומתי לא. Structured Output</td><td>ai_in_flow, לחבר</td></tr>
+        <tr><td class="tm">09:10</td><td>מתי מוסיפים מודל לתרחיש ומתי לא. Structured Output. ומריצים שוב את ai-tests.md ממפגש 11</td><td>ai_in_flow, לחבר</td></tr>
         <tr><td class="tm">10:45</td><td>צומת מודל מול נוד AI Agent עם כלים</td><td>agent_tools, לחבר</td></tr>
         <tr><td class="tm">12:15</td><td>Error Workflow ו-Retry, וכמה עולה כל הרצה</td><td>run_cost, לחבר</td></tr>
         <tr><td class="tm">14:25</td><td>סדנה: שכבת AI על התרחיש שלכם <span class="ty">תרגיל</span></td><td>ex18</td></tr>
@@ -1202,6 +1213,7 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
     <ul>
       <li>מבנה ההצגה: הבעיה, המשתמש, המוצר החי, הפעולה המרכזית, הסוכן או הבוט, שלוש האוטומציות, מה למדתי. באתר: pitch_struct</li>
       <li>מקבצי הצגות לאורך היום, ומשוב מסכם</li>
+      <li>יום לפני: כל תלמיד בודק שפרויקט Supabase שלו פעיל, ושהאתר עובד בחלון פרטי</li>
       <li>איך מתחזקים מערכת חיה אחרי הקורס. באתר: after_course</li>
     </ul>
   </div>
@@ -1213,7 +1225,7 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
 
 <section class="blk" id="decisions">
   <div class="label">החלטות פתוחות</div>
-  <h2 class="t">שש עשרה החלטות, <b>ואיפה אני ממליץ</b></h2>
+  <h2 class="t">שבע עשרה החלטות, <b>ואיפה אני ממליץ</b></h2>
   <p class="intro">סמן מה סגרת. הסימון נשמר בדפדפן. כל החלטה משפיעה גם על האתר, ולכן היא מופיעה גם במסמך היישור.</p>
   <div id="decList"></div>
 </section>
@@ -1229,15 +1241,15 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
       <tr><td><b>סדר מודול 3</b></td><td>אפיון, אחר כך עיצוב, אחר כך No-Code ו-Vibe Coding, אחר כך Claude Code, ובסוף העלאה</td><td>עיצוב (5 ו-6), אפיון (6 עד 8), Claude והמקבילות (8), Git (9), Claude Code ושלוש השכבות (10), השלמות ודף נחיתה (11)</td></tr>
       <tr><td><b>No-Code</b></td><td>שיעור שלם, "אם יש זמן", בלי כלי</td><td>יורד. Base44 ו-Lovable כהדגמה וכתרגיל של דף נחיתה במפגש 11</td></tr>
       <tr><td><b>תרשים זרימה</b></td><td>מפגש 5: ארבע צורות וסדנת תרשים</td><td>User Flow נכנס לתוך ה-PRD, והסדנה הנפרדת יורדת</td></tr>
-      <tr><td><b>העלאה לאוויר</b></td><td>GitHub Pages, Firebase, ו-Netlify אם יש זמן</td><td>GitHub Pages לצד הלקוח, ו-Vercel לצד השרת. Netlify מוצג כמקבילה. Firebase יורד</td></tr>
+      <tr><td><b>העלאה לאוויר</b></td><td>GitHub Pages, Firebase, ו-Netlify אם יש זמן</td><td>GitHub Pages לצד הלקוח, ו-Vercel או Netlify לצד השרת, אחת לכל פרויקט. Firebase מחוץ לסטאק (8.10)</td></tr>
       <tr><td><b>Git</b></td><td>טרמינל בשיעור ההעלאה. ב-12.9: התלמיד לא מקליד</td><td>שיעור טרמינל אחד במפגש 9 להבנה, ומשם Claude Code</td></tr>
       <tr><td><b>מודול 4</b></td><td>שלושה שיעורים, או שני מפגשים</td><td>נדחק. מפגשים 10 ו-11 הלכו לבנייה. מחכה להחלטה: מפגש 12, או חצי יום במפגש 11</td></tr>
-      <tr><td><b>נתונים</b></td><td>AirTable במודולים 5 ו-6</td><td>Supabase מהבנייה ועד הסוף</td></tr>
+      <tr><td><b>נתונים</b></td><td>AirTable במודולים 5 ו-6</td><td>Supabase מהבנייה ועד הסוף. מ-8.10 Airtable חלופה, לרמות 0 ו-1, רק דרך פונקציה או n8n</td></tr>
       <tr><td><b>סוכנים</b></td><td>Snowflake, Hermes או OpenClaw</td><td>סוכן ב-Claude על הנתונים של הפרויקט. בלי Snowflake</td></tr>
       <tr><td><b>צ׳אטבוט</b></td><td>Voiceflow או Manychat</td><td>n8n Chat, כפתח למודול 6</td></tr>
       <tr><td><b>הפרויקט המלווה</b></td><td>"המתנה המושלמת"</td><td>"החוג המושלם", שכבר רץ מאז מפגש 3</td></tr>
       <tr><td><b>הגשה 2</b></td><td>סוף מפגש 9</td><td>סוף מפגש 11</td></tr>
-      <tr><td><b>צד שרת</b></td><td>לא הופיע כשכבה. הקריאה למודל תוכננה דרך n8n או Edge Function</td><td>פונקציות ב-Vercel, במפגש 10. סטאק הקורס עודכן ב-7.10</td></tr>
+      <tr><td><b>צד שרת</b></td><td>לא הופיע כשכבה. הקריאה למודל תוכננה דרך n8n או Edge Function</td><td>פונקציות ב-Vercel או ב-Netlify, במפגש 10. סטאק הקורס עודכן ב-7.10 וב-8.10. פונקציות בתוך Supabase מחוץ לסטאק</td></tr>
       <tr><td><b>קצב מודול 3</b></td><td>שישה מפגשים, 5 עד 10</td><td>שבעה מפגשים, 5 עד 11. מפגש 7 הגיע עד ה-PRD</td></tr>
     </tbody>
   </table></div>
@@ -1312,7 +1324,7 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
   </div>
 </section>
 
-<footer>Simpla Lab · נבנה עם Claude · v4.6 · 7.10.2026<br>תאריכי העבר שוחזרו מהלוח: 7.9, 9.9, 14.9, 16.9, 23.9. מ-12.10 אין מפגש ברשימה ששלחת, ולכן 11 עד 20 משוערים לפי שני ורביעי מ-26.10.</footer>
+<footer>Simpla Lab · נבנה עם Claude · v4.7 · 8.10.2026<br>תאריכי העבר שוחזרו מהלוח: 7.9, 9.9, 14.9, 16.9, 23.9. מ-12.10 אין מפגש ברשימה ששלחת, ולכן 11 עד 20 משוערים לפי שני ורביעי מ-26.10.</footer>
 
 <script>
 (function(){
@@ -1358,8 +1370,8 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
   var D=[
     ['d1','מתכונת הקורס באתר','האתר מחזיק שתי מתכונות, 20 מפגשי בוקר ו-29 ערבים, וכל תוכן כתוב פעמיים.','להסתיר את מתכונת הערב עד שיש מחזור ערב אמיתי. חוסך חצי מכל עדכון.'],
     ['d2','מודול 4, אחרי שמודול 3 התארך','מפגש 7 הגיע עד ה-PRD, ולכן מפגשים 10 ו-11 הם בנייה. מודול 4 נדחק ממפגש 11.','מפגש אחד, 12, ומודול 6 מתכווץ לארבעה מפגשים, עם RAG כהעשרה. אם שלוש השכבות נסגרות כבר במפגש 10: חצי יום במפגש 11.'],
-    ['d3','Supabase או AirTable','הסטאק מ-12.9 הוא Supabase, אבל מודולים 5 ו-6 באתר בנויים על AirTable.','Supabase בכל הקורס. AirTable נשאר שקף "מה עוד קיים".'],
-    ['d4','איך פותחים n8n','ניסיון הענן הוא 14 יום, והמודול נמשך כשלושה שבועות. בתוכנית המקורית מופיע טריק של אימייל זמני.','לא לבנות על אימייל זמני, זה בניגוד לתנאי השימוש. אפשרויות: חודש בתשלום לכל תלמיד, התקנה עצמית, או לפתוח את הניסיון רק במפגש 16 ולבנות את הבוט של מפגש 14 בכלי אחר.'],
+    ['d3','Supabase או AirTable','8.10: הוחלט בסטאק. Supabase ברירת המחדל, Airtable חלופה לרמות כניסה 0 ו-1, רק דרך פונקציה או n8n. נשאר פתוח: האם ללמד אותו בכיתה.','חצי שעה במפגש 12, על אותו מבנה טבלאות, בלי מדריך נפרד. ולהוסיף לקובץ הסטאק, תחת "אם בוחרים ב-Airtable", את המכסה: 1,000 קריאות API בחודש בתוכנית החינמית, אחרי זה הקריאות נחסמות.'],
+    ['d4','איך פותחים n8n','ניסיון הענן הוא 14 יום, והמודול נמשך כשלושה שבועות. בתוכנית המקורית מופיע טריק של אימייל זמני.','8.10: מצאת דרך שלא דורשת תשלום, והפרטים עוד יגיעו. עד אז n8n נשאר. אם זו התקנה עצמית (Community Edition), היא חינמית ומותרת, אבל צריך מחשב או שרת שמריץ אותה. אימייל זמני לא, זה בניגוד לתנאי השימוש.'],
     ['d5','כלי הצ׳אטבוט','Voiceflow ו-Manychat מסומנים כ"טרם סופי".','n8n Chat, אם n8n נפתח כבר במפגש 14. אחרת Voiceflow.'],
     ['d6','Snowflake, Hermes ו-OpenClaw','מופיעים בסילבוס ולא מתאימים לרמת הכיתה.','להוריד את Snowflake. OpenClaw בעשר דקות כדוגמה למה צריך להיזהר.'],
     ['d7','Git בטרמינל','ב-12.9 הוחלט שהתלמיד לא מקליד פקודות.','פעם אחת בטרמינל להבנה, במפגש 9. מכאן והלאה Claude Code או GitHub Desktop.'],
@@ -1368,9 +1380,10 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--soft);border
     ['d10','המתנה המושלמת','מופיעה כרעיון לפרויקט המתגלגל בתוכנית המקורית.','להישאר עם "החוג המושלם" כמיזם הכיתתי. "המתנה המושלמת" כבר ברשימת עשרת הרעיונות באתר.'],
     ['d11','מנוי Claude בתשלום','חיבור תיקייה דורש תוכנית בתשלום ואת Claude Desktop, כבר במפגש 8.','תזכורת לכיתה לפני מפגש 8. מי שאין לו עובד במפגש 8 במסלול העוקף, ומשלים עד מפגש 10, שם נפתח Claude Code.'],
     ['d12','לוח התאריכים','12.10 לא מופיע ברשימה.','לאשר שאין מפגש ב-12.10, ולעדכן את תאריכי 11 עד 20 לפי הלוח של ג׳ון ברייס.'],
-    ['d14','Supabase בלבד בקובץ הסטאק','בתבנית CLAUDE.md שבאתר מופיעות שלוש אפשרויות לנתונים: Supabase, קובץ JSON, או Airtable דרך n8n.','בקובץ course-stack.md מופיעים Supabase וקובץ JSON בלבד. אם Airtable נשאר אפשרות, מוסיפים שורה אחת.'],
-    ['d15','האתר: GitHub Pages או Vercel','אחרי שמחברים את הריפו ל-Vercel, אותו אתר עולה גם שם. אם האתר נשאר ב-GitHub Pages, הפונקציה צריכה לאשר את הכתובת שלו בכותרות CORS.','להישאר עם GitHub Pages, כמו שתכננת, כדי שלכל שכבה תהיה כתובת משלה. אם ה-CORS עולה יותר מדי זמן בכיתה, פותחים את האתר מכתובת Vercel, ושם אין CORS בכלל.'],
-    ['d16','ספק המודל לתרגיל של מפגש 10','הפונקציה צריכה מפתח API של מודל, לכל תלמיד.','Gemini בשכבה החינמית, לכל הכיתה. לבדוק על חשבון חדש לפני המפגש. בלי מידע אישי, כי בשכבה החינמית התוכן משמש לשיפור המוצרים של Google.'],
+    ['d14','Airtable בקובץ הסטאק ובאתר','8.10: נסגר בקובץ. course-stack.md כולל עכשיו את Airtable כחלופה. בתבנית CLAUDE.md שבאתר הקורס עדיין כתוב Airtable דרך n8n בלבד.','ליישר את התבנית באתר לקובץ הסטאק: Airtable דרך פונקציה או n8n, לרמות 0 ו-1, ו-Supabase Storage לקבצים.'],
+    ['d15','האתר: GitHub Pages או Vercel','אחרי שמחברים את הריפו ל-Vercel, אותו אתר עולה גם שם. אם האתר נשאר ב-GitHub Pages, הפונקציה צריכה לאשר את הכתובת שלו בכותרות CORS.','להישאר עם GitHub Pages, כמו שתכננת, כדי שלכל שכבה תהיה כתובת משלה. אם ה-CORS עולה יותר מדי זמן בכיתה, פותחים את האתר מכתובת Vercel, ושם אין CORS בכלל. מ-8.10 גם Netlify בסטאק, ואותו CORS חל עליו.'],
+    ['d16','ספק המודל לתרגיל של מפגש 10','8.10: נקבע בסטאק. Gemini Flash בשכבה החינמית, ורק נתוני דמה.','לבדוק על חשבון חדש לפני המפגש. פרויקט שעובד עם נתונים אמיתיים עובר למפתח בתשלום, או נשאר עם נתוני דמה.'],
+    ['d17','Lovable, Base44 ופונקציות בתוך Supabase','דף הנחיתה של מפגש 11 נבנה ב-Lovable או ב-Base44, אבל הם לא בסטאק. יש תלמיד שבונה את המוצר עצמו ב-Lovable, ויש מסמך ארכיטקטורה שמתכנן פונקציות בתוך Supabase, שמ-8.10 מחוץ לסטאק.','דף הנחיתה מותר בהם, כתוצר נפרד. המוצר עצמו נשאר בסטאק, וחריגה רק לפי "מתי מותר לחרוג" בקובץ הסטאק: דרישת Must שאי אפשר לממש בו.'],
     ['d13','Wireframes ו-Mockups: תמונה או HTML','במצגת אלה תמונות מ-ChatGPT או מ-Gemini. ב-Claude אפשר לייצר אותם גם כקובצי HTML בתיקייה.','נשארים עם תמונות, כמו במצגת, ושומרים אותן בתיקיית המוצר. זה מהיר יותר, לא שורף מכסה, ולא בונה את האפליקציה לפני ה-Milestones. Claude קורא את התמונות וכותב מהן את DESIGN.md.']
   ];
   var dEl=document.getElementById('decList');
