@@ -1,6 +1,63 @@
 {
   "days": [
     {
+      "date": "2026-10-09",
+      "ideas": [
+        {
+          "id": "2026-10-09-1",
+          "color": "#71F73C",
+          "world": "קונספטואלי",
+          "competition": null,
+          "hook": "כתבתי שאין לוח זמנים, וזה כבר קרה בלי שידעתי. זה בדיוק מה שקורה כשחיבור מפוצל הופך להרגל יומי.",
+          "concept": "שתי מסגרות קנבס מרחפות זו לצד זו, על אחת מהן דגל קטן עם סימן שאלה מקווקו. הדגל נושר לאט ונמחק, והמסגרות נוגעות אחת בשנייה ונמזגות למסגרת זוהרת אחת.",
+          "execution": "Higgsfield Cinema Studio, קליפ אחד 8 שניות, סטייל editorial kinetic, 9:16, בלי קול, כותרת עברית אחת בעריכה בסוף.",
+          "why": "הצלבה ישירה עם הפוסט הראשון של היום על אותו תיקון, נכס אחד שני ערוצים.",
+          "srcUrl": "https://releases.sh/collections/productivity-apps/digest",
+          "srcLabel": "releases.sh · Productivity Apps Digest",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text, two floating dashed-outline canvas frames drift slowly toward each other, a small flag marked with a dashed question mark falls off one of them and dissolves into particles, the two frames touch and merge into one brighter glowing frame, camera holds static, calm focused mood, 9:16 aspect ratio, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"התיקון שקרה לפני שכתבתי אותו\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: בשבוע של 14.9.2026 פיגמה שילבו את Weave כאזרח מן המניין בקנבס העיצוב הראשי, מסכים מזינים ישירות ל-Workflows וכלים מותאמים חוזרים לפרסום בקהילה, בניגוד לכתבה ישנה שהוצגה כעדכנית בפוסט הקודם. שפה חזותית: editorial kinetic, שתי מסגרות קנבס עם דגל שאלה שנמחק ונמזגות לאחת. חיבור לפוסט המקביל של היום על אותו תיקון.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text, two floating dashed-outline canvas frames close together, a small flag marked with a dashed question mark falling away and dissolving between them",
+            "raw": "הוק: כתבתי שאין לוח זמנים, וזה כבר קרה בלי שידעתי.\nעולם: קונספטואלי\nתחרות: אין\nקונספט: שתי מסגרות קנבס עם דגל שאלה שנמחק, נמזגות לאחת.\nביצוע: Higgsfield Cinema Studio, קליפ אחד 8 שניות, סטייל editorial kinetic, 9:16, בלי קול.\nלמה עכשיו: הצלבה עם פוסט המקביל של היום על אותו תיקון."
+          },
+          "used": false
+        },
+        {
+          "id": "2026-10-09-2",
+          "color": "#71F73C",
+          "world": "סרטוני הסבר",
+          "competition": null,
+          "hook": "שלד שמשקף את המסך האמיתי לא זה אותו דבר כמו ספינר שמסתובב בלי להגיד כלום. ההבדל הזה הוא ציון.",
+          "concept": "סרטון הסבר קצר בחומר חרס. כרטיס חרס גס ואפרפר, בנוי מצורות גושיות כמו סקיצה ראשונית, מחליק ומתחדד פריים אחר פריים עד שהוא הופך לכרטיס חרס מלא ומפורט עם תמונה קטנה ושורות טקסט.",
+          "execution": "Higgsfield Cinema Studio, סטופ-מושן קלאי, קליפ אחד 8 שניות, 9:16, בלי קול, כותרת עברית בעריכה בסוף.",
+          "why": "הצלבה ישירה עם הפוסט השלישי של היום על סקלטון לואדינג וציוני מפגש 11, נכס אחד שני ערוצים.",
+          "srcUrl": "https://eyalg1980.github.io/simpla-lab/jb45900/",
+          "srcLabel": "דף הקורס 45900 של אייל",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, a rough gray clay outline card made of blocky placeholder shapes slowly resolves and sharpens frame by frame into a fully detailed small clay card with a tiny photo and lines of text, camera holds completely static, no text, 9:16 aspect ratio, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"שלד שמשקף, לא ספינר שמסתובב\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: סקלטון לואדינג טוב מבטיח מראש את הצורה של מה שבא, שונה מספינר גנרי, וההבדל הזה נראה בפרויקטי גמר ממשיים של קורס 45900 שנסגר 1.10.2026. שפה חזותית: Clay, כרטיס חרס גס שמתחדד לכרטיס מלא. חיבור לפוסט המקביל של היום על אותו רעיון.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, a small detailed clay card with a tiny photo and lines of text sitting next to a rougher gray blocky outline card version of itself, no text",
+            "raw": "הוק: שלד שמשקף את המסך האמיתי זה לא אותו דבר כמו ספינר שמסתובב בלי להגיד כלום.\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: כרטיס חרס גס מתחדד פריים אחר פריים לכרטיס מלא ומפורט.\nביצוע: Higgsfield Cinema Studio, סטופ-מושן קלאי, 8 שניות, 9:16, בלי קול.\nלמה עכשיו: הצלבה עם פוסט המקביל של היום על סקלטון לואדינג וציוני מפגש 11."
+          },
+          "used": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "10 ההכרזות הגדולות מ-Figma Config 2026",
+          "desc": "סיכום הכרזות הכנס, רלוונטי להקשר שממנו Intelligent Canvas ו-Weave יצאו",
+          "meta": "Medium · Rythmuxdesigner",
+          "url": "https://medium.com/@Rythmuxdesigner/the-10-biggest-announcements-from-figma-config-2026-every-ux-designer-should-know-4c3c4c4588cc"
+        },
+        {
+          "title": "האם פיגמה מפסידה את מירוץ ה-AI",
+          "desc": "דעה נגדית וחדה על הקצב של פיגמה מול מתחרים",
+          "meta": "UX Planet",
+          "url": "https://uxplanet.org/is-figma-losing-the-ai-race-3ef52bcc33ca"
+        }
+      ]
+    },
+    {
       "date": "2026-10-08",
       "ideas": [
         {
