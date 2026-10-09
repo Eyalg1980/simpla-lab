@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-08",
+  "updated": "2026-10-09",
   "ideas": [
     {
       "id": "I-2026-0489",
@@ -3964,6 +3964,51 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-10-08"
+    },
+    {
+      "id": "I-2026-0504",
+      "title": "Weave מוזן ישירות לקנבס",
+      "line": "מסכים בפיגמה מזינים ישירות ל-Workflows, וכלים מותאמים שבונים בWeave חוזרים לפרסום בקהילה מתוך הקנבס עצמו, לא מכלי בצד.",
+      "advisor": "visionary",
+      "createdAt": "2026-10-09",
+      "capability": {
+        "name": "Figma Weave workflows הופכים לאזרח מן המניין בקנבס העיצוב הראשי, מסכים מזינים Workflows ישירות וכלים מותאמים מתפרסמים לקהילה מתוך הקנבס",
+        "releasedAt": "2026-09-14"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-09"
+    },
+    {
+      "id": "I-2026-0505",
+      "title": "ספינר גנרי מול שלד שמשקף",
+      "line": "איך נראה על מסך הכיתה ברגע שסטודנט בוחר ספינר מסתובב במקום סקלטון שמשקף את המסך, בשיעור הבונוס C?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-09",
+      "capability": null,
+      "evidence": null,
+      "lesson": "45900, שיעור הבונוס C, עשר ההתנהגויות המודרניות של UX, ההתנהגות השמינית (סקלטון לואדינג)",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-09"
+    },
+    {
+      "id": "I-2026-0506",
+      "title": "הקנבס שמפסיק להיות שני כלים",
+      "line": "איך זה נראה על מסך הסדנה ברגע שמראים שWeave כבר לא כלי בצד אלא מוזן ישירות לקנבס הראשי?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-09",
+      "capability": null,
+      "evidence": null,
+      "lesson": "סדנאות Figma Weave לארגונים, המודול שמסביר את זרימת העבודה בין הקנבס ל-Workflow",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-09"
     }
   ]
 }
