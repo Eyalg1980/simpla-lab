@@ -1,6 +1,63 @@
 {
   "days": [
     {
+      "date": "2026-10-11",
+      "ideas": [
+        {
+          "id": "2026-10-11-1",
+          "color": "#71F73C",
+          "world": "סרטוני הסבר",
+          "competition": null,
+          "hook": "לנוד אחד בוויב יש ביוגרפיה קצרה. חוט זוהר אחד הוא כל מה שהוא צריך כדי לזכור.",
+          "concept": "סרטון הסבר קצר בחומר חרס. גלגל חרס קטן בצורת נוד שולח חוט זוהר אחד לעבר מסגרת תמונה חרסית מרחפת, החוט מושך אותה בעדינות עד שהיא מתיישבת לצידו.",
+          "execution": "Higgsfield Cinema Studio, סטופ-מושן קלאי, קליפ אחד 8 שניות, 9:16, בלי קול, כותרת עברית אחת בעריכה בסוף.",
+          "why": "הצלבה ישירה עם הפוסט הראשון של היום על ביוגרפיית הנוד, נכס אחד שני ערוצים.",
+          "srcUrl": "https://diginomica.com/config-2026-weave-layer-precision-design-workflows-figma",
+          "srcLabel": "diginomica · Figma Weave, זרימת עבודה מבוססת נודים",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, a small clay gear shaped node extends a single glowing thread toward a floating clay picture frame, the thread gently pulls the frame closer until it settles beside the node, camera holds completely static, no text, 9:16 aspect ratio, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"לנוד יש ביוגרפיה\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: Weave נולד כחברת Weavy שפיגמה רכשה והושק מחדש בקונפיג עם מעל עשרים תבניות, וכל שלב בזרימת העבודה שלו הוא נוד נפרד שאפשר לערוך בנפרד, עם תוכנית עתידית לקבל פריים פיגמה אמיתי כנוד. שפה חזותית: חרס, גלגל נוד שמושך מסגרת תמונה אליו. חיבור לפוסט המקביל של היום על אותו רעיון.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, a small clay gear shaped node with a single glowing thread reaching toward a floating clay picture frame nearby, no text",
+            "raw": "הוק: לנוד אחד בוויב יש ביוגרפיה קצרה, חוט זוהר אחד הוא כל מה שהוא צריך כדי לזכור.\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: גלגל חרס בצורת נוד שולח חוט זוהר למסגרת תמונה מרחפת ומושך אותה אליו.\nביצוע: Higgsfield Cinema Studio, סטופ-מושן קלאי, קליפ אחד 8 שניות, 9:16, בלי קול.\nלמה עכשיו: הצלבה עם פוסט המקביל של היום על ביוגרפיית הנוד."
+          },
+          "used": false
+        },
+        {
+          "id": "2026-10-11-2",
+          "color": "#71F73C",
+          "world": "קונספטואלי",
+          "competition": null,
+          "hook": "87 אחוז עושים בקשות. 36 אחוז בנו זיכרון. ההבדל הזה הוא בדיוק מה שאני מלמד במודול 3.",
+          "concept": "סרטון קונספטואלי קצר. גל של דמויות מקווקוות זעירות מרחף לצד גלגל מרכזי זוהר, רק שליש מהן מתחברות אליו בקו אור אחד אחר השני, השאר נשארות מרחפות ומעומעמות.",
+          "execution": "Higgsfield Cinema Studio, editorial kinetic, קליפ אחד 8 שניות, 9:16, בלי קול, כותרת עברית אחת בעריכה בסוף.",
+          "why": "הצלבה ישירה עם הפוסט השני של היום על אותה סטטיסטיקה, נכס אחד שני ערוצים.",
+          "srcUrl": "https://www.devlinpeck.com/content/ai-in-corporate-training-statistics",
+          "srcLabel": "devlinpeck.com · סטטיסטיקות AI ב-L&D",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text, a cluster of small dashed figure icons floats near a central glowing gear, one by one about a third of them connect to the gear with a solid glowing line while the rest drift and dim slightly, camera holds static, calm focused mood, 9:16 aspect ratio, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"בקשות מול זיכרון\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: לפי Synthesia, 87 אחוז מצוותי L&D משתמשים ב-AI אבל רק שליש בנו את זה לזרימת עבודה קבועה, פער שמשקף בדיוק את ההבחנה של דניאל בוארון בין פרומפט כבקשה חד פעמית לסקיל כזיכרון קבוע. שפה חזותית: editorial kinetic, גלגל מרכזי שרק שליש מהדמויות מתחברות אליו. חיבור לפוסט המקביל של היום על אותו רעיון.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text, a large glowing numeral eighty seven made of small dashed figure icons, only a third of them connected by a solid light line to a single gear at the center",
+            "raw": "הוק: 87 אחוז עושים בקשות, 36 אחוז בנו זיכרון, ההבדל הזה הוא בדיוק מה שאני מלמד במודול 3.\nעולם: קונספטואלי\nתחרות: אין\nקונספט: גל דמויות מקווקוות, רק שליש מתחברות לגלגל מרכזי זוהר בקו אור.\nביצוע: Higgsfield Cinema Studio, editorial kinetic, קליפ אחד 8 שניות, 9:16, בלי קול.\nלמה עכשיו: הצלבה עם פוסט המקביל של היום על אותה סטטיסטיקה."
+          },
+          "used": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "Tel Aviv AI Film Festival מאומתת, דדליין 15.10 עם זווית הודית ממש בעיר הבית",
+          "desc": "אימות ישיר מול FilmFreeway, חמש קטגוריות וגשר תרבותי בין ישראל להודו, אירוע של Tel Aviv AI Week",
+          "meta": "FilmFreeway · 2026",
+          "url": "https://filmfreeway.com/TLVAIFF"
+        },
+        {
+          "title": "פיגמה מציגים את וויב מחדש, 20 זרימות עבודה ל-AI-native design",
+          "desc": "רקע מועיל על הלקוחות הראשונים של Weave ואיך הם משתמשים בקנבס",
+          "meta": "ITWire · 2026",
+          "url": "https://itwire.com/guest-articles/company-news/reintroducing-figma-weave-with-20-new-workflows-for-ai-native-design.html"
+        }
+      ]
+    },
+    {
       "date": "2026-10-09",
       "ideas": [
         {

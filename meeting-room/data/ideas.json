@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-09",
+  "updated": "2026-10-11",
   "ideas": [
     {
       "id": "I-2026-0489",
@@ -14,7 +14,7 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-05"
     },
@@ -31,7 +31,7 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-05"
     },
@@ -45,7 +45,7 @@
       "evidence": "DEPLOY-RUNBOOK מתעד איך עותק שני של כללי הפריסה בזיכרון התיישן ב-5.8.2026 וגרם לתדריך הבוקר להיכשל נגד הוראות ישנות. קבצי הסקיל daily-director ו-meeting-room כותבים במפורש שהעתקת חוקים גרמה לדריפט שהרג גרסאות קודמות של המנועים. ומשימת שומר הבוקר עדיין מצביעה, נכון להיום, על שלושה מזהי טריגר ישנים שהוחלפו ב-10.8.2026 ומעולם לא תוקנו.",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
       "touchedAt": "2026-10-05"
     },
@@ -59,7 +59,7 @@
       "evidence": null,
       "lesson": "קורס מיישם AI 53500, מודול 3, החלטת סטאק טכנולוגי לפרויקט המתגלגל",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-05"
     },
@@ -73,7 +73,7 @@
       "evidence": null,
       "lesson": "קורס UI/UX 45900, שיעור מוד-בורדים עם Midjourney",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-05"
     },
@@ -90,7 +90,7 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pitched",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-04"
     },
@@ -104,7 +104,7 @@
       "evidence": null,
       "lesson": "קורס UI/UX 45900, פרויקט הדמו החוג שלי, הערכת סיום אחרי מפגש 11 (1.10.2026)",
       "sourceInboxId": null,
-      "status": "pitched",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-04"
     },
@@ -270,7 +270,7 @@
       "evidence": "competitions.json מתעד את אותה שורה, שלוש תחרויות בסטטוס פתוח או מעקב חוצות את חלון שבעת הימים, בעדכונים של 23.9, 24.9, 25.9, 27.9, 28.9 ו-29.9.2026, שישה ימים רצופים בלי אימות ישיר חדש לאף אחת מהשלוש",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pitched",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-09-29"
     },
@@ -3826,7 +3826,7 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-06"
     },
@@ -3843,7 +3843,7 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-06"
     },
@@ -3857,7 +3857,7 @@
       "evidence": null,
       "lesson": "מיישם AI ואוטומציה 53500, מודול 3 (בנייה), הרצאת האורח של דניאל בוארון סבב שני, הדמו החי של figma-use",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-06"
     },
@@ -3871,7 +3871,7 @@
       "evidence": null,
       "lesson": "מיישם AI ואוטומציה 53500, מודול 3 (בנייה), הרצאת האורח של דניאל בוארון סבב שני, context skill מול action skill",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
       "touchedAt": "2026-10-06"
     },
@@ -3888,7 +3888,7 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-07"
     },
@@ -3905,7 +3905,7 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-07"
     },
@@ -3919,7 +3919,7 @@
       "evidence": null,
       "lesson": "קורס 53500, הרצאת האורח השנייה של דניאל בוארון, סגמנט שלושת ההתערבויות",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-07"
     },
@@ -3933,7 +3933,7 @@
       "evidence": null,
       "lesson": "שיעור בונוס C, 10 התנהגויות UX מודרניות, סטיקי סקרול + ארבעת החוקים",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-07"
     },
@@ -3947,7 +3947,7 @@
       "evidence": null,
       "lesson": "מיישם AI ואוטומציה 53500, מודול 3 (בנייה), הרצאת האורח של דניאל בוארון סבב שני, אנטומיית תיקיית סקיל (SKILL.md חובה, references/ ו-scripts/ אופציונליים ונטענים בעצלתיים)",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-08"
     },
@@ -3961,7 +3961,7 @@
       "evidence": null,
       "lesson": "מיישם AI ואוטומציה 53500, מודול על נוסחאות פרומפט אנג'ינירינג",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-08"
     },
@@ -3978,7 +3978,7 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
       "touchedAt": "2026-10-09"
     },
@@ -3992,7 +3992,7 @@
       "evidence": null,
       "lesson": "45900, שיעור הבונוס C, עשר ההתנהגויות המודרניות של UX, ההתנהגות השמינית (סקלטון לואדינג)",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-09"
     },
@@ -4006,9 +4006,37 @@
       "evidence": null,
       "lesson": "סדנאות Figma Weave לארגונים, המודול שמסביר את זרימת העבודה בין הקנבס ל-Workflow",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-09"
+    },
+    {
+      "id": "I-2026-0507",
+      "title": "פרויקט שלישי אחרי שהקורס נגמר",
+      "line": "איך נראה מסך שעוזר לבחור פרויקט דמו שלישי אחרי שקורס UI/UX 45900 כבר נגמר ואין עוד מפגש לבדוק אותו בכיתה?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-11",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס UI/UX 45900, החלטה פתוחה על הלוח (c45-b11-1, לבחור פרויקט שלישי) מאז שהקורס הסתיים ב-1.10.2026",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-11"
+    },
+    {
+      "id": "I-2026-0508",
+      "title": "המסך הראשון לקהל בלי רקע טכנולוגי",
+      "line": "איך נראה מסך הפתיחה של קורס הבסיס ברפלקטיפיי, לקהל עובדי ממשלה בלי השכלה טכנולוגית גבוהה, כשההנחה הרגילה שתלמיד מכיר מושג בסיסי לא מתקיימת?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-11",
+      "capability": null,
+      "evidence": null,
+      "lesson": "רפלקטיפיי, קורס הבסיס (4 מפגשים של 3 שעות) לעובדי משרד הביטחון וקריית הממשלה",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-11"
     }
   ]
 }
