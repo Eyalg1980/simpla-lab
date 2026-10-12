@@ -1,6 +1,57 @@
 {
   "days": [
     {
+      "date": "2026-10-12",
+      "ideas": [
+        {
+          "id": "2026-10-12-1",
+          "color": "#71F73C",
+          "world": "קונספטואלי",
+          "competition": null,
+          "hook": "מסמך אחד זוהר. שלושה מסופים קוראים ממנו בניגון יחד. אחד מהם מאבד חיבור לרגע. זה כל הסרט.",
+          "concept": "סרטון קונספטואלי קצר שמדמיין ארכיטקטורת מקור יחיד. מסמך זוהר אחד במרכז הפריים, שלושה חלונות מסוף קטנים קוראים ממנו בניגון, עד שאחד מהם מאבד את החיבור לרגע ומעומעם, ואז מתחבר מחדש.",
+          "execution": "Higgsfield Cinema Studio, editorial kinetic, קליפ אחד 8 שניות, 9:16, בלי קול, כותרת עברית אחת בעריכה בסוף.",
+          "why": "הצלבה ישירה עם הפוסט הראשון של היום על סקיל מול פרומפט ומקור יחיד לאמת, נכס אחד שני ערוצים.",
+          "srcUrl": "https://raw.githubusercontent.com/Eyalg1980/simpla-lab/main/daily-director/DIRECTOR-SPEC.md",
+          "srcLabel": "הספק החי של הבמאי היומי, כלל המקור היחיד",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text, a single glowing document icon at center with three small terminal window icons around it pulsing in sync as they read from it, one terminal dims and disconnects briefly then reconnects to the same document, camera holds static, calm focused mood, 9:16 aspect ratio, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"מקור אחד, שלושה מסופים\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: שלושת הסקילים שמריצים את המנועים היומיים שלי לא שומרים אף כלל בתוכם, הם קוראים את הספק החי מהרשת בכל הפעלה, כי העתקת כלל פנימה היא בדיוק מה שהרג גרסאות קודמות של המנועים. שפה חזותית: editorial kinetic, מסמך זוהר במרכז ושלושה מסופים קוראים ממנו. חיבור לפוסט המקביל של היום על אותו רעיון.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text, a single glowing document icon at center connected by thin light lines to three small terminal window icons around it",
+            "raw": "הוק: מסמך אחד זוהר, שלושה מסופים קוראים ממנו בניגון, אחד מהם מאבד חיבור לרגע, זה כל הסרט.\nעולם: קונספטואלי\nתחרות: אין\nקונספט: מסמך זוהר במרכז, שלושה מסופים קוראים ממנו, אחד מתנתק לרגע ומתחבר מחדש.\nביצוע: Higgsfield Cinema Studio, editorial kinetic, קליפ אחד 8 שניות, 9:16, בלי קול.\nלמה עכשיו: הצלבה עם פוסט המקביל של היום על סקיל מול פרומפט."
+          },
+          "used": false
+        },
+        {
+          "id": "2026-10-12-2",
+          "color": "#71F73C",
+          "world": "סרטוני הסבר",
+          "competition": null,
+          "hook": "מדרגה שמתקצרת לאט, לצידה מנעול שנסגר בחדות. שני הקצבים הפוכים לגמרי.",
+          "concept": "סרטון הסבר קצר שמנגיד בין שני קצבים, גרף מדרגות שמתקצר בעדינות ובהדרגה לעומת מנעול אחד שנסגר בתנועה חדה ובודדת, כדי להמחיש את הפער בין קצב שיפור היכולת של AI לקצב התקיעות מול חסימות הרשאה אמיתיות.",
+          "execution": "Higgsfield Cinema Studio, editorial kinetic, קליפ אחד 8 שניות, 9:16, בלי קול, כותרת עברית אחת בעריכה בסוף.",
+          "why": "הצלבה ישירה עם הפוסט השלישי של היום על שגיאות AI מול חסימת הרשאה, נכס אחד שני ערוצים.",
+          "srcUrl": "https://www.uxtigers.com/articles/tags/ai",
+          "srcLabel": "UX Roundup, יעקב נילסן",
+          "prompts": {
+            "video": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text, camera pans slowly across a descending staircase graph shrinking step by step smoothly, then cuts sharply to a flat padlock icon snapping shut over a small browser window icon, calm start then one sharp firm motion, 9:16 aspect ratio, 8 seconds",
+            "script": "פתח לי את רעיון הווידאו \"מדרגה מול מנעול\" לסטוריבורד מלא: לוגליין, סינופסיס, שוט ליסט של 5 עד 7 שוטים עם משך ותנועת מצלמה לכל שוט, ושני פרומפטים לכל שוט. העוגן העובדתי: לפי UX Roundup של יעקב נילסן מה-6.10.2026, שיעורי שגיאה של AI במשימות חשבונאיות נחתכים לחצי כל כמה חודשים, אבל חמש מתוך שש השליפות שלי מול דפי אינטרנט נחסמות באותה שגיאת הרשאה בדיוק, פער בין עקומת יכולת חלקה לחסימת תשתית בינארית. שפה חזותית: editorial kinetic, מדרגה שמתקצרת לעומת מנעול שנסגר בחדות. חיבור לפוסט המקביל של היום על אותו רעיון.",
+            "image": "Editorial kinetic typography style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, no text, a descending staircase graph shrinking step by step beside a single flat padlock icon stamped shut",
+            "raw": "הוק: מדרגה שמתקצרת לאט, לצידה מנעול שנסגר בחדות, שני הקצבים הפוכים לגמרי.\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: גרף מדרגות מתקצר בעדינות לעומת מנעול שנסגר בתנועה חדה אחת.\nביצוע: Higgsfield Cinema Studio, editorial kinetic, קליפ אחד 8 שניות, 9:16, בלי קול.\nלמה עכשיו: הצלבה עם פוסט המקביל של היום על שגיאות AI מול חסימת הרשאה."
+          },
+          "used": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "UX Roundup, שגיאות AI נחתכות לחצי כל כמה חודשים",
+          "desc": "יעקב נילסן מסקר מחקר על קצב ירידת שגיאות AI במשימות חשבונאיות, ומזהיר שמשתמשים סינתטיים נותנים פידבק חיובי מדי",
+          "meta": "UX Tigers · 6.10",
+          "url": "https://www.uxtigers.com/articles/tags/ai"
+        }
+      ]
+    },
+    {
       "date": "2026-10-11",
       "ideas": [
         {

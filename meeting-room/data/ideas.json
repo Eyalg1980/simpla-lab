@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-11",
+  "updated": "2026-10-12",
   "ideas": [
     {
       "id": "I-2026-0489",
@@ -4037,6 +4037,34 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-10-11"
+    },
+    {
+      "id": "I-2026-0509",
+      "title": "מודול שהתכווץ למפגש אחד",
+      "line": "איך נראה על מסך הכיתה מודול שהתכווץ ממספר מפגשים למפגש אחד, אחרי שמודול 3 התנפח לשבעה?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-12",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מודול 4, אתיקה נגישות ואבטחה, מפגש 12, קורס מיישם AI 53500",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-12"
+    },
+    {
+      "id": "I-2026-0510",
+      "title": "שם אחד לקובץ, לא עוד גרסה",
+      "line": "איך נראה מסך שמזכיר לתלמיד שהקובץ נקרא product-10-definitions.md בכל מקום, לא המסמך שלי או הקובץ עם ההיבטים?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-12",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מסמך עשרת ההיבטים, מפגש 7, קורס מיישם AI 53500",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-12"
     }
   ]
 }
