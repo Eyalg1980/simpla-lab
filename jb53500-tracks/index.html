@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="סטאק הקורס 53500 בשני שלבים: קודם HTML, CSS ו-JavaScript, ואחר כך, למי שרוצה, React עם Vite ו-TypeScript על Vercel.">
+<title>שני שלבים בסטאק · 53500</title>
+<link rel="icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Crect width="32" height="32" rx="8" fill="%231B2D6B"/%3E%3Crect x="7" y="7" width="18" height="5" rx="1.5" fill="%23FFE94A"/%3E%3Crect x="7" y="14" width="18" height="5" rx="1.5" fill="%23FFE94A" opacity=".75"/%3E%3Crect x="7" y="21" width="18" height="5" rx="1.5" fill="%23FFE94A" opacity=".5"/%3E%3C/svg%3E'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F5F0;--surface:#FFFFFF;--ink:#141F3D;--soft:#5F6C8A;--line:#E4E0D6;
+  --acc:#1B2D6B;--acc-ink:#FFFFFF;--acc-soft:#E8ECF7;
+  --fe:#2F5FD0;--fe-soft:#E6EDFB;
+  --be:#B45309;--be-soft:#FDEFDD;
+  --da:#15803D;--da-soft:#E3F3E8;
+  --x:#6D28D9;--x-soft:#EFE8FC;
+  --bad:#B91C1C;--bad-soft:#FBE6E6;
+  --r:18px;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#0D1533;--surface:#16204A;--ink:#EDEFF7;--soft:#9AA2C6;--line:rgba(237,239,247,.14);
+  --acc:#9DB0FF;--acc-ink:#0D1533;--acc-soft:rgba(157,176,255,.13);
+  --fe:#8FB0FF;--fe-soft:rgba(143,176,255,.13);
+  --be:#FDBA74;--be-soft:rgba(253,186,116,.13);
+  --da:#6FDB93;--da-soft:rgba(111,219,147,.12);
+  --x:#C4A8FF;--x-soft:rgba(196,168,255,.13);
+  --bad:#FF8A8A;--bad-soft:rgba(255,138,138,.12);
+}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Rubik","Heebo",-apple-system,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px 70px}
+a{color:inherit;text-underline-offset:3px}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.86em;direction:ltr;unicode-bidi:isolate;background:var(--acc-soft);padding:1px 6px;border-radius:6px}
+.en{direction:ltr;unicode-bidi:isolate}
+
+/* hero */
+.hero{padding:44px 0 10px;text-align:center}
+.kicker{display:inline-block;background:var(--acc);color:var(--acc-ink);font-size:11.5px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:999px;margin-bottom:14px}
+h1{font-weight:300;font-size:clamp(32px,7vw,48px);line-height:1.1}
+h1 b{display:block;font-weight:800}
+.lead{color:var(--soft);max-width:36em;margin:14px auto 0;font-size:16.5px}
+.meta{margin-top:10px;font-size:13px;color:var(--soft)}
+
+/* toc */
+.toc{margin:28px 0 8px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.toc a{font-size:13.5px;font-weight:600;text-decoration:none;padding:6px 14px;border-radius:999px;border:1.5px dashed var(--line);color:var(--soft)}
+.toc a:hover{border-color:var(--acc);color:var(--acc)}
+
+/* sections */
+section{margin-top:52px}
+.label{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--acc);margin-bottom:6px}
+h2{font-size:clamp(24px,4.6vw,30px);font-weight:800;line-height:1.25;margin-bottom:10px}
+h2 small{display:block;font-size:15px;font-weight:400;color:var(--soft);margin-top:4px}
+p{margin-bottom:10px}
+.intro{font-size:16.5px}
+
+/* layer map */
+.map{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:stretch}
+.lay{border-radius:14px;padding:14px;border:2px solid}
+.lay .t{font-size:12px;font-weight:700;letter-spacing:.08em}
+.lay b{display:block;font-size:19px;font-weight:800;line-height:1.25;margin:2px 0 6px}
+.lay ul{list-style:none;font-size:14px}
+.lay li{padding:3px 0;border-top:1px dashed var(--line)}
+.lay li:first-child{border-top:0}
+.lay .addr{display:inline-block;margin-top:8px;font-family:ui-monospace,Consolas,monospace;font-size:12px;direction:ltr;padding:2px 8px;border-radius:6px;background:var(--surface)}
+.fe{border-color:var(--fe);background:var(--fe-soft)} .fe .t{color:var(--fe)}
+.be{border-color:var(--be);background:var(--be-soft)} .be .t{color:var(--be)}
+.da{border-color:var(--da);background:var(--da-soft)} .da .t{color:var(--da)}
+.arr{display:flex;flex-direction:column;justify-content:center;align-items:center;color:var(--soft);font-size:12px;text-align:center;gap:2px;min-width:54px}
+.arr span{font-family:"Poppins",sans-serif;font-size:22px;line-height:1}
+.rails{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.rail{border-radius:14px;padding:10px 14px;font-size:14px;border:1.5px dashed}
+.rail b{font-size:15px}
+.rail.x{border-color:var(--x);background:var(--x-soft)} .rail.x b{color:var(--x)}
+.rail.g{border-color:var(--soft);background:var(--paper)}
+.cap{font-size:13.5px;color:var(--soft);margin-top:12px}
+
+/* rule boxes */
+.iron{margin-top:18px;border:2px solid var(--bad);background:var(--bad-soft);border-radius:var(--r);padding:16px 18px}
+.iron h3{color:var(--bad);font-size:18px;margin-bottom:6px}
+.iron ul{padding-inline-start:20px}
+.iron li{margin-bottom:4px}
+.note{border:1.5px dashed var(--line);border-radius:14px;padding:10px 14px;font-size:14.5px;margin:12px 0}
+.note b{color:var(--acc)}
+
+/* layer headers */
+.lh{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.lh .badge{min-width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:"Poppins",sans-serif;font-weight:700;font-size:18px;color:#fff}
+.badge.fe{background:var(--fe);border:0} .badge.be{background:var(--be);border:0} .badge.da{background:var(--da);border:0} .badge.x{background:var(--x);border:0}
+@media (prefers-color-scheme:dark){.lh .badge{color:#0D1533}}
+.lh h2{margin:0}
+
+/* tool cards */
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-top:12px;border-inline-start:6px solid var(--line)}
+.tool.fe{border-inline-start-color:var(--fe);background:var(--surface)}
+.tool.be{border-inline-start-color:var(--be);background:var(--surface)}
+.tool.da{border-inline-start-color:var(--da);background:var(--surface)}
+.tool.x{border-inline-start-color:var(--x);background:var(--surface)}
+.tool h3{font-size:19px;font-weight:800;line-height:1.3}
+.tool h3 .tag{display:inline-block;vertical-align:3px;margin-inline-start:8px;font-size:11.5px;font-weight:700;padding:2px 10px;border-radius:999px;border:1.5px dashed var(--soft);color:var(--soft)}
+.tool h3 .tag.main{border-style:solid;border-color:var(--acc);color:var(--acc)}
+.tool .what{color:var(--soft);font-size:15px;margin:2px 0 10px}
+.facts{display:grid;grid-template-columns:110px 1fr;gap:6px 14px;font-size:15px}
+.facts dt{font-weight:700;color:var(--soft);font-size:13.5px;padding-top:2px}
+.facts dd ul{padding-inline-start:18px}
+.facts dd li{margin-bottom:3px}
+
+/* tables */
+.tblwrap{overflow-x:auto;margin-top:14px;border-radius:14px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--surface)}
+th{font-size:12.5px;color:var(--soft);text-align:start;padding:10px 12px;border-bottom:1.5px solid var(--line);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px dashed var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:700;white-space:nowrap}
+td.old{color:var(--soft)}
+
+/* levels */
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.lvl{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:14.5px}
+.lvl b{display:block;font-size:16px}
+.lvl .n{font-family:"Poppins",sans-serif;font-weight:700;color:var(--da);font-size:13px}
+
+/* timeline */
+.timeline{margin-top:16px;border-inline-start:3px solid var(--line);padding-inline-start:18px}
+.tl{position:relative;margin-bottom:18px}
+.tl::before{content:"";position:absolute;inset-inline-start:-26px;top:7px;width:13px;height:13px;border-radius:50%;background:var(--surface);border:3px solid var(--soft)}
+.tl.now::before{background:var(--acc);border-color:var(--acc)}
+.tl .d{font-family:"Poppins",sans-serif;font-weight:700;font-size:13px;color:var(--soft)}
+.tl.now .d{color:var(--acc)}
+.tl b{display:block;font-size:17px}
+.tl p{font-size:15px;color:var(--soft);margin:2px 0 0}
+
+.out{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.out div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:14.5px}
+.out b{display:block;font-size:15.5px}
+ol.steps{padding-inline-start:22px;margin-top:8px}
+ol.steps li{margin-bottom:6px}
+
+.appbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:10px;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin:0 -18px;padding:10px 18px;border-bottom:1px solid var(--line)}
+.rbtn{width:36px;height:36px;min-width:36px;border-radius:50%;border:1.5px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink);text-decoration:none}
+.rbtn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.logo{flex:1;text-align:center;font-family:"Poppins",sans-serif;font-size:15px;font-weight:400;letter-spacing:1.8px;text-transform:uppercase}
+.logo b{font-weight:700}
+.sp{width:36px;min-width:36px}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+footer{margin-top:60px;text-align:center;font-size:12.5px;color:var(--soft);border-top:1.5px dashed var(--line);padding-top:14px}
+
+@media (max-width:720px){
+  .flow{grid-template-columns:1fr}
+  .arr{flex-direction:row;min-width:0;padding:2px 0}
+  .arr span{transform:rotate(-90deg)}
+  .rails,.levels,.out{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr;gap:2px}
+  .facts dd{margin-bottom:8px}
+}
+@media print{
+  body{background:#fff}
+  .toc{display:none}
+  section{break-inside:avoid-page}
+  .tool,.lay,.iron{break-inside:avoid}
+}
+
+/* tracks page */
+:root{--up:#6D28D9;--up-soft:#EFE8FC}
+@media (prefers-color-scheme:dark){:root{--up:#C4A8FF;--up-soft:rgba(196,168,255,.13)}}
+.flow.two{grid-template-columns:1fr auto 1fr}
+.up{border-color:var(--up);background:var(--up-soft)} .up .t{color:var(--up)}
+.badge.up{background:var(--up);border:0}
+.tool.up{border-inline-start-color:var(--up);background:var(--surface)}
+.rails.one{grid-template-columns:1fr}
+.rail.da{border-color:var(--da);background:var(--da-soft)} .rail.da b{color:var(--da)}
+.out b a{color:var(--acc)}
+ul.plain{padding-inline-start:20px;margin-top:6px} ul.plain li{margin-bottom:4px}
+td[colspan]{font-weight:400;white-space:normal}
+@media (max-width:720px){.flow.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="appbar">
+  <a class="rbtn" href="../jb53500-home/" aria-label="לדף הראשי"><svg viewBox="0 0 24 24"><path d="m9.5 5 6.5 7-6.5 7"/></svg></a>
+  <div class="logo">Tracks <b>53500</b></div>
+  <span class="sp" aria-hidden="true"></span>
+</div>
+
+<header class="hero">
+  <span class="kicker">מיישם AI ואוטומציה · 53500 · ג׳ון ברייס</span>
+  <h1>שני שלבים <b>קודם הבסיס, ואז שדרוג</b></h1>
+  <p class="lead">כולם בונים קודם את המוצר בסטאק של הקורס: HTML, CSS ו-JavaScript. מי שרוצה ממשיך אחר כך למסלול המשודרג: React עם Vite ו-TypeScript, על Vercel.</p>
+  <p class="meta">לפי course-stack.md ו-course-stack-plus.md, 14.10.2026</p>
+</header>
+
+<nav class="toc" aria-label="תוכן המסמך">
+  <a href="#path">הדרך</a>
+  <a href="#s1">שלב 1</a>
+  <a href="#s2">שלב 2</a>
+  <a href="#diff">מה משתנה</a>
+  <a href="#who">מי עובר</a>
+  <a href="#how">איך עוברים</a>
+  <a href="#lovable">Lovable</a>
+  <a href="#files">הקבצים</a>
+</nav>
+
+<!-- ================================================================ PATH -->
+<section id="path">
+  <div class="label">הדרך</div>
+  <h2>אותו מוצר, שתי תחנות<small>השלב השני הוא רשות. מוצר שעובד בשלב הראשון הוא מוצר גמור</small></h2>
+  <div class="map" role="img" aria-label="תרשים: שלב 1, הסטאק של הקורס ב-HTML, CSS ו-JavaScript על GitHub Pages. אחריו, למי שרוצה, שלב 2: React עם Vite ו-TypeScript על Vercel. Supabase, n8n ושכבת ה-AI נשארים זהים בשניהם.">
+    <div class="flow two">
+      <div class="lay fe">
+        <span class="t">שלב 1 · כולם</span>
+        <b>הסטאק של הקורס</b>
+        <ul>
+          <li>HTML, CSS ו-JavaScript</li>
+          <li>האתר ב-GitHub Pages</li>
+          <li>פונקציות ב-Vercel</li>
+        </ul>
+        <span class="addr">username.github.io</span>
+      </div>
+      <div class="arr"><span>&larr;</span>כשהבסיס<br>באוויר</div>
+      <div class="lay up">
+        <span class="t">שלב 2 · למי שרוצה</span>
+        <b>המסלול המשודרג</b>
+        <ul>
+          <li>React עם TypeScript</li>
+          <li>נבנה עם Vite</li>
+          <li>האתר והפונקציות ב-Vercel</li>
+        </ul>
+        <span class="addr">project.vercel.app</span>
+      </div>
+    </div>
+    <div class="rails one">
+      <div class="rail da"><b>לא משתנה בין השלבים</b><br>Supabase והטבלאות, שכבת ה-AI, n8n, חוק המפתחות, עברית ונגישות.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ STAGE 1 -->
+<section id="s1">
+  <div class="lh"><span class="badge fe">1</span><div><div class="label" style="color:var(--fe)">כולם</div><h2>שלב 1: הסטאק של הקורס</h2></div></div>
+  <p>כל הכיתה בונה את המוצר הראשון באותם כלים. אין שלב בנייה: מה שכתוב בקובץ הוא מה שרץ בדפדפן.</p>
+
+  <article class="tool fe">
+    <h3>למה מתחילים כאן</h3>
+    <dl class="facts">
+      <dt>מבינים</dt><dd>רואים בעיניים את המושגים שכל מוצר בנוי מהם: דף, פונקציה, טבלה, ומפתח סודי. ב-React הם קיימים, אבל מוסתרים מאחורי שכבות.</dd>
+      <dt>מתקנים לבד</dt><dd>כשמשהו נשבר, פותחים את הקובץ ורואים. אין שגיאות בנייה ואין תיקייה של אלפי קבצים.</dd>
+      <dt>עוזרים זה לזה</dt><dd>כולם על אותם כלים, ולכן כל אחד יכול לעזור לכל אחד.</dd>
+    </dl>
+  </article>
+
+  <div class="note"><b>סיימתם את שלב 1 כש:</b> המוצר באוויר ב-GitHub Pages, לפחות פונקציה אחת ב-Vercel עובדת, והנתונים נשמרים ב-Supabase. כל הפרטים בדף <a href="../jb53500-stack/">סטאק הקורס</a>.</div>
+</section>
+
+<!-- ================================================================ STAGE 2 -->
+<section id="s2">
+  <div class="lh"><span class="badge up">2</span><div><div class="label" style="color:var(--up)">רשות</div><h2>שלב 2: המסלול המשודרג</h2></div></div>
+  <p>ארבעה כלים, שרוב התעשייה עובדת איתם. Claude Code כותב את הקוד. אתם מבינים מה כל כלי עושה, ובודקים שהמוצר עובד.</p>
+
+  <article class="tool up">
+    <h3>React <span class="tag main">הממשק</span></h3>
+    <p class="what">ספרייה לבניית ממשקים מקומפוננטות.</p>
+    <dl class="facts">
+      <dt>מה זה</dt><dd>כל חלק במסך הוא רכיב, כמו קומפוננטה בפיגמה: כרטיס, כפתור, רשימה. בונים אותו פעם אחת, ומשתמשים בו בכל מקום.</dd>
+      <dt>למה</dt><dd>במוצר עם הרבה מסכים, ומידע שעובר ביניהם, זה שומר על סדר. בלי React הקוד נוטה להתפזר.</dd>
+    </dl>
+  </article>
+
+  <article class="tool up">
+    <h3>Vite <span class="tag">כלי הבנייה</span></h3>
+    <p class="what">המטבח של הפרויקט. מבטאים "ויט".</p>
+    <dl class="facts">
+      <dt>בפיתוח</dt><dd>הפקודה <code>npm run dev</code> פותחת את האתר במחשב, וכל שמירה מופיעה מיד בדפדפן.</dd>
+      <dt>לפני פריסה</dt><dd>הפקודה <code>npm run build</code> אורזת את הפרויקט לתיקייה <code>dist</code>, עם קבצים רגילים שהדפדפן מבין. Vercel מריץ את זה לבד בכל דחיפה.</dd>
+      <dt>צריך</dt><dd>Node.js במחשב, בגרסה 20.19 ומעלה או 22.12 ומעלה.</dd>
+    </dl>
+  </article>
+
+  <article class="tool up">
+    <h3>TypeScript <span class="tag">שכבת בדיקה</span></h3>
+    <p class="what">JavaScript עם טיפוסים: לכל משתנה כתוב מה הוא אמור להכיל.</p>
+    <dl class="facts">
+      <dt>למה</dt><dd>טעות כמו שם שדה שגוי נתפסת לפני שהקוד רץ, ולא אצל המשתמש. Claude מריץ את הבדיקה ומתקן את עצמו.</dd>
+      <dt>אתם</dt><dd>לא צריכים לכתוב TypeScript. צריך לקרוא את הקוד, ולוודא שהבנייה עוברת.</dd>
+    </dl>
+  </article>
+
+  <article class="tool up">
+    <h3>Vercel <span class="tag main">אתר ופונקציות יחד</span></h3>
+    <p class="what">אותו Vercel משלב 1, עכשיו גם לאתר עצמו.</p>
+    <dl class="facts">
+      <dt>מה משתנה</dt><dd>האתר והפונקציות באותו פרויקט ובאותה כתובת. GitHub Pages כבר לא בשימוש, וגם לא צריך יותר כותרות CORS.</dd>
+      <dt>פריסה</dt><dd>Vercel מזהה את Vite לבד. כל דחיפה ל-main בונה ומעדכנת הכל.</dd>
+    </dl>
+  </article>
+</section>
+
+<!-- ================================================================ DIFF -->
+<section id="diff">
+  <div class="label">זה מול זה</div>
+  <h2>מה משתנה, ומה נשאר</h2>
+  <div class="tblwrap"><table>
+    <thead><tr><th>נושא</th><th>שלב 1, הסטאק של הקורס</th><th>שלב 2, המסלול המשודרג</th></tr></thead>
+    <tbody>
+      <tr><td>צד הלקוח</td><td>HTML, CSS ו-JavaScript</td><td>React עם TypeScript</td></tr>
+      <tr><td>שלב בנייה</td><td>אין</td><td>Vite, לפני כל פריסה</td></tr>
+      <tr><td>האתר</td><td>GitHub Pages</td><td>Vercel</td></tr>
+      <tr><td>הפונקציות</td><td>Vercel, תיקיית api</td><td>Vercel, תיקיית api, באותו פרויקט</td></tr>
+      <tr><td>CORS</td><td>הפונקציה מאשרת את כתובת האתר</td><td>לא צריך, אותה כתובת</td></tr>
+      <tr><td>רואים שינוי</td><td>מרעננים את הדף</td><td><code>npm run dev</code>, ומופיע מיד</td></tr>
+      <tr><td>ריפו</td><td>אחד</td><td>ריפו חדש למסלול המשודרג</td></tr>
+      <tr><td>נתונים, AI, n8n</td><td colspan="2">ללא שינוי. אותו Supabase, אותן טבלאות ואותן הרשאות</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="iron">
+    <h3>כלל אחד חדש: <span class="en">VITE_</span></h3>
+    <ul>
+      <li>כל משתנה סביבה ששמו מתחיל ב-<code>VITE_</code> נכנס לקוד שהדפדפן מקבל. כל אחד יכול לקרוא אותו.</li>
+      <li>מותר רק לכתובת של Supabase ולמפתח הציבורי שלו.</li>
+      <li>מפתח סודי, כמו של Gemini, נשמר בלי <code>VITE_</code>, ורק הפונקציה קוראת אותו.</li>
+      <li>הקובץ <code>.env.local</code> לא נכנס לריפו.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================================================================ WHO -->
+<section id="who">
+  <div class="label">מי עובר, ומתי</div>
+  <h2>רק אחרי שהבסיס באוויר<small>ומתאים כשמתקיים לפחות אחד מאלה</small></h2>
+  <div class="out">
+    <div><b>מוצר גדול</b>יותר מחמישה מסכים, ומידע שעובר בין מסכים.</div>
+    <div><b>התחיל ב-Lovable</b>הקוד שלו כבר כתוב ב-React.</div>
+    <div><b>רוצים להמשיך לפיתוח</b>להכיר את הכלים שהתעשייה עובדת איתם.</div>
+    <div><b>לא עוברים</b>באמצע Milestone, או שבוע לפני הצגה.</div>
+  </div>
+</section>
+
+<!-- ================================================================ HOW -->
+<section id="how">
+  <div class="label">איך עוברים</div>
+  <h2>חמישה צעדים, מסך אחרי מסך</h2>
+  <ol class="steps">
+    <li><b>הקובץ.</b> מורידים את <code>course-stack-plus.md</code>, ושמים אותו בתיקיית המוצר ליד <code>course-stack.md</code>.</li>
+    <li><b>המסמכים.</b> מריצים בפרויקט ב-Claude את <a href="../jb53500-prompts/#plus">פרומפט המעבר, שלב 8</a>. הוא נמצא בתחתית דף הפרומפטים, וגם בסקיל. הוא מעדכן את <code>tech-stack.md</code>, את <code>ARCHITECTURE.md</code>, ומוסיף ל-<code>MILESTONES.md</code> תוכנית מעבר.</li>
+    <li><b>שלד.</b> ריפו חדש ופרויקט חדש ב-Vercel. Claude Code בונה מסך אחד וקריאה אחת לפונקציה, ומעלה לאוויר.</li>
+    <li><b>מסך אחרי מסך.</b> כל Milestone מעביר מסך אחד, באותו מראה כמו ב-DESIGN.md. בלי פיצ'רים חדשים בזמן המעבר.</li>
+    <li><b>החלפה.</b> מעדכנים את הכתובת החדשה ב-Supabase, מריצים שוב את <code>ai-tests.md</code>, ורק אז מפסיקים לעדכן את הישן.</li>
+  </ol>
+  <div class="note"><b>בכל הזמן הזה,</b> המוצר הישן ממשיך לעבוד ב-GitHub Pages. אם המעבר נתקע, יש מוצר.</div>
+</section>
+
+<!-- ================================================================ LOVABLE -->
+<section id="lovable">
+  <div class="label">מקרה מיוחד</div>
+  <h2>פרויקט שהתחיל ב-Lovable</h2>
+  <p>Lovable כותב React עם TypeScript. פרויקטים חדשים שנפתחו בו מ-13.5.2026 נבנים ב-TanStack Start, מסגרת שרצה על Vite. פרויקטים ישנים יותר נבנו ב-React עם Vite.</p>
+  <ul class="plain">
+    <li>ממשיכים מהריפו ש-Lovable יוצר ב-GitHub, ופורסים ב-Vercel. לא ממירים למבנה אחר.</li>
+    <li>הנתונים ב-Supabase שלכם.</li>
+    <li>כל הכללים של הסטאק חלים גם על הקוד ש-Lovable כתב: מפתחות, הרשאות טבלה, ונתוני דמה ל-AI.</li>
+  </ul>
+</section>
+
+<!-- ================================================================ FILES -->
+<section id="files">
+  <div class="label">הקבצים</div>
+  <h2>שני קבצים בתיקיית המוצר<small>Claude קורא אותם לפני כל החלטה טכנית</small></h2>
+  <div class="out">
+    <div><b><a href="../jb53500-prompts/course-stack.md">course-stack.md</a></b>הסטאק של הקורס. אצל כולם, תמיד.</div>
+    <div><b><a href="../jb53500-prompts/course-stack-plus.md">course-stack-plus.md</a></b>המסלול המשודרג. רק אצל מי שעובר. כשהוא בתיקייה, הוא קובע לגבי צד הלקוח, צד השרת, הפריסה והמבנה.</div>
+  </div>
+  <p class="cap">שבעת הפרומפטים לא משתנים. הם קוראים את course-stack.md, והוא מפנה לקובץ המשודרג כשהוא קיים.</p>
+</section>
+
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · לפי course-stack-plus.md מ-14.10.2026 · v1 · 14.10.2026</footer>
+</div>
+
+</body>
+</html>
