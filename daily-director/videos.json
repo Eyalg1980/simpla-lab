@@ -1,6 +1,43 @@
 {
   "days": [
     {
+      "date": "2026-10-13",
+      "ideas": [
+        {
+          "id": "2026-10-13-1",
+          "world": "סרטוני הסבר",
+          "hook": "כלי שחי בקנבס נפרד עובר דירה, ונכנס לגור ממש לצד השכבות.",
+          "concept": "מטאפורה חזותית, ארגז כלים שלם עוזב חדר נפרד ונכנס לחדר העבודה המרכזי, מתיישב ליד מחסנית השכבות בלי לבקש רשות. זה הצד השני של פוסט היום על Weave, אותו נכס, שני ערוצים.",
+          "execution": "Higgsfield Cinema Studio, שפה חזותית editorial kinetic, 8 עד 10 שניות, יחס 9:16 לרילס.",
+          "why": "מסביר בתנועה בדיוק את מה שהפוסט מסביר במילים, שינוי ממשק קטן שחוסך חיכוך בכל סדנה.",
+          "competition": null,
+          "srcUrl": "https://www.createwith.com/tool/figma/updates/figma-brings-20-weave-tools-directly-into-the-design-canvas",
+          "prompts": {
+            "video": "Editorial kinetic style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A floating toolbar icon set drifts across a dark canvas and docks smoothly beside a vertical stack of layer icons, soft glow pulse on contact, calm deliberate camera push-in, 9:16, 8 seconds",
+            "script": "פתח את ה-DIRECTOR-SPEC והסטוריבורד של future-of-learning כרפרנס. קח את ההוק 'כלי שחי בקנבס נפרד עובר דירה, ונכנס לגור ממש לצד השכבות' ופתח ללוגליין, קריינות עברית עם תזמון בשניות, שוט-ליסט מלא עם משך, מצלמה ופעולה לכל שוט, ופרומפטים מוכנים לכל שוט בנפרד.",
+            "image": "Editorial kinetic style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A single toolbar panel resting directly beside a stack of layer icons, one tool glowing softly, no camera motion, no text, 1:1",
+            "raw": "כלי שחי בקנבס נפרד עובר דירה, ונכנס לגור ממש לצד השכבות\nסרטוני הסבר\nמטאפורה חזותית על Weave tools שעברו מקנבס workflow נפרד לפאנל השכבות הראשי\nHiggsfield Cinema Studio, editorial kinetic, 8-10 שניות, 9:16\nמסביר בתנועה את השינוי שחוסך חיכוך בכל סדנת Weave"
+          }
+        },
+        {
+          "id": "2026-10-13-2",
+          "world": "קונספטואלי",
+          "hook": "לדבר עם קלוד והמצגת כבר קיימת, זה לא עתיד, זו הבדיקה שאני מריץ השבוע.",
+          "concept": "מסך מפוצל, בצד אחד איילי מדבר בקול רגיל, בצד השני שקפים נבנים בזמן אמת משורות לקו קצה, מסתיימים בשורת טקסט עברית שזורמת נכון מימין לשמאל. הנושא בפריים הוא בדיוק הבדיקה האישית של אייל נגד גאמה.",
+          "execution": "HeyGen לאווטאר הדיבור, Higgsfield לגרפיקת השקפים הנבנים, שפה חזותית optimistic near-future, 10 עד 12 שניות, 9:16.",
+          "why": "חוצה ישירות עם פוסט היום על Claude Design, אותו נכס אישי ממש, שני ערוצים, ובודק בדיוק את נקודת החיכוך האמיתית, עברית RTL.",
+          "competition": null,
+          "srcUrl": "https://www.testingcatalog.com/anthropic-launches-claude-design-ai-tool-for-paid-plans",
+          "prompts": {
+            "video": "Optimistic near-future style, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field. Split screen, a person speaking calmly on the left, slide outlines assembling themselves line by line on the right, dashed text lines drawing right to left, ending on a locked brand color swatch, steady confident pacing, 9:16, 10 seconds",
+            "script": "פתח את ה-DIRECTOR-SPEC והסטוריבורד של future-of-learning כרפרנס. קח את ההוק 'לדבר עם קלוד והמצגת כבר קיימת, זה לא עתיד, זו הבדיקה שאני מריץ השבוע' ופתח ללוגליין, קריינות עברית עם תזמון בשניות, שוט-ליסט מלא עם משך, מצלמה ופעולה לכל שוט, ופרומפטים מוכנים לכל שוט בנפרד.",
+            "image": "Optimistic near-future style, Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field. A speech bubble on one side morphing into a clean slide outline on the other, a small brand color swatch chip in the corner, no text, 1:1",
+            "raw": "לדבר עם קלוד והמצגת כבר קיימת, זה לא עתיד, זו הבדיקה שאני מריץ השבוע\nקונספטואלי\nמסך מפוצל, דיבור רגיל מול שקפים נבנים בזמן אמת בעברית RTL, הבדיקה האישית של אייל נגד גאמה\nHeyGen לאווטאר, Higgsfield לגרפיקה, optimistic near-future, 10-12 שניות, 9:16\nחוצה עם פוסט היום על Claude Design"
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-10-12",
       "ideas": [
         {

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-12",
+  "updated": "2026-10-13",
   "ideas": [
     {
       "id": "I-2026-0489",
@@ -4065,6 +4065,34 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-10-12"
+    },
+    {
+      "id": "I-2026-0511",
+      "title": "אחוז חיים בכיתה",
+      "line": "מסך שמראה כמה מהפרויקטים כבר מוצר חי לפני שמחליטים על מפגש נוסף",
+      "advisor": "teacher",
+      "createdAt": "2026-10-13",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס 45900, נקודת ההחלטה בסוף מפגש 7 (סף 70 אחוז מוצר חי)",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-13"
+    },
+    {
+      "id": "I-2026-0512",
+      "title": "תאריך זום שעוד לא נקבע",
+      "line": "איך נראה מסך שמחזיק תאריך זום פתוח בלי להעמיד פנים שהוא סגור",
+      "advisor": "teacher",
+      "createdAt": "2026-10-13",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס 45900, מפגש הזום הסופי (18 או 19.10, תאריך מדויק עדיין פתוח)",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-13"
     }
   ]
 }
