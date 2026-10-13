@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="סטאק הקורס 53500, מיישם AI ואוטומציה: שלוש השכבות, כל כלי בשכבה שלו, החוקים, ומה השתנה מהסטאק הקודם.">
+<title>סטאק הקורס · 53500</title>
+<link rel="icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Crect width="32" height="32" rx="8" fill="%231B2D6B"/%3E%3Crect x="7" y="7" width="18" height="5" rx="1.5" fill="%23FFE94A"/%3E%3Crect x="7" y="14" width="18" height="5" rx="1.5" fill="%23FFE94A" opacity=".75"/%3E%3Crect x="7" y="21" width="18" height="5" rx="1.5" fill="%23FFE94A" opacity=".5"/%3E%3C/svg%3E'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F5F0;--surface:#FFFFFF;--ink:#141F3D;--soft:#5F6C8A;--line:#E4E0D6;
+  --acc:#1B2D6B;--acc-ink:#FFFFFF;--acc-soft:#E8ECF7;
+  --fe:#2F5FD0;--fe-soft:#E6EDFB;
+  --be:#B45309;--be-soft:#FDEFDD;
+  --da:#15803D;--da-soft:#E3F3E8;
+  --x:#6D28D9;--x-soft:#EFE8FC;
+  --bad:#B91C1C;--bad-soft:#FBE6E6;
+  --r:18px;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#0D1533;--surface:#16204A;--ink:#EDEFF7;--soft:#9AA2C6;--line:rgba(237,239,247,.14);
+  --acc:#9DB0FF;--acc-ink:#0D1533;--acc-soft:rgba(157,176,255,.13);
+  --fe:#8FB0FF;--fe-soft:rgba(143,176,255,.13);
+  --be:#FDBA74;--be-soft:rgba(253,186,116,.13);
+  --da:#6FDB93;--da-soft:rgba(111,219,147,.12);
+  --x:#C4A8FF;--x-soft:rgba(196,168,255,.13);
+  --bad:#FF8A8A;--bad-soft:rgba(255,138,138,.12);
+}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Rubik","Heebo",-apple-system,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px 70px}
+a{color:inherit;text-underline-offset:3px}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.86em;direction:ltr;unicode-bidi:isolate;background:var(--acc-soft);padding:1px 6px;border-radius:6px}
+.en{direction:ltr;unicode-bidi:isolate}
+
+/* hero */
+.hero{padding:44px 0 10px;text-align:center}
+.kicker{display:inline-block;background:var(--acc);color:var(--acc-ink);font-size:11.5px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:999px;margin-bottom:14px}
+h1{font-weight:300;font-size:clamp(32px,7vw,48px);line-height:1.1}
+h1 b{display:block;font-weight:800}
+.lead{color:var(--soft);max-width:36em;margin:14px auto 0;font-size:16.5px}
+.meta{margin-top:10px;font-size:13px;color:var(--soft)}
+
+/* toc */
+.toc{margin:28px 0 8px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.toc a{font-size:13.5px;font-weight:600;text-decoration:none;padding:6px 14px;border-radius:999px;border:1.5px dashed var(--line);color:var(--soft)}
+.toc a:hover{border-color:var(--acc);color:var(--acc)}
+
+/* sections */
+section{margin-top:52px}
+.label{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--acc);margin-bottom:6px}
+h2{font-size:clamp(24px,4.6vw,30px);font-weight:800;line-height:1.25;margin-bottom:10px}
+h2 small{display:block;font-size:15px;font-weight:400;color:var(--soft);margin-top:4px}
+p{margin-bottom:10px}
+.intro{font-size:16.5px}
+
+/* layer map */
+.map{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:stretch}
+.lay{border-radius:14px;padding:14px;border:2px solid}
+.lay .t{font-size:12px;font-weight:700;letter-spacing:.08em}
+.lay b{display:block;font-size:19px;font-weight:800;line-height:1.25;margin:2px 0 6px}
+.lay ul{list-style:none;font-size:14px}
+.lay li{padding:3px 0;border-top:1px dashed var(--line)}
+.lay li:first-child{border-top:0}
+.lay .addr{display:inline-block;margin-top:8px;font-family:ui-monospace,Consolas,monospace;font-size:12px;direction:ltr;padding:2px 8px;border-radius:6px;background:var(--surface)}
+.fe{border-color:var(--fe);background:var(--fe-soft)} .fe .t{color:var(--fe)}
+.be{border-color:var(--be);background:var(--be-soft)} .be .t{color:var(--be)}
+.da{border-color:var(--da);background:var(--da-soft)} .da .t{color:var(--da)}
+.arr{display:flex;flex-direction:column;justify-content:center;align-items:center;color:var(--soft);font-size:12px;text-align:center;gap:2px;min-width:54px}
+.arr span{font-family:"Poppins",sans-serif;font-size:22px;line-height:1}
+.rails{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.rail{border-radius:14px;padding:10px 14px;font-size:14px;border:1.5px dashed}
+.rail b{font-size:15px}
+.rail.x{border-color:var(--x);background:var(--x-soft)} .rail.x b{color:var(--x)}
+.rail.g{border-color:var(--soft);background:var(--paper)}
+.cap{font-size:13.5px;color:var(--soft);margin-top:12px}
+
+/* rule boxes */
+.iron{margin-top:18px;border:2px solid var(--bad);background:var(--bad-soft);border-radius:var(--r);padding:16px 18px}
+.iron h3{color:var(--bad);font-size:18px;margin-bottom:6px}
+.iron ul{padding-inline-start:20px}
+.iron li{margin-bottom:4px}
+.note{border:1.5px dashed var(--line);border-radius:14px;padding:10px 14px;font-size:14.5px;margin:12px 0}
+.note b{color:var(--acc)}
+
+/* layer headers */
+.lh{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.lh .badge{min-width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:"Poppins",sans-serif;font-weight:700;font-size:18px;color:#fff}
+.badge.fe{background:var(--fe);border:0} .badge.be{background:var(--be);border:0} .badge.da{background:var(--da);border:0} .badge.x{background:var(--x);border:0}
+@media (prefers-color-scheme:dark){.lh .badge{color:#0D1533}}
+.lh h2{margin:0}
+
+/* tool cards */
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-top:12px;border-inline-start:6px solid var(--line)}
+.tool.fe{border-inline-start-color:var(--fe);background:var(--surface)}
+.tool.be{border-inline-start-color:var(--be);background:var(--surface)}
+.tool.da{border-inline-start-color:var(--da);background:var(--surface)}
+.tool.x{border-inline-start-color:var(--x);background:var(--surface)}
+.tool h3{font-size:19px;font-weight:800;line-height:1.3}
+.tool h3 .tag{display:inline-block;vertical-align:3px;margin-inline-start:8px;font-size:11.5px;font-weight:700;padding:2px 10px;border-radius:999px;border:1.5px dashed var(--soft);color:var(--soft)}
+.tool h3 .tag.main{border-style:solid;border-color:var(--acc);color:var(--acc)}
+.tool .what{color:var(--soft);font-size:15px;margin:2px 0 10px}
+.facts{display:grid;grid-template-columns:110px 1fr;gap:6px 14px;font-size:15px}
+.facts dt{font-weight:700;color:var(--soft);font-size:13.5px;padding-top:2px}
+.facts dd ul{padding-inline-start:18px}
+.facts dd li{margin-bottom:3px}
+
+/* tables */
+.tblwrap{overflow-x:auto;margin-top:14px;border-radius:14px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--surface)}
+th{font-size:12.5px;color:var(--soft);text-align:start;padding:10px 12px;border-bottom:1.5px solid var(--line);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px dashed var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:700;white-space:nowrap}
+td.old{color:var(--soft)}
+
+/* levels */
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.lvl{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:14.5px}
+.lvl b{display:block;font-size:16px}
+.lvl .n{font-family:"Poppins",sans-serif;font-weight:700;color:var(--da);font-size:13px}
+
+/* timeline */
+.timeline{margin-top:16px;border-inline-start:3px solid var(--line);padding-inline-start:18px}
+.tl{position:relative;margin-bottom:18px}
+.tl::before{content:"";position:absolute;inset-inline-start:-26px;top:7px;width:13px;height:13px;border-radius:50%;background:var(--surface);border:3px solid var(--soft)}
+.tl.now::before{background:var(--acc);border-color:var(--acc)}
+.tl .d{font-family:"Poppins",sans-serif;font-weight:700;font-size:13px;color:var(--soft)}
+.tl.now .d{color:var(--acc)}
+.tl b{display:block;font-size:17px}
+.tl p{font-size:15px;color:var(--soft);margin:2px 0 0}
+
+.out{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.out div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:14.5px}
+.out b{display:block;font-size:15.5px}
+ol.steps{padding-inline-start:22px;margin-top:8px}
+ol.steps li{margin-bottom:6px}
+
+.appbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:10px;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin:0 -18px;padding:10px 18px;border-bottom:1px solid var(--line)}
+.rbtn{width:36px;height:36px;min-width:36px;border-radius:50%;border:1.5px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink);text-decoration:none}
+.rbtn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.logo{flex:1;text-align:center;font-family:"Poppins",sans-serif;font-size:15px;font-weight:400;letter-spacing:1.8px;text-transform:uppercase}
+.logo b{font-weight:700}
+.sp{width:36px;min-width:36px}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+footer{margin-top:60px;text-align:center;font-size:12.5px;color:var(--soft);border-top:1.5px dashed var(--line);padding-top:14px}
+
+@media (max-width:720px){
+  .flow{grid-template-columns:1fr}
+  .arr{flex-direction:row;min-width:0;padding:2px 0}
+  .arr span{transform:rotate(-90deg)}
+  .rails,.levels,.out{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr;gap:2px}
+  .facts dd{margin-bottom:8px}
+}
+@media print{
+  body{background:#fff}
+  .toc{display:none}
+  section{break-inside:avoid-page}
+  .tool,.lay,.iron{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="appbar">
+  <a class="rbtn" href="../jb53500-home/" aria-label="לדף הראשי"><svg viewBox="0 0 24 24"><path d="m9.5 5 6.5 7-6.5 7"/></svg></a>
+  <div class="logo">Stack <b>53500</b></div>
+  <span class="sp" aria-hidden="true"></span>
+</div>
+
+<header class="hero">
+  <span class="kicker">מיישם AI ואוטומציה · 53500 · ג׳ון ברייס</span>
+  <h1>סטאק הקורס <b>מה רץ איפה, ולמה</b></h1>
+  <p class="lead">כל הכלים שבהם נבנים הפרויקטים בקורס, לפי שלוש השכבות של כל מוצר: צד לקוח, צד שרת ונתונים. לכל כלי: מה הוא, מה הוא עושה אצלנו, ומה הכללים שלו.</p>
+  <p class="meta">לפי קובץ הסטאק בגרסת 8.10.2026, course-stack.md</p>
+</header>
+
+<nav class="toc" aria-label="תוכן המסמך">
+  <a href="#map">המפה</a>
+  <a href="#keys">חוק המפתחות</a>
+  <a href="#fe">צד לקוח</a>
+  <a href="#be">צד שרת</a>
+  <a href="#da">נתונים</a>
+  <a href="#x">חוצה שכבות</a>
+  <a href="#not">מה לא בסטאק</a>
+  <a href="#old">הסטאק הישן</a>
+</nav>
+
+<!-- ================================================================ MAP -->
+<section id="map">
+  <div class="label">המפה</div>
+  <h2>שלוש שכבות, שלוש כתובות<small>כל רכיב במוצר יושב באחת מהן, ולכל אחת יש כתובת משלה באינטרנט</small></h2>
+  <p class="intro">כשגולש לוחץ על כפתור במוצר שלכם, הבקשה עוברת דרך שלוש שכבות. הדפדפן מציג, השרת חושב ושומר סודות, ובסיס הנתונים זוכר. ההפרדה הזו היא מה שמאפשר לשים את האתר בריפו ציבורי בלי לחשוף מפתח אחד.</p>
+
+  <div class="map" role="img" aria-label="תרשים שלוש השכבות: צד הלקוח ב-GitHub Pages פונה לפונקציה ב-Vercel או ב-Netlify, והפונקציה פונה למודל ולבסיס הנתונים ב-Supabase או ב-Airtable. n8n ו-Git חוצים את כל השכבות.">
+    <div class="flow">
+      <div class="lay fe">
+        <span class="t">שכבה 1 · FRONTEND</span>
+        <b>צד הלקוח</b>
+        <ul>
+          <li>HTML, CSS ו-JavaScript</li>
+          <li>GitHub Pages, האחסון</li>
+          <li>קובצי JSON קבועים</li>
+        </ul>
+        <span class="addr">username.github.io</span>
+      </div>
+      <div class="arr"><span>&larr;</span>בקשה<br>ותשובה</div>
+      <div class="lay be">
+        <span class="t">שכבה 2 · BACKEND</span>
+        <b>צד השרת</b>
+        <ul>
+          <li>פונקציות ב-Vercel, או Netlify</li>
+          <li>המפתחות הסודיים</li>
+          <li>הקריאה למודל: Gemini Flash</li>
+        </ul>
+        <span class="addr">project.vercel.app/api</span>
+      </div>
+      <div class="arr"><span>&larr;</span>קריאה<br>וכתיבה</div>
+      <div class="lay da">
+        <span class="t">שכבה 3 · DATA</span>
+        <b>נתונים</b>
+        <ul>
+          <li>Supabase, או Airtable</li>
+          <li>Supabase Storage לקבצים</li>
+          <li>משתמשים והרשאות</li>
+        </ul>
+        <span class="addr">xxxx.supabase.co</span>
+      </div>
+    </div>
+    <div class="rails">
+      <div class="rail x"><b>n8n · אוטומציות</b><br>תרחישים שרצים לבד: לפי שעה, לפי אירוע, או בלחיצה. כאן גם המייל.</div>
+      <div class="rail g"><b>Git ו-GitHub · הבסיס</b><br>ריפו אחד לכל מוצר. כל דחיפה ל-main מעדכנת את האתר ואת הפונקציות.</div>
+    </div>
+    <p class="cap">התרשים בעברית נקרא מימין לשמאל: הגולש מתחיל בצד הלקוח. ב-Supabase הדפדפן רשאי לקרוא ישירות, עם המפתח הציבורי ושלושת המנעולים. ב-Airtable הכל עובר דרך הפונקציה.</p>
+  </div>
+</section>
+
+<!-- ================================================================ KEYS -->
+<section id="keys">
+  <div class="label">הכלל שמעל כל הכלים</div>
+  <h2>חוק הברזל: מפתחות</h2>
+  <p>הריפו ציבורי, וכל מה שהדפדפן מקבל גלוי לכל אדם. מפתח API של מודל הוא כסף, ומפתח סודי של בסיס נתונים הוא גישה לכל הנתונים. לכן:</p>
+  <div class="iron">
+    <h3>מפתח סודי חי בשני מקומות בלבד</h3>
+    <ul>
+      <li><b>במשתני הסביבה של הפונקציות,</b> ב-Vercel או ב-Netlify. הפונקציה קוראת אותו משם.</li>
+      <li><b>ב-Credentials של n8n,</b> לאוטומציות. באוטומציה אין דפדפן, ולכן היא רשאית לפנות למודל ישירות.</li>
+      <li>לא בקוד, לא בקובץ הגדרות בריפו, לא בתיקיית המוצר, ולא בצ׳אט.</li>
+      <li>היוצא מן הכלל היחיד: המפתח <b>הציבורי</b> של Supabase. הוא נועד לשבת בדפדפן, ומוגן בהרשאות הטבלה.</li>
+    </ul>
+  </div>
+  <div class="note"><b>מילון קצר:</b> בכל המסמך, "פונקציה" היא פונקציה ב-Vercel או ב-Netlify. בוחרים אחת מהן לכל הפרויקט, לא את שתיהן.</div>
+</section>
+
+<!-- ================================================================ FRONTEND -->
+<section id="fe">
+  <div class="lh"><span class="badge fe">1</span><div><div class="label" style="color:var(--fe)">FRONTEND</div><h2>צד הלקוח</h2></div></div>
+  <p>מה שהגולש רואה ולוחץ עליו. הקוד יורד לדפדפן שלו ורץ שם, ולכן כל מה שכתוב בו גלוי.</p>
+
+  <article class="tool fe">
+    <h3>HTML, CSS ו-JavaScript <span class="tag main">ברירת המחדל</span></h3>
+    <p class="what">אתר סטטי: קבצים רגילים, בלי שלב בנייה.</p>
+    <dl class="facts">
+      <dt>מה הוא עושה</dt><dd>HTML הוא המבנה, CSS הוא העיצוב, ו-JavaScript הוא ההתנהגות: לחיצה, טעינת נתונים, פנייה לפונקציה.</dd>
+      <dt>למה הוא</dt><dd>מה שכתוב בקובץ הוא מה שרץ. אפשר לפתוח את הקוד, לקרוא אותו ולהבין אותו, וכל הכיתה עובדת באותה צורה, אז אפשר לעזור לכל אחד.</dd>
+      <dt>הכללים</dt><dd><ul>
+        <li>בלי React, בלי Next.js ובלי כלי בנייה.</li>
+        <li>הדף מימין לשמאל, עם גופן עברי אמיתי.</li>
+        <li>מסך הלקוח נבנה קודם לטלפון, ברוחב 375 פיקסל. מסך הניהול קודם למחשב. שניהם עובדים בשניהם.</li>
+        <li>נגישות: ניגודיות לפי התקן, טקסט חלופי לכל תמונה, תווית לכל שדה, ניווט במקלדת. מצב לא מועבר בצבע בלבד.</li>
+        <li>localStorage רק לטיוטה, להעדפת תצוגה או לסל זמני. הוא לא הזיכרון של המערכת.</li>
+      </ul></dd>
+    </dl>
+  </article>
+
+  <article class="tool fe">
+    <h3>GitHub Pages <span class="tag main">האחסון</span></h3>
+    <p class="what">השירות שמעלה את קובצי האתר לאוויר, ישר מהריפו ב-GitHub.</p>
+    <dl class="facts">
+      <dt>מה הוא עושה</dt><dd>כל דחיפה לענף main מתפרסמת אוטומטית, בכתובת בסגנון <code>username.github.io/project</code>.</dd>
+      <dt>למה הוא</dt><dd>חינמי, בלי חשבון נוסף, והריפו כבר קיים מהשיעור על Git.</dd>
+      <dt>הכללים</dt><dd><ul>
+        <li>ענף main, תיקיית השורש, והקובץ הראשי נקרא <code>index.html</code>.</li>
+        <li>בחינם הריפו חייב להיות ציבורי. לכן אין בו מפתח, אין בו דף סודי, ואין בו סיסמה שנבדקת ב-JavaScript.</li>
+        <li>שמות קבצים באנגלית, באותיות קטנות ובלי רווחים. מה שעובד ב-Windows יכול להישבר בשרת.</li>
+      </ul></dd>
+    </dl>
+  </article>
+
+  <article class="tool fe">
+    <h3>קובץ JSON בריפו <span class="tag">לנתונים שלא משתנים</span></h3>
+    <p class="what">קובץ טקסט עם נתונים במבנה קבוע, שהאתר קורא כמו כל קובץ אחר.</p>
+    <dl class="facts">
+      <dt>מתי</dt><dd>רשימה קבועה, כמו אזורים, קטגוריות או סוגי משימות. או מוצר שאין בו נתונים שמשתנים בכלל. כאן לא צריך בסיס נתונים.</dd>
+      <dt>גם</dt><dd>נתוני הדוגמה של Milestone 1, לפני שיש טבלה.</dd>
+    </dl>
+  </article>
+</section>
+
+<!-- ================================================================ BACKEND -->
+<section id="be">
+  <div class="lh"><span class="badge be">2</span><div><div class="label" style="color:var(--be)">BACKEND</div><h2>צד השרת</h2></div></div>
+  <p>הקוד שרץ על שרת ולא בדפדפן. הגולש לא רואה אותו, ולכן רק כאן מותר להחזיק סוד. הדפדפן פונה לכתובת של הפונקציה, הפונקציה מוסיפה את המפתח, ומחזירה רק את התשובה.</p>
+
+  <article class="tool be">
+    <h3>Vercel Functions <span class="tag main">ברירת המחדל</span></h3>
+    <p class="what">פונקציות שרת שיושבות באותו ריפו של האתר, ומתפרסמות בכל דחיפה.</p>
+    <dl class="facts">
+      <dt>מה הוא עושה</dt><dd>קובץ JavaScript אחד בתיקיית <code>api</code> שבשורש הריפו הוא פונקציה. הקובץ <code>api/ask.js</code> מקבל את הכתובת <code>/api/ask</code>.</dd>
+      <dt>למה הוא</dt><dd>קובץ אחד, בלי שרת לנהל ובלי כלי נוסף. הסוד נשמר כמשתנה סביבה, והמדריך והמצגת של הקורס בנויים עליו.</dd>
+      <dt>הכללים</dt><dd><ul>
+        <li>בשורש הריפו <code>package.json</code> עם <code>"type": "module"</code>. בלי framework ובלי שלב בנייה.</li>
+        <li>מתחילים מפונקציה אחת. עוד פונקציה רק כשדרישת Must מחייבת.</li>
+        <li>מחזירה תמיד JSON, גם בשגיאה. לא מחזירה את המפתח, ולא שגיאה גולמית של ספק.</li>
+        <li>מאשרת בקשות רק מכתובת האתר, בכותרות CORS, ועונה גם ל-OPTIONS.</li>
+        <li>מגבילה את אורך הקלט שהיא שולחת למודל.</li>
+        <li>אחרי שינוי במשתנה סביבה צריך Redeploy. עד אז רץ הערך הקודם.</li>
+      </ul></dd>
+      <dt>מגבלות</dt><dd><ul>
+        <li>גוף בקשה עד 4.5MB. לכן קובץ לא נשלח לפונקציה, רק הכתובת שלו.</li>
+        <li>התוכנית החינמית, Hobby, לשימוש אישי ולא מסחרי. מוצר שגובה כסף או מציג פרסומות צריך תוכנית בתשלום.</li>
+      </ul></dd>
+    </dl>
+  </article>
+
+  <article class="tool be">
+    <h3>Netlify Functions <span class="tag">חלופה שוות ערך</span></h3>
+    <p class="what">אותו רעיון בדיוק, בשמות אחרים.</p>
+    <dl class="facts">
+      <dt>ההבדל</dt><dd>הפונקציות יושבות בתיקייה <code>netlify/functions</code>, והכתובת נקבעת בתוך הקובץ. הסוד נשמר במשתני הסביבה של הפרויקט, והקוד קורא אותו באותה צורה.</dd>
+      <dt>מתי</dt><dd>מי שכבר עובד עם Netlify יכול להישאר. בכיתה עובדים על Vercel, כדי שאפשר יהיה לעזור לכולם.</dd>
+      <dt>לשים לב</dt><dd>בתוכנית החינמית יש 300 קרדיטים בחודש, וכל פריסה לאוויר עולה 15. בקורס דוחפים כמה פעמים ביום.</dd>
+    </dl>
+  </article>
+
+  <article class="tool be">
+    <h3>שכבת ה-AI: Gemini Flash <span class="tag main">ברירת המחדל</span></h3>
+    <p class="what">המודל שהמוצר פונה אליו. הקריאה יוצאת תמיד מהפונקציה, אף פעם לא מהדפדפן.</p>
+    <dl class="facts">
+      <dt>למה הוא</dt><dd>יש לו שכבה חינמית שמספיקה לתרגול. כל ספק אחר עובד באותה שיטה.</dd>
+      <dt>נתוני דמה</dt><dd>בשכבה החינמית הספק משתמש בתוכן לשיפור המוצרים שלו. לכן שולחים רק נתוני דמה. פרויקט עם נתונים אמיתיים עובר למפתח בתשלום, או נשאר עם נתוני דמה.</dd>
+      <dt>הכללים</dt><dd><ul>
+        <li>המודל מחלץ, מסווג ומנסח. חישוב, השוואה, סינון ותאריכים נעשים בקוד.</li>
+        <li>המודל מקבל תמונה ו-PDF ישירות. לפני שכותבים קוד שמחלץ טקסט, בודקים אם אפשר לתת לו את המסמך עצמו.</li>
+        <li>הפלט במבנה קבוע, והקוד בודק אותו לפני שמשתמש בו.</li>
+        <li>בריפו יש <code>ai-tests.md</code>: עשרה קלטי דמה לפחות, התוצאה הצפויה לכל אחד, ואחוז ההצלחה.</li>
+      </ul></dd>
+    </dl>
+  </article>
+</section>
+
+<!-- ================================================================ DATA -->
+<section id="da">
+  <div class="lh"><span class="badge da">3</span><div><div class="label" style="color:var(--da)">DATA</div><h2>נתונים והתחברות</h2></div></div>
+  <p>הזיכרון של המוצר: מה שנשמר, מי רשאי לראות אותו, והקבצים שמשתמשים מעלים. כלי נתונים אחד לכל פרויקט, Supabase או Airtable, לא שניהם.</p>
+
+  <article class="tool da">
+    <h3>Supabase <span class="tag main">ברירת המחדל</span></h3>
+    <p class="what">בסיס נתונים מסוג Postgres, עם התחברות משתמשים ואחסון קבצים, בדשבורד אחד.</p>
+    <dl class="facts">
+      <dt>מה הוא עושה</dt><dd>מחזיק את הטבלאות של המוצר. הדפדפן רשאי לקרוא ממנו ישירות, עם כתובת הפרויקט והמפתח הציבורי.</dd>
+      <dt>למה הוא</dt><dd>יש לו מפתח שנועד לדפדפן, כך שמוצר פשוט לא צריך פונקציה רק כדי לקרוא טבלה. וגם התחברות וקבצים, במקום אחד.</dd>
+      <dt>שלושה מנעולים</dt><dd>עד שפותחים את שלושתם, האתר לא רואה כלום: <b>Grant</b>, האם התפקיד רשאי לגשת לטבלה. <b>RLS</b>, מנעול על כל השורות. <b>Policy</b>, הכלל: אילו שורות, ולמי.</dd>
+      <dt>הכללים</dt><dd><ul>
+        <li>עד שלוש טבלאות. אם נראה שצריך ארבע, עוצרים ושואלים.</li>
+        <li>רשימה ששייכת לשורה אחת נשמרת בעמודת JSON באותה שורה, לא בטבלה נפרדת.</li>
+        <li>שמות טבלאות ושדות באנגלית, באותיות קטנות עם קו תחתון. התוכן בעברית.</li>
+        <li>בונים את הטבלה לפני המסך, ותמיד יש חמש שורות דוגמה לפחות.</li>
+        <li>פעולה ששני משתמשים יכולים לעשות באותו רגע נכתבת כעדכון מותנה אחד, ובודקים שהשורה באמת עודכנה.</li>
+        <li>המפתח הסודי, <code>sb_secret_</code>, לא נכנס לשום מקום שאנחנו בונים.</li>
+      </ul></dd>
+      <dt>מגבלות</dt><dd>בתוכנית החינמית שני פרויקטים פעילים, ופרויקט מושהה אחרי כשבוע בלי פעילות. יום לפני הצגה בודקים שהוא פעיל.</dd>
+    </dl>
+  </article>
+
+  <article class="tool da">
+    <h3>Airtable <span class="tag">חלופה, למוצרים פשוטים</span></h3>
+    <p class="what">גיליון חכם עם טבלאות, נוח לעריכה ידנית בידי בעל העסק.</p>
+    <dl class="facts">
+      <dt>ההבדל</dt><dd>אין לו מפתח ציבורי שמותר לשים בדפדפן. לכן כל קריאה וכתיבה עוברת דרך פונקציה או דרך n8n, והמפתח נשמר כמשתנה סביבה סודי.</dd>
+      <dt>מתי</dt><dd>רק לרמת כניסה 0 או 1. מוצר עם כמה משתמשים מזוהים נבנה ב-Supabase. ברמה 1, סיסמת בעל העסק נשמרת כמשתנה סביבה, והפונקציה בודקת אותה.</dd>
+      <dt>לשים לב</dt><dd>בתוכנית החינמית יש 1,000 קריאות API בחודש לכל Workspace, ואחרי תקופת חסד הקריאות נחסמות עד החודש הבא. אתר שקורא בכל טעינה, או טריגר שבודק כל דקה, יגמרו את זה מהר.</dd>
+      <dt>קבצים</dt><dd>גם בפרויקט על Airtable, קבצים שמשתמשים מעלים נשמרים ב-Supabase Storage.</dd>
+    </dl>
+  </article>
+
+  <article class="tool da">
+    <h3>Supabase Storage <span class="tag main">לקבצים</span></h3>
+    <p class="what">האחסון של Supabase, לקבצים שמשתמשים מעלים: תמונה, קבלה, מסמך.</p>
+    <dl class="facts">
+      <dt>הכללים</dt><dd><ul>
+        <li>בתיקייה פרטית. לא בריפו ולא בטבלה.</li>
+        <li>תמונה מוקטנת בדפדפן לפני ההעלאה, לרוחב של כ-1,600 פיקסל.</li>
+        <li>הפונקציה מקבלת את כתובת הקובץ וקוראת אותו בעצמה, לא את הקובץ בגוף הבקשה.</li>
+        <li>בקורס מעלים רק קבצי דמה. לא מסמך רפואי, לא קבלה עם פרטי אשראי, ולא מסמך של עסק אמיתי.</li>
+      </ul></dd>
+    </dl>
+  </article>
+
+  <h3 style="font-size:19px;margin-top:22px">התחברות: שלוש רמות</h3>
+  <p>בוחרים את הנמוכה ביותר שמספיקה ל-PRD.</p>
+  <div class="levels">
+    <div class="lvl"><span class="n">רמה 0</span><b>בלי זהות</b>כל מי שנכנס רואה אותו דבר. אין כניסה.</div>
+    <div class="lvl"><span class="n">רמה 1</span><b>בעל עסק</b>משתמש אחד ב-Supabase, שנוצר ידנית בדשבורד. באתר יש טופס כניסה בלבד.</div>
+    <div class="lvl"><span class="n">רמה 2</span><b>משתמשים מוכנים מראש</b>עד חמישה משתמשים שנוצרים ידנית. כל אחד רואה את מה שמותר לו לפי הרשאות הטבלה.</div>
+  </div>
+  <div class="note"><b>בכל הרמות:</b> בלי מסך הרשמה, בלי הזמנות, בלי שחזור סיסמה ובלי כניסה עם Google. ההגנה היא בהרשאות הטבלה, לא בהסתרת הדף. משתמש אנונימי יכול לכתוב פנייה חדשה, אבל לא לקרוא פניות של אחרים.</div>
+</section>
+
+<!-- ================================================================ CROSS -->
+<section id="x">
+  <div class="lh"><span class="badge x">+</span><div><div class="label" style="color:var(--x)">חוצה שכבות</div><h2>מה שעובד מעל כל השכבות</h2></div></div>
+
+  <article class="tool x">
+    <h3>n8n <span class="tag main">אוטומציות</span></h3>
+    <p class="what">כלי ויזואלי לבניית תרחישים: נודים שמחוברים זה לזה, וכל אחד עושה פעולה אחת.</p>
+    <dl class="facts">
+      <dt>מה הוא עושה</dt><dd>אוטומציה מתוזמנת, אירועית או ידנית. למשל: טופס נשלח, שורה נכנסת לטבלה, ונשלח מייל המשך.</dd>
+      <dt>מפתחות</dt><dd>n8n רשאי לפנות למודל ולשירותים ישירות, עם מפתח שנשמר ב-Credentials שלו.</dd>
+      <dt>Google ומייל</dt><dd>חיבור לחשבון Google רק דרך n8n, ורק לחשבון אחד, של בעל המוצר. המייל יוצא מחשבון ה-Gmail של הסטודנט, לכתובות בדיקה בלבד, בלי שירות דיוור נוסף.</dd>
+      <dt>הכלל</dt><dd>אוטומציה רצה בתדירות הנמוכה ביותר שמספיקה להדגמה. נכנס במודול האוטומציות.</dd>
+    </dl>
+  </article>
+
+  <article class="tool x">
+    <h3>Git ו-GitHub <span class="tag main">גרסאות ופרסום</span></h3>
+    <p class="what">Git מצלם את התיקייה בכל קומיט. GitHub הוא האלבום באינטרנט, וממנו האתר והפונקציות עולים לאוויר.</p>
+    <dl class="facts">
+      <dt>הכללים</dt><dd><ul>
+        <li>ריפו אחד לכל מוצר, ציבורי. כל דחיפה ל-main מעדכנת גם את GitHub Pages וגם את הפונקציות.</li>
+        <li>ענף main בלבד, בלי ענפים ובלי מיזוגים.</li>
+        <li>קומיט בסוף כל שלב שעובד.</li>
+      </ul></dd>
+    </dl>
+  </article>
+</section>
+
+<!-- ================================================================ NOT -->
+<section id="not">
+  <div class="label">כדי שלא יוצע בטעות</div>
+  <h2>מה לא בסטאק</h2>
+  <div class="tblwrap"><table>
+    <thead><tr><th>מה</th><th>למה לא</th></tr></thead>
+    <tbody>
+      <tr><td>React וכלי בנייה</td><td>שלב בנייה מוסיף שכבה שלא רואים. אצלנו מה שכתוב הוא מה שרץ.</td></tr>
+      <tr><td>Firebase</td><td>כלי נתונים שני, כשכבר יש Supabase. שני כלים לאותה שכבה מבלבלים את הכיתה.</td></tr>
+      <tr><td>פונקציות בתוך Supabase</td><td>צד השרת יושב ב-Vercel או ב-Netlify, באותו ריפו. מקום אחד לפונקציות ולסודות.</td></tr>
+      <tr><td>Make</td><td>האוטומציות נבנות ב-n8n.</td></tr>
+      <tr><td>התראות Push</td><td>דורשות הרשמה, הרשאות ושירות נוסף. גדול מדי לגרסה ראשונה.</td></tr>
+      <tr><td>עדכון בזמן אמת בין מסכים</td><td>מרענון אחד לשני מספיק ל-MVP.</td></tr>
+      <tr><td>שירות דיוור</td><td>מייל יוצא דרך n8n, מחשבון Gmail, לכתובות בדיקה.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 style="font-size:19px;margin-top:22px">מתי מותר לחרוג</h3>
+  <p>רק כשדרישה מסוג Must ב-PRD לא ניתנת למימוש בסטאק הזה. ואז:</p>
+  <ol class="steps">
+    <li>עוצרים, ומציגים את הדרישה.</li>
+    <li>מסבירים במשפט אחד למה הסטאק לא מספיק.</li>
+    <li>מציעים את התוספת הקטנה ביותר שפותרת את זה. לא מחליפים את כל הסטאק בגלל דרישה אחת.</li>
+  </ol>
+</section>
+
+<!-- ================================================================ OLD -->
+<section id="old">
+  <div class="label">נספח</div>
+  <h2>הסטאק הישן, ולמה הוא השתנה<small>ארבע גרסאות, מהסילבוס ועד היום</small></h2>
+  <p>הסטאק לא נקבע ביום אחד. הוא השתנה כשהקורס הגיע לבנייה עצמה, וכשפרויקטים אמיתיים של הכיתה הראו מה חסר.</p>
+
+  <div class="timeline">
+    <div class="tl"><span class="d">סילבוס, אוגוסט 2026</span><b>הסטאק המקורי</b><p>GitHub Pages ו-Firebase להעלאה לאוויר, Netlify "אם יש זמן", ו-AirTable לנתונים במודולים 5 ו-6. צד שרת לא הופיע כשכבה.</p></div>
+    <div class="tl"><span class="d">12.9 ו-5.10</span><b>סטאק ברירת המחדל הראשון</b><p>אתר סטטי ב-GitHub Pages, Supabase לנתונים, n8n לאוטומציות. הקריאה למודל עוברת דרך webhook של n8n או Edge Function של Supabase. שני תפקידים בלבד, ועד שתי טבלאות.</p></div>
+    <div class="tl"><span class="d">7.10</span><b>נוספה שכבת צד שרת</b><p>פונקציות ב-Vercel, באותו ריפו, ו-Netlify כחלופה. הקריאה למודל עברה לפונקציה, והמפתח למשתנה סביבה סודי.</p></div>
+    <div class="tl now"><span class="d">8.10 · הגרסה הנוכחית</span><b>הסטאק שבמסמך הזה</b><p>Netlify כחלופה שוות ערך, Airtable כחלופה לנתונים, Firebase בחוץ. נוספו קבצים, שלוש רמות כניסה, עד שלוש טבלאות, מייל דרך n8n, וכללים לשכבת ה-AI.</p></div>
+  </div>
+
+  <h3 style="font-size:19px;margin-top:10px">מה השתנה, ולמה</h3>
+  <div class="tblwrap"><table>
+    <thead><tr><th>הנושא</th><th>קודם</th><th>עכשיו</th><th>למה</th></tr></thead>
+    <tbody>
+      <tr><td>צד שרת</td><td class="old">לא היה שכבה. הקריאה למודל דרך n8n או Edge Function</td><td>פונקציות ב-Vercel או ב-Netlify</td><td>המפתח צריך לגור על שרת. פונקציה היא קובץ אחד באותו ריפו, ומתפרסמת בכל דחיפה. n8n נכנס רק במודול האוטומציות, ותקופת הניסיון שלו בענן קצרה מהקורס, אז שלב הבנייה לא יכול להישען עליו.</td></tr>
+      <tr><td>Firebase</td><td class="old">בסילבוס, להעלאה לאוויר</td><td>מחוץ לסטאק</td><td>Supabase כבר עושה את עבודת הנתונים, ו-GitHub Pages את האחסון. כלי נוסף לאותה שכבה רק מבלבל.</td></tr>
+      <tr><td>Netlify</td><td class="old">"אם יש זמן"</td><td>חלופה שוות ערך ל-Vercel</td><td>אותו רעיון בדיוק. מי שכבר עובד עם Netlify לא צריך לעבור. בכיתה נשארים על Vercel, ובגלל מכסת הפריסות.</td></tr>
+      <tr><td>Airtable</td><td class="old">בסילבוס לנתונים. מ-12.9 בחוץ</td><td>חלופה, לרמות כניסה 0 ו-1</td><td>נוח לבעל עסק שעורך נתונים ביד. אבל אין לו מפתח ציבורי, ויש לו מכסת קריאות, ולכן הוא מוגבל למוצרים פשוטים ועובר תמיד דרך פונקציה או n8n.</td></tr>
+      <tr><td>התחברות</td><td class="old">שני תפקידים. בעל העסק נכנס עם סיסמה אחת או קישור סודי</td><td>שלוש רמות, עם משתמשים שנוצרים ב-Supabase</td><td>בריפו ציבורי, סיסמה שנבדקת ב-JavaScript או קישור סודי הם לא הגנה. ההגנה צריכה לשבת בהרשאות הטבלה. ויש פרויקטים שצריכים כמה משתמשים.</td></tr>
+      <tr><td>טבלאות</td><td class="old">טבלה מרכזית אחת, ועוד אחת לכל היותר</td><td>עד שלוש, עם עמודות JSON ורשימות קבועות בקובץ</td><td>שתי טבלאות צרות מדי לחלק מהמוצרים. עמודת JSON ורשימה בקובץ שומרות על מבנה קטן גם כשהמוצר גדל.</td></tr>
+      <tr><td>קבצים</td><td class="old">לא הוגדר</td><td>Supabase Storage, בתיקייה פרטית</td><td>יש מוצרים שמשתמשים מעלים בהם תמונה או מסמך. לפונקציה יש מגבלת גודל, ולכן היא מקבלת כתובת ולא קובץ.</td></tr>
+      <tr><td>שכבת ה-AI</td><td class="old">"קריאה למודל", בלי כללים</td><td>Gemini Flash, נתוני דמה, חישוב בקוד, ai-tests.md</td><td>בשכבה החינמית התוכן משמש את הספק. מודל טועה בחשבון ובתאריכים, וקוד לא. וקובץ בדיקות הוא הדרך היחידה לדעת אם הפרומפט באמת עובד.</td></tr>
+      <tr><td>מייל</td><td class="old">לא הוגדר</td><td>דרך n8n, מחשבון Gmail, לכתובות בדיקה</td><td>בלי שירות דיוור, בלי עוד חשבון ובלי עוד מפתח. ובלי לשלוח מיילים לאנשים אמיתיים מפרויקט של קורס.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note"><b>מה לא השתנה מהיום הראשון:</b> אתר סטטי בלי שלב בנייה, GitHub Pages, Supabase כברירת המחדל לנתונים, n8n לאוטומציות, Git עם ענף main בלבד, וחוק המפתחות.</div>
+</section>
+
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · לפי course-stack.md מ-8.10.2026 · v1 · 13.10.2026</footer>
+</div>
+</body>
+</html>
