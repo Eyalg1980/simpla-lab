@@ -1,6 +1,51 @@
 {
   "days": [
     {
+      "date": "2026-10-14",
+      "ideas": [
+        {
+          "id": "2026-10-14-1",
+          "world": "סרטוני הסבר",
+          "hook": "עד אתמול הסוכן של פיגמה היה אורח שלא משלם. היום הוא דייר, וכל בקשה שלו מופיעה בחשבון.",
+          "concept": "קו דק מפריד את הפריים. בצד אחד סמן עכבר מקליק בלי הפסקה ובלי שום מספר שעוקב. קו מחליף צד, ובצד השני אותו קליק מפעיל הפעם מונה קטן שמתקתק מעלה. אותו נכס מהפוסט של היום על Weave, ערוץ שני.",
+          "execution": "Higgsfield Cinema Studio, שפה חזותית editorial kinetic, 8 שניות, יחס 9:16 לרילס.",
+          "why": "חוצה ישירות עם פוסט היום על הסוכן שעבר לגרסה כללית ב-6.10 וצורך קרדיטים. אותו רעיון בתנועה במקום במילים.",
+          "competition": null,
+          "srcUrl": "https://help.figma.com/hc/en-us/articles/42614902212887",
+          "prompts": {
+            "video": "Editorial kinetic style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A thin dashed vertical line splits the frame, on the left a cursor clicks freely again and again with no counter visible, a slow wipe crosses the line and on the right the same cursor click now triggers a small credit counter ticking upward each time, calm deliberate pacing, 9:16, 8 seconds",
+            "script": "פתח את ה-DIRECTOR-SPEC והסטוריבורד של future-of-learning כרפרנס. קח את ההוק 'עד אתמול הסוכן של פיגמה היה אורח שלא משלם, היום הוא דייר' ופתח ללוגליין, קריינות עברית עם תזמון בשניות, שוט-ליסט מלא עם משך, מצלמה ופעולה לכל שוט, ופרומפטים מוכנים לכל שוט בנפרד.",
+            "image": "Editorial kinetic style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A thin dashed vertical line splitting the frame, left side a cursor icon with no counter, right side the identical cursor icon beside a small ticking credit counter, no camera motion, no text, 1:1",
+            "raw": "עד אתמול הסוכן של פיגמה היה אורח שלא משלם, היום הוא דייר, וכל בקשה שלו מופיעה בחשבון\nסרטוני הסבר\nקו מפריד בין קליק חופשי לקליק שגוזר קרדיט, אותו נכס מהפוסט של היום\nHiggsfield Cinema Studio, editorial kinetic, 8 שניות, 9:16\nחוצה עם פוסט היום על הסוכן של Weave שעבר לגרסה כללית ב-6.10"
+          }
+        },
+        {
+          "id": "2026-10-14-2",
+          "world": "תיעוד תהליך",
+          "hook": "מילה אחת, יוקרתי, ואני פוסל את כל המוד בורד. התלמיד חוזר עם משהו שאפשר לראות.",
+          "concept": "יד חרס מניחה כרטיס קטן עם המילה הגנרית על שולחן עבודה, יד שנייה מסירה אותו ומניחה במקומו שבבי חומר וצבע מדויקים, אור חם, טמפרטורה, קו. תיעוד של התרגיל בפועל מכיתת עיצוב המוצר, לא סימולציה.",
+          "execution": "שפה חזותית קלאומציה, Higgsfield Cinema Studio, 10 שניות, יחס 9:16.",
+          "why": "חוצה עם פוסט היום על תרגיל המוד בורד בכיתה, אותו כלל בדיוק, ערוץ שני לאותו רגע הוראה.",
+          "competition": null,
+          "srcUrl": "https://www.midjourney.com",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. A clay hand places a small card with a vague blurry symbol on a worktable, a second clay hand removes it and sets down precise small swatches of color temperature and material texture in its place, warm soft lighting, gentle deliberate motion, 9:16, 10 seconds",
+            "script": "פתח את ה-DIRECTOR-SPEC והסטוריבורד של future-of-learning כרפרנס. קח את ההוק 'מילה אחת, יוקרתי, ואני פוסל את כל המוד בורד' ופתח ללוגליין, קריינות עברית עם תזמון בשניות, שוט-ליסט מלא עם משך, מצלמה ופעולה לכל שוט, ופרומפטים מוכנים לכל שוט בנפרד.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. A small card with a vague blurry symbol being replaced by precise clay swatches of color and texture on a worktable, no text, 1:1",
+            "raw": "מילה אחת, יוקרתי, ואני פוסל את כל המוד בורד, התלמיד חוזר עם משהו שאפשר לראות\nתיעוד תהליך\nיד חרס מחליפה מילה גנרית בשבבי חומר וצבע מדויקים, תיעוד תרגיל אמיתי מהכיתה\nHiggsfield Cinema Studio, קלאומציה, 10 שניות, 9:16\nחוצה עם פוסט היום על תרגיל המוד בורד"
+          }
+        }
+      ],
+      "watch": [
+        {
+          "title": "Weave והסוכן של פיגמה עוברים לצרוך קרדיטים",
+          "desc": "פיגמה סוגרים את הבטא החינמית של הסוכן בקנבס Design וב-Weave, כל שימוש נספר מעכשיו",
+          "meta": "Figma Help Center · 6.10",
+          "url": "https://help.figma.com/hc/en-us/articles/42614902212887"
+        }
+      ]
+    },
+    {
       "date": "2026-10-13",
       "ideas": [
         {
