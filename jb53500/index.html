@@ -529,6 +529,18 @@ td b{color:var(--ink)}
   .mtop .sku{font-size:11px;color:rgba(255,255,255,.55);margin-right:auto;white-space:nowrap}
   .mtop .msec{margin-right:auto;font-size:12px;font-weight:700;color:#fff;background:rgba(255,255,255,.14);
               border:1px solid rgba(255,255,255,.22);padding:4px 11px;border-radius:99px;white-space:nowrap}
+  .muser{all:unset;cursor:pointer;flex:0 0 34px;width:34px;height:34px;border-radius:99px;display:flex;align-items:center;justify-content:center;
+          background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28)}
+  .muser svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round}
+  .muser[aria-expanded="true"]{background:var(--coral);border-color:var(--coral)}
+  .muser:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .mupop{position:absolute;top:calc(100% + 6px);left:12px;z-index:60;background:var(--paper);color:var(--ink);border-radius:12px;
+          box-shadow:0 14px 34px rgba(11,26,58,.28);padding:14px 16px;min-width:200px;display:flex;flex-direction:column;gap:4px}
+  .mupop[hidden]{display:none}
+  .mupop .mu-l{font-size:11.5px;color:var(--ink-3)}
+  .mupop b{font-size:16px;font-weight:900;color:var(--navy)}
+  .mupop .mu-sw{all:unset;cursor:pointer;margin-top:10px;text-align:center;font-size:13.5px;font-weight:800;color:#fff;background:var(--navy);padding:10px 14px;border-radius:99px}
+  .mupop .mu-sw:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
   .shell{display:block;min-height:auto}
   .rail{position:fixed;inset:auto 0 0 0;width:auto;height:auto;flex:none;padding:0;z-index:50;
         border-top:3px solid var(--coral);box-shadow:0 -6px 22px rgba(0,0,0,.28)}
@@ -660,6 +672,13 @@ td b{color:var(--ink)}
 .part .ph2{font-size:13px;font-weight:800;color:var(--navy);margin-bottom:5px}
 
 /* ---------- HOME: QUICK BUTTONS ---------- */
+/* ---------- AREA STRIP (15.10.2026): one clay illustration per area, edge to edge of the content column ---------- */
+.main{overflow-x:clip}
+.astrip{margin:-8px 0 30px;margin-inline-start:calc(50% - (100vw - var(--rail)) / 2);width:calc(100vw - var(--rail));
+  height:clamp(150px,18vw,300px);overflow:hidden;background:var(--cream);border-bottom:3px solid var(--coral)}
+.astrip img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 55%}
+@media (max-width:900px){ .astrip{margin-top:-4px;margin-inline-start:calc(50% - 50vw);width:100vw;height:clamp(120px,30vw,220px);margin-bottom:22px} }
+@media (max-width:700px){ .astrip{height:150px} }
 /* ---------- ROLE HERO CAROUSEL (15.10.2026) ---------- */
 .rh{background:var(--navy);color:#fff;border-radius:var(--radius);padding:40px 46px 26px;position:relative;overflow:hidden}
 .rh::after{content:"";position:absolute;top:0;right:0;bottom:0;width:10px;background:var(--coral)}
@@ -915,7 +934,7 @@ html[data-edc="eve"] [data-edo="morn"]{display:none}
   </div>
 </div>
 <a class="skip" href="#main">דילוג לתוכן הראשי</a>
-<header class="mtop"><span class="k">JOHN BRYCE</span><p class="mt-title">מיישם AI ואוטומציה</p><span class="msec" id="msec">דף הבית</span></header>
+<header class="mtop"><span class="k">JOHN BRYCE</span><p class="mt-title">מיישם AI ואוטומציה</p><span class="msec" id="msec">דף הבית</span><button class="muser" id="muser" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mupop" aria-label="המשתמש המחובר, והחלפת משתמש"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 20c.9-3.6 3.8-5.6 7.2-5.6s6.3 2 7.2 5.6"/></svg></button><div class="mupop" id="mupop" hidden><span class="mu-l">מחובר כ</span><b id="whoami2">מרצה</b><button class="mu-sw" id="mswitch" type="button">החלפת משתמש</button></div></header>
 <div class="shell">
 <aside class="rail">
   <div class="brand">
@@ -933,7 +952,7 @@ html[data-edc="eve"] [data-edo="morn"]{display:none}
     <button data-p="marketing"><svg class="ico" viewBox="0 0 24 24"><path d="M3 10.5v3a1 1 0 001 1h3l5 4V5.5l-5 4H4a1 1 0 00-1 1z"/><path d="M17 8.5a5 5 0 010 7M20 6a8.5 8.5 0 010 12"/></svg><span class="nl">עזר למרקטינג</span><span class="ns">שיווק</span></button>
   </nav>
   <div class="rail-foot">
-    <b>גרסת סילבוס</b><br>אוקטובר 2026 · 15.10<br>
+    <b>גרסת סילבוס</b><br>אוקטובר 2026 · 15.10b<br>
     <span style="opacity:.7">עודכן על ידי אייל גרשון, אסף פינקלשטיין ולירון חונן</span>
     <div class="who"><span>מחובר כ<b id="whoami">מרצה</b></span><button id="logout" type="button">יציאה</button></div>
   </div>
@@ -978,6 +997,7 @@ html[data-edc="eve"] [data-edo="morn"]{display:none}
 </section>
 <!-- ================= TEACHERS ROOM ================= -->
 <section class="page" id="p-teachers">
+<figure class="astrip" aria-hidden="true"><img src="files/strip/teachers.webp" alt="" width="1584" height="672" decoding="async"></figure>
 
 <div class="hero" style="padding:38px 44px">
   <span class="tag">חדר מרצים · חומרי עזר</span>
@@ -4326,6 +4346,7 @@ html[data-edc="eve"] [data-edo="morn"]{display:none}
 </section>
 <!-- ================= SYLLABUS ================= -->
 <section class="page" id="p-syllabus">
+<figure class="astrip" aria-hidden="true"><img src="files/strip/syllabus.webp" alt="" width="1584" height="672" decoding="async"></figure>
   <div class="hero" style="padding:38px 44px">
     <span class="tag">סילבוס מלא ומעודכן · 8.10.2026</span>
     <h2 style="font-size:36px;max-width:26ch">7 מודולים, <span data-ed="meetings">20</span> מפגשים,<br>פרויקט אישי אחד לאורך כולם.</h2>
@@ -4563,6 +4584,7 @@ html[data-edc="eve"] [data-edo="morn"]{display:none}
 
 <!-- ================= ROLLING PROJECT ================= -->
 <section class="page" id="p-project">
+<figure class="astrip" aria-hidden="true"><img src="files/strip/project.webp" alt="" width="1584" height="672" decoding="async"></figure>
   <div class="hero" style="padding:38px 44px">
     <span class="tag">עמוד השדרה של הקורס</span>
     <h2 style="font-size:36px;max-width:28ch">הפרויקט שלי:<br>מרעיון למערכת חיה.</h2>
@@ -4923,6 +4945,7 @@ git push</pre>
 
 <!-- ================= PROMPTS ================= -->
 <section class="page" id="p-prompts">
+<figure class="astrip" aria-hidden="true"><img src="files/strip/prompts.webp" alt="" width="1584" height="672" decoding="async"></figure>
   <div class="hero" style="padding:38px 44px">
     <span class="tag">חומר עיון · פתוח לאורך כל הקורס</span>
     <h2 style="font-size:36px;max-width:28ch">ארגז כלים:<br>מה שמחפשים באמצע העבודה.</h2>
@@ -5837,6 +5860,7 @@ To use this style for other illustrations: keep "a single continuous coral line 
 
 <!-- ================= DECKS ================= -->
 <section class="page" id="p-decks">
+<figure class="astrip" aria-hidden="true"><img src="files/strip/decks.webp" alt="" width="1584" height="672" decoding="async"></figure>
   <div class="hero" style="padding:38px 44px">
     <span class="tag">חומרי המפגשים</span>
     <h2 style="font-size:36px;max-width:28ch">שקפים ותרשימים:<br>כל מה שמוקרן בכיתה, לפי מפגש.</h2>
@@ -5848,6 +5872,7 @@ To use this style for other illustrations: keep "a single continuous coral line 
 
 <!-- ================= MARKETING ================= -->
 <section class="page" id="p-marketing">
+<figure class="astrip" aria-hidden="true"><img src="files/strip/marketing.webp" alt="" width="1584" height="672" decoding="async"></figure>
 
 <div class="hero">
   <span class="tag">עזר למרקטינג · מסלול הכשרה למקצוע</span>
@@ -7440,6 +7465,8 @@ function applyAccess(){
   });
   const w=document.getElementById('whoami');
   if(w) w.textContent=ROLE_LABEL[ROLE]||'';
+  const w2=document.getElementById('whoami2');
+  if(w2) w2.textContent=ROLE_LABEL[ROLE]||'';
   try{ applyHideRoles(); }catch(e){}
   try{ renderHero(); }catch(e){}
   const cur=document.querySelector('.page.on');
@@ -7470,6 +7497,14 @@ document.getElementById('gcode').addEventListener('keydown',e=>{ if(e.key==='Ent
 document.getElementById('grole').addEventListener('change',()=>{
   document.getElementById('gerr').classList.remove('on');
 });
+(function(){
+  const b=document.getElementById('muser'), p=document.getElementById('mupop'); if(!b||!p) return;
+  const shut=()=>{ p.hidden=true; b.setAttribute('aria-expanded','false'); };
+  b.addEventListener('click',e=>{ e.stopPropagation(); const open=p.hidden; p.hidden=!open; b.setAttribute('aria-expanded',open?'true':'false'); if(open) document.getElementById('mswitch').focus(); });
+  document.addEventListener('click',e=>{ if(!p.hidden && !p.contains(e.target)) shut(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape' && !p.hidden){ shut(); b.focus(); } });
+  document.getElementById('mswitch').addEventListener('click',()=>{ shut(); document.getElementById('logout').click(); });
+})();
 document.getElementById('logout').addEventListener('click',()=>{
   ROLE=null; store(null);
   document.getElementById('gcode').value='';
