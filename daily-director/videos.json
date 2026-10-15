@@ -1,6 +1,43 @@
 {
   "days": [
     {
+      "date": "2026-10-15",
+      "ideas": [
+        {
+          "world": "סרטוני הסבר",
+          "hook": "הם מראים שידרוג ל-12K. אני מראה את הקבלה.",
+          "concept": "וידאו קצר שמראה דגם תלת מימד דל רזולוציה משתפר בהדרגה לגרסה חדה, כשמד קרדיטים מתחתיו עולה בהתאמה. בסוף, מסגרת אחת עם שני מספרים זה לצד זה, התוצאה והמחיר.",
+          "execution": "Higgsfield Cinema Studio, Nano Banana Pro לפריים הפתיחה (2 קרדיטים), Kling 3.0 std לתנועה, 8 שניות, 9:16, שפה ויזואלית flat editorial כמו הפוסט המקביל של היום.",
+          "why": "אותו נכס בדיוק מהפוסט הראשון של היום, ערוץ שני.",
+          "competition": null,
+          "srcUrl": "https://itwire.com/guest-articles/company-news/reintroducing-figma-weave-with-20-new-workflows-for-ai-native-design.html",
+          "prompts": {
+            "video": "Flat editorial vector illustration, deep navy #0D1533 background, coral #F7636B and warm yellow #FFE94A accents, thin dashed outlines, generous negative space, no gradients, no text. Camera holds steady as a low-poly wireframe robot silhouette sharpens through three dashed stepping stones into a crisp high-resolution version, a small credit-counter icon ticking upward in sync beneath each step, calm deliberate pacing, 9:16, 8 seconds",
+            "script": "קח את ההוק \"הם מראים שידרוג ל-12K. אני מראה את הקבלה\" ופתח אותו לתסריט מלא: לוגליין, קריינות בעברית עם ציר זמן מדויק, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט, לפי השפה החזותית flat editorial (נייבי כהה, קורל וצהוב חם, ללא גרדיאנטים, ללא טקסט).",
+            "image": "Flat editorial vector illustration, deep navy #0D1533 background, coral #F7636B and warm yellow #FFE94A accents, thin dashed outlines, generous negative space, no gradients, no text. A small flat low-poly wireframe robot silhouette on the left sharpening through three dashed stepping stones into a crisp high-resolution version on the right, a tiny credit-counter icon ticking upward beneath the steps, no text",
+            "raw": "הם מראים שידרוג ל-12K. אני מראה את הקבלה.\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: דגם תלת מימד דל רזולוציה משתפר בהדרגה לגרסה חדה, מד קרדיטים עולה בהתאמה, מסגרת סיום עם שני מספרים זה לצד זה\nביצוע: Higgsfield Cinema Studio, Nano Banana Pro לפריים פתיחה, Kling 3.0 std לתנועה, 8 שניות, 9:16\nלמה עכשיו: אותו נכס מהפוסט הראשון של היום, ערוץ שני"
+          },
+          "used": false
+        },
+        {
+          "world": "קונספטואלי",
+          "hook": "מקלדת נעלמת מהפריים, והטקסט ממשיך להופיע.",
+          "concept": "צילום קונספטואלי, ידיים נחות על שולחן בלי מקלדת, גלי קול עולים מהפה ונכנסים ישר למסך כמו טקסט מודפס.",
+          "execution": "Higgsfield, Nano Banana Pro לפריים פתיחה, Kling 3.0 std לתנועה, 8 שניות, 9:16, שפה ויזואלית optimistic near-future.",
+          "why": "אותו נכס מהפוסט השני של היום, ערוץ שני.",
+          "competition": null,
+          "srcUrl": "https://www.wrdw.com/2026/09/21/what-tech-app-day-wispr-flow/",
+          "prompts": {
+            "video": "Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field. A pair of relaxed hands resting on a wooden table with no keyboard in sight, a soft visible soundwave rising gently from off-frame and flowing into a glowing text field on a nearby screen, calm steady pacing, 9:16, 8 seconds",
+            "script": "קח את ההוק \"מקלדת נעלמת מהפריים, והטקסט ממשיך להופיע\" ופתח אותו לתסריט מלא: לוגליין, קריינות בעברית עם ציר זמן מדויק, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט, לפי השפה החזותית optimistic near-future (אור ים תיכוני חם, חול קרם וטורקיז רך).",
+            "image": "Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field. A pair of relaxed hands resting on a wooden table with no keyboard in sight, a soft visible soundwave rising gently from off-frame toward a glowing text field on a nearby screen, no text in the frame itself",
+            "raw": "מקלדת נעלמת מהפריים, והטקסט ממשיך להופיע.\nעולם: קונספטואלי\nתחרות: אין\nקונספט: ידיים נחות על שולחן בלי מקלדת, גלי קול עולים מהפה ונכנסים ישר למסך כמו טקסט מודפס\nביצוע: Higgsfield, Nano Banana Pro לפריים פתיחה, Kling 3.0 std לתנועה, 8 שניות, 9:16\nלמה עכשיו: אותו נכס מהפוסט השני של היום, ערוץ שני"
+          },
+          "used": false
+        }
+      ]
+    },
+    {
       "date": "2026-10-14",
       "ideas": [
         {

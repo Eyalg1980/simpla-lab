@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-14",
+  "updated": "2026-10-15",
   "ideas": [
     {
       "id": "I-2026-0489",
@@ -4138,6 +4138,34 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-10-14"
+    },
+    {
+      "id": "I-2026-0516",
+      "title": "תאריך לא נעול",
+      "line": "מסך שמציג תוצאת פרויקט לפני שגם תאריך ההצגה עצמו סגור, איך הוא נראה בלי לשקר על ביטחון שאין",
+      "advisor": "teacher",
+      "createdAt": "2026-10-15",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס 45900, מפגש 27 (האחרון), הצגת פרויקט הגמר",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-15"
+    },
+    {
+      "id": "I-2026-0517",
+      "title": "vibe coding במשפט אחד",
+      "line": "איך מסך אחד מסביר vibe coding למי שמעולם לא כתב שורת קוד, בלי להשתמש במילה קוד",
+      "advisor": "teacher",
+      "createdAt": "2026-10-15",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מיישם AI ואוטומציה, מודול vibe coding",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-15"
     }
   ]
 }
