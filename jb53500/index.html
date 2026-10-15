@@ -460,6 +460,29 @@ td b{color:var(--ink)}
 .sl-x{font-size:15.5px;line-height:1.9;color:var(--ink)}
 .sl-price{display:flex;align-items:baseline;gap:9px;font-size:13px;color:var(--ink-2);margin:0 0 16px}
 .sl-price span{flex:0 0 auto;font-size:10.5px;font-weight:900;letter-spacing:.1em;color:var(--coral)}
+/* concept slide: text on the right, the full 3:2 illustration on the left (15.10.2026) */
+.tx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:40px;align-items:start}
+.tx.noimg{grid-template-columns:1fr}
+.tx-t{min-width:0}
+.tx-f{margin:0;position:sticky;top:0}
+.tx-f img{display:block;width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;border-radius:18px;
+  border:1px solid var(--line);background:var(--cream);box-shadow:0 14px 34px rgba(27,45,107,.13)}
+.tx-cat{display:inline-block;font-size:11.5px;font-weight:900;letter-spacing:.06em;color:#fff;background:var(--coral);
+  padding:5px 13px;border-radius:99px}
+.tx-h{font-size:42px;font-weight:900;color:var(--navy);line-height:1.12;margin:14px 0 8px;letter-spacing:-.01em}
+.tx-h span{background:linear-gradient(transparent 64%,var(--coral-soft) 64%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 4px}
+.tx-lat{font-family:'Poppins',sans-serif;direction:ltr;text-align:right;font-size:17px;font-weight:600;
+  color:var(--ink-2);margin:0 0 20px;letter-spacing:.01em}
+.tx .sl-def{font-size:15px}
+.tx .sl-x{font-size:16px}
+@media (max-width:900px){
+  .tx{grid-template-columns:1fr;gap:18px}
+  .tx-f{order:-1;position:static}
+  .tx-f img{border-radius:14px;box-shadow:none}
+  .tx-h{font-size:30px;margin:12px 0 6px}
+  .tx-lat{font-size:15px;margin-bottom:16px}
+  .tx .sl-x{font-size:15px}
+}
 .count{font-size:13px;color:var(--ink-3);margin-bottom:14px}
 .empty{grid-column:1/-1;text-align:center;padding:60px 0;color:var(--ink-3)}
 
@@ -637,6 +660,53 @@ td b{color:var(--ink)}
 .part .ph2{font-size:13px;font-weight:800;color:var(--navy);margin-bottom:5px}
 
 /* ---------- HOME: QUICK BUTTONS ---------- */
+/* ---------- ROLE HERO CAROUSEL (15.10.2026) ---------- */
+.rh{background:var(--navy);color:#fff;border-radius:var(--radius);padding:40px 46px 26px;position:relative;overflow:hidden}
+.rh::after{content:"";position:absolute;top:0;right:0;bottom:0;width:10px;background:var(--coral)}
+.rh-track{display:grid}
+.rh-s{grid-area:1/1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:44px;align-items:center;
+  opacity:0;visibility:hidden;transition:opacity .5s ease,visibility 0s linear .5s}
+.rh-s.on{opacity:1;visibility:visible;transition:opacity .5s ease}
+.rh-t{min-width:0}
+.rh-k{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:.04em}
+.rh-k b{background:var(--coral);color:#fff;padding:6px 14px;border-radius:99px;font-weight:800}
+.rh-k i{font-style:normal;font-family:'Poppins',sans-serif;color:rgba(255,255,255,.55);font-weight:600;direction:ltr;unicode-bidi:isolate;display:inline-block}
+.rh-h{font-size:40px;font-weight:900;line-height:1.16;margin:18px 0 14px;max-width:18ch;color:#fff}
+.rh-s:first-child .rh-h{font-size:44px}
+.rh-p{color:rgba(255,255,255,.8);font-size:17px;line-height:1.75;max-width:52ch;margin:0}
+.rh-go{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:9px;margin-top:24px;
+  background:#fff;color:var(--navy);font-size:14.5px;font-weight:800;padding:12px 20px;border-radius:99px;transition:.16s}
+.rh-go svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.rh-go:hover{background:var(--coral);color:#fff}
+.rh-go:focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+.rh-f{margin:0;position:relative}
+.rh-f img{display:block;width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;border-radius:20px;background:rgba(255,255,255,.08);
+  box-shadow:0 22px 46px rgba(0,0,0,.28)}
+.rh-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:26px;padding-top:18px;border-top:1px dashed rgba(255,255,255,.22)}
+.rh-dots{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.rh-dot{all:unset;cursor:pointer;width:9px;height:9px;border-radius:99px;background:rgba(255,255,255,.3);transition:.2s}
+.rh-dot[aria-current="true"]{background:var(--coral);width:26px}
+.rh-dot:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.rh-btns{display:flex;gap:8px}
+.rh-b{all:unset;cursor:pointer;width:38px;height:38px;border-radius:99px;display:flex;align-items:center;justify-content:center;
+  border:1.5px solid rgba(255,255,255,.28);transition:.16s}
+.rh-b svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.rh-b:hover{background:var(--coral);border-color:var(--coral)}
+.rh-b:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.rh .stats{margin-top:22px}
+@media (max-width:900px){
+  .rh{padding:22px 18px 18px}
+  .rh::after{width:6px}
+  .rh-s{grid-template-columns:1fr;gap:18px;align-items:start}
+  .rh-f{order:-1}
+  .rh-f img{border-radius:14px}
+  .rh-h,.rh-s:first-child .rh-h{font-size:26px;margin:14px 0 10px;max-width:none}
+  .rh-p{font-size:15.5px;line-height:1.7}
+  .rh-go{margin-top:18px;font-size:14px;padding:11px 18px}
+  .rh-bar{margin-top:18px;padding-top:14px}
+  .rh-b{width:36px;height:36px}
+}
+@media (prefers-reduced-motion:reduce){.rh-s,.rh-s.on{transition:none}}
 .quick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}
 .qb{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:3px;
     background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
@@ -863,7 +933,7 @@ html[data-edc="eve"] [data-edo="morn"]{display:none}
     <button data-p="marketing"><svg class="ico" viewBox="0 0 24 24"><path d="M3 10.5v3a1 1 0 001 1h3l5 4V5.5l-5 4H4a1 1 0 00-1 1z"/><path d="M17 8.5a5 5 0 010 7M20 6a8.5 8.5 0 010 12"/></svg><span class="nl">עזר למרקטינג</span><span class="ns">שיווק</span></button>
   </nav>
   <div class="rail-foot">
-    <b>גרסת סילבוס</b><br>אוגוסט 2026<br>
+    <b>גרסת סילבוס</b><br>אוקטובר 2026 · 15.10<br>
     <span style="opacity:.7">עודכן על ידי אייל גרשון, אסף פינקלשטיין ולירון חונן</span>
     <div class="who"><span>מחובר כ<b id="whoami">מרצה</b></span><button id="logout" type="button">יציאה</button></div>
   </div>
@@ -878,10 +948,16 @@ html[data-edc="eve"] [data-edo="morn"]{display:none}
 <!-- ================= HOME (OVERVIEW) ================= -->
 <section class="page on" id="p-home">
 
-<div class="hero">
-  <span class="tag">מיישם AI ואוטומציה · מק"ט 53500 · גרסת סילבוס · אוקטובר 2026</span>
-  <h2>"הבוגר שלנו לא מספר שלמד.<br>הוא שולח קישור ומראה מה בנה."</h2>
-  <p>מרחב עבודה משותף לפדגוגיה, למרצים ולמכירות. גרסת סילבוס אוקטובר 2026, עודכנה על ידי אייל גרשון, אסף פינקלשטיין ולירון חונן. האתר בנוי כאזור אחד לכל שאלה: מה הקורס ומה קורה בכל מפגש, מה כל תלמיד בונה ומגיש, איפה מוצאים פרומפט או מושג באמצע עבודה, מה מוקרן בכיתה, ואיך מעבירים את המפגש.</p>
+<div class="rh" id="rhero" role="region" aria-roledescription="קרוסלה" aria-label="מה יש באתר">
+  <div class="rh-track" id="rh-track" aria-live="polite"></div>
+  <div class="rh-bar">
+    <div class="rh-dots" id="rh-dots"></div>
+    <div class="rh-btns">
+      <button class="rh-b" type="button" id="rh-prev" aria-label="השקף הקודם"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      <button class="rh-b" type="button" id="rh-play" aria-label="עצירת המעבר האוטומטי"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg></button>
+      <button class="rh-b" type="button" id="rh-next" aria-label="השקף הבא"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+    </div>
+  </div>
   <div class="stats">
     <div class="stat"><b data-ed="total">220</b><span>שעות סה"כ במסלול</span></div>
     <div class="stat"><b data-ed="meetings">20</b><span data-ed="when">ימי שני ורביעי, 09:00 עד 16:30, כ-6.25 שעות לימוד למפגש</span></div>
@@ -6819,11 +6895,14 @@ document.addEventListener('click',e=>{
 function slideHTML(sd){
   let h='';
   if(sd.kind==='term'){
-    h+='<img class="sl-img" src="'+sd.img+'" alt="איור מושג: '+sd.h+'" loading="lazy" onerror="this.remove()">';
-    if(sd.lat) h+='<p class="sl-lat" lang="en">'+sd.lat+'</p>';
+    h+='<div class="tx"><div class="tx-t">';
+    h+='<span class="tx-cat">'+sd.cat+'</span>';
+    h+='<h4 class="tx-h"><span>'+sd.h+'</span></h4>';
+    if(sd.lat) h+='<p class="tx-lat" lang="en">'+sd.lat+'</p>';
     h+='<div class="sl-def">'+sd.def+'</div>';
     if(sd.price) h+='<p class="sl-price"><span>עלות</span>'+sd.price+'</p>';
     h+='<p class="sl-x">'+sd.x+'</p>';
+    h+='</div><figure class="tx-f"><img src="'+sd.img+'" alt="איור מושג: '+sd.h+'" loading="lazy" onerror="var t=this.closest(\'.tx\');if(t)t.classList.add(\'noimg\');this.parentNode.remove()"></figure></div>';
     return h;
   }
   h+='<h4 class="sl-h">'+sd.h+'</h4>';
@@ -6844,8 +6923,8 @@ function mdlRender(){
   const d=mdlDeck; if(!d) return;
   const sd=d.slides[mdlIx];
   if(sd.kind==='term'){
-    document.getElementById('mdl-k').textContent = sd.cat + ' · ' + sd.where;
-    document.getElementById('mdl-t').textContent = sd.h;
+    document.getElementById('mdl-k').textContent = 'הרחבת מושג · ' + (mdlIx+1) + ' מתוך ' + d.slides.length;
+    document.getElementById('mdl-t').textContent = sd.where;
   } else {
   document.getElementById('mdl-k').textContent = d.kick + (d.slides.length>1 ? (' · שקף '+(mdlIx+1)+' מתוך '+d.slides.length) : '');
   document.getElementById('mdl-t').textContent = d.t;
@@ -7148,13 +7227,84 @@ function fallback(txt,cb){
   ta.select(); try{ document.execCommand('copy'); cb(); }catch(err){} document.body.removeChild(ta);
 }
 
+/* =============== ROLE HERO CAROUSEL (15.10.2026) =============== */
+const HERO_IMG={"st-welcome": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20261015_082812_19965869-a0de-431d-bd32-7f9709eec491.png", "lc-welcome": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20261015_082810_fee945e1-92f9-4d5e-ae0a-c378443f515b.png", "of-welcome": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20261015_082813_37fa3be3-64c5-4692-8587-e67b11dc4d09.png", "mk-welcome": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20261015_082811_c7be48b2-44db-4438-ae7c-a459e7a34336.png", "syllabus": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20261015_082812_88c52ab6-1c4a-41af-8b52-6cff0ba539ca.png", "project": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20261015_082810_7c1ecdb2-6e94-46dc-af83-876fdd3f3ca4.png", "prompts": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20261015_082812_fde8d041-9ed5-4b80-a931-35865b8f2b2d.png", "concepts": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20261015_082813_b3cd694f-34dd-4e41-a8bf-6a43382b2b3c.png", "decks": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20261015_082811_ee24f02a-b52c-4201-bcf9-2339d621f4bd.png", "schedule": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20261015_082811_76cfa007-49c1-4564-9541-088da08e1fbb.png", "messages": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20261015_082812_415e0643-87ae-49e3-8c88-fcee38c04be3.png", "tools": "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20261015_082811_8c8f142e-35b4-43d5-af8e-3e868eef5381.png"};
+const HERO={"student": [{"img": "st-welcome", "k": "שלום, וברוכים הבאים", "h": "בסוף הקורס אתם לא מספרים מה למדתם. אתם שולחים קישור.", "p": "כאן כל מה שצריך כדי לבנות מוצר AI משלכם, מפגש אחרי מפגש: הסילבוס, הפרויקט, הפרומפטים, המושגים והשקפים. מכאן מתחילים כל פעם.", "go": ["syllabus", "tb-sy-r"], "cta": "מה מביאים למפגש הבא"}, {"img": "syllabus", "k": "הקורס", "h": "{M} מפגשים, 7 מודולים, ומה קורה בכל אחד", "p": "הסילבוס המלא: מה לומדים בכל מפגש, באילו כלים, ומה יוצאים איתו. ולפני כל מפגש, מה צריך להביא.", "go": ["syllabus", "tb-sy-m"], "cta": "לסילבוס"}, {"img": "project", "k": "הפרויקט שלי", "h": "מוצר אחד שלכם, מהרעיון ועד קישור באוויר", "p": "איך בוחרים נושא, איך הוא מתקדם לאורך המודולים, ומה מגישים בכל אחת משתי ההגשות.", "go": ["project", "tb-pj-w"], "cta": "לפרויקט"}, {"img": "prompts", "k": "ספריית הפרומפטים", "h": "כל פרומפט מהכיתה, מוכן להעתקה", "p": "מסודרים לפי מפגש, עם כפתור העתקה ליד כל אחד. מה שעבד בכיתה עובד גם בבית, בלי להקליד מחדש.", "go": ["prompts", "tb-tl-p"], "cta": "לספריית הפרומפטים"}, {"img": "concepts", "k": "מושגים", "h": "{T} מושגים, כל אחד עם איור והסבר", "p": "לוחצים על מושג ומקבלים הגדרה של משפט אחד, הסבר מלא, ואיור שקל לזכור. מסודרים לפי מודול.", "go": ["prompts", "tb-tl-g"], "cta": "לארכיון המושגים"}, {"img": "tools", "k": "הכלים", "h": "{X} כלים: מה כל אחד עושה, וכמה הוא עולה", "p": "כל כלי שפוגשים בקורס, באיזה מודול, ומה התוכנית החינמית שלו נותנת. לפני שנרשמים, בודקים כאן.", "go": ["prompts", "tb-tl-g", "tools"], "cta": "לרשימת הכלים"}, {"img": "decks", "k": "שקפים ותרשימים", "h": "כל מה שהוקרן בכיתה, לפי מפגש", "p": "{D} חבילות שקפים ותרשימים שנפתחות במסך מלא. לחזור על שיעור בבית, או להקרין אותו בכיתה.", "go": ["decks"], "cta": "לשקפים"}], "lecturer": [{"img": "lc-welcome", "k": "שלום, מרצה", "h": "כל מה שצריך כדי להעביר מפגש, במסך אחד", "p": "סדר ההנחיה, השקפים, הפרומפטים וההודעות לכיתה, מסודרים לפי מפגש ומיושרים לתוכנית העבודה. בלי לחפש בעשרה מקומות.", "go": ["teachers", "tb-tp-m3"], "cta": "לחדר המרצים"}, {"img": "schedule", "k": "חדר מרצים", "h": "סדר יום שעתי לכל מפגש, דקה אחרי דקה", "p": "לכל מפגש טבלה של שעה, דקות, מה קורה ואיך מעבירים. כרטיס שקפים לכל בלוק, פרומפטים להעתקה, ומה חותכים אם מאחרים.", "go": ["teachers", "tb-tp-m3"], "cta": "לחדר המרצים"}, {"img": "decks", "k": "שקפים ותרשימים", "h": "כל מה שהוקרן בכיתה, לפי מפגש", "p": "{D} חבילות שקפים ותרשימים שנפתחות במסך מלא. לחזור על שיעור בבית, או להקרין אותו בכיתה.", "go": ["decks"], "cta": "לשקפים"}, {"img": "prompts", "k": "ספריית הפרומפטים", "h": "כל פרומפט מהכיתה, מוכן להעתקה", "p": "מסודרים לפי מפגש, עם כפתור העתקה ליד כל אחד. מה שעבד בכיתה עובד גם בבית, בלי להקליד מחדש.", "go": ["prompts", "tb-tl-p"], "cta": "לספריית הפרומפטים"}, {"img": "messages", "k": "הודעות לכיתה", "h": "מה מביאים לכל מפגש, וההודעה לקבוצה כבר כתובה", "p": "טבלת מטלות ההכנה מפגש אחרי מפגש, והודעה מוכנה לוואטסאפ לפני כל מפגש, בכפתור העתקה אחד.", "go": ["syllabus", "tb-sy-r"], "cta": "למטלות ההכנה"}, {"img": "concepts", "k": "מושגים", "h": "{T} מושגים, כל אחד עם איור והסבר", "p": "לוחצים על מושג ומקבלים הגדרה של משפט אחד, הסבר מלא, ואיור שקל לזכור. מסודרים לפי מודול.", "go": ["prompts", "tb-tl-g"], "cta": "לארכיון המושגים"}, {"img": "syllabus", "k": "הקורס", "h": "{M} מפגשים, 7 מודולים, ומה קורה בכל אחד", "p": "הסילבוס המלא: מה לומדים בכל מפגש, באילו כלים, ומה יוצאים איתו. ולפני כל מפגש, מה צריך להביא.", "go": ["syllabus", "tb-sy-m"], "cta": "לסילבוס"}], "admin": [{"img": "of-welcome", "k": "שלום, מנהלה", "h": "תמונת מצב של הקורס, בלי לשאול אף אחד", "p": "כמה שעות, כמה מפגשים, מה מגישים ומתי, ומה התלמידים מביאים לכל מפגש. הכל מתעדכן כאן לפני שזה מגיע אליכם בטלפון.", "go": ["syllabus", "tb-sy-m"], "cta": "לסילבוס"}, {"img": "syllabus", "k": "הקורס", "h": "{M} מפגשים, 7 מודולים, ומה קורה בכל אחד", "p": "הסילבוס המלא: מה לומדים בכל מפגש, באילו כלים, ומה יוצאים איתו. ולפני כל מפגש, מה צריך להביא.", "go": ["syllabus", "tb-sy-m"], "cta": "לסילבוס"}, {"img": "messages", "k": "הודעות לכיתה", "h": "מה מביאים לכל מפגש, וההודעה לקבוצה כבר כתובה", "p": "טבלת מטלות ההכנה מפגש אחרי מפגש, והודעה מוכנה לוואטסאפ לפני כל מפגש, בכפתור העתקה אחד.", "go": ["syllabus", "tb-sy-r"], "cta": "למטלות ההכנה"}, {"img": "project", "k": "הפרויקט שלי", "h": "מוצר אחד שלכם, מהרעיון ועד קישור באוויר", "p": "איך בוחרים נושא, איך הוא מתקדם לאורך המודולים, ומה מגישים בכל אחת משתי ההגשות.", "go": ["project", "tb-pj-w"], "cta": "לפרויקט"}, {"img": "schedule", "k": "חדר מרצים", "h": "סדר יום שעתי לכל מפגש, דקה אחרי דקה", "p": "לכל מפגש טבלה של שעה, דקות, מה קורה ואיך מעבירים. כרטיס שקפים לכל בלוק, פרומפטים להעתקה, ומה חותכים אם מאחרים.", "go": ["teachers", "tb-tp-m3"], "cta": "לחדר המרצים"}, {"img": "mk-welcome", "k": "עזר למרקטינג", "h": "פרסונות, בידול, ותשובה לכל התנגדות", "p": "מי קונה את הקורס ולמה, מה מבדל אותו, ומה עונים כששואלים \"אבל אני לא מתכנת\".", "go": ["marketing"], "cta": "לעזר למרקטינג"}], "owner": [{"img": "of-welcome", "k": "שלום, מנהל המערכת", "h": "הקורס כולו, מהסילבוס ועד הדקה האחרונה של מפגש {M}", "p": "מרחב עבודה משותף לפדגוגיה, למרצים ולמכירות. כל האזורים פתוחים, וכל שינוי בתוכנית מגיע לכאן.", "go": ["teachers", "tb-tp-m3"], "cta": "לחדר המרצים"}, {"img": "schedule", "k": "חדר מרצים", "h": "סדר יום שעתי לכל מפגש, דקה אחרי דקה", "p": "לכל מפגש טבלה של שעה, דקות, מה קורה ואיך מעבירים. כרטיס שקפים לכל בלוק, פרומפטים להעתקה, ומה חותכים אם מאחרים.", "go": ["teachers", "tb-tp-m3"], "cta": "לחדר המרצים"}, {"img": "syllabus", "k": "הקורס", "h": "{M} מפגשים, 7 מודולים, ומה קורה בכל אחד", "p": "הסילבוס המלא: מה לומדים בכל מפגש, באילו כלים, ומה יוצאים איתו. ולפני כל מפגש, מה צריך להביא.", "go": ["syllabus", "tb-sy-m"], "cta": "לסילבוס"}, {"img": "project", "k": "הפרויקט שלי", "h": "מוצר אחד שלכם, מהרעיון ועד קישור באוויר", "p": "איך בוחרים נושא, איך הוא מתקדם לאורך המודולים, ומה מגישים בכל אחת משתי ההגשות.", "go": ["project", "tb-pj-w"], "cta": "לפרויקט"}, {"img": "prompts", "k": "ספריית הפרומפטים", "h": "כל פרומפט מהכיתה, מוכן להעתקה", "p": "מסודרים לפי מפגש, עם כפתור העתקה ליד כל אחד. מה שעבד בכיתה עובד גם בבית, בלי להקליד מחדש.", "go": ["prompts", "tb-tl-p"], "cta": "לספריית הפרומפטים"}, {"img": "concepts", "k": "מושגים", "h": "{T} מושגים, כל אחד עם איור והסבר", "p": "לוחצים על מושג ומקבלים הגדרה של משפט אחד, הסבר מלא, ואיור שקל לזכור. מסודרים לפי מודול.", "go": ["prompts", "tb-tl-g"], "cta": "לארכיון המושגים"}, {"img": "decks", "k": "שקפים ותרשימים", "h": "כל מה שהוקרן בכיתה, לפי מפגש", "p": "{D} חבילות שקפים ותרשימים שנפתחות במסך מלא. לחזור על שיעור בבית, או להקרין אותו בכיתה.", "go": ["decks"], "cta": "לשקפים"}, {"img": "mk-welcome", "k": "עזר למרקטינג", "h": "פרסונות, בידול, ותשובה לכל התנגדות", "p": "מי קונה את הקורס ולמה, מה מבדל אותו, ומה עונים כששואלים \"אבל אני לא מתכנת\".", "go": ["marketing"], "cta": "לעזר למרקטינג"}], "marketing": [{"img": "messages", "k": "שלום, מרקטינג", "h": "כל מה שצריך כדי למכור את הקורס בשיחה אחת", "p": "מה הבוגר בונה, למי הקורס מתאים, מה מבדל אותו, ואיך עונים על ההתנגדויות. עם הסילבוס והפרויקט מאחורי כל משפט.", "go": ["marketing"], "cta": "לעזר למרקטינג"}, {"img": "mk-welcome", "k": "עזר למרקטינג", "h": "פרסונות, בידול, ותשובה לכל התנגדות", "p": "מי קונה את הקורס ולמה, מה מבדל אותו, ומה עונים כששואלים \"אבל אני לא מתכנת\".", "go": ["marketing"], "cta": "לעזר למרקטינג"}, {"img": "syllabus", "k": "הקורס", "h": "{M} מפגשים, 7 מודולים, ומה קורה בכל אחד", "p": "הסילבוס המלא: מה לומדים בכל מפגש, באילו כלים, ומה יוצאים איתו. ולפני כל מפגש, מה צריך להביא.", "go": ["syllabus", "tb-sy-m"], "cta": "לסילבוס"}, {"img": "project", "k": "הפרויקט שלי", "h": "מוצר אחד שלכם, מהרעיון ועד קישור באוויר", "p": "איך בוחרים נושא, איך הוא מתקדם לאורך המודולים, ומה מגישים בכל אחת משתי ההגשות.", "go": ["project", "tb-pj-w"], "cta": "לפרויקט"}, {"img": "prompts", "k": "ספריית הפרומפטים", "h": "כל פרומפט מהכיתה, מוכן להעתקה", "p": "מסודרים לפי מפגש, עם כפתור העתקה ליד כל אחד. מה שעבד בכיתה עובד גם בבית, בלי להקליד מחדש.", "go": ["prompts", "tb-tl-p"], "cta": "לספריית הפרומפטים"}, {"img": "concepts", "k": "מושגים", "h": "{T} מושגים, כל אחד עם איור והסבר", "p": "לוחצים על מושג ומקבלים הגדרה של משפט אחד, הסבר מלא, ואיור שקל לזכור. מסודרים לפי מודול.", "go": ["prompts", "tb-tl-g"], "cta": "לארכיון המושגים"}]};
+let rhIx=0, rhTimer=null, rhPaused=false, rhRole=null;
+const RH_MS=7000, RH_RM=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const RH_ARR='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>';
+function rhFill(t){
+  const m=(ED&&ED[curEd]&&ED[curEd].meetings)||20;
+  return t.replace('{M}',m).replace('{T}',(typeof T!=='undefined'?T.length:'')).replace('{X}',(typeof TOOLS!=='undefined'?TOOLS.length:'')).replace('{D}',(typeof DECKS!=='undefined'?Object.keys(DECKS).length:''));
+}
+function rhSlides(){ return HERO[rhRole]||HERO.student; }
+function renderHero(){
+  const tr=document.getElementById('rh-track'); if(!tr) return;
+  rhRole=ROLE||'student'; rhIx=0;
+  const L=rhSlides(), n=L.length;
+  tr.innerHTML=L.map((s,i)=>'<div class="rh-s'+(i===0?' on':'')+'" role="group" aria-roledescription="שקף" aria-label="'+(i+1)+' מתוך '+n+'"'+(i===0?'':' aria-hidden="true"')+'>'+
+    '<div class="rh-t"><span class="rh-k"><b>'+rhFill(s.k)+'</b><i>'+String(i+1).padStart(2,'0')+' / '+String(n).padStart(2,'0')+'</i></span>'+
+    '<h2 class="rh-h">'+rhFill(s.h)+'</h2><p class="rh-p">'+rhFill(s.p)+'</p>'+
+    '<button class="rh-go" type="button" data-i="'+i+'"'+(i===0?'':' tabindex="-1"')+'>'+s.cta+RH_ARR+'</button></div>'+
+    '<figure class="rh-f"><img alt="" data-src="'+HERO_IMG[s.img]+'"'+(i===0?' src="'+HERO_IMG[s.img]+'"':'')+' width="1264" height="848" decoding="async"></figure></div>').join('');
+  document.getElementById('rh-dots').innerHTML=L.map((s,i)=>'<button class="rh-dot" type="button" data-i="'+i+'" aria-label="שקף '+(i+1)+': '+rhFill(s.k)+'"'+(i===0?' aria-current="true"':'')+'></button>').join('');
+  rhPreload(1); rhPaused=RH_RM; rhPlayIcon(); rhArm();
+}
+function rhPreload(i){
+  const s=document.querySelectorAll('#rh-track .rh-s')[i]; if(!s) return;
+  const im=s.querySelector('img'); if(im&&!im.getAttribute('src')) im.src=im.dataset.src;
+}
+function rhShow(i){
+  const S=document.querySelectorAll('#rh-track .rh-s'), n=S.length; if(!n) return;
+  rhIx=(i+n)%n; rhPreload(rhIx); rhPreload((rhIx+1)%n);
+  S.forEach((s,k)=>{ const on=k===rhIx; s.classList.toggle('on',on);
+    if(on) s.removeAttribute('aria-hidden'); else s.setAttribute('aria-hidden','true');
+    const b=s.querySelector('.rh-go'); if(b) b.tabIndex=on?0:-1; });
+  document.querySelectorAll('#rh-dots .rh-dot').forEach((d,k)=>{ if(k===rhIx) d.setAttribute('aria-current','true'); else d.removeAttribute('aria-current'); });
+}
+function rhArm(){
+  clearInterval(rhTimer); rhTimer=null;
+  if(rhPaused) return;
+  rhTimer=setInterval(()=>{ const h=document.getElementById('rhero');
+    if(!h||!h.offsetParent||h.matches(':hover')||h.contains(document.activeElement)) return;
+    rhShow(rhIx+1); },RH_MS);
+}
+function rhPlayIcon(){
+  const b=document.getElementById('rh-play'); if(!b) return;
+  b.innerHTML=rhPaused?'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5l10 6.5-10 6.5z"/></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg>';
+  b.setAttribute('aria-label',rhPaused?'הפעלת המעבר האוטומטי':'עצירת המעבר האוטומטי');
+}
+function heroGo(go){
+  setArea(go[0]);
+  if(go[1]){ const t=document.getElementById(go[1]); if(t&&t.offsetParent!==null) t.click(); else if(t) t.click(); }
+  if(go[2]==='tools'){ try{ setMod('tools'); }catch(e){} }
+  window.scrollTo({top:0,behavior:'instant'});
+}
+(function(){
+  const h=document.getElementById('rhero'); if(!h) return;
+  h.addEventListener('click',e=>{
+    const d=e.target.closest('.rh-dot'); if(d){ rhShow(+d.dataset.i); rhArm(); return; }
+    const g=e.target.closest('.rh-go'); if(g){ heroGo(rhSlides()[+g.dataset.i].go); return; }
+    if(e.target.closest('#rh-next')){ rhShow(rhIx+1); rhArm(); return; }
+    if(e.target.closest('#rh-prev')){ rhShow(rhIx-1); rhArm(); return; }
+    if(e.target.closest('#rh-play')){ rhPaused=!rhPaused; rhPlayIcon(); rhArm(); }
+  });
+  h.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft'){ e.preventDefault(); rhShow(rhIx+1); rhArm(); }
+    else if(e.key==='ArrowRight'){ e.preventDefault(); rhShow(rhIx-1); rhArm(); }
+  });
+  let x0=null;
+  h.addEventListener('pointerdown',e=>{ if(e.pointerType!=='mouse') x0=e.clientX; });
+  h.addEventListener('pointerup',e=>{ if(x0===null) return; const dx=e.clientX-x0; x0=null;
+    if(Math.abs(dx)>45){ rhShow(rhIx+(dx>0?1:-1)); rhArm(); } });
+})();
 /* =============== ACCESS GATE =============== */
 const ROLE_LABEL={lecturer:'מרצה',admin:'מנהלה',student:'סטודנט',marketing:'מרקטינג',owner:'מנהל מערכת'};
 const FULL=['home','syllabus','project','prompts','decks','teachers','marketing'];
 const LECT=FULL.filter(x=>x!=='marketing');
 const ROLE_AREAS={lecturer:LECT,admin:FULL,owner:FULL,
-                  student:['syllabus','project','prompts','decks'],
-                  marketing:['marketing','syllabus','project','prompts']};
+                  student:['home','syllabus','project','prompts','decks'],
+                  marketing:['home','marketing','syllabus','project','prompts']};
 /* compact SHA-256, works everywhere including file:// (crypto.subtle needs a secure context) */
 function sha256(msg){
   const K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
@@ -7217,6 +7367,7 @@ function applyAccess(){
   const w=document.getElementById('whoami');
   if(w) w.textContent=ROLE_LABEL[ROLE]||'';
   try{ applyHideRoles(); }catch(e){}
+  try{ renderHero(); }catch(e){}
   const cur=document.querySelector('.page.on');
   const curId=cur?cur.id.replace('p-',''):'';
   if(list.indexOf(curId)<0) setArea(list[0]);
