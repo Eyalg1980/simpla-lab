@@ -40,7 +40,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-padding-top:72px;scroll-padding-bottom:84px}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--font);font-variant-numeric:tabular-nums;
-  padding-top:var(--top);padding-bottom:calc(var(--bot) + env(safe-area-inset-bottom));overflow-x:hidden}
+  padding-top:var(--top);padding-bottom:calc(var(--bot) + env(safe-area-inset-bottom));overflow-x:hidden;overflow-x:clip}
 a{color:var(--co);text-underline-offset:3px}
 a:hover{color:var(--co-deep)}
 img{max-width:100%;height:auto}
@@ -142,6 +142,16 @@ p{margin:0 0 12px}
 .stop.next i{width:36px;height:36px;background:var(--mg);border-color:var(--mg);color:var(--mg-ink);font-size:13px;box-shadow:0 0 0 6px var(--mg-soft)}
 .stop.next::after{content:attr(data-here);position:absolute;bottom:calc(100% + 2px);white-space:nowrap;font:600 12px/1 var(--font);color:var(--mg);background:var(--mg-soft);padding:5px 8px;border-radius:8px}
 .stop:hover i{border-color:var(--co)}
+button.stop{border:0;background:none;padding:0;font:inherit;cursor:pointer}
+.stop.sel i{box-shadow:0 0 0 3px var(--bg),0 0 0 6px var(--co)}
+.stop.sel.next i{box-shadow:0 0 0 6px var(--mg-soft)}
+.line-sticky{position:sticky;top:var(--top);z-index:20;background:var(--bg);margin:0 -16px;padding:0 16px;border-bottom:1px solid var(--line)}
+.line-sticky .line-w{margin-top:0}
+.line-sticky .line{padding-top:30px}
+.line-sticky .line-k{margin:2px 0 10px}
+.upnext.other::before{background:var(--co)}
+.upnext.other .up-num b{color:var(--co)}
+.btn.sm{min-height:36px;padding:0 12px;font-size:14px}
 .lname{font-size:12px;font-weight:600;color:var(--ink3);padding:4px 16px 0;white-space:nowrap;max-width:100%}
 .lmod.cur .lname{color:var(--ink)}
 .line-k{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink3);margin-top:6px}
@@ -369,6 +379,8 @@ body.gated{padding-bottom:0}
   .nav a[aria-current="page"]{background:var(--co-soft)}
   main{padding:24px 28px 56px}
   .line-w{margin-inline:-28px;padding-inline:28px}
+  .line-sticky{margin-inline:-28px;padding-inline:28px}
+  .line-sticky .line-w{margin-inline:-28px}
   .grid2{grid-template-columns:1fr 1fr}
   .toast{bottom:24px}
   .upnext{padding:26px}
@@ -423,11 +435,11 @@ body.gated{padding-bottom:0}
   </div>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="data.js?v=2027.3"></script>
+<script src="data.js?v=2027.4"></script>
 <script>
 (function(){
 'use strict';
-const D=window.D, VER='2027.3';
+const D=window.D, VER='2027.4';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const strip=s=>String(s||'').replace(/<[^>]+>/g,'');
@@ -537,8 +549,8 @@ const openSub=()=>D.SUBS.find(s=>subMorn(s)>=NEXT)||null;
 const prepFor=n=>D.PREP.find(p=>{ const m=String(p.mtM).match(/(\d+)(?:-(\d+))?/); return m&&n>=+m[1]&&n<=+(m[2]||m[1]); });
 
 /* ---------- small renderers ---------- */
-function lineHTML(){
-  const eve=ED==='eve';
+function lineHTML(mode){
+  const eve=ED==='eve', curK=eve?NEXTE:NEXT;
   return '<div class="line-w" id="lineW"><div class="line" role="list" aria-label="מסלול הקורס">'+MODS.map(m=>{
     const stops=eve?EVES.filter(x=>x.mod===m.n):m.M.map(n=>MEET[n]);
     const st=stops.map(x=>eve?eStatus(x.e):status(x.n));
@@ -547,10 +559,14 @@ function lineHTML(){
     return '<div class="lmod '+cls+'" style="--fill:'+fill+'%" role="listitem"><div class="lstops">'+stops.map((x,i)=>{
       const num=eve?x.e:x.n, href=eve?'#/e/'+x.e:'#/m/'+x.n;
       const lab=(eve?'ערב ':'מפגש ')+num+', '+strip(x.title)+(st[i]==='past'?', בוצע':(st[i]==='next'?', הבא':''));
-      return '<a class="stop '+st[i]+'" href="'+href+'" aria-label="'+esc(lab)+'"'+(st[i]==='next'?' data-here="'+(manual()?'עכשיו':(isToday(x.n)&&!eve?'היום':'הבא'))+'" aria-current="step"':'')+'><i>'+num+'</i></a>';
+      const here=st[i]==='next'?' data-here="'+(manual()?'עכשיו':(isToday(x.n)&&!eve?'היום':'הבא'))+'" aria-current="step"':'';
+      if(mode==='select'){ const on=num===(VSEL||curK); return '<button type="button" class="stop '+st[i]+(on&&VSEL?' sel':'')+'" data-sel="'+num+'" aria-pressed="'+on+'" aria-label="'+esc(lab)+', להצגה למטה"'+here+'><i>'+num+'</i></button>'; }
+      return '<a class="stop '+st[i]+'" href="'+href+'" aria-label="'+esc(lab)+'"'+here+'><i>'+num+'</i></a>';
     }).join('')+'</div><div class="lname">'+esc(m.t)+'</div></div>';
-  }).join('')+'</div></div>'+
-  '<div class="line-k" aria-hidden="true"><span><b class="p"></b>'+(eve?'עבר בבוקר':'בוצע')+'</span><span><b class="n"></b>'+(eve?'הנקודה המקבילה לבוקר':'המפגש הבא')+'</span><span><b></b>בהמשך</span></div>';
+  }).join('')+'</div></div>'+(mode==='select'?'':lineKey());
+}
+function lineKey(){ const eve=ED==='eve';
+  return '<div class="line-k" aria-hidden="true"><span><b class="p"></b>'+(eve?'עבר בבוקר':'בוצע')+'</span><span><b class="n"></b>'+(eve?'הנקודה המקבילה לבוקר':'המפגש הבא')+'</span><span><b></b>בהמשך</span></div>';
 }
 function centerLine(){ const w=$('#lineW'), s=w&&w.querySelector('.stop.next'); if(s) w.scrollLeft+=s.getBoundingClientRect().left-w.getBoundingClientRect().left-w.clientWidth/2+22; }
 function deckCard(k,showN){
@@ -570,27 +586,46 @@ function promptCard(p,showN){
 function fold(title,html,open){ return '<details class="fold"'+(open?' open':'')+'><summary>'+esc(title)+ic('chev')+'</summary><div class="rich">'+html+'</div></details>'; }
 
 /* ---------- screens ---------- */
+/* Today: the line stays on top, and tapping a station shows that meeting below it, without leaving the screen */
+let VSEL=0;
 function vToday(){
-  const n=NEXT, m=MEET[n], eve=ED==='eve', r=[NEXTE,NEXTE];
-  const part=m.parts[0];
-  const out=(part.rl||[]).concat(m.parts.slice(1).map(p=>(p.rl||[])[0]).filter(Boolean)).slice(0,3);
-  const sub=openSub(), prep=prepFor(n);
-  const day=Math.floor(TODAY/864e5), cr=[...CORE], cname=cr[day%cr.length], crow=D.T.find(x=>x[0]===cname);
+  const eve=ED==='eve';
   const greet=ROLE==='student'?'מה עושים היום':(isStaff()?'מה מלמדים עכשיו':'מה עושים היום');
-  const when=eve?(manual()?'נבחר ידנית':'בקצב הבוקר, '+lblM(n)):(isToday(n)?'היום, '+fmtD(m.date):fmtD(m.date)+(isEst(n)?', תאריך משוער':'')+(manual()?', נבחר ידנית':''));
-  let h='<section class="hello"><h1>'+greet+'</h1><p class="sub">'+(eve?'מתכונת הערב, 29 ערבים בין 17:00 ל-21:45. עוד אין מחזור ערב עם תאריכים, אז המסלול מראה את הנקודה שמקבילה לבוקר.':'מתכונת הבוקר, 20 מפגשים בימי שני ורביעי, 09:00 עד 16:30.')+'</p>'+pickerHTML('pickToday')+'</section>';
-  h+=lineHTML();
-  h+='<section class="upnext" aria-labelledby="nxH"><div><div class="up-num"><b>'+(eve?r[0]:n)+'</b><span>'+esc(when)+'</span></div>'+
-     '<h2 id="nxH" style="margin-top:10px">'+esc(eve?EVES[r[0]-1].title:m.title)+'</h2><p class="muted" style="margin:6px 0 0">'+esc(modName(m.mod))+'</p></div>'+
+  let h='<section class="hello"><h1>'+greet+'</h1><p class="sub">'+(eve?'מתכונת הערב, 29 ערבים בין 17:00 ל-21:45. עוד אין מחזור ערב עם תאריכים, אז המסלול מראה את הנקודה שמקבילה לבוקר.':'מתכונת הבוקר, 20 מפגשים בימי שני ורביעי, 09:00 עד 16:30.')+'</p></section>';
+  h+='<div class="line-sticky" id="lineSticky">'+lineHTML('select')+'</div>'+lineKey().replace('class="line-k"','class="line-k" style="margin-bottom:4px"').replace('</div>','<span>לחיצה על תחנה מציגה אותה כאן</span></div>');
+  h+='<div id="todayBody" aria-live="polite">'+todayBody()+'</div>';
+  return h;
+}
+function todayBody(){
+  const eve=ED==='eve', curK=eve?NEXTE:NEXT, k=VSEL||curK, isCur=k===curK;
+  const E=eve?EVES[k-1]:null, n=eve?E.n:k, m=MEET[n];
+  const out=m.parts.flatMap(p=>p.rl||[]).slice(0,3);
+  const sub=D.SUBS.find(s=>subMorn(s)>=n)||null, prep=prepFor(n);
+  const day=Math.floor(TODAY/864e5), cr=[...CORE], cname=cr[day%cr.length], crow=D.T.find(x=>x[0]===cname);
+  const st=eve?eStatus(k):status(n);
+  let when;
+  if(eve) when=isCur?(manual()?'נבחר ידנית':'בקצב הבוקר, '+lblM(n)):'מקביל למפגש '+n+' בבוקר';
+  else when=(isToday(n)?'היום, '+fmtD(m.date):fmtD(m.date)+(isEst(n)?', תאריך משוער':''))+(isCur&&manual()?', נבחר ידנית':'');
+  const tag=isCur?'<span class="tag now">'+(eve?'הנקודה הנוכחית':(manual()?'המפגש הנוכחי':(isToday(n)?'היום':'המפגש הבא')))+'</span>':
+    (st==='past'?'<span class="tag done">'+(eve?'עבר בבוקר':'בוצע')+'</span>':'<span class="tag">בהמשך</span>');
+  let h='<section class="upnext'+(isCur?'':' other')+'" aria-labelledby="nxH"><div><div class="up-num"><b>'+k+'</b><span>'+esc(when)+'</span></div>'+
+     '<div class="row" style="margin-top:8px">'+tag+(isCur?'':'<button class="btn ghost sm" type="button" data-vsel="0">חזרה ל'+(eve?'ערב ':'מפגש ')+curK+'</button>')+'</div>'+
+     '<h2 id="nxH" style="margin-top:10px">'+esc(eve?E.title:m.title)+'</h2><p class="muted" style="margin:6px 0 0">'+esc(modName(m.mod))+'</p></div>'+
      '<div><h3 style="font-size:15px;color:var(--ink3);margin-bottom:8px">בסוף '+(eve?'הערב':'המפגש')+' יש לכם</h3><ul class="out">'+out.map(x=>'<li>'+ic('check')+'<span>'+esc(x)+'</span></li>').join('')+'</ul></div>'+
-     '<div class="up-b row"><a class="btn" href="'+(eve?'#/e/'+r[0]:'#/m/'+n)+'">לעמוד ה'+(eve?'ערב':'מפגש')+'</a>'+(isStaff()?'<a class="btn ghost" href="#/live/'+(eve?'e/'+r[0]:'m/'+n)+'">'+ic('board')+'לוח ההנחיה</a>':'')+'</div></section>';
+     '<div class="up-b row"><a class="btn" href="'+(eve?'#/e/'+k:'#/m/'+n)+'">לעמוד ה'+(eve?'ערב':'מפגש')+'</a>'+(isStaff()?'<a class="btn ghost" href="#/live/'+(eve?'e/'+k:'m/'+n)+'">'+ic('board')+'לוח ההנחיה</a>':'')+'</div></section>';
   h+='<div class="grid2">';
-  if(sub){ const due=subMorn(sub)<=n+1;
+  if(sub){ const due=isCur&&subMorn(sub)<=n+1;
     h+='<section class="card mini'+(due?' need':'')+'"><h3>'+ic('flag')+'ההגשה הקרובה'+(due?'<span class="ct act" aria-label="דורש פעולה">1</span>':'')+'</h3><p style="font-weight:600;margin-bottom:4px">הגשה '+sub.n+': '+esc(sub.t)+'</p><p class="muted" style="margin:0">'+esc(ED==='eve'?sub.mtE:sub.mtM)+', '+esc(edText(ED==='eve'?sub.dueE:sub.dueM))+'. '+esc(/\d/.test(sub.w)?'משקל בציון: '+sub.w:sub.w)+'.</p><p style="margin:10px 0 0"><a href="#/p/subs">מה מגישים, ואיך יודעים שסיימתם</a></p></section>'; }
   if(prep){ h+='<section class="card mini"><h3>'+ic('bag')+'מה מביאים למודול</h3><p style="font-weight:600;margin-bottom:4px">'+esc(prep.t)+'</p><ul class="out" style="gap:4px">'+(prep.prep||[]).slice(0,3).map(x=>'<li>'+ic('check')+'<span>'+esc(x)+'</span></li>').join('')+'</ul></section>'; }
   if(crow){ const img=cImg(crow[0]); h+='<section class="card mini"><h3>'+ic('bulb')+'מושג ליום הזה</h3><a class="cday" href="'+cHref(crow[0])+'">'+(img?'<img src="'+img+'" alt="" width="72" height="72" loading="lazy">':'<span></span>')+'<span><b>'+nm(crow[0])+'</b><br><span class="muted" style="font-size:14px">'+esc(crow[3].split(/[.:]/)[0])+'.</span></span></a></section>'; }
   h+='</div>';
   return h;
+}
+function showSel(k){
+  const curK=ED==='eve'?NEXTE:NEXT; VSEL=(!k||k===curK)?0:k;
+  const b=$('#todayBody'); if(!b) return;
+  b.innerHTML=todayBody(); bidi(b);
+  $$('#lineSticky .stop').forEach(x=>{ const on=+x.dataset.sel===(VSEL||curK); x.classList.toggle('sel',on&&!!VSEL); x.setAttribute('aria-pressed',on); });
 }
 
 function vMeetings(){
@@ -881,7 +916,7 @@ function drawNav(sec){
     '<div class="nv-side"><b>'+(ED==='eve'?'ערב '+NEXTE:'מפגש '+NEXT)+', '+(manual()?'נבחר ידנית':(ED==='eve'?'בקצב הבוקר':(isToday(NEXT)?'היום':fmtD(MEET[NEXT].date))))+'</b>'+esc(MEET[NEXT].title)+'<br><br>חיפוש בכל האתר: <kbd>Ctrl</kbd> + <kbd>K</kbd></div>';
 }
 function applyTheme(){ if(THEME==='auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme',THEME); }
-function setEd(e){ ED=e; put('ed',e); IDX=null; recalc(); $('#edLbl').textContent=e==='eve'?'ערב':'בוקר'; $('#edBtn').dataset.ed=e;
+function setEd(e){ ED=e; put('ed',e); IDX=null; VSEL=0; recalc(); $('#edLbl').textContent=e==='eve'?'ערב':'בוקר'; $('#edBtn').dataset.ed=e;
   const h=location.hash, m=h.match(/^#\/(m|e)\/(\d+)(.*)$/);
   if(m){ const n=+m[2]; if(e==='eve'&&m[1]==='m'){ location.hash='#/e/'+eveOf(n)[0]+m[3]; return; } if(e==='morn'&&m[1]==='e'){ location.hash='#/m/'+EVES[n-1].n+m[3]; return; } }
   route(); toast(e==='eve'?'עברתם למתכונת הערב':'עברתם למתכונת הבוקר'); }
@@ -897,6 +932,7 @@ function route(){
   let html='', sec=s0, title='';
   const staffRoute=(s0==='live')||(seg[2]==='lect')||(s0==='more'&&(seg[1]==='lect'||seg[1]==='marketing'));
   if(staffRoute&&needsDS()&&!window.DS){ needStaff(route); }
+  if(s0!=='') VSEL=0;
   if(s0===''){ html=vToday(); title='היום'; }
   else if(s0==='m'&&seg[1]){ if(ED==='eve'){ location.replace('#/e/'+eveOf(+seg[1])[0]+(seg[2]?'/'+seg[2]:'')); return; } html=vMeeting(+seg[1],seg[2]); title='מפגש '+seg[1]; sec='m'; }
   else if(s0==='e'&&seg[1]){ if(ED==='morn'){ setEdQuiet('eve'); } html=vEvening(+seg[1],seg[2]); title='ערב '+seg[1]; sec='m'; }
@@ -967,6 +1003,8 @@ document.addEventListener('keydown',e=>{ if((e.key==='Enter'||e.key===' ')&&e.ta
 document.addEventListener('click',e=>{
   const j=e.target.closest('#liveList .blk'); if(j&&!e.target.closest('a')){ jumpBlock(j); return; }
   const t=e.target.closest('button,[data-ed]'); if(!t) return;
+  if(t.dataset.sel!=null){ showSel(+t.dataset.sel); return; }
+  if(t.dataset.vsel!=null){ showSel(0); const w=$('#lineW'), c=w&&w.querySelector('.stop.next'); if(c) c.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'}); return; }
   if(t.dataset.copy!=null){ copyText(D.prompts[+t.dataset.copy].text); return; }
   if(t.dataset.more!=null){ const c=t.closest('.pr'); const o=c.classList.toggle('open'); t.setAttribute('aria-expanded',o); t.textContent=o?'הצגה מקוצרת':'הצגה מלאה'; return; }
   if(t.dataset.pf!=null){ TSTATE.f=t.dataset.pf==='all'?'all':+t.dataset.pf; route(); return; }
@@ -984,7 +1022,7 @@ document.addEventListener('click',e=>{
 });
 $('#edBtn').addEventListener('click',()=>setEd(ED==='eve'?'morn':'eve'));
 document.addEventListener('change',e=>{ const t=e.target; if(!t.dataset||!t.dataset.pick) return;
-  const v=+t.value||0; PICK[ED]=v; put('cur.'+ED,v||null); recalc(); IDX=null; const id=t.id; route();
+  const v=+t.value||0; PICK[ED]=v; VSEL=0; put('cur.'+ED,v||null); recalc(); IDX=null; const id=t.id; route();
   const again=document.getElementById(id); if(again) again.focus();
   toast(v?(ED==='eve'?'ערב '+v:'מפגש '+v)+' מסומן עכשיו כנוכחי':'חזרה לבחירה אוטומטית לפי התאריך'); });
 $('#srchBtn').innerHTML=ic('search'); $('#srchIc').innerHTML=ic('search'); $('#srchX').innerHTML=ic('x');
