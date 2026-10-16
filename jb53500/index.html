@@ -684,11 +684,12 @@ td b{color:var(--ink)}
 .cnt.z{background:transparent;color:var(--ink-3);box-shadow:inset 0 0 0 1px var(--line)}
 /* ---------- AREA STRIP (15.10.2026): one clay illustration per area, edge to edge of the content column ---------- */
 .main{overflow-x:clip}
-.astrip{margin:-8px 0 30px;margin-inline-start:calc(50% - (100vw - var(--rail)) / 2);width:calc(100vw - var(--rail));
+.astrip{margin:-44px 0 26px;margin-inline-start:calc(50% - (100vw - var(--rail)) / 2);width:calc(100vw - var(--rail));
   height:clamp(150px,18vw,300px);overflow:hidden;background:var(--cream);border-bottom:3px solid var(--coral)}
 .astrip img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 55%}
-@media (max-width:900px){ .astrip{margin-top:-4px;margin-inline-start:calc(50% - 50vw);width:100vw;height:clamp(120px,30vw,220px);margin-bottom:22px} }
-@media (max-width:700px){ .astrip{height:150px} }
+@media (max-width:1100px){ .astrip{margin-top:-34px} }
+@media (max-width:900px){ .astrip{margin-top:-24px;margin-inline-start:calc(50% - 50vw);width:100vw;height:clamp(120px,30vw,220px);margin-bottom:22px} }
+@media (max-width:700px){ .astrip{height:150px;margin-top:-20px} }
 /* ---------- ROLE HERO CAROUSEL (15.10.2026) ---------- */
 .rh{background:var(--navy);color:#fff;border-radius:var(--radius);padding:40px 46px 26px;position:relative;overflow:hidden}
 .rh::after{content:"";position:absolute;top:0;right:0;bottom:0;width:10px;background:var(--coral)}
@@ -5946,6 +5947,9 @@ function setArea(target){
   const lbl=btn&&btn.querySelector('.nl');
   const m=document.getElementById('msec');
   if(m&&lbl) m.textContent=lbl.textContent;
+  /* feedback 16.10: the edition switch sits under the area strip, so the strip opens the page */
+  const sw=document.querySelector('.edsw-top'), pg=document.getElementById('p-'+target);
+  if(sw&&pg){ const st=pg.querySelector(':scope > .astrip'); if(st) st.after(sw); else pg.prepend(sw); }
   window.scrollTo({top:0,behavior:'instant'});
 }
 document.getElementById('nav').addEventListener('click',e=>{
