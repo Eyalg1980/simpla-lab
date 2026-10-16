@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simpla, in paper</title>
+<meta name="description" content="Simpla, a boutique UX studio in Tel Aviv. Two inks on one sheet, cut and laid by hand, shaping themselves through the six steps of the studio process.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F0E6; --ink:#241F1A; --coral:#F2503C; --navy:#2A3A8F;
+    --over:#6B2C6E; --muted:#6B6153; --hair:rgba(36,31,26,.16);
+    --display:"Bricolage Grotesque","Work Sans",system-ui,sans-serif;
+    --body:"Work Sans",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;color:var(--ink);font-family:var(--body);
+    background-color:var(--paper);
+    background-image:radial-gradient(rgba(36,31,26,.07) 1px,transparent 1px);
+    background-size:4px 4px;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--coral);color:var(--paper)}
+  img,video{max-width:100%;display:block}
+  a{color:inherit}
+
+  .wrap{margin:0 auto;max-width:1120px;padding:0 22px}
+
+  .nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:18px;
+    padding:10px 18px;background:color-mix(in srgb,var(--paper) 92%,transparent);
+    backdrop-filter:blur(8px);border-bottom:1.5px solid var(--hair)}
+  .brand{font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.02em;text-decoration:none}
+  .links{margin-left:auto;display:flex;gap:20px}
+  .link{position:relative;font-size:14.5px;font-weight:500;color:var(--muted);text-decoration:none;padding-bottom:3px}
+  .link:hover{color:var(--ink)}
+  .link::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--coral);
+    transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+  .link:hover::after{transform:scaleX(1)}
+
+  .stage{position:relative}
+  .sticky{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;align-items:center}
+  .media{position:absolute;inset:0;background:var(--paper)}
+  .media video{width:100%;height:100%;object-fit:cover}
+
+  .card{position:relative;z-index:2;margin-left:clamp(22px,5vw,76px);
+    width:min(33rem,42vw);padding:clamp(24px,2.6vw,38px);
+    background:color-mix(in srgb,var(--paper) 82%,transparent);
+    backdrop-filter:blur(10px);
+    box-shadow:6px 6px 0 rgba(42,58,143,.16)}
+  .card .kicker{margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--coral)}
+  .card h2{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(26px,3.4vw,42px);
+    line-height:1.06;letter-spacing:-.02em}
+  .card p{margin:1.1rem 0 0;font-size:clamp(.98rem,1.1vw,1.08rem);line-height:1.6}
+  .card ul{list-style:none;display:flex;flex-wrap:wrap;gap:7px;padding:0;margin:18px 0 0}
+  .card li{font-size:11.5px;font-weight:600;color:var(--navy);
+    border:1.5px dashed color-mix(in srgb,var(--navy) 55%,transparent);padding:5px 12px}
+  .chapter{display:none}
+  .chapter.on{display:block}
+  .counter{position:absolute;right:22px;bottom:18px;z-index:2;font-size:11.5px;font-weight:600;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+  .strip{border-top:1.5px solid var(--hair);border-bottom:1.5px solid var(--hair);
+    background:color-mix(in srgb,var(--paper) 55%,#fff)}
+  .strip-inner{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;
+    margin:0 auto;max-width:1120px;padding:26px 22px}
+  .step{margin:0}
+  .step video{width:100%;aspect-ratio:16/9;object-fit:cover;
+    box-shadow:3px 3px 0 rgba(42,58,143,.14)}
+  .step figcaption{display:flex;gap:8px;align-items:baseline;margin-top:10px;font-size:12.5px;color:var(--muted)}
+  .step b{font-family:var(--display);color:var(--coral);font-size:12px;letter-spacing:.08em;font-weight:800}
+
+  .sec{padding:84px 0}
+  @media (min-width:900px){.sec{padding:120px 0}}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);margin:0 0 16px}
+  .h2{font-family:var(--display);font-weight:800;font-size:clamp(30px,4.4vw,50px);line-height:1.05;
+    letter-spacing:-.02em;margin:0 0 18px}
+  .lede{font-size:clamp(16px,1.5vw,19px);line-height:1.6;color:var(--muted);max-width:56ch;margin:0}
+
+  .case{display:grid;grid-template-columns:1fr;gap:22px 46px;align-items:center;padding:40px 0;
+    border-top:1.5px solid var(--hair)}
+  .case:last-of-type{border-bottom:1.5px solid var(--hair)}
+  .case figure{margin:0;box-shadow:6px 6px 0 rgba(42,58,143,.16)}
+  .case video{width:100%;aspect-ratio:16/9;object-fit:cover}
+  .idx{font-family:var(--display);font-weight:800;font-size:clamp(34px,5vw,56px);letter-spacing:-.03em;
+    line-height:1;margin:0 0 6px;color:color-mix(in srgb,var(--ink) 22%,transparent)}
+  .client{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin:0}
+  .case h3{font-family:var(--display);font-weight:800;font-size:clamp(21px,2.4vw,30px);
+    letter-spacing:-.02em;margin:4px 0 14px}
+  .case p{color:var(--muted);font-size:16px;line-height:1.6;margin:0}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;list-style:none;padding:0;margin:18px 0 0}
+  .tags li{font-size:11.5px;font-weight:600;color:var(--navy);
+    border:1.5px dashed color-mix(in srgb,var(--navy) 55%,transparent);padding:5px 12px}
+  @media (min-width:820px){
+    .case{grid-template-columns:1.05fr .95fr;padding:54px 18px}
+    .case:nth-of-type(even) figure{order:2}
+    .case:nth-of-type(even) .body{order:1}
+  }
+
+  .contact-grid{display:grid;grid-template-columns:1fr;gap:34px;align-items:center}
+  @media (min-width:900px){.contact-grid{grid-template-columns:1.1fr .9fr}}
+  .plate{width:100%;box-shadow:8px 8px 0 rgba(42,58,143,.16)}
+  dl{margin:28px 0 0}
+  dl>div{margin-bottom:14px}
+  dt{font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  dd{margin:4px 0 0;font-size:16px}
+  dd a{text-decoration-color:var(--coral);text-underline-offset:4px}
+  .talk{display:inline-block;margin-top:26px;padding:14px 28px;background:var(--coral);color:var(--paper);
+    font-weight:600;font-size:16px;text-decoration:none;
+    box-shadow:5px 5px 0 var(--navy);transition:transform .12s ease,box-shadow .12s ease}
+  .talk:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--navy)}
+  .talk:focus-visible{outline:2px solid var(--navy);outline-offset:4px}
+
+  footer{padding:44px 0 64px;border-top:1.5px solid var(--hair);color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:13.5px}
+
+  @media (max-width:860px){
+    .sticky{align-items:flex-end}
+    .card{width:auto;margin:0 14px 86px;padding:18px 18px 20px;
+      background:color-mix(in srgb,var(--paper) 88%,transparent)}
+    .strip-inner{grid-template-columns:repeat(3,minmax(0,1fr))}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="#top">simpla</a>
+  <nav class="links">
+    <a class="link" href="#top">Process</a>
+    <a class="link" href="#work">Work</a>
+    <a class="link" href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="stage" id="stage" aria-label="The six steps, as one film">
+    <div class="sticky">
+      <div class="media" id="media" aria-hidden="true"></div>
+      <div class="card">
+        <article class="chapter on" data-ch="0">
+          <p class="kicker">Simpla, a boutique UX studio in Tel Aviv</p>
+          <h2>From abstract to product</h2>
+          <p>Every product starts as one loose sheet. No edges yet, no answers, nothing to point at. We are comfortable there, and we do not rush out of it.</p>
+        </article>
+        <article class="chapter" data-ch="1">
+          <p class="kicker">Research</p>
+          <h2>The mess gets pinned down</h2>
+          <p>Questions start coming out of it, more than you wanted. We talk to the people who will use it, watch what they actually do, and the loose ends stop floating and start pointing somewhere.</p>
+          <ul><li>Brainstorm</li><li>Product research</li><li>UX research</li><li>Ideation</li></ul>
+        </article>
+        <article class="chapter" data-ch="2">
+          <p class="kicker">Wireframes</p>
+          <h2>It takes a shape</h2>
+          <p>Turning ideas into wireframes, mockups and prototypes. Structure before surface, so the argument is settled while it is still cheap to change.</p>
+          <ul><li>Prototyping</li><li>Product definitions</li><li>MVP</li><li>Consultation</li></ul>
+        </article>
+        <article class="chapter" data-ch="3">
+          <p class="kicker">Design</p>
+          <h2>The second ink goes down</h2>
+          <p>Crafting memorable, branded experiences. Your vision and flavour stay intact, usability comes first, and where the two meet something appears that neither had alone.</p>
+          <ul><li>Product design</li><li>UX and UI</li><li>Conceptual design</li><li>Style guide</li></ul>
+        </article>
+        <article class="chapter" data-ch="4">
+          <p class="kicker">Development</p>
+          <h2>It starts to move</h2>
+          <p>Leading and supporting development. We stay in it while it gets built, because the last ten percent is where products are won or lost.</p>
+          <ul><li>Front end</li><li>UI development</li><li>Responsive components</li><li>HTML5</li></ul>
+        </article>
+        <article class="chapter" data-ch="5">
+          <p class="kicker">Live</p>
+          <h2>And then it is a product</h2>
+          <p>A value-centered product that leaves users feeling confident, engaged, and ready to take the next action. Same two inks. Nothing was added.</p>
+        </article>
+      </div>
+      <p class="counter"><span id="counter">01</span> of 06</p>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="The six steps">
+    <div class="strip-inner" id="strip"></div>
+  </section>
+
+  <section class="sec" id="work">
+    <div class="wrap">
+      <p class="eyebrow">Work</p>
+      <h2 class="h2">Three products, three challenges</h2>
+      <p class="lede">The same six steps, run three times, for three very different rooms. Each one is running here.</p>
+      <div style="margin-top:42px" id="cases"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2 class="h2">Bring us your blank sheet</h2>
+        <p class="lede">Tell us what you are building and where it is stuck. We will tell you what the first two weeks would look like.</p>
+        <dl>
+          <div><dt>Studio</dt><dd>Urban Place, Shalom Meir Tower, Ahad Ha&rsquo;am 9, Tel Aviv</dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:studio@simplaux.com">studio@simplaux.com</a></dd></div>
+        </dl>
+        <a class="talk" href="mailto:studio@simplaux.com">Let&rsquo;s talk</a>
+      </div>
+      <img class="plate" loading="lazy" alt="The finished paper device, its interface cut from coral and navy paper"
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/hf_20261016_074559_3c684a8b-2ea5-489e-a6d0-51451dcf494a.png">
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>Made in Tel Aviv. Simpla.</span>
+    <span>Two inks on one sheet, filmed in a single take.</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var CDN = "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/";
+  var FILM = {
+    wide: CDN + "hf_20261016_090903_1c9acbc6-5ddc-4157-968c-12e20ea7061d.mp4",
+    tall: CDN + "hf_20261016_090903_529e6856-cadb-4306-b178-ec4a2ebcd82b.mp4",
+    poster: CDN + "hf_20261016_074559_89660143-2541-478f-872a-897f2399bf70.png"
+  };
+  var WORK_CDN = "https://simpla-clay.higgsfield.app/assets/work/";
+
+  // chapter end times in the film, and how much scroll each chapter gets
+  var CUTS = [3.0, 7.2, 11.2, 16.2, 20.0, 25.0];
+  var WEIGHTS = [1.3, 1.9, 1.8, 2.3, 1.7, 2.4];
+  var LABELS = ["Abstract", "Research", "Wireframes", "Design", "Development", "Live"];
+  var CASES = [
+    { slug: "juganu", client: "Juganu", title: "Smart City Dashboard",
+      challenge: "Allowing municipalities to monitor needs 24/7 and improve citizens’ lives.",
+      services: ["Ideation", "Product research", "Prototyping", "UX research", "UI and UX design", "Style guide"] },
+    { slug: "tipranks", client: "TipRanks", title: "Website Homepage",
+      challenge: "Adapting TipRanks’ robust, in-depth data into friendly, fully-branded digital experiences.",
+      services: ["Ideation", "Wireframing", "Conceptual design", "UX research", "UI and UX design", "MVP approach"] },
+    { slug: "tease", client: "Tease", title: "Inspirational UX Toolkit",
+      challenge: "Show the UX process behind final products in a clear, captivating way to support self-education and self-training.",
+      services: ["Ideation", "Inspiration", "UX research", "Design", "Animation", "HTML5 canvas", "Storytelling"] }
+  ];
+
+  var mobile = window.matchMedia("(max-width: 860px)").matches;
+  var src = mobile ? FILM.tall : FILM.wide;
+
+  var media = document.getElementById("media");
+  var film = document.createElement("video");
+  film.muted = true; film.playsInline = true; film.setAttribute("playsinline", "");
+  film.preload = "auto"; film.poster = FILM.poster; film.src = src;
+  media.appendChild(film);
+
+  var chapters = Array.prototype.slice.call(document.querySelectorAll(".chapter"));
+  var counter = document.getElementById("counter");
+  var stage = document.getElementById("stage");
+
+  var total = WEIGHTS.reduce(function (a, b) { return a + b; }, 0);
+  stage.style.height = (total * 100) + "svh";
+
+  var bounds = [], acc = 0;
+  for (var j = 0; j < WEIGHTS.length; j++) {
+    bounds.push([acc / total, (acc + WEIGHTS[j]) / total]);
+    acc += WEIGHTS[j];
+  }
+  var starts = [0].concat(CUTS.slice(0, 5));
+
+  var current = -1;
+  function show(k) {
+    if (k === current) return;
+    current = k;
+    for (var c = 0; c < chapters.length; c++) chapters[c].classList.toggle("on", c === k);
+    counter.textContent = "0" + (k + 1);
+  }
+
+  var ticking = false;
+  function frame() {
+    ticking = false;
+    var rect = stage.getBoundingClientRect();
+    var span = stage.offsetHeight - window.innerHeight;
+    var p = span > 0 ? Math.min(1, Math.max(0, -rect.top / span)) : 0;
+
+    var k = bounds.length - 1;
+    for (var b = 0; b < bounds.length; b++) {
+      if (p < bounds[b][1]) { k = b; break; }
+    }
+    show(k);
+
+    var local = (p - bounds[k][0]) / (bounds[k][1] - bounds[k][0]);
+    local = Math.min(1, Math.max(0, local));
+    var t = starts[k] + local * (CUTS[k] - starts[k]);
+    var d = film.duration;
+    if (d && isFinite(d)) {
+      t = Math.min(t, d - 0.05);
+      if (Math.abs(film.currentTime - t) > 0.03) {
+        try { film.currentTime = t; } catch (e) {}
+      }
+    }
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(frame); }
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  film.addEventListener("loadedmetadata", frame);
+  frame();
+
+  // the six step strip, six copies of the film parked at each chapter midpoint
+  var strip = document.getElementById("strip");
+  for (var s = 0; s < 6; s++) {
+    var fig = document.createElement("figure");
+    fig.className = "step";
+    var v = document.createElement("video");
+    v.muted = true; v.playsInline = true; v.setAttribute("playsinline", "");
+    v.preload = "metadata"; v.src = FILM.wide;
+    v.setAttribute("aria-label", "Step 0" + (s + 1) + ", " + LABELS[s]);
+    (function (vid, mid) {
+      vid.addEventListener("loadedmetadata", function () {
+        try { vid.currentTime = mid; } catch (e) {}
+      });
+    })(v, (starts[s] + CUTS[s]) / 2);
+    var cap = document.createElement("figcaption");
+    var b2 = document.createElement("b");
+    b2.textContent = "0" + (s + 1);
+    cap.appendChild(b2);
+    cap.appendChild(document.createTextNode(LABELS[s]));
+    fig.appendChild(v); fig.appendChild(cap);
+    strip.appendChild(fig);
+  }
+
+  // work cases
+  var cases = document.getElementById("cases");
+  CASES.forEach(function (w, idx) {
+    var art = document.createElement("article");
+    art.className = "case";
+    var fig = document.createElement("figure");
+    var vid = document.createElement("video");
+    vid.autoplay = true; vid.loop = true; vid.muted = true;
+    vid.playsInline = true; vid.setAttribute("playsinline", "");
+    vid.preload = "metadata";
+    vid.setAttribute("aria-label", w.client + ", " + w.title);
+    vid.poster = WORK_CDN + w.slug + "-poster.jpg";
+    vid.src = WORK_CDN + w.slug + ".mp4";
+    fig.appendChild(vid);
+
+    var body = document.createElement("div");
+    body.className = "body";
+    var n = document.createElement("p"); n.className = "idx"; n.textContent = "0" + (idx + 1);
+    var cl = document.createElement("p"); cl.className = "client"; cl.textContent = w.client;
+    var h = document.createElement("h3"); h.textContent = w.title;
+    var pr = document.createElement("p"); pr.textContent = w.challenge;
+    var ul = document.createElement("ul"); ul.className = "tags";
+    w.services.forEach(function (sv) {
+      var li = document.createElement("li"); li.textContent = sv; ul.appendChild(li);
+    });
+    body.appendChild(n); body.appendChild(cl); body.appendChild(h);
+    body.appendChild(pr); body.appendChild(ul);
+
+    art.appendChild(fig); art.appendChild(body);
+    cases.appendChild(art);
+  });
+})();
+</script>
+</body>
+</html>
