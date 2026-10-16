@@ -326,6 +326,8 @@ details.fold > div{padding:0 16px 16px;overflow-x:auto}
 .gate h1{font-size:34px}
 .gate form{display:grid;gap:10px}
 .gate label{font-weight:600}
+.gate select{min-height:52px;border-radius:12px;border:1.5px solid var(--line2);background:var(--sf);padding:0 14px;font-size:17px;font-weight:600;color:var(--ink)}
+.gate select:focus{border-color:var(--co);outline:none;box-shadow:0 0 0 3px var(--co-soft)}
 .gate input{min-height:52px;border-radius:12px;border:1.5px solid var(--line2);background:var(--sf);padding:0 14px;font-size:18px;letter-spacing:.04em}
 .gate input:focus{border-color:var(--co);outline:none;box-shadow:0 0 0 3px var(--co-soft)}
 .err{color:var(--mg);font-weight:600;min-height:1.6em}
@@ -417,11 +419,11 @@ body.gated{padding-bottom:0}
   </div>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="data.js?v=2027.1"></script>
+<script src="data.js?v=2027.2"></script>
 <script>
 (function(){
 'use strict';
-const D=window.D, VER='2027.1';
+const D=window.D, VER='2027.2';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const strip=s=>String(s||'').replace(/<[^>]+>/g,'');
@@ -460,10 +462,14 @@ const put=(k,v)=>{ try{ v==null?localStorage.removeItem('jb27.'+k):localStorage.
 /* ---------- state ---------- */
 const qs=new URLSearchParams(location.search);
 let ED=(qs.get('ed')==='eve'||qs.get('ed')==='morn')?qs.get('ed'):(get('ed')||'morn');
-let ROLE=get('role'); if(['student','staff','owner'].indexOf(ROLE)<0) ROLE=null;
+const ROLES={lecturer:'מרצה',admin:'מנהלה',student:'סטודנט',marketing:'מרקטינג',owner:'מנהל מערכת'};
+let ROLE=get('role'); if(ROLE==='staff') ROLE='lecturer'; if(!ROLES[ROLE]) ROLE=null;
 let THEME=get('theme')||'auto';
 const TODAY=(()=>{ const t=qs.get('today'); const d=t?new Date(t+'T12:00:00'):new Date(); d.setHours(12,0,0,0); return d; })();
-const isStaff=()=>ROLE==='staff'||ROLE==='owner';
+/* same access as the current site: marketing sees no lecturer material, the lecturer sees no marketing page */
+const isStaff=()=>ROLE==='lecturer'||ROLE==='admin'||ROLE==='owner';
+const canMkt=()=>ROLE==='marketing'||ROLE==='admin'||ROLE==='owner';
+const needsDS=()=>isStaff()||canMkt();
 
 /* ---------- model ---------- */
 const MODS=D.ED.morn.mods.map(m=>({n:m.n,t:m.t,intro:m.intro,tools:m.tools,h:m.h,M:m.M.map(x=>+x.n)}));
@@ -779,14 +785,14 @@ function vMore(sub){
     return '<a class="back" href="#/more">'+ic('arrow')+'עוד</a><h1>חומרי מרצה לפי מודול</h1><p class="sub" style="margin-top:6px">פתיחי המודולים, תרגילי בית ולינקים. לוח ההנחיה עצמו נמצא בעמוד של כל מפגש, בלשונית "למרצה".</p>'+
       DS.tpGen.map(s=>fold('המסלול והקצב: '+s.title,s.html)).join('')+
       MODS.map(m=>'<section class="sec"><h2>מודול '+m.n+', '+esc(m.t)+'</h2>'+DS.lectGeneral.filter(g=>g.mod===m.n&&(!g.edo||g.edo===ED||g.intro)).map(g=>fold(g.title,g.html)).join('')+'</section>').join(''); }
-  if(sub==='marketing'){ if(!isStaff()) return vMissing(); if(!window.DS) return '<p class="empty">טוען</p>'; return '<a class="back" href="#/more">'+ic('arrow')+'עוד</a><div class="rich">'+DS.marketing+'</div>'; }
-  const R={student:'תלמיד',staff:'צוות הקורס',owner:'מנהל מערכת'}[ROLE]||'';
+  if(sub==='marketing'){ if(!canMkt()) return vMissing(); if(!window.DS) return '<p class="empty">טוען</p>'; return '<a class="back" href="#/more">'+ic('arrow')+'עוד</a><div class="rich">'+DS.marketing+'</div>'; }
+  const R=ROLES[ROLE]||'';
   return '<h1>עוד</h1><div class="grid2" style="margin-top:14px">'+
    '<section class="card"><h3 style="margin-bottom:10px">מתכונת הקורס</h3><div class="seg" role="group" aria-label="מתכונת"><button type="button" data-ed="morn" aria-pressed="'+(ED==='morn')+'">20 בקרים</button><button type="button" data-ed="eve" aria-pressed="'+(ED==='eve')+'">29 ערבים</button></div><p class="muted" style="margin:10px 0 0;font-size:14px">הבחירה נשמרת במכשיר הזה. קישור עם ?ed=eve פותח ישר את הערב.</p></section>'+
    '<section class="card"><h3 style="margin-bottom:10px">תצוגה</h3><div class="seg" role="group" aria-label="ערכת צבע"><button type="button" data-theme="auto" aria-pressed="'+(THEME==='auto')+'">לפי המכשיר</button><button type="button" data-theme="light" aria-pressed="'+(THEME==='light')+'">בהיר</button><button type="button" data-theme="dark" aria-pressed="'+(THEME==='dark')+'">כהה</button></div></section>'+
-   '<section class="card"><h3 style="margin-bottom:6px">נכנסתם בתור '+esc(R)+'</h3><p class="muted" style="font-size:14px">התפקיד נקבע לפי הקוד. קוד אחר פותח תצוגה אחרת.</p><button class="btn ghost" type="button" data-out="1">'+ic('key')+'כניסה עם קוד אחר</button></section></div>'+
+   '<section class="card"><h3 style="margin-bottom:6px">נכנסתם בתור '+esc(R)+'</h3><p class="muted" style="font-size:14px">כל תפקיד רואה את החומרים שלו.</p><button class="btn ghost" type="button" data-out="1">'+ic('key')+'החלפת תפקיד</button></section></div>'+
    '<section class="sec"><h2>עוד באתר</h2><div class="tlist">'+
-   (isStaff()?'<a class="dk" href="#/more/lect"><span class="dk-t">'+ic('board')+'</span><span><b>חומרי מרצה לפי מודול</b><span>פתיחים, תרגילי בית ולינקים</span></span></a><a class="dk" href="#/more/marketing"><span class="dk-t">'+ic('megaphone')+'</span><span><b>מרקטינג</b><span>החומרים לצוות השיווק</span></span></a>':'')+
+   (isStaff()?'<a class="dk" href="#/more/lect"><span class="dk-t">'+ic('board')+'</span><span><b>חומרי מרצה לפי מודול</b><span>פתיחים, תרגילי בית ולינקים</span></span></a>':'')+(canMkt()?'<a class="dk" href="#/more/marketing"><span class="dk-t">'+ic('megaphone')+'</span><span><b>מרקטינג</b><span>החומרים לצוות השיווק</span></span></a>':'')+
    '<a class="dk" href="#/more/links"><span class="dk-t">'+ic('link')+'</span><span><b>לינקים להעשרה</b><span>מקורות חיצוניים לפי מודול</span></span></a>'+
    '<a class="dk" href="#/more/a11y"><span class="dk-t">'+ic('a11y')+'</span><span><b>הצהרת נגישות</b><span>מה עשינו, ומה עוד חסר</span></span></a>'+
    '<a class="dk" href="../jb53500/"><span class="dk-t">'+ic('folder')+'</span><span><b>האתר הנוכחי</b><span>הגרסה שבשימוש בכיתה</span></span></a></div></section>'+
@@ -796,8 +802,9 @@ function vMissing(){ return '<div class="empty" style="margin-top:24px"><p>הע�
 
 function vGate(){
   return '<section class="gate"><h1>מיישמי AI ואוטומציה</h1><p class="lede">הקורס כמסלול אחד: איפה אנחנו, מה עושים היום, ומה מגישים.</p>'+lineHTML().replace('id="lineW"','id="lineW" aria-hidden="true"').replace(/<a class="stop/g,'<span class="stop').replace(/<\/a>/g,'</span>').replace(/ href="[^"]*"/g,' tabindex="-1"')+
-   '<form id="gform" novalidate><label for="gcode">הקוד שקיבלתם מהמרצה</label><input id="gcode" name="code" autocomplete="off" autocapitalize="characters" spellcheck="false" dir="ltr" required aria-describedby="gerr"><p class="err" id="gerr" role="alert"></p><button class="btn" type="submit">כניסה</button></form>'+
-   '<p class="muted" style="font-size:14px">תלמידים, מרצים וצוות נכנסים עם אותו שדה. הקוד קובע מה תראו.</p></section>';
+   '<form id="gform" novalidate><label for="grole">התפקיד שלכם</label><select id="grole" name="role">'+['lecturer','admin','student','marketing'].map(r=>'<option value="'+r+'"'+(r===(get('lastRole')||'student')?' selected':'')+'>'+ROLES[r]+'</option>').join('')+'</select>'+
+   '<label for="gcode">סיסמה</label><input id="gcode" name="code" type="password" autocomplete="current-password" spellcheck="false" dir="ltr" required aria-describedby="gerr"><p class="err" id="gerr" role="alert"></p><button class="btn" type="submit">כניסה</button></form>'+
+   '<p class="muted" style="font-size:14px">אותן סיסמאות כמו באתר הנוכחי.</p></section>';
 }
 
 /* ---------- search ---------- */
@@ -870,7 +877,7 @@ function route(){
   const s0=seg[0]||'';
   let html='', sec=s0, title='';
   const staffRoute=(s0==='live')||(seg[2]==='lect')||(s0==='more'&&(seg[1]==='lect'||seg[1]==='marketing'));
-  if(staffRoute&&isStaff()&&!window.DS){ needStaff(route); }
+  if(staffRoute&&needsDS()&&!window.DS){ needStaff(route); }
   if(s0===''){ html=vToday(); title='היום'; }
   else if(s0==='m'&&seg[1]){ if(ED==='eve'){ location.replace('#/e/'+eveOf(+seg[1])[0]+(seg[2]?'/'+seg[2]:'')); return; } html=vMeeting(+seg[1],seg[2]); title='מפגש '+seg[1]; sec='m'; }
   else if(s0==='e'&&seg[1]){ if(ED==='morn'){ setEdQuiet('eve'); } html=vEvening(+seg[1],seg[2]); title='ערב '+seg[1]; sec='m'; }
@@ -897,17 +904,20 @@ function setEdQuiet(e){ ED=e; put('ed',e); IDX=null; $('#edLbl').textContent=e==
 function wireGate(){
   const f=$('#gform'); if(!f) return;
   f.addEventListener('submit',e=>{ e.preventDefault();
-    const c=$('#gcode').value.trim(), err=$('#gerr');
-    if(!c){ err.textContent='צריך להזין קוד.'; return; }
-    const r=codeRole(c);
-    if(!r){ err.textContent='הקוד לא מוכר. בדקו אותו מול ההודעה מהמרצה ונסו שוב.'; $('#gcode').select(); return; }
-    ROLE=r; put('role',r); if(isStaff()) needStaff(()=>{}); location.hash='#/'; route(); toast('נכנסתם. המסך הזה מתעדכן לבד לפי התאריך.');
+    const c=$('#gcode').value.trim(), sel=$('#grole').value, err=$('#gerr');
+    if(!c){ err.textContent='צריך להזין סיסמה.'; $('#gcode').focus(); return; }
+    const r=codeRole(c,sel);
+    if(!r){ err.textContent='הסיסמה לא מתאימה לתפקיד שנבחר. בדקו את הסיסמה ואת התפקיד.'; $('#gcode').select(); return; }
+    ROLE=r; put('role',r); put('lastRole',sel); if(needsDS()) needStaff(()=>{}); location.hash='#/'; route(); toast('נכנסתם בתור '+ROLES[r]+'.');
   });
+  $('#grole').addEventListener('change',()=>{ $('#gerr').textContent=''; });
   setTimeout(()=>{ const i=$('#gcode'); if(i) i.focus(); },50);
 }
+/* SHA-256 of SALT + password, copied from the current site. The plain passwords are not in this file. */
 const SALT='jb53500.gate.2026|', MASTER='7be0f1b891b4ff7a2a1e1ce826f7624929662a173f002de680c512e75b48f96d',
- H_STAFF='8cd6434b0e5b2609b8720a07963764135b5f02ca2a0f3652ece78d13e38890c3', H_STUDENT='ddd294a87c7f4c1ce6edf4c48fd9c89daedca6719bbeb35e275f38af47059ff5';
-function codeRole(c){ if(sha256(SALT+c)===MASTER) return 'owner'; const u=sha256(SALT+c.toUpperCase()); if(u===H_STAFF) return 'staff'; if(u===H_STUDENT) return 'student'; return null; }
+ CODES={lecturer:'8cd6434b0e5b2609b8720a07963764135b5f02ca2a0f3652ece78d13e38890c3',admin:'8cd6434b0e5b2609b8720a07963764135b5f02ca2a0f3652ece78d13e38890c3',
+  student:'ddd294a87c7f4c1ce6edf4c48fd9c89daedca6719bbeb35e275f38af47059ff5',marketing:'8cd6434b0e5b2609b8720a07963764135b5f02ca2a0f3652ece78d13e38890c3'};
+function codeRole(c,sel){ if(sha256(SALT+c)===MASTER) return 'owner'; return sha256(SALT+c.toUpperCase())===CODES[sel]?sel:null; }
 function sha256(msg){
   const K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
   0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
@@ -979,9 +989,9 @@ let tx=null; document.addEventListener('touchstart',e=>{ if(/^#\/d\//.test(locat
 document.addEventListener('touchend',e=>{ if(tx==null) return; const dx=e.changedTouches[0].clientX-tx; tx=null; const d=D.DECKS[DK.id]; if(!d||Math.abs(dx)<60) return;
   if(dx>0&&DK.i<d.slides.length-1) location.replace('#/d/'+DK.id+'/'+(DK.i+2)); if(dx<0&&DK.i>0) location.replace('#/d/'+DK.id+'/'+DK.i); },{passive:true});
 window.addEventListener('hashchange',route);
-window.JB27={setRole:r=>{ ROLE=r; put('role',r); if(isStaff()) needStaff(()=>{}); route(); }, needStaff, version:VER};
+window.JB27={setRole:r=>{ ROLE=r; put('role',r); if(needsDS()) needStaff(()=>{}); route(); }, needStaff, sha:sha256, version:VER};
 applyTheme(); setEdQuiet(ED); route();
-if(isStaff()) needStaff(()=>{ if(/lect|live|more\/(lect|marketing)/.test(location.hash)) route(); });
+if(needsDS()) needStaff(()=>{ if(/lect|live|more\/(lect|marketing)/.test(location.hash)) route(); });
 })();
 </script>
 </body>
