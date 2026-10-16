@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-15",
+  "updated": "2026-10-16",
   "ideas": [
     {
       "id": "I-2026-0489",
@@ -4166,6 +4166,48 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-10-15"
+    },
+    {
+      "id": "I-2026-0518",
+      "title": "שם קרוב, פסטיבל אחר",
+      "line": "בדיקת הדדליין של IA en Corto היום פתחה בטעות דף של פסטיבל אחר בשם דומה, International AI Short Film Festival, ובזבזה שליפה שלמה לפני שהקישור הנכון, iaencorto.com, נמצא. מסך שמשווה את שם הפסטיבל שנשלף בפועל לשם המבוקש לפני שהוא נכתב לקובץ.",
+      "advisor": "pain",
+      "createdAt": "2026-10-16",
+      "capability": null,
+      "evidence": "בריצה של היום, 16.10.2026, שליפה ל-filmmakers.festhome.com/en/festival/10485 בחיפוש על IA en Corto החזירה פסטיבל אחר בשם International AI Short Film Festival (דדליין 10.11.2026, לא 18.10), ורק שליפה שנייה ל-festagent.com/en/festivals/ia-en-corto מצאה את הפסטיבל הנכון. DIRECTOR-SPEC מתעד כבר פעם אחת, בסריקה של 21 עד 23.8.2026, שאגרגטור נתן מידע שגוי על תחרות אחת, אבל זו הפעם הראשונה שהטעות היא התאמת שם שגויה בין שני פסטיבלים אמיתיים ולא מידע שגוי מאגרגטור אחד.",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-16"
+    },
+    {
+      "id": "I-2026-0519",
+      "title": "תחום לפני כלי",
+      "line": "איך נראה מסך שמבקש מהתלמיד לסמן באיזה תחום עיצוב, מידע, אינטראקציה או חוויה, הוא נמצא ברגע נתון בפרויקט, לפני שהוא בוחר כלי AI מתאים?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-16",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס AI Product Design & UX/UI, שיעור תחומי העיצוב (design domains)",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-16"
+    },
+    {
+      "id": "I-2026-0520",
+      "title": "שלוש אפליקציות, לא אחת",
+      "line": "איך נראה מסך שמבקש מהתלמיד למצוא ב-Mobbin שלוש אפליקציות שפותרות את אותה בעיה בדרכים שונות, לפני שהוא מעתיק את הפתרון הראשון שהוא רואה?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-16",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס AI Product Design & UX/UI, שיעור דפוסי Mobbin",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-16"
     }
   ]
 }
