@@ -167,6 +167,10 @@ p{margin:0 0 12px}
 .mini h3 svg{width:20px;height:20px;color:var(--co)}
 .mini.need{border-color:var(--mg)}
 .mini.need h3 svg{color:var(--mg)}
+.grid2 > *{min-width:0}
+.pick{display:grid;gap:6px;margin-top:6px;font-weight:600;font-size:14px;color:var(--ink2)}
+.pick select{min-height:44px;width:100%;min-width:0;max-width:560px;border-radius:12px;border:1.5px solid var(--line2);background:var(--sf);color:var(--ink);padding:0 12px;font:600 14px var(--font);cursor:pointer}
+.pick select:focus{border-color:var(--co);outline:none;box-shadow:0 0 0 3px var(--co-soft)}
 .cday{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center;text-decoration:none;color:inherit}
 .cday img{width:72px;height:72px;object-fit:cover;border-radius:14px;background:var(--sf2)}
 
@@ -419,11 +423,11 @@ body.gated{padding-bottom:0}
   </div>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="data.js?v=2027.2"></script>
+<script src="data.js?v=2027.3"></script>
 <script>
 (function(){
 'use strict';
-const D=window.D, VER='2027.2';
+const D=window.D, VER='2027.3';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const strip=s=>String(s||'').replace(/<[^>]+>/g,'');
@@ -451,6 +455,7 @@ const P={
  moon:'<path d="M20 14.5A8 8 0 019.5 4 8 8 0 1020 14.5z"/>',
  a11y:'<circle cx="12" cy="4.5" r="1.8"/><path d="M5 8l7 1.5L19 8M12 9.5V14l-3 6M12 14l3 6"/>',
  link:'<path d="M10.3 13.7a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1.2 1.2"/><path d="M13.7 10.3a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1.2-1.2"/>',
+ gear:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1.1-1.5 1.7 1.7 0 00-1.8.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.8 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1.1 1.7 1.7 0 00-.3-1.8l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.8.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.8V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/>',
  megaphone:'<path d="M3 11v2a1 1 0 001 1h2l5 4V6L6 10H4a1 1 0 00-1 1zM15 9a4 4 0 010 6M18 6a8 8 0 010 12"/>'
 };
 const ic=(n,cls)=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"'+(cls?' class="'+cls+'"':'')+'>'+(P[n]||'')+'</svg>';
@@ -485,10 +490,23 @@ const DAYS=['ראשון','שני','שלישי','רביעי','חמישי','שיש
 const fmtD=d=>d?('יום '+DAYS[d.getDay()]+' '+d.getDate()+'.'+(d.getMonth()+1)):'';
 const isEst=n=>n>=D.ESTIMATED_FROM;
 /* the next meeting in the morning calendar; the evening follows the same point, since it has no dates yet */
-const NEXT=(()=>{ for(let n=1;n<=NM;n++){ const d=MEET[n].date; if(d&&d>=TODAY) return n; } return NM; })();
+/* the current meeting: by date unless chosen by hand (saved per edition on this device) */
+const AUTO=(()=>{ for(let n=1;n<=NM;n++){ const d=MEET[n].date; if(d&&d>=TODAY) return n; } return NM; })();
+const PICK={morn:+get('cur.morn')||0, eve:+get('cur.eve')||0};
+if(PICK.morn>NM) PICK.morn=0; if(PICK.eve>NE) PICK.eve=0;
+let NEXT=AUTO, NEXTE=1;
+function recalc(){ NEXTE=PICK.eve||eveOf(AUTO)[0]; NEXT=ED==='eve'?EVES[NEXTE-1].n:(PICK.morn||AUTO); }
+const manual=()=>ED==='eve'?!!PICK.eve:!!PICK.morn;
+function pickerHTML(id){
+  const eve=ED==='eve', cur=eve?PICK.eve:PICK.morn;
+  const list=eve?EVES.map(x=>[x.e,'ערב '+x.e+': '+x.title]):Object.values(MEET).map(m=>[m.n,'מפגש '+m.n+': '+m.title]);
+  return '<label class="pick" for="'+id+'"><span>'+(eve?'הערב הנוכחי':'המפגש הנוכחי')+'</span><select id="'+id+'" data-pick="1">'+
+    '<option value="0"'+(!cur?' selected':'')+'>'+(eve?'אוטומטי, הנקודה המקבילה לבוקר (ערב '+eveOf(AUTO)[0]+')':'אוטומטי, לפי התאריך (מפגש '+AUTO+')')+'</option>'+
+    list.map(x=>'<option value="'+x[0]+'"'+(cur===x[0]?' selected':'')+'>'+esc(x[1].length>60?x[1].slice(0,58)+'…':x[1])+'</option>').join('')+'</select></label>';
+}
 const isToday=n=>{ const d=MEET[n]&&MEET[n].date; return d&&d.toDateString()===TODAY.toDateString(); };
 const status=n=>n<NEXT?'past':(n===NEXT?'next':'');
-const eStatus=e=>{ const f=eveOf(NEXT)[0]; return e<f?'past':(e===f?'next':''); };
+const eStatus=e=>e<NEXTE?'past':(e===NEXTE?'next':'');
 const modName=n=>{ const m=MODS.find(x=>x.n===n); return m?('מודול '+m.n+', '+m.t):''; };
 const U=()=>ED==='eve'?{one:'ערב',many:'ערבים'}:{one:'מפגש',many:'מפגשים'};
 const lblM=n=>ED==='eve'?(()=>{ const r=eveOf(n); return r[0]===r[1]?'ערב '+r[0]:'ערבים '+r[0]+'-'+r[1]; })():'מפגש '+n;
@@ -529,7 +547,7 @@ function lineHTML(){
     return '<div class="lmod '+cls+'" style="--fill:'+fill+'%" role="listitem"><div class="lstops">'+stops.map((x,i)=>{
       const num=eve?x.e:x.n, href=eve?'#/e/'+x.e:'#/m/'+x.n;
       const lab=(eve?'ערב ':'מפגש ')+num+', '+strip(x.title)+(st[i]==='past'?', בוצע':(st[i]==='next'?', הבא':''));
-      return '<a class="stop '+st[i]+'" href="'+href+'" aria-label="'+esc(lab)+'"'+(st[i]==='next'?' data-here="'+(isToday(x.n)&&!eve?'היום':'הבא')+'" aria-current="step"':'')+'><i>'+num+'</i></a>';
+      return '<a class="stop '+st[i]+'" href="'+href+'" aria-label="'+esc(lab)+'"'+(st[i]==='next'?' data-here="'+(manual()?'עכשיו':(isToday(x.n)&&!eve?'היום':'הבא'))+'" aria-current="step"':'')+'><i>'+num+'</i></a>';
     }).join('')+'</div><div class="lname">'+esc(m.t)+'</div></div>';
   }).join('')+'</div></div>'+
   '<div class="line-k" aria-hidden="true"><span><b class="p"></b>'+(eve?'עבר בבוקר':'בוצע')+'</span><span><b class="n"></b>'+(eve?'הנקודה המקבילה לבוקר':'המפגש הבא')+'</span><span><b></b>בהמשך</span></div>';
@@ -553,14 +571,14 @@ function fold(title,html,open){ return '<details class="fold"'+(open?' open':'')
 
 /* ---------- screens ---------- */
 function vToday(){
-  const n=NEXT, m=MEET[n], eve=ED==='eve', r=eveOf(n);
+  const n=NEXT, m=MEET[n], eve=ED==='eve', r=[NEXTE,NEXTE];
   const part=m.parts[0];
   const out=(part.rl||[]).concat(m.parts.slice(1).map(p=>(p.rl||[])[0]).filter(Boolean)).slice(0,3);
   const sub=openSub(), prep=prepFor(n);
   const day=Math.floor(TODAY/864e5), cr=[...CORE], cname=cr[day%cr.length], crow=D.T.find(x=>x[0]===cname);
   const greet=ROLE==='student'?'מה עושים היום':(isStaff()?'מה מלמדים עכשיו':'מה עושים היום');
-  const when=eve?('בקצב הבוקר, '+lblM(n)):(isToday(n)?'היום, '+fmtD(m.date):fmtD(m.date)+(isEst(n)?', תאריך משוער':''));
-  let h='<section class="hello"><h1>'+greet+'</h1><p class="sub">'+(eve?'מתכונת הערב, 29 ערבים בין 17:00 ל-21:45. עוד אין מחזור ערב עם תאריכים, אז המסלול מראה את הנקודה שמקבילה לבוקר.':'מתכונת הבוקר, 20 מפגשים בימי שני ורביעי, 09:00 עד 16:30.')+'</p></section>';
+  const when=eve?(manual()?'נבחר ידנית':'בקצב הבוקר, '+lblM(n)):(isToday(n)?'היום, '+fmtD(m.date):fmtD(m.date)+(isEst(n)?', תאריך משוער':'')+(manual()?', נבחר ידנית':''));
+  let h='<section class="hello"><h1>'+greet+'</h1><p class="sub">'+(eve?'מתכונת הערב, 29 ערבים בין 17:00 ל-21:45. עוד אין מחזור ערב עם תאריכים, אז המסלול מראה את הנקודה שמקבילה לבוקר.':'מתכונת הבוקר, 20 מפגשים בימי שני ורביעי, 09:00 עד 16:30.')+'</p>'+pickerHTML('pickToday')+'</section>';
   h+=lineHTML();
   h+='<section class="upnext" aria-labelledby="nxH"><div><div class="up-num"><b>'+(eve?r[0]:n)+'</b><span>'+esc(when)+'</span></div>'+
      '<h2 id="nxH" style="margin-top:10px">'+esc(eve?EVES[r[0]-1].title:m.title)+'</h2><p class="muted" style="margin:6px 0 0">'+esc(modName(m.mod))+'</p></div>'+
@@ -583,7 +601,7 @@ function vMeetings(){
     return '<section aria-labelledby="mo'+m.n+'"><div class="mod-h"><h2 id="mo'+m.n+'">מודול '+m.n+', '+esc(m.t)+'</h2><span class="ct">'+list.length+'</span><span class="muted" style="font-size:14px">'+(eve?list.length*4.5:m.h)+' שעות</span></div><ul class="mlist">'+list.map(x=>{
       const st=eve?eStatus(x.e):status(x.n), num=eve?x.e:x.n;
       return '<li><a class="mrow '+st+'" href="'+(eve?'#/e/'+x.e:'#/m/'+x.n)+'"><span class="dot">'+num+'</span><span><b>'+esc(x.title)+'</b><small>'+(eve?'מקביל למפגש '+x.n+' בבוקר':fmtD(x.date)+(isEst(x.n)?', משוער':''))+'</small></span>'+
-        (st==='past'?'<span class="tag done">'+(eve?'עבר בבוקר':'בוצע')+'</span>':(st==='next'?'<span class="tag now">'+(isToday(x.n)&&!eve?'היום':'הבא')+'</span>':''))+'</a></li>';
+        (st==='past'?'<span class="tag done">'+(eve?'עבר בבוקר':'בוצע')+'</span>':(st==='next'?'<span class="tag now">'+(manual()?'נוכחי':(isToday(x.n)&&!eve?'היום':'הבא'))+'</span>':''))+'</a></li>';
     }).join('')+'</ul></section>';
   }).join('')+'</div>';
   return h;
@@ -641,7 +659,7 @@ function vMeeting(n,tab){
   const m=MEET[n]; if(!m) return vMissing();
   const r=eveOf(n);
   let h='<a class="back" href="#/m">'+ic('arrow')+'כל המפגשים</a><header class="mh"><div class="mh-n"><span>מפגש '+n+'</span>'+(m.date?'<span>'+fmtD(m.date)+'</span>':'')+(isEst(n)?'<span class="tag est">תאריך משוער</span>':'')+
-    (status(n)==='past'?'<span class="tag done">בוצע</span>':(status(n)==='next'?'<span class="tag now">'+(isToday(n)?'היום':'הבא')+'</span>':''))+'</div><h1>'+esc(m.title)+'</h1><p class="muted" style="margin:0">'+esc(modName(m.mod))+'. בערב: '+(r[0]===r[1]?'ערב '+r[0]:'ערבים '+r[0]+'-'+r[1])+'.</p>';
+    (status(n)==='past'?'<span class="tag done">בוצע</span>':(status(n)==='next'?'<span class="tag now">'+(manual()?'נוכחי':(isToday(n)?'היום':'הבא'))+'</span>':''))+'</div><h1>'+esc(m.title)+'</h1><p class="muted" style="margin:0">'+esc(modName(m.mod))+'. בערב: '+(r[0]===r[1]?'ערב '+r[0]:'ערבים '+r[0]+'-'+r[1])+'.</p>';
   if(isStaff()) h+='<div class="seg" role="group" aria-label="תצוגה"><a href="#/m/'+n+'"'+(tab!=='lect'?' aria-current="page"':'')+'>לתלמידים</a><a href="#/m/'+n+'/lect"'+(tab==='lect'?' aria-current="page"':'')+'>'+ic('board')+'למרצה</a></div>';
   h+='</header>';
   if(tab==='lect'&&isStaff()) h+='<div id="lectBody">'+(window.DS?boardHTML(DS.boards.find(b=>b.kind==='morn'&&b.n===n)):'<p class="empty">טוען את חומרי המרצה</p>')+'</div>';
@@ -774,24 +792,25 @@ function vDeck(id,i){
 }
 
 function vMore(sub){
-  if(sub==='a11y') return '<a class="back" href="#/more">'+ic('arrow')+'עוד</a><article class="prose"><h1>הצהרת נגישות</h1><p class="muted">עודכנה ב-16.10.2026, בגרסה '+VER+'.</p>'+
+  if(sub==='a11y') return '<a class="back" href="#/more">'+ic('arrow')+'הגדרות</a><article class="prose"><h1>הצהרת נגישות</h1><p class="muted">עודכנה ב-16.10.2026, בגרסה '+VER+'.</p>'+
    '<p>האתר נבנה כדי לעמוד ברמה AA של WCAG 2.2, שעליה מבוסס התקן הישראלי ת"י 5568. הבדיקות נעשו בדפדפן, במקלדת בלבד, ובמצב בהיר וכהה.</p><h2 class="sec">מה עשינו</h2><ul>'+
    '<li>קישור "דילוג לתוכן" בתחילת כל עמוד, וסימון מיקוד ברור לכל רכיב.</li><li>כל כפתור וקישור בגודל של 44 פיקסלים לפחות.</li><li>ניגודיות של 4.5:1 לפחות לכל טקסט, בשני המצבים.</li>'+
    '<li>מונחים באנגלית מסומנים בשפה ובכיוון שלהם, כדי שקורא מסך יקרא אותם נכון.</li><li>איורי המושגים מסומנים כקישוט, כי המושג עצמו כתוב לידם במלואו.</li><li>אין אנימציה למי שביקש בהגדרות המכשיר להפחית תנועה.</li><li>כל עמוד, מפגש, מושג ומצגון יש לו כתובת משלו, וכפתור החזרה של הדפדפן עובד.</li></ul>'+
    '<h2 class="sec">מה עוד לא מושלם</h2><ul><li>חלק מתרשימי המצגונים רחבים, ובטלפון צריך לגלול אותם לצדדים.</li><li>מצגות חיצוניות ב-Google Slides ובקבצים אינן בשליטת האתר.</li></ul>'+
    '<h2 class="sec">נתקלתם בבעיה?</h2><p>כתבו למרצה או לרכזת הקורס, ציינו את העמוד ומה לא עבד. נחזור אליכם בתוך שבוע.</p></article>';
-  if(sub==='links') return '<a class="back" href="#/more">'+ic('arrow')+'עוד</a><h1>לינקים להעשרה</h1>'+D.syllabusLinks.map(s=>s.lead?'<div class="rich lede" style="margin-top:8px">'+s.html+'</div>':'<div class="rich" style="margin-top:12px">'+s.html+'</div>').join('');
+  if(sub==='links') return '<a class="back" href="#/more">'+ic('arrow')+'הגדרות</a><h1>לינקים להעשרה</h1>'+D.syllabusLinks.map(s=>s.lead?'<div class="rich lede" style="margin-top:8px">'+s.html+'</div>':'<div class="rich" style="margin-top:12px">'+s.html+'</div>').join('');
   if(sub==='lect'){ if(!isStaff()) return vMissing(); if(!window.DS) return '<p class="empty">טוען את חומרי המרצה</p>';
-    return '<a class="back" href="#/more">'+ic('arrow')+'עוד</a><h1>חומרי מרצה לפי מודול</h1><p class="sub" style="margin-top:6px">פתיחי המודולים, תרגילי בית ולינקים. לוח ההנחיה עצמו נמצא בעמוד של כל מפגש, בלשונית "למרצה".</p>'+
+    return '<a class="back" href="#/more">'+ic('arrow')+'הגדרות</a><h1>חומרי מרצה לפי מודול</h1><p class="sub" style="margin-top:6px">פתיחי המודולים, תרגילי בית ולינקים. לוח ההנחיה עצמו נמצא בעמוד של כל מפגש, בלשונית "למרצה".</p>'+
       DS.tpGen.map(s=>fold('המסלול והקצב: '+s.title,s.html)).join('')+
       MODS.map(m=>'<section class="sec"><h2>מודול '+m.n+', '+esc(m.t)+'</h2>'+DS.lectGeneral.filter(g=>g.mod===m.n&&(!g.edo||g.edo===ED||g.intro)).map(g=>fold(g.title,g.html)).join('')+'</section>').join(''); }
-  if(sub==='marketing'){ if(!canMkt()) return vMissing(); if(!window.DS) return '<p class="empty">טוען</p>'; return '<a class="back" href="#/more">'+ic('arrow')+'עוד</a><div class="rich">'+DS.marketing+'</div>'; }
+  if(sub==='marketing'){ if(!canMkt()) return vMissing(); if(!window.DS) return '<p class="empty">טוען</p>'; return '<a class="back" href="#/more">'+ic('arrow')+'הגדרות</a><div class="rich">'+DS.marketing+'</div>'; }
   const R=ROLES[ROLE]||'';
-  return '<h1>עוד</h1><div class="grid2" style="margin-top:14px">'+
-   '<section class="card"><h3 style="margin-bottom:10px">מתכונת הקורס</h3><div class="seg" role="group" aria-label="מתכונת"><button type="button" data-ed="morn" aria-pressed="'+(ED==='morn')+'">20 בקרים</button><button type="button" data-ed="eve" aria-pressed="'+(ED==='eve')+'">29 ערבים</button></div><p class="muted" style="margin:10px 0 0;font-size:14px">הבחירה נשמרת במכשיר הזה. קישור עם ?ed=eve פותח ישר את הערב.</p></section>'+
+  return '<h1>הגדרות</h1><div class="grid2" style="margin-top:14px">'+
+   '<section class="card"><h3 style="margin-bottom:6px">'+(ED==='eve'?'הערב הנוכחי':'המפגש הנוכחי')+'</h3><p class="muted" style="font-size:14px;margin-bottom:4px">קובע מה מוצג במסך היום ואיפה הסימון על המסלול. אוטומטי עובר לבד לפי התאריך.</p>'+pickerHTML('pickSet').replace(/<span>[^<]*<\/span>/,'')+'</section>'+
+   '<section class="card"><h3 style="margin-bottom:10px">מתכונת הקורס</h3><div class="seg" role="group" aria-label="מתכונת"><button type="button" data-ed="morn" aria-pressed="'+(ED==='morn')+'">20 בקרים</button><button type="button" data-ed="eve" aria-pressed="'+(ED==='eve')+'">29 ערבים</button></div><p class="muted" style="margin:10px 0 0;font-size:14px">הבחירה נשמרת במכשיר הזה. קישור עם <span dir="ltr" lang="en">?ed=eve</span> פותח ישר את הערב.</p></section>'+
    '<section class="card"><h3 style="margin-bottom:10px">תצוגה</h3><div class="seg" role="group" aria-label="ערכת צבע"><button type="button" data-theme="auto" aria-pressed="'+(THEME==='auto')+'">לפי המכשיר</button><button type="button" data-theme="light" aria-pressed="'+(THEME==='light')+'">בהיר</button><button type="button" data-theme="dark" aria-pressed="'+(THEME==='dark')+'">כהה</button></div></section>'+
    '<section class="card"><h3 style="margin-bottom:6px">נכנסתם בתור '+esc(R)+'</h3><p class="muted" style="font-size:14px">כל תפקיד רואה את החומרים שלו.</p><button class="btn ghost" type="button" data-out="1">'+ic('key')+'החלפת תפקיד</button></section></div>'+
-   '<section class="sec"><h2>עוד באתר</h2><div class="tlist">'+
+   '<section class="sec"><h2>קישורים</h2><div class="tlist">'+
    (isStaff()?'<a class="dk" href="#/more/lect"><span class="dk-t">'+ic('board')+'</span><span><b>חומרי מרצה לפי מודול</b><span>פתיחים, תרגילי בית ולינקים</span></span></a>':'')+(canMkt()?'<a class="dk" href="#/more/marketing"><span class="dk-t">'+ic('megaphone')+'</span><span><b>מרקטינג</b><span>החומרים לצוות השיווק</span></span></a>':'')+
    '<a class="dk" href="#/more/links"><span class="dk-t">'+ic('link')+'</span><span><b>לינקים להעשרה</b><span>מקורות חיצוניים לפי מודול</span></span></a>'+
    '<a class="dk" href="#/more/a11y"><span class="dk-t">'+ic('a11y')+'</span><span><b>הצהרת נגישות</b><span>מה עשינו, ומה עוד חסר</span></span></a>'+
@@ -856,13 +875,13 @@ function bidi(root){
 }
 
 /* ---------- shell ---------- */
-const NAV=[['','היום','today'],['m',null,'line'],['p','הפרויקט','folder'],['t','כלים','tools'],['more','עוד','more']];
+const NAV=[['','היום','today'],['m',null,'line'],['p','הפרויקט','folder'],['t','כלים','tools'],['more','הגדרות','gear']];
 function drawNav(sec){
   $('#nav').innerHTML=NAV.map(x=>'<a href="#/'+x[0]+'"'+(sec===x[0]?' aria-current="page"':'')+'>'+ic(x[2])+'<span>'+(x[1]||U().many)+'</span></a>').join('')+
-    '<div class="nv-side"><b>'+(ED==='eve'?'ערב '+eveOf(NEXT)[0]:'מפגש '+NEXT)+', '+(ED==='eve'?'בקצב הבוקר':(isToday(NEXT)?'היום':fmtD(MEET[NEXT].date)))+'</b>'+esc(MEET[NEXT].title)+'<br><br>חיפוש בכל האתר: <kbd>Ctrl</kbd> + <kbd>K</kbd></div>';
+    '<div class="nv-side"><b>'+(ED==='eve'?'ערב '+NEXTE:'מפגש '+NEXT)+', '+(manual()?'נבחר ידנית':(ED==='eve'?'בקצב הבוקר':(isToday(NEXT)?'היום':fmtD(MEET[NEXT].date))))+'</b>'+esc(MEET[NEXT].title)+'<br><br>חיפוש בכל האתר: <kbd>Ctrl</kbd> + <kbd>K</kbd></div>';
 }
 function applyTheme(){ if(THEME==='auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme',THEME); }
-function setEd(e){ ED=e; put('ed',e); IDX=null; $('#edLbl').textContent=e==='eve'?'ערב':'בוקר'; $('#edBtn').dataset.ed=e;
+function setEd(e){ ED=e; put('ed',e); IDX=null; recalc(); $('#edLbl').textContent=e==='eve'?'ערב':'בוקר'; $('#edBtn').dataset.ed=e;
   const h=location.hash, m=h.match(/^#\/(m|e)\/(\d+)(.*)$/);
   if(m){ const n=+m[2]; if(e==='eve'&&m[1]==='m'){ location.hash='#/e/'+eveOf(n)[0]+m[3]; return; } if(e==='morn'&&m[1]==='e'){ location.hash='#/m/'+EVES[n-1].n+m[3]; return; } }
   route(); toast(e==='eve'?'עברתם למתכונת הערב':'עברתם למתכונת הבוקר'); }
@@ -887,7 +906,7 @@ function route(){
   else if(s0==='t'){ if(seg[1]==='prompts'&&seg[2]){ TSTATE.f='all'; } html=vTools(seg[1]); title='כלים'; }
   else if(s0==='c'){ html=vConcept(seg.slice(1).join('/')); title=seg.slice(1).join('/'); sec='t'; }
   else if(s0==='d'){ html=vDeck(seg[1],+(seg[2]||1)-1); title=D.DECKS[seg[1]]?D.DECKS[seg[1]].t:''; sec='m'; }
-  else if(s0==='more'){ html=vMore(seg[1]); title='עוד'; }
+  else if(s0==='more'){ html=vMore(seg[1]); title='הגדרות'; }
   else html=vMissing();
   main.innerHTML=html; bidi(main); drawNav(sec);
   document.title=(title?title+', ':'')+'מיישמי AI 2027';
@@ -898,7 +917,7 @@ function route(){
   route.first=false;
 }
 route.first=true;
-function setEdQuiet(e){ ED=e; put('ed',e); IDX=null; $('#edLbl').textContent=e==='eve'?'ערב':'בוקר'; $('#edBtn').dataset.ed=e; }
+function setEdQuiet(e){ ED=e; put('ed',e); IDX=null; recalc(); $('#edLbl').textContent=e==='eve'?'ערב':'בוקר'; $('#edBtn').dataset.ed=e; }
 
 /* code entry: one field, the code decides the role. Same codes as the current site. */
 function wireGate(){
@@ -964,6 +983,10 @@ document.addEventListener('click',e=>{
     liveTick(); const cur=$('#blk-'+LIVE.i); if(cur&&window.innerWidth>=1024) cur.scrollIntoView({block:'nearest'}); return; }
 });
 $('#edBtn').addEventListener('click',()=>setEd(ED==='eve'?'morn':'eve'));
+document.addEventListener('change',e=>{ const t=e.target; if(!t.dataset||!t.dataset.pick) return;
+  const v=+t.value||0; PICK[ED]=v; put('cur.'+ED,v||null); recalc(); IDX=null; const id=t.id; route();
+  const again=document.getElementById(id); if(again) again.focus();
+  toast(v?(ED==='eve'?'ערב '+v:'מפגש '+v)+' מסומן עכשיו כנוכחי':'חזרה לבחירה אוטומטית לפי התאריך'); });
 $('#srchBtn').innerHTML=ic('search'); $('#srchIc').innerHTML=ic('search'); $('#srchX').innerHTML=ic('x');
 $('#srchBtn').addEventListener('click',openSearch);
 $('#srchX').addEventListener('click',closeSearch);
