@@ -1,6 +1,59 @@
 {
   "days": [
     {
+      "date": "2026-10-16",
+      "ideas": [
+        {
+          "id": "2026-10-16-1",
+          "world": "סרטוני הסבר",
+          "hook": "הכנס נוסע. ההכרזה כבר לא מקומית.",
+          "concept": "מפה שטוחה שבה סמן יחיד קופץ ממרכז בודד לנקודה מרוחקת בעולם, וכל נחיתה מתלווה בטבעת אור קטנה שמתרחבת. אותו נכס מהפוסט הראשון של היום, ערוץ שני.",
+          "execution": "Higgsfield Cinema Studio, שפה חזותית editorial kinetic, 8 שניות, 9:16.",
+          "why": "אותו נכס מהפוסט הראשון של היום, ערוץ שני.",
+          "competition": null,
+          "srcUrl": "https://itwire.com/business-it-news/business-software/at-config-2026-figma-introduces-the-intelligent-canvas-for-full-stack-creation.html",
+          "prompts": {
+            "video": "Editorial kinetic style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. Camera holds steady as a flat marker travels along a thin dashed line from a first conference-stage icon to a second distant one, a soft ripple ring expanding outward on arrival, calm deliberate pacing, 9:16, 8 seconds",
+            "script": "קח את ההוק \"הכנס נוסע, ההכרזה כבר לא מקומית\" ופתח אותו לתסריט מלא: לוגליין, קריינות בעברית עם ציר זמן מדויק, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט, לפי השפה החזותית editorial kinetic (רקע אנתרציט כהה, קורל וצהוב חם, קומפוזיציה גאומטרית מינימלית).",
+            "image": "Editorial kinetic style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A single flat conference-stage icon connected by a thin dashed line to a second distant stage icon, a soft ripple ring expanding outward from the second icon, no text, 1:1",
+            "raw": "הכנס נוסע. ההכרזה כבר לא מקומית.\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: מפה שטוחה, סמן קופץ ממרכז בודד לנקודה מרוחקת, טבעת אור בכל נחיתה\nביצוע: Higgsfield Cinema Studio, editorial kinetic, 8 שניות, 9:16\nלמה עכשיו: אותו נכס מהפוסט הראשון של היום, ערוץ שני"
+          },
+          "used": false
+        },
+        {
+          "id": "2026-10-16-2",
+          "world": "קונספטואלי",
+          "hook": "עשרים גרסאות ובלי שאלה אחת, זה נפח, לא אסטרטגיה.",
+          "concept": "מדף אינסופי של קלטות וידאו זהות גולש בשורה, אחת מהן נדלקת באור ונפרדת מהשאר לכיוון יעד בודד.",
+          "execution": "Higgsfield, Nano Banana Pro לפריים פתיחה, Kling 3.0 std לתנועה, 8 שניות, 9:16, שפה ויזואלית optimistic near-future.",
+          "why": "אותו נכס מהפוסט השני של היום, ערוץ שני.",
+          "competition": null,
+          "srcUrl": "https://blog.mean.ceo/?p=10990",
+          "prompts": {
+            "video": "Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field. Camera holds as a single video-play icon multiplies into many identical copies fanning across the frame, most dissolve away while one glowing copy breaks off and connects with a dashed line to a single flat target icon, calm deliberate pacing, 9:16, 8 seconds",
+            "script": "קח את ההוק \"עשרים גרסאות ובלי שאלה אחת, זה נפח, לא אסטרטגיה\" ופתח אותו לתסריט מלא: לוגליין, קריינות בעברית עם ציר זמן מדויק, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט, לפי השפה החזותית optimistic near-future (אור ים תיכוני חם, חול קרם וטורקיז רך).",
+            "image": "Mediterranean warm light, sand cream and soft teal palette, human and hopeful rather than cold sci-fi, shallow depth of field. A single video-play icon multiplying into many identical copies fanning across the frame, one glowing copy breaking away and connecting with a dashed line to a single flat target icon while the rest fade out, no text",
+            "raw": "עשרים גרסאות ובלי שאלה אחת, זה נפח, לא אסטרטגיה.\nעולם: קונספטואלי\nתחרות: אין\nקונספט: מדף קלטות זהות, אחת נדלקת ונפרדת מהשאר לכיוון יעד בודד\nביצוע: Higgsfield, Nano Banana Pro + Kling 3.0 std, 8 שניות, 9:16\nלמה עכשיו: אותו נכס מהפוסט השני של היום, ערוץ שני"
+          },
+          "used": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "מגמות ה-AI לווידאו של אוקטובר 2026",
+          "desc": "Veo 3.1, Runway Gen-4, Kling וההזהרה שנפח לא אסטרטגיה",
+          "meta": "blog.mean.ceo · 2.10",
+          "url": "https://blog.mean.ceo/?p=10990"
+        },
+        {
+          "title": "תנועה, קוד ושיידרים בתוך הקנבס",
+          "desc": "הצד הטכני של Config 2026, Motion ו-Code Layers ישירות על הקנבס",
+          "meta": "createwith.com",
+          "url": "https://www.createwith.com/tool/figma/updates/figma-unveils-motion-code-layers-and-shader-effects-at-config"
+        }
+      ]
+    },
+    {
       "date": "2026-10-15",
       "ideas": [
         {
