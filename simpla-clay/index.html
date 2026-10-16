@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simpla, in clay</title>
+<meta name="description" content="Simpla, a boutique UX studio in Tel Aviv. One lump of clay, filmed in a single take, shaping itself through the six steps of the studio process.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#F4EFE7; --ink:#1B2D6B; --accent:#F7636B; --sun:#FFE94A;
+    --muted:#5A6480; --hair:rgba(27,45,107,.15);
+    --font:"Poppins","Century Gothic",ui-rounded,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:auto}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font);
+    -webkit-font-smoothing:antialiased}
+  ::selection{background:var(--sun);color:var(--ink)}
+  img,video{max-width:100%;display:block}
+  a{color:inherit}
+
+  .wrap{margin:0 auto;max-width:1120px;padding:0 22px}
+
+  .nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:18px;
+    padding:10px 18px;background:color-mix(in srgb,var(--ground) 90%,transparent);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--hair)}
+  .brand{font-weight:600;font-size:18px;letter-spacing:-.02em;text-decoration:none}
+  .links{margin-left:auto;display:flex;gap:20px}
+  .link{position:relative;font-size:14.5px;color:var(--muted);text-decoration:none;padding-bottom:3px}
+  .link:hover{color:var(--ink)}
+  .link::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);
+    transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+  .link:hover::after{transform:scaleX(1)}
+
+  /* the scroll stage */
+  .stage{position:relative}
+  .sticky{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;align-items:center}
+  .media{position:absolute;inset:0}
+  .media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;
+    transition:opacity .18s linear}
+  .media video.on{opacity:1}
+
+  .card{position:relative;z-index:2;margin-left:clamp(22px,5vw,76px);
+    width:min(33rem,42vw);padding:clamp(24px,2.6vw,40px);
+    border:1px solid color-mix(in srgb,var(--ink) 10%,transparent);border-radius:20px;
+    background:color-mix(in srgb,var(--ground) 55%,transparent);
+    backdrop-filter:blur(20px) saturate(1.12)}
+  .card .kicker{margin:0 0 12px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .card h2{margin:0;font-size:clamp(26px,3.4vw,42px);line-height:1.06;letter-spacing:-.03em;font-weight:600}
+  .card p{margin:1.1rem 0 0;font-size:clamp(.98rem,1.1vw,1.1rem);line-height:1.6;color:var(--ink)}
+  .card ul{list-style:none;display:flex;flex-wrap:wrap;gap:7px;padding:0;margin:18px 0 0}
+  .card li{font-size:11.5px;letter-spacing:.04em;color:var(--muted);
+    border:1.5px dashed color-mix(in srgb,var(--ink) 30%,transparent);border-radius:999px;padding:5px 12px}
+  .chapter{display:none}
+  .chapter.on{display:block}
+
+  .counter{position:absolute;right:22px;bottom:18px;z-index:2;font-size:11.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted)}
+
+  /* six step strip */
+  .strip{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);
+    background:color-mix(in srgb,var(--ground) 60%,#fff)}
+  .strip-inner{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;
+    margin:0 auto;max-width:1120px;padding:26px 22px}
+  .step{margin:0}
+  .step img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;border:1px solid var(--hair)}
+  .step figcaption{display:flex;gap:8px;align-items:baseline;margin-top:8px;font-size:12.5px;color:var(--muted)}
+  .step b{color:var(--accent);font-size:11px;letter-spacing:.1em;font-weight:700}
+
+  .sec{padding:84px 0}
+  @media (min-width:900px){.sec{padding:120px 0}}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
+  .h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;letter-spacing:-.03em;font-weight:600;margin:0 0 18px}
+  .lede{font-size:clamp(16px,1.5vw,19px);line-height:1.6;color:var(--muted);max-width:56ch;margin:0}
+
+  .case{display:grid;grid-template-columns:1fr;gap:22px 46px;align-items:center;padding:40px 0;
+    border-top:1px solid var(--hair);border-radius:14px;transition:background .25s ease}
+  .case:last-of-type{border-bottom:1px solid var(--hair)}
+  .case:hover{background:color-mix(in srgb,var(--ground) 45%,#fff)}
+  .case figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--hair);
+    background:color-mix(in srgb,var(--ground) 50%,#fff)}
+  .case video{width:100%;aspect-ratio:16/9;object-fit:cover}
+  .idx{font-size:clamp(34px,5vw,56px);font-weight:700;letter-spacing:-.04em;line-height:1;margin:0 0 6px;
+    color:color-mix(in srgb,var(--accent) 32%,transparent)}
+  .client{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0}
+  .case h3{font-size:clamp(21px,2.4vw,30px);font-weight:600;letter-spacing:-.02em;margin:4px 0 14px}
+  .case p{color:var(--muted);font-size:16px;line-height:1.6;margin:0}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;list-style:none;padding:0;margin:18px 0 0}
+  .tags li{font-size:11.5px;letter-spacing:.04em;color:var(--muted);
+    border:1.5px dashed color-mix(in srgb,var(--ink) 30%,transparent);border-radius:999px;padding:5px 12px}
+  @media (min-width:820px){
+    .case{grid-template-columns:1.05fr .95fr;padding:54px 18px}
+    .case:nth-of-type(even) figure{order:2}
+    .case:nth-of-type(even) .body{order:1}
+  }
+
+  .contact-grid{display:grid;grid-template-columns:1fr;gap:34px;align-items:center}
+  @media (min-width:900px){.contact-grid{grid-template-columns:1.1fr .9fr}}
+  .plate{width:100%;border-radius:18px;border:1px solid var(--hair)}
+  dl{margin:28px 0 0}
+  dl>div{margin-bottom:14px}
+  dt{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  dd{margin:4px 0 0;font-size:16px}
+  dd a{text-decoration-color:var(--accent);text-underline-offset:4px}
+  .talk{display:inline-block;margin-top:26px;padding:14px 26px;border-radius:999px;
+    background:var(--accent);color:var(--ground);font-weight:600;font-size:16px;text-decoration:none;
+    box-shadow:0 4px 0 color-mix(in srgb,var(--accent) 60%,#000);transition:transform .12s ease,box-shadow .12s ease}
+  .talk:hover{transform:translateY(3px);box-shadow:0 1px 0 color-mix(in srgb,var(--accent) 60%,#000)}
+  .talk:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+
+  footer{padding:44px 0 64px;border-top:1px solid var(--hair);color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:13.5px}
+
+  @media (max-width:860px){
+    .sticky{align-items:flex-end}
+    .media video{transform:scale(1.2) translateY(-7%);transform-origin:center center}
+    .card{width:auto;margin:0 14px 86px;padding:18px 18px 20px;
+      background:color-mix(in srgb,var(--ground) 64%,transparent)}
+    .card ul{margin-top:12px}
+    .strip-inner{grid-template-columns:repeat(3,minmax(0,1fr))}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .media video{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="#top">simpla</a>
+  <nav class="links">
+    <a class="link" href="#top">Process</a>
+    <a class="link" href="#work">Work</a>
+    <a class="link" href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="stage" id="stage" aria-label="The six steps, as one film">
+    <div class="sticky">
+      <div class="media" id="media" aria-hidden="true"></div>
+      <div class="card">
+        <article class="chapter on" data-ch="0">
+          <p class="kicker">Simpla, a boutique UX studio in Tel Aviv</p>
+          <h2>From abstract to product</h2>
+          <p>Every product starts as a lump. No edges yet, no answers, nothing to point at. We are comfortable there, and we do not rush out of it.</p>
+        </article>
+        <article class="chapter" data-ch="1">
+          <p class="kicker">Research</p>
+          <h2>The mess gets pinned down</h2>
+          <p>Questions start coming out of it, more than you wanted. We talk to the people who will use it, watch what they actually do, and the loose ends stop floating and start pointing somewhere.</p>
+          <ul><li>Brainstorm</li><li>Product research</li><li>UX research</li><li>Ideation</li></ul>
+        </article>
+        <article class="chapter" data-ch="2">
+          <p class="kicker">Wireframes</p>
+          <h2>It takes a shape</h2>
+          <p>Turning ideas into wireframes, mockups and prototypes. Structure before surface, so the argument is settled while it is still cheap to change.</p>
+          <ul><li>Prototyping</li><li>Product definitions</li><li>MVP</li><li>Consultation</li></ul>
+        </article>
+        <article class="chapter" data-ch="3">
+          <p class="kicker">Design</p>
+          <h2>The colour goes in</h2>
+          <p>Crafting memorable, branded experiences. Your vision and flavour stay intact, usability comes first, and the two stop fighting each other.</p>
+          <ul><li>Product design</li><li>UX and UI</li><li>Conceptual design</li><li>Style guide</li></ul>
+        </article>
+        <article class="chapter" data-ch="4">
+          <p class="kicker">Development</p>
+          <h2>It starts to move</h2>
+          <p>Leading and supporting development. We stay in it while it gets built, because the last ten percent is where products are won or lost.</p>
+          <ul><li>Front end</li><li>UI development</li><li>Responsive components</li><li>HTML5</li></ul>
+        </article>
+        <article class="chapter" data-ch="5">
+          <p class="kicker">Live</p>
+          <h2>And then it is a product</h2>
+          <p>A value-centered product that leaves users feeling confident, engaged, and ready to take the next action. Same clay. Nothing was added.</p>
+        </article>
+      </div>
+      <p class="counter"><span id="counter">01</span> of 06</p>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="The six steps">
+    <div class="strip-inner" id="strip"></div>
+  </section>
+
+  <section class="sec" id="work">
+    <div class="wrap">
+      <p class="eyebrow">Work</p>
+      <h2 class="h2">Three products, three challenges</h2>
+      <p class="lede">The same six steps, run three times, for three very different rooms. Each one is running here.</p>
+      <div style="margin-top:42px" id="cases"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2 class="h2">Bring us your lump of clay</h2>
+        <p class="lede">Tell us what you are building and where it is stuck. We will tell you what the first two weeks would look like.</p>
+        <dl>
+          <div><dt>Studio</dt><dd>Urban Place, Shalom Meir Tower, Ahad Ha&rsquo;am 9, Tel Aviv</dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:studio@simplaux.com">studio@simplaux.com</a></dd></div>
+        </dl>
+        <a class="talk" href="mailto:studio@simplaux.com">Let&rsquo;s talk</a>
+      </div>
+      <img class="plate" loading="lazy" alt="The finished clay phone, its app interface pressed from coral and yellow clay"
+        src="https://simpla-clay.higgsfield.app/assets/world/clay-06-poster.png">
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>Made in Tel Aviv. Simpla.</span>
+    <span>One lump of clay, filmed in a single take.</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var CDN = "https://simpla-clay.higgsfield.app/assets";
+  var WEIGHTS = [1.4, 2.1, 1.9, 2.0, 1.8, 2.3];
+  var LABELS = ["Abstract", "Research", "Wireframes", "Design", "Development", "Live"];
+  var CASES = [
+    { slug: "juganu", client: "Juganu", title: "Smart City Dashboard",
+      challenge: "Allowing municipalities to monitor needs 24/7 and improve citizens’ lives.",
+      services: ["Ideation", "Product research", "Prototyping", "UX research", "UI and UX design", "Style guide"] },
+    { slug: "tipranks", client: "TipRanks", title: "Website Homepage",
+      challenge: "Adapting TipRanks’ robust, in-depth data into friendly, fully-branded digital experiences.",
+      services: ["Ideation", "Wireframing", "Conceptual design", "UX research", "UI and UX design", "MVP approach"] },
+    { slug: "tease", client: "Tease", title: "Inspirational UX Toolkit",
+      challenge: "Show the UX process behind final products in a clear, captivating way to support self-education and self-training.",
+      services: ["Ideation", "Inspiration", "UX research", "Design", "Animation", "HTML5 canvas", "Storytelling"] }
+  ];
+
+  var mobile = window.matchMedia("(max-width: 860px)").matches;
+  var media = document.getElementById("media");
+  var chapters = Array.prototype.slice.call(document.querySelectorAll(".chapter"));
+  var counter = document.getElementById("counter");
+  var stage = document.getElementById("stage");
+  var videos = [];
+
+  // six clips, stacked, scrubbed by scroll
+  for (var i = 0; i < 6; i++) {
+    var n = "0" + (i + 1);
+    var v = document.createElement("video");
+    v.muted = true; v.playsInline = true; v.setAttribute("playsinline", "");
+    v.preload = i === 0 ? "auto" : "metadata";
+    v.poster = CDN + "/world/clay-" + n + (mobile ? "-mobile-poster.png" : "-poster.png");
+    v.src = CDN + "/world/clay-" + n + (mobile ? "-mobile.mp4" : ".mp4");
+    if (i === 0) v.className = "on";
+    media.appendChild(v);
+    videos.push(v);
+  }
+
+  var total = WEIGHTS.reduce(function (a, b) { return a + b; }, 0);
+  stage.style.height = (total * 100) + "svh";
+
+  var bounds = [], acc = 0;
+  for (var j = 0; j < WEIGHTS.length; j++) {
+    bounds.push([acc / total, (acc + WEIGHTS[j]) / total]);
+    acc += WEIGHTS[j];
+  }
+
+  var current = -1;
+  function show(k) {
+    if (k === current) return;
+    current = k;
+    for (var m = 0; m < videos.length; m++) videos[m].classList.toggle("on", m === k);
+    for (var c = 0; c < chapters.length; c++) chapters[c].classList.toggle("on", c === k);
+    counter.textContent = "0" + (k + 1);
+    var next = videos[k + 1];
+    if (next && next.preload !== "auto") next.preload = "auto";
+  }
+
+  var ticking = false;
+  function frame() {
+    ticking = false;
+    var rect = stage.getBoundingClientRect();
+    var span = stage.offsetHeight - window.innerHeight;
+    var p = span > 0 ? Math.min(1, Math.max(0, -rect.top / span)) : 0;
+
+    var k = 0;
+    for (var b = 0; b < bounds.length; b++) {
+      if (p >= bounds[b][0] && p < bounds[b][1]) { k = b; break; }
+      if (b === bounds.length - 1) k = b;
+    }
+    show(k);
+
+    var local = (p - bounds[k][0]) / (bounds[k][1] - bounds[k][0]);
+    local = Math.min(1, Math.max(0, local));
+    var v = videos[k];
+    var d = v.duration;
+    if (d && isFinite(d)) {
+      var t = local * (d - 0.05);
+      if (Math.abs(v.currentTime - t) > 0.03) {
+        try { v.currentTime = t; } catch (e) {}
+      }
+    }
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(frame); }
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  videos[0].addEventListener("loadedmetadata", frame);
+  frame();
+
+  // six step strip, built from the chapter posters
+  var strip = document.getElementById("strip");
+  for (var s = 0; s < 6; s++) {
+    var fig = document.createElement("figure");
+    fig.className = "step";
+    var img = document.createElement("img");
+    img.loading = "lazy";
+    img.alt = "Step 0" + (s + 1) + ", " + LABELS[s];
+    img.src = CDN + "/world/clay-0" + (s + 1) + "-poster.png";
+    var cap = document.createElement("figcaption");
+    var b = document.createElement("b");
+    b.textContent = "0" + (s + 1);
+    cap.appendChild(b);
+    cap.appendChild(document.createTextNode(LABELS[s]));
+    fig.appendChild(img); fig.appendChild(cap);
+    strip.appendChild(fig);
+  }
+
+  // work cases
+  var cases = document.getElementById("cases");
+  CASES.forEach(function (w, idx) {
+    var art = document.createElement("article");
+    art.className = "case";
+
+    var fig = document.createElement("figure");
+    var vid = document.createElement("video");
+    vid.autoplay = true; vid.loop = true; vid.muted = true;
+    vid.playsInline = true; vid.setAttribute("playsinline", "");
+    vid.preload = "metadata";
+    vid.setAttribute("aria-label", w.client + ", " + w.title);
+    vid.poster = CDN + "/work/" + w.slug + "-poster.jpg";
+    vid.src = CDN + "/work/" + w.slug + ".mp4";
+    fig.appendChild(vid);
+
+    var body = document.createElement("div");
+    body.className = "body";
+    var n = document.createElement("p"); n.className = "idx"; n.textContent = "0" + (idx + 1);
+    var cl = document.createElement("p"); cl.className = "client"; cl.textContent = w.client;
+    var h = document.createElement("h3"); h.textContent = w.title;
+    var pr = document.createElement("p"); pr.textContent = w.challenge;
+    var ul = document.createElement("ul"); ul.className = "tags";
+    w.services.forEach(function (sv) {
+      var li = document.createElement("li"); li.textContent = sv; ul.appendChild(li);
+    });
+    body.appendChild(n); body.appendChild(cl); body.appendChild(h);
+    body.appendChild(pr); body.appendChild(ul);
+
+    art.appendChild(fig); art.appendChild(body);
+    cases.appendChild(art);
+  });
+})();
+</script>
+</body>
+</html>
