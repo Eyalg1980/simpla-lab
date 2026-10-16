@@ -234,8 +234,10 @@ button.stop{border:0;background:none;padding:0;font:inherit;cursor:pointer}
 .pr + .pr{margin-top:10px}
 .pr-h{display:flex;align-items:center;gap:10px;padding:12px 14px;flex-wrap:wrap}
 .pr-h b{flex:1 1 220px;font-weight:600;line-height:1.35}
-.pr pre{margin:0;padding:14px 16px;background:var(--sf2);border-top:1px solid var(--line);font:400 15px/1.75 var(--font);white-space:pre-wrap;word-break:break-word;max-height:220px;overflow:auto;unicode-bidi:plaintext}
-.pr.open pre{max-height:none}
+.pr pre{margin:0;padding:14px 16px;background:var(--sf2);border-top:1px solid var(--line);font:400 15px/1.75 var(--font);white-space:pre-wrap;word-break:break-word;unicode-bidi:plaintext;display:none}
+.pr.open pre{display:block}
+.pr-t svg{width:18px;height:18px;transition:transform .2s}
+.pr.open .pr-t svg{transform:rotate(180deg)}
 .pr-a{display:flex;gap:6px;margin-inline-start:auto}
 .pr-a button{min-height:40px}
 
@@ -433,11 +435,11 @@ body.gated{padding-bottom:0}
   </div>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="data.js?v=2027.5"></script>
+<script src="data.js?v=2027.6"></script>
 <script>
 (function(){
 'use strict';
-const D=window.D, VER='2027.5';
+const D=window.D, VER='2027.6';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const strip=s=>String(s||'').replace(/<[^>]+>/g,'');
@@ -579,8 +581,8 @@ function conCard(r){
 }
 function promptCard(p,showN){
   return '<div class="pr" id="pr-'+p.i+'"><div class="pr-h"><b>'+esc(p.label||'פרומפט')+'</b>'+(showN&&p.n?'<span class="tag">'+lblM(p.n)+'</span>':'')+
-   '<span class="pr-a"><button class="btn ghost" type="button" data-more="'+p.i+'" aria-expanded="false">הצגה מלאה</button><button class="btn" type="button" data-copy="'+p.i+'">'+ic('copy')+'העתקה</button></span></div>'+
-   '<pre dir="auto" tabindex="0" aria-label="טקסט הפרומפט">'+esc(p.text)+'</pre></div>';
+   '<span class="pr-a"><button class="btn ghost pr-t" type="button" data-more="'+p.i+'" aria-expanded="false" aria-controls="prt-'+p.i+'">'+ic('chev')+'<span>פתיחה</span></button><button class="btn" type="button" data-copy="'+p.i+'">'+ic('copy')+'העתקה</button></span></div>'+
+   '<pre id="prt-'+p.i+'" dir="auto" tabindex="0" aria-label="טקסט הפרומפט">'+esc(p.text)+'</pre></div>';
 }
 function fold(title,html,open){ return '<details class="fold"'+(open?' open':'')+'><summary>'+esc(title)+ic('chev')+'</summary><div class="rich">'+html+'</div></details>'; }
 
@@ -946,7 +948,7 @@ function route(){
   document.title=(title?title+', ':'')+'מיישמי AI 2027';
   if(s0==='') centerLine();
   if(s0==='live'&&window.DS){ liveTick(); if(!LIVE.timer) LIVE.timer=setInterval(liveTick,20000); }
-  if(s0==='t'&&seg[1]==='prompts'&&seg[2]){ const el=$('#pr-'+seg[2]); if(el){ el.classList.add('open'); el.scrollIntoView({block:'center'}); return; } }
+  if(s0==='t'&&seg[1]==='prompts'&&seg[2]){ const el=$('#pr-'+seg[2]); if(el){ setPr(el,true); el.scrollIntoView({block:'center'}); return; } }
   if(!route.first) { window.scrollTo(0,0); main.focus({preventScroll:true}); }
   route.first=false;
 }
@@ -991,6 +993,8 @@ function sha256(msg){
 }
 
 /* ---------- events ---------- */
+/* a prompt is either closed (title only) or fully open, never cut half way */
+function setPr(c,o){ if(!c) return; c.classList.toggle('open',o); const b=c.querySelector('[data-more]'); if(b){ b.setAttribute('aria-expanded',o); b.querySelector('span').textContent=o?'סגירה':'פתיחה'; } }
 function copyText(t){
   const done=()=>toast('הפרומפט הועתק');
   if(navigator.clipboard&&window.isSecureContext) navigator.clipboard.writeText(t).then(done,()=>fallbackCopy(t,done)); else fallbackCopy(t,done);
@@ -1004,7 +1008,7 @@ document.addEventListener('click',e=>{
   if(t.dataset.sel!=null){ showSel(+t.dataset.sel); return; }
   if(t.dataset.vsel!=null){ showSel(0); const w=$('#lineW'), c=w&&w.querySelector('.stop.sel'); if(c) c.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'}); return; }
   if(t.dataset.copy!=null){ copyText(D.prompts[+t.dataset.copy].text); return; }
-  if(t.dataset.more!=null){ const c=t.closest('.pr'); const o=c.classList.toggle('open'); t.setAttribute('aria-expanded',o); t.textContent=o?'הצגה מקוצרת':'הצגה מלאה'; return; }
+  if(t.dataset.more!=null){ setPr(t.closest('.pr'),!t.closest('.pr').classList.contains('open')); return; }
   if(t.dataset.pf!=null){ TSTATE.f=t.dataset.pf==='all'?'all':+t.dataset.pf; route(); return; }
   if(t.dataset.core!=null){ TSTATE.core=t.dataset.core==='1'; route(); return; }
   if(t.dataset.cat!=null){ TSTATE.cat=t.dataset.cat; route(); return; }
