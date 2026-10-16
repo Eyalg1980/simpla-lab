@@ -1,0 +1,1067 @@
+<!doctype html>
+<html lang="he" dir="rtl" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Simpla · מאבסטרקט לאובייקט</title>
+<meta name="description" content="Simpla, סטודיו ל-UX ו-AI בתל אביב. סרטים, אפיון מוצר, מערכות תוכן ב-Figma Weave, סדנאות לצוותים והטמעת AI בארגונים.">
+<meta name="theme-color" content="#0D1533">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("simpla-object-theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+<style>
+  :root{
+    --navy:#1B2D6B; --coral:#F7636B; --yellow:#FFE94A;
+    --stage:#0B1323; --stage-ink:#EDEFF7; --stage-muted:#9AA2C4;
+    --bg:#0D1533; --surface:#141E45; --surface-2:#1A2652;
+    --text:#EDEFF7; --muted:#8B93B8; --line:rgba(237,239,247,.14); --line-strong:rgba(237,239,247,.32);
+    --label:#F7636B; --pill:#C9CEE6;
+    --he:"Rubik","Poppins",system-ui,sans-serif;
+    --en:"Poppins","Rubik",system-ui,sans-serif;
+    --gut:clamp(18px,4vw,56px);
+    --max:1180px;
+  }
+  [data-theme="light"]{
+    --bg:#FFFFFF; --surface:#F8F8F8; --surface-2:#F1F2F7;
+    --text:#1B2D6B; --muted:#5A6390; --line:rgba(27,45,107,.14); --line-strong:rgba(27,45,107,.34);
+    --label:#E2474F; --pill:#1B2D6B;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--he);font-weight:400;
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img,video{display:block;max-width:100%}
+  a{color:inherit}
+  b,strong{font-weight:700}
+  .en{font-family:var(--en);direction:ltr;unicode-bidi:isolate}
+  ::selection{background:var(--yellow);color:var(--navy)}
+  :focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+
+  /* ---------- nav ---------- */
+  .nav{position:fixed;top:0;inset-inline:0;z-index:50;display:flex;align-items:center;gap:22px;
+    padding:12px var(--gut);transition:background .3s ease,border-color .3s ease;
+    border-bottom:1px solid transparent;color:var(--stage-ink)}
+  .nav.solid{background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);border-bottom-color:var(--line);color:var(--text)}
+  .brand{font-family:var(--en);font-weight:700;font-size:22px;letter-spacing:-.03em;text-decoration:none;
+    display:flex;align-items:center;gap:8px}
+  .brand i{width:9px;height:9px;border-radius:50%;background:var(--coral);display:inline-block}
+  .links{display:flex;gap:22px;margin-inline-start:12px}
+  .links a{font-size:14.5px;text-decoration:none;opacity:.78;padding:4px 0;border-bottom:1.5px solid transparent}
+  .links a:hover{opacity:1;border-bottom-color:var(--coral)}
+  .nav-end{margin-inline-start:auto;display:flex;align-items:center;gap:10px}
+  .icon-btn{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;cursor:pointer;
+    background:transparent;color:inherit;border:1.5px dashed currentColor;opacity:.8}
+  .icon-btn:hover{opacity:1}
+  .icon-btn svg{width:18px;height:18px}
+  .sun{display:none}
+  [data-theme="light"] .sun{display:block}
+  [data-theme="light"] .moon{display:none}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--he);font-weight:500;font-size:15px;
+    text-decoration:none;cursor:pointer;border-radius:999px;padding:11px 22px;border:1.5px solid transparent;
+    transition:transform .15s ease,background .2s ease,color .2s ease}
+  .btn:active{transform:scale(.98)}
+  .btn-coral{background:var(--coral);color:#fff}
+  .btn-coral:hover{background:#ff7a81}
+  .btn-dash{border:1.5px dashed currentColor;color:inherit;background:transparent}
+  .btn-dash:hover{background:color-mix(in srgb,currentColor 8%,transparent)}
+  .btn-sm{padding:8px 16px;font-size:14px}
+
+  /* ---------- film stage ---------- */
+  .stage{position:relative;background:var(--stage);color:var(--stage-ink)}
+  .sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+  .media{position:absolute;inset:0;background:var(--stage)}
+  .media video,.media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .media img{transition:opacity .5s ease}
+  .media img.gone{opacity:0}
+  .copy{position:absolute;inset-inline-start:var(--gut);top:50%;transform:translateY(-50%);
+    width:min(31rem,38vw);z-index:3}
+  .chapter{display:none}
+  .chapter.on{display:block;animation:rise .55s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .kicker{margin:0 0 14px;font-size:13px;font-weight:500;letter-spacing:.06em;color:var(--coral)}
+  .kicker .num{font-family:var(--en);font-weight:600;margin-inline-end:10px;color:var(--stage-muted)}
+  .chapter h1,.chapter h2{margin:0;font-weight:300;font-size:clamp(34px,4.6vw,64px);line-height:1.04;
+    letter-spacing:-.015em}
+  .chapter h1 b,.chapter h2 b{font-weight:700}
+  .chapter p{margin:18px 0 0;font-size:clamp(16px,1.25vw,19px);line-height:1.65;color:#C9CEE6;max-width:34em}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:20px 0 0}
+  .tags li{font-size:13px;padding:5px 14px;border-radius:18px;border:1.5px dashed rgba(237,239,247,.42);color:#DDE1F2}
+  .chapter .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .hint{display:flex;align-items:center;gap:12px;margin-top:30px;font-size:13px;color:var(--stage-muted)}
+  .hint span{position:relative;width:1.5px;height:34px;background:rgba(237,239,247,.18);overflow:hidden}
+  .hint span::after{content:"";position:absolute;inset-inline:0;top:-40%;height:40%;background:var(--coral);
+    animation:drip 1.8s ease-in-out infinite}
+  @keyframes drip{to{top:100%}}
+
+  .rail{position:absolute;z-index:3;inset-inline:var(--gut);bottom:22px;display:grid;
+    grid-template-columns:repeat(7,1fr);gap:10px}
+  .rail button{all:unset;cursor:pointer;display:block;padding-top:10px;font-size:12.5px;color:var(--stage-muted);
+    transition:color .2s ease}
+  .rail button:hover,.rail button.on{color:var(--stage-ink)}
+  .rail .bar{display:block;height:2px;background:rgba(237,239,247,.16);border-radius:2px;overflow:hidden;margin-bottom:8px}
+  .rail .fill{display:block;height:100%;width:0;background:var(--coral);transform-origin:right}
+  .rail .num{font-family:var(--en);font-weight:600;margin-inline-end:6px;opacity:.7}
+  .counter{position:absolute;z-index:3;top:84px;inset-inline-end:var(--gut);font-family:var(--en);font-weight:600;
+    font-size:13px;letter-spacing:.12em;color:var(--stage-muted)}
+  .counter b{color:var(--stage-ink)}
+
+  /* static fallback (reduced motion, no video) */
+  .stage.static .sticky{position:relative;height:auto;overflow:visible}
+  .stage.static .media,.stage.static .rail,.stage.static .counter{display:none}
+  .stage.static .copy{position:static;transform:none;width:auto;padding:110px var(--gut) 40px;max-width:var(--max);margin:0 auto}
+  .stage.static .chapter{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;
+    padding:30px 0;border-top:1px solid rgba(237,239,247,.12);animation:none}
+  .stage.static .chapter img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:14px;order:2}
+
+  /* ---------- strip ---------- */
+  .strip{background:var(--stage);color:var(--stage-ink);padding:26px 0 30px;border-top:1px solid rgba(237,239,247,.1)}
+  .strip-in{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px}
+  .shot{all:unset;cursor:pointer;display:block}
+  .shot img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;opacity:.82;transition:opacity .2s ease}
+  .shot:hover img{opacity:1}
+  .shot span{display:flex;gap:6px;margin-top:9px;font-size:12.5px;color:var(--stage-muted)}
+  .shot span b{font-family:var(--en);font-weight:600;color:var(--coral)}
+
+  /* ---------- sections ---------- */
+  .sec{padding:clamp(80px,10vw,140px) 0;border-top:1px solid var(--line)}
+  .label{margin:0 0 14px;font-size:14px;font-weight:500;color:var(--label);letter-spacing:.04em}
+  .h2{margin:0;font-weight:300;font-size:clamp(32px,4.4vw,58px);line-height:1.06;letter-spacing:-.015em;max-width:16em}
+  .h2 b{font-weight:700}
+  .lede{margin:18px 0 0;font-size:clamp(16px,1.35vw,19px);color:var(--muted);max-width:40em}
+  .head{margin-bottom:clamp(36px,5vw,64px)}
+
+  /* solutions */
+  .sol-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .sol{background:var(--surface);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+  .sol figure{margin:0;aspect-ratio:16/9;overflow:hidden;background:var(--stage)}
+  .sol figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .sol:hover figure img{transform:scale(1.04)}
+  .sol .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+  .sol .top{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+  .sol .tag{font-size:13px;color:var(--label);font-weight:500}
+  .sol .idx{font-family:var(--en);font-weight:600;font-size:13px;color:var(--muted)}
+  .sol h3{margin:8px 0 2px;font-size:23px;font-weight:700;line-height:1.2}
+  .sol .brandname{font-family:var(--en);font-size:12.5px;color:var(--muted);direction:ltr;text-align:right}
+  .sol p{margin:12px 0 0;color:var(--muted);font-size:15.5px}
+  .pills{display:flex;flex-wrap:wrap;gap:7px;list-style:none;padding:0;margin:16px 0 0}
+  .pills li{font-size:12.5px;padding:4px 12px;border-radius:18px;border:1.5px dashed color-mix(in srgb,var(--pill) 55%,transparent);color:var(--pill)}
+  .more{margin-top:auto;padding-top:16px}
+  .toggle{all:unset;cursor:pointer;font-size:14px;font-weight:500;text-decoration:underline;text-underline-offset:4px;
+    text-decoration-color:var(--coral)}
+  .toggle .pm{font-family:var(--en);display:inline-block;width:1.1em}
+  .more p{display:none;margin-top:10px}
+  .more.open p{display:block}
+  .sol.plain{background:transparent;border:1.5px dashed var(--line-strong)}
+  .sol.plain .body{padding:26px}
+
+  /* track */
+  .track{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;position:relative;counter-reset:st}
+  .track::before{content:"";position:absolute;top:21px;inset-inline:22px;border-top:1.5px dashed var(--line-strong)}
+  .step{position:relative;padding-inline-end:26px}
+  .dot{position:relative;z-index:1;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+    background:var(--bg);border:1.5px solid var(--coral);color:var(--coral);font-family:var(--en);font-weight:600}
+  .step:last-child .dot{background:var(--coral);color:#fff}
+  .step h3{margin:18px 0 0;font-size:22px;font-weight:700}
+  .step .en{font-size:13px;color:var(--muted);display:block;text-align:right}
+  .step .dur{display:inline-block;margin-top:12px;font-size:13px;padding:3px 12px;border-radius:18px;
+    background:color-mix(in srgb,var(--yellow) 16%,transparent);color:var(--text);border:1.5px solid var(--yellow)}
+  [data-theme="light"] .step .dur{background:var(--yellow);color:var(--navy)}
+  .step p{margin:12px 0 0;color:var(--muted);font-size:15.5px}
+  .track-cta{margin-top:44px;display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+  .track-cta span{color:var(--muted)}
+
+  /* for whom */
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+  .chip{all:unset;cursor:pointer;font-size:15px;padding:9px 18px;border-radius:20px;border:1.5px dashed var(--line-strong);
+    color:var(--text);transition:background .2s ease,border-color .2s ease}
+  .chip:hover{border-color:var(--text)}
+  .chip[aria-selected="true"]{border-color:var(--yellow);color:var(--yellow);background:color-mix(in srgb,var(--yellow) 10%,transparent);font-weight:500}
+  [data-theme="light"] .chip[aria-selected="true"]{color:var(--navy);background:var(--yellow)}
+  .panel{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,60px);background:var(--surface);
+    border-radius:22px;padding:clamp(24px,4vw,48px)}
+  .panel h3{margin:0;font-size:clamp(26px,2.8vw,36px);font-weight:700;line-height:1.15}
+  .panel .problem{margin:14px 0 0;font-size:18px;color:var(--muted)}
+  .panel h4{margin:0 0 10px;font-size:13px;font-weight:500;color:var(--label);letter-spacing:.04em}
+  .panel .outcome{margin:0;font-size:17px}
+  .panel .mods{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0 0 24px}
+  .panel .mods li{font-family:var(--en);font-size:13px;padding:5px 14px;border-radius:18px;border:1.5px dashed var(--line-strong)}
+  .panel .btn{margin-top:26px}
+
+  /* work */
+  .case{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(22px,4vw,56px);align-items:center;
+    padding:clamp(28px,4vw,48px) 0;border-top:1px solid var(--line)}
+  .case:nth-of-type(even) figure{order:2}
+  .case figure{margin:0;border-radius:16px;overflow:hidden;background:var(--surface-2);aspect-ratio:16/9}
+  .case video{width:100%;height:100%;object-fit:cover}
+  .case .num{font-family:var(--en);font-weight:600;font-size:clamp(40px,5vw,64px);line-height:1;
+    color:color-mix(in srgb,var(--coral) 55%,transparent);margin:0}
+  .case .client{margin:10px 0 0;font-family:var(--en);font-size:14px;font-weight:600;color:var(--label);text-align:right}
+  .case h3{margin:4px 0 0;font-size:clamp(22px,2.4vw,30px);font-weight:700}
+  .case p{margin:12px 0 0;color:var(--muted);font-size:16px}
+  .minis{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+  .mini{border:1.5px dashed var(--line-strong);border-radius:18px;padding:24px}
+  .mini .tag{font-size:13px;color:var(--label);font-weight:500}
+  .mini h3{margin:8px 0 0;font-size:20px;font-weight:700}
+  .mini p{margin:10px 0 0;color:var(--muted);font-size:15.5px}
+
+  /* films */
+  .reel{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;
+    scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent}
+  .film{all:unset;cursor:pointer;flex:0 0 auto;scroll-snap-align:start;display:block}
+  .film .frame{position:relative;border-radius:16px;overflow:hidden;background:var(--stage);height:min(56vh,440px)}
+  .film.v .frame{aspect-ratio:9/16}
+  .film.h .frame{aspect-ratio:16/9}
+  .film.s .frame{aspect-ratio:1/1}
+  .film .frame img,.film .frame video{width:100%;height:100%;object-fit:cover}
+  .film .frame video{position:absolute;inset:0;opacity:0;transition:opacity .3s ease}
+  .film .frame video.live{opacity:1}
+  .film .play{position:absolute;bottom:14px;inset-inline-start:14px;width:46px;height:46px;border-radius:50%;
+    background:var(--coral);display:grid;place-items:center;color:#fff}
+  .film .play svg{width:18px;height:18px;margin-inline-start:-2px}
+  .film .meta{display:block;margin-top:12px;max-width:min(78vw,420px)}
+  .film .meta b{display:block;font-size:17px}
+  .film .meta span{font-size:14px;color:var(--muted)}
+  .reel-note{margin-top:14px;font-size:14px;color:var(--muted)}
+
+  dialog{border:0;padding:0;background:transparent;max-width:min(94vw,1100px);max-height:92vh}
+  dialog::backdrop{background:rgba(5,9,22,.86)}
+  dialog video{max-width:min(94vw,1100px);max-height:86vh;border-radius:14px;background:#000}
+  .dlg-close{position:absolute;top:10px;inset-inline-end:10px;z-index:2;background:rgba(13,21,51,.8);color:#fff;
+    border:1.5px dashed rgba(255,255,255,.6)}
+  .dlg-title{color:#EDEFF7;margin:10px 4px 0;font-size:15px}
+
+  /* teaching */
+  .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:40px}
+  .stat{border-top:1.5px dashed var(--line-strong);padding-top:18px}
+  .stat b{display:block;font-family:var(--en);font-weight:600;font-size:clamp(44px,5vw,72px);line-height:1;color:var(--coral)}
+  .stat span{display:block;margin-top:10px;color:var(--muted)}
+  .teach{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .t-item{background:var(--surface);border-radius:18px;padding:26px}
+  .t-item .who{font-family:var(--en);font-weight:600;font-size:15px;color:var(--label);text-align:right}
+  .t-item h3{margin:6px 0 0;font-size:21px;font-weight:700}
+  .t-item p{margin:10px 0 0;color:var(--muted)}
+
+  /* about */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px)}
+  .about p{font-size:18px;margin:0 0 16px}
+  .tl{list-style:none;padding:0;margin:0}
+  .tl li{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:12px 0;border-top:1px solid var(--line)}
+  .tl li:last-child{border-bottom:1px solid var(--line)}
+  .tl .yr{font-family:var(--en);font-weight:600;color:var(--muted);font-size:14px;direction:ltr;text-align:right}
+  .awards{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:22px 0 0}
+  .awards li{font-size:13.5px;padding:5px 14px;border-radius:18px;background:var(--yellow);color:var(--navy);font-weight:700}
+  .note{font-size:13.5px;color:var(--muted);margin-top:10px}
+
+  /* contact */
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:center}
+  .contact .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+  .contact dl{margin:34px 0 0}
+  .contact dl div{display:grid;grid-template-columns:90px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+  .contact dt{color:var(--muted);font-size:14px}
+  .contact dd{margin:0}
+  .contact dd a{text-decoration-color:var(--coral);text-underline-offset:4px}
+  .orb{border-radius:22px;overflow:hidden;aspect-ratio:16/10;background:var(--stage)}
+  .orb img{width:100%;height:100%;object-fit:cover}
+
+  footer{padding:36px 0 54px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- tablet ---------- */
+  @media (max-width:1020px){
+    .sol-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .track{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}
+    .track::before{display:none}
+    .strip-in{grid-template-columns:repeat(4,minmax(0,1fr))}
+  }
+  /* ---------- mobile ---------- */
+  @media (max-width:760px){
+    .links{display:none}
+    .nav{padding:10px var(--gut)}
+    .copy{inset-inline:var(--gut);width:auto;top:auto;bottom:calc(64px + env(safe-area-inset-bottom));transform:none}
+    .chapter h1,.chapter h2{font-size:clamp(30px,8.6vw,40px)}
+    .chapter p{font-size:15.5px;margin-top:12px}
+    .tags{margin-top:14px}
+    .tags li{font-size:12px;padding:4px 11px}
+    .hint{margin-top:18px}
+    .rail{bottom:calc(20px + env(safe-area-inset-bottom));gap:5px}
+    .rail button{padding-top:0;font-size:0}
+    .rail .bar{margin:0}
+    .rail .num{display:none}
+    .counter{top:70px}
+    .strip-in{grid-template-columns:repeat(7,42vw);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+    .shot{scroll-snap-align:start}
+    .sol-grid,.teach,.minis,.stats{grid-template-columns:1fr}
+    .stats{gap:26px}
+    .track{grid-template-columns:1fr}
+    .panel,.about,.contact{grid-template-columns:1fr}
+    .case{grid-template-columns:1fr}
+    .case:nth-of-type(even) figure{order:0}
+    .tl li{grid-template-columns:86px 1fr}
+    .stage.static .chapter{grid-template-columns:1fr}
+    .stage.static .chapter img{order:0}
+    .film .frame{height:62vh}
+    .film.h .frame{height:auto;width:84vw}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .chapter.on{animation:none}
+    .hint span::after{animation:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Simpla, לראש העמוד"><i aria-hidden="true"></i>simpla</a>
+  <nav class="links" aria-label="ניווט ראשי">
+    <a href="#solutions">פתרונות</a>
+    <a href="#track">מסלול</a>
+    <a href="#for">למי</a>
+    <a href="#work">עבודות</a>
+    <a href="#films">סרטים</a>
+    <a href="#teaching">הוראה</a>
+    <a href="#about">אודות</a>
+  </nav>
+  <div class="nav-end">
+    <button class="icon-btn" id="theme" type="button" aria-label="החלפת מצב בהיר או כהה">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+    </button>
+    <a class="btn btn-coral btn-sm" href="#contact">בואו נדבר</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===== the film: one take, seven states ===== -->
+  <section class="stage" id="film" aria-label="הסרט: גוש חימר אחד, שבעה מצבים">
+    <div class="sticky">
+      <div class="media" id="media" aria-hidden="true"></div>
+      <p class="counter" aria-hidden="true"><b id="cnt">01</b> / 07</p>
+      <div class="copy" id="copy" aria-live="polite">
+        <article class="chapter on" data-ch="0">
+          <p class="kicker">Simpla · סטודיו ל-UX ו-AI · תל אביב</p>
+          <h1>כל דבר מתחיל כרעיון <b>בלי צורה</b></h1>
+          <p>ככה מגיעים אלינו רוב הפרויקטים: גוש. יש בו משהו, אבל עוד אין לו צורה. אנחנו יודעים לעבוד איתו, ולא ממהרים לצאת ממנו.</p>
+          <div class="hint"><span></span>גללו, והחומר יתחיל לזוז</div>
+        </article>
+        <article class="chapter" data-ch="1">
+          <p class="kicker"><span class="num">01</span>סטודיו</p>
+          <h2><b>סרטים</b> שנראים כמו הפקה גדולה</h2>
+          <p>סרטי מותג, פרסומות, מסבירי מוצר וסרטים לתחרויות. בימוי של קולנוען, דיוק של מעצב מוצר, ולוח זמנים של AI.</p>
+          <ul class="tags"><li>סרט מותג</li><li>מסביר מוצר</li><li>מסקוט</li><li>סרט לתחרות</li></ul>
+        </article>
+        <article class="chapter" data-ch="2">
+          <p class="kicker"><span class="num">02</span>אפיון</p>
+          <h2><b>מוצרים</b> שצוות פיתוח יכול לבנות</h2>
+          <p>לפני שכותבים שורת קוד, מבינים מה בונים. מחקר, זרימות, Wireframes ואב-טיפוס, עם תשע שנים של הובלת UX ומוצר ב-TipRanks מאחור.</p>
+          <ul class="tags"><li>PRD</li><li>מחקר משתמשים</li><li>Wireframes</li><li>אב-טיפוס</li></ul>
+        </article>
+        <article class="chapter" data-ch="3">
+          <p class="kicker"><span class="num">03</span>תהליכים</p>
+          <h2><b>מערכות</b> שמייצרות תוכן עקבי</h2>
+          <p>לא קובץ אחד, אלא מפעל קטן. Workflows ב-Figma Weave, ספריות פרומפטים ואוטומציות, שהצוות שלכם מפעיל בלחיצה.</p>
+          <ul class="tags"><li>Figma Weave</li><li>אוטומציות</li><li>ספריית פרומפטים</li><li>סוכנים</li></ul>
+        </article>
+        <article class="chapter" data-ch="4">
+          <p class="kicker"><span class="num">04</span>הדרכה</p>
+          <h2><b>צוותים</b> שעובדים עם AI כבר מחר בבוקר</h2>
+          <p>סדנאות מעשיות למעצבים, אנשי שיווק, עורכים ומנהלים. כל משתתף יוצא עם תוצר שעובד, לא רק עם השראה.</p>
+          <ul class="tags"><li>סדנאות</li><li>קורסים</li><li>הכשרת מרצים</li><li>פרומפטים בעברית</li></ul>
+        </article>
+        <article class="chapter" data-ch="5">
+          <p class="kicker"><span class="num">05</span>הטמעה</p>
+          <h2><b>ארגונים</b> שבהם ה-AI באמת בשימוש</h2>
+          <p>אבחון, מפת שימושים, בחירת כלים, כללים ופיילוט. מההנהלה ועד העובד האחרון, בשפה שכולם מבינים.</p>
+          <ul class="tags"><li>אבחון</li><li>מדיניות</li><li>פיילוט</li><li>מדידה</li></ul>
+        </article>
+        <article class="chapter" data-ch="6">
+          <p class="kicker"><span class="num">06</span>אובייקט</p>
+          <h2>אותו חומר. <b>עכשיו מוגמר.</b></h2>
+          <p>מרעיון בלי צורה, דרך סרט, אפיון ומערכת, ועד צוות שמפעיל הכול לבד. זה מה שאנחנו עושים.</p>
+          <div class="actions">
+            <a class="btn btn-coral" href="#contact">בואו נדבר</a>
+            <a class="btn btn-dash" href="#solutions">כל הפתרונות</a>
+          </div>
+        </article>
+      </div>
+      <nav class="rail" id="rail" aria-label="פרקי הסרט"></nav>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="שבעה מצבים של אותו חומר">
+    <div class="wrap strip-in" id="strip"></div>
+  </section>
+
+  <!-- ===== solutions ===== -->
+  <section class="sec" id="solutions">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">פתרונות</p>
+        <h2 class="h2">שבעה <b>פתרונות</b>, חומר אחד</h2>
+        <p class="lede">אפשר לקחת אחד. אפשר לקחת את כולם כמסלול אחד. בכל מקרה, הידע נשאר אצלכם.</p>
+      </div>
+      <div class="sol-grid" id="sol"></div>
+    </div>
+  </section>
+
+  <!-- ===== object track ===== -->
+  <section class="sec" id="track">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">מסלול</p>
+        <h2 class="h2">מסלול <b>אובייקט</b></h2>
+        <p class="lede">הפתרון המלא, מקצה לקצה. ארבעה שלבים, ובסוף הידע נשאר אצלכם.</p>
+      </div>
+      <div class="track reveal">
+        <div class="step"><div class="dot">1</div><h3>אבחון</h3><span class="en">Abstract</span><span class="dur">כשבועיים</span>
+          <p>ראיונות, מיפוי תהליכים, ומפת הזדמנויות AI שמראה איפה זה שווה ואיפה לא.</p></div>
+        <div class="step"><div class="dot">2</div><h3>אפיון</h3><span class="en">Shape</span><span class="dur">2 עד 4 שבועות</span>
+          <p>אפיון התהליך, המוצר או מערכת התוכן. מה בונים, למי, ואיך יודעים שזה עובד.</p></div>
+        <div class="step"><div class="dot">3</div><h3>הפקה ובנייה</h3><span class="en">Object</span><span class="dur">3 עד 8 שבועות</span>
+          <p>סרטים, Workflows ב-Figma Weave, אוטומציות וכלים פנימיים. דברים שעובדים, לא מצגות.</p></div>
+        <div class="step"><div class="dot">4</div><h3>הטמעה ולימוד</h3><span class="en">Hand-off</span><span class="dur">4 עד 12 שבועות</span>
+          <p>סדנאות, ספריית Workflows, שעות פתוחות ומדידה. עד שהצוות מפעיל הכול לבד.</p></div>
+      </div>
+      <div class="track-cta reveal">
+        <a class="btn btn-coral" href="mailto:studio@simplaux.com?subject=%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%D7%90%D7%95%D7%91%D7%99%D7%99%D7%A7%D7%98">לפתוח מסלול</a>
+        <span>מתחילים תמיד בשיחת אבחון קצרה.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== for whom ===== -->
+  <section class="sec" id="for">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">למי</p>
+        <h2 class="h2">בחרו <b>מאיפה</b> אתם מגיעים</h2>
+        <p class="lede">אותם שבעה פתרונות, ארוזים אחרת לכל סוג של לקוח.</p>
+      </div>
+      <div class="chips" id="chips" role="tablist" aria-label="סוג לקוח"></div>
+      <div class="panel" id="panel" role="tabpanel"></div>
+    </div>
+  </section>
+
+  <!-- ===== work ===== -->
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">עבודות</p>
+        <h2 class="h2">בעולם <b>האמיתי</b></h2>
+        <p class="lede">מוצרים שאפיינו, עיצבו והובילו, ומערכות שבנינו ללקוחות.</p>
+      </div>
+      <div id="cases"></div>
+      <div class="minis">
+        <article class="mini reveal">
+          <span class="tag">Figma Weave · מערכת תוכן</span>
+          <h3>מפעל תוכן לחברת SaaS</h3>
+          <p>מסקוט עם שלוש וריאציות, פרומפטים לאיורי בלוג ולסרטונים, וכל זה כמערכת אחת שהצוות מפעיל בעצמו.</p>
+        </article>
+        <article class="mini reveal">
+          <span class="tag">AI · הדמיות מוצר</span>
+          <h3>צינור הדמיות ליצרן</h3>
+          <p>משרטוטים אורתוגרפיים להדמיות איזומטריות נקיות, בתהליך אחד שחוזר על עצמו לכל מוצר חדש בקטלוג.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== films ===== -->
+  <section class="sec" id="films">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">סרטים</p>
+        <h2 class="h2">מה אנחנו עושים <b>בלילות</b></h2>
+        <p class="lede">סדרות, סרטי אתר וסרטים לתחרויות. הכול נוצר עם AI, בבימוי ובעריכה שלנו.</p>
+      </div>
+      <div class="reel" id="reel"></div>
+      <p class="reel-note">לחצו על סרט כדי לצפות בו עם סאונד.</p>
+    </div>
+  </section>
+
+  <!-- ===== teaching ===== -->
+  <section class="sec" id="teaching">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">הוראה</p>
+        <h2 class="h2">מלמדים את מה <b>שאנחנו מייצרים</b></h2>
+        <p class="lede">כל כלי שאנחנו מלמדים, השתמשנו בו קודם בפרויקט אמיתי. ולהפך: מה שעובד בכיתה נכנס לעבודה.</p>
+      </div>
+      <div class="stats reveal">
+        <div class="stat"><b class="en">600</b><span>משתתפים בכל הרצאה מרכזית ב-DESIGN AI</span></div>
+        <div class="stat"><b class="en">37</b><span>שעות בתוכנית ה-AI למעצבים וליוצרי סרטים ב-InMotion</span></div>
+        <div class="stat"><b class="en">9</b><span>שנים בהובלת UX ומוצר ב-TipRanks</span></div>
+      </div>
+      <div class="teach">
+        <article class="t-item reveal"><span class="who">John Bryce</span><h3>ג׳ון ברייס</h3>
+          <p>קורסים ב-UX ועיצוב מוצר, וקורס למיישמי AI בארגונים: מתמונות ווידאו ועד בניית אפליקציות.</p></article>
+        <article class="t-item reveal"><span class="who">InMotion</span><h3>AI למעצבים ויוצרי סרטים</h3>
+          <p>תוכנית של תשעה מפגשים לעורכים, אנימטורים ומעצבים: מפרומפט ראשון ועד סרט שלם.</p></article>
+        <article class="t-item reveal"><span class="who">DESIGN AI</span><h3>הרצאה מרכזית, 2024 ו-2025</h3>
+          <p>על בניית Workflows ועל הקמת תשתית מותג שעובדת עם AI. כחצי שעה מול קהל של כ-600 איש, פעמיים.</p></article>
+        <article class="t-item reveal"><span class="who">Enterprise</span><h3>סדנאות לארגונים</h3>
+          <p>סדנאות AI לארגוני ממשלה ואנטרפרייז, בשיתוף Reflectify AI. בעברית, עם תוצר לכל משתתף.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== about ===== -->
+  <section class="sec" id="about">
+    <div class="wrap about">
+      <div class="reveal">
+        <p class="label">אודות</p>
+        <h2 class="h2">אייל <b>גרשון</b></h2>
+        <p class="lede" style="margin-bottom:22px">מייסד Simpla. מעצב מוצר, במאי ומרצה.</p>
+        <p>Simpla היא סטודיו בוטיק ל-UX ו-AI בתל אביב. אנחנו עובדים במקום שבו עיצוב מוצר, קולנוע והוראה נפגשים, ולכן אנחנו גם מפיקים, גם מאפיינים, גם בונים מערכות וגם מלמדים.</p>
+        <p>לפני Simpla אייל הוביל את ה-UX, ואחר כך את המוצר וה-UX, ב-TipRanks. תשע שנים של מוצר פיננסי מורכב, דאטה רב, ומשתמשים שצריכים להבין אותו מהר.</p>
+        <ul class="awards" aria-label="פרסים מהשנים ב-TipRanks">
+          <li class="en">Finovate 2013, 2014</li>
+          <li class="en">IBM Watson 2015 · 1st</li>
+          <li class="en">KPMG Fintech 100 · 2016</li>
+        </ul>
+        <p class="note">הפרסים ניתנו ל-TipRanks בשנים שאייל הוביל בה את חוויית המשתמש.</p>
+      </div>
+      <ol class="tl reveal" aria-label="ציר זמן">
+        <li><span class="yr">2025</span><span>מרצה בג׳ון ברייס, UX ו-AI</span></li>
+        <li><span class="yr">2020</span><span>מייסד Simpla</span></li>
+        <li><span class="yr">2013 · 2022</span><span>TipRanks, ראש UX ואחר כך ראש מוצר ו-UX</span></li>
+        <li><span class="yr">2012</span><span>IQURIO, מייסד-שותף וקריאייטיב ראשי</span></li>
+        <li><span class="yr">2011</span><span>Gurimi, מנהל סטודיו</span></li>
+        <li><span class="yr">2010</span><span>In House, עיצוב הפקה ואנימציה</span></li>
+        <li><span class="yr">2009</span><span>Gitam BBDO, ארט דיירקטור אינטראקטיב</span></li>
+        <li><span class="yr">2008</span><span>Saatchi &amp; Saatchi ו-Publicis, עיצוב דיגיטל</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== contact ===== -->
+  <section class="sec" id="contact">
+    <div class="wrap contact">
+      <div class="reveal">
+        <p class="label">קשר</p>
+        <h2 class="h2">מה <b>הרעיון</b> שלכם?</h2>
+        <p class="lede">ספרו לנו מה אתם בונים ואיפה זה תקוע. נחזור אליכם עם הצעה לשבועיים הראשונים.</p>
+        <div class="actions">
+          <a class="btn btn-coral" href="mailto:studio@simplaux.com?subject=%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA">קבעו שיחה</a>
+          <a class="btn btn-dash" href="mailto:studio@simplaux.com?subject=%D7%A1%D7%93%D7%A0%D7%94%20%D7%9C%D7%A6%D7%95%D7%95%D7%AA">הזמינו סדנה</a>
+          <a class="btn btn-dash" href="mailto:studio@simplaux.com?subject=%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%AA%20%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D">בקשו סילבוס</a>
+        </div>
+        <dl>
+          <div><dt>מייל</dt><dd><a class="en" href="mailto:studio@simplaux.com">studio@simplaux.com</a></dd></div>
+          <div><dt>סטודיו</dt><dd>Urban Place, מגדל שלום מאיר, אחד העם 9, תל אביב</dd></div>
+        </dl>
+      </div>
+      <figure class="orb reveal" style="margin:0"><img id="orb" alt="כדור חימר מלוטש עם טבעת קורל, המצב האחרון בסרט" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>Simpla · סטודיו ל-UX ו-AI · תל אביב</span>
+      <span>הסרט בראש העמוד צולם בטייק אחד: שלושים שניות של חימר.</span>
+    </div>
+  </footer>
+</main>
+
+<dialog id="dlg" aria-label="נגן סרט">
+  <button class="icon-btn dlg-close" id="dlgClose" type="button" aria-label="סגירה">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <video id="dlgVideo" controls playsinline preload="none"></video>
+  <p class="dlg-title" id="dlgTitle"></p>
+</dialog>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ================= content and media ================= */
+  var HF = "https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/";
+  var HF2 = "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/";
+  var FR = [
+    HF + "d396ae11-d1d7-47cc-b720-8a9cd79aa75c.jpg",
+    HF + "3e04283c-ba96-4511-a1ef-63d29f7a94b0.jpg",
+    HF + "fa714d3d-fafb-4ca7-aa49-51945e830f08.jpg",
+    HF + "1239b154-f44f-41fc-ab16-f06d599875d1.jpg",
+    HF + "78a471b0-0c9e-41d8-b695-e442d7384a90.jpg",
+    HF + "37cbe2e7-0dd0-48e8-b7e3-0da175d9fae6.jpg",
+    HF + "85e5717d-67b8-41a7-9bfd-41a6d14b11de.jpg"
+  ];
+  var CFG = {
+    film: {
+      // one continuous 30s take per aspect, re-encoded with a keyframe every 4 frames for smooth scrubbing
+      wide: HF + "404425f7-3224-4767-8e51-a1a4725c17e7.mp4",
+      tall: HF + "7ada9d0a-e524-4256-9076-97ecc6d8fd3c.mp4",
+      posterWide: FR[0],
+      posterTall: HF + "d2640eea-1431-4367-8fc1-2fbfe8519e90.jpg"
+    },
+    // end time of each chapter inside the take (the two renders morph at slightly different moments),
+    // and how much scroll each chapter gets
+    cutsWide: [4.1, 10.8, 14.9, 18.0, 21.2, 26.7, 30.0],
+    cutsTall: [4.6, 9.4, 15.5, 19.6, 23.6, 27.4, 30.0],
+    weights: [1.2, 1.9, 1.7, 1.7, 1.7, 1.8, 1.6],
+    rail: ["רעיון", "סרטים", "מוצרים", "מערכות", "צוותים", "ארגונים", "אובייקט"],
+    frames: FR,
+    plates: { camera: FR[1], phone: FR[2], nodes: FR[3], "class": FR[4], city: FR[5], sphere: FR[6] },
+    work: "https://simpla-clay.higgsfield.app/assets/work/"
+  };
+
+  var SOLUTIONS = [
+    { id: "studio", n: "01", tag: "סטודיו", name: "Simpla Studio", title: "סרטים ב-AI", plate: "camera",
+      text: "סרט מותג, פרסומת, מסביר מוצר או סדרה לרשתות. מתסריט וסטוריבורד ועד עריכה וסאונד.",
+      gets: ["תסריט וסטוריבורד", "סרט מותג", "מסביר מוצר", "מסקוט", "גרסאות לרשתות"],
+      who: "צוותי שיווק, סטארטאפים לפני השקה, ומותגים שצריכים הרבה וידאו בלי הפקה כבדה." },
+    { id: "spec", n: "02", tag: "אפיון", name: "Simpla Spec", title: "אפיון UX ומוצר", plate: "phone",
+      text: "מסמך מוצר שהפיתוח יכול לעבוד ממנו, בלי ניחושים. מחקר משתמשים, זרימות, Wireframes ואב-טיפוס ב-Figma.",
+      gets: ["PRD", "מפות זרימה", "Wireframes", "אב-טיפוס", "מחקר משתמשים"],
+      who: "סטארטאפים לפני MVP, צוותי מוצר שצריכים עוד ראש, וארגונים שבונים כלי פנימי." },
+    { id: "flows", n: "03", tag: "תהליכים", name: "Simpla Flows", title: "Figma Weave ואוטומציות", plate: "nodes",
+      text: "מערכת שמייצרת תוכן באופן עקבי, לא קובץ חד-פעמי. Workflows ב-Figma Weave, ספריות פרומפטים, צינורות תוכן וכלים פנימיים.",
+      gets: ["Workflows ב-Weave", "ספריית פרומפטים", "צינור תוכן", "סוכנים", "תיעוד"],
+      who: "צוותי שיווק ותוכן, סוכנויות, וכל מי שמייצר הרבה ויזואל ורוצה שייראה אותו דבר בכל פעם." },
+    { id: "lab", n: "04", tag: "הדרכה", name: "Simpla Lab", title: "סדנאות לצוותים", plate: "class",
+      text: "שלוש שעות, יום מרוכז או סדרת מפגשים. כל משתתף יוצא עם תוצר אחד שעובד, וערכת פרומפטים בעברית.",
+      gets: ["סדנה מעשית", "יום מרוכז", "סדרת מפגשים", "ערכת פרומפטים", "תרגילים"],
+      who: "מחלקות שיווק, עיצוב, הדרכה ו-HR. צוותים שכבר מנסים, ורוצים לעשות את זה נכון." },
+    { id: "adopt", n: "05", tag: "הטמעה", name: "Simpla Adopt", title: "הטמעת AI בארגון", plate: "city",
+      text: "AI שהעובדים באמת משתמשים בו. אבחון, מפת הזדמנויות, בחירת כלים, כללי עבודה, פיילוט ומדידה.",
+      gets: ["אבחון", "מפת הזדמנויות", "בחירת כלים", "מדיניות שימוש", "פיילוט", "מדידה"],
+      who: "ארגונים, רשויות מקומיות ומגזר ציבורי שקיבלו הנחיה מלמעלה ומחפשים דרך מעשית." },
+    { id: "guide", n: "06", tag: "ליווי", name: "Simpla Guide", title: "ייעוץ ומנטורינג", plate: null,
+      text: "מישהו מנוסה לצידכם בהחלטות של AI, מוצר ותוכן. שעה בשבוע, או כשצריך.",
+      gets: ["שעות ייעוץ", "ליווי חודשי", "Office hours", "ביקורת תיק עבודות"],
+      who: "מנהלים, יזמים, מעצבים בתחילת הדרך, וצוותים שאין להם עדיין מוביל AI." },
+    { id: "academy", n: "07", tag: "אקדמיה", name: "Simpla Academy", title: "תוכניות לימוד", plate: null,
+      text: "סילבוס, מערכי שיעור, תרגילים וקייס סטאדי מוכנים, למכללות ולמחלקות הדרכה.",
+      gets: ["סילבוס", "מערכי שיעור", "תרגילים", "קייס סטאדי", "הכשרת מרצים"],
+      who: "מכללות, בתי ספר מקצועיים ומחלקות הדרכה בארגונים." }
+  ];
+
+  var AUDIENCES = [
+    { id: "startup", chip: "סטארטאפ", name: "מהשקה לסרט",
+      problem: "יש מוצר, או רעיון למוצר, ואין זמן לבזבז על ניחושים.",
+      mods: ["Spec", "Studio", "Flows"],
+      outcome: "אפיון ל-MVP, סרט השקה, מסקוט ומערכת תוכן בסיסית ב-Figma Weave.",
+      first: "שיחת אבחון, ואחריה אפיון MVP בתוך כמה שבועות." },
+    { id: "marketing", chip: "צוות שיווק", name: "מפעל תוכן",
+      problem: "הצוות צריך יותר ויזואל, יותר מהר, ובלי לאבד את המותג בדרך.",
+      mods: ["Flows", "Lab", "Guide"],
+      outcome: "צינור תוכן ב-Figma Weave שבנוי על המותג שלכם, סדנה לצוות, וליווי חודשי עד שזה רץ לבד.",
+      first: "מיפוי של סוגי התוכן שאתם מייצרים היום, ובחירה של הראשון שהופך למערכת." },
+    { id: "agency", chip: "סוכנות או סטודיו", name: "סוכנות AI-Native",
+      problem: "הלקוחות כבר שואלים על AI, והצוות לומד תוך כדי פרויקט.",
+      mods: ["Lab", "Flows", "Guide"],
+      outcome: "סדנה מתקדמת ב-Figma Weave וב-Higgsfield, ספריית Workflows משותפת, וליווי בפרויקט הראשון.",
+      first: "סדנה לצוות הקריאייטיב על בריף אמיתי של לקוח." },
+    { id: "public", chip: "רשות או מגזר ציבורי", name: "עיר שמסבירה את עצמה",
+      problem: "יש הנחיה מלמעלה, ויש עובדים שעוד לא יודעים מאיפה להתחיל.",
+      mods: ["Adopt", "Studio", "Spec", "Lab"],
+      outcome: "תוכנית הטמעה, סרטי הסבר לתושבים, אפיון של שירות דיגיטלי, וסדנאות לעובדים.",
+      first: "אבחון קצר עם הנהלה ושני צוותים, ומפת הזדמנויות כתובה." },
+    { id: "edu", chip: "מוסד לימודים", name: "תוכנית AI יצירתי",
+      problem: "הסטודנטים כבר משתמשים ב-AI. התוכנית עוד לא.",
+      mods: ["Academy", "Lab"],
+      outcome: "סילבוס מוכן להפעלה, הכשרת מרצים, וסדנאות לסטודנטים.",
+      first: "פגישה עם רכזי התוכנית ובחירה של קורס אחד לפיילוט." }
+  ];
+
+  var CASES = [
+    { slug: "juganu", client: "Juganu", title: "דשבורד לעיר חכמה",
+      text: "מערכת שמאפשרת לרשויות לראות מה קורה בעיר 24/7, ולשפר בעזרתה את חיי התושבים.",
+      gets: ["מחקר מוצר", "אב-טיפוס", "מחקר UX", "עיצוב UI ו-UX", "Style guide"] },
+    { slug: "tipranks", client: "TipRanks", title: "דף הבית של האתר",
+      text: "להפוך כמות עצומה של דאטה פיננסי לחוויה ידידותית, ממותגת ומובנת במבט אחד.",
+      gets: ["אידיאציה", "Wireframes", "עיצוב קונספט", "מחקר UX", "גישת MVP"] },
+    { slug: "tease", client: "Tease", title: "ערכת השראה ל-UX",
+      text: "להראות את תהליך ה-UX שמאחורי מוצרים גמורים, בצורה ברורה וסוחפת, ללמידה עצמית.",
+      gets: ["אידיאציה", "מחקר UX", "עיצוב", "אנימציה", "HTML5 canvas", "סיפור"] }
+  ];
+
+  var D2 = "https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/";
+  var FILMS = [
+    { title: "ההמבורגר מניו", sub: "ביוגרפיה של אובייקט, פרק 1 · 56 שניות", shape: "v",
+      src: D2 + "b5406eb1-f5bf-492a-8730-864083badada.mp4",
+      preview: D2 + "19b426d0-72b0-4d5b-8ab8-6eab47abf955.mp4",
+      poster: D2 + "a0171652-f00b-4ba8-bb88-2510cc9f6433.jpg" },
+    { title: "מאבסטרקט לאובייקט", sub: "הסרט של האתר הזה · 30 שניות, טייק אחד", shape: "h",
+      src: HF2 + "hf_20261016_180938_5d71d29f-22e3-485e-95d9-b3e4f1e827ba.mp4",
+      preview: null, poster: FR[5] },
+    { title: "הפריים", sub: "ביוגרפיה של אובייקט, פרק 6 · 66 שניות", shape: "s",
+      src: D2 + "a960e971-3998-4480-a93d-76350b26344e.mp4",
+      preview: D2 + "40c0cbd1-fc41-4c84-8863-ca49432f98ac.mp4",
+      poster: D2 + "9a682b61-8caa-4cac-b102-be6a9e86a492.jpg" },
+    { title: "ערכת הכלים", sub: "סרט אתר בטייק אחד · 25 שניות", shape: "h",
+      src: HF2 + "hf_20261016_133904_4d891e10-0a24-4425-9774-ddecfdb03021.mp4",
+      preview: HF2 + "hf_20261016_133904_4d891e10-0a24-4425-9774-ddecfdb03021.mp4",
+      poster: D2 + "5aaab9d4-184b-4e1a-be46-0cbd77ae3393.jpg" },
+    { title: "סימפלה בנייר", sub: "סרט אתר בטייק אחד · 25 שניות", shape: "h",
+      src: HF2 + "hf_20261016_090903_1c9acbc6-5ddc-4157-968c-12e20ea7061d.mp4",
+      preview: HF2 + "hf_20261016_090903_1c9acbc6-5ddc-4157-968c-12e20ea7061d.mp4",
+      poster: D2 + "475904ce-4564-49ec-90aa-14afa3a5f4c8.jpg" }
+  ];
+
+  /* ================= helpers ================= */
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var mobileQ = window.matchMedia("(max-width: 760px)");
+
+  /* ================= theme ================= */
+  document.getElementById("theme").addEventListener("click", function () {
+    var cur = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", cur);
+    store("simpla-object-theme", cur);
+  });
+
+  /* ================= nav state ================= */
+  var nav = document.getElementById("nav");
+  var stage = document.getElementById("film");
+  function navState() {
+    var past = stage.getBoundingClientRect().bottom < 70;
+    nav.classList.toggle("solid", past);
+  }
+
+  /* ================= the film ================= */
+  var media = document.getElementById("media");
+  var chapters = Array.prototype.slice.call(document.querySelectorAll(".chapter"));
+  var cnt = document.getElementById("cnt");
+  var rail = document.getElementById("rail");
+  var CUTS = mobileQ.matches ? CFG.cutsTall : CFG.cutsWide;
+  var N = CUTS.length;
+  var starts = [0].concat(CUTS.slice(0, N - 1));
+  var total = CFG.weights.reduce(function (a, b) { return a + b; }, 0);
+  var bounds = [], acc = 0;
+  CFG.weights.forEach(function (w) { bounds.push([acc / total, (acc + w) / total]); acc += w; });
+
+  var fills = [], railBtns = [];
+  CFG.rail.forEach(function (name, i) {
+    var b = el("button");
+    b.type = "button";
+    b.setAttribute("aria-label", "פרק " + (i + 1) + ", " + name);
+    var bar = el("span", "bar"); var f = el("span", "fill"); bar.appendChild(f);
+    b.appendChild(bar);
+    var lab = el("span"); lab.appendChild(el("span", "num", "0" + (i + 1))); lab.appendChild(document.createTextNode(name));
+    b.appendChild(lab);
+    b.addEventListener("click", function () { goChapter(i); });
+    rail.appendChild(b); fills.push(f); railBtns.push(b);
+  });
+
+  function goChapter(i) {
+    var span = stage.offsetHeight - window.innerHeight;
+    var p = (bounds[i][0] + bounds[i][1]) / 2;
+    if (i === 0) p = 0;
+    window.scrollTo({ top: stage.offsetTop + p * span, behavior: reduce ? "auto" : "smooth" });
+  }
+
+  var video = null, poster = null, staticMode = reduce;
+  var current = -1, target = 0, shown = 0, inView = true, running = false;
+
+  function show(k) {
+    if (k === current) return;
+    current = k;
+    chapters.forEach(function (c, i) { c.classList.toggle("on", i === k); });
+    railBtns.forEach(function (b, i) { b.classList.toggle("on", i === k); });
+    cnt.textContent = "0" + (k + 1);
+  }
+
+  function progress() {
+    var rect = stage.getBoundingClientRect();
+    var span = stage.offsetHeight - window.innerHeight;
+    return span > 0 ? Math.min(1, Math.max(0, -rect.top / span)) : 0;
+  }
+
+  function computeTarget() {
+    var p = progress();
+    var k = N - 1;
+    for (var b = 0; b < N; b++) { if (p < bounds[b][1]) { k = b; break; } }
+    show(k);
+    var local = Math.min(1, Math.max(0, (p - bounds[k][0]) / (bounds[k][1] - bounds[k][0])));
+    for (var r = 0; r < N; r++) {
+      var v = r < k ? 1 : r > k ? 0 : local;
+      fills[r].style.width = (v * 100) + "%";
+    }
+    target = starts[k] + local * (CUTS[k] - starts[k]);
+  }
+
+  function tick() {
+    running = false;
+    if (!video) return;
+    var d = video.duration;
+    if (!d || !isFinite(d)) { loop(); return; }
+    var t = Math.min(target, d - 0.04);
+    shown += (t - shown) * 0.22;
+    if (Math.abs(t - shown) < 0.004) shown = t;
+    if (!video.seeking && Math.abs(video.currentTime - shown) > 0.02) {
+      try { video.currentTime = shown; } catch (e) {}
+    }
+    if (Math.abs(t - shown) > 0.004 || video.seeking) loop();
+  }
+  function loop() { if (!running && inView) { running = true; requestAnimationFrame(tick); } }
+
+  function onScroll() {
+    navState();
+    if (staticMode) return;
+    computeTarget();
+    loop();
+  }
+
+  function buildFilm() {
+    var tall = mobileQ.matches;
+    poster = el("img");
+    poster.alt = "";
+    poster.src = tall ? CFG.film.posterTall : CFG.film.posterWide;
+    poster.setAttribute("fetchpriority", "high");
+    media.appendChild(poster);
+
+    video = document.createElement("video");
+    video.muted = true; video.defaultMuted = true;
+    video.playsInline = true; video.setAttribute("playsinline", ""); video.setAttribute("webkit-playsinline", "");
+    video.preload = "auto";
+    video.src = tall ? CFG.film.tall : CFG.film.wide;
+    media.insertBefore(video, poster);
+
+    var primed = false;
+    function prime() {
+      if (primed) return; primed = true;
+      var pr = video.play();
+      if (pr && pr.then) pr.then(function () { video.pause(); onScroll(); }).catch(function () {});
+      else video.pause();
+    }
+    video.addEventListener("loadeddata", function () {
+      prime();
+      computeTarget(); shown = target;
+      try { video.currentTime = shown; } catch (e) {}
+      video.addEventListener("seeked", function once() {
+        video.removeEventListener("seeked", once);
+        poster.classList.add("gone");
+      });
+      setTimeout(function () { poster.classList.add("gone"); }, 1200);
+    });
+    video.addEventListener("error", function () { goStatic(); });
+    window.addEventListener("touchstart", prime, { passive: true, once: true });
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) { inView = es[0].isIntersecting; if (inView) loop(); }).observe(stage);
+    }
+  }
+
+  function goStatic() {
+    staticMode = true;
+    stage.classList.add("static");
+    stage.style.height = "";
+    chapters.forEach(function (c, i) {
+      if (CFG.frames[i] && !c.querySelector("img")) {
+        var im = el("img"); im.src = CFG.frames[i]; im.alt = ""; im.loading = "lazy";
+        c.appendChild(im);
+      }
+    });
+  }
+
+  function sizeStage() {
+    if (staticMode) return;
+    stage.style.height = (total * (mobileQ.matches ? 88 : 100)) + "vh";
+  }
+
+  if (staticMode) { goStatic(); } else { sizeStage(); buildFilm(); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", function () { sizeStage(); onScroll(); });
+  mobileQ.addEventListener && mobileQ.addEventListener("change", function () { location.reload(); });
+
+  /* ================= seven stills strip ================= */
+  var strip = document.getElementById("strip");
+  CFG.rail.forEach(function (name, i) {
+    var b = el("button", "shot"); b.type = "button";
+    b.setAttribute("aria-label", "לקפוץ לפרק " + (i + 1) + ", " + name);
+    var im = el("img"); im.alt = ""; im.loading = "lazy"; im.decoding = "async";
+    im.src = CFG.frames[i] || "";
+    var cap = el("span"); cap.appendChild(el("b", null, "0" + (i + 1))); cap.appendChild(document.createTextNode(name));
+    b.appendChild(im); b.appendChild(cap);
+    b.addEventListener("click", function () { if (staticMode) { chapters[i].scrollIntoView({ behavior: "smooth" }); } else goChapter(i); });
+    strip.appendChild(b);
+  });
+
+  /* ================= solutions ================= */
+  var sol = document.getElementById("sol");
+  SOLUTIONS.forEach(function (s) {
+    var card = el("article", "sol reveal" + (s.plate ? "" : " plain"));
+    card.id = "sol-" + s.id;
+    if (s.plate && CFG.plates[s.plate]) {
+      var fig = el("figure"); var im = el("img"); im.src = CFG.plates[s.plate]; im.alt = ""; im.loading = "lazy"; im.decoding = "async";
+      fig.appendChild(im); card.appendChild(fig);
+    }
+    var body = el("div", "body");
+    var top = el("div", "top"); top.appendChild(el("span", "tag", s.tag)); top.appendChild(el("span", "idx", s.n));
+    body.appendChild(top);
+    body.appendChild(el("h3", null, s.title));
+    body.appendChild(el("div", "brandname", s.name));
+    body.appendChild(el("p", null, s.text));
+    var ul = el("ul", "pills"); s.gets.forEach(function (g) { ul.appendChild(el("li", null, g)); }); body.appendChild(ul);
+    var more = el("div", "more");
+    var key = "simpla-object-open-" + s.id;
+    var t = el("button", "toggle"); t.type = "button";
+    var pm = el("span", "pm"); var lab = el("span");
+    t.appendChild(pm); t.appendChild(lab);
+    var who = el("p", null, s.who); who.id = "who-" + s.id;
+    t.setAttribute("aria-controls", who.id);
+    function render(open) {
+      more.classList.toggle("open", open);
+      pm.textContent = open ? "-" : "+";
+      lab.textContent = open ? "סגור" : "למי זה מתאים";
+      t.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+    render(store(key) === "1");
+    t.addEventListener("click", function () { var o = !more.classList.contains("open"); render(o); store(key, o ? "1" : "0"); });
+    more.appendChild(t); more.appendChild(who);
+    body.appendChild(more);
+    card.appendChild(body);
+    sol.appendChild(card);
+  });
+
+  /* ================= for whom ================= */
+  var chips = document.getElementById("chips"), panel = document.getElementById("panel");
+  var chipBtns = [];
+  function pick(id) {
+    var a = AUDIENCES.filter(function (x) { return x.id === id; })[0] || AUDIENCES[0];
+    chipBtns.forEach(function (b) { b.setAttribute("aria-selected", b.dataset.id === a.id ? "true" : "false"); b.tabIndex = b.dataset.id === a.id ? 0 : -1; });
+    panel.innerHTML = "";
+    var l = el("div");
+    l.appendChild(el("p", "label", "החבילה"));
+    l.appendChild(el("h3", null, a.name));
+    l.appendChild(el("p", "problem", a.problem));
+    var mail = el("a", "btn btn-coral", "לקבוע שיחה על זה");
+    mail.href = "mailto:studio@simplaux.com?subject=" + encodeURIComponent(a.name);
+    l.appendChild(mail);
+    var r = el("div");
+    r.appendChild(el("h4", null, "המודולים"));
+    var ul = el("ul", "mods"); a.mods.forEach(function (m) { ul.appendChild(el("li", null, "Simpla " + m)); }); r.appendChild(ul);
+    r.appendChild(el("h4", null, "מה יוצא מזה"));
+    r.appendChild(el("p", "outcome", a.outcome));
+    var h = el("h4", null, "הצעד הראשון"); h.style.marginTop = "22px"; r.appendChild(h);
+    r.appendChild(el("p", "outcome", a.first));
+    panel.appendChild(l); panel.appendChild(r);
+    panel.setAttribute("aria-labelledby", "chip-" + a.id);
+    store("simpla-object-for", a.id);
+  }
+  AUDIENCES.forEach(function (a) {
+    var b = el("button", "chip", a.chip); b.type = "button"; b.dataset.id = a.id; b.id = "chip-" + a.id;
+    b.setAttribute("role", "tab");
+    b.addEventListener("click", function () { pick(a.id); });
+    b.addEventListener("keydown", function (e) {
+      var i = chipBtns.indexOf(b), n = null;
+      if (e.key === "ArrowLeft") n = chipBtns[(i + 1) % chipBtns.length];
+      if (e.key === "ArrowRight") n = chipBtns[(i - 1 + chipBtns.length) % chipBtns.length];
+      if (n) { e.preventDefault(); n.focus(); pick(n.dataset.id); }
+    });
+    chips.appendChild(b); chipBtns.push(b);
+  });
+  pick(store("simpla-object-for") || AUDIENCES[0].id);
+
+  /* ================= work ================= */
+  var cases = document.getElementById("cases");
+  CASES.forEach(function (c, i) {
+    var art = el("article", "case reveal");
+    var fig = el("figure");
+    var v = document.createElement("video");
+    v.muted = true; v.loop = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.preload = "none";
+    v.poster = CFG.work + c.slug + "-poster.jpg";
+    v.dataset.src = CFG.work + c.slug + ".mp4";
+    v.setAttribute("aria-label", c.client + ", " + c.title);
+    fig.appendChild(v);
+    var b = el("div");
+    b.appendChild(el("p", "num", "0" + (i + 1)));
+    b.appendChild(el("p", "client", c.client));
+    b.appendChild(el("h3", null, c.title));
+    b.appendChild(el("p", null, c.text));
+    var ul = el("ul", "pills"); c.gets.forEach(function (g) { ul.appendChild(el("li", null, g)); }); b.appendChild(ul);
+    art.appendChild(fig); art.appendChild(b);
+    cases.appendChild(art);
+  });
+
+  /* ================= films ================= */
+  var reel = document.getElementById("reel");
+  var dlg = document.getElementById("dlg"), dlgV = document.getElementById("dlgVideo"), dlgT = document.getElementById("dlgTitle");
+  function openFilm(f) {
+    dlgV.src = f.src; dlgV.muted = false; dlgT.textContent = f.title + " · " + f.sub;
+    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
+    var p = dlgV.play(); if (p && p.catch) p.catch(function () {});
+  }
+  function closeFilm() { dlgV.pause(); dlgV.removeAttribute("src"); dlgV.load(); if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); }
+  document.getElementById("dlgClose").addEventListener("click", closeFilm);
+  dlg.addEventListener("close", function () { dlgV.pause(); });
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) closeFilm(); });
+
+  function buildReel() {
+    FILMS.forEach(function (f) {
+      var b = el("button", "film " + f.shape); b.type = "button";
+      b.setAttribute("aria-label", "לצפות: " + f.title);
+      var fr = el("span", "frame");
+      var im = el("img"); im.src = f.poster; im.alt = ""; im.loading = "lazy"; im.decoding = "async";
+      fr.appendChild(im);
+      if (f.preview) {
+        var pv = document.createElement("video");
+        pv.muted = true; pv.loop = true; pv.playsInline = true; pv.setAttribute("playsinline", ""); pv.preload = "none";
+        pv.dataset.src = f.preview;
+        fr.appendChild(pv);
+      }
+      var pl = el("span", "play");
+      pl.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg>';
+      fr.appendChild(pl);
+      var meta = el("span", "meta"); meta.appendChild(el("b", null, f.title)); meta.appendChild(el("span", null, f.sub));
+      b.appendChild(fr); b.appendChild(meta);
+      b.addEventListener("click", function () { openFilm(f); });
+      reel.appendChild(b);
+    });
+  }
+  buildReel();
+
+  /* ================= lazy media + reveals ================= */
+  if ("IntersectionObserver" in window) {
+    var vio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting) {
+          if (!v.src && v.dataset.src) v.src = v.dataset.src;
+          if (reduce) return;
+          var p = v.play(); if (p && p.then) p.then(function () { v.classList.add("live"); }).catch(function () {});
+        } else if (!v.paused) { v.pause(); }
+      });
+    }, { rootMargin: "200px 0px" });
+    document.querySelectorAll(".case video, .film video").forEach(function (v) { vio.observe(v); });
+
+    var rio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); rio.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    document.querySelectorAll(".reveal").forEach(function (n) { rio.observe(n); });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function (n) { n.classList.add("in"); });
+  }
+
+  var orb = document.getElementById("orb");
+  if (CFG.plates.sphere) orb.src = CFG.plates.sphere;
+
+  navState();
+  if (!staticMode) onScroll();
+})();
+</script>
+</body>
+</html>
