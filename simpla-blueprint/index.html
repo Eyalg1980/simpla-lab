@@ -109,9 +109,19 @@
     display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
     font-family:var(--mono);font-size:12.5px}
 
+  /* mobile: the film keeps the top of the screen to itself, the copy sits below it */
   @media (max-width:860px){
-    .sticky{align-items:flex-end}
-    .card{width:auto;margin:0 14px 86px;padding:18px 18px 20px}
+    .sticky{display:block;align-items:stretch}
+    .media{position:absolute;left:0;right:0;top:0;bottom:auto;height:66svh}
+    .media video{height:100%;object-position:center top}
+    .counter{right:14px;bottom:12px}
+    .card{position:absolute;left:0;right:0;top:66svh;bottom:0;width:auto;margin:0;
+      padding:16px 16px 36px;overflow:auto;background:var(--sheet);
+      backdrop-filter:none;box-shadow:none;
+      border-top:1.5px solid color-mix(in srgb,currentColor 18%,transparent)}
+    .card h2{font-size:25px}
+    .card p{margin-top:.7rem;font-size:.95rem}
+    .card ul{margin-top:12px}
     .strip-inner{grid-template-columns:repeat(3,minmax(0,1fr))}
   }
 </style>
@@ -211,15 +221,16 @@
 <script>
 (function () {
   var CDN = "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/";
+  var SCRUB = "https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/";
   var FILM = {
-    wide: CDN + "hf_20261016_140933_5a651aba-3b3b-40f1-b952-d4a61060b85e.mp4",
-    tall: CDN + "hf_20261016_140932_8d4e62fa-822e-4d07-81ad-d1b76bae4b0c.mp4",
+    wide: SCRUB + "d1595548-0ef3-4a7d-b220-f7b019f52848.mp4",
+    tall: SCRUB + "fdbe0115-3cde-458c-acb6-3bb149b41c7e.mp4",
     poster: CDN + "hf_20261016_133915_89ab7e0b-bc77-43b5-b2fd-dd9158489901.png"
   };
   var WORK_CDN = "https://simpla-clay.higgsfield.app/assets/work/";
 
   var CUTS = [2.6, 7.0, 11.6, 15.8, 19.6, 25.0];
-  var WEIGHTS = [1.1, 1.9, 2.1, 1.9, 1.7, 2.6];
+  var WEIGHTS = [1.8, 3.0, 3.4, 3.0, 2.7, 4.2];
   var LABELS = ["Abstract", "Research", "Wireframes", "Design", "Development", "Live"];
   var CASES = [
     { slug: "juganu", client: "Juganu", title: "Smart City Dashboard",
@@ -263,9 +274,9 @@
     counter.textContent = "0" + (k + 1);
   }
 
-  var ticking = false;
-  function frame() {
-    ticking = false;
+  var targetT = 0, inView = false, running = false, seeking = false, seekAt = 0;
+
+  function measure() {
     var rect = stage.getBoundingClientRect();
     var span = stage.offsetHeight - window.innerHeight;
     var p = span > 0 ? Math.min(1, Math.max(0, -rect.top / span)) : 0;
@@ -278,22 +289,59 @@
 
     var local = (p - bounds[k][0]) / (bounds[k][1] - bounds[k][0]);
     local = Math.min(1, Math.max(0, local));
-    var t = starts[k] + local * (CUTS[k] - starts[k]);
+    targetT = starts[k] + local * (CUTS[k] - starts[k]);
+  }
+
+  // Scrolling forward lets the film PLAY up to the scroll position instead of
+  // seeking to it, so every frame of the transition is actually drawn. Seeking
+  // is kept only for scrolling back and for long jumps, where there is nothing
+  // in between worth watching.
+  function tick() {
+    if (inView) { window.requestAnimationFrame(tick); } else { running = false; }
+
     var d = film.duration;
-    if (d && isFinite(d)) {
-      t = Math.min(t, d - 0.05);
-      if (Math.abs(film.currentTime - t) > 0.03) {
-        try { film.currentTime = t; } catch (e) {}
+    if (!d || !isFinite(d)) return;
+
+    var now = (window.performance && performance.now) ? performance.now() : Date.now();
+    if (seeking && now - seekAt > 600) seeking = false;
+
+    var t = Math.min(Math.max(targetT, 0), d - 0.05);
+    var gap = t - film.currentTime;
+
+    if (gap > 0.04 && gap < 2.2 && !seeking) {
+      film.playbackRate = Math.min(3, 0.6 + gap * 1.8);
+      if (film.paused) {
+        var pr = film.play();
+        if (pr && pr.catch) pr.catch(function () {});
       }
+      return;
+    }
+
+    if (!film.paused) film.pause();
+    if (Math.abs(gap) > 0.04 && !seeking) {
+      seeking = true; seekAt = now;
+      try { film.currentTime = t; } catch (e) { seeking = false; }
     }
   }
-  function onScroll() {
-    if (!ticking) { ticking = true; window.requestAnimationFrame(frame); }
-  }
+  film.addEventListener("seeked", function () { seeking = false; });
+  film.addEventListener("error", function () { seeking = false; });
+
+  function start() { if (!running) { running = true; window.requestAnimationFrame(tick); } }
+  function onScroll() { measure(); start(); }
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
-  film.addEventListener("loadedmetadata", frame);
-  frame();
+  film.addEventListener("loadedmetadata", onScroll);
+
+  if (window.IntersectionObserver) {
+    new IntersectionObserver(function (es) {
+      inView = es[0].isIntersecting;
+      if (inView) start(); else film.pause();
+    }, { rootMargin: "120px" }).observe(stage);
+  } else {
+    inView = true;
+  }
+  inView = true;
+  onScroll();
 
   var strip = document.getElementById("strip");
   for (var s = 0; s < 6; s++) {
