@@ -967,7 +967,7 @@ html[data-edc="eve"] [data-edo="morn"]{display:none}
     <button data-p="marketing"><svg class="ico" viewBox="0 0 24 24"><path d="M3 10.5v3a1 1 0 001 1h3l5 4V5.5l-5 4H4a1 1 0 00-1 1z"/><path d="M17 8.5a5 5 0 010 7M20 6a8.5 8.5 0 010 12"/></svg><span class="nl">עזר למרקטינג</span><span class="ns">שיווק</span></button>
   </nav>
   <div class="rail-foot">
-    <b>גרסת סילבוס</b><br>אוקטובר 2026 · 16.10b<br>
+    <b>גרסת סילבוס</b><br>אוקטובר 2026 · 16.10c<br>
     <span style="opacity:.7">עודכן על ידי אייל גרשון, אסף פינקלשטיין ולירון חונן</span>
     <div class="who"><span>מחובר כ<b id="whoami">מרצה</b></span><button id="logout" type="button">יציאה</button></div>
   </div>
@@ -1024,10 +1024,10 @@ html[data-edc="eve"] [data-edo="morn"]{display:none}
 <div class="ttabs" role="tablist" aria-label="חומרי עזר למרצה לפי מודול">
   <button class="ttab on" type="button" role="tab" id="tb-tp-m1" data-p="tp-m1" aria-selected="true" aria-controls="tp-m1" tabindex="0">מודול 1<small><span data-edo="morn">מפגשים 1-2</span><span data-edo="eve">ערבים 1-3</span></small></button>
   <button class="ttab" type="button" role="tab" id="tb-tp-m2" data-p="tp-m2" aria-selected="false" aria-controls="tp-m2" tabindex="-1">מודול 2<small><span data-edo="morn">מפגשים 3-4</span><span data-edo="eve">ערבים 4-6</span></small></button>
-  <button class="ttab" type="button" role="tab" id="tb-tp-m3" data-p="tp-m3" aria-selected="false" aria-controls="tp-m3" tabindex="-1">מודול 3<small><span data-edo="morn">מפגשים 5-11</span><span data-edo="eve">ערבים 7-16</span></small></button>
-  <button class="ttab" type="button" role="tab" id="tb-tp-m4" data-p="tp-m4" aria-selected="false" aria-controls="tp-m4" tabindex="-1">מודול 4<small><span data-edo="morn">מפגש 12</span><span data-edo="eve">ערבים 17-18</span></small></button>
-  <button class="ttab" type="button" role="tab" id="tb-tp-m5" data-p="tp-m5" aria-selected="false" aria-controls="tp-m5" tabindex="-1">מודול 5<small><span data-edo="morn">מפגשים 13-15</span><span data-edo="eve">ערבים 19-22</span></small></button>
-  <button class="ttab" type="button" role="tab" id="tb-tp-m6" data-p="tp-m6" aria-selected="false" aria-controls="tp-m6" tabindex="-1">מודול 6<small><span data-edo="morn">מפגשים 16-19</span><span data-edo="eve">ערבים 23-28</span></small></button>
+  <button class="ttab" type="button" role="tab" id="tb-tp-m3" data-p="tp-m3" aria-selected="false" aria-controls="tp-m3" tabindex="-1">מודול 3<small><span data-edo="morn">מפגשים 5-11</span><span data-edo="eve">ערבים 7-15</span></small></button>
+  <button class="ttab" type="button" role="tab" id="tb-tp-m4" data-p="tp-m4" aria-selected="false" aria-controls="tp-m4" tabindex="-1">מודול 4<small><span data-edo="morn">מפגש 12</span><span data-edo="eve">ערבים 16-17</span></small></button>
+  <button class="ttab" type="button" role="tab" id="tb-tp-m5" data-p="tp-m5" aria-selected="false" aria-controls="tp-m5" tabindex="-1">מודול 5<small><span data-edo="morn">מפגשים 13-15</span><span data-edo="eve">ערבים 18-21</span></small></button>
+  <button class="ttab" type="button" role="tab" id="tb-tp-m6" data-p="tp-m6" aria-selected="false" aria-controls="tp-m6" tabindex="-1">מודול 6<small><span data-edo="morn">מפגשים 16-19</span><span data-edo="eve">ערבים 22-28</span></small></button>
   <button class="ttab" type="button" role="tab" id="tb-tp-m7" data-p="tp-m7" aria-selected="false" aria-controls="tp-m7" tabindex="-1">מודול 7<small><span data-edo="morn">מפגש 20</span><span data-edo="eve">ערב 29</span></small></button>
   <button class="ttab" type="button" role="tab" id="tb-tp-gen" data-p="tp-gen" aria-selected="false" aria-controls="tp-gen" tabindex="-1">כללי<small>המסלול והקצב</small></button>
 </div>
@@ -5578,7 +5578,21 @@ function applyDeckRole(){
    One source: the morning boards in the lecturer room. Each module's blocks are spread over its evenings
    (split below), durations scaled so the module keeps its share of time, at evening hours with one break.
    Edit the morning, and the evening follows. Do not hand-write evening blocks again. */
-const EVE={split:[3,3,10,2,4,6,1],min:270,start:17*60,breakAfter:120,breakLen:15,map:{},built:false};
+/* 16.10, after Assaf's draft of the 29 lessons: an evening is one topic. Each morning meeting gets whole evenings
+   (per), and is split only at its own block boundaries. Modules come out 3,3,9,2,4,7,1. */
+const EVE={per:{1:1,2:2,3:1,4:2,5:1,6:1,7:1,8:1,9:1,10:2,11:2,12:2,13:2,14:1,15:1,16:1,17:2,18:2,19:2,20:1},
+  split:[],min:270,start:17*60,breakAfter:120,breakLen:15,map:{},built:false,
+  /* what Assaf's draft adds for the evening, keyed meeting.part */
+  notes:{
+   '1.1':'בערב הראשון כל תלמיד פותח ג׳ימייל ייעודי לקורס, ומתקין את שלושת כלי העזר: AI Chat RTL Control, Grammarly ו-WisprFlow.',
+   '2.1':'שווה להריץ את אותו פרומפט ב-ChatGPT, ב-Gemini, ב-Claude וב-Grok, כדי שכל תלמיד יבחר כלי עבודה ראשי.',
+   '4.2':'בערב המסמכים: גם התוסף של ChatGPT ל-Excel ול-Google Sheets, ו-Scribe לתיעוד תהליך במסכים.',
+   '8.1':'רשימת הנושאים של Claude: התווים / ו-@, Projects, Artifacts, משימות מתוזמנות, מחברים, וסקילים: שימוש, יצירה, הורדה ומאגרים. ובסוף, ממה להיזהר.',
+   '9.1':'בערב של 4.5 שעות אין מקום להתקנות בכיתה, ולכן Git מותקן בבית בסוף הערב הקודם, והערב הזה מתחיל מחשבון GitHub והתקנה שכבר קיימים. מי שנתקע, מתקין בהפסקה עם העוזר.',
+   '10.1':'מי שרוצה לעבוד עם Codex או עם כלי אחר, יכול, כל עוד הוא עובד מאותה תיקייה ומאותם מסמכים.',
+   '11.2':'דף הנחיתה ב-Base44 או ב-Lovable הוא תרגיל. מי שבוחר לבנות בהם את כל המוצר, במקום Claude Code, כנראה יצטרך חשבון בתשלום.',
+   '20.1':'כעשר דקות לתלמיד, פלוס מינוס, כדי שכולם יספיקו להציג באותו ערב. אם הכיתה גדולה מ-20, מכינים מראש ערב הצגות שני.'
+  }};
 function eveHH(t){return String(Math.floor(t/60)).padStart(2,'0')+':'+String(t%60).padStart(2,'0');}
 function eveMin(s){const m=String(s||'').match(/(\d{1,2}):(\d{2})/);return m?(+m[1])*60+(+m[2]):null;}
 function eveLbl(a,b){return (a===b)?('ערב '+a):('ערבים '+a+'-'+b);}
@@ -5599,7 +5613,7 @@ function buildEvening(){
   let eno=1; const plan=[];
   ED.morn.mods.forEach((mod,mi)=>{
     const pane=document.getElementById('tp-m'+mod.n); if(!pane) return;
-    const E=EVE.split[mi]||1, first=eno; eno+=E;
+    const first=eno; let E=0;
     const meets=[]; let cur=null, anchor=null;
     [...pane.children].forEach(el=>{
       if(el.tagName==='H2'&&el.classList.contains('sec')){
@@ -5641,22 +5655,27 @@ function buildEvening(){
         if(host) host.cards.push({c,off:ct!=null?Math.max(0,ct-host.t):null});
       });
     });
-    const tot=rows.reduce((a,r)=>a+r.d,0), f=E*EVE.min/tot;
-    /* split the blocks, in order, into E evenings as close to 4.5 hours as possible, then fit each evening exactly */
-    const n=rows.length, w=rows.map(r=>r.d*f), pre=[0]; w.forEach(x=>pre.push(pre[pre.length-1]+x));
-    const cost=(i,j)=>{ const d=pre[j]-pre[i]-EVE.min; return d*d; };
-    const K=Math.min(E,n), best=[...Array(K+1)].map(()=>Array(n+1).fill(Infinity)), cut=[...Array(K+1)].map(()=>Array(n+1).fill(0));
-    best[0][0]=0;
-    for(let k=1;k<=K;k++) for(let j=k;j<=n;j++) for(let i=k-1;i<j;i++){ const c=best[k-1][i]+cost(i,j); if(c<best[k][j]){ best[k][j]=c; cut[k][j]=i; } }
-    const bounds=[]; let j=n; for(let k=K;k>0;k--){ const i=cut[k][j]; bounds.unshift([i,j]); j=i; }
-    bounds.forEach(([i,j],k)=>{
-      const g=rows.slice(i,j), sum=g.reduce((a,r)=>a+r.d*f,0), q=EVE.min/sum; let used=0;
-      g.forEach((r,x)=>{ r.e=k; r.f=f*q; r.sd=(x===g.length-1)?Math.max(5,EVE.min-used):Math.max(5,Math.round(r.d*r.f/5)*5); used+=r.sd; });
-    });
+    /* each meeting gets EVE.per[n] whole evenings, split at its own blocks, as even as possible */
+    let rel=0;
     meets.forEach(mt=>{
-      const es=rows.filter(r=>r.mt===mt).map(r=>r.e);
-      if(es.length) EVE.map[mt.n]=[first+Math.min(...es),first+Math.max(...es)];
+      const g=rows.filter(r=>r.mt===mt); if(!g.length) return;
+      const K=Math.min(EVE.per[mt.n]||1,g.length), n=g.length, pre=[0]; g.forEach(r=>pre.push(pre[pre.length-1]+r.d));
+      const tgt=pre[n]/K, cost=(i,j)=>{ const d=pre[j]-pre[i]-tgt; return d*d; };
+      const best=[...Array(K+1)].map(()=>Array(n+1).fill(Infinity)), cut=[...Array(K+1)].map(()=>Array(n+1).fill(0));
+      best[0][0]=0;
+      for(let k=1;k<=K;k++) for(let j=k;j<=n;j++) for(let i=k-1;i<j;i++){ const c=best[k-1][i]+cost(i,j); if(c<best[k][j]){ best[k][j]=c; cut[k][j]=i; } }
+      const bounds=[]; let j=n; for(let k=K;k>0;k--){ const i=cut[k][j]; bounds.unshift([i,j]); j=i; }
+      bounds.forEach(([i,j],k)=>{ g.slice(i,j).forEach(r=>{ r.e=rel+k; }); });
+      EVE.map[mt.n]=[first+rel,first+rel+K-1]; rel+=K;
     });
+    E=rel; eno+=E; EVE.split[mi]=E;
+    /* fit every evening to exactly 4.5 hours of teaching */
+    for(let k=0;k<E;k++){
+      const g=rows.filter(r=>r.e===k), sum=g.reduce((a,r)=>a+r.d,0); if(!sum) continue;
+      const q=EVE.min/sum; let used=0;
+      g.forEach((r,x)=>{ r.f=q; r.sd=(x===g.length-1)?Math.max(5,EVE.min-used):Math.max(5,Math.round(r.d*q/5)*5); used+=r.sd; });
+    }
+    const f=1;
     plan.push({mod,pane,E,first,meets,rows,f,anchor});
   });
   /* render, now that every meeting has its evenings */
@@ -5672,8 +5691,11 @@ function buildEvening(){
       const lead=document.createElement('p'); lead.className='lead'; lead.style.marginBottom='14px';
       lead.innerHTML='<b>מקביל לבוקר:</b> '+ms.map(mt=>{ const x=rs.filter(r=>r.mt===mt); const a=x[0], z=x[x.length-1];
         return 'מפגש '+mt.n+', '+eveHH(a.t)+' עד '+eveHH(z.t+z.d); }).join(' · ')+
-        '. נבנה אוטומטית מסדר ההנחיה של הבוקר, באותם בלוקים ומצגונים, והדקות הותאמו לערב של 4.5 שעות.';
+        '. נבנה אוטומטית מסדר ההנחיה של הבוקר, באותם בלוקים ומצגונים. '+(function(){ const q=rs[0].f; const pc=Math.round(Math.abs(q-1)*100);
+          return pc<5?'הזמנים כמעט כמו בבוקר.':(q<1?'הבלוקים מתקצרים בכ-'+pc+' אחוז, באותו סדר.':'הבלוקים מתארכים בכ-'+pc+' אחוז, והזמן הנוסף הולך לתרגול.'); })();
       frag.appendChild(lead);
+      ms.forEach(mt=>{ const key=mt.n+'.'+(no-EVE.map[mt.n][0]+1), nt=EVE.notes[key];
+        if(nt){ const c=document.createElement('div'); c.className='callout calm-note'; c.style.margin='0 0 14px'; c.innerHTML='<b>לערב, מהמערך של אסף:</b> '+nt; frag.appendChild(c); } });
       ms.forEach(mt=>{ if(mt.lead&&EVE.map[mt.n][0]===no){ const c=eveStrip(mt.lead.cloneNode(true)); c.classList.add('eve-goal');
         /* the morning date and the morning breaks do not hold in the evening */
         c.innerHTML=c.innerHTML.replace(/^\s*\d{1,2}\.\d{1,2}(?:\.\d{2,4})?(?:,\s*[^.]{0,20})?\.\s*/,'')
