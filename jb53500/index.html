@@ -681,6 +681,7 @@ td b{color:var(--ink)}
 /* ---------- EVENING EDITION, generated (align phase 7) ---------- */
 .eve-src{display:block;margin-top:4px;font-size:11px;font-weight:600;color:var(--ink-3)}
 .eve-brk td{background:var(--cream)!important;color:var(--ink-3)}
+.eve-ws td{border-top:1.5px dashed var(--line)!important}
 .eve-end{margin:8px 0 16px}
 /* ---------- COUNT BADGE (family rule, 7.10.2026): red pill after the label ---------- */
 .cnt{display:inline-flex;align-items:center;justify-content:center;min-width:19px;height:19px;padding:0 6px;margin-inline-start:7px;
@@ -5672,6 +5673,9 @@ function buildEvening(){
     /* fit every evening to exactly 4.5 hours of teaching */
     for(let k=0;k<E;k++){
       const g=rows.filter(r=>r.e===k), sum=g.reduce((a,r)=>a+r.d,0); if(!sum) continue;
+      /* a short evening keeps the morning minutes and gets a project workshop at the end (16.10c);
+         a long one is compressed to fit */
+      if(sum<=EVE.min){ g.forEach(r=>{ r.f=1; r.sd=r.d; }); continue; }
       const q=EVE.min/sum; let used=0;
       g.forEach((r,x)=>{ r.f=q; r.sd=(x===g.length-1)?Math.max(5,EVE.min-used):Math.max(5,Math.round(r.d*q/5)*5); used+=r.sd; });
     }
@@ -5691,8 +5695,9 @@ function buildEvening(){
       const lead=document.createElement('p'); lead.className='lead'; lead.style.marginBottom='14px';
       lead.innerHTML='<b>מקביל לבוקר:</b> '+ms.map(mt=>{ const x=rs.filter(r=>r.mt===mt); const a=x[0], z=x[x.length-1];
         return 'מפגש '+mt.n+', '+eveHH(a.t)+' עד '+eveHH(z.t+z.d); }).join(' · ')+
-        '. נבנה אוטומטית מסדר ההנחיה של הבוקר, באותם בלוקים ומצגונים. '+(function(){ const q=rs[0].f; const pc=Math.round(Math.abs(q-1)*100);
-          return pc<5?'הזמנים כמעט כמו בבוקר.':(q<1?'הבלוקים מתקצרים בכ-'+pc+' אחוז, באותו סדר.':'הבלוקים מתארכים בכ-'+pc+' אחוז, והזמן הנוסף הולך לתרגול.'); })();
+        '. נבנה אוטומטית מסדר ההנחיה של הבוקר, באותם בלוקים ומצגונים. '+(function(){ const q=rs[0].f, pc=Math.round((1-q)*100), slack=EVE.min-rs.reduce((a,r)=>a+r.sd,0);
+          return q<1?(pc<5?'הזמנים כמעט כמו בבוקר.':'הבלוקים מתקצרים בכ-'+pc+' אחוז, באותו סדר.'):
+            (slack>=10?'הבלוקים באורך של הבוקר, ו-'+slack+' הדקות האחרונות הן סדנת פרויקט.':'הבלוקים באורך של הבוקר.'); })();
       frag.appendChild(lead);
       ms.forEach(mt=>{ const key=mt.n+'.'+(no-EVE.map[mt.n][0]+1), nt=EVE.notes[key];
         if(nt){ const c=document.createElement('div'); c.className='callout calm-note'; c.style.margin='0 0 14px'; c.innerHTML='<b>לערב, מהמערך של אסף:</b> '+nt; frag.appendChild(c); } });
@@ -5704,12 +5709,18 @@ function buildEvening(){
       const tb=document.createElement('table'); tb.className='eve-tb';
       if(ms[0].head) tb.appendChild(ms[0].head.cloneNode(true));
       let t=EVE.start, brk=false; const cards=[];
-      rs.forEach((r,i)=>{
+      const slack=EVE.min-rs.reduce((a,r)=>a+r.sd,0), items=rs.slice();
+      if(slack>=10) items.push({ws:true,sd:slack});
+      items.forEach((r,i)=>{
         if(!brk&&i>0&&t-EVE.start>=EVE.breakAfter){
           const b=document.createElement('tr'); b.className='eve-brk';
           b.innerHTML='<td><b style="font-family:Poppins">'+eveHH(t)+'</b></td><td>'+EVE.breakLen+'</td><td><b>הפסקה</b></td><td></td>';
           tb.appendChild(b); t+=EVE.breakLen; brk=true;
         }
+        if(r.ws){ const w=document.createElement('tr'); w.className='eve-ws';
+          w.innerHTML='<td><b style="font-family:Poppins">'+eveHH(t)+'</b></td><td>'+r.sd+'</td><td><b>סדנת הפרויקט המתגלגל</b><span class="eve-src">בערב בלבד</span></td>'+
+            '<td>כל תלמיד ממשיך בפרויקט שלו את הצעד של הערב, והמרצה עובר בין העמדות. מי שסיים, מציג לשכן ומקבל הערה אחת. מה שלא נגמר, נגמר בבית.</td>';
+          tb.appendChild(w); t+=r.sd; return; }
         const tr=eveStrip(r.tr.cloneNode(true));
         tr.cells[0].innerHTML='<b style="font-family:Poppins">'+eveHH(t)+'</b>';
         tr.cells[1].textContent=r.sd;
