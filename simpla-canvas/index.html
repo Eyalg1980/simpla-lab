@@ -163,23 +163,109 @@
     display:flex;align-items:center;gap:8px;transition:opacity .4s ease}
   .scroll-hint svg{width:18px;height:18px;stroke:var(--coral)}
 
-  /* vertical mode (phones, tablets, reduced motion) */
+  /* works attached to a node: thumbnails that open the viewer */
+  .wthumbs{display:flex;gap:8px;margin-top:10px}
+  .wthumb{all:unset;cursor:pointer;position:relative;flex:0 0 auto;width:76px;aspect-ratio:16/9;border-radius:7px;overflow:hidden;background:#0B0E1A;
+    box-shadow:0 0 0 1.5px var(--line)}
+  .wthumb img{width:100%;height:100%;object-fit:cover}
+  .wthumb::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.55))}
+  .wthumb svg{position:absolute;z-index:1;bottom:4px;left:5px;width:12px;height:12px;color:#fff}
+  .wthumb:hover,.wthumb:focus-visible{box-shadow:0 0 0 2px var(--coral)}
+  .props .wthumbs{flex-wrap:wrap}
+  .props .wthumb{width:92px}
+  .node .wthumbs,.node .more,.node .det{display:none}
+
+  /* phones, tablets and reduced motion: the canvas becomes a row you swipe through */
+  .chead,.cbar{display:none}
   .stage.vertical .sticky{position:relative;height:auto;overflow:visible}
+  .stage.vertical .chead{display:block;max-width:var(--max);margin:0 auto;padding:0 var(--gut) 14px}
+  .chead p{margin:0;font-size:15px;color:var(--muted)}
   .stage.vertical .viewport{position:relative;top:0}
   .stage.vertical .world{position:relative;transform:none !important;width:auto !important;height:auto !important;
-    max-width:560px;margin:0 auto;padding:10px var(--gut) 40px;display:flex;flex-direction:column;gap:34px}
+    display:flex;align-items:flex-start;gap:30px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
+    padding:6px calc(50% - min(42vw,180px)) 14px;scrollbar-width:none}
+  .stage.vertical .world::-webkit-scrollbar{display:none}
   .stage.vertical .wires,.stage.vertical .props,.stage.vertical .minimap,.stage.vertical .chrome,.stage.vertical .scroll-hint{display:none}
-  .stage.vertical .node{position:relative;left:auto !important;top:auto !important;width:auto}
-  .stage.vertical .node .more{display:block;padding:0 14px 16px}
-  .stage.vertical .node .more p{margin:0 0 10px;font-size:15px;color:var(--muted)}
-  .stage.vertical .node .more .who{color:var(--text);font-size:14.5px}
+  .stage.vertical .node{position:relative;left:auto !important;top:auto !important;flex:0 0 min(84vw,360px);width:auto;scroll-snap-align:center}
   .stage.vertical .node .port{display:none}
-  .stage.vertical .node::after{content:"";position:absolute;right:30px;top:100%;height:34px;width:2px;background:var(--wire)}
+  .stage.vertical .node::after{content:"";position:absolute;top:120px;left:-30px;width:30px;height:2px;
+    background:repeating-linear-gradient(to left,var(--wire) 0 6px,transparent 6px 11px)}
   .stage.vertical .node.lit::after{background:var(--coral)}
   .stage.vertical .node:last-child::after{display:none}
+  .stage.vertical .node.active{border-color:var(--coral)}
+  .stage.vertical .node .wthumbs{display:flex;padding:0 14px}
+  .stage.vertical .node .det{display:inline-flex}
+  .stage.vertical .node.open .more{display:block;padding:12px 14px 4px}
+  .stage.vertical .node .more p{margin:0 0 10px;font-size:15px;color:var(--muted)}
+  .stage.vertical .node .more .who{color:var(--text);font-size:14.5px}
+  .det{all:unset;cursor:pointer;align-items:center;gap:6px;margin:12px 14px 14px;font-size:14px;font-weight:500;
+    text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--coral)}
+  .det .pm{font-family:var(--en);width:1em}
+  .stage.vertical .cbar{display:flex;align-items:center;justify-content:center;gap:12px;padding:4px var(--gut) 30px}
+  .cbar .icon-btn{flex:0 0 auto}
+  .cbar .icon-btn:disabled{opacity:.35;cursor:default}
+  .dots{display:flex;align-items:center;gap:6px}
+  .dots button{all:unset;cursor:pointer;width:8px;height:8px;border-radius:50%;background:var(--wire);transition:width .2s ease,background .2s ease}
+  .dots button.r{background:var(--yellow);box-shadow:0 0 0 1px color-mix(in srgb,var(--navy) 30%,transparent)}
+  .dots button.on{width:22px;border-radius:999px;background:var(--coral)}
+  .cbar .ct{font-family:var(--mono);font-size:12px;color:var(--muted);min-width:44px;text-align:center;direction:ltr}
   .addmini{all:unset;cursor:pointer;margin-top:8px;font-size:14px;font-weight:500;text-decoration:underline;text-underline-offset:4px;
     text-decoration-color:var(--coral);display:inline-flex;gap:6px}
   .addmini .pm{font-family:var(--en);width:1em}
+
+  /* outputs: every piece of work, as output nodes */
+  .wf{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+  .wf .chip{display:inline-flex;align-items:center;gap:8px}
+  .wgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 18px;align-items:start}
+  .wcard{all:unset;cursor:pointer;display:flex;flex-direction:column;min-width:0;background:var(--node);border-radius:14px;
+    box-shadow:var(--shadow);border:1.5px solid transparent;transition:border-color .2s ease,transform .2s ease;-webkit-tap-highlight-color:transparent}
+  .wcard:hover{border-color:var(--coral);transform:translateY(-2px)}
+  .wcard:focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+  .wcard[hidden]{display:none}
+  .wcard .hd{display:flex;align-items:center;gap:8px;padding:10px 14px 8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--muted)}
+  .wcard .hd svg{width:14px;height:14px;flex:0 0 auto}
+  .wcard .hd .len{margin-inline-start:auto;color:var(--text)}
+  .wcard .th{position:relative;display:block;margin:0 10px;aspect-ratio:16/9;border-radius:9px;overflow:hidden;background:#0B0E1A}
+  .wcard .th img,.wcard .th video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .wcard .th img.blur{filter:blur(16px) brightness(.5);transform:scale(1.2)}
+  .wcard .th .fit{object-fit:contain}
+  .wcard .th video{opacity:0;transition:opacity .35s ease}
+  .wcard .th video.live{opacity:1}
+  .wcard .play{position:absolute;bottom:9px;inset-inline-start:9px;width:40px;height:40px;border-radius:50%;background:var(--coral);color:#fff;
+    display:grid;place-items:center;transition:transform .2s ease}
+  .wcard .play svg{width:15px;height:15px;margin-inline-start:-2px}
+  .wcard:hover .play{transform:scale(1.1)}
+  .wcard .bd{display:block;padding:11px 14px 15px}
+  .wcard .tt{display:block;font-size:17px;font-weight:700;line-height:1.3}
+  .wcard .ss{display:block;margin-top:3px;font-size:14px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .wcard .cl{font-family:var(--en);font-weight:600;color:var(--coral);margin-inline-end:6px}
+  .wcard.feat{grid-column:span 2;grid-row:span 2;align-self:stretch}
+  .wcard.feat .th{flex:1 1 auto;aspect-ratio:auto;min-height:260px}
+  .wcard.feat .tt{font-size:clamp(20px,2vw,25px)}
+  .wcard.feat .ss{white-space:normal;font-size:15px}
+  .wcard.feat .play{width:52px;height:52px}
+
+  /* viewer */
+  html.lock{overflow:hidden}
+  .viewer{border:0;padding:0;margin:0;width:100%;max-width:100%;height:100%;max-height:100%;color:var(--text);overflow:auto;overscroll-behavior:contain;
+    background-color:var(--bg);background-image:radial-gradient(var(--dot) 1.1px,transparent 1.1px);background-size:22px 22px}
+  .viewer::backdrop{background:rgba(13,16,32,.6)}
+  .v-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px var(--gut);
+    background:color-mix(in srgb,var(--node) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .v-count{font-family:var(--mono);font-size:12.5px;color:var(--muted);padding:4px 10px;border-radius:6px;background:var(--node-2);direction:ltr}
+  .v-body{display:grid;grid-template-columns:minmax(280px,360px) minmax(0,1fr);grid-template-areas:"info media";gap:clamp(20px,3vw,40px);
+    align-items:center;padding:24px var(--gut) 28px;min-height:calc(100% - 58px);max-width:1500px;margin:0 auto}
+  .v-media{grid-area:media;display:grid;place-items:center;min-width:0;background:var(--node);border-radius:16px;box-shadow:var(--shadow);padding:10px}
+  .v-media video{max-width:100%;max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);border-radius:10px;background:#000}
+  .v-info{grid-area:info;min-width:0;background:var(--panel);border-radius:16px;box-shadow:var(--shadow);padding:20px 22px}
+  .v-kind{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--coral)}
+  .v-info h3{margin:10px 0 0;font-size:clamp(24px,2.4vw,32px);font-weight:700;line-height:1.15}
+  .v-sub{margin:4px 0 0;color:var(--muted);font-size:14.5px}
+  .v-text{margin:14px 0 0;font-size:16px;line-height:1.65}
+  .v-info h4{margin:16px 0 8px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;color:var(--coral)}
+  .v-nav{display:flex;gap:10px;margin-top:22px}
+  .v-nav .btn{padding:10px 18px}
+  .v-nav .btn:disabled{opacity:.4;cursor:default}
 
   /* ---------- sections ---------- */
   .sec{padding:clamp(80px,10vw,130px) 0;border-top:1px solid var(--line)}
@@ -287,10 +373,42 @@
     .summary{position:relative;top:0}
     .teach{grid-template-columns:1fr 1fr}
     .about,.contact{grid-template-columns:1fr}
+    .wgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .wcard.feat{grid-row:auto}
+    .wcard.feat .th{aspect-ratio:16/9;min-height:0;flex:none}
   }
   @media (max-width:640px){
     .picks,.stats,.teach,.tpl .out{grid-template-columns:1fr}
     .tl li{grid-template-columns:90px 1fr}
+    .hero{padding:96px 0 34px}
+    .ask{margin:28px 0 12px}
+    .inputs{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+    .in-node{padding:10px 10px 12px;border-radius:12px}
+    .in-node .t{font-size:10px;gap:5px}
+    .in-node b{font-size:14.5px;line-height:1.3;margin-top:6px}
+    .in-node span.d,.in-node .port{display:none}
+    .wgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 10px}
+    .wcard .hd{padding:8px 10px 6px;font-size:10px}
+    .wcard .hd .kd{display:none}
+    .wcard .th{margin:0 7px}
+    .wcard .bd{padding:9px 10px 12px}
+    .wcard .tt{font-size:14.5px}
+    .wcard .ss{font-size:12.5px}
+    .wcard .play{width:32px;height:32px;bottom:6px;inset-inline-start:6px}
+    .wcard .play svg{width:13px;height:13px}
+    .wcard.feat .hd .kd{display:inline}
+    .wcard.feat .play{width:44px;height:44px}
+    .wcard.feat .tt{font-size:19px}
+    .wf{flex-wrap:nowrap;overflow-x:auto;margin-inline:calc(var(--gut) * -1);padding:2px var(--gut) 6px;scrollbar-width:none}
+    .wf .chip{flex:0 0 auto}
+  }
+  @media (max-width:860px){
+    .v-body{grid-template-columns:minmax(0,1fr);grid-template-areas:"media" "info";align-items:start;min-height:0;gap:14px;padding-top:14px}
+    .v-media{padding:6px;border-radius:12px}
+    .v-media video{max-height:56vh;max-height:56dvh}
+    .v-nav{position:sticky;bottom:0;margin:18px -22px -20px;padding:12px 22px calc(12px + env(safe-area-inset-bottom));
+      background:var(--panel);border-radius:0 0 16px 16px}
+    .v-nav .btn{flex:1;justify-content:center}
   }
   @media (prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none}
@@ -306,6 +424,7 @@
   <span class="file mono">simpla / object-track.flow</span>
   <nav class="links" aria-label="ניווט ראשי">
     <a href="#canvas">הקנבס</a>
+    <a href="#outputs">עבודות</a>
     <a href="#build">בנו מסלול</a>
     <a href="#workflows">Workflows</a>
     <a href="#for">תבניות</a>
@@ -336,6 +455,10 @@
   <!-- ===== the canvas ===== -->
   <section class="stage" id="canvas" aria-label="הקנבס: המסלול המלא, צומת אחרי צומת">
     <div class="sticky" id="sticky">
+      <div class="chead">
+        <p class="label mono">OBJECT TRACK · 9 NODES</p>
+        <p>החליקו בין הצמתים. הווידאו בכל צומת זז איתכם, ומתחתיו העבודות שיצאו ממנו.</p>
+      </div>
       <div class="viewport" id="viewport">
         <div class="world" id="world">
           <svg class="wires" id="wires" aria-hidden="true"></svg>
@@ -344,7 +467,26 @@
       <div class="chrome tl" aria-hidden="true"><span class="chip-ui" id="zoom">100%</span><span class="chip-ui" id="step">1 / 9</span></div>
       <aside class="props" id="props" aria-live="polite"></aside>
       <div class="minimap" id="minimap" aria-hidden="true"></div>
+      <div class="cbar" id="cbar">
+        <button class="icon-btn" id="cPrev" type="button" aria-label="הצומת הקודם"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+        <div class="dots" id="dots" role="group" aria-label="צמתים"></div>
+        <span class="ct" id="cCount">1 / 9</span>
+        <button class="icon-btn" id="cNext" type="button" aria-label="הצומת הבא"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+      </div>
       <div class="scroll-hint" id="hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="6"/><path d="M12 7v3"/></svg>גללו כדי לעבור בין הצמתים</div>
+    </div>
+  </section>
+
+  <!-- ===== outputs: every piece of work ===== -->
+  <section class="sec" id="outputs">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label mono">OUTPUTS</p>
+        <h2 class="h2">מה <b>יצא</b> מהצמתים</h2>
+        <p class="lede">סרטים, מוצרים וסרטי אתר. סננו לפי צומת, ולחצו על עבודה כדי לצפות בה במסך מלא ולעבור לבאה.</p>
+      </div>
+      <div class="wf" id="wf" role="group" aria-label="סינון לפי צומת"></div>
+      <div class="wgrid" id="wgrid"></div>
     </div>
   </section>
 
@@ -470,10 +612,34 @@
   <footer>
     <div class="wrap">
       <span>Simpla · סטודיו ל-UX ו-AI · תל אביב</span>
-      <span>כל וידאו בצמתים נגלל איתכם. <span class="en">v1.1 · 17.10.2026</span></span>
+      <span>כל וידאו בצמתים נגלל איתכם. <span class="en">v1.2 · 17.10.2026</span></span>
     </div>
   </footer>
 </main>
+
+<dialog id="viewer" class="viewer" aria-labelledby="vTitle">
+  <div class="v-top">
+    <span class="v-count" id="vCount"></span>
+    <button class="icon-btn" id="vClose" type="button" aria-label="סגירה">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="v-body">
+    <div class="v-media"><video id="vVideo" controls playsinline preload="metadata"></video></div>
+    <div class="v-info">
+      <p class="v-kind" id="vKind"></p>
+      <h3 id="vTitle"></h3>
+      <p class="v-sub" id="vSub"></p>
+      <p class="v-text" id="vText"></p>
+      <h4>WHAT WE DID</h4>
+      <ul class="pills" id="vGets"></ul>
+      <div class="v-nav">
+        <button class="btn btn-dash" id="vPrev" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>הקודם</button>
+        <button class="btn btn-coral" id="vNext" type="button">הבא<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</dialog>
 
 <script>
 (function () {
@@ -498,7 +664,9 @@
     flow: '<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 6h7M6 8.5v3a4 4 0 0 0 4 4h5.5"/>',
     out: '<path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/>',
     check: '<path d="m5 12 4.5 4.5L19 7"/>',
-    code: '<path d="m9 8-4 4 4 4M15 8l4 4-4 4"/>'
+    code: '<path d="m9 8-4 4 4 4M15 8l4 4-4 4"/>',
+    play: '<path d="M8 5.5v13l10-6.5z"/>',
+    prod: '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>'
   };
   function svgIcon(name, cls) { return '<svg class="' + (cls || "") + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICON[name] + "</svg>"; }
 
@@ -597,8 +765,81 @@
       ] }
   ];
 
+  var HF2 = "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/";
+  // every piece of work, and the canvas nodes it came out of
+  var WORKS = [
+    { id: "savior", nodes: ["studio"], kind: "FILM", title: "תסמונת המושיע", sub: "סרט לפסטיבל הסרטים של Higgsfield", len: "3:16",
+      src: HF + "5056b375-f0d0-446e-bed9-bbfa21314504.mp4", preview: HF + "2e34e853-6cd5-4ddd-bd03-74b3b0c5e87e.mp4",
+      poster: HF + "4d8b91e4-2d4a-4c3d-8f73-15b6a5d7215a.jpg",
+      text: "סרט קצר על הצורך להיות זה שמציל את כולם. נכתב, בוים ונערך אצלנו לפסטיבל הסרטים של Higgsfield.",
+      gets: ["תסריט", "בימוי", "עקביות דמויות", "עריכה וסאונד"] },
+    { id: "tipranks", nodes: ["spec"], kind: "PRODUCT", client: "TipRanks", title: "דף הבית של האתר", loop: true,
+      src: WORK + "tipranks.mp4", preview: WORK + "tipranks.mp4", poster: WORK + "tipranks-poster.jpg",
+      text: "להפוך כמות עצומה של דאטה פיננסי לחוויה ידידותית, ממותגת ומובנת במבט אחד.",
+      gets: ["אידיאציה", "Wireframes", "עיצוב קונספט", "מחקר UX", "גישת MVP"] },
+    { id: "juganu", nodes: ["spec", "adopt"], kind: "PRODUCT", client: "Juganu", title: "דשבורד לעיר חכמה", loop: true,
+      src: WORK + "juganu.mp4", preview: WORK + "juganu.mp4", poster: WORK + "juganu-poster.jpg",
+      text: "מערכת שמאפשרת לרשויות לראות מה קורה בעיר 24/7, ולשפר בעזרתה את חיי התושבים.",
+      gets: ["מחקר מוצר", "אב-טיפוס", "מחקר UX", "עיצוב UI ו-UX", "Style guide"] },
+    { id: "whofor", nodes: ["studio", "flows"], kind: "FILM", title: "בשביל מי זה", sub: "אנתולוגיה מהמנוע היומי", len: "2:53",
+      src: HF + "b1b4150d-d826-4789-bd3c-c12357b868f2.mp4", preview: HF + "ffc80726-b6ff-49fd-bee3-e333874b144c.mp4",
+      poster: HF + "31744d12-2f0e-4477-84ac-1a44bbde17f2.jpg",
+      text: "עולמות של חימר וניאון שנולדו במנוע הסרטים היומי שלנו, ונערכו לסרט אחד.",
+      gets: ["מנוע יומי", "Workflows", "עולם ודמויות", "עריכה"] },
+    { id: "burger", nodes: ["studio"], kind: "SERIES", title: "ההמבורגר מניו", sub: "ביוגרפיה של אובייקט, פרק 1", len: "0:56", shape: "v",
+      src: HF + "b5406eb1-f5bf-492a-8730-864083badada.mp4", preview: HF + "19b426d0-72b0-4d5b-8ab8-6eab47abf955.mp4",
+      poster: HF + "a0171652-f00b-4ba8-bb88-2510cc9f6433.jpg",
+      text: "הפרק הראשון בסדרה שמספרת את הביוגרפיה של חפצים יומיומיים. אנכי, לרשתות.",
+      gets: ["סדרה", "פורמט אנכי", "עולם ויזואלי"] },
+    { id: "tease", nodes: ["spec"], kind: "PRODUCT", client: "Tease", title: "ערכת השראה ל-UX", loop: true,
+      src: WORK + "tease.mp4", preview: WORK + "tease.mp4", poster: WORK + "tease-poster.jpg",
+      text: "להראות את תהליך ה-UX שמאחורי מוצרים גמורים, בצורה ברורה וסוחפת, ללמידה עצמית.",
+      gets: ["אידיאציה", "מחקר UX", "עיצוב", "אנימציה", "HTML5 canvas", "סיפור"] },
+    { id: "future", nodes: ["studio", "lab"], kind: "FILM", title: "העתיד של ללמוד", sub: "סרט קצר", len: "1:00",
+      src: HF + "d5cef077-7d70-4f33-8af3-3c0e441e24b8.mp4", preview: HF + "90a8dfc7-731f-4d15-947c-ee2d6da4e0af.mp4",
+      poster: HF + "5a33bc46-4b7d-4f72-b3c2-7e5fa7d47c0f.jpg",
+      text: "סרט קצר על כיתה שבה הידע נהיה משהו שאפשר להחזיק ביד.",
+      gets: ["תסריט", "בימוי", "הפקה ב-AI"] },
+    { id: "frame", nodes: ["studio"], kind: "SERIES", title: "הפריים", sub: "ביוגרפיה של אובייקט, פרק 6", len: "1:06", shape: "s",
+      src: HF + "a960e971-3998-4480-a93d-76350b26344e.mp4", preview: HF + "40c0cbd1-fc41-4c84-8863-ca49432f98ac.mp4",
+      poster: HF + "9a682b61-8caa-4cac-b102-be6a9e86a492.jpg",
+      text: "פרק נוסף בסדרת הביוגרפיות של חפצים. ריבועי, לפיד.",
+      gets: ["סדרה", "פורמט ריבועי", "סאונד"] },
+    { id: "abstract", nodes: ["flows"], kind: "SITE FILM", title: "מאבסטרקט לאובייקט", sub: "סרט אתר בטייק אחד", len: "0:30",
+      src: HF2 + "hf_20261016_180938_5d71d29f-22e3-485e-95d9-b3e4f1e827ba.mp4", preview: HF + "518c25f6-7b80-4483-93bb-0e43f2fc0154.mp4",
+      poster: FR[6],
+      text: "שלושים שניות של חימר בטייק אחד, מגוש גולמי ועד כדור מלוטש. באתר עצמו הגלילה מריצה אותו.",
+      gets: ["טייק אחד", "פריימי מפתח", "וידאו לגלילה"] },
+    { id: "toolkit", nodes: ["flows"], kind: "SITE FILM", title: "ערכת הכלים", sub: "סרט אתר בטייק אחד", len: "0:25",
+      src: HF2 + "hf_20261016_133904_4d891e10-0a24-4425-9774-ddecfdb03021.mp4", preview: HF + "37cb15dc-34a7-416a-bd5d-6f2939979813.mp4",
+      poster: HF + "5aaab9d4-184b-4e1a-be46-0cbd77ae3393.jpg",
+      text: "סרט אתר בטייק אחד, שנבנה כדי שהגלילה תריץ אותו.",
+      gets: ["טייק אחד", "וידאו לגלילה"] },
+    { id: "paper", nodes: ["flows"], kind: "SITE FILM", title: "סימפלה בנייר", sub: "סרט אתר בטייק אחד", len: "0:25",
+      src: HF2 + "hf_20261016_090903_1c9acbc6-5ddc-4157-968c-12e20ea7061d.mp4", preview: HF + "f70d21ea-3855-415e-8181-e60e50009c17.mp4",
+      poster: HF + "475904ce-4564-49ec-90aa-14afa3a5f4c8.jpg",
+      text: "סרט אתר בטייק אחד, בעולם של נייר.",
+      gets: ["טייק אחד", "וידאו לגלילה"] }
+  ];
+  var WBY = {};
+  WORKS.forEach(function (w) { WBY[w.id] = w; });
+  function worksOf(node) { return WORKS.filter(function (w) { return w.nodes.indexOf(node) >= 0; }).map(function (w) { return w.id; }); }
+  var NODE_LABEL = { studio: "סרטים", spec: "אפיון", flows: "תהליכים", lab: "הדרכה", adopt: "הטמעה" };
+
   function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
   function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  function thumbs(ids) {
+    var box = el("div", "wthumbs");
+    ids.slice(0, 4).forEach(function (id) {
+      var w = WBY[id], b = el("button", "wthumb"); b.type = "button";
+      b.setAttribute("aria-label", "לצפות: " + (w.client ? w.client + ", " : "") + w.title);
+      var im = el("img"); im.src = w.poster; im.alt = ""; im.loading = "lazy"; b.appendChild(im);
+      b.insertAdjacentHTML("beforeend", svgIcon("play"));
+      b.addEventListener("click", function (e) { e.stopPropagation(); openWork(id, ids); });
+      box.appendChild(b);
+    });
+    return box;
+  }
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var deskQ = window.matchMedia("(min-width: 1024px)");
 
@@ -627,6 +868,7 @@
       inputId = inp.id; store("simpla-canvas-input", inp.id);
       setRoute(inp.route); renderInputs(); typePrompt();
       document.getElementById("canvas").scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+      if (vertical) goNode(0, true);
     });
     inputsBox.appendChild(b); inBtns.push(b);
   });
@@ -676,6 +918,18 @@
       }
       card.appendChild(bd2);
       if (n.kind === "sol") {
+        var wl = worksOf(n.id);
+        if (wl.length) card.appendChild(thumbs(wl));
+        var det = el("button", "det"); det.type = "button";
+        det.innerHTML = '<span class="pm">+</span><span>פרטים ותוצרים</span>';
+        det.setAttribute("aria-expanded", "false");
+        (function (c, d) {
+          d.addEventListener("click", function () {
+            var o = !c.classList.contains("open"); c.classList.toggle("open", o);
+            d.setAttribute("aria-expanded", o ? "true" : "false"); d.firstChild.textContent = o ? "-" : "+";
+          });
+        })(card, det);
+        card.appendChild(det);
         var more = el("div", "more"); var s3 = SOL[n.id];
         more.appendChild(el("p", null, s3.text));
         var ul = el("ul", "pills"); s3.gets.forEach(function (g) { ul.appendChild(el("li", null, g)); }); more.appendChild(ul);
@@ -833,6 +1087,8 @@
       var ul = el("ul", "pills"); s.gets.forEach(function (g) { ul.appendChild(el("li", null, g)); }); wrap.appendChild(ul);
       wrap.appendChild(el("h4", null, "FOR WHOM"));
       wrap.appendChild(el("p", "who", s.who));
+      var wl2 = worksOf(n.id);
+      if (wl2.length) { wrap.appendChild(el("h4", null, "OUTPUTS · " + wl2.length)); wrap.appendChild(thumbs(wl2)); }
       var on = route.indexOf(n.id) >= 0;
       var b = el("button", "btn btn-dash addbtn", on ? "במסלול. לחצו להסרה" : "הוסיפו למסלול");
       b.type = "button"; b.setAttribute("aria-pressed", on ? "true" : "false");
@@ -869,22 +1125,46 @@
   }
   function kick() { if (!running) { running = true; requestAnimationFrame(tick); } }
 
-  /* vertical mode: nodes stacked, each video scrubs while its card crosses the screen */
+  /* phones, tablets, reduced motion: the nodes sit in a row you swipe, each video scrubs as its card crosses */
+  var dotsBox = document.getElementById("dots"), cCount = document.getElementById("cCount");
+  var cPrev = document.getElementById("cPrev"), cNext = document.getElementById("cNext"), dotBtns = [], cur = -1;
+  NODES.forEach(function (n, i) {
+    var b = el("button"); b.type = "button";
+    b.setAttribute("aria-label", "צומת " + (i + 1) + ", " + (n.kind === "sol" ? SOL[n.id].title : n.kind === "input" ? "הקלט" : "האובייקט"));
+    b.addEventListener("click", function () { goNode(i); });
+    dotsBox.appendChild(b); dotBtns.push(b);
+  });
+  function goNode(i, instant) {
+    i = Math.max(0, Math.min(N - 1, i));
+    var r = NODES[i].el.getBoundingClientRect(), wr = world.getBoundingClientRect();
+    world.scrollBy({ left: (r.left + r.width / 2) - (wr.left + wr.width / 2), behavior: instant || reduce ? "auto" : "smooth" });
+  }
+  cPrev.addEventListener("click", function () { goNode(cur - 1); });
+  cNext.addEventListener("click", function () { goNode(cur + 1); });
   function frameVertical() {
-    var vh = window.innerHeight;
-    NODES.forEach(function (n, i) {
-      var r = n.el.getBoundingClientRect();
-      n.el.classList.toggle("lit", r.top < vh * 0.55);
+    var wr = world.getBoundingClientRect(), vw = wr.width, best = 0, bd = 1e9;
+    var cs = NODES.map(function (n, i) {
+      var r = n.el.getBoundingClientRect(), c = r.left + r.width / 2 - wr.left, d = Math.abs(c - vw / 2);
+      if (d < bd) { bd = d; best = i; }
+      return { c: c, w: r.width };
     });
+    if (best !== cur) {
+      cur = best;
+      NODES.forEach(function (n, i) { n.el.classList.toggle("lit", i < best); n.el.classList.toggle("active", i === best); });
+      dotBtns.forEach(function (b, i) { b.classList.toggle("on", i === best); b.setAttribute("aria-current", i === best ? "step" : "false"); });
+      cCount.textContent = (best + 1) + " / " + N;
+      cPrev.disabled = best === 0; cNext.disabled = best === N - 1;
+    }
     scrubs.forEach(function (s) {
-      var r = NODES[s.i].el.getBoundingClientRect();
-      if (r.bottom < -vh || r.top > vh * 2) return;
+      if (Math.abs(s.i - best) > 2) return;
       load(s);
-      if (reduce) { s.target = (s.a + s.b) / 2; }
-      else { var lp = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height))); s.target = s.a + lp * (s.b - s.a); }
+      if (reduce) { s.target = (s.a + s.b) / 2; return; }
+      var k = cs[s.i], lp = Math.min(1, Math.max(0, (k.c + k.w / 2) / (vw + k.w)));
+      s.target = s.a + lp * (s.b - s.a);
     });
     kick();
   }
+  world.addEventListener("scroll", function () { if (vertical) frameVertical(); }, { passive: true });
 
   function setMode() {
     vertical = reduce || !deskQ.matches;
@@ -892,13 +1172,13 @@
     if (vertical) {
       stage.style.height = ""; world.style.width = ""; world.style.height = "";
       NODES.forEach(function (n) { n.el.style.left = ""; n.el.style.top = ""; n.el.classList.remove("active"); });
-      frameVertical();
+      cur = -1; frameVertical();
     } else {
       stage.style.height = ((N - 1) * 75 + 100) + "vh";
       layoutDesktop(); active = -1; frameDesktop();
     }
   }
-  function onScroll() { if (vertical) frameVertical(); else frameDesktop(); }
+  function onScroll() { if (!vertical) frameDesktop(); }
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", function () { if (!vertical) { layoutDesktop(); frameDesktop(); } else frameVertical(); });
   if (deskQ.addEventListener) deskQ.addEventListener("change", setMode);
@@ -908,6 +1188,7 @@
   function paintRoute() {
     NODES.forEach(function (n, i) { n.el.classList.toggle("in-route", n.kind === "sol" && route.indexOf(n.id) >= 0); });
     mmNodes.forEach(function (r, i) { r.classList.toggle("r", NODES[i].kind === "sol" && route.indexOf(NODES[i].id) >= 0); });
+    dotBtns.forEach(function (b, i) { b.classList.toggle("r", NODES[i].kind === "sol" && route.indexOf(NODES[i].id) >= 0); });
     document.querySelectorAll(".addmini").forEach(function (b) {
       var on = route.indexOf(b.dataset.id) >= 0;
       b.innerHTML = ""; var pm = el("span", "pm", on ? "-" : "+"); b.appendChild(pm);
@@ -1027,6 +1308,113 @@
   });
   pick(store("simpla-canvas-for") || AUDIENCES[0].id);
 
+  /* ================= outputs gallery ================= */
+  var wf = document.getElementById("wf"), wgrid = document.getElementById("wgrid"), cards = [], wchips = [], wfilter = "all";
+  function inF(w, f) { return f === "all" || w.nodes.indexOf(f) >= 0; }
+  WORKS.forEach(function (w) {
+    var b = el("button", "wcard"); b.type = "button";
+    b.setAttribute("aria-label", "לצפות: " + (w.client ? w.client + ", " : "") + w.title);
+    var hd = el("span", "hd");
+    hd.innerHTML = svgIcon(w.kind === "PRODUCT" ? "prod" : "video");
+    hd.appendChild(el("span", null, "OUTPUT"));
+    hd.appendChild(el("span", "kd", "· " + w.kind));
+    if (w.len) hd.appendChild(el("span", "len", w.len));
+    b.appendChild(hd);
+    var th = el("span", "th");
+    if (w.shape) { var bg = el("img", "blur"); bg.src = w.poster; bg.alt = ""; bg.loading = "lazy"; th.appendChild(bg); }
+    var im = el("img", w.shape ? "fit" : null); im.src = w.poster; im.alt = ""; im.loading = "lazy"; im.decoding = "async"; th.appendChild(im);
+    var pv = document.createElement("video");
+    pv.muted = true; pv.loop = true; pv.playsInline = true; pv.setAttribute("playsinline", ""); pv.preload = "none";
+    pv.setAttribute("aria-hidden", "true"); if (w.shape) pv.className = "fit";
+    pv.dataset.src = w.preview; th.appendChild(pv); lazyVids.push(pv);
+    var pl = el("span", "play"); pl.innerHTML = svgIcon("play"); th.appendChild(pl);
+    b.appendChild(th);
+    var bd = el("span", "bd");
+    bd.appendChild(el("span", "tt", w.title));
+    var ss = el("span", "ss");
+    if (w.client) ss.appendChild(el("span", "cl", w.client));
+    ss.appendChild(document.createTextNode(w.sub || w.text));
+    bd.appendChild(ss); b.appendChild(bd);
+    b.addEventListener("click", function () {
+      openWork(w.id, WORKS.filter(function (x) { return inF(x, wfilter); }).map(function (x) { return x.id; }));
+    });
+    wgrid.appendChild(b); cards.push(b);
+  });
+  [["all", "הכול"]].concat(Object.keys(NODE_LABEL).map(function (k) { return [k, NODE_LABEL[k]]; })).forEach(function (c) {
+    var n = WORKS.filter(function (w) { return inF(w, c[0]); }).length;
+    var b = el("button", "chip"); b.type = "button"; b.dataset.id = c[0];
+    b.appendChild(document.createTextNode(c[1]));
+    b.appendChild(el("span", n ? "cnt" : "cnt z", String(n)));
+    b.addEventListener("click", function () { setWF(c[0]); });
+    wf.appendChild(b); wchips.push(b);
+  });
+  function setWF(id) {
+    if (!wchips.some(function (b) { return b.dataset.id === id; })) id = "all";
+    wfilter = id;
+    wchips.forEach(function (b) { var on = b.dataset.id === id; b.setAttribute("aria-selected", on ? "true" : "false"); b.setAttribute("aria-pressed", on ? "true" : "false"); });
+    var first = true;
+    cards.forEach(function (b, i) { var sh = inF(WORKS[i], id); b.hidden = !sh; b.classList.toggle("feat", sh && first); if (sh) first = false; });
+    store("simpla-canvas-wf", id);
+  }
+  setWF(store("simpla-canvas-wf") || "all");
+
+  /* ================= viewer ================= */
+  var viewer = document.getElementById("viewer"), vV = document.getElementById("vVideo");
+  var vKind = document.getElementById("vKind"), vTitle = document.getElementById("vTitle"), vSub = document.getElementById("vSub");
+  var vText = document.getElementById("vText"), vGets = document.getElementById("vGets"), vCount = document.getElementById("vCount");
+  var vPrev = document.getElementById("vPrev"), vNext = document.getElementById("vNext");
+  var seq = [], vpos = 0, vPushed = false;
+  function hist(kind, url) { try { history[kind](null, "", url); } catch (e) {} }
+  function fill(i) {
+    vpos = i; var w = WBY[seq[i]];
+    vV.pause();
+    vV.poster = w.poster; vV.loop = !!w.loop; vV.muted = !!w.loop; vV.src = w.src;
+    vKind.textContent = "OUTPUT · " + w.kind + (w.client ? " · " + w.client : "") + (w.len ? " · " + w.len : "");
+    vTitle.textContent = w.title;
+    vSub.textContent = w.nodes.map(function (k) { return SOL[k].name; }).join(" · ");
+    vText.textContent = w.text;
+    vGets.innerHTML = ""; w.gets.forEach(function (g) { vGets.appendChild(el("li", null, g)); });
+    vCount.textContent = (i + 1) + " / " + seq.length;
+    vPrev.disabled = vNext.disabled = seq.length < 2;
+    var p = vV.play(); if (p && p.catch) p.catch(function () {});
+  }
+  function openWork(id, list, fromLoad) {
+    if (!WBY[id]) return;
+    seq = (list && list.indexOf(id) >= 0) ? list.slice() : [id];
+    fill(seq.indexOf(id));
+    if (!viewer.open) {
+      if (viewer.showModal) viewer.showModal(); else viewer.setAttribute("open", "");
+      document.documentElement.classList.add("lock");
+    }
+    var u = location.pathname + location.search + "#w-" + id;
+    if (fromLoad) hist("replaceState", u);
+    else if (!vPushed) { hist("pushState", u); vPushed = true; }
+    else hist("replaceState", u);
+  }
+  function vstep(d) { var i = (vpos + d + seq.length) % seq.length; fill(i); hist("replaceState", location.pathname + location.search + "#w-" + seq[i]); }
+  function shutViewer() {
+    vV.pause(); vV.removeAttribute("src"); try { vV.load(); } catch (e) {}
+    if (viewer.open) { if (viewer.close) viewer.close(); else viewer.removeAttribute("open"); }
+    document.documentElement.classList.remove("lock");
+  }
+  function closeViewer() {
+    if (vPushed) { vPushed = false; history.back(); shutViewer(); }
+    else { shutViewer(); hist("replaceState", location.pathname + location.search + "#outputs"); }
+  }
+  window.addEventListener("popstate", function () { if (viewer.open) { vPushed = false; shutViewer(); } });
+  document.getElementById("vClose").addEventListener("click", closeViewer);
+  vPrev.addEventListener("click", function () { vstep(-1); });
+  vNext.addEventListener("click", function () { vstep(1); });
+  viewer.addEventListener("cancel", function (e) { e.preventDefault(); closeViewer(); });
+  viewer.addEventListener("keydown", function (e) {
+    if (e.target === vV) return;
+    // right to left: the left arrow moves forward
+    if (e.key === "ArrowLeft") { e.preventDefault(); vstep(1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); vstep(-1); }
+  });
+  var deep = /^#w-([a-z]+)$/.exec(location.hash);
+  if (deep && WBY[deep[1]]) openWork(deep[1], WORKS.map(function (w) { return w.id; }), true);
+
   /* ================= lazy media + reveals ================= */
   if ("IntersectionObserver" in window) {
     var vio = new IntersectionObserver(function (es) {
@@ -1035,7 +1423,7 @@
         if (e.isIntersecting) {
           if (!v.src && v.dataset.src) v.src = v.dataset.src;
           if (reduce) return;
-          var p = v.play(); if (p && p.catch) p.catch(function () {});
+          var p = v.play(); if (p && p.then) p.then(function () { v.classList.add("live"); }).catch(function () {});
         } else if (!v.paused) v.pause();
       });
     }, { rootMargin: "200px 0px" });
