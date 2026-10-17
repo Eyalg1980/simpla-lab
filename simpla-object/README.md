@@ -1,7 +1,8 @@
 # simpla-object: "From Abstract to Object"
 
 The new Simpla site, approach A from the October 2026 research: one continuous clay film scrubbed by scroll,
-then seven solutions, the Object Track, packages by client type, work, films, teaching, about, contact.
+then seven solutions, one works gallery (films, products and site films with a full-screen viewer), the Object Track,
+packages by client type, teaching, about, contact.
 
 Live: https://eyalg1980.github.io/simpla-lab/simpla-object/
 
@@ -36,6 +37,8 @@ Higgsfield presigned uploads need the header `If-None-Match: *` or the PUT is re
 Single self-contained `index.html`, Hebrew RTL, Rubik + Poppins, dark (default) and light with a stored toggle.
 The stage is one sticky video, scroll maps to `currentTime` with easing, poster first for LCP.
 Falls back to seven stacked stills on `prefers-reduced-motion` or when the video fails to load.
-Content lives in the JS constants `SOLUTIONS`, `AUDIENCES`, `CASES`, `FILMS` at the top of the script.
+Content lives in the JS constants `SOLUTIONS`, `AUDIENCES`, `WORKS`, `CATS` at the top of the script.
+Each work has a full `src`, a short muted `preview` (6s, 640px) for the card, and a `poster`.
+The viewer deep-links as `#w-<id>`, e.g. `#w-savior`.
 
 Open items: client names Finout and Broni Gas appear anonymised until approved; no English version yet.
