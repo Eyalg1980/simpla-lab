@@ -470,7 +470,7 @@
   <footer>
     <div class="wrap">
       <span>Simpla · סטודיו ל-UX ו-AI · תל אביב</span>
-      <span>כל וידאו בצמתים נגלל איתכם. <span class="en">v1.0 · 17.10.2026</span></span>
+      <span>כל וידאו בצמתים נגלל איתכם. <span class="en">v1.1 · 17.10.2026</span></span>
     </div>
   </footer>
 </main>
@@ -845,7 +845,8 @@
   /* video scrubbing for every node */
   function load(s) {
     if (s.loaded) return; s.loaded = true;
-    s.v.src = s.src;
+    s.v.preload = "auto"; s.v.src = s.src;
+    try { s.v.load(); } catch (e) {}
     s.v.addEventListener("loadeddata", function () {
       if (!s.primed) { s.primed = true; var pr = s.v.play(); if (pr && pr.then) pr.then(function () { s.v.pause(); }).catch(function () {}); else s.v.pause(); }
       try { s.v.currentTime = s.target; } catch (e) {}
