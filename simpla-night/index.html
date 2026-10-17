@@ -38,7 +38,7 @@
     --onair:#D9424B; --phos:#0E7A43;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  html{-webkit-text-size-adjust:100%}
   body{margin:0;background:var(--bg);color:var(--text);font-family:var(--he);line-height:1.6;
     -webkit-font-smoothing:antialiased;overflow-x:hidden}
   img,video,canvas{display:block;max-width:100%}
@@ -49,6 +49,7 @@
   ::selection{background:var(--yellow);color:var(--navy)}
   :focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+  html.lock{overflow:hidden}
 
   /* ---------- nav ---------- */
   .nav{position:fixed;top:0;inset-inline:0;z-index:50;display:flex;align-items:center;gap:22px;
@@ -57,225 +58,273 @@
   .nav.solid{background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);border-bottom-color:var(--line);color:var(--text)}
   .brand{font-family:var(--en);font-weight:700;font-size:22px;letter-spacing:-.03em;text-decoration:none;
-    display:flex;align-items:center;gap:10px}
+    display:flex;align-items:center;gap:10px;flex:0 0 auto}
   .onair{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;font-weight:500;
     letter-spacing:.14em;padding:3px 8px;border-radius:4px;border:1px solid var(--coral);color:var(--coral)}
   .onair i{width:7px;height:7px;border-radius:50%;background:var(--coral);animation:blink 1.6s steps(2,start) infinite}
   @keyframes blink{50%{opacity:.25}}
-  .links{display:flex;gap:22px;margin-inline-start:10px}
-  .links a{font-size:14.5px;text-decoration:none;opacity:.78;padding:4px 0;border-bottom:1.5px solid transparent}
+  .links{display:flex;gap:20px;margin-inline-start:8px}
+  .links a{font-size:14.5px;text-decoration:none;opacity:.78;padding:4px 0;border-bottom:1.5px solid transparent;white-space:nowrap}
+  .links a .n{font-family:var(--osd);font-size:17px;margin-inline-end:5px;opacity:.7;direction:ltr;display:inline-block}
   .links a:hover{opacity:1;border-bottom-color:var(--coral)}
+  .links a[aria-current="page"]{opacity:1;font-weight:500;border-bottom-color:var(--coral)}
   .nav-end{margin-inline-start:auto;display:flex;align-items:center;gap:10px}
-  .icon-btn{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;cursor:pointer;
+  .nav-ch{display:none;font-family:var(--osd);font-size:20px;line-height:1;color:var(--phos);direction:ltr;padding:4px 8px;
+    border-radius:6px;border:1px solid color-mix(in srgb,var(--phos) 40%,transparent);white-space:nowrap}
+  .nav.solid .nav-ch{display:inline-block}
+  .icon-btn{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;cursor:pointer;flex:0 0 auto;
     background:transparent;color:inherit;border:1.5px dashed currentColor;opacity:.8}
   .icon-btn:hover{opacity:1}
   .icon-btn svg{width:18px;height:18px}
+  #guideBtn{display:none}
   .sun{display:none}
   [data-theme="light"] .sun{display:block}
   [data-theme="light"] .moon{display:none}
   .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--he);font-weight:500;font-size:15px;
     text-decoration:none;cursor:pointer;border-radius:999px;padding:11px 22px;border:1.5px solid transparent;
-    transition:transform .15s ease,background .2s ease}
+    transition:transform .15s ease,background .2s ease;white-space:nowrap}
   .btn:active{transform:scale(.98)}
+  .btn:disabled{opacity:.4;cursor:default}
+  .btn svg{width:16px;height:16px}
   .btn-coral{background:var(--coral);color:#fff}
   .btn-coral:hover{background:#ff7a81}
   .btn-dash{border:1.5px dashed currentColor;color:inherit;background:transparent}
   .btn-dash:hover{background:color-mix(in srgb,currentColor 8%,transparent)}
   .btn-sm{padding:8px 16px;font-size:14px}
 
-  /* ---------- the room and the TV ---------- */
-  .stage{position:relative;background:var(--room);color:var(--room-ink)}
-  .sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
-    --tvw:min(58vw,112svh); --cx:38vw; --cy:52%}
-  .glow{position:absolute;inset:0;pointer-events:none;transition:background .8s ease;
-    background:radial-gradient(ellipse 46% 50% at var(--cx) var(--cy),color-mix(in srgb,var(--glow) 26%,transparent),transparent 70%)}
-  .tv{position:absolute;left:var(--cx);top:var(--cy);width:var(--tvw);transform:translate(-45.27%,-47.8%)}
+  /* ---------- hero: the TV for this channel ---------- */
+  .hero{position:relative;background:var(--room);color:var(--room-ink);padding:84px 0 40px;overflow:hidden}
+  .hero-in{max-width:1280px;margin:0 auto;padding:0 var(--gut);display:grid;
+    grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);grid-template-areas:"head tv";
+    gap:clamp(24px,4vw,64px);align-items:center;min-height:min(72vh,680px)}
+  .tvcol{grid-area:tv;position:relative;min-width:0}
+  .tvcol::before{content:"";position:absolute;inset:-14% -16%;pointer-events:none;transition:background .8s ease;
+    background:radial-gradient(ellipse 50% 46% at 50% 44%,color-mix(in srgb,var(--glow) 26%,transparent),transparent 72%)}
+  .tvbox{position:relative;width:100%;max-width:118svh;margin:0 auto;aspect-ratio:1000/784;overflow:hidden;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    -webkit-mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent),linear-gradient(to bottom,transparent,#000 9%,#000 91%,transparent);
+    -webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent),linear-gradient(to bottom,transparent,#000 9%,#000 91%,transparent);
+    mask-composite:intersect}
+  .tvbox:focus-visible{outline:none}
+  .tvbox:focus-visible .screen{box-shadow:0 0 0 3px var(--yellow)}
+  .tv{position:absolute;top:0;left:-25%;width:150%;margin-top:-13.43%}
   .tv > img{width:100%;height:auto;pointer-events:none;user-select:none}
   .screen{position:absolute;left:25.5%;top:27.23%;width:39.54%;height:41.13%;overflow:hidden;
     border-radius:7% / 9%;background:#020304}
   .screen img,.screen video,.screen canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .screen img.poster{transition:opacity .5s ease}
-  .screen img.poster.gone{opacity:0}
-  .screen canvas{opacity:0;image-rendering:pixelated;transition:opacity .12s linear}
+  .screen .still{transition:opacity .5s ease}
+  .screen .still.gone{opacity:0}
+  .screen canvas{opacity:0;image-rendering:pixelated;transition:opacity .12s linear;z-index:2}
   .screen canvas.on{opacity:1}
-  .screen::after{content:"";position:absolute;inset:0;pointer-events:none;
+  .screen::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
     background:
       repeating-linear-gradient(to bottom,rgba(0,0,0,.22) 0 1px,transparent 1px 3px),
       radial-gradient(ellipse at 50% 50%,transparent 58%,rgba(0,0,0,.55) 100%);
     box-shadow:inset 0 0 40px rgba(0,0,0,.6)}
-  .osd{position:absolute;top:7%;left:6%;z-index:3;font-family:var(--osd);font-size:clamp(20px,2.6vw,40px);line-height:1;
+  .osd{position:absolute;top:7%;left:6%;z-index:3;font-family:var(--osd);font-size:clamp(20px,2.4vw,36px);line-height:1;
     color:#3CFF6E;text-shadow:0 0 6px rgba(60,255,110,.75),2px 2px 0 rgba(0,0,0,.6);direction:ltr;
     opacity:0;transition:opacity .2s steps(2)}
   .osd.on{opacity:1}
+  .tap{position:absolute;z-index:3;bottom:7%;right:6%;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;
+    padding:4px 11px 4px 9px;border-radius:999px;background:rgba(5,7,13,.74);color:#fff;pointer-events:none;
+    transition:background .2s ease}
+  .tap svg{width:12px;height:12px}
+  .tvbox:hover .tap{background:var(--coral)}
+  .tap[hidden]{display:none}
 
-  .copy{position:absolute;inset-inline-start:var(--gut);top:50%;transform:translateY(-50%);
-    width:min(30rem,32vw);z-index:4}
-  .chapter{display:none}
-  .chapter.on{display:block;animation:tune .45s steps(6,end) both}
+  .remote{position:relative;display:flex;justify-content:center;gap:7px;margin-top:4px}
+  .remote button{all:unset;cursor:pointer;min-width:44px;height:40px;border-radius:11px;display:grid;place-items:center;
+    font-family:var(--osd);font-size:22px;color:#B9BFD6;background:#141A30;border:1px solid rgba(255,255,255,.07);
+    direction:ltr;transition:background .15s ease,color .15s ease;-webkit-tap-highlight-color:transparent}
+  .remote button:hover{color:#fff;background:#232A47}
+  .remote button:focus-visible{outline:2px solid var(--yellow);outline-offset:2px}
+  .remote button.on{color:#06110A;background:#3CFF6E;box-shadow:0 0 12px rgba(60,255,110,.5)}
+  .remote .zap{display:flex;gap:6px;align-items:center;padding:0 14px;font-family:var(--he);font-size:13.5px;
+    background:var(--coral);color:#fff;border:0}
+  .remote .zap:hover{background:#ff7a81;color:#fff}
+  .remote .zap svg{width:16px;height:16px}
+
+  .ch-head{grid-area:head;min-width:0;position:relative}
+  .ch-head.tune{animation:tune .45s steps(6,end) both}
   @keyframes tune{0%{opacity:0;filter:blur(4px)}60%{opacity:.7}100%{opacity:1;filter:none}}
   .guide{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 14px;font-family:var(--mono);font-size:12.5px;
     letter-spacing:.06em;color:var(--room-muted)}
   .guide b{color:var(--phos);font-weight:500}
   .guide .live{color:var(--coral);border:1px solid var(--coral);border-radius:3px;padding:1px 6px;font-size:11px}
-  .chapter h1,.chapter h2{margin:0;font-weight:300;font-size:clamp(32px,4.2vw,58px);line-height:1.05;letter-spacing:-.015em}
-  .chapter h1 b,.chapter h2 b{font-weight:700}
-  .chapter p{margin:16px 0 0;font-size:clamp(15.5px,1.2vw,18px);line-height:1.65;color:#C4C9DE;max-width:34em}
+  .ch-head h1{margin:0;font-weight:300;font-size:clamp(34px,4.3vw,60px);line-height:1.05;letter-spacing:-.015em}
+  .ch-head h1 b{font-weight:700}
+  .ch-head h1:focus{outline:none}
+  .ch-head .lead{margin:16px 0 0;font-size:clamp(15.5px,1.2vw,18px);line-height:1.65;color:#C4C9DE;max-width:34em}
   .tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:18px 0 0}
   .tags li{font-size:13px;padding:5px 14px;border-radius:18px;border:1.5px dashed rgba(233,236,245,.4);color:#DADFEF}
-  .now{margin-top:20px;padding-top:14px;border-top:1px solid rgba(233,236,245,.14);font-size:14px;color:var(--room-muted)}
-  .now span{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--coral);margin-inline-end:8px}
+  .now{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:22px;padding-top:16px;
+    border-top:1px solid rgba(233,236,245,.14);font-size:14px;color:var(--room-muted)}
+  .now .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--coral)}
   .now b{color:var(--room-ink);font-weight:500}
-  .chapter .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-  .hint{display:flex;align-items:center;gap:12px;margin-top:24px;font-size:13px;color:var(--room-muted)}
-  .hint svg{width:22px;height:22px;stroke:var(--coral)}
-  .end-card{text-align:start}
-  .end-card h2{font-family:var(--osd);font-weight:400;font-size:clamp(44px,6vw,84px);letter-spacing:.02em;color:#E9ECF5}
+  .now .btn{margin-inline-start:auto;color:var(--room-ink)}
+  .ch-head .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .hint{display:flex;align-items:center;gap:10px;margin-top:18px;font-size:13px;color:var(--room-muted)}
+  .hint svg{width:20px;height:20px;stroke:var(--coral);flex:0 0 auto}
 
-  /* remote */
-  .remote{position:absolute;z-index:5;inset-inline-end:var(--gut);top:50%;transform:translateY(-50%);
-    display:grid;grid-template-columns:repeat(2,44px);gap:9px;padding:18px 13px 16px;border-radius:30px;
-    background:linear-gradient(#141829,#0C0F1C);border:1px solid rgba(255,255,255,.07);
-    box-shadow:0 18px 40px rgba(0,0,0,.45)}
-  .remote .pwr{grid-column:1/-1;justify-self:center;width:12px;height:12px;border-radius:50%;background:var(--coral);
-    box-shadow:0 0 10px var(--coral);margin-bottom:6px}
-  .remote button{all:unset;cursor:pointer;height:36px;border-radius:12px;display:grid;place-items:center;
-    font-family:var(--osd);font-size:22px;color:#B9BFD6;background:#1A1F35;border:1px solid rgba(255,255,255,.06);
-    direction:ltr;transition:background .15s ease,color .15s ease}
-  .remote button:hover{color:#fff;background:#232A47}
-  .remote button.on{color:#06110A;background:#3CFF6E;box-shadow:0 0 12px rgba(60,255,110,.5)}
-  .remote .zap{grid-column:1/-1;font-family:var(--he);font-size:13.5px;height:38px;gap:6px;display:flex;
-    justify-content:center;align-items:center;background:var(--coral);color:#fff;border:0}
-  .remote .zap:hover{background:#ff7a81;color:#fff}
-  .remote .zap svg{width:16px;height:16px}
-
-  /* static fallback */
-  .stage.static .sticky{position:relative;height:auto;overflow:visible}
-  .stage.static .tv,.stage.static .remote,.stage.static .glow{display:none}
-  .stage.static .copy{position:static;transform:none;width:auto;padding:110px var(--gut) 40px;max-width:var(--max);margin:0 auto}
-  .stage.static .chapter{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;
-    padding:30px 0;border-top:1px solid rgba(233,236,245,.12);animation:none}
-  .stage.static .chapter img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px;order:2}
-
-  /* ---------- sections ---------- */
-  .sec{padding:clamp(80px,10vw,140px) 0;border-top:1px solid var(--line)}
-  .label{margin:0 0 14px;font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;color:var(--onair)}
-  .h2{margin:0;font-weight:300;font-size:clamp(32px,4.4vw,58px);line-height:1.06;letter-spacing:-.015em;max-width:16em}
+  /* ---------- channel content ---------- */
+  #content.tune{animation:fadeup .5s ease both}
+  @keyframes fadeup{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .sec{padding:clamp(56px,7vw,100px) 0;border-top:1px solid var(--line)}
+  .label{margin:0 0 12px;font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;color:var(--onair)}
+  .h2{margin:0;font-weight:300;font-size:clamp(30px,3.8vw,50px);line-height:1.08;letter-spacing:-.015em;max-width:18em}
   .h2 b{font-weight:700}
-  .lede{margin:18px 0 0;font-size:clamp(16px,1.35vw,19px);color:var(--muted);max-width:40em}
-  .head{margin-bottom:clamp(36px,5vw,60px)}
+  .h2 .en{display:inline-block;font-weight:600;font-size:.36em;letter-spacing:0;color:var(--muted);vertical-align:middle;margin-inline-start:8px}
+  .lede{margin:16px 0 0;font-size:clamp(16px,1.3vw,18.5px);color:var(--muted);max-width:40em}
+  .head{margin-bottom:clamp(28px,4vw,48px)}
 
-  /* program guide */
-  .listing{border-top:1.5px solid var(--line-strong)}
-  .slot{display:grid;grid-template-columns:110px 1fr auto;gap:22px;align-items:start;padding:24px 0;
-    border-bottom:1px solid var(--line)}
-  .slot .time{font-family:var(--mono);font-size:15px;color:var(--phos);padding-top:4px}
-  .slot .time small{display:block;font-size:11.5px;color:var(--muted);letter-spacing:.1em;margin-top:4px}
-  .slot h3{margin:0;font-size:clamp(20px,2vw,26px);font-weight:700;line-height:1.25}
-  .slot h3 .en{display:block;font-weight:600;font-size:13px;color:var(--muted);margin-top:2px;text-align:right}
-  .slot p{margin:8px 0 0;color:var(--muted);font-size:16px;max-width:44em}
-  .pills{display:flex;flex-wrap:wrap;gap:7px;list-style:none;padding:0;margin:14px 0 0}
-  .pills li{font-size:12.5px;padding:4px 12px;border-radius:18px;border:1.5px dashed var(--line-strong);color:var(--text)}
-  .slot .more{display:none;margin-top:14px}
-  .slot.open .more{display:block}
-  .slot .thumb{width:150px;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:#000;position:relative}
-  .slot .thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(.9)}
-  .slot .thumb::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(to bottom,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
-  .slot .thumb.blank{display:grid;place-items:center;font-family:var(--osd);font-size:34px;color:#3CFF6E;background:#060a0d}
-  .toggle{all:unset;cursor:pointer;margin-top:12px;font-size:14px;font-weight:500;text-decoration:underline;
-    text-underline-offset:4px;text-decoration-color:var(--coral);display:inline-flex;gap:6px}
-  .toggle .pm{font-family:var(--en);width:1em}
+  /* the offer on this channel */
+  .sol{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,3.4vw,48px);background:var(--surface);
+    border-radius:22px;padding:clamp(22px,3.4vw,42px)}
+  .sol h4{margin:0 0 12px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;color:var(--onair)}
+  .sol .who{margin:0;font-size:17px}
+  .sol .first{margin:14px 0 0;color:var(--muted);font-size:15px}
+  .sol .first b{color:var(--text);font-weight:500}
+  .sol .btn{margin-top:20px}
+  .pills{display:flex;flex-wrap:wrap;gap:7px;list-style:none;padding:0;margin:0}
+  .pills li{font-size:13px;padding:5px 13px;border-radius:18px;border:1.5px dashed var(--line-strong);color:var(--text)}
+  .vod{margin-top:18px;display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;
+    border:1.5px dashed var(--line-strong);border-radius:22px;padding:22px clamp(20px,3vw,32px)}
+  .vod .tagv{font-family:var(--osd);font-size:30px;line-height:1;color:var(--phos)}
+  .vod h3{margin:0;font-size:20px;font-weight:700}
+  .vod h3 .en{font-weight:600;font-size:13px;color:var(--muted);margin-inline-start:8px}
+  .vod p{margin:6px 0 0;color:var(--muted);font-size:15px}
 
-  /* series */
+  /* works on this channel */
+  .wgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 18px;align-items:start}
+  .wgrid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .wgrid.one{grid-template-columns:minmax(0,820px)}
+  .wcard{all:unset;cursor:pointer;display:flex;flex-direction:column;min-width:0;border-radius:16px;-webkit-tap-highlight-color:transparent}
+  .wcard .th{position:relative;display:block;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+  .wcard .th img,.wcard .th video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .wcard .th img.blur{filter:blur(16px) brightness(.5);transform:scale(1.2)}
+  .wcard .th .fit{object-fit:contain}
+  .wcard .th video{opacity:0;transition:opacity .35s ease}
+  .wcard .th video.live{opacity:1}
+  .wcard .kind{position:absolute;top:10px;inset-inline-start:10px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    padding:3px 8px;border-radius:4px;background:rgba(0,0,0,.7);color:#fff}
+  .wcard .len{position:absolute;bottom:10px;inset-inline-end:10px;font-family:var(--mono);font-size:12px;padding:2px 7px;
+    border-radius:4px;background:rgba(0,0,0,.7);color:#fff;direction:ltr}
+  .wcard .play{position:absolute;bottom:10px;inset-inline-start:10px;width:42px;height:42px;border-radius:50%;
+    background:var(--coral);color:#fff;display:grid;place-items:center;transition:transform .2s ease}
+  .wcard .play svg{width:16px;height:16px;margin-inline-start:-2px}
+  .wcard:hover .play,.wcard:focus-visible .play{transform:scale(1.1)}
+  .wcard:focus-visible{outline:2px solid var(--yellow);outline-offset:4px}
+  .wcard .tt{display:block;margin-top:12px;font-size:17px;font-weight:700;line-height:1.3}
+  .wcard .ss{display:block;margin-top:3px;font-size:14px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .wcard .cl{font-family:var(--en);font-weight:600;color:var(--onair);margin-inline-end:6px}
+  .wcard.feat{grid-column:span 2;grid-row:span 2;align-self:stretch}
+  .wcard.feat .th{flex:1 1 auto;aspect-ratio:auto;min-height:260px}
+  .wcard.feat .tt,.wgrid.one .tt{font-size:clamp(20px,2vw,26px)}
+  .wcard.feat .ss,.wgrid.one .ss{font-size:15.5px;white-space:normal}
+  .wcard.feat .play,.wgrid.one .play{width:54px;height:54px}
+  .minis{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+  .mini{border:1.5px dashed var(--line-strong);border-radius:18px;padding:22px}
+  .mini .tag{font-size:13px;color:var(--onair);font-weight:500}
+  .mini h3{margin:8px 0 0;font-size:19px;font-weight:700}
+  .mini p{margin:8px 0 0;color:var(--muted);font-size:15px}
+
+  /* episodes: studio process and the object series */
   .eps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-  .ep{background:var(--surface);border-radius:18px;padding:24px;position:relative;overflow:hidden}
-  .ep .no{font-family:var(--osd);font-size:46px;line-height:1;color:var(--onair)}
+  .ep{background:var(--surface);border-radius:18px;padding:22px;position:relative;overflow:hidden}
+  .ep .no{font-family:var(--osd);font-size:44px;line-height:1;color:var(--onair)}
   .ep .en{display:block;text-align:right;font-size:12.5px;color:var(--muted)}
-  .ep h3{margin:10px 0 0;font-size:21px;font-weight:700}
+  .ep h3{margin:10px 0 0;font-size:20px;font-weight:700}
   .ep .dur{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:12px;padding:3px 10px;border-radius:6px;
     background:var(--yellow);color:var(--navy);font-weight:500}
-  .ep p{margin:12px 0 0;color:var(--muted);font-size:15.5px}
-  .series-cta{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;color:var(--muted)}
+  .ep p{margin:10px 0 0;color:var(--muted);font-size:15px}
+  .series-cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;color:var(--muted)}
+
+  /* track record */
+  .record{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,56px);align-items:center}
+  .record .big{font-family:var(--osd);font-weight:400;font-size:clamp(110px,12vw,170px);line-height:.8;color:var(--phos)}
+  .record p{margin:0;font-size:clamp(17px,1.5vw,20px);max-width:30em}
+  .awards{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:18px 0 0}
+  .awards li{font-size:13.5px;padding:5px 14px;border-radius:18px;background:var(--yellow);color:var(--navy);font-weight:700}
+  .note{font-size:13.5px;color:var(--muted);margin:10px 0 0}
+
+  /* teaching */
+  .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:30px}
+  .stat{border-top:1.5px dashed var(--line-strong);padding-top:16px}
+  .stat b{display:block;font-family:var(--osd);font-weight:400;font-size:clamp(54px,6vw,84px);line-height:.9;color:var(--phos)}
+  .stat span{display:block;margin-top:8px;color:var(--muted)}
+  .teach{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .t-item{background:var(--surface);border-radius:18px;padding:22px}
+  .t-item .who{font-family:var(--en);font-weight:600;font-size:14px;color:var(--onair);text-align:right}
+  .t-item h3{margin:6px 0 0;font-size:20px;font-weight:700}
+  .t-item p{margin:8px 0 0;color:var(--muted)}
+
+  /* about */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px)}
+  .about p{font-size:17.5px;margin:0 0 14px}
+  .tl{list-style:none;padding:0;margin:0}
+  .tl li{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:11px 0;border-top:1px solid var(--line)}
+  .tl li:last-child{border-bottom:1px solid var(--line)}
+  .tl .yr{font-family:var(--mono);font-size:13.5px;color:var(--phos);direction:ltr;text-align:right}
+
+  /* program guide (home) */
+  .listing{border-top:1.5px solid var(--line-strong)}
+  .slot{display:grid;grid-template-columns:96px minmax(0,1fr) 150px;gap:22px;align-items:center;padding:18px 0;
+    border-bottom:1px solid var(--line);text-decoration:none;color:inherit}
+  .slot .time{font-family:var(--mono);font-size:15px;color:var(--phos);direction:ltr;text-align:right}
+  .slot .time small{display:block;font-size:11.5px;color:var(--muted);letter-spacing:.1em;margin-top:4px}
+  .slot .meta{display:none;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--phos);direction:ltr;text-align:right}
+  .slot h3{margin:0;font-size:clamp(19px,1.9vw,24px);font-weight:700;line-height:1.25}
+  .slot h3 .en{font-weight:600;font-size:13px;color:var(--muted);margin-inline-start:8px}
+  .slot p{margin:6px 0 0;color:var(--muted);font-size:15.5px;max-width:44em}
+  .slot .go{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:14px;font-weight:500;color:var(--onair)}
+  .slot .go svg{width:15px;height:15px;transition:transform .2s ease}
+  .slot:hover .go svg{transform:translateX(-4px)}
+  .slot:hover h3{color:var(--onair)}
+  .slot .thumb{width:100%;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:#000;position:relative}
+  .slot .thumb img{width:100%;height:100%;object-fit:cover}
+  .slot .thumb::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(to bottom,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
+  .slot .thumb.blank{display:grid;place-items:center;font-family:var(--osd);font-size:34px;color:#3CFF6E;background:#060a0d}
 
   /* audiences */
-  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
   .chip{all:unset;cursor:pointer;font-size:15px;padding:9px 18px;border-radius:20px;border:1.5px dashed var(--line-strong)}
   .chip:hover{border-color:var(--text)}
+  .chip:focus-visible{outline:2px solid var(--yellow);outline-offset:2px}
   .chip[aria-selected="true"]{border-color:var(--yellow);color:var(--yellow);background:color-mix(in srgb,var(--yellow) 10%,transparent);font-weight:500}
   [data-theme="light"] .chip[aria-selected="true"]{color:var(--navy);background:var(--yellow)}
   .panel{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,60px);background:var(--surface);
-    border-radius:22px;padding:clamp(24px,4vw,48px)}
+    border-radius:22px;padding:clamp(22px,4vw,44px)}
   .panel h3{margin:0;font-size:clamp(26px,2.8vw,36px);font-weight:700;line-height:1.15}
   .panel .problem{margin:14px 0 0;font-size:18px;color:var(--muted)}
   .panel h4{margin:0 0 10px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;color:var(--onair)}
   .panel .outcome{margin:0;font-size:17px}
   .panel .mods{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0 0 22px}
-  .panel .mods li{font-family:var(--en);font-size:13px;padding:5px 14px;border-radius:18px;border:1.5px dashed var(--line-strong)}
+  .panel .mods a{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;padding:5px 14px;border-radius:18px;
+    border:1.5px dashed var(--line-strong);text-decoration:none}
+  .panel .mods a:hover{border-color:var(--onair);color:var(--onair)}
+  .panel .mods .n{font-family:var(--osd);font-size:17px;color:var(--phos);direction:ltr}
   .panel .btn{margin-top:24px}
 
-  /* reruns */
-  .reruns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-  .rerun{background:var(--surface);border-radius:18px;overflow:hidden}
-  .rerun figure{margin:0;aspect-ratio:16/9;background:#000;position:relative}
-  .rerun video{width:100%;height:100%;object-fit:cover}
-  .rerun .tagr{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;
-    background:rgba(0,0,0,.65);color:#fff;padding:3px 8px;border-radius:4px;direction:ltr}
-  .rerun .b{padding:18px 20px 22px}
-  .rerun .client{font-family:var(--en);font-size:13.5px;font-weight:600;color:var(--onair)}
-  .rerun h3{margin:4px 0 0;font-size:20px;font-weight:700}
-  .rerun p{margin:8px 0 0;color:var(--muted);font-size:15px}
-
-  /* archive */
-  .reel{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;
-    scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent}
-  .film{all:unset;cursor:pointer;flex:0 0 auto;scroll-snap-align:start;display:block}
-  .film .frame{position:relative;border-radius:14px;overflow:hidden;background:#000;height:min(52vh,400px)}
-  .film.v .frame{aspect-ratio:9/16}
-  .film.h .frame{aspect-ratio:16/9}
-  .film.q .frame{aspect-ratio:4/3}
-  .film.s .frame{aspect-ratio:1/1}
-  .film .frame img,.film .frame video{width:100%;height:100%;object-fit:cover}
-  .film .frame video{position:absolute;inset:0;opacity:0;transition:opacity .3s ease}
-  .film .frame video.live{opacity:1}
-  .film .len{position:absolute;bottom:12px;left:12px;font-family:var(--mono);font-size:12px;background:rgba(0,0,0,.7);
-    color:#fff;padding:3px 8px;border-radius:4px;direction:ltr}
-  .film .play{position:absolute;bottom:12px;right:12px;width:44px;height:44px;border-radius:50%;background:var(--coral);
-    display:grid;place-items:center;color:#fff}
-  .film .play svg{width:18px;height:18px;margin-inline-start:-2px}
-  .film .meta{display:block;margin-top:12px;max-width:min(78vw,420px)}
-  .film .meta b{display:block;font-size:17px}
-  .film .meta span{font-size:14px;color:var(--muted)}
-  dialog{border:0;padding:0;background:transparent;max-width:min(94vw,1100px);max-height:92vh}
-  dialog::backdrop{background:rgba(3,5,12,.9)}
-  dialog video{max-width:min(94vw,1100px);max-height:84vh;border-radius:12px;background:#000}
-  .dlg-close{position:absolute;top:10px;inset-inline-end:10px;z-index:2;background:rgba(5,7,13,.8);color:#fff;border:1.5px dashed rgba(255,255,255,.6)}
-  .dlg-title{color:#E9ECF5;margin:10px 4px 0;font-size:15px}
-
-  /* teaching */
-  .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:36px}
-  .stat{border-top:1.5px dashed var(--line-strong);padding-top:18px}
-  .stat b{display:block;font-family:var(--osd);font-weight:400;font-size:clamp(56px,6vw,88px);line-height:.9;color:var(--phos)}
-  .stat span{display:block;margin-top:10px;color:var(--muted)}
-  .teach{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-  .t-item{background:var(--surface);border-radius:18px;padding:24px}
-  .t-item .who{font-family:var(--en);font-weight:600;font-size:14px;color:var(--onair);text-align:right}
-  .t-item h3{margin:6px 0 0;font-size:21px;font-weight:700}
-  .t-item p{margin:10px 0 0;color:var(--muted)}
-
-  /* about */
-  .about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px)}
-  .about p{font-size:18px;margin:0 0 16px}
-  .tl{list-style:none;padding:0;margin:0}
-  .tl li{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:12px 0;border-top:1px solid var(--line)}
-  .tl li:last-child{border-bottom:1px solid var(--line)}
-  .tl .yr{font-family:var(--mono);font-size:13.5px;color:var(--phos);direction:ltr;text-align:right}
-  .awards{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:20px 0 0}
-  .awards li{font-size:13.5px;padding:5px 14px;border-radius:18px;background:var(--yellow);color:var(--navy);font-weight:700}
-  .note{font-size:13.5px;color:var(--muted);margin-top:10px}
+  /* up next */
+  .nextch{display:grid;grid-template-columns:200px minmax(0,1fr) auto;gap:clamp(16px,3vw,32px);align-items:center;
+    padding:16px;border-radius:22px;background:var(--surface);text-decoration:none;color:inherit;
+    border:1.5px dashed transparent;transition:border-color .2s ease}
+  .nextch:hover{border-color:var(--onair)}
+  .nx-thumb{aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#000;position:relative}
+  .nx-thumb img{width:100%;height:100%;object-fit:cover}
+  .nx-thumb::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(to bottom,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
+  .nx-body{min-width:0}
+  .nx-body .label{margin:0}
+  .nx-body b{display:block;font-size:clamp(22px,2.4vw,30px);font-weight:700;line-height:1.2;margin-top:6px}
+  .nx-body .s{display:block;margin-top:4px;color:var(--muted)}
+  .nx-go{display:inline-flex;align-items:center;gap:8px;font-weight:500;padding:11px 20px;border-radius:999px;background:var(--coral);color:#fff;white-space:nowrap}
+  .nx-go svg{width:16px;height:16px}
 
   /* contact */
   .contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:center}
-  .contact .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-  .contact dl{margin:30px 0 0}
+  .contact .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .contact dl{margin:28px 0 0}
   .contact dl div{display:grid;grid-template-columns:90px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
   .contact dt{color:var(--muted);font-size:14px}
   .contact dd{margin:0}
@@ -288,76 +337,141 @@
   .bars2 i:nth-child(odd){background:#131313}.bars2 i:nth-child(1){background:#0000C0}.bars2 i:nth-child(3){background:#C000C0}
   .bars2 i:nth-child(5){background:#00C0C0}.bars2 i:nth-child(7){background:#C0C0C0}
   .tc-low{display:flex;align-items:center;justify-content:center;background:#0A0A0A}
-  .tc-low b{font-family:var(--osd);font-weight:400;font-size:clamp(28px,3.6vw,48px);color:#fff;letter-spacing:.06em}
+  .tc-low b{font-family:var(--osd);font-weight:400;font-size:clamp(26px,3.4vw,46px);color:#fff;letter-spacing:.06em}
   .tc-low b span{color:var(--coral)}
 
-  footer{padding:36px 0 54px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+  footer{padding:34px 0 50px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
   footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
 
-  @media (max-width:1020px){
+  /* ---------- program guide sheet (small screens) ---------- */
+  .sheet{border:0;padding:0;margin:auto 0 0;width:100%;max-width:100%;max-height:88vh;max-height:88dvh;
+    border-radius:22px 22px 0 0;background:var(--surface);color:var(--text);overflow:auto;overscroll-behavior:contain}
+  .sheet::backdrop{background:rgba(3,5,12,.7)}
+  .sh-top{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:14px var(--gut);background:var(--surface);border-bottom:1px solid var(--line)}
+  .sh-top b{font-size:17px}
+  .sh-list{padding:6px var(--gut) calc(18px + env(safe-area-inset-bottom))}
+  .srow{display:grid;grid-template-columns:84px minmax(0,1fr);gap:14px;align-items:center;padding:10px 0;
+    border-bottom:1px solid var(--line);text-decoration:none;color:inherit}
+  .srow:last-child{border-bottom:0}
+  .srow .st{aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:#000}
+  .srow .st img{width:100%;height:100%;object-fit:cover}
+  .srow .k{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--phos);direction:ltr;text-align:right}
+  .srow b{display:block;font-size:16px;line-height:1.3;margin-top:2px}
+  .srow[aria-current="page"] b{color:var(--onair)}
+  .srow[aria-current="page"] .st{box-shadow:0 0 0 2px var(--onair)}
+
+  /* ---------- viewer ---------- */
+  .viewer{border:0;padding:0;margin:0;width:100%;max-width:100%;height:100%;max-height:100%;
+    background:rgba(3,5,12,.97);color:#E9ECF5;overflow:auto;overscroll-behavior:contain}
+  .viewer::backdrop{background:rgba(3,5,12,.85)}
+  .v-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:12px var(--gut);background:linear-gradient(rgba(3,5,12,.95),rgba(3,5,12,0))}
+  .v-count{font-family:var(--osd);font-size:22px;color:#3CFF6E;direction:ltr}
+  .v-close{color:#fff;opacity:1}
+  .v-body{display:grid;grid-template-columns:minmax(280px,360px) minmax(0,1fr);grid-template-areas:"info media";
+    gap:clamp(20px,3vw,44px);align-items:center;padding:0 var(--gut) 28px;min-height:calc(100% - 64px);max-width:1500px;margin:0 auto}
+  .v-media{grid-area:media;display:grid;place-items:center;min-width:0}
+  .v-media video{max-width:100%;max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);border-radius:12px;background:#000}
+  .v-info{grid-area:info;min-width:0}
+  .v-kind{margin:0;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;color:var(--coral)}
+  .v-info h3{margin:8px 0 0;font-size:clamp(24px,2.4vw,34px);font-weight:700;line-height:1.15}
+  .v-sub{margin:6px 0 0;color:#8C93B0;font-size:15px}
+  .v-text{margin:16px 0 0;font-size:16.5px;line-height:1.65;color:#C9CEE0}
+  .v-info .pills{margin-top:16px}
+  .v-info .pills li{color:#DADFEF;border-color:rgba(233,236,245,.4)}
+  .v-nav{display:flex;gap:10px;margin-top:26px}
+  .v-nav .btn{padding:10px 18px}
+
+  @media (max-width:1100px){
+    .links{display:none}
+    #guideBtn{display:grid}
     .eps{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .reruns{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:1020px){
+    .wgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .wcard.feat{grid-row:auto}
+    .wcard.feat .th{aspect-ratio:16/9;min-height:0;flex:none}
   }
   @media (max-width:860px){
-    .links{display:none}
-    .sticky{--tvw:226vw; --cx:50vw; --cy:30%}
-    .glow{background:radial-gradient(ellipse 80% 40% at 50% 30%,color-mix(in srgb,var(--glow) 24%,transparent),transparent 70%)}
-    .copy{inset-inline:var(--gut);width:auto;top:auto;bottom:calc(78px + env(safe-area-inset-bottom));transform:none;
-      background:linear-gradient(to top,rgba(5,7,13,.96) 70%,rgba(5,7,13,0));padding-top:30px}
-    .chapter h1,.chapter h2{font-size:clamp(28px,8.2vw,38px)}
-    .chapter p{font-size:15px;margin-top:10px}
-    .tags{margin-top:12px}
-    .tags li{font-size:12px;padding:4px 11px}
-    .now{margin-top:12px;padding-top:10px;font-size:13px}
-    .hint{margin-top:14px}
-    .osd{font-size:24px}
-    .remote{inset-inline:var(--gut);top:auto;bottom:calc(16px + env(safe-area-inset-bottom));transform:none;
-      grid-template-columns:repeat(7,1fr) 64px;grid-auto-flow:column;gap:6px;padding:8px;border-radius:18px}
-    .remote .pwr{display:none}
-    .remote button{height:40px;font-size:20px;border-radius:10px}
-    .remote .zap{grid-column:auto;height:40px;font-size:12.5px}
+    .nav{padding:10px var(--gut);gap:12px}
+    .nav-end .btn{display:none}
+    .hero{padding:58px 0 30px}
+    .hero-in{grid-template-columns:minmax(0,1fr);grid-template-areas:"tv" "head";gap:14px;min-height:0}
+    .tvcol{margin-inline:calc(var(--gut) * -1)}
+    .tvcol::before{inset:-6% 0}
+    .remote{gap:5px;padding:0 var(--gut);margin-top:0}
+    .remote button{flex:1 1 0;min-width:0;height:40px;font-size:20px;border-radius:10px}
+    .remote .zap{flex:0 0 auto;padding:0 12px}
     .remote .zap span{display:none}
-    .slot{grid-template-columns:72px 1fr;gap:14px}
-    .slot .thumb{display:none}
-    .eps,.reruns,.teach,.stats{grid-template-columns:1fr}
-    .panel,.about,.contact{grid-template-columns:1fr}
-    .stage.static .chapter{grid-template-columns:1fr}
-    .stage.static .chapter img{order:0}
-    .film .frame{height:58vh}
-    .film.h .frame,.film.q .frame{height:auto;width:84vw}
+    .osd{font-size:22px}
+    .tap{font-size:11.5px;padding:3px 9px 3px 7px}
+    .guide{margin-bottom:10px;font-size:12px}
+    .ch-head h1{font-size:clamp(30px,8.4vw,40px)}
+    .ch-head .lead{font-size:15.5px;margin-top:10px}
+    .ch-head .tags{display:none}
+    .now{margin-top:16px;padding-top:12px;font-size:13.5px}
+    .now .btn{margin-inline-start:0;width:100%;justify-content:center}
+    .sol,.panel,.about,.contact,.record{grid-template-columns:minmax(0,1fr)}
+    .record{gap:10px}
+    .vod{grid-template-columns:minmax(0,1fr);gap:10px}
+    .vod .btn{justify-self:start}
+    .wgrid,.wgrid.two{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}
+    .wgrid.one{grid-template-columns:minmax(0,1fr)}
+    .wcard .tt{font-size:15px;margin-top:9px}
+    .wcard .ss{font-size:12.5px}
+    .wcard .kind{top:7px;inset-inline-start:7px;font-size:10px;padding:2px 6px}
+    .wcard .len{bottom:7px;inset-inline-end:7px;font-size:11px;padding:1px 5px}
+    .wcard .play{width:34px;height:34px;bottom:7px;inset-inline-start:7px}
+    .wcard .play svg{width:14px;height:14px}
+    .wcard.feat .kind,.wgrid.one .kind{top:10px;inset-inline-start:10px;font-size:11px}
+    .wcard.feat .play,.wgrid.one .play{width:46px;height:46px;bottom:10px;inset-inline-start:10px}
+    .wcard.feat .tt,.wgrid.one .tt{font-size:19px}
+    .minis,.eps,.teach,.stats{grid-template-columns:minmax(0,1fr)}
+    .stats{gap:20px}
+    .slot{grid-template-columns:minmax(0,1fr) 104px;gap:14px;padding:14px 0}
+    .slot .time{display:none}
+    .slot .meta{display:block;margin-bottom:4px}
+    .slot h3 .en{display:none}
+    .slot p{font-size:14.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .slot .go{display:none}
+    .nextch{grid-template-columns:110px minmax(0,1fr);padding:12px}
+    .nx-go{grid-column:1/-1;justify-content:center}
+    .nx-body b{font-size:20px}
+    .testcard{aspect-ratio:16/7}
     .tl li{grid-template-columns:96px 1fr}
+    .v-body{grid-template-columns:minmax(0,1fr);grid-template-areas:"media" "info";align-items:start;min-height:0;gap:18px}
+    .v-media video{max-height:58vh;max-height:58dvh;border-radius:10px}
+    .v-nav{position:sticky;bottom:0;padding:12px 0 calc(6px + env(safe-area-inset-bottom));
+      background:linear-gradient(rgba(3,5,12,0),rgba(3,5,12,.96) 30%)}
+    .v-nav .btn{flex:1;justify-content:center}
   }
-  @media (max-width:860px) and (max-height:740px){
-    .sticky{--tvw:200vw; --cy:27%}
-    .chapter p,.chapter .tags{display:none}
+  @media (min-width:861px){
+    .sheet{margin:auto;max-width:520px;border-radius:22px;max-height:84vh}
   }
   @media (prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none}
-    .chapter.on{animation:none}
+    .ch-head.tune,#content.tune{animation:none}
     .onair i{animation:none}
-    html{scroll-behavior:auto}
   }
 </style>
 </head>
 <body>
 
 <header class="nav" id="nav">
-  <a class="brand" href="#top" aria-label="Simpla, לראש העמוד">simpla <span class="onair" aria-hidden="true"><i></i>ON AIR</span></a>
-  <nav class="links" aria-label="ניווט ראשי">
-    <a href="#guide">לוח שידורים</a>
-    <a href="#series">הסדרה</a>
-    <a href="#for">לכל צופה</a>
-    <a href="#archive">ארכיון</a>
-    <a href="#teaching">שיעור פתוח</a>
-    <a href="#about">מאחורי הקלעים</a>
-  </nav>
+  <a class="brand" href="./" data-ch="0" aria-label="Simpla, ערוץ הפתיח">simpla <span class="onair" aria-hidden="true"><i></i>ON AIR</span></a>
+  <nav class="links" id="links" aria-label="ערוצים"></nav>
   <div class="nav-end">
+    <span class="nav-ch" id="navCh" aria-hidden="true">CH 00</span>
     <button class="icon-btn" id="theme" type="button" aria-label="החלפת מצב בהיר או כהה">
       <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+    </button>
+    <button class="icon-btn" id="guideBtn" type="button" aria-label="לוח השידורים, כל הערוצים" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="M8 21h8M7 9h6M7 13h10"/></svg>
     </button>
     <a class="btn btn-coral btn-sm" href="#contact">הזמינו שידור</a>
   </div>
@@ -365,212 +479,31 @@
 
 <main id="top">
 
-  <!-- ===== the TV ===== -->
-  <section class="stage" id="film" aria-label="שידורי לילה: שבעה ערוצים, פתרון בכל ערוץ">
-    <div class="sticky" id="sticky">
-      <div class="glow" aria-hidden="true"></div>
-      <div class="tv" id="tv" aria-hidden="true">
-        <img id="tvimg" alt="">
-        <div class="screen" id="screen">
-          <canvas id="noise" width="160" height="120"></canvas>
-          <div class="osd" id="osd">CH 00</div>
-        </div>
-      </div>
-
-      <div class="copy" aria-live="polite">
-        <article class="chapter on" data-ch="0">
-          <p class="guide"><span class="live">LIVE</span><b>CH 00</b> · פתיח · 22:00</p>
-          <h1>ערוץ Simpla <b>משדר</b></h1>
-          <p>סטודיו ל-UX ו-AI בתל אביב. כל ערוץ כאן הוא פתרון אחר, וכל מה שמשודר בו נעשה אצלנו. אין פרסומות.</p>
-          <p class="now"><span>NOW</span><b>מאבסטרקט לאובייקט</b> · סרט האתר, טייק אחד בחימר</p>
-          <div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="4"/><path d="M12 7v3"/></svg>גללו כדי לזפזפ</div>
-        </article>
-        <article class="chapter" data-ch="1">
-          <p class="guide"><b>CH 01</b> · סטודיו · 22:30</p>
-          <h2><b>סרטים</b> שנבנים כמו מוצר</h2>
-          <p>סרטי מותג, מסבירי מוצר וסרטים לתחרויות. תסריט, סטוריבורד, עקביות של דמויות, סאונד ועריכה, הכול בבית אחד.</p>
-          <ul class="tags"><li>סרט מותג</li><li>מסביר מוצר</li><li>מסקוט</li><li>סרט לתחרות</li></ul>
-          <p class="now"><span>NOW</span><b>תסמונת המושיע</b> · סרט לפסטיבל הסרטים של Higgsfield</p>
-        </article>
-        <article class="chapter" data-ch="2">
-          <p class="guide"><b>CH 02</b> · אפיון · 23:00</p>
-          <h2><b>מוצרים</b> שמבינים במבט</h2>
-          <p>מחקר, זרימות, Wireframes ואב-טיפוס. תשע שנים של הובלת UX ומוצר ב-TipRanks: הרבה דאטה, ומשתמשים שצריכים להבין אותו מהר.</p>
-          <ul class="tags"><li>PRD</li><li>מחקר משתמשים</li><li>Wireframes</li><li>אב-טיפוס</li></ul>
-          <p class="now"><span>NOW</span><b>TipRanks</b> · דף הבית של האתר</p>
-        </article>
-        <article class="chapter" data-ch="3">
-          <p class="guide"><b>CH 03</b> · תהליכים · 23:30</p>
-          <h2><b>מערכות</b> שמייצרות עולם שלם</h2>
-          <p>Workflows ב-Figma Weave, ספריות פרומפטים ומנועים יומיים שמייצרים רעיונות, סטוריבורדים וסרטים. הצוות שלכם מפעיל, המערכת שומרת על עקביות.</p>
-          <ul class="tags"><li>Figma Weave</li><li>אוטומציות</li><li>ספריית פרומפטים</li><li>סוכנים</li></ul>
-          <p class="now"><span>NOW</span><b>בשביל מי זה</b> · נולד במנוע הסרטים היומי שלנו</p>
-        </article>
-        <article class="chapter" data-ch="4">
-          <p class="guide"><b>CH 04</b> · הדרכה · 00:00</p>
-          <h2><b>צוותים</b> שלומדים לעבוד אחרת</h2>
-          <p>סדנאות מעשיות למעצבים, אנשי שיווק, עורכים ומנהלים. כל משתתף יוצא עם תוצר שעובד, לא רק עם השראה.</p>
-          <ul class="tags"><li>סדנאות</li><li>קורסים</li><li>הכשרת מרצים</li><li>פרומפטים בעברית</li></ul>
-          <p class="now"><span>NOW</span><b>העתיד של ללמוד</b> · סרט קצר</p>
-        </article>
-        <article class="chapter" data-ch="5">
-          <p class="guide"><b>CH 05</b> · הטמעה · 00:30</p>
-          <h2><b>ארגונים</b> שרואים הכול</h2>
-          <p>אבחון, מפת הזדמנויות, בחירת כלים, כללי עבודה ופיילוט. כולל רשויות מקומיות ומגזר ציבורי, שם כל החלטה נוגעת בהרבה אנשים.</p>
-          <ul class="tags"><li>אבחון</li><li>מדיניות</li><li>פיילוט</li><li>מדידה</li></ul>
-          <p class="now"><span>NOW</span><b>Juganu</b> · דשבורד לעיר חכמה</p>
-        </article>
-        <article class="chapter" data-ch="6">
-          <p class="guide"><b>CH 99</b> · ללא שם · 01:00</p>
-          <h2>מה שאתם צריכים, <b>באור קטן</b></h2>
-          <p>לא כל פרויקט מתחיל כמסלול שלם. לפעמים מספיקה שעה בשבוע עם מישהו שכבר עבר את זה. ליווי, ייעוץ ותוכניות לימוד.</p>
-          <div class="actions">
-            <a class="btn btn-coral" href="#contact">הזמינו שידור</a>
-            <a class="btn btn-dash" href="#guide">לוח השידורים</a>
+  <!-- ===== this channel: the TV on top, the channel's headline beside it ===== -->
+  <section class="hero" id="hero" aria-label="הערוץ שעל המסך">
+    <div class="hero-in">
+      <div class="tvcol">
+        <div class="tvbox" id="tvbox" role="button" tabindex="0" aria-label="צפייה במה שמשודר עכשיו">
+          <div class="tv">
+            <img id="tvimg" alt="">
+            <div class="screen" id="screen">
+              <img class="still" id="still" alt="" fetchpriority="high">
+              <canvas id="noise" width="160" height="120"></canvas>
+              <div class="osd" id="osd">CH 00</div>
+              <span class="tap" id="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg>צפו עם סאונד</span>
+            </div>
           </div>
-        </article>
-        <article class="chapter end-card" data-ch="7">
-          <h2 class="en">END OF BROADCAST</h2>
-          <p>סוף שידורים. התוכניה המלאה ממשיכה למטה.</p>
-        </article>
+        </div>
+        <nav class="remote" id="remote" aria-label="שלט: בחירת ערוץ"></nav>
       </div>
-
-      <nav class="remote" id="remote" aria-label="שלט: בחירת ערוץ">
-        <span class="pwr" aria-hidden="true"></span>
-      </nav>
+      <div class="ch-head" id="chHead" aria-live="polite"></div>
     </div>
   </section>
 
-  <!-- ===== program guide (solutions) ===== -->
-  <section class="sec" id="guide">
-    <div class="wrap">
-      <div class="head reveal">
-        <p class="label mono">PROGRAM GUIDE</p>
-        <h2 class="h2">לוח <b>השידורים</b></h2>
-        <p class="lede">שבעה ערוצים, שבעה פתרונות. אפשר לצפות באחד, ואפשר להזמין את כל הלילה.</p>
-      </div>
-      <div class="listing" id="listing"></div>
-    </div>
-  </section>
+  <!-- ===== everything on this channel, rendered from CHANNELS ===== -->
+  <div id="content"></div>
 
-  <!-- ===== series (object track) ===== -->
-  <section class="sec" id="series">
-    <div class="wrap">
-      <div class="head reveal">
-        <p class="label mono">MINI SERIES · 4 EPISODES</p>
-        <h2 class="h2">מסלול <b>אובייקט</b>, סדרה בארבעה פרקים</h2>
-        <p class="lede">הפתרון המלא, מקצה לקצה. בפרק האחרון הצוות שלכם כבר מפעיל הכול לבד.</p>
-      </div>
-      <div class="eps">
-        <article class="ep reveal"><span class="no en">01</span><span class="en">Abstract</span><h3>אבחון</h3><span class="dur">כשבועיים</span>
-          <p>ראיונות, מיפוי תהליכים, ומפת הזדמנויות AI שמראה איפה זה שווה ואיפה לא.</p></article>
-        <article class="ep reveal"><span class="no en">02</span><span class="en">Shape</span><h3>אפיון</h3><span class="dur">2 עד 4 שבועות</span>
-          <p>אפיון התהליך, המוצר או מערכת התוכן. מה בונים, למי, ואיך יודעים שזה עובד.</p></article>
-        <article class="ep reveal"><span class="no en">03</span><span class="en">Object</span><h3>הפקה ובנייה</h3><span class="dur">3 עד 8 שבועות</span>
-          <p>סרטים, Workflows ב-Figma Weave, אוטומציות וכלים פנימיים. דברים שעובדים, לא מצגות.</p></article>
-        <article class="ep reveal"><span class="no en">04</span><span class="en">Hand-off</span><h3>הטמעה ולימוד</h3><span class="dur">4 עד 12 שבועות</span>
-          <p>סדנאות, ספריית Workflows, שעות פתוחות ומדידה, עד שהצוות מפעיל הכול לבד.</p></article>
-      </div>
-      <div class="series-cta reveal">
-        <a class="btn btn-coral" href="mailto:studio@simplaux.com?subject=%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%D7%90%D7%95%D7%91%D7%99%D7%99%D7%A7%D7%98">להזמין את הסדרה</a>
-        <span>הפרק הראשון הוא תמיד שיחת אבחון קצרה.</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== for each viewer ===== -->
-  <section class="sec" id="for">
-    <div class="wrap">
-      <div class="head reveal">
-        <p class="label mono">FOR EVERY VIEWER</p>
-        <h2 class="h2">תוכנית <b>לכל צופה</b></h2>
-        <p class="lede">אותם ערוצים, ארוזים אחרת לכל סוג של לקוח.</p>
-      </div>
-      <div class="chips" id="chips" role="tablist" aria-label="סוג לקוח"></div>
-      <div class="panel" id="panel" role="tabpanel"></div>
-    </div>
-  </section>
-
-  <!-- ===== reruns (product work) ===== -->
-  <section class="sec" id="reruns">
-    <div class="wrap">
-      <div class="head reveal">
-        <p class="label mono">RERUNS</p>
-        <h2 class="h2">שידורים <b>חוזרים</b></h2>
-        <p class="lede">מוצרים שאפיינו, עיצבו והובילו. עדיין רצים.</p>
-      </div>
-      <div class="reruns" id="reruns-list"></div>
-    </div>
-  </section>
-
-  <!-- ===== archive (films) ===== -->
-  <section class="sec" id="archive">
-    <div class="wrap">
-      <div class="head reveal">
-        <p class="label mono">ARCHIVE</p>
-        <h2 class="h2">הארכיון <b>המלא</b></h2>
-        <p class="lede">הסרטים שמהם נבנו הערוצים. לחצו על סרט כדי לצפות בו עם סאונד.</p>
-      </div>
-      <div class="reel" id="reel"></div>
-    </div>
-  </section>
-
-  <!-- ===== open lesson (teaching) ===== -->
-  <section class="sec" id="teaching">
-    <div class="wrap">
-      <div class="head reveal">
-        <p class="label mono">OPEN LESSON</p>
-        <h2 class="h2">שיעור <b>פתוח</b></h2>
-        <p class="lede">כל כלי שאנחנו מלמדים, השתמשנו בו קודם בפרויקט אמיתי. ומה שעובד בכיתה נכנס לעבודה.</p>
-      </div>
-      <div class="stats reveal">
-        <div class="stat"><b class="en">600</b><span>משתתפים בכל הרצאה מרכזית ב-DESIGN AI</span></div>
-        <div class="stat"><b class="en">37</b><span>שעות בתוכנית ה-AI למעצבים וליוצרי סרטים ב-InMotion</span></div>
-        <div class="stat"><b class="en">9</b><span>שנים בהובלת UX ומוצר ב-TipRanks</span></div>
-      </div>
-      <div class="teach">
-        <article class="t-item reveal"><span class="who">John Bryce</span><h3>ג׳ון ברייס</h3>
-          <p>קורסים ב-UX ועיצוב מוצר, וקורס למיישמי AI בארגונים: מתמונות ווידאו ועד בניית אפליקציות.</p></article>
-        <article class="t-item reveal"><span class="who">InMotion</span><h3>AI למעצבים ויוצרי סרטים</h3>
-          <p>תוכנית של תשעה מפגשים לעורכים, אנימטורים ומעצבים: מפרומפט ראשון ועד סרט שלם.</p></article>
-        <article class="t-item reveal"><span class="who">DESIGN AI</span><h3>הרצאה מרכזית, 2024 ו-2025</h3>
-          <p>על בניית Workflows ועל הקמת תשתית מותג שעובדת עם AI. כחצי שעה מול קהל של כ-600 איש, פעמיים.</p></article>
-        <article class="t-item reveal"><span class="who">Enterprise</span><h3>סדנאות לארגונים</h3>
-          <p>סדנאות AI לארגוני ממשלה ואנטרפרייז, בשיתוף Reflectify AI. בעברית, עם תוצר לכל משתתף.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== behind the scenes (about) ===== -->
-  <section class="sec" id="about">
-    <div class="wrap about">
-      <div class="reveal">
-        <p class="label mono">BEHIND THE SCENES</p>
-        <h2 class="h2">מאחורי <b>הקלעים</b></h2>
-        <p class="lede" style="margin-bottom:22px">אייל גרשון, מייסד Simpla. מעצב מוצר, במאי ומרצה.</p>
-        <p>Simpla היא סטודיו בוטיק ל-UX ו-AI בתל אביב. אנחנו עובדים במקום שבו עיצוב מוצר, קולנוע והוראה נפגשים, ולכן אנחנו גם מפיקים, גם מאפיינים, גם בונים מערכות וגם מלמדים.</p>
-        <p>לפני Simpla אייל הוביל את ה-UX, ואחר כך את המוצר וה-UX, ב-TipRanks. בלילות הוא מביים סרטי AI לתחרויות, ומה שהוא לומד שם נכנס לעבודה עם לקוחות למחרת בבוקר.</p>
-        <ul class="awards" aria-label="פרסים מהשנים ב-TipRanks">
-          <li class="en">Finovate 2013, 2014</li>
-          <li class="en">IBM Watson 2015 · 1st</li>
-          <li class="en">KPMG Fintech 100 · 2016</li>
-        </ul>
-        <p class="note">הפרסים ניתנו ל-TipRanks בשנים שאייל הוביל בה את חוויית המשתמש.</p>
-      </div>
-      <ol class="tl reveal" aria-label="ציר זמן">
-        <li><span class="yr">2025</span><span>מרצה בג׳ון ברייס, UX ו-AI</span></li>
-        <li><span class="yr">2020</span><span>מייסד Simpla</span></li>
-        <li><span class="yr">2013 · 2022</span><span>TipRanks, ראש UX ואחר כך ראש מוצר ו-UX</span></li>
-        <li><span class="yr">2012</span><span>IQURIO, מייסד-שותף וקריאייטיב ראשי</span></li>
-        <li><span class="yr">2011</span><span>Gurimi, מנהל סטודיו</span></li>
-        <li><span class="yr">2010</span><span>In House, עיצוב הפקה ואנימציה</span></li>
-        <li><span class="yr">2009</span><span>Gitam BBDO, ארט דיירקטור אינטראקטיב</span></li>
-        <li><span class="yr">2008</span><span>Saatchi &amp; Saatchi ו-Publicis, עיצוב דיגיטל</span></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ===== contact ===== -->
+  <!-- ===== contact, on every channel ===== -->
   <section class="sec" id="contact">
     <div class="wrap contact">
       <div class="reveal">
@@ -598,25 +531,52 @@
   <footer>
     <div class="wrap">
       <span>Simpla · סטודיו ל-UX ו-AI · תל אביב</span>
-      <span>כל הערוצים נחתכו מסרטים שהפקנו. <span class="en">v1.1 · 17.10.2026</span></span>
+      <span>כל הערוצים נחתכו מסרטים שהפקנו. <span class="en">v2.0 · 17.10.2026</span></span>
     </div>
   </footer>
 </main>
 
-<dialog id="dlg" aria-label="נגן סרט">
-  <button class="icon-btn dlg-close" id="dlgClose" type="button" aria-label="סגירה">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-  </button>
-  <video id="dlgVideo" controls playsinline preload="none"></video>
-  <p class="dlg-title" id="dlgTitle"></p>
+<dialog id="sheet" class="sheet" aria-labelledby="sheetTitle">
+  <div class="sh-top">
+    <b id="sheetTitle">לוח השידורים</b>
+    <button class="icon-btn" id="sheetClose" type="button" aria-label="סגירה">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="sh-list" id="sheetList" aria-label="כל הערוצים"></nav>
+</dialog>
+
+<dialog id="viewer" class="viewer" aria-labelledby="vTitle">
+  <div class="v-top">
+    <span class="v-count" id="vCount"></span>
+    <button class="icon-btn v-close" id="vClose" type="button" aria-label="סגירה">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="v-body">
+    <div class="v-media"><video id="vVideo" controls playsinline preload="metadata"></video></div>
+    <div class="v-info">
+      <p class="v-kind" id="vKind"></p>
+      <h3 id="vTitle"></h3>
+      <p class="v-sub" id="vSub"></p>
+      <p class="v-text" id="vText"></p>
+      <ul class="pills" id="vGets" aria-label="מה עשינו"></ul>
+      <div class="v-nav">
+        <button class="btn btn-dash" id="vPrev" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>הקודם</button>
+        <button class="btn btn-coral" id="vNext" type="button">הבא<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
 </dialog>
 
 <script>
 (function () {
   "use strict";
 
+  /* ================= media ================= */
   var HF = "https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/";
   var HF2 = "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/";
+  // one still per channel, taken from the TV film
   var CH = [
     HF + "68442d0f-eb27-4cdf-ac40-f5169ff4669d.jpg",
     HF + "d207f108-fa34-4f50-aef3-9c5e84f466b1.jpg",
@@ -628,155 +588,222 @@
   ];
   var CFG = {
     tv: HF + "670097f7-9370-434d-9298-ba4c5417a1c7.jpg",
-    // one 4:3 file: seven channel cuts (3s then 4s each), then the screen switching off
+    // one 4:3 file with every channel's cut (3s, then 4s each), keyframe every 4 frames.
+    // each channel page loops its own cut on the TV.
     film: HF + "0656125a-7d63-4c25-a6d3-c476c785ff0e.mp4",
-    cuts: [3, 7, 11, 15, 19, 23, 27, 28.5],
-    weights: [1.1, 1.5, 1.4, 1.4, 1.4, 1.4, 1.5, 0.9],
-    osd: ["CH 00", "CH 01", "CH 02", "CH 03", "CH 04", "CH 05", "CH 99", ""],
-    keys: ["00", "01", "02", "03", "04", "05", "99"],
-    glow: ["#F7636B", "#E8913A", "#8FB8FF", "#E040FB", "#F2C27A", "#3FD3C2", "#9ED8E6", "#05070D"],
+    starts: [0, 3, 7, 11, 15, 19, 23],
+    cuts: [3, 7, 11, 15, 19, 23, 27],
+    glow: ["#F7636B", "#E8913A", "#8FB8FF", "#E040FB", "#F2C27A", "#3FD3C2", "#9ED8E6"],
     work: "https://simpla-clay.higgsfield.app/assets/work/"
   };
+  var W = CFG.work;
 
-  var SOLUTIONS = [
-    { id: "studio", ch: 1, time: "22:30", tag: "סטודיו", name: "Simpla Studio", title: "סרטים ב-AI",
+  /* ================= content ================= */
+  var SOLUTIONS = {
+    studio: { name: "Simpla Studio", title: "סרטים ב-AI",
       text: "סרט מותג, פרסומת, מסביר מוצר או סדרה לרשתות. מתסריט וסטוריבורד ועד עריכה וסאונד.",
       gets: ["תסריט וסטוריבורד", "סרט מותג", "מסביר מוצר", "מסקוט", "גרסאות לרשתות"],
-      who: "צוותי שיווק, סטארטאפים לפני השקה, ומותגים שצריכים הרבה וידאו בלי הפקה כבדה." },
-    { id: "spec", ch: 2, time: "23:00", tag: "אפיון", name: "Simpla Spec", title: "אפיון UX ומוצר",
+      who: "צוותי שיווק, סטארטאפים לפני השקה, ומותגים שצריכים הרבה וידאו בלי הפקה כבדה.",
+      first: "שיחה על הסרט, ואחריה תסריט וסטוריבורד לאישור לפני שמייצרים פריים אחד.", cta: "לקבוע שיחה על סרט" },
+    spec: { name: "Simpla Spec", title: "אפיון UX ומוצר",
       text: "מסמך מוצר שהפיתוח יכול לעבוד ממנו, בלי ניחושים. מחקר משתמשים, זרימות, Wireframes ואב-טיפוס ב-Figma.",
       gets: ["PRD", "מפות זרימה", "Wireframes", "אב-טיפוס", "מחקר משתמשים"],
-      who: "סטארטאפים לפני MVP, צוותי מוצר שצריכים עוד ראש, וארגונים שבונים כלי פנימי." },
-    { id: "flows", ch: 3, time: "23:30", tag: "תהליכים", name: "Simpla Flows", title: "Figma Weave ואוטומציות",
+      who: "סטארטאפים לפני MVP, צוותי מוצר שצריכים עוד ראש, וארגונים שבונים כלי פנימי.",
+      first: "סדנת אפיון קצרה עם הצוות, שיוצאת ממנה מפת זרימה ראשונה.", cta: "לקבוע שיחת אפיון" },
+    flows: { name: "Simpla Flows", title: "Figma Weave ואוטומציות",
       text: "מערכת שמייצרת תוכן באופן עקבי, לא קובץ חד-פעמי. Workflows ב-Figma Weave, ספריות פרומפטים, צינורות תוכן וכלים פנימיים.",
       gets: ["Workflows ב-Weave", "ספריית פרומפטים", "צינור תוכן", "סוכנים", "תיעוד"],
-      who: "צוותי שיווק ותוכן, סוכנויות, וכל מי שמייצר הרבה ויזואל ורוצה שייראה אותו דבר בכל פעם." },
-    { id: "lab", ch: 4, time: "00:00", tag: "הדרכה", name: "Simpla Lab", title: "סדנאות לצוותים",
+      who: "צוותי שיווק ותוכן, סוכנויות, וכל מי שמייצר הרבה ויזואל ורוצה שייראה אותו דבר בכל פעם.",
+      first: "מיפוי של סוג תוכן אחד שאתם מייצרים שוב ושוב, והפיכה שלו ל-Workflow ראשון.", cta: "לקבוע שיחה על מערכת" },
+    lab: { name: "Simpla Lab", title: "סדנאות לצוותים",
       text: "שלוש שעות, יום מרוכז או סדרת מפגשים. כל משתתף יוצא עם תוצר אחד שעובד, וערכת פרומפטים בעברית.",
       gets: ["סדנה מעשית", "יום מרוכז", "סדרת מפגשים", "ערכת פרומפטים", "תרגילים"],
-      who: "מחלקות שיווק, עיצוב, הדרכה ו-HR. צוותים שכבר מנסים, ורוצים לעשות את זה נכון." },
-    { id: "adopt", ch: 5, time: "00:30", tag: "הטמעה", name: "Simpla Adopt", title: "הטמעת AI בארגון",
+      who: "מחלקות שיווק, עיצוב, הדרכה ו-HR. צוותים שכבר מנסים, ורוצים לעשות את זה נכון.",
+      first: "שיחה עם מי שמוביל את הצוות, ובחירה של תרגיל על חומר אמיתי שלכם.", cta: "הזמינו סדנה" },
+    adopt: { name: "Simpla Adopt", title: "הטמעת AI בארגון",
       text: "AI שהעובדים באמת משתמשים בו. אבחון, מפת הזדמנויות, בחירת כלים, כללי עבודה, פיילוט ומדידה.",
       gets: ["אבחון", "מפת הזדמנויות", "בחירת כלים", "מדיניות שימוש", "פיילוט", "מדידה"],
-      who: "ארגונים, רשויות מקומיות ומגזר ציבורי שקיבלו הנחיה מלמעלה ומחפשים דרך מעשית." },
-    { id: "guide", ch: 6, time: "01:00", tag: "ליווי", name: "Simpla Guide", title: "ייעוץ ומנטורינג",
+      who: "ארגונים, רשויות מקומיות ומגזר ציבורי שקיבלו הנחיה מלמעלה ומחפשים דרך מעשית.",
+      first: "אבחון קצר עם הנהלה ושני צוותים, ומפת הזדמנויות כתובה.", cta: "לקבוע שיחת אבחון" },
+    guide: { name: "Simpla Guide", title: "ייעוץ ומנטורינג",
       text: "מישהו מנוסה לצידכם בהחלטות של AI, מוצר ותוכן. שעה בשבוע, או כשצריך.",
       gets: ["שעות ייעוץ", "ליווי חודשי", "Office hours", "ביקורת תיק עבודות"],
-      who: "מנהלים, יזמים, מעצבים בתחילת הדרך, וצוותים שאין להם עדיין מוביל AI." },
-    { id: "academy", ch: -1, time: "01:30", tag: "אקדמיה", name: "Simpla Academy", title: "תוכניות לימוד",
+      who: "מנהלים, יזמים, מעצבים בתחילת הדרך, וצוותים שאין להם עדיין מוביל AI.",
+      first: "שעה ראשונה על ההחלטה הכי בוערת שלכם עכשיו.", cta: "לקבוע שעה ראשונה" },
+    academy: { name: "Simpla Academy", title: "תוכניות לימוד",
       text: "סילבוס, מערכי שיעור, תרגילים וקייס סטאדי מוכנים, למכללות ולמחלקות הדרכה.",
       gets: ["סילבוס", "מערכי שיעור", "תרגילים", "קייס סטאדי", "הכשרת מרצים"],
-      who: "מכללות, בתי ספר מקצועיים ומחלקות הדרכה בארגונים." }
+      who: "מכללות, בתי ספר מקצועיים ומחלקות הדרכה בארגונים.",
+      first: "פגישה עם רכזי התוכנית, ובחירה של קורס אחד לפיילוט.", cta: "בקשו סילבוס" }
+  };
+
+  var WORKS = {
+    savior: { kind: "FILM", title: "תסמונת המושיע", sub: "סרט לפסטיבל הסרטים של Higgsfield", len: "3:16",
+      src: HF + "5056b375-f0d0-446e-bed9-bbfa21314504.mp4", preview: HF + "2e34e853-6cd5-4ddd-bd03-74b3b0c5e87e.mp4",
+      poster: HF + "4d8b91e4-2d4a-4c3d-8f73-15b6a5d7215a.jpg",
+      text: "סרט קצר על הצורך להיות זה שמציל את כולם. נכתב, בוים ונערך אצלנו לפסטיבל הסרטים של Higgsfield.",
+      gets: ["תסריט", "בימוי", "עקביות דמויות", "עריכה וסאונד"] },
+    whofor: { kind: "FILM", title: "בשביל מי זה", sub: "אנתולוגיה מהמנוע היומי", len: "2:53",
+      src: HF + "b1b4150d-d826-4789-bd3c-c12357b868f2.mp4", preview: HF + "ffc80726-b6ff-49fd-bee3-e333874b144c.mp4",
+      poster: HF + "31744d12-2f0e-4477-84ac-1a44bbde17f2.jpg",
+      text: "עולמות של חימר וניאון שנולדו במנוע הסרטים היומי שלנו, ונערכו לסרט אחד.",
+      gets: ["מנוע יומי", "Workflows", "עולם ודמויות", "עריכה"] },
+    future: { kind: "FILM", title: "העתיד של ללמוד", sub: "סרט קצר", len: "1:00",
+      src: HF + "d5cef077-7d70-4f33-8af3-3c0e441e24b8.mp4", preview: HF + "90a8dfc7-731f-4d15-947c-ee2d6da4e0af.mp4",
+      poster: HF + "5a33bc46-4b7d-4f72-b3c2-7e5fa7d47c0f.jpg",
+      text: "סרט קצר על כיתה שבה הידע נהיה משהו שאפשר להחזיק ביד.",
+      gets: ["תסריט", "בימוי", "הפקה ב-AI"] },
+    burger: { kind: "SERIES", title: "ההמבורגר מניו", sub: "ביוגרפיה של אובייקט, פרק 1", len: "0:56", shape: "v",
+      src: HF + "b5406eb1-f5bf-492a-8730-864083badada.mp4", preview: HF + "19b426d0-72b0-4d5b-8ab8-6eab47abf955.mp4",
+      poster: HF + "a0171652-f00b-4ba8-bb88-2510cc9f6433.jpg",
+      text: "הפרק הראשון בסדרה שמספרת את הביוגרפיה של חפצים יומיומיים. אנכי, לרשתות.",
+      gets: ["סדרה", "פורמט אנכי", "עולם ויזואלי"] },
+    frame: { kind: "SERIES", title: "הפריים", sub: "ביוגרפיה של אובייקט, פרק 6", len: "1:06", shape: "s",
+      src: HF + "a960e971-3998-4480-a93d-76350b26344e.mp4", preview: HF + "40c0cbd1-fc41-4c84-8863-ca49432f98ac.mp4",
+      poster: HF + "9a682b61-8caa-4cac-b102-be6a9e86a492.jpg",
+      text: "פרק נוסף בסדרת הביוגרפיות של חפצים. ריבועי, לפיד.",
+      gets: ["סדרה", "פורמט ריבועי", "סאונד"] },
+    abstract: { kind: "SITE FILM", title: "מאבסטרקט לאובייקט", sub: "סרט אתר בטייק אחד", len: "0:30",
+      src: HF2 + "hf_20261016_180938_5d71d29f-22e3-485e-95d9-b3e4f1e827ba.mp4", preview: HF + "518c25f6-7b80-4483-93bb-0e43f2fc0154.mp4",
+      poster: HF + "85e5717d-67b8-41a7-9bfd-41a6d14b11de.jpg",
+      text: "שלושים שניות של חימר בטייק אחד: מגוש גולמי, דרך מצלמה, מסך ועיר, ועד כדור מלוטש. באתר עצמו הגלילה מריצה אותו.",
+      gets: ["טייק אחד", "פריימי מפתח", "וידאו לגלילה"] },
+    tipranks: { kind: "PRODUCT", client: "TipRanks", title: "דף הבית של האתר", loop: true,
+      src: W + "tipranks.mp4", preview: W + "tipranks.mp4", poster: W + "tipranks-poster.jpg",
+      text: "להפוך כמות עצומה של דאטה פיננסי לחוויה ידידותית, ממותגת ומובנת במבט אחד.",
+      gets: ["אידיאציה", "Wireframes", "עיצוב קונספט", "מחקר UX", "גישת MVP"] },
+    tease: { kind: "PRODUCT", client: "Tease", title: "ערכת השראה ל-UX", loop: true,
+      src: W + "tease.mp4", preview: W + "tease.mp4", poster: W + "tease-poster.jpg",
+      text: "להראות את תהליך ה-UX שמאחורי מוצרים גמורים, בצורה ברורה וסוחפת, ללמידה עצמית.",
+      gets: ["אידיאציה", "מחקר UX", "עיצוב", "אנימציה", "HTML5 canvas", "סיפור"] },
+    juganu: { kind: "PRODUCT", client: "Juganu", title: "דשבורד לעיר חכמה", loop: true,
+      src: W + "juganu.mp4", preview: W + "juganu.mp4", poster: W + "juganu-poster.jpg",
+      text: "מערכת שמאפשרת לרשויות לראות מה קורה בעיר 24/7, ולשפר בעזרתה את חיי התושבים.",
+      gets: ["מחקר מוצר", "אב-טיפוס", "מחקר UX", "עיצוב UI ו-UX", "Style guide"] }
+  };
+  var MINIS = {
+    saas: { tag: "Figma Weave · מערכת תוכן", title: "מפעל תוכן לחברת SaaS",
+      text: "מסקוט עם שלוש וריאציות, פרומפטים לאיורי בלוג ולסרטונים, וכל זה כמערכת אחת שהצוות מפעיל בעצמו." },
+    renders: { tag: "AI · הדמיות מוצר", title: "צינור הדמיות ליצרן",
+      text: "משרטוטים אורתוגרפיים להדמיות איזומטריות נקיות, בתהליך אחד שחוזר על עצמו לכל מוצר חדש בקטלוג." }
+  };
+
+  // each channel is a page: what the TV plays, the headline beside it, and the blocks below
+  var CHANNELS = [
+    { key: "00", name: "פתיח", time: "22:00", live: true,
+      h: "ערוץ Simpla <b>משדר</b>",
+      p: "סטודיו ל-UX ו-AI בתל אביב. כל ערוץ כאן הוא פתרון אחר, וכל מה שמשודר בו נעשה אצלנו. אין פרסומות.",
+      now: "abstract", nowNote: "סרט האתר, טייק אחד בחימר", hint: true,
+      reel: ["abstract", "savior", "tipranks", "whofor", "future", "juganu", "burger", "frame", "tease"],
+      blocks: [["guide"], ["for"]] },
+    { key: "01", name: "סטודיו", sol: "studio", time: "22:30",
+      h: "<b>סרטים</b> שנבנים כמו מוצר",
+      p: "סרטי מותג, מסבירי מוצר וסרטים לתחרויות. תסריט, סטוריבורד, עקביות של דמויות, סאונד ועריכה, הכול בבית אחד.",
+      tags: ["סרט מותג", "מסביר מוצר", "מסקוט", "סרט לתחרות"],
+      now: "savior", nowNote: "סרט לפסטיבל הסרטים של Higgsfield",
+      works: ["savior", "burger", "frame", "whofor", "future"],
+      blocks: [["works"], ["sol", "studio"], ["steps"]] },
+    { key: "02", name: "אפיון", sol: "spec", time: "23:00",
+      h: "<b>מוצרים</b> שמבינים במבט",
+      p: "מחקר, זרימות, Wireframes ואב-טיפוס. תשע שנים של הובלת UX ומוצר ב-TipRanks: הרבה דאטה, ומשתמשים שצריכים להבין אותו מהר.",
+      tags: ["PRD", "מחקר משתמשים", "Wireframes", "אב-טיפוס"],
+      now: "tipranks", nowNote: "דף הבית של האתר",
+      works: ["tipranks", "juganu", "tease"],
+      blocks: [["works"], ["sol", "spec"], ["record"]] },
+    { key: "03", name: "תהליכים", sol: "flows", time: "23:30",
+      h: "<b>מערכות</b> שמייצרות עולם שלם",
+      p: "Workflows ב-Figma Weave, ספריות פרומפטים ומנועים יומיים שמייצרים רעיונות, סטוריבורדים וסרטים. הצוות שלכם מפעיל, המערכת שומרת על עקביות.",
+      tags: ["Figma Weave", "אוטומציות", "ספריית פרומפטים", "סוכנים"],
+      now: "whofor", nowNote: "נולד במנוע הסרטים היומי שלנו",
+      works: ["whofor", "abstract"], minis: ["saas", "renders"],
+      blocks: [["works"], ["sol", "flows"]] },
+    { key: "04", name: "הדרכה", sol: "lab", time: "00:00",
+      h: "<b>צוותים</b> שלומדים לעבוד אחרת",
+      p: "סדנאות מעשיות למעצבים, אנשי שיווק, עורכים ומנהלים. כל משתתף יוצא עם תוצר שעובד, לא רק עם השראה.",
+      tags: ["סדנאות", "קורסים", "הכשרת מרצים", "פרומפטים בעברית"],
+      now: "future", nowNote: "סרט קצר",
+      works: ["future"],
+      blocks: [["sol", "lab"], ["teach"], ["works"]] },
+    { key: "05", name: "הטמעה", sol: "adopt", time: "00:30",
+      h: "<b>ארגונים</b> שרואים הכול",
+      p: "אבחון, מפת הזדמנויות, בחירת כלים, כללי עבודה ופיילוט. כולל רשויות מקומיות ומגזר ציבורי, שם כל החלטה נוגעת בהרבה אנשים.",
+      tags: ["אבחון", "מדיניות", "פיילוט", "מדידה"],
+      now: "juganu", nowNote: "דשבורד לעיר חכמה",
+      works: ["juganu"],
+      blocks: [["sol", "adopt"], ["series"], ["works"]] },
+    { key: "99", name: "ליווי", sol: "guide", time: "01:00",
+      h: "מה שאתם צריכים, <b>באור קטן</b>",
+      p: "לא כל פרויקט מתחיל כמסלול שלם. לפעמים מספיקה שעה בשבוע עם מישהו שכבר עבר את זה. ליווי, ייעוץ, ומאחורי הקלעים של הסטודיו.",
+      actions: true,
+      blocks: [["sol", "guide"], ["about"]] }
   ];
 
   var AUDIENCES = [
     { id: "startup", chip: "סטארטאפ", name: "מהשקה לסרט",
       problem: "יש מוצר, או רעיון למוצר, ואין זמן לבזבז על ניחושים.",
-      mods: ["Spec", "Studio", "Flows"],
+      mods: [2, 1, 3],
       outcome: "אפיון ל-MVP, סרט השקה, מסקוט ומערכת תוכן בסיסית ב-Figma Weave.",
       first: "שיחת אבחון, ואחריה אפיון MVP בתוך כמה שבועות." },
     { id: "marketing", chip: "צוות שיווק", name: "מפעל תוכן",
       problem: "הצוות צריך יותר ויזואל, יותר מהר, ובלי לאבד את המותג בדרך.",
-      mods: ["Flows", "Lab", "Guide"],
+      mods: [3, 4, 6],
       outcome: "צינור תוכן ב-Figma Weave שבנוי על המותג שלכם, סדנה לצוות, וליווי חודשי עד שזה רץ לבד.",
       first: "מיפוי של סוגי התוכן שאתם מייצרים היום, ובחירה של הראשון שהופך למערכת." },
     { id: "agency", chip: "סוכנות או סטודיו", name: "סוכנות AI-Native",
       problem: "הלקוחות כבר שואלים על AI, והצוות לומד תוך כדי פרויקט.",
-      mods: ["Lab", "Flows", "Guide"],
+      mods: [4, 3, 6],
       outcome: "סדנה מתקדמת ב-Figma Weave וב-Higgsfield, ספריית Workflows משותפת, וליווי בפרויקט הראשון.",
       first: "סדנה לצוות הקריאייטיב על בריף אמיתי של לקוח." },
     { id: "public", chip: "רשות או מגזר ציבורי", name: "עיר שמסבירה את עצמה",
       problem: "יש הנחיה מלמעלה, ויש עובדים שעוד לא יודעים מאיפה להתחיל.",
-      mods: ["Adopt", "Studio", "Spec", "Lab"],
+      mods: [5, 1, 2, 4],
       outcome: "תוכנית הטמעה, סרטי הסבר לתושבים, אפיון של שירות דיגיטלי, וסדנאות לעובדים.",
       first: "אבחון קצר עם הנהלה ושני צוותים, ומפת הזדמנויות כתובה." },
     { id: "edu", chip: "מוסד לימודים", name: "תוכנית AI יצירתי",
       problem: "הסטודנטים כבר משתמשים ב-AI. התוכנית עוד לא.",
-      mods: ["Academy", "Lab"],
+      mods: [4],
       outcome: "סילבוס מוכן להפעלה, הכשרת מרצים, וסדנאות לסטודנטים.",
       first: "פגישה עם רכזי התוכנית ובחירה של קורס אחד לפיילוט." }
   ];
 
-  var CASES = [
-    { slug: "juganu", client: "Juganu", title: "דשבורד לעיר חכמה",
-      text: "מערכת שמאפשרת לרשויות לראות מה קורה בעיר 24/7, ולשפר בעזרתה את חיי התושבים." },
-    { slug: "tipranks", client: "TipRanks", title: "דף הבית של האתר",
-      text: "להפוך כמות עצומה של דאטה פיננסי לחוויה ידידותית, ממותגת ומובנת במבט אחד." },
-    { slug: "tease", client: "Tease", title: "ערכת השראה ל-UX",
-      text: "להראות את תהליך ה-UX שמאחורי מוצרים גמורים, בצורה ברורה וסוחפת, ללמידה עצמית." }
-  ];
-
-  var FILMS = [
-    { title: "תסמונת המושיע", sub: "סרט לפסטיבל של Higgsfield", len: "3:16", shape: "q",
-      src: HF + "5056b375-f0d0-446e-bed9-bbfa21314504.mp4", poster: CH[1] },
-    { title: "בשביל מי זה", sub: "אנתולוגיה מהמנוע היומי", len: "2:53", shape: "q",
-      src: HF + "b1b4150d-d826-4789-bd3c-c12357b868f2.mp4", poster: CH[3] },
-    { title: "העתיד של ללמוד", sub: "סרט קצר", len: "1:00", shape: "q",
-      src: HF + "d5cef077-7d70-4f33-8af3-3c0e441e24b8.mp4", poster: CH[4] },
-    { title: "ההמבורגר מניו", sub: "ביוגרפיה של אובייקט, פרק 1", len: "0:56", shape: "v",
-      src: HF + "b5406eb1-f5bf-492a-8730-864083badada.mp4",
-      preview: HF + "19b426d0-72b0-4d5b-8ab8-6eab47abf955.mp4", poster: HF + "a0171652-f00b-4ba8-bb88-2510cc9f6433.jpg" },
-    { title: "הפריים", sub: "ביוגרפיה של אובייקט, פרק 6", len: "1:06", shape: "s",
-      src: HF + "a960e971-3998-4480-a93d-76350b26344e.mp4",
-      preview: HF + "40c0cbd1-fc41-4c84-8863-ca49432f98ac.mp4", poster: HF + "9a682b61-8caa-4cac-b102-be6a9e86a492.jpg" },
-    { title: "מאבסטרקט לאובייקט", sub: "סרט אתר בטייק אחד", len: "0:30", shape: "h",
-      src: HF2 + "hf_20261016_180938_5d71d29f-22e3-485e-95d9-b3e4f1e827ba.mp4", poster: CH[0] }
-  ];
-
-  /* helpers */
+  /* ================= helpers ================= */
+  function $(id) { return document.getElementById(id); }
   function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
   function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  function svg(path, sw) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + (sw || 2) +
+      '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + path + "</svg>";
+  }
+  var ICON = {
+    play: svg('<path d="M8 5.5v13l10-6.5z"/>'),
+    fwd: svg('<path d="M15 6l-6 6 6 6"/>'),
+    zap: svg('<path d="M3 7h3.5c2 0 3.2 1 4.3 2.6l2.4 4.8C14.3 16 15.5 17 17.5 17H21"/><path d="M3 17h3.5c1.3 0 2.3-.5 3.1-1.3M14.4 8.3c.8-.8 1.8-1.3 3.1-1.3H21"/><path d="m18.5 4.5 2.5 2.5-2.5 2.5M18.5 14.5l2.5 2.5-2.5 2.5"/>'),
+    remote: svg('<rect x="6" y="3" width="12" height="18" rx="4"/><path d="M12 7v3"/>', 1.8)
+  };
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var N = CHANNELS.length;
+  function hist(kind, state, url) { try { history[kind](state, "", url); } catch (e) {} }
+  function chHref(i) { return i === 0 ? "./" : "?ch=" + CHANNELS[i].key; }
+  function chLink(i, cls) { var a = el("a", cls); a.href = chHref(i); a.dataset.ch = String(i); return a; }
 
   /* theme */
-  document.getElementById("theme").addEventListener("click", function () {
+  $("theme").addEventListener("click", function () {
     var cur = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
     document.documentElement.setAttribute("data-theme", cur);
     store("simpla-night-theme", cur);
   });
 
-  var nav = document.getElementById("nav");
-  var stage = document.getElementById("film");
-  function navState() { nav.classList.toggle("solid", stage.getBoundingClientRect().bottom < 70); }
+  var nav = $("nav"), hero = $("hero");
+  function navState() { nav.classList.toggle("solid", hero.getBoundingClientRect().bottom < 70); }
+  window.addEventListener("scroll", navState, { passive: true });
 
   /* ================= the TV ================= */
-  document.getElementById("tvimg").src = CFG.tv;
-  var screen = document.getElementById("screen");
-  var noise = document.getElementById("noise");
-  var nctx = noise.getContext("2d");
-  var osd = document.getElementById("osd");
-  var chapters = Array.prototype.slice.call(document.querySelectorAll(".chapter"));
-  var remote = document.getElementById("remote");
-  var N = CFG.cuts.length;
-  var starts = [0].concat(CFG.cuts.slice(0, N - 1));
-  var total = CFG.weights.reduce(function (a, b) { return a + b; }, 0);
-  var bounds = [], acc = 0;
-  CFG.weights.forEach(function (w) { bounds.push([acc / total, (acc + w) / total]); acc += w; });
+  $("tvimg").src = CFG.tv;
+  var screen = $("screen"), still = $("still"), noise = $("noise"), nctx = noise.getContext("2d");
+  var osd = $("osd"), tvbox = $("tvbox"), tap = $("tap");
+  var video = null, staticMode = reduce, segA = 0, segB = 3, heroIn = true, watching = false;
+  var current = -1;
 
-  var keys = [];
-  CFG.keys.forEach(function (k, i) {
-    var b = el("button", null, k); b.type = "button";
-    b.setAttribute("aria-label", "ערוץ " + k);
-    b.addEventListener("click", function () { goChapter(i); });
-    remote.appendChild(b); keys.push(b);
-  });
-  var zap = el("button", "zap"); zap.type = "button"; zap.setAttribute("aria-label", "זפזפו לערוץ אקראי");
-  zap.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h3.5c2 0 3.2 1 4.3 2.6l2.4 4.8C14.3 16 15.5 17 17.5 17H21"/><path d="M3 17h3.5c1.3 0 2.3-.5 3.1-1.3M14.4 8.3c.8-.8 1.8-1.3 3.1-1.3H21"/><path d="m18.5 4.5 2.5 2.5-2.5 2.5M18.5 14.5l2.5 2.5-2.5 2.5"/></svg><span>זפזפו</span>';
-  zap.addEventListener("click", function () {
-    var cur = current < 0 ? 0 : current, pick = cur;
-    while (pick === cur) pick = Math.floor(Math.random() * 7);
-    goChapter(pick);
-  });
-  remote.appendChild(zap);
-
-  function goChapter(i) {
-    var span = stage.offsetHeight - window.innerHeight;
-    var p = i === 0 ? 0 : (bounds[i][0] + bounds[i][1]) / 2;
-    window.scrollTo({ top: stage.offsetTop + p * span, behavior: reduce ? "auto" : "smooth" });
-  }
-
-  /* static burst between channels */
-  var staticUntil = 0, staticRaf = 0;
   function drawNoise() {
     var w = noise.width, h = noise.height, img = nctx.createImageData(w, h), d = img.data;
     var band = Math.random() * h;
@@ -789,6 +816,7 @@
     }
     nctx.putImageData(img, 0, 0);
   }
+  var staticUntil = 0, staticRaf = 0;
   function staticLoop() {
     if (performance.now() < staticUntil) { drawNoise(); staticRaf = requestAnimationFrame(staticLoop); }
     else { noise.classList.remove("on"); staticRaf = 0; }
@@ -801,208 +829,546 @@
   }
   var osdTimer = 0;
   function showOsd(txt) {
-    if (!txt) { osd.classList.remove("on"); return; }
     osd.textContent = txt; osd.classList.add("on");
     clearTimeout(osdTimer); osdTimer = setTimeout(function () { osd.classList.remove("on"); }, 1800);
   }
 
-  var video = null, poster = null, staticMode = reduce;
-  var current = -1, target = 0, shown = 0, inView = true, running = false;
-
-  function show(k) {
-    if (k === current) return;
-    var prev = current;
-    current = k;
-    chapters.forEach(function (c, i) { c.classList.toggle("on", i === k); });
-    keys.forEach(function (b, i) { b.classList.toggle("on", i === k); b.setAttribute("aria-pressed", i === k ? "true" : "false"); });
-    stage.style.setProperty("--glow", CFG.glow[k]);
-    document.getElementById("sticky").style.setProperty("--glow", CFG.glow[k]);
-    if (prev !== -1 && k < 7) burst(prev === 7 ? 260 : 360);
-    showOsd(CFG.osd[k]);
+  function playTV() {
+    if (!video || staticMode || !heroIn || document.hidden) return;
+    var p = video.play();
+    if (p && p.catch) p.catch(function () {});
+    if (!watching) { watching = true; requestAnimationFrame(watch); }
   }
-
-  function progress() {
-    var rect = stage.getBoundingClientRect();
-    var span = stage.offsetHeight - window.innerHeight;
-    return span > 0 ? Math.min(1, Math.max(0, -rect.top / span)) : 0;
+  // keep the picture inside this channel's cut
+  function watch() {
+    if (!video || video.paused) { watching = false; return; }
+    var t = video.currentTime;
+    if (t >= segB || t < segA - 0.25) { try { video.currentTime = segA; } catch (e) {} }
+    requestAnimationFrame(watch);
   }
-  function computeTarget() {
-    var p = progress(), k = N - 1;
-    for (var b = 0; b < N; b++) { if (p < bounds[b][1]) { k = b; break; } }
-    show(k);
-    var local = Math.min(1, Math.max(0, (p - bounds[k][0]) / (bounds[k][1] - bounds[k][0])));
-    var a = starts[k] + 0.04, z = CFG.cuts[k] - 0.08;
-    target = a + local * (z - a);
+  function tune(k) {
+    segA = CFG.starts[k] + 0.05; segB = CFG.cuts[k] - 0.08;
+    still.src = CH[k];
+    if (video && !staticMode) {
+      try { video.currentTime = segA; } catch (e) {}
+      playTV();
+    }
   }
-  function tick() {
-    running = false;
-    if (!video) return;
-    var d = video.duration;
-    if (!d || !isFinite(d)) { loop(); return; }
-    var t = Math.min(target, d - 0.04);
-    // a channel change jumps straight to the new channel, inside a channel the picture eases
-    if (Math.abs(t - shown) > 1.2) shown = t; else shown += (t - shown) * 0.25;
-    if (Math.abs(t - shown) < 0.004) shown = t;
-    if (!video.seeking && Math.abs(video.currentTime - shown) > 0.02) { try { video.currentTime = shown; } catch (e) {} }
-    if (Math.abs(t - shown) > 0.004 || video.seeking) loop();
-  }
-  function loop() { if (!running && inView) { running = true; requestAnimationFrame(tick); } }
-  function onScroll() { navState(); if (staticMode) return; computeTarget(); loop(); }
-
-  function buildFilm() {
-    poster = el("img", "poster"); poster.alt = ""; poster.src = CH[0]; poster.setAttribute("fetchpriority", "high");
+  function buildTV() {
+    if (staticMode) return;
     video = document.createElement("video");
     video.muted = true; video.defaultMuted = true; video.playsInline = true;
     video.setAttribute("playsinline", ""); video.setAttribute("webkit-playsinline", "");
+    video.setAttribute("aria-hidden", "true");
     video.preload = "auto"; video.src = CFG.film;
-    screen.insertBefore(poster, noise);
-    screen.insertBefore(video, poster);
-    var primed = false;
-    function prime() {
-      if (primed) return; primed = true;
-      var pr = video.play();
-      if (pr && pr.then) pr.then(function () { video.pause(); onScroll(); }).catch(function () {}); else video.pause();
-    }
+    screen.insertBefore(video, still);
     video.addEventListener("loadeddata", function () {
-      prime(); computeTarget(); shown = target;
-      try { video.currentTime = shown; } catch (e) {}
-      video.addEventListener("seeked", function once() { video.removeEventListener("seeked", once); poster.classList.add("gone"); });
-      setTimeout(function () { poster.classList.add("gone"); }, 1200);
+      video.playbackRate = 0.85;
+      try { video.currentTime = segA; } catch (e) {}
+      playTV();
     });
-    video.addEventListener("error", goStatic);
-    window.addEventListener("touchstart", prime, { passive: true, once: true });
-    if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { inView = es[0].isIntersecting; if (inView) loop(); }).observe(stage);
-  }
-  function goStatic() {
-    staticMode = true;
-    stage.classList.add("static"); stage.style.height = "";
-    chapters.forEach(function (c, i) {
-      if (i < 7 && CH[i] && !c.querySelector("img.st")) { var im = el("img", "st"); im.src = CH[i]; im.alt = ""; im.loading = "lazy"; c.appendChild(im); }
-    });
-  }
-  function sizeStage() { if (!staticMode) stage.style.height = (total * 100) + "vh"; }
-
-  if (staticMode) goStatic(); else { sizeStage(); buildFilm(); }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", function () { sizeStage(); onScroll(); });
-
-  /* ================= program guide ================= */
-  var listing = document.getElementById("listing");
-  SOLUTIONS.forEach(function (s) {
-    var row = el("article", "slot reveal"); row.id = "slot-" + s.id;
-    var time = el("div", "time"); time.appendChild(document.createTextNode(s.time));
-    time.appendChild(el("small", null, s.ch >= 0 ? "CH " + CFG.keys[s.ch] : "ON DEMAND"));
-    var body = el("div");
-    var h = el("h3", null, s.title); h.appendChild(el("span", "en", s.name)); body.appendChild(h);
-    body.appendChild(el("p", null, s.text));
-    var ul = el("ul", "pills"); s.gets.forEach(function (g) { ul.appendChild(el("li", null, g)); }); body.appendChild(ul);
-    var t = el("button", "toggle"); t.type = "button";
-    var pm = el("span", "pm"), lab = el("span"); t.appendChild(pm); t.appendChild(lab);
-    var more = el("p", "more", s.who); more.id = "who-" + s.id; t.setAttribute("aria-controls", more.id);
-    var key = "simpla-night-open-" + s.id;
-    function render(open) {
-      row.classList.toggle("open", open); pm.textContent = open ? "-" : "+";
-      lab.textContent = open ? "סגור" : "למי זה מתאים"; t.setAttribute("aria-expanded", open ? "true" : "false");
+    video.addEventListener("playing", function () { still.classList.add("gone"); });
+    video.addEventListener("error", function () { staticMode = true; still.classList.remove("gone"); });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) {
+        heroIn = es[0].isIntersecting;
+        if (heroIn) playTV(); else if (video && !video.paused) video.pause();
+      }).observe(tvbox);
     }
-    render(store(key) === "1");
-    t.addEventListener("click", function () { var o = !row.classList.contains("open"); render(o); store(key, o ? "1" : "0"); });
-    body.appendChild(t); body.appendChild(more);
-    var th;
-    if (s.ch >= 0) {
-      th = el("button", "thumb"); th.type = "button"; th.style.all = ""; th.className = "thumb";
-      th.setAttribute("aria-label", "לעבור לערוץ " + CFG.keys[s.ch]);
-      var im = el("img"); im.src = CH[s.ch]; im.alt = ""; im.loading = "lazy"; th.appendChild(im);
-      th.style.cursor = "pointer"; th.style.border = "0"; th.style.padding = "0";
-      (function (c) { th.addEventListener("click", function () { if (staticMode) { chapters[c].scrollIntoView({ behavior: "smooth" }); } else goChapter(c); }); })(s.ch);
-    } else { th = el("div", "thumb blank", "VOD"); th.setAttribute("aria-hidden", "true"); }
-    row.appendChild(time); row.appendChild(body); row.appendChild(th);
-    listing.appendChild(row);
-  });
-
-  /* ================= audiences ================= */
-  var chips = document.getElementById("chips"), panel = document.getElementById("panel"), chipBtns = [];
-  function pick(id) {
-    var a = AUDIENCES.filter(function (x) { return x.id === id; })[0] || AUDIENCES[0];
-    chipBtns.forEach(function (b) { var on = b.dataset.id === a.id; b.setAttribute("aria-selected", on ? "true" : "false"); b.tabIndex = on ? 0 : -1; });
-    panel.innerHTML = "";
-    var l = el("div");
-    l.appendChild(el("p", "label mono", "THE PACKAGE"));
-    l.appendChild(el("h3", null, a.name));
-    l.appendChild(el("p", "problem", a.problem));
-    var mail = el("a", "btn btn-coral", "לקבוע שיחה על זה"); mail.href = "mailto:studio@simplaux.com?subject=" + encodeURIComponent(a.name); l.appendChild(mail);
-    var r = el("div");
-    r.appendChild(el("h4", null, "CHANNELS"));
-    var ul = el("ul", "mods"); a.mods.forEach(function (m) { ul.appendChild(el("li", null, "Simpla " + m)); }); r.appendChild(ul);
-    r.appendChild(el("h4", null, "WHAT YOU GET"));
-    r.appendChild(el("p", "outcome", a.outcome));
-    var h = el("h4", null, "FIRST EPISODE"); h.style.marginTop = "22px"; r.appendChild(h);
-    r.appendChild(el("p", "outcome", a.first));
-    panel.appendChild(l); panel.appendChild(r);
-    panel.setAttribute("aria-labelledby", "chip-" + a.id);
-    store("simpla-night-for", a.id);
-  }
-  AUDIENCES.forEach(function (a) {
-    var b = el("button", "chip", a.chip); b.type = "button"; b.dataset.id = a.id; b.id = "chip-" + a.id; b.setAttribute("role", "tab");
-    b.addEventListener("click", function () { pick(a.id); });
-    b.addEventListener("keydown", function (e) {
-      var i = chipBtns.indexOf(b), n = null;
-      if (e.key === "ArrowLeft") n = chipBtns[(i + 1) % chipBtns.length];
-      if (e.key === "ArrowRight") n = chipBtns[(i - 1 + chipBtns.length) % chipBtns.length];
-      if (n) { e.preventDefault(); n.focus(); pick(n.dataset.id); }
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) { if (video && !video.paused) video.pause(); } else playTV();
     });
-    chips.appendChild(b); chipBtns.push(b);
-  });
-  pick(store("simpla-night-for") || AUDIENCES[0].id);
-
-  /* ================= reruns ================= */
-  var rr = document.getElementById("reruns-list");
-  CASES.forEach(function (c) {
-    var a = el("article", "rerun reveal");
-    var fig = el("figure");
-    var v = document.createElement("video");
-    v.muted = true; v.loop = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.preload = "none";
-    v.poster = CFG.work + c.slug + "-poster.jpg"; v.dataset.src = CFG.work + c.slug + ".mp4";
-    v.setAttribute("aria-label", c.client + ", " + c.title);
-    fig.appendChild(v); fig.appendChild(el("span", "tagr", "RERUN"));
-    var b = el("div", "b");
-    b.appendChild(el("div", "client", c.client)); b.appendChild(el("h3", null, c.title)); b.appendChild(el("p", null, c.text));
-    a.appendChild(fig); a.appendChild(b); rr.appendChild(a);
-  });
-
-  /* ================= archive ================= */
-  var reel = document.getElementById("reel");
-  var dlg = document.getElementById("dlg"), dlgV = document.getElementById("dlgVideo"), dlgT = document.getElementById("dlgTitle");
-  function openFilm(f) {
-    dlgV.src = f.src; dlgV.muted = false; dlgT.textContent = f.title + " · " + f.sub;
-    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
-    var p = dlgV.play(); if (p && p.catch) p.catch(function () {});
   }
-  function closeFilm() { dlgV.pause(); dlgV.removeAttribute("src"); dlgV.load(); if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); }
-  document.getElementById("dlgClose").addEventListener("click", closeFilm);
-  dlg.addEventListener("close", function () { dlgV.pause(); });
-  dlg.addEventListener("click", function (e) { if (e.target === dlg) closeFilm(); });
-  FILMS.forEach(function (f) {
-    var b = el("button", "film " + f.shape); b.type = "button"; b.setAttribute("aria-label", "לצפות: " + f.title);
-    var fr = el("span", "frame");
-    var im = el("img"); im.src = f.poster; im.alt = ""; im.loading = "lazy"; im.decoding = "async"; fr.appendChild(im);
-    if (f.preview) {
+
+  /* remote */
+  var remote = $("remote"), keys = [];
+  CHANNELS.forEach(function (c, i) {
+    var b = el("button", null, c.key); b.type = "button";
+    b.setAttribute("aria-label", "ערוץ " + c.key + ", " + c.name); b.title = c.name;
+    b.addEventListener("click", function () { go(i); });
+    remote.appendChild(b); keys.push(b);
+  });
+  var zap = el("button", "zap"); zap.type = "button"; zap.setAttribute("aria-label", "זפזפו לערוץ אקראי");
+  zap.innerHTML = ICON.zap + "<span>זפזפו</span>";
+  zap.addEventListener("click", function () {
+    var pick = current;
+    while (pick === current) pick = Math.floor(Math.random() * N);
+    go(pick);
+  });
+  remote.appendChild(zap);
+
+  /* swipe the TV to change channel, tap it to watch with sound */
+  var sx = 0, sy = 0, st = 0, swiped = false;
+  tvbox.addEventListener("touchstart", function (e) { var t = e.touches[0]; sx = t.clientX; sy = t.clientY; st = Date.now(); swiped = false; }, { passive: true });
+  tvbox.addEventListener("touchend", function (e) {
+    var t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+    if (Math.abs(dx) > 50 && Math.abs(dy) < 40 && Date.now() - st < 700) { swiped = true; go((current + (dx < 0 ? 1 : -1) + N) % N); }
+  }, { passive: true });
+  function watchNow() { var c = CHANNELS[current]; if (c && c.now) openWork(c.now, seqFor(current)); }
+  tvbox.addEventListener("click", function () { if (swiped) { swiped = false; return; } watchNow(); });
+  tvbox.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); watchNow(); } });
+
+  /* ================= navigation between channels ================= */
+  var links = $("links"), navLinks = [], navCh = $("navCh");
+  CHANNELS.forEach(function (c, i) {
+    if (i === 0) return;
+    var a = chLink(i);
+    a.appendChild(el("span", "n", c.key)); a.appendChild(document.createTextNode(c.name));
+    links.appendChild(a); navLinks[i] = a;
+  });
+
+  var sheet = $("sheet"), sheetList = $("sheetList"), sheetRows = [];
+  CHANNELS.forEach(function (c, i) {
+    var a = chLink(i, "srow");
+    var th = el("span", "st"), im = el("img"); im.alt = ""; im.loading = "lazy"; im.src = CH[i]; th.appendChild(im);
+    var b = el("span");
+    b.appendChild(el("span", "k", "CH " + c.key + " · " + c.time));
+    var s = c.sol ? SOLUTIONS[c.sol] : null;
+    b.appendChild(el("b", null, s ? s.title : "פתיח: כל הערוצים"));
+    a.appendChild(th); a.appendChild(b);
+    sheetList.appendChild(a); sheetRows.push(a);
+  });
+  function closeSheet() { if (sheet.open) sheet.close(); document.documentElement.classList.remove("lock"); }
+  $("guideBtn").addEventListener("click", function () {
+    if (sheet.showModal) sheet.showModal(); else sheet.setAttribute("open", "");
+    document.documentElement.classList.add("lock");
+  });
+  $("sheetClose").addEventListener("click", closeSheet);
+  sheet.addEventListener("close", function () { document.documentElement.classList.remove("lock"); });
+  sheet.addEventListener("click", function (e) { if (e.target === sheet) closeSheet(); });
+
+  document.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest ? e.target.closest("a[data-ch]") : null;
+    if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
+    e.preventDefault();
+    closeSheet();
+    go(+a.dataset.ch, null, true);
+  });
+
+  // number keys work like a remote: 0 to 5, and 9 for channel 99
+  var NUMKEY = { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "9": 6 };
+  document.addEventListener("keydown", function (e) {
+    if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey || viewer.open || sheet.open) return;
+    var t = e.target;
+    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "VIDEO" || t.isContentEditable)) return;
+    if (Object.prototype.hasOwnProperty.call(NUMKEY, e.key)) go(NUMKEY[e.key]);
+  });
+
+  function chFromURL() {
+    var m = /[?&]ch=(\d{2})/.exec(location.search);
+    if (!m) return 0;
+    for (var i = 0; i < N; i++) if (CHANNELS[i].key === m[1]) return i;
+    return 0;
+  }
+
+  function go(k, mode, focusHead) {
+    if (!(k >= 0 && k < N)) k = 0;
+    if (k === current && mode !== "init") { window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" }); return; }
+    var c = CHANNELS[k], first = current === -1;
+    current = k;
+    if (!first) window.scrollTo(0, 0);
+    keys.forEach(function (b, i) { b.classList.toggle("on", i === k); b.setAttribute("aria-pressed", i === k ? "true" : "false"); });
+    navLinks.forEach(function (a, i) { if (a) { if (i === k) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); } });
+    sheetRows.forEach(function (a, i) { if (i === k) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+    navCh.textContent = "CH " + c.key;
+    document.documentElement.style.setProperty("--glow", CFG.glow[k]);
+    renderHead(c);
+    renderContent(c);
+    tune(k);
+    if (!first) burst(380);
+    showOsd("CH " + c.key);
+    document.title = k === 0 ? "Simpla · שידורי לילה" : "Simpla · CH " + c.key + " · " + c.name;
+    if (mode === "init") hist("replaceState", { ch: k }, location.href);
+    else if (mode !== "pop") hist("pushState", { ch: k }, chHref(k));
+    if (focusHead) { var h1 = head.querySelector("h1"); if (h1) try { h1.focus({ preventScroll: true }); } catch (e) {} }
+    navState();
+  }
+  window.addEventListener("popstate", function () {
+    if (viewer.open) { vPushed = false; shutViewer(); return; }
+    var k = chFromURL();
+    if (k !== current) go(k, "pop");
+  });
+
+  /* ================= the headline beside the TV ================= */
+  var head = $("chHead");
+  function renderHead(c) {
+    head.innerHTML = "";
+    head.classList.remove("tune"); void head.offsetWidth; if (!reduce) head.classList.add("tune");
+    var g = el("p", "guide");
+    if (c.live) g.appendChild(el("span", "live", "LIVE"));
+    g.appendChild(el("b", null, "CH " + c.key));
+    g.appendChild(document.createTextNode(" · " + c.name + " · " + c.time));
+    head.appendChild(g);
+    var h = el("h1"); h.innerHTML = c.h; h.tabIndex = -1; head.appendChild(h);
+    head.appendChild(el("p", "lead", c.p));
+    if (c.tags) { var ul = el("ul", "tags"); c.tags.forEach(function (t) { ul.appendChild(el("li", null, t)); }); head.appendChild(ul); }
+    if (c.now && WORKS[c.now]) {
+      var w = WORKS[c.now], now = el("div", "now");
+      now.appendChild(el("span", "k", "NOW"));
+      var t = el("span"); t.appendChild(el("b", null, w.client || w.title)); t.appendChild(document.createTextNode(" · " + c.nowNote));
+      now.appendChild(t);
+      var b = el("button", "btn btn-dash btn-sm"); b.type = "button"; b.innerHTML = ICON.play;
+      b.appendChild(document.createTextNode(w.loop ? "לצפייה בעבודה" : "צפו עם סאונד"));
+      b.addEventListener("click", watchNow);
+      now.appendChild(b);
+      head.appendChild(now);
+    }
+    if (c.actions) {
+      var ac = el("div", "actions");
+      var m = el("a", "btn btn-coral", "הזמינו שידור"); m.href = "#contact"; ac.appendChild(m);
+      var gd = chLink(0, "btn btn-dash"); gd.textContent = "לוח השידורים"; ac.appendChild(gd);
+      head.appendChild(ac);
+    }
+    if (c.hint) {
+      var hi = el("p", "hint"); hi.innerHTML = ICON.remote;
+      hi.appendChild(document.createTextNode("בחרו ערוץ בשלט, החליקו על המסך, או גללו ללוח השידורים."));
+      head.appendChild(hi);
+    }
+    var nw = c.now && WORKS[c.now];
+    tap.hidden = !nw;
+    tap.lastChild.textContent = nw && nw.loop ? "לצפייה" : "צפו עם סאונד";
+    tvbox.setAttribute("aria-label", nw ? "לצפות: " + (nw.client ? nw.client + ", " : "") + nw.title : "ערוץ " + c.key);
+    tvbox.tabIndex = nw ? 0 : -1;
+    tvbox.style.cursor = nw ? "" : "default";
+  }
+
+  /* ================= the channel's blocks ================= */
+  var content = $("content");
+  function section(label, titleHTML, lede) {
+    var s = el("section", "sec"), w = el("div", "wrap");
+    s.appendChild(w);
+    var hd = el("div", "head reveal");
+    hd.appendChild(el("p", "label mono", label));
+    var h = el("h2", "h2"); h.innerHTML = titleHTML; hd.appendChild(h);
+    if (lede) hd.appendChild(el("p", "lede", lede));
+    w.appendChild(hd);
+    return { s: s, w: w };
+  }
+  function pills(list, cls) { var ul = el("ul", cls || "pills"); list.forEach(function (g) { ul.appendChild(el("li", null, g)); }); return ul; }
+  function seqFor(k) { var c = CHANNELS[k]; return (c.works || c.reel || [c.now]).filter(function (id) { return !!WORKS[id]; }); }
+
+  function workCard(id, list) {
+    var w = WORKS[id];
+    var b = el("button", "wcard reveal"); b.type = "button";
+    b.setAttribute("aria-label", "לצפות: " + (w.client ? w.client + ", " : "") + w.title);
+    var th = el("span", "th");
+    if (w.shape) { var bg = el("img", "blur"); bg.src = w.poster; bg.alt = ""; bg.loading = "lazy"; th.appendChild(bg); }
+    var im = el("img", w.shape ? "fit" : null); im.src = w.poster; im.alt = ""; im.loading = "lazy"; im.decoding = "async"; th.appendChild(im);
+    if (w.preview) {
       var pv = document.createElement("video");
       pv.muted = true; pv.loop = true; pv.playsInline = true; pv.setAttribute("playsinline", ""); pv.preload = "none";
-      pv.dataset.src = f.preview; fr.appendChild(pv);
+      pv.setAttribute("aria-hidden", "true"); if (w.shape) pv.className = "fit";
+      pv.dataset.src = w.preview; th.appendChild(pv);
     }
-    fr.appendChild(el("span", "len", f.len));
-    var pl = el("span", "play");
-    pl.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg>';
-    fr.appendChild(pl);
-    var meta = el("span", "meta"); meta.appendChild(el("b", null, f.title)); meta.appendChild(el("span", null, f.sub));
-    b.appendChild(fr); b.appendChild(meta);
-    b.addEventListener("click", function () { openFilm(f); });
-    reel.appendChild(b);
+    th.appendChild(el("span", "kind", w.kind));
+    if (w.len) th.appendChild(el("span", "len", w.len));
+    var pl = el("span", "play"); pl.innerHTML = ICON.play; th.appendChild(pl);
+    b.appendChild(th);
+    b.appendChild(el("span", "tt", w.title));
+    var ss = el("span", "ss");
+    if (w.client) ss.appendChild(el("span", "cl", w.client));
+    ss.appendChild(document.createTextNode(w.sub || w.text));
+    b.appendChild(ss);
+    b.addEventListener("click", function () { openWork(id, list); });
+    return b;
+  }
+
+  var BLOCKS = {
+    works: function (arg, c) {
+      var ids = c.works, x = section("NOW SHOWING", "בשידור <b>בערוץ</b>", ids.length > 1 ? "לחצו על עבודה כדי לצפות בה במסך מלא, ולעבור לבאה." : null);
+      var g = el("div", "wgrid" + (ids.length === 1 ? " one" : ids.length === 2 || ids.length === 4 ? " two" : ""));
+      ids.forEach(function (id, i) {
+        var card = workCard(id, ids);
+        if (i === 0 && (ids.length === 3 || ids.length >= 5)) card.classList.add("feat");
+        g.appendChild(card);
+      });
+      x.w.appendChild(g);
+      if (c.minis) {
+        var mg = el("div", "minis");
+        c.minis.forEach(function (m) {
+          var d = MINIS[m], a = el("article", "mini reveal");
+          a.appendChild(el("span", "tag", d.tag)); a.appendChild(el("h3", null, d.title)); a.appendChild(el("p", null, d.text));
+          mg.appendChild(a);
+        });
+        x.w.appendChild(mg);
+      }
+      return x.s;
+    },
+    sol: function (id) {
+      var s = SOLUTIONS[id];
+      var x = section("ON THIS CHANNEL", s.title + ' <span class="en">' + s.name + "</span>", s.text);
+      var box = el("div", "sol reveal");
+      var l = el("div"); l.appendChild(el("h4", null, "WHAT YOU GET")); l.appendChild(pills(s.gets)); box.appendChild(l);
+      var r = el("div"); r.appendChild(el("h4", null, "FOR WHOM")); r.appendChild(el("p", "who", s.who));
+      var f = el("p", "first"); f.appendChild(el("b", null, "הצעד הראשון: ")); f.appendChild(document.createTextNode(s.first)); r.appendChild(f);
+      var a = el("a", "btn btn-coral", s.cta); a.href = "mailto:studio@simplaux.com?subject=" + encodeURIComponent(s.name); r.appendChild(a);
+      box.appendChild(r);
+      x.w.appendChild(box);
+      if (id === "lab") {
+        var ac = SOLUTIONS.academy, v = el("div", "vod reveal");
+        v.appendChild(el("span", "tagv en", "VOD"));
+        var vb = el("div"), vh = el("h3", null, ac.title); vh.appendChild(el("span", "en", ac.name)); vb.appendChild(vh);
+        vb.appendChild(el("p", null, ac.text + " " + ac.who)); v.appendChild(vb);
+        var va = el("a", "btn btn-dash", ac.cta); va.href = "mailto:studio@simplaux.com?subject=" + encodeURIComponent(ac.name); v.appendChild(va);
+        x.w.appendChild(v);
+      }
+      return x.s;
+    },
+    steps: function () {
+      var x = section("HOW IT'S MADE", "איך נבנה <b>סרט</b>", "אותה שיטה בסרט לפסטיבל ובסרטון מוצר של חצי דקה.");
+      var g = el("div", "eps");
+      [["01", "Script", "תסריט וסטוריבורד", "סיפור אחד ברור, ומסגרת לכל שוט לפני שמייצרים פריים."],
+       ["02", "World", "עולם ודמויות", "דמויות, מקומות וסגנון שנשארים עקביים מסצנה לסצנה."],
+       ["03", "Shots", "הפקה", "וידאו, קריינות ומוזיקה, עם הכלי הנכון לכל שוט."],
+       ["04", "Cut", "עריכה ומסירה", "עריכה, סאונד, כתוביות וגרסה לכל רשת."]].forEach(function (s) {
+        var a = el("article", "ep reveal");
+        a.appendChild(el("span", "no en", s[0])); a.appendChild(el("span", "en", s[1]));
+        a.appendChild(el("h3", null, s[2])); a.appendChild(el("p", null, s[3]));
+        g.appendChild(a);
+      });
+      x.w.appendChild(g);
+      return x.s;
+    },
+    record: function () {
+      var x = section("TRACK RECORD", "תשע שנים של <b>דאטה</b>", null);
+      var r = el("div", "record reveal");
+      r.appendChild(el("b", "big en", "9"));
+      var d = el("div");
+      d.appendChild(el("p", null, "שנים בהובלת ה-UX, ואחר כך המוצר וה-UX, ב-TipRanks. הרבה דאטה פיננסי, ומשתמשים שצריכים להבין אותו מהר."));
+      var aw = pills(["Finovate 2013, 2014", "IBM Watson 2015 · 1st", "KPMG Fintech 100 · 2016"], "awards");
+      aw.setAttribute("aria-label", "פרסים מהשנים ב-TipRanks");
+      Array.prototype.forEach.call(aw.children, function (li) { li.className = "en"; });
+      d.appendChild(aw);
+      d.appendChild(el("p", "note", "הפרסים ניתנו ל-TipRanks בשנים שאייל הוביל בה את חוויית המשתמש."));
+      r.appendChild(d);
+      x.w.appendChild(r);
+      return x.s;
+    },
+    teach: function () {
+      var x = section("OPEN LESSON", "שיעור <b>פתוח</b>", "כל כלי שאנחנו מלמדים, השתמשנו בו קודם בפרויקט אמיתי. ומה שעובד בכיתה נכנס לעבודה.");
+      var st = el("div", "stats reveal");
+      [["600", "משתתפים בכל הרצאה מרכזית ב-DESIGN AI"], ["37", "שעות בתוכנית ה-AI למעצבים וליוצרי סרטים ב-InMotion"],
+       ["9", "שנים בהובלת UX ומוצר ב-TipRanks"]].forEach(function (s) {
+        var d = el("div", "stat"); d.appendChild(el("b", "en", s[0])); d.appendChild(el("span", null, s[1])); st.appendChild(d);
+      });
+      x.w.appendChild(st);
+      var t = el("div", "teach");
+      [["John Bryce", "ג׳ון ברייס", "קורסים ב-UX ועיצוב מוצר, וקורס למיישמי AI בארגונים: מתמונות ווידאו ועד בניית אפליקציות."],
+       ["InMotion", "AI למעצבים ויוצרי סרטים", "תוכנית של תשעה מפגשים לעורכים, אנימטורים ומעצבים: מפרומפט ראשון ועד סרט שלם."],
+       ["DESIGN AI", "הרצאה מרכזית, 2024 ו-2025", "על בניית Workflows ועל הקמת תשתית מותג שעובדת עם AI. כחצי שעה מול קהל של כ-600 איש, פעמיים."],
+       ["Enterprise", "סדנאות לארגונים", "סדנאות AI לארגוני ממשלה ואנטרפרייז, בשיתוף Reflectify AI. בעברית, עם תוצר לכל משתתף."]].forEach(function (s) {
+        var a = el("article", "t-item reveal");
+        a.appendChild(el("span", "who", s[0])); a.appendChild(el("h3", null, s[1])); a.appendChild(el("p", null, s[2]));
+        t.appendChild(a);
+      });
+      x.w.appendChild(t);
+      return x.s;
+    },
+    series: function () {
+      var x = section("MINI SERIES · 4 EPISODES", "מסלול <b>אובייקט</b>, סדרה בארבעה פרקים", "הפתרון המלא, מקצה לקצה. בפרק האחרון הצוות שלכם כבר מפעיל הכול לבד.");
+      var g = el("div", "eps");
+      [["01", "Abstract", "אבחון", "כשבועיים", "ראיונות, מיפוי תהליכים, ומפת הזדמנויות AI שמראה איפה זה שווה ואיפה לא."],
+       ["02", "Shape", "אפיון", "2 עד 4 שבועות", "אפיון התהליך, המוצר או מערכת התוכן. מה בונים, למי, ואיך יודעים שזה עובד."],
+       ["03", "Object", "הפקה ובנייה", "3 עד 8 שבועות", "סרטים, Workflows ב-Figma Weave, אוטומציות וכלים פנימיים. דברים שעובדים, לא מצגות."],
+       ["04", "Hand-off", "הטמעה ולימוד", "4 עד 12 שבועות", "סדנאות, ספריית Workflows, שעות פתוחות ומדידה, עד שהצוות מפעיל הכול לבד."]].forEach(function (s) {
+        var a = el("article", "ep reveal");
+        a.appendChild(el("span", "no en", s[0])); a.appendChild(el("span", "en", s[1]));
+        a.appendChild(el("h3", null, s[2])); a.appendChild(el("span", "dur", s[3])); a.appendChild(el("p", null, s[4]));
+        g.appendChild(a);
+      });
+      x.w.appendChild(g);
+      var cta = el("div", "series-cta reveal");
+      var m = el("a", "btn btn-coral", "להזמין את הסדרה");
+      m.href = "mailto:studio@simplaux.com?subject=%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%D7%90%D7%95%D7%91%D7%99%D7%99%D7%A7%D7%98";
+      cta.appendChild(m); cta.appendChild(el("span", null, "הפרק הראשון הוא תמיד שיחת אבחון קצרה."));
+      x.w.appendChild(cta);
+      return x.s;
+    },
+    about: function () {
+      var x = section("BEHIND THE SCENES", "מאחורי <b>הקלעים</b>", "אייל גרשון, מייסד Simpla. מעצב מוצר, במאי ומרצה.");
+      var g = el("div", "about");
+      var l = el("div", "reveal");
+      l.appendChild(el("p", null, "Simpla היא סטודיו בוטיק ל-UX ו-AI בתל אביב. אנחנו עובדים במקום שבו עיצוב מוצר, קולנוע והוראה נפגשים, ולכן אנחנו גם מפיקים, גם מאפיינים, גם בונים מערכות וגם מלמדים."));
+      l.appendChild(el("p", null, "לפני Simpla אייל הוביל את ה-UX, ואחר כך את המוצר וה-UX, ב-TipRanks. בלילות הוא מביים סרטי AI לתחרויות, ומה שהוא לומד שם נכנס לעבודה עם לקוחות למחרת בבוקר."));
+      g.appendChild(l);
+      var tl = el("ol", "tl reveal"); tl.setAttribute("aria-label", "ציר זמן");
+      [["2025", "מרצה בג׳ון ברייס, UX ו-AI"], ["2020", "מייסד Simpla"], ["2013 · 2022", "TipRanks, ראש UX ואחר כך ראש מוצר ו-UX"],
+       ["2012", "IQURIO, מייסד-שותף וקריאייטיב ראשי"], ["2011", "Gurimi, מנהל סטודיו"], ["2010", "In House, עיצוב הפקה ואנימציה"],
+       ["2009", "Gitam BBDO, ארט דיירקטור אינטראקטיב"], ["2008", "Saatchi & Saatchi ו-Publicis, עיצוב דיגיטל"]].forEach(function (r) {
+        var li = el("li"); li.appendChild(el("span", "yr", r[0])); li.appendChild(el("span", null, r[1])); tl.appendChild(li);
+      });
+      g.appendChild(tl);
+      x.w.appendChild(g);
+      return x.s;
+    },
+    guide: function () {
+      var x = section("PROGRAM GUIDE", "לוח <b>השידורים</b>", "כל ערוץ הוא עמוד: טלוויזיה למעלה, ומתחתיה הפתרון, העבודות ואיך מתחילים.");
+      var list = el("div", "listing");
+      CHANNELS.forEach(function (c, i) {
+        if (i === 0) return;
+        var s = SOLUTIONS[c.sol], a = chLink(i, "slot reveal");
+        var tm = el("span", "time", c.time); tm.appendChild(el("small", null, "CH " + c.key)); a.appendChild(tm);
+        var b = el("span");
+        b.appendChild(el("span", "meta", "CH " + c.key + " · " + c.time));
+        var h = el("h3", null, s.title); h.appendChild(el("span", "en", s.name)); b.appendChild(h);
+        b.appendChild(el("p", null, s.text));
+        var go2 = el("span", "go", "לעבור לערוץ"); go2.insertAdjacentHTML("beforeend", ICON.fwd); b.appendChild(go2);
+        a.appendChild(b);
+        var th = el("span", "thumb"), im = el("img"); im.src = CH[i]; im.alt = ""; im.loading = "lazy"; th.appendChild(im);
+        a.appendChild(th);
+        list.appendChild(a);
+      });
+      var ac = SOLUTIONS.academy, v = chLink(4, "slot reveal");
+      var tm = el("span", "time", "01:30"); tm.appendChild(el("small", null, "ON DEMAND")); v.appendChild(tm);
+      var vb = el("span");
+      vb.appendChild(el("span", "meta", "ON DEMAND · CH 04"));
+      var vh = el("h3", null, ac.title); vh.appendChild(el("span", "en", ac.name)); vb.appendChild(vh);
+      vb.appendChild(el("p", null, ac.text));
+      var vg = el("span", "go", "בערוץ ההדרכה"); vg.insertAdjacentHTML("beforeend", ICON.fwd); vb.appendChild(vg);
+      v.appendChild(vb);
+      var vt = el("span", "thumb blank", "VOD"); vt.setAttribute("aria-hidden", "true"); v.appendChild(vt);
+      list.appendChild(v);
+      x.w.appendChild(list);
+      return x.s;
+    },
+    "for": function () {
+      var x = section("FOR EVERY VIEWER", "תוכנית <b>לכל צופה</b>", "אותם ערוצים, ארוזים אחרת לכל סוג של לקוח.");
+      var chips = el("div", "chips"), panel = el("div", "panel reveal"), btns = [];
+      chips.setAttribute("role", "tablist"); chips.setAttribute("aria-label", "סוג לקוח");
+      panel.setAttribute("role", "tabpanel");
+      function pick(id) {
+        var a = AUDIENCES.filter(function (q) { return q.id === id; })[0] || AUDIENCES[0];
+        btns.forEach(function (b) { var on = b.dataset.id === a.id; b.setAttribute("aria-selected", on ? "true" : "false"); b.tabIndex = on ? 0 : -1; });
+        panel.innerHTML = "";
+        var l = el("div");
+        l.appendChild(el("p", "label mono", "THE PACKAGE"));
+        l.appendChild(el("h3", null, a.name));
+        l.appendChild(el("p", "problem", a.problem));
+        var mail = el("a", "btn btn-coral", "לקבוע שיחה על זה"); mail.href = "mailto:studio@simplaux.com?subject=" + encodeURIComponent(a.name); l.appendChild(mail);
+        var r = el("div");
+        r.appendChild(el("h4", null, "CHANNELS"));
+        var ul = el("ul", "mods");
+        a.mods.forEach(function (i) {
+          var li = el("li"), ln = chLink(i);
+          ln.appendChild(el("span", "n", CHANNELS[i].key)); ln.appendChild(document.createTextNode(SOLUTIONS[CHANNELS[i].sol].name));
+          li.appendChild(ln); ul.appendChild(li);
+        });
+        r.appendChild(ul);
+        r.appendChild(el("h4", null, "WHAT YOU GET"));
+        r.appendChild(el("p", "outcome", a.outcome));
+        var h = el("h4", null, "FIRST EPISODE"); h.style.marginTop = "22px"; r.appendChild(h);
+        r.appendChild(el("p", "outcome", a.first));
+        panel.appendChild(l); panel.appendChild(r);
+        panel.setAttribute("aria-labelledby", "chip-" + a.id);
+        store("simpla-night-for", a.id);
+      }
+      AUDIENCES.forEach(function (a) {
+        var b = el("button", "chip", a.chip); b.type = "button"; b.dataset.id = a.id; b.id = "chip-" + a.id; b.setAttribute("role", "tab");
+        b.addEventListener("click", function () { pick(a.id); });
+        b.addEventListener("keydown", function (e) {
+          var i = btns.indexOf(b), n = null;
+          if (e.key === "ArrowLeft") n = btns[(i + 1) % btns.length];
+          if (e.key === "ArrowRight") n = btns[(i - 1 + btns.length) % btns.length];
+          if (n) { e.preventDefault(); n.focus(); pick(n.dataset.id); }
+        });
+        chips.appendChild(b); btns.push(b);
+      });
+      pick(store("simpla-night-for") || AUDIENCES[0].id);
+      x.w.appendChild(chips); x.w.appendChild(panel);
+      return x.s;
+    },
+    next: function (arg, c) {
+      var k = (CHANNELS.indexOf(c) + 1) % N, n = CHANNELS[k];
+      var s = el("section", "sec"), w = el("div", "wrap"); s.appendChild(w);
+      var a = chLink(k, "nextch reveal");
+      var th = el("span", "nx-thumb"), im = el("img"); im.src = CH[k]; im.alt = ""; im.loading = "lazy"; th.appendChild(im); a.appendChild(th);
+      var b = el("span", "nx-body");
+      b.appendChild(el("span", "label mono", (k === 0 ? "BACK TO" : "UP NEXT") + " · CH " + n.key + " · " + n.time));
+      var t = el("b"); t.innerHTML = n.h; b.appendChild(t);
+      b.appendChild(el("span", "s", k === 0 ? "לוח השידורים וכל הערוצים" : SOLUTIONS[n.sol].name + " · " + SOLUTIONS[n.sol].title));
+      a.appendChild(b);
+      var g = el("span", "nx-go", k === 0 ? "חזרה לפתיח" : "לערוץ הבא"); g.insertAdjacentHTML("beforeend", ICON.fwd); a.appendChild(g);
+      w.appendChild(a);
+      return s;
+    }
+  };
+
+  function renderContent(c) {
+    content.innerHTML = "";
+    c.blocks.forEach(function (b) { var s = BLOCKS[b[0]](b[1], c); if (s) content.appendChild(s); });
+    content.appendChild(BLOCKS.next(null, c));
+    content.classList.remove("tune"); void content.offsetWidth; if (!reduce) content.classList.add("tune");
+    observe();
+  }
+
+  /* ================= viewer ================= */
+  var viewer = $("viewer"), vV = $("vVideo");
+  var vKind = $("vKind"), vTitle = $("vTitle"), vSub = $("vSub"), vText = $("vText"), vGets = $("vGets"), vCount = $("vCount");
+  var vPrev = $("vPrev"), vNext = $("vNext");
+  var seq = [], pos = 0, vPushed = false;
+  function fill(i) {
+    pos = i;
+    var w = WORKS[seq[i]];
+    vV.pause();
+    vV.poster = w.poster; vV.loop = !!w.loop; vV.muted = !!w.loop; vV.src = w.src;
+    vKind.textContent = w.kind + (w.client ? " · " + w.client : "") + (w.len ? " · " + w.len : "");
+    vTitle.textContent = w.title;
+    vSub.textContent = w.sub || ""; vSub.hidden = !w.sub;
+    vText.textContent = w.text;
+    vGets.innerHTML = ""; (w.gets || []).forEach(function (g) { vGets.appendChild(el("li", null, g)); });
+    vCount.textContent = (i + 1) + " / " + seq.length;
+    vPrev.disabled = vNext.disabled = seq.length < 2;
+    var p = vV.play(); if (p && p.catch) p.catch(function () {});
+  }
+  function vURL(id) { return location.pathname + location.search + (id ? "#w-" + id : ""); }
+  function openWork(id, list, fromLoad) {
+    if (!WORKS[id]) return;
+    seq = (list && list.indexOf(id) >= 0) ? list.slice() : [id];
+    fill(seq.indexOf(id));
+    if (!viewer.open) {
+      if (viewer.showModal) viewer.showModal(); else viewer.setAttribute("open", "");
+      document.documentElement.classList.add("lock");
+      if (video && !video.paused) video.pause();
+    }
+    if (fromLoad) hist("replaceState", { ch: current, w: id }, vURL(id));
+    else if (!vPushed) { hist("pushState", { ch: current, w: id }, vURL(id)); vPushed = true; }
+    else hist("replaceState", { ch: current, w: id }, vURL(id));
+  }
+  function step(d) {
+    var i = (pos + d + seq.length) % seq.length;
+    fill(i);
+    hist("replaceState", { ch: current, w: seq[i] }, vURL(seq[i]));
+  }
+  function shutViewer() {
+    vV.pause(); vV.removeAttribute("src"); try { vV.load(); } catch (e) {}
+    if (viewer.open) { if (viewer.close) viewer.close(); else viewer.removeAttribute("open"); }
+    document.documentElement.classList.remove("lock");
+    playTV();
+  }
+  function closeViewer() {
+    if (vPushed) { vPushed = false; history.back(); shutViewer(); }
+    else { shutViewer(); hist("replaceState", { ch: current }, vURL(null)); }
+  }
+  $("vClose").addEventListener("click", closeViewer);
+  vPrev.addEventListener("click", function () { step(-1); });
+  vNext.addEventListener("click", function () { step(1); });
+  viewer.addEventListener("cancel", function (e) { e.preventDefault(); closeViewer(); });
+  viewer.addEventListener("keydown", function (e) {
+    if (e.target === vV) return;
+    // right to left: the left arrow moves forward
+    if (e.key === "ArrowLeft") { e.preventDefault(); step(1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); step(-1); }
   });
 
-  /* ================= lazy media and reveals ================= */
-  if ("IntersectionObserver" in window) {
-    var vio = new IntersectionObserver(function (es) {
+  /* ================= lazy previews and reveals ================= */
+  var vio = null, rio = null;
+  function observe() {
+    if (!("IntersectionObserver" in window)) {
+      content.querySelectorAll(".reveal").forEach(function (n) { n.classList.add("in"); });
+      return;
+    }
+    if (vio) vio.disconnect();
+    vio = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         var v = e.target;
         if (e.isIntersecting) {
@@ -1012,15 +1378,22 @@
         } else if (!v.paused) v.pause();
       });
     }, { rootMargin: "200px 0px" });
-    document.querySelectorAll(".rerun video, .film video").forEach(function (v) { vio.observe(v); });
-    var rio = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); rio.unobserve(e.target); } });
-    }, { rootMargin: "0px 0px -8% 0px" });
-    document.querySelectorAll(".reveal").forEach(function (n) { rio.observe(n); });
-  } else document.querySelectorAll(".reveal").forEach(function (n) { n.classList.add("in"); });
+    content.querySelectorAll(".wcard video").forEach(function (v) { vio.observe(v); });
+    if (!rio) {
+      rio = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); rio.unobserve(e.target); } });
+      }, { rootMargin: "0px 0px -6% 0px" });
+      document.querySelectorAll("#contact .reveal").forEach(function (n) { rio.observe(n); });
+    }
+    content.querySelectorAll(".reveal").forEach(function (n) { rio.observe(n); });
+  }
 
+  /* ================= start ================= */
+  buildTV();
+  go(chFromURL(), "init");
+  var deep = /^#w-([a-z]+)$/.exec(location.hash);
+  if (deep && WORKS[deep[1]]) openWork(deep[1], seqFor(current), true);
   navState();
-  if (!staticMode) onScroll();
 })();
 </script>
 </body>
