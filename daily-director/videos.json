@@ -1,6 +1,33 @@
 {
   "days": [
     {
+      "date": "2026-10-17",
+      "ideas": [
+        {
+          "id": "2026-10-17-backstage-promo",
+          "world": "סרטוני הסבר",
+          "color": "#2BB3A3",
+          "hook": "יש חדר לפני החדר: סרט תדמית של דקה לאפליקציה Backstage",
+          "concept": "סרט תדמית של 60 שניות ל-Backstage, יועץ ארגוני אישי מבוסס AI. לורה נכנסת ביום שישי לשיחה עם דניאל ואומרת we על כל הצלחה שלה, ונורה, היועצת שלה, מראה לה את הדפוס מתוך המשפטים שלה עצמה ונותנת לה תרגול אחד לחמישה ימים.",
+          "execution": "מסכים אמיתיים מהפיגמה ב-Light mode, טיפוגרפיה ב-Instrument Sans על גבי המוצר, ואיור פלאט בסגנון האונבורדינג הישן: פריימי מפתח ב-GPT Image 2.5 ואנימציה ב-Kling 3 std. עמוד HTML עם render(t) שמצלם 1800 פריימים, קול אחד של נורה ופסקול מסונתז. 16:9 עכשיו, 9:16 בהמשך.",
+          "why": "פרויקט לקוח פעיל. כל תיקון קופי הוא רינדור של דקות ולא ג'ינרוט, והשפה עצמה, מוצר אמיתי עם שכבת טיפוגרפיה ואיור שטוח מונפש, עובדת לכל אפליקציה.",
+          "competition": null,
+          "srcUrl": "https://eyalg1980.github.io/simpla-lab/backstage/",
+          "srcLabel": "המוקאפ החי",
+          "prompts": {
+            "video": "Flat 2D cut-paper animation in a Bauhaus onboarding style, warm cream background, deep burgundy, dark plum, mustard yellow, muted gold, dusty coral and blush pink, solid flat fills with no gradients or shading, a closed burgundy theatre curtain with a single sliver of mustard light slowly draws open to reveal an empty stage and a wide pool of light, locked-off static camera, no zoom, calm and theatrical mood, generous empty space on the left for typography added in edit, 16:9",
+            "script": "קח את ההוק \"יש חדר לפני החדר\" ופתח אותו לסרט תדמית של 60 שניות לאפליקציה Backstage: לוגליין, תסריט באנגלית עם ציר זמן מדויק, טקסטים על המסך מעל מסכי המוצר ב-Light mode, שורות הקול של היועצת נורה, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בסגנון איור פלאט של האונבורדינג הישן.",
+            "image": "Flat 2D vector illustration, Bauhaus-inspired geometric cut-paper shapes, solid flat color fills, no gradients, no texture, no shading, no outlines, palette of deep burgundy, dark plum, warm mustard yellow, muted gold, dusty coral and soft blush pink on a warm cream background, a quiet sunburst of slender gold and blush rays radiating from behind a large empty cream circle in the middle of the frame, reserved for a card, symmetrical, 16:9, no text",
+            "raw": "הוק: יש חדר לפני החדר, סרט תדמית של דקה ל-Backstage\nעולם: סרטוני הסבר\nקונספט: לורה אומרת we על כל הצלחה שלה לפני שיחה עם המנהל, ונורה מראה לה את הדפוס מתוך המשפטים שלה ונותנת תרגול אחד לחמישה ימים\nביצוע: מסכי Light mode אמיתיים, Instrument Sans, איור פלאט ב-GPT Image 2.5 ו-Kling 3, מנוע render(t), 16:9 ואחר כך 9:16\nלמה עכשיו: פרויקט לקוח פעיל, והשפה עובדת לכל אפליקציה"
+          },
+          "storyboardUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/backstage-promo/",
+          "filmUrl": "https://eyalg1980.github.io/simpla-lab/daily-director/storyboards/backstage-promo/film.mp4",
+          "filmNote": "גרסה 2, לנדסקייפ, 60 שניות. Light mode, Instrument Sans, הסיפור של לורה ושכבות איור מונפשות."
+        }
+      ],
+      "watch": []
+    },
+    {
       "date": "2026-10-16",
       "ideas": [
         {

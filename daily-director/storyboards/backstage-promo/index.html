@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>סטוריבורד · Backstage, סרט תדמית</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/sb.css?v=9">
+</head>
+<body>
+<div id="sb"></div>
+
+<script>
+const STYLE = "Flat 2D vector illustration in the style of the old Backstage onboarding: Bauhaus-inspired geometric cut-paper shapes, solid flat color fills, no gradients, no texture, no shading, no outlines, crisp edges. Palette only: deep burgundy, dark plum, warm mustard yellow, muted gold, dusty coral, soft blush pink, on a warm cream background. No text, no letters, no logos, no people";
+const STILL = "Locked-off static camera, no zoom, no camera movement, no 3D, no depth, no shading, no gradients, no new objects, no text";
+
+window.SB = {
+  kicker: "STORYBOARD · PROMO · BACKSTAGE",
+  titleTop: "סרט התדמית של Backstage:",
+  titleMark: "יש חדר לפני החדר",
+  titleEn: "Backstage: There’s a Room Before the Room",
+  logline: "ללורה יש ביום שישי ב-9:30 שיחה אחד על אחד עם דניאל, ובכל פעם שהיא מדברת על ההצלחות שלה היא אומרת we. נורה, היועצת שלה בבקסטייג', שומעת את הדפוס, מראה לה אותו מתוך המשפטים שלה עצמה, ונותנת לה תרגול אחד לחמישה ימים.",
+  loglineEn: "Laura has a Friday 9:30 one-on-one with Daniel, and every time she talks about her wins she says “we”. Nora, her Backstage consultant, hears the pattern, shows it back to her in her own words, and gives her one practice for five days.",
+  specs: ["60 שניות", "16:9 · 1920x1080", "Light mode של האפליקציה", "Instrument Sans בלבד", "איור פלאט, Kling 3", "אנגלית · קול נורה"],
+  specsEn: ["Runtime 60 seconds", "16:9, 1920x1080", "The app in light mode", "Instrument Sans only", "Flat 2D illustration animated in Kling 3", "English, one voice: Nora"],
+  cdn: "https://d8j0ntlcm91z4.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/",
+
+  film: { src: "film.mp4", ratio: "16", note: "גרסה 2, לנדסקייפ, 60 שניות. Light mode, Instrument Sans, הסיפור של לורה ושכבות איור מונפשות מהיגספילד. גרסת 9:16 בהמשך." },
+
+  titles: { vo: "קריינות וטקסט על המסך" },
+
+  synopsis: {
+    h3: "מה קורה בשישים השניות",
+    copyLabel: "העתק סינופסיס עברית",
+    copyHead: 'סינופסיס לסרט התדמית "Backstage: יש חדר לפני החדר":',
+    paras: [
+      "יום שישי, 9:30. השיחה של לורה אחד על אחד עם דניאל. וילון בורדו סגור, פס אור אחד באמצע, ועל המסך רק השעה. מי שהיה פעם בשיחה כזאת יודע בדיוק מה זה אומר.",
+      "צורות גיאומטריות נזרקות באוויר. You’ve rehearsed it for weeks. ואז האמת הלא נוחה: In the room, you talk about the team. היא עבדה קשה, והיא לא יודעת להגיד את זה.",
+      "There’s a room before the room. הווילון נפתח לבמה ריקה עם בריכת אור חרדל, והטלפון נכנס. בקסטייג' הוא החדר הזה. לורה בוחרת מי ישאל אותה את השאלה הקשה, והצורות שהיו בכאוס מסתדרות לשורה. היא בוחרת בנורה, זו שמייצבת קודם.",
+      "נורה שואלת בקול: So what did you do? Not the team. You. לורה עונה בקול, או מקלידה כשנוח לה יותר. קשתות פועמות מאחורי הטלפון בזמן שנורה מקשיבה, והמסך עובר לסיכום.",
+      "רגע של כמעט שקט, ואז כרטיס ה-AHA עולה מתוך הטלפון ונעמד במרכז, מוקף קרני שמש: You say we, when the room needs an I. מתחתיו שלושה משפטים שלורה עצמה אמרה בספטמבר ובאוקטובר, עם תאריכים. זו לא דעה של נורה, זו ראיה.",
+      "תרגול אחד לחמישה ימים: לכתוב שלושה דברים שהיא עשתה השנה, כל אחד מתחיל ב-I, ולהגיד אותם בקול פעם אחת. מדרגות עולות. ואז יום שישי, 9:30, על הבמה, והיא נכנסת כשהיא יודעת את הבקשה האחת שלה.",
+      "What you learn, you keep. אזור You אוסף כל דפוס שנורה מזהה, ופרח נפתח מאחורי הטלפון. הסימן של Backstage ושלושה משפטים: Prepare backstage. Perform on stage. Evolve every time. ההכנה לא נגמרת בחדר, היא נשארת איתך."
+    ],
+    enLabel: "סינופסיס באנגלית, עד 300 מילים",
+    enCopyLabel: "העתק סינופסיס אנגלית",
+    en: `Friday, 9:30. Laura’s one-on-one with Daniel. A closed burgundy curtain, one sliver of light, and only the time on screen. Anyone who has been in that meeting knows what it means.
+
+Flat shapes tumble through the air. She has rehearsed it for weeks. Then the uncomfortable truth: in the room, she talks about the team. She did the work, and she does not know how to say so.
+
+There’s a room before the room. The curtain opens on an empty stage and a pool of light, and the phone slides in. Backstage is that room. Laura chooses who will ask her the hard question, and the shapes that were in chaos settle into a row. She chooses Nora, the one who steadies you first.
+
+Nora asks out loud: “So what did you do? Not the team. You.” Laura answers out loud, or types when she would rather. Arcs pulse behind the phone while Nora listens, and the screen turns into a summary.
+
+A beat of near silence, then the AHA card lifts out of the phone into the centre of the frame, ringed by sun rays: “You say we, when the room needs an I.” Below it, three sentences Laura herself said in September and October, each with its date. Not Nora’s opinion. Evidence.
+
+One practice for five days: write three things she did this year, each starting with “I”, and say them out loud once. Steps rise. Then Friday, 9:30, on stage, and she walks in knowing her one ask.
+
+What you learn, you keep. The You area gathers every pattern Nora names, and a flower opens behind the phone. The Backstage mark, and three lines: Prepare backstage. Perform on stage. Evolve every time. The preparation does not end in the room. It stays with you.`
+  },
+
+  mood: {
+    h3: "הטון של הסרט",
+    copyLabel: "העתק הוראות בימוי",
+    copyHead: 'הוראות בימוי והלך רוח לסרט התדמית של Backstage:',
+    paras: ["חם, בהיר ומדויק. זה לא סרט על טכנולוגיה, זה סרט על רגע אחד שבו מישהי שומעת את עצמה. Light mode של האפליקציה, נייר קרם, בורדו עמוק וחרדל. האיור שטוח ודו מימדי כמו האונבורדינג הישן, והמוצר תמיד אמיתי: מסכים מהפיגמה עם הסיפור של לורה, לא מוקאפ מומצא."],
+    rows: [
+      ["קצב", "שלוש מערכות: הבעיה, ההכנה, הבמה. המוזיקה ב-76 BPM והכל נושם על הפעמה. רגע אחד של כמעט שקט לפני ה-AHA, והאקורד נוחת בדיוק על המילה I."],
+      ["טיפוגרפיה", "Instrument Sans בלבד, הפונט של האפליקציה. מילים נכנסות אחת אחת מתוך טשטוש. הציטוטים של נורה מסונכרנים למילה, לפי חותמות זמן שנמדדו על הקול."],
+      ["צבע", "קרם #FAF7F2, דיו #14120F, בורדו #6E1F2E, חרדל #E0B862. שתי מילות מפתח בכל משפט מקבלות בורדו או חרדל, לא יותר."],
+      ["איור", "גזרי נייר בהשראת באוהאוס, בלי גרדיאנט ובלי צל. Kling מזיז צורות בלבד, המצלמה נעולה. כשאיור רועש מאחורי כרטיס, מסך קרם שקוף מרגיע אותו. הטקסט אף פעם לא יושב על קרן אור."],
+      ["סאונד", "פסנתר לבד רך, פד, פולס נמוך, וקול אחד בלבד: נורה. המוזיקה יורדת מתחת לקול ב-6 עד 11 dB. בסוף לוגו צלילי של שלושה צלילים, אחד לכל זוג קשתות בסימן."]
+    ],
+    rules: ["מוצר אמיתי, לא מוקאפ", "פונט אחד", "מצלמה נעולה", "היועצת מדברת בשמה", "שקט לפני ה-AHA"],
+    en: `Warm, bright and precise. This is not a film about technology, it is a film about one moment when someone hears herself. The app in light mode: cream paper, deep burgundy and mustard. The illustration is flat and 2D like the old onboarding, and the product is always real: Figma screens carrying Laura’s story, never an invented mockup.
+
+Pace: three acts, the problem, the preparation, the stage. The score runs at 76 BPM and everything breathes on the pulse. One beat of near silence before the AHA, and the chord lands exactly on the word “I”.
+Typography: Instrument Sans only, the app’s own font. Words enter one at a time out of a soft blur. Nora’s quotes are synced word by word to timestamps measured on the voice.
+Colour: cream #FAF7F2, ink #14120F, burgundy #6E1F2E, mustard #E0B862. At most two key words per line take burgundy or mustard.
+Illustration: Bauhaus cut paper, no gradient, no shadow. Kling moves shapes only, the camera is locked. When an illustration is busy behind a card, a translucent cream veil calms it. Type never sits on a beam of light.
+Sound: soft felt piano, pad, a low pulse, and one voice only: Nora. Music ducks 6 to 11 dB under the voice. A three-note sound logo at the end, one note per pair of arcs in the mark.
+
+Rules: real product, never a mockup | one font | locked camera | the consultant speaks by name | silence before the AHA`
+  },
+
+  story: {
+    h3: "מאיפה זה בא",
+    copyLabel: "העתק סיפור רקע",
+    copyHead: 'סיפור הרקע לסרט התדמית של Backstage:',
+    paras: [
+      "ב-1956 פרסם הסוציולוג ארווינג גופמן, באוניברסיטת אדינבורו, את The Presentation of Self in Everyday Life, ובמהדורה האמריקאית של 1959 הספר הפך לקלאסיקה. הטענה שלו היא שחיי היומיום הם הופעה: יש אזור קדמי, הבמה, שבו מופיעים מול קהל, ויש אזור אחורי, הבקסטייג', שבו מתכוננים, מתרגלים ומורידים את המסכה. השם של האפליקציה, והמבנה של הסרט, באים משם ישירות.",
+      "ב-2011 פרסם ג'יימס פנבייקר, פסיכולוג מאוניברסיטת טקסס באוסטין, את The Secret Life of Pronouns. אחד הממצאים המפתיעים שלו: בשיחה בין שניים, מי שבמעמד הגבוה יותר משתמש פחות במילה I. כלומר we הוא לא תמיד חולשה, לפעמים הוא שפה של מנהיגים. בגלל זה הסרט לא אומר ללורה להפסיק להגיד we. הוא אומר לה שבחדר הזה, ספציפית, זה מעלים את העבודה שלה.",
+      "ב-2019 פרסמו הכלכלנים כריסטין אקסלי וג'אד קסלר את The Gender Gap in Self-Promotion, נייר עבודה של NBER שפורסם ב-2022 ב-Quarterly Journal of Economics. הם מצאו שנשים מתארות את הביצועים של עצמן בצורה פחות חיובית מגברים שביצעו בדיוק כמוהן, גם כשהתיאור משפיע על הסיכוי שלהן להתקבל לעבודה, וגם כשהן כבר יודעות בדיוק כמה טוב הן ביצעו.",
+      "מה שהסרט משאיר פתוח: אם הפער הוא לא ידע אלא הרגל, אז עוד טיפ בניוזלטר לא יעזור. מה שעוזר הוא מישהו ששומע את הדפוס לאורך זמן, מראה אותו מתוך המשפטים שלך עצמך, ונותן לך חזרה אחת לפני הבמה. זה ה-AHA של בקסטייג', וזה גם הגבול שלו: נורה יכולה להכין, אבל לחדר נכנסת רק לורה."
+    ],
+    en: `In 1956 the sociologist Erving Goffman published The Presentation of Self in Everyday Life at the University of Edinburgh, and the 1959 American edition made it a classic. His argument is that everyday life is a performance: there is a front region, the stage, where we perform for an audience, and a back region, the backstage, where we prepare, rehearse and drop the mask. The app’s name, and the structure of this film, come straight from there.
+
+In 2011 James Pennebaker, a psychologist at the University of Texas at Austin, published The Secret Life of Pronouns. One of his more surprising findings: in a conversation between two people, the one with higher status uses the word “I” less. So “we” is not always weakness; sometimes it is the language of leaders. That is why the film never tells Laura to stop saying “we”. It tells her that in this particular room, it makes her work invisible.
+
+In 2019 the economists Christine Exley and Judd Kessler released The Gender Gap in Self-Promotion as an NBER working paper, published in 2022 in the Quarterly Journal of Economics. They found that women describe their own performance less favourably than men who performed exactly as well, even when the description affects their chance of being hired, and even when they already know exactly how well they did.
+
+What the film leaves open: if the gap is a habit rather than a lack of knowledge, another tip in a newsletter will not fix it. What helps is someone who hears the pattern over time, shows it back to you in your own sentences, and gives you one rehearsal before the stage. That is the Backstage AHA, and also its limit: Nora can prepare you, but only Laura walks into the room.`
+  },
+
+  vo: [
+    { t: "0:00-0:09 · טקסט על המסך",
+      text: "Friday, 9:30. Your 1:1 with Daniel. / You’ve rehearsed it for weeks. / In the room, you talk about the team.",
+      en: "Friday, 9:30. Your 1:1 with Daniel. / You’ve rehearsed it for weeks. / In the room, you talk about the team." },
+    { t: "0:09-0:16 · טקסט על המסך",
+      text: "There’s a room before the room. / 01 · Prepare backstage. Choose who asks you the hard question. Theo cuts through. Cass pushes. Nora steadies you first.",
+      en: "There’s a room before the room. / 01 · Prepare backstage. Choose who asks you the hard question. Theo cuts through. Cass pushes. Nora steadies you first." },
+    { t: "0:17-0:21 · נורה",
+      text: "So what did you do? Not the team. You.",
+      en: "So what did you do? Not the team. You." },
+    { t: "0:21-0:29 · טקסט על המסך",
+      text: "You answer out loud. Or type, when you’d rather. / Nora listens for what keeps coming back.",
+      en: "You answer out loud. Or type, when you’d rather. / Nora listens for what keeps coming back." },
+    { t: "0:31-0:34 · נורה",
+      text: "You say we, when the room needs an I.",
+      en: "You say we, when the room needs an I." },
+    { t: "0:34-0:44 · טקסט על המסך",
+      text: "Where Nora heard it: “We shipped the migration early.” 12 Sep · “The team really pulled it off.” 26 Sep · “We’re in good shape for Q4.” 6 Oct / One practice · five days",
+      en: "Where Nora heard it: “We shipped the migration early.” 12 Sep · “The team really pulled it off.” 26 Sep · “We’re in good shape for Q4.” 6 Oct / One practice · five days" },
+    { t: "0:44-0:54 · טקסט על המסך",
+      text: "02 · Perform on stage. Friday, 9:30. You walk in knowing your one ask. / 03 · Evolve every time. What you learn, you keep. Every pattern Nora names, gathered over time.",
+      en: "02 · Perform on stage. Friday, 9:30. You walk in knowing your one ask. / 03 · Evolve every time. What you learn, you keep. Every pattern Nora names, gathered over time." },
+    { t: "0:54-1:00 · כרטיס סיום",
+      text: "Backstage. Prepare backstage. Perform on stage. Evolve every time. Private by design.",
+      en: "Backstage. Prepare backstage. Perform on stage. Evolve every time. Private by design." }
+  ],
+
+  shots: {
+    style: STYLE,
+    prompts: function (s) {
+      return [
+        { label: "פרומפט פריים פתיחה", btn: "העתק פריים", text: STYLE + ". " + s.frame },
+        { label: "פרומפט תנועה", btn: "העתק תנועה", text: "Flat 2D cut-paper animation. " + s.motion + ". " + STILL }
+      ];
+    },
+    list: [
+      { n:1, title:"Friday, 9:30", titleEn:"Friday, 9:30", dur:"0:00-0:04", durEn:"0:00 to 0:04", cam:"מסך מלא, מצלמה נעולה", camEn:"Full frame, locked camera", model:"GPT Image 2.5 ואז Kling 3",
+        img:"hf_20261017_145345_a20d93c6-3724-42c9-8a91-a95913bfb1e1.png", vid:"hf_20261017_162323_d4295e00-a4f3-47ac-9d34-b79d19b47d6f.mp4",
+        frame:"A closed theatre curtain in flat burgundy and plum vertical folds filling the frame, a narrow vertical gap of mustard light in the exact centre, a dusty coral stage floor strip along the bottom, the left third calm and dark for text, 16:9",
+        motion:"The two flat burgundy and plum curtains sway very gently, a slow calm breathing ripple along their folds, the narrow gap of warm light between them stays in place" },
+      { n:2, title:"התאמנת שבועות", titleEn:"Rehearsed for weeks", dur:"0:04-0:09", durEn:"0:04 to 0:09", cam:"מסך מלא, צורות בשני השלישים הימניים", camEn:"Full frame, shapes on the right two thirds", model:"GPT Image 2.5 ואז Kling 3",
+        img:"hf_20261017_161955_ffd6264f-94a9-43fc-af8b-abd114a27198.png", vid:"hf_20261017_162345_cb404106-ff59-4729-81a9-e8dcfc875f3e.mp4",
+        frame:"A playful jumble of large flat geometric shapes tossed in the air across the right two thirds of a warm cream frame: a burgundy circle, a mustard rounded square, a coral triangle, a plum half-moon arch, a dark plum bar and a few small coral dots, overlapping slightly at odd angles as if caught mid-tumble, the left third completely empty cream for text, 16:9",
+        motion:"The flat geometric shapes drift and tumble slowly in the air, each one turning a little in its own direction, restless and weightless, bumping gently past each other, they stay in the right two thirds of the frame and the left third stays empty cream" },
+      { n:3, title:"החדר שלפני החדר", titleEn:"The room before the room", dur:"0:09-0:12.5", durEn:"0:09 to 0:12.5", cam:"שני פריימים: וילון סגור עד במה פתוחה, רץ ב-1.6x", camEn:"Two frames, closed curtain to open stage, played at 1.6x", model:"GPT Image 2.5 ואז Kling 3, פתיחה וסיום",
+        img:"hf_20261017_161954_0b05d828-0444-4dac-8e4f-cfbb0bb064ec.png", vid:"hf_20261017_162323_e5ba022f-1b80-4f34-a9eb-7044cdd2683d.mp4",
+        frame:"End frame. The same theatre with both curtains drawn fully open and gathered as narrow burgundy and plum bands at the far left and right edges, a calm plain blush pink back wall filling the middle, a dusty coral stage floor with a wide flat mustard pool of light, the middle open and empty for large text, symmetrical, 16:9",
+        motion:"Start frame is shot 1, end frame is the open stage. The burgundy theatre curtains draw open smoothly and evenly to the left and right, revealing a calm open stage with a blush back wall and a wide mustard pool of light on the coral floor" },
+      { n:4, title:"בוחרים מי שואל", titleEn:"Choose who asks", dur:"0:11-0:16.6", durEn:"0:11 to 0:16.6", cam:"פאנל 1:1 מאחורי הטלפון, מסך בחירת יועצת", camEn:"1:1 panel behind the phone, consultant choice screen", model:"GPT Image 2.5 ואז Kling 3, פתיחה וסיום",
+        img:"hf_20261017_161954_9a06791e-3a2d-4f3a-b80f-22c9ca3f73fc.png", vid:"hf_20261017_162323_bce254ff-ccba-4116-9826-e4aec38334ff.mp4",
+        frame:"Square panel on a warm cream field. Four flat shapes, a burgundy circle, a mustard rounded square, a coral triangle and a dark plum bar, tossed loosely at odd angles near the left and right edges, the middle half completely empty cream for a phone on top, 1:1",
+        motion:"Start frame is the tossed shapes, end frame is the same four shapes stacked upright in two neat columns at the left and right edges. The shapes glide calmly into place, rotating upright and settling into order, the middle of the square stays empty cream" },
+      { n:5, title:"נורה מקשיבה", titleEn:"Nora listens", dur:"0:16.6-0:30", durEn:"0:16.6 to 0:30", cam:"פאנל 1:1 מאחורי הטלפון, Talk ואז טעינה", camEn:"1:1 panel behind the phone, Talk then loading", model:"GPT Image 2.5 ואז Kling 3",
+        img:"hf_20261017_145345_00dcb545-ff4a-4f7b-a669-354113483843.png", vid:"hf_20261017_162323_4308a1c0-6ecd-4920-9a25-28edbe025ce0.mp4",
+        frame:"Square panel on soft blush pink. Concentric half arcs, burgundy on one side and muted gold on the other, like sound waves listening, a few small coral dots around them, 1:1",
+        motion:"The concentric burgundy and gold arcs pulse very slowly outward like calm sound waves, a gentle steady rhythm, as if the room is listening, shapes stay flat and keep their colors" },
+      { n:6, title:"ה-AHA", titleEn:"The AHA", dur:"0:29-0:39.6", durEn:"0:29 to 0:39.6", cam:"מסך מלא, הכרטיס עולה מהטלפון למרכז", camEn:"Full frame, the card lifts out of the phone into the centre", model:"GPT Image 2.5 ואז Kling 3",
+        img:"hf_20261017_162252_1cde22a4-0d19-4cfd-b84b-62573df47ceb.png", vid:"hf_20261017_162345_d7f2a3b8-f9b7-47b0-a430-ca6a4a83be1b.mp4",
+        frame:"A quiet sunburst: thin slender rays in muted gold and soft blush pink radiate toward the edges from behind a very large plain cream circle that fills the middle of the frame, about two thirds of its height, completely empty for a card on top, generous cream space between rays, low contrast, symmetrical, 16:9",
+        motion:"The slender gold and blush rays grow slowly outward from the calm empty cream centre and the whole sunburst turns very gently, a quiet radiating glow, the centre circle stays plain and empty" },
+      { n:7, title:"תרגול אחד", titleEn:"One practice", dur:"0:39.6-0:44.4", durEn:"0:39.6 to 0:44.4", cam:"מסך מלא, כרטיס התרגול במרכז", camEn:"Full frame, the practice card centred", model:"GPT Image 2.5 ואז Kling 3",
+        img:"hf_20261017_161955_4933285e-ca4a-4ae8-bd08-1dc3687ff27c.png", vid:"hf_20261017_162324_d41d3ce4-4543-4824-897d-6c68a6798a8b.mp4",
+        frame:"A flat geometric staircase of five wide steps rising from the bottom left to the upper right, each step a flat color block in order dark plum, burgundy, dusty coral, muted gold, mustard, a small mustard sun disc above the top step, warm cream background, the centre fairly open for a card, 16:9",
+        motion:"The small mustard sun disc rises slowly above the top step, and the flat steps settle in a calm upward rhythm one after another from bottom left to top right, each lifting slightly then resting" },
+      { n:8, title:"על הבמה", titleEn:"On stage", dur:"0:44.4-0:48.6", durEn:"0:44.4 to 0:48.6", cam:"מסך מלא, טקסט במרכז, בלי טלפון", camEn:"Full frame, centred type, no phone", model:"Kling 3 על פריים הסיום של שוט 3",
+        img:"hf_20261017_161954_0b05d828-0444-4dac-8e4f-cfbb0bb064ec.png", vid:"hf_20261017_162323_eb8d2ffd-e183-4f2a-8c82-3d9e02e0f7ec.mp4",
+        frame:"The open stage from shot 3: narrow burgundy curtains at the edges, a plain blush back wall, a coral floor with a wide mustard pool of light, the centre open for text, 16:9",
+        motion:"The flat mustard pool of light on the stage floor slowly widens, as if a performer is about to step into it, the narrow curtains at the edges sway very slightly, no people" },
+      { n:9, title:"מה שלמדת נשאר", titleEn:"What you learn, you keep", dur:"0:48.6-1:00", durEn:"0:48.6 to 1:00", cam:"פאנל 1:1 מאחורי מסך You, ואז כרטיס סיום", camEn:"1:1 panel behind the You screen, then the end card", model:"GPT Image 2.5 ואז Kling 3",
+        img:"hf_20261017_161954_be037052-ae9f-4101-8000-270cf1dbb0ef.png", vid:"hf_20261017_162323_63944754-58be-4abf-8aa4-89f762719a82.mp4",
+        frame:"Square panel on a soft cream field: one large flat stylised flower seen from above, layered rounded petals in blush pink, dusty coral, deep burgundy and dark plum around a small mustard centre, so large its petals reach past the left and right edges, calm and symmetrical, 1:1",
+        motion:"The large flower blooms slowly, its layered petals unfold outward one layer at a time and the whole flower turns very gently" }
+    ]
+  },
+
+  notes: {
+    title: "איך זה נבנה בפועל",
+    items: [
+      "המנוע: עמוד HTML אחד עם פונקציה render(t). Playwright מצלם 1800 פריימים ב-30fps ו-ffmpeg מקודד. כל הטקסט, המסכים והאנימציות של המוצר חיים בקוד, ולכן תיקון קופי הוא רינדור של כמה דקות ולא ג'ינרוט מחדש.",
+      "המסכים: שכפלתי שבעה פריימים בפיגמה לעמוד נפרד, Promo film · light frames, עם הסיפור של לורה, בלי לגעת במקוריים, ויצאתי ב-3x. הכותרת וה-Tab bar מוצמדים, הגוף נגלל, ומעל זה שכבות חיות: גל קול, טיימר, Selected, פס טעינה, הילות באזור You.",
+      "שכבות היגספילד: פריימי מפתח ב-GPT Image 2.5 עם חמש תמונות האונבורדינג הישן כרפרנס, ואנימציה ב-Kling 3 std בלי סאונד. פתיחת הווילון והסידור של הצורות נבנו משני פריימים, פתיחה וסיום. הבמה של שוט 8 היא פריים הסיום של שוט 3, כדי שהבמה מההכנה תהיה אותה במה של ההופעה.",
+      "חוק הקריאות: הטקסט אף פעם לא יושב על קרן האור. There’s a room before the room ירד ל-100px כדי לעצור לפני הסדק, והווילון נפתח רק אחרי שהשורה יוצאת. השמש מאחורי ה-AHA נבנתה מחדש בגרסה שקטה עם מרכז קרם ריק, והכרטיס עצמו הוא השמש.",
+      "קול: נורה ב-seed_audio. כל שורה הוקלטה ונמדדה לפני שהטיימליין ננעל, והמילים על המסך מסונכרנות לחותמות הזמן. שורת ה-AHA קוצרה כדי שלא תישאר מילה יתומה בכרטיס, והקול הוקלט מחדש בהתאם.",
+      "עלות: 7 פריימים ב-GPT Image 2.5 בקרדיט אחד כל אחד, ו-9 קליפים של Kling באורך כולל של 64 שניות, בערך 80 קרדיטים.",
+      "הבא בתור: גרסת 9:16 מאותו מנוע עם פריסה אנכית, והקלטה של נורה בקול הסופי אם הלקוח בוחר קול אחר."
+    ],
+    itemsEn: [
+      "The engine: one HTML page with a render(t) function. Playwright captures 1800 frames at 30fps and ffmpeg encodes them. All type, screens and product animation live in code, so a copy fix is a few minutes of rendering, not a regeneration.",
+      "The screens: seven Figma frames were cloned to a separate page, Promo film · light frames, carrying Laura’s story, without touching the originals, and exported at 3x. Header and tab bar are pinned, the body scrolls, and live layers sit on top: waveform, timer, Selected pill, loading bar, glows in the You area.",
+      "Higgsfield layers: key frames in GPT Image 2.5 with the five old onboarding images as references, animated in Kling 3 std with sound off. The curtain opening and the shapes settling into order use two frames, start and end. The stage in shot 8 is the end frame of shot 3, so the stage you prepare for is the stage you perform on.",
+      "Legibility rule: type never sits on a beam of light. “There’s a room before the room” was set at 100px to stop short of the gap, and the curtain only opens after the line exits. The sun behind the AHA was regenerated as a quiet version with an empty cream centre, so the card itself becomes the sun.",
+      "Voice: Nora in seed_audio. Every line was recorded and measured before the timeline was locked, and on-screen words sync to the timestamps. The AHA line was shortened so the card never ends on an orphan word, and the voice was re-recorded to match.",
+      "Cost: 7 key frames in GPT Image 2.5 at one credit each, and 9 Kling clips totalling 64 seconds, about 80 credits.",
+      "Next: a 9:16 version from the same engine with a vertical layout, and a re-record of Nora if the client picks a different final voice."
+    ]
+  }
+};
+</script>
+<script src="../shared/sb.js?v=9"></script>
+</body>
+</html>
