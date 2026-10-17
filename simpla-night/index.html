@@ -229,6 +229,18 @@
   .mini h3{margin:8px 0 0;font-size:19px;font-weight:700}
   .mini p{margin:8px 0 0;color:var(--muted);font-size:15px}
 
+  /* clients */
+  .clbox .cl-groups{border-top:1.5px solid var(--line-strong)}
+  .cl-group{display:grid;grid-template-columns:200px minmax(0,1fr);gap:28px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line)}
+  .cl-h{margin:0;display:flex;flex-direction:column;gap:4px}
+  .cl-t{font-size:17px;font-weight:700}
+  .cl-en{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--onair);direction:ltr;text-align:right}
+  .cl-row{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:24px 48px;--lgh:30px}
+  .clbox .cl-group:only-child{grid-template-columns:minmax(0,1fr)}
+  .cl-item{display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--text);opacity:.85;transition:opacity .2s ease}
+  .cl-item:hover{opacity:1}
+  .cl-note{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);padding:1px 8px;border-radius:4px;border:1px solid var(--line-strong);white-space:nowrap}
+
   /* episodes: studio process and the object series */
   .eps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
   .ep{background:var(--surface);border-radius:18px;padding:22px;position:relative;overflow:hidden}
@@ -431,6 +443,8 @@
     .wcard.feat .play,.wgrid.one .play{width:46px;height:46px;bottom:10px;inset-inline-start:10px}
     .wcard.feat .tt,.wgrid.one .tt{font-size:19px}
     .minis,.eps,.teach,.stats{grid-template-columns:minmax(0,1fr)}
+    .cl-group{grid-template-columns:minmax(0,1fr);gap:14px;padding:20px 0}
+    .cl-row{gap:20px 30px;--lgh:24px}
     .stats{gap:20px}
     .slot{grid-template-columns:minmax(0,1fr) 104px;gap:14px;padding:14px 0}
     .slot .time{display:none}
@@ -531,7 +545,7 @@
   <footer>
     <div class="wrap">
       <span>Simpla · סטודיו ל-UX ו-AI · תל אביב</span>
-      <span>כל הערוצים נחתכו מסרטים שהפקנו. <span class="en">v2.2 · 17.10.2026</span></span>
+      <span>כל הערוצים נחתכו מסרטים שהפקנו. <span class="en">v2.3 · 17.10.2026</span></span>
     </div>
   </footer>
 </main>
@@ -569,6 +583,7 @@
   </div>
 </dialog>
 
+<script src="../assets/clients.js?v=1"></script>
 <script>
 (function () {
   "use strict";
@@ -643,6 +658,11 @@
       poster: HF + "4d8b91e4-2d4a-4c3d-8f73-15b6a5d7215a.jpg",
       text: "סרט קצר על הצורך להיות זה שמציל את כולם. נכתב, בוים ונערך אצלנו לפסטיבל הסרטים של Higgsfield.",
       gets: ["תסריט", "בימוי", "עקביות דמויות", "עריכה וסאונד"] },
+    wolt: { kind: "SPEC AD", title: "העיר שקפאה", sub: "ספוט ספק לוולט, לאדתון של Higgsfield ו-ADWEEK", len: "1:00",
+      src: HF + "ad33e834-3c7c-4d93-b707-eabf7a6dc344.mp4", preview: HF + "bf99884f-039d-4461-a77a-729665ea7c11.mp4",
+      poster: HF + "c3e02351-94b7-4279-a5d5-26ccb244a80d.jpg",
+      text: "עיר שלמה מחימר קפאה, ושליח אחד על קטנוע צובע אותה מחדש רחוב אחרי רחוב, עד שהוא דופק בדלת הנכונה. ספוט ספק בקליי, לא בהזמנת וולט.",
+      gets: ["קונספט ותסריט", "עולם קליי", "15 שוטים", "קריינות וסאונד"] },
     whofor: { kind: "FILM", title: "בשביל מי זה", sub: "אנתולוגיה מהמנוע היומי", len: "2:53",
       src: HF + "b1b4150d-d826-4789-bd3c-c12357b868f2.mp4", preview: HF + "ffc80726-b6ff-49fd-bee3-e333874b144c.mp4",
       poster: HF + "31744d12-2f0e-4477-84ac-1a44bbde17f2.jpg",
@@ -653,8 +673,8 @@
       poster: HF + "5a33bc46-4b7d-4f72-b3c2-7e5fa7d47c0f.jpg",
       text: "סרט קצר על כיתה שבה הידע נהיה משהו שאפשר להחזיק ביד.",
       gets: ["תסריט", "בימוי", "הפקה ב-AI"] },
-    burger: { kind: "SERIES", title: "ההמבורגר מניו", sub: "ביוגרפיה של אובייקט, פרק 1", len: "0:56", shape: "v",
-      src: HF + "b5406eb1-f5bf-492a-8730-864083badada.mp4", preview: HF + "19b426d0-72b0-4d5b-8ab8-6eab47abf955.mp4",
+    burger: { kind: "SERIES", title: "ההמבורגר מניו", sub: "ביוגרפיה של אובייקט, פרק 1", len: "1:00", shape: "v",
+      src: HF + "948e857c-c826-478d-8f5e-c9a6e71e3748.mp4", preview: HF + "19b426d0-72b0-4d5b-8ab8-6eab47abf955.mp4",
       poster: HF + "a0171652-f00b-4ba8-bb88-2510cc9f6433.jpg",
       text: "הפרק הראשון בסדרה שמספרת את הביוגרפיה של חפצים יומיומיים. אנכי, לרשתות.",
       gets: ["סדרה", "פורמט אנכי", "עולם ויזואלי"] },
@@ -694,14 +714,14 @@
       h: "ערוץ Simpla <b>משדר</b>",
       p: "סטודיו ל-UX ו-AI בתל אביב. כל ערוץ כאן הוא פתרון אחר, וכל מה שמשודר בו נעשה אצלנו. אין פרסומות.",
       now: "abstract", nowNote: "סרט האתר, טייק אחד בחימר", hint: true,
-      reel: ["abstract", "savior", "tipranks", "whofor", "future", "juganu", "burger", "frame", "tease"],
-      blocks: [["guide"], ["for"]] },
+      reel: ["abstract", "savior", "wolt", "tipranks", "whofor", "future", "juganu", "burger", "frame", "tease"],
+      blocks: [["guide"], ["clients", ["adopt", "lab", "clients"]], ["for"]] },
     { key: "01", name: "סטודיו", sol: "studio", time: "22:30",
       h: "<b>סרטים</b> שנבנים כמו מוצר",
       p: "סרטי מותג, מסבירי מוצר וסרטים לתחרויות. תסריט, סטוריבורד, עקביות של דמויות, סאונד ועריכה, הכול בבית אחד.",
       tags: ["סרט מותג", "מסביר מוצר", "מסקוט", "סרט לתחרות"],
       now: "savior", nowNote: "סרט לפסטיבל הסרטים של Higgsfield",
-      works: ["savior", "burger", "frame", "whofor", "future"],
+      works: ["savior", "wolt", "burger", "frame", "whofor", "future"],
       blocks: [["works"], ["sol", "studio"], ["steps"]] },
     { key: "02", name: "אפיון", sol: "spec", time: "23:00",
       h: "<b>מוצרים</b> שמבינים במבט",
@@ -709,7 +729,7 @@
       tags: ["PRD", "מחקר משתמשים", "Wireframes", "אב-טיפוס"],
       now: "tipranks", nowNote: "דף הבית של האתר",
       works: ["tipranks", "juganu", "tease"],
-      blocks: [["works"], ["sol", "spec"], ["record"]] },
+      blocks: [["works"], ["sol", "spec"], ["clients", ["clients"]], ["record"]] },
     { key: "03", name: "תהליכים", sol: "flows", time: "23:30",
       h: "<b>מערכות</b> שמייצרות עולם שלם",
       p: "Workflows ב-Figma Weave, ספריות פרומפטים ומנועים יומיים שמייצרים רעיונות, סטוריבורדים וסרטים. הצוות שלכם מפעיל, המערכת שומרת על עקביות.",
@@ -723,14 +743,14 @@
       tags: ["סדנאות", "קורסים", "הכשרת מרצים", "פרומפטים בעברית"],
       now: "future", nowNote: "סרט קצר",
       works: ["future"],
-      blocks: [["sol", "lab"], ["teach"], ["works"]] },
+      blocks: [["sol", "lab"], ["clients", ["lab"]], ["teach"], ["works"]] },
     { key: "05", name: "הטמעה", sol: "adopt", time: "00:30",
       h: "<b>ארגונים</b> שרואים הכול",
       p: "אבחון, מפת הזדמנויות, בחירת כלים, כללי עבודה ופיילוט. כולל רשויות מקומיות ומגזר ציבורי, שם כל החלטה נוגעת בהרבה אנשים.",
       tags: ["אבחון", "מדיניות", "פיילוט", "מדידה"],
       now: "juganu", nowNote: "דשבורד לעיר חכמה",
       works: ["juganu"],
-      blocks: [["sol", "adopt"], ["series"], ["works"]] },
+      blocks: [["sol", "adopt"], ["clients", ["adopt"]], ["series"], ["works"]] },
     { key: "99", name: "ליווי", sol: "guide", time: "01:00",
       h: "מה שאתם צריכים, <b>באור קטן</b>",
       p: "לא כל פרויקט מתחיל כמסלול שלם. לפעמים מספיקה שעה בשבוע עם מישהו שכבר עבר את זה. ליווי, ייעוץ, ומאחורי הקלעים של הסטודיו.",
@@ -1112,6 +1132,15 @@
         var va = el("a", "btn btn-dash", ac.cta); va.href = "mailto:studio@simplaux.com?subject=" + encodeURIComponent(ac.name); v.appendChild(va);
         x.w.appendChild(v);
       }
+      return x.s;
+    },
+    clients: function (groups) {
+      var all = groups.length > 1;
+      var x = section("ON AIR WITH", all ? "שידרנו <b>אצל</b>" : "הערוץ <b>שודר אצל</b>",
+        all ? "ארגונים שהטמענו אצלם AI, צוותים שהעברנו להם סדנאות, ולקוחות שבנינו איתם מוצרים." : null);
+      var box = el("div", "clbox reveal");
+      if (window.SimplaClients) window.SimplaClients.render(box, { groups: groups, heads: all });
+      x.w.appendChild(box);
       return x.s;
     },
     steps: function () {

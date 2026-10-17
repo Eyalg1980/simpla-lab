@@ -245,6 +245,18 @@
   .wcard.feat .ss{white-space:normal;font-size:15px}
   .wcard.feat .play{width:52px;height:52px}
 
+  /* clients, as three panels */
+  .clbox .cl-groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+  .cl-group{background:var(--node);border-radius:14px;box-shadow:var(--shadow);padding:12px 18px 22px}
+  .cl-h{margin:0 0 16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+    padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .cl-t{font-size:16px;font-weight:700}
+  .cl-en{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--muted)}
+  .cl-row{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:20px 30px;--lgh:24px}
+  .cl-item{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--text);opacity:.86}
+  .cl-item:hover{opacity:1}
+  .cl-note{font-family:var(--mono);font-size:10.5px;color:var(--muted);padding:1px 8px;border-radius:6px;background:var(--node-2);white-space:nowrap}
+
   /* viewer */
   html.lock{overflow:hidden}
   .viewer{border:0;padding:0;margin:0;width:100%;max-width:100%;height:100%;max-height:100%;color:var(--text);overflow:auto;overscroll-behavior:contain;
@@ -373,6 +385,7 @@
     .summary{position:relative;top:0}
     .teach{grid-template-columns:1fr 1fr}
     .about,.contact{grid-template-columns:1fr}
+    .clbox .cl-groups{grid-template-columns:1fr}
     .wgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
     .wcard.feat{grid-row:auto}
     .wcard.feat .th{aspect-ratio:16/9;min-height:0;flex:none}
@@ -425,6 +438,7 @@
   <nav class="links" aria-label="ניווט ראשי">
     <a href="#canvas">הקנבס</a>
     <a href="#outputs">עבודות</a>
+    <a href="#clients">לקוחות</a>
     <a href="#build">בנו מסלול</a>
     <a href="#workflows">Workflows</a>
     <a href="#for">תבניות</a>
@@ -487,6 +501,18 @@
       </div>
       <div class="wf" id="wf" role="group" aria-label="סינון לפי צומת"></div>
       <div class="wgrid" id="wgrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== clients ===== -->
+  <section class="sec" id="clients">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label mono">CONNECTED</p>
+        <h2 class="h2">עבדנו <b>עם</b></h2>
+        <p class="lede">ארגונים שהטמענו אצלם AI, צוותים שהעברנו להם סדנאות, ולקוחות שבנינו איתם מוצרים.</p>
+      </div>
+      <div class="clbox reveal" id="clientsBox"></div>
     </div>
   </section>
 
@@ -612,7 +638,7 @@
   <footer>
     <div class="wrap">
       <span>Simpla · סטודיו ל-UX ו-AI · תל אביב</span>
-      <span>כל וידאו בצמתים נגלל איתכם. <span class="en">v1.3 · 17.10.2026</span></span>
+      <span>כל וידאו בצמתים נגלל איתכם. <span class="en">v1.4 · 17.10.2026</span></span>
     </div>
   </footer>
 </main>
@@ -641,6 +667,7 @@
   </div>
 </dialog>
 
+<script src="../assets/clients.js?v=1"></script>
 <script>
 (function () {
   "use strict";
@@ -773,6 +800,11 @@
       poster: HF + "4d8b91e4-2d4a-4c3d-8f73-15b6a5d7215a.jpg",
       text: "סרט קצר על הצורך להיות זה שמציל את כולם. נכתב, בוים ונערך אצלנו לפסטיבל הסרטים של Higgsfield.",
       gets: ["תסריט", "בימוי", "עקביות דמויות", "עריכה וסאונד"] },
+    { id: "wolt", nodes: ["studio"], kind: "SPEC AD", title: "העיר שקפאה", sub: "ספוט ספק לוולט, לאדתון של Higgsfield ו-ADWEEK", len: "1:00",
+      src: HF + "ad33e834-3c7c-4d93-b707-eabf7a6dc344.mp4", preview: HF + "bf99884f-039d-4461-a77a-729665ea7c11.mp4",
+      poster: HF + "c3e02351-94b7-4279-a5d5-26ccb244a80d.jpg",
+      text: "עיר שלמה מחימר קפאה, ושליח אחד על קטנוע צובע אותה מחדש רחוב אחרי רחוב, עד שהוא דופק בדלת הנכונה. ספוט ספק בקליי, לא בהזמנת וולט.",
+      gets: ["קונספט ותסריט", "עולם קליי", "15 שוטים", "קריינות וסאונד"] },
     { id: "tipranks", nodes: ["spec"], kind: "PRODUCT", client: "TipRanks", title: "דף הבית של האתר", loop: true,
       src: WORK + "tipranks.mp4", preview: WORK + "tipranks.mp4", poster: WORK + "tipranks-poster.jpg",
       text: "להפוך כמות עצומה של דאטה פיננסי לחוויה ידידותית, ממותגת ומובנת במבט אחד.",
@@ -786,8 +818,8 @@
       poster: HF + "31744d12-2f0e-4477-84ac-1a44bbde17f2.jpg",
       text: "עולמות של חימר וניאון שנולדו במנוע הסרטים היומי שלנו, ונערכו לסרט אחד.",
       gets: ["מנוע יומי", "Workflows", "עולם ודמויות", "עריכה"] },
-    { id: "burger", nodes: ["studio"], kind: "SERIES", title: "ההמבורגר מניו", sub: "ביוגרפיה של אובייקט, פרק 1", len: "0:56", shape: "v",
-      src: HF + "b5406eb1-f5bf-492a-8730-864083badada.mp4", preview: HF + "19b426d0-72b0-4d5b-8ab8-6eab47abf955.mp4",
+    { id: "burger", nodes: ["studio"], kind: "SERIES", title: "ההמבורגר מניו", sub: "ביוגרפיה של אובייקט, פרק 1", len: "1:00", shape: "v",
+      src: HF + "948e857c-c826-478d-8f5e-c9a6e71e3748.mp4", preview: HF + "19b426d0-72b0-4d5b-8ab8-6eab47abf955.mp4",
       poster: HF + "a0171652-f00b-4ba8-bb88-2510cc9f6433.jpg",
       text: "הפרק הראשון בסדרה שמספרת את הביוגרפיה של חפצים יומיומיים. אנכי, לרשתות.",
       gets: ["סדרה", "פורמט אנכי", "עולם ויזואלי"] },
@@ -1357,6 +1389,9 @@
     store("simpla-canvas-wf", id);
   }
   setWF(store("simpla-canvas-wf") || "all");
+
+  /* ================= clients ================= */
+  if (window.SimplaClients) window.SimplaClients.render(document.getElementById("clientsBox"));
 
   /* ================= viewer ================= */
   var viewer = document.getElementById("viewer"), vV = document.getElementById("vVideo");
