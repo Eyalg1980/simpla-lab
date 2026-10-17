@@ -197,48 +197,67 @@
   .panel .mods li{font-family:var(--en);font-size:13px;padding:5px 14px;border-radius:18px;border:1.5px dashed var(--line-strong)}
   .panel .btn{margin-top:26px}
 
-  /* work */
-  .case{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(22px,4vw,56px);align-items:center;
-    padding:clamp(28px,4vw,48px) 0;border-top:1px solid var(--line)}
-  .case:nth-of-type(even) figure{order:2}
-  .case figure{margin:0;border-radius:16px;overflow:hidden;background:var(--surface-2);aspect-ratio:16/9}
-  .case video{width:100%;height:100%;object-fit:cover}
-  .case .num{font-family:var(--en);font-weight:600;font-size:clamp(40px,5vw,64px);line-height:1;
-    color:color-mix(in srgb,var(--coral) 55%,transparent);margin:0}
-  .case .client{margin:10px 0 0;font-family:var(--en);font-size:14px;font-weight:600;color:var(--label);text-align:right}
-  .case h3{margin:4px 0 0;font-size:clamp(22px,2.4vw,30px);font-weight:700}
-  .case p{margin:12px 0 0;color:var(--muted);font-size:16px}
-  .minis{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+  /* work gallery */
+  .wf{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+  .wf .chip{display:inline-flex;align-items:center;gap:8px}
+  .cnt{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:999px;
+    background:#D7263D;color:#fff;font-family:var(--en);font-weight:700;font-size:11px;line-height:1;direction:ltr}
+  .cnt.z{background:transparent;color:var(--muted);box-shadow:inset 0 0 0 1px var(--line)}
+  .wgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 18px;align-items:start}
+  .wcard{all:unset;cursor:pointer;display:flex;flex-direction:column;min-width:0;border-radius:16px;-webkit-tap-highlight-color:transparent}
+  .wcard[hidden]{display:none}
+  .wcard .th{position:relative;display:block;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:var(--stage)}
+  .wcard .th img,.wcard .th video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .wcard .th img.blur{filter:blur(16px) brightness(.5);transform:scale(1.2)}
+  .wcard .th .fit{object-fit:contain}
+  .wcard .th video{opacity:0;transition:opacity .35s ease}
+  .wcard .th video.live{opacity:1}
+  .wcard .kind{position:absolute;top:10px;inset-inline-start:10px;font-size:12px;font-weight:500;padding:3px 10px;
+    border-radius:999px;background:rgba(11,19,35,.72);color:#fff;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+  .wcard .len{position:absolute;bottom:10px;inset-inline-end:10px;font-family:var(--en);font-size:12px;font-weight:600;
+    padding:2px 8px;border-radius:6px;background:rgba(11,19,35,.72);color:#fff;direction:ltr}
+  .wcard .play{position:absolute;bottom:10px;inset-inline-start:10px;width:42px;height:42px;border-radius:50%;
+    background:var(--coral);color:#fff;display:grid;place-items:center;transition:transform .2s ease}
+  .wcard .play svg{width:16px;height:16px;margin-inline-start:-2px}
+  .wcard:hover .play,.wcard:focus-visible .play{transform:scale(1.1)}
+  .wcard:focus-visible{outline:2px solid var(--yellow);outline-offset:4px}
+  .wcard .tt{display:block;margin-top:12px;font-size:17px;font-weight:700;line-height:1.3}
+  .wcard .ss{display:block;margin-top:3px;font-size:14px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .wcard .cl{font-family:var(--en);font-weight:600;color:var(--label);margin-inline-end:6px}
+  .wcard.feat{grid-column:span 2;grid-row:span 2;align-self:stretch}
+  .wcard.feat .th{flex:1 1 auto;aspect-ratio:auto;min-height:260px}
+  .wcard.feat .tt{font-size:clamp(20px,2vw,26px)}
+  .wcard.feat .ss{font-size:15.5px;white-space:normal}
+  .wcard.feat .play{width:54px;height:54px}
+  .wcard.feat .play svg{width:20px;height:20px}
+  .minis{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
   .mini{border:1.5px dashed var(--line-strong);border-radius:18px;padding:24px}
   .mini .tag{font-size:13px;color:var(--label);font-weight:500}
   .mini h3{margin:8px 0 0;font-size:20px;font-weight:700}
   .mini p{margin:10px 0 0;color:var(--muted);font-size:15.5px}
 
-  /* films */
-  .reel{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;
-    scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent}
-  .film{all:unset;cursor:pointer;flex:0 0 auto;scroll-snap-align:start;display:block}
-  .film .frame{position:relative;border-radius:16px;overflow:hidden;background:var(--stage);height:min(56vh,440px)}
-  .film.v .frame{aspect-ratio:9/16}
-  .film.h .frame{aspect-ratio:16/9}
-  .film.s .frame{aspect-ratio:1/1}
-  .film .frame img,.film .frame video{width:100%;height:100%;object-fit:cover}
-  .film .frame video{position:absolute;inset:0;opacity:0;transition:opacity .3s ease}
-  .film .frame video.live{opacity:1}
-  .film .play{position:absolute;bottom:14px;inset-inline-start:14px;width:46px;height:46px;border-radius:50%;
-    background:var(--coral);display:grid;place-items:center;color:#fff}
-  .film .play svg{width:18px;height:18px;margin-inline-start:-2px}
-  .film .meta{display:block;margin-top:12px;max-width:min(78vw,420px)}
-  .film .meta b{display:block;font-size:17px}
-  .film .meta span{font-size:14px;color:var(--muted)}
-  .reel-note{margin-top:14px;font-size:14px;color:var(--muted)}
-
-  dialog{border:0;padding:0;background:transparent;max-width:min(94vw,1100px);max-height:92vh}
-  dialog::backdrop{background:rgba(5,9,22,.86)}
-  dialog video{max-width:min(94vw,1100px);max-height:86vh;border-radius:14px;background:#000}
-  .dlg-close{position:absolute;top:10px;inset-inline-end:10px;z-index:2;background:rgba(13,21,51,.8);color:#fff;
-    border:1.5px dashed rgba(255,255,255,.6)}
-  .dlg-title{color:#EDEFF7;margin:10px 4px 0;font-size:15px}
+  /* viewer */
+  html.lock{overflow:hidden}
+  .viewer{border:0;padding:0;margin:0;width:100%;max-width:100%;height:100%;max-height:100%;
+    background:rgba(6,10,24,.97);color:#EDEFF7;overflow:auto;overscroll-behavior:contain}
+  .viewer::backdrop{background:rgba(6,10,24,.85)}
+  .v-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:12px var(--gut);background:linear-gradient(rgba(6,10,24,.95),rgba(6,10,24,0))}
+  .v-count{font-family:var(--en);font-weight:600;font-size:14px;color:#9AA2C4;direction:ltr}
+  .v-close{color:#fff;opacity:1}
+  .v-body{display:grid;grid-template-columns:minmax(280px,360px) minmax(0,1fr);grid-template-areas:"info media";
+    gap:clamp(20px,3vw,44px);align-items:center;padding:0 var(--gut) 28px;min-height:calc(100% - 64px);max-width:1500px;margin:0 auto}
+  .v-media{grid-area:media;display:grid;place-items:center;min-width:0}
+  .v-media video{max-width:100%;max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);border-radius:12px;background:#000}
+  .v-info{grid-area:info;min-width:0}
+  .v-kind{margin:0;font-size:13.5px;font-weight:500;color:var(--coral)}
+  .v-info h3{margin:8px 0 0;font-size:clamp(24px,2.4vw,34px);font-weight:700;line-height:1.15}
+  .v-sub{margin:6px 0 0;color:#9AA2C4;font-size:15px}
+  .v-text{margin:16px 0 0;font-size:16.5px;line-height:1.65;color:#D5D9EA}
+  .v-info .pills li{color:#C9CEE6;border-color:rgba(201,206,230,.5)}
+  .v-nav{display:flex;gap:10px;margin-top:26px}
+  .v-nav .btn{padding:10px 18px}
+  .v-nav svg{width:16px;height:16px}
 
   /* teaching */
   .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:40px}
@@ -285,6 +304,9 @@
     .track{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}
     .track::before{display:none}
     .strip-in{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .wgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .wcard.feat{grid-row:auto}
+    .wcard.feat .th{aspect-ratio:16/9;min-height:0;flex:none}
   }
   /* ---------- mobile ---------- */
   @media (max-width:760px){
@@ -307,13 +329,27 @@
     .stats{gap:26px}
     .track{grid-template-columns:1fr}
     .panel,.about,.contact{grid-template-columns:1fr}
-    .case{grid-template-columns:1fr}
-    .case:nth-of-type(even) figure{order:0}
     .tl li{grid-template-columns:86px 1fr}
     .stage.static .chapter{grid-template-columns:1fr}
     .stage.static .chapter img{order:0}
-    .film .frame{height:62vh}
-    .film.h .frame{height:auto;width:84vw}
+    .wgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}
+    .wcard.feat{grid-row:auto}
+    .wcard.feat .th{aspect-ratio:16/9;min-height:0;flex:none}
+    .wcard .tt{font-size:15px;margin-top:9px}
+    .wcard .ss{font-size:12.5px}
+    .wcard .kind{top:7px;inset-inline-start:7px;font-size:11px;padding:2px 8px}
+    .wcard .len{bottom:7px;inset-inline-end:7px;font-size:11px;padding:1px 6px}
+    .wcard .play{width:34px;height:34px;bottom:7px;inset-inline-start:7px}
+    .wcard .play svg{width:14px;height:14px}
+    .wcard.feat .kind{top:10px;inset-inline-start:10px;font-size:12px}
+    .wcard.feat .play{width:46px;height:46px;bottom:10px;inset-inline-start:10px}
+    .wf{flex-wrap:nowrap;overflow-x:auto;margin-inline:calc(var(--gut) * -1);padding:2px var(--gut) 6px;scrollbar-width:none}
+    .wf .chip{flex:0 0 auto}
+    .v-body{grid-template-columns:minmax(0,1fr);grid-template-areas:"media" "info";align-items:start;min-height:0;gap:18px}
+    .v-media video{max-height:58vh;max-height:58dvh;border-radius:10px}
+    .v-nav{position:sticky;bottom:0;padding:12px 0 calc(6px + env(safe-area-inset-bottom));
+      background:linear-gradient(rgba(6,10,24,0),rgba(6,10,24,.96) 30%)}
+    .v-nav .btn{flex:1;justify-content:center}
   }
   @media (prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none}
@@ -329,10 +365,9 @@
   <a class="brand" href="#top" aria-label="Simpla, לראש העמוד"><i aria-hidden="true"></i>simpla</a>
   <nav class="links" aria-label="ניווט ראשי">
     <a href="#solutions">פתרונות</a>
+    <a href="#work">עבודות</a>
     <a href="#track">מסלול</a>
     <a href="#for">למי</a>
-    <a href="#work">עבודות</a>
-    <a href="#films">סרטים</a>
     <a href="#teaching">הוראה</a>
     <a href="#about">אודות</a>
   </nav>
@@ -419,6 +454,31 @@
     </div>
   </section>
 
+  <!-- ===== work ===== -->
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">עבודות</p>
+        <h2 class="h2">מה <b>יצא</b> מהסטודיו</h2>
+        <p class="lede">סרטים, מוצרים וסרטי אתר, במקום אחד. לחצו על עבודה כדי לצפות בה במסך מלא, עם סאונד, ולעבור לבאה.</p>
+      </div>
+      <div class="wf" id="wf" role="group" aria-label="סינון עבודות"></div>
+      <div class="wgrid" id="wgrid"></div>
+      <div class="minis">
+        <article class="mini reveal">
+          <span class="tag">Figma Weave · מערכת תוכן</span>
+          <h3>מפעל תוכן לחברת SaaS</h3>
+          <p>מסקוט עם שלוש וריאציות, פרומפטים לאיורי בלוג ולסרטונים, וכל זה כמערכת אחת שהצוות מפעיל בעצמו.</p>
+        </article>
+        <article class="mini reveal">
+          <span class="tag">AI · הדמיות מוצר</span>
+          <h3>צינור הדמיות ליצרן</h3>
+          <p>משרטוטים אורתוגרפיים להדמיות איזומטריות נקיות, בתהליך אחד שחוזר על עצמו לכל מוצר חדש בקטלוג.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== object track ===== -->
   <section class="sec" id="track">
     <div class="wrap">
@@ -454,43 +514,6 @@
       </div>
       <div class="chips" id="chips" role="tablist" aria-label="סוג לקוח"></div>
       <div class="panel" id="panel" role="tabpanel"></div>
-    </div>
-  </section>
-
-  <!-- ===== work ===== -->
-  <section class="sec" id="work">
-    <div class="wrap">
-      <div class="head reveal">
-        <p class="label">עבודות</p>
-        <h2 class="h2">בעולם <b>האמיתי</b></h2>
-        <p class="lede">מוצרים שאפיינו, עיצבו והובילו, ומערכות שבנינו ללקוחות.</p>
-      </div>
-      <div id="cases"></div>
-      <div class="minis">
-        <article class="mini reveal">
-          <span class="tag">Figma Weave · מערכת תוכן</span>
-          <h3>מפעל תוכן לחברת SaaS</h3>
-          <p>מסקוט עם שלוש וריאציות, פרומפטים לאיורי בלוג ולסרטונים, וכל זה כמערכת אחת שהצוות מפעיל בעצמו.</p>
-        </article>
-        <article class="mini reveal">
-          <span class="tag">AI · הדמיות מוצר</span>
-          <h3>צינור הדמיות ליצרן</h3>
-          <p>משרטוטים אורתוגרפיים להדמיות איזומטריות נקיות, בתהליך אחד שחוזר על עצמו לכל מוצר חדש בקטלוג.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== films ===== -->
-  <section class="sec" id="films">
-    <div class="wrap">
-      <div class="head reveal">
-        <p class="label">סרטים</p>
-        <h2 class="h2">מה אנחנו עושים <b>בלילות</b></h2>
-        <p class="lede">סדרות, סרטי אתר וסרטים לתחרויות. הכול נוצר עם AI, בבימוי ובעריכה שלנו.</p>
-      </div>
-      <div class="reel" id="reel"></div>
-      <p class="reel-note">לחצו על סרט כדי לצפות בו עם סאונד.</p>
     </div>
   </section>
 
@@ -573,17 +596,32 @@
   <footer>
     <div class="wrap">
       <span>Simpla · סטודיו ל-UX ו-AI · תל אביב</span>
-      <span>הסרט בראש העמוד צולם בטייק אחד: שלושים שניות של חימר. <span class="en">v1.0 · 16.10.2026</span></span>
+      <span>הסרט בראש העמוד צולם בטייק אחד: שלושים שניות של חימר. <span class="en">v1.1 · 17.10.2026</span></span>
     </div>
   </footer>
 </main>
 
-<dialog id="dlg" aria-label="נגן סרט">
-  <button class="icon-btn dlg-close" id="dlgClose" type="button" aria-label="סגירה">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-  </button>
-  <video id="dlgVideo" controls playsinline preload="none"></video>
-  <p class="dlg-title" id="dlgTitle"></p>
+<dialog id="viewer" class="viewer" aria-labelledby="vTitle">
+  <div class="v-top">
+    <span class="v-count" id="vCount"></span>
+    <button class="icon-btn v-close" id="vClose" type="button" aria-label="סגירה">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="v-body">
+    <div class="v-media"><video id="vVideo" controls playsinline preload="metadata"></video></div>
+    <div class="v-info">
+      <p class="v-kind" id="vKind"></p>
+      <h3 id="vTitle"></h3>
+      <p class="v-sub" id="vSub"></p>
+      <p class="v-text" id="vText"></p>
+      <ul class="pills" id="vGets" aria-label="מה עשינו"></ul>
+      <div class="v-nav">
+        <button class="btn btn-dash" id="vPrev" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>הקודם</button>
+        <button class="btn btn-coral" id="vNext" type="button">הבא<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
 </dialog>
 
 <script>
@@ -680,39 +718,65 @@
       first: "פגישה עם רכזי התוכנית ובחירה של קורס אחד לפיילוט." }
   ];
 
-  var CASES = [
-    { slug: "juganu", client: "Juganu", title: "דשבורד לעיר חכמה",
-      text: "מערכת שמאפשרת לרשויות לראות מה קורה בעיר 24/7, ולשפר בעזרתה את חיי התושבים.",
-      gets: ["מחקר מוצר", "אב-טיפוס", "מחקר UX", "עיצוב UI ו-UX", "Style guide"] },
-    { slug: "tipranks", client: "TipRanks", title: "דף הבית של האתר",
+  // every piece of work on the site, in the order the gallery shows it under "all"
+  var W = CFG.work;
+  var WORKS = [
+    { id: "savior", cat: "film", kind: "סרט", title: "תסמונת המושיע", sub: "סרט לפסטיבל הסרטים של Higgsfield", len: "3:16",
+      src: HF + "5056b375-f0d0-446e-bed9-bbfa21314504.mp4", preview: HF + "2e34e853-6cd5-4ddd-bd03-74b3b0c5e87e.mp4",
+      poster: HF + "4d8b91e4-2d4a-4c3d-8f73-15b6a5d7215a.jpg",
+      text: "סרט קצר על הצורך להיות זה שמציל את כולם. נכתב, בוים ונערך אצלנו לפסטיבל הסרטים של Higgsfield.",
+      gets: ["תסריט", "בימוי", "עקביות דמויות", "עריכה וסאונד"] },
+    { id: "tipranks", cat: "product", kind: "מוצר", client: "TipRanks", title: "דף הבית של האתר", loop: true,
+      src: W + "tipranks.mp4", preview: W + "tipranks.mp4", poster: W + "tipranks-poster.jpg",
       text: "להפוך כמות עצומה של דאטה פיננסי לחוויה ידידותית, ממותגת ומובנת במבט אחד.",
       gets: ["אידיאציה", "Wireframes", "עיצוב קונספט", "מחקר UX", "גישת MVP"] },
-    { slug: "tease", client: "Tease", title: "ערכת השראה ל-UX",
+    { id: "juganu", cat: "product", kind: "מוצר", client: "Juganu", title: "דשבורד לעיר חכמה", loop: true,
+      src: W + "juganu.mp4", preview: W + "juganu.mp4", poster: W + "juganu-poster.jpg",
+      text: "מערכת שמאפשרת לרשויות לראות מה קורה בעיר 24/7, ולשפר בעזרתה את חיי התושבים.",
+      gets: ["מחקר מוצר", "אב-טיפוס", "מחקר UX", "עיצוב UI ו-UX", "Style guide"] },
+    { id: "whofor", cat: "film", kind: "סרט", title: "בשביל מי זה", sub: "אנתולוגיה מהמנוע היומי", len: "2:53",
+      src: HF + "b1b4150d-d826-4789-bd3c-c12357b868f2.mp4", preview: HF + "ffc80726-b6ff-49fd-bee3-e333874b144c.mp4",
+      poster: HF + "31744d12-2f0e-4477-84ac-1a44bbde17f2.jpg",
+      text: "עולמות של חימר וניאון שנולדו במנוע הסרטים היומי שלנו, ונערכו לסרט אחד.",
+      gets: ["מנוע יומי", "Workflows", "עולם ודמויות", "עריכה"] },
+    { id: "burger", cat: "film", kind: "סרט", title: "ההמבורגר מניו", sub: "ביוגרפיה של אובייקט, פרק 1", len: "0:56", shape: "v",
+      src: HF + "b5406eb1-f5bf-492a-8730-864083badada.mp4", preview: HF + "19b426d0-72b0-4d5b-8ab8-6eab47abf955.mp4",
+      poster: HF + "a0171652-f00b-4ba8-bb88-2510cc9f6433.jpg",
+      text: "הפרק הראשון בסדרה שמספרת את הביוגרפיה של חפצים יומיומיים. אנכי, לרשתות.",
+      gets: ["סדרה", "פורמט אנכי", "עולם ויזואלי"] },
+    { id: "tease", cat: "product", kind: "מוצר", client: "Tease", title: "ערכת השראה ל-UX", loop: true,
+      src: W + "tease.mp4", preview: W + "tease.mp4", poster: W + "tease-poster.jpg",
       text: "להראות את תהליך ה-UX שמאחורי מוצרים גמורים, בצורה ברורה וסוחפת, ללמידה עצמית.",
-      gets: ["אידיאציה", "מחקר UX", "עיצוב", "אנימציה", "HTML5 canvas", "סיפור"] }
+      gets: ["אידיאציה", "מחקר UX", "עיצוב", "אנימציה", "HTML5 canvas", "סיפור"] },
+    { id: "future", cat: "film", kind: "סרט", title: "העתיד של ללמוד", sub: "סרט קצר", len: "1:00",
+      src: HF + "d5cef077-7d70-4f33-8af3-3c0e441e24b8.mp4", preview: HF + "90a8dfc7-731f-4d15-947c-ee2d6da4e0af.mp4",
+      poster: HF + "5a33bc46-4b7d-4f72-b3c2-7e5fa7d47c0f.jpg",
+      text: "סרט קצר על כיתה שבה הידע נהיה משהו שאפשר להחזיק ביד.",
+      gets: ["תסריט", "בימוי", "הפקה ב-AI"] },
+    { id: "frame", cat: "film", kind: "סרט", title: "הפריים", sub: "ביוגרפיה של אובייקט, פרק 6", len: "1:06", shape: "s",
+      src: HF + "a960e971-3998-4480-a93d-76350b26344e.mp4", preview: HF + "40c0cbd1-fc41-4c84-8863-ca49432f98ac.mp4",
+      poster: HF + "9a682b61-8caa-4cac-b102-be6a9e86a492.jpg",
+      text: "פרק נוסף בסדרת הביוגרפיות של חפצים. ריבועי, לפיד.",
+      gets: ["סדרה", "פורמט ריבועי", "סאונד"] },
+    { id: "abstract", cat: "site", kind: "סרט אתר", title: "מאבסטרקט לאובייקט", sub: "הסרט של האתר הזה, טייק אחד", len: "0:30",
+      src: HF2 + "hf_20261016_180938_5d71d29f-22e3-485e-95d9-b3e4f1e827ba.mp4", preview: HF + "518c25f6-7b80-4483-93bb-0e43f2fc0154.mp4",
+      poster: FR[5],
+      text: "שלושים שניות של חימר בטייק אחד. בראש העמוד הגלילה מריצה אותו קדימה ואחורה.",
+      gets: ["טייק אחד", "פריימי מפתח", "וידאו לגלילה"] },
+    { id: "toolkit", cat: "site", kind: "סרט אתר", title: "ערכת הכלים", sub: "סרט אתר בטייק אחד", len: "0:25",
+      src: HF2 + "hf_20261016_133904_4d891e10-0a24-4425-9774-ddecfdb03021.mp4", preview: HF + "37cb15dc-34a7-416a-bd5d-6f2939979813.mp4",
+      poster: HF + "5aaab9d4-184b-4e1a-be46-0cbd77ae3393.jpg",
+      text: "סרט אתר בטייק אחד, שנבנה כדי שהגלילה תריץ אותו.",
+      gets: ["טייק אחד", "וידאו לגלילה"] },
+    { id: "paper", cat: "site", kind: "סרט אתר", title: "סימפלה בנייר", sub: "סרט אתר בטייק אחד", len: "0:25",
+      src: HF2 + "hf_20261016_090903_1c9acbc6-5ddc-4157-968c-12e20ea7061d.mp4", preview: HF + "f70d21ea-3855-415e-8181-e60e50009c17.mp4",
+      poster: HF + "475904ce-4564-49ec-90aa-14afa3a5f4c8.jpg",
+      text: "סרט אתר בטייק אחד, בעולם של נייר.",
+      gets: ["טייק אחד", "וידאו לגלילה"] }
   ];
-
-  var D2 = "https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/";
-  var FILMS = [
-    { title: "ההמבורגר מניו", sub: "ביוגרפיה של אובייקט, פרק 1 · 56 שניות", shape: "v",
-      src: D2 + "b5406eb1-f5bf-492a-8730-864083badada.mp4",
-      preview: D2 + "19b426d0-72b0-4d5b-8ab8-6eab47abf955.mp4",
-      poster: D2 + "a0171652-f00b-4ba8-bb88-2510cc9f6433.jpg" },
-    { title: "מאבסטרקט לאובייקט", sub: "הסרט של האתר הזה · 30 שניות, טייק אחד", shape: "h",
-      src: HF2 + "hf_20261016_180938_5d71d29f-22e3-485e-95d9-b3e4f1e827ba.mp4",
-      preview: null, poster: FR[5] },
-    { title: "הפריים", sub: "ביוגרפיה של אובייקט, פרק 6 · 66 שניות", shape: "s",
-      src: D2 + "a960e971-3998-4480-a93d-76350b26344e.mp4",
-      preview: D2 + "40c0cbd1-fc41-4c84-8863-ca49432f98ac.mp4",
-      poster: D2 + "9a682b61-8caa-4cac-b102-be6a9e86a492.jpg" },
-    { title: "ערכת הכלים", sub: "סרט אתר בטייק אחד · 25 שניות", shape: "h",
-      src: HF2 + "hf_20261016_133904_4d891e10-0a24-4425-9774-ddecfdb03021.mp4",
-      preview: HF2 + "hf_20261016_133904_4d891e10-0a24-4425-9774-ddecfdb03021.mp4",
-      poster: D2 + "5aaab9d4-184b-4e1a-be46-0cbd77ae3393.jpg" },
-    { title: "סימפלה בנייר", sub: "סרט אתר בטייק אחד · 25 שניות", shape: "h",
-      src: HF2 + "hf_20261016_090903_1c9acbc6-5ddc-4157-968c-12e20ea7061d.mp4",
-      preview: HF2 + "hf_20261016_090903_1c9acbc6-5ddc-4157-968c-12e20ea7061d.mp4",
-      poster: D2 + "475904ce-4564-49ec-90aa-14afa3a5f4c8.jpg" }
+  var CATS = [
+    { id: "all", label: "הכול" }, { id: "film", label: "סרטים" },
+    { id: "product", label: "מוצרים" }, { id: "site", label: "סרטי אתר" }
   ];
 
   /* ================= helpers ================= */
@@ -976,63 +1040,125 @@
   });
   pick(store("simpla-object-for") || AUDIENCES[0].id);
 
-  /* ================= work ================= */
-  var cases = document.getElementById("cases");
-  CASES.forEach(function (c, i) {
-    var art = el("article", "case reveal");
-    var fig = el("figure");
-    var v = document.createElement("video");
-    v.muted = true; v.loop = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.preload = "none";
-    v.poster = CFG.work + c.slug + "-poster.jpg";
-    v.dataset.src = CFG.work + c.slug + ".mp4";
-    v.setAttribute("aria-label", c.client + ", " + c.title);
-    fig.appendChild(v);
-    var b = el("div");
-    b.appendChild(el("p", "num", "0" + (i + 1)));
-    b.appendChild(el("p", "client", c.client));
-    b.appendChild(el("h3", null, c.title));
-    b.appendChild(el("p", null, c.text));
-    var ul = el("ul", "pills"); c.gets.forEach(function (g) { ul.appendChild(el("li", null, g)); }); b.appendChild(ul);
-    art.appendChild(fig); art.appendChild(b);
-    cases.appendChild(art);
+  /* ================= work gallery ================= */
+  var PLAY = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg>';
+  var wf = document.getElementById("wf"), wgrid = document.getElementById("wgrid");
+  var cards = [], chipsW = [], filter = "all";
+  function inCat(w, c) { return c === "all" || w.cat === c; }
+
+  WORKS.forEach(function (w) {
+    var b = el("button", "wcard"); b.type = "button"; b.dataset.id = w.id;
+    b.setAttribute("aria-label", "לצפות: " + (w.client ? w.client + ", " : "") + w.title);
+    var th = el("span", "th");
+    if (w.shape) { var bg = el("img", "blur"); bg.src = w.poster; bg.alt = ""; bg.loading = "lazy"; th.appendChild(bg); }
+    var im = el("img", w.shape ? "fit" : null); im.src = w.poster; im.alt = ""; im.loading = "lazy"; im.decoding = "async"; th.appendChild(im);
+    if (w.preview) {
+      var pv = document.createElement("video");
+      pv.muted = true; pv.loop = true; pv.playsInline = true; pv.setAttribute("playsinline", ""); pv.preload = "none";
+      pv.setAttribute("aria-hidden", "true"); if (w.shape) pv.className = "fit";
+      pv.dataset.src = w.preview; th.appendChild(pv);
+    }
+    th.appendChild(el("span", "kind", w.kind));
+    if (w.len) th.appendChild(el("span", "len", w.len));
+    var pl = el("span", "play"); pl.innerHTML = PLAY; th.appendChild(pl);
+    b.appendChild(th);
+    b.appendChild(el("span", "tt", w.title));
+    var ss = el("span", "ss");
+    if (w.client) ss.appendChild(el("span", "cl", w.client));
+    ss.appendChild(document.createTextNode(w.sub || w.text));
+    b.appendChild(ss);
+    b.addEventListener("click", function () { openWork(w.id); });
+    wgrid.appendChild(b); cards.push(b);
   });
 
-  /* ================= films ================= */
-  var reel = document.getElementById("reel");
-  var dlg = document.getElementById("dlg"), dlgV = document.getElementById("dlgVideo"), dlgT = document.getElementById("dlgTitle");
-  function openFilm(f) {
-    dlgV.src = f.src; dlgV.muted = false; dlgT.textContent = f.title + " · " + f.sub;
-    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
-    var p = dlgV.play(); if (p && p.catch) p.catch(function () {});
-  }
-  function closeFilm() { dlgV.pause(); dlgV.removeAttribute("src"); dlgV.load(); if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); }
-  document.getElementById("dlgClose").addEventListener("click", closeFilm);
-  dlg.addEventListener("close", function () { dlgV.pause(); });
-  dlg.addEventListener("click", function (e) { if (e.target === dlg) closeFilm(); });
-
-  function buildReel() {
-    FILMS.forEach(function (f) {
-      var b = el("button", "film " + f.shape); b.type = "button";
-      b.setAttribute("aria-label", "לצפות: " + f.title);
-      var fr = el("span", "frame");
-      var im = el("img"); im.src = f.poster; im.alt = ""; im.loading = "lazy"; im.decoding = "async";
-      fr.appendChild(im);
-      if (f.preview) {
-        var pv = document.createElement("video");
-        pv.muted = true; pv.loop = true; pv.playsInline = true; pv.setAttribute("playsinline", ""); pv.preload = "none";
-        pv.dataset.src = f.preview;
-        fr.appendChild(pv);
-      }
-      var pl = el("span", "play");
-      pl.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg>';
-      fr.appendChild(pl);
-      var meta = el("span", "meta"); meta.appendChild(el("b", null, f.title)); meta.appendChild(el("span", null, f.sub));
-      b.appendChild(fr); b.appendChild(meta);
-      b.addEventListener("click", function () { openFilm(f); });
-      reel.appendChild(b);
+  CATS.forEach(function (c) {
+    var n = WORKS.filter(function (w) { return inCat(w, c.id); }).length;
+    var b = el("button", "chip"); b.type = "button"; b.dataset.id = c.id;
+    b.appendChild(document.createTextNode(c.label));
+    b.appendChild(el("span", n ? "cnt" : "cnt z", String(n)));
+    b.addEventListener("click", function () { setFilter(c.id); });
+    wf.appendChild(b); chipsW.push(b);
+  });
+  function setFilter(id) {
+    if (!CATS.some(function (c) { return c.id === id; })) id = "all";
+    filter = id;
+    chipsW.forEach(function (b) {
+      var on = b.dataset.id === id;
+      b.setAttribute("aria-selected", on ? "true" : "false"); b.setAttribute("aria-pressed", on ? "true" : "false");
     });
+    var first = true;
+    cards.forEach(function (b, i) {
+      var show = inCat(WORKS[i], id);
+      b.hidden = !show;
+      b.classList.toggle("feat", show && first);
+      if (show) first = false;
+    });
+    store("simpla-object-wf", id);
   }
-  buildReel();
+  setFilter(store("simpla-object-wf") || "all");
+
+  /* ================= viewer ================= */
+  var viewer = document.getElementById("viewer"), vV = document.getElementById("vVideo");
+  var vKind = document.getElementById("vKind"), vTitle = document.getElementById("vTitle"), vSub = document.getElementById("vSub");
+  var vText = document.getElementById("vText"), vGets = document.getElementById("vGets"), vCount = document.getElementById("vCount");
+  var vPrev = document.getElementById("vPrev"), vNext = document.getElementById("vNext");
+  var seq = WORKS, pos = 0, pushed = false;
+
+  function fill(i) {
+    pos = i;
+    var w = seq[i];
+    vV.pause();
+    vV.poster = w.poster; vV.loop = !!w.loop; vV.muted = !!w.loop; vV.src = w.src;
+    vKind.textContent = w.client ? w.kind + " · " + w.client : w.kind + (w.len ? " · " + w.len : "");
+    vTitle.textContent = w.title;
+    vSub.textContent = w.sub || ""; vSub.hidden = !w.sub;
+    vText.textContent = w.text;
+    vGets.innerHTML = ""; (w.gets || []).forEach(function (g) { vGets.appendChild(el("li", null, g)); });
+    vCount.textContent = (i + 1) + " / " + seq.length;
+    vPrev.disabled = vNext.disabled = seq.length < 2;
+    var p = vV.play(); if (p && p.catch) p.catch(function () {});
+  }
+  function openWork(id, fromLoad) {
+    seq = WORKS.filter(function (w) { return inCat(w, filter); });
+    var i = seq.map(function (w) { return w.id; }).indexOf(id);
+    if (i < 0) { seq = WORKS; i = WORKS.map(function (w) { return w.id; }).indexOf(id); }
+    if (i < 0) return;
+    fill(i);
+    if (!viewer.open) {
+      if (viewer.showModal) viewer.showModal(); else viewer.setAttribute("open", "");
+      document.documentElement.classList.add("lock");
+    }
+    if (fromLoad) history.replaceState({ w: id }, "", "#w-" + id);
+    else if (!pushed) { history.pushState({ w: id }, "", "#w-" + id); pushed = true; }
+    else history.replaceState({ w: id }, "", "#w-" + id);
+  }
+  function step(d) {
+    var i = (pos + d + seq.length) % seq.length;
+    fill(i);
+    history.replaceState({ w: seq[i].id }, "", "#w-" + seq[i].id);
+  }
+  function shut() {
+    vV.pause(); vV.removeAttribute("src"); try { vV.load(); } catch (e) {}
+    if (viewer.open) { if (viewer.close) viewer.close(); else viewer.removeAttribute("open"); }
+    document.documentElement.classList.remove("lock");
+  }
+  function closeViewer() {
+    if (pushed) { pushed = false; history.back(); shut(); }
+    else { shut(); history.replaceState(null, "", "#work"); }
+  }
+  window.addEventListener("popstate", function () { if (viewer.open) { pushed = false; shut(); } });
+  document.getElementById("vClose").addEventListener("click", closeViewer);
+  vPrev.addEventListener("click", function () { step(-1); });
+  vNext.addEventListener("click", function () { step(1); });
+  viewer.addEventListener("cancel", function (e) { e.preventDefault(); closeViewer(); });
+  viewer.addEventListener("keydown", function (e) {
+    if (e.target === vV) return;
+    // right to left: the left arrow moves forward
+    if (e.key === "ArrowLeft") { e.preventDefault(); step(1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); step(-1); }
+  });
+  var deep = /^#w-([a-z]+)$/.exec(location.hash);
+  if (deep) openWork(deep[1], true);
 
   /* ================= lazy media + reveals ================= */
   if ("IntersectionObserver" in window) {
@@ -1046,7 +1172,7 @@
         } else if (!v.paused) { v.pause(); }
       });
     }, { rootMargin: "200px 0px" });
-    document.querySelectorAll(".case video, .film video").forEach(function (v) { vio.observe(v); });
+    document.querySelectorAll(".wcard video").forEach(function (v) { vio.observe(v); });
 
     var rio = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); rio.unobserve(e.target); } });
