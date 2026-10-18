@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="תרגול כיתה לקורס 53500: פקודות בטרמינל, Local Repo, Push ל-GitHub, ופריסה ל-GitHub Pages של שני משחקים.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F5F0">
+<title>Git &amp; GitHub – תרגול כיתה</title>
+<link rel="icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Crect width="32" height="32" rx="8" fill="%231B2D6B"/%3E%3Ccircle cx="11" cy="10" r="3" fill="none" stroke="%23FFE94A" stroke-width="2.2"/%3E%3Ccircle cx="11" cy="22" r="3" fill="none" stroke="%23FFE94A" stroke-width="2.2"/%3E%3Ccircle cx="22" cy="14" r="3" fill="none" stroke="%23FFE94A" stroke-width="2.2"/%3E%3Cpath d="M11 13v6M22 17c0 3-4 3-8 4" fill="none" stroke="%23FFE94A" stroke-width="2.2"/%3E%3C/svg%3E'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem('jbgitprac.v1')||'{}');if(s.theme)document.documentElement.setAttribute('data-theme',s.theme);if(s.os)document.documentElement.setAttribute('data-os',s.os);}catch(e){}})();</script>
+<style>
+:root{--paper:#F7F5F0;--surface:#FFFFFF;--ink:#141F3D;--soft:#5F6C8A;--line:#E4E0D6;--acc:#1B2D6B;--acc-ink:#FFFFFF;--acc-soft:#E8ECF7;--yel:#FFE94A;--ok:#15803D;--ok-soft:#E3F3E8;--bad:#B91C1C;--bad-soft:#FBE6E6;--term:#141F3D;--term-ink:#E8ECF7;--bar:rgba(247,245,240,.94);--r:18px}
+:root[data-theme="dark"]{--paper:#0D1533;--surface:#16204A;--ink:#EDEFF7;--soft:#8B93B8;--line:rgba(237,239,247,.13);--acc:#9DB0FF;--acc-ink:#0D1533;--acc-soft:rgba(157,176,255,.13);--ok:#6FDB93;--ok-soft:rgba(111,219,147,.12);--bad:#FF8A8A;--bad-soft:rgba(255,138,138,.12);--term:#070C22;--term-ink:#DDE3FF;--bar:rgba(13,21,51,.94)}
+html:not([data-os]) [data-for="mac"],html[data-os="win"] [data-for="mac"],html[data-os="mac"] [data-for="win"]{display:none}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{font-family:"Rubik","Heebo",-apple-system,sans-serif;background:var(--paper);color:var(--ink);max-width:760px;margin:0 auto;padding:0 16px 64px;line-height:1.65;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.ic{width:1.1em;height:1.1em;flex:none;vertical-align:-.18em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.88em;direction:ltr;unicode-bidi:isolate;background:var(--acc-soft);padding:1px 6px;border-radius:6px;white-space:nowrap}
+.appbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:10px;background:var(--bar);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin:0 -16px;padding:calc(10px + env(safe-area-inset-top)) 16px 10px}
+.rbtn{width:36px;height:36px;min-width:36px;border-radius:50%;border:1.5px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink);text-decoration:none}
+.rbtn .ic{width:18px;height:18px}
+.logo{flex:1;text-align:center;font-family:"Poppins",sans-serif;font-size:15px;font-weight:300;letter-spacing:1.8px;text-transform:uppercase}
+.logo b{font-weight:700}
+.osbar{position:sticky;top:calc(56px + env(safe-area-inset-top));z-index:39;background:var(--bar);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin:0 -16px;padding:6px 16px 12px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+.osbar span{font-size:13px;color:var(--soft);font-weight:600;margin-inline-end:4px}
+.os{font-size:13.5px;font-weight:700;padding:7px 16px;border-radius:999px;border:1.5px dashed var(--line);color:var(--soft)}
+.os[aria-pressed="true"]{background:var(--acc);border:1.5px solid var(--acc);color:var(--acc-ink)}
+.prog{margin-inline-start:auto;font-size:12.5px;color:var(--soft);font-weight:600;white-space:nowrap}
+.hero{padding:30px 0 4px;text-align:center}
+.kicker{display:inline-flex;gap:6px;align-items:center;background:var(--acc);color:var(--acc-ink);font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:999px;margin-bottom:12px}
+h1{font-weight:300;font-size:clamp(30px,8vw,44px);line-height:1.1}
+h1 b{font-weight:800;display:block}
+.lead{color:var(--soft);max-width:34em;margin:12px auto 0}
+.label{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--acc);margin:30px 0 8px}
+.prep{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
+.prep ul{padding-inline-start:18px}
+.prep li{font-size:14.5px;margin-bottom:4px}
+.uname{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px;padding-top:12px;border-top:1px dashed var(--line)}
+.uname label{font-size:14px;font-weight:700}
+.uname input{flex:1;min-width:180px;font:inherit;font-family:ui-monospace,Consolas,monospace;font-size:15px;direction:ltr;text-align:left;padding:8px 12px;border-radius:12px;border:1.5px solid var(--acc);background:var(--paper);color:var(--ink)}
+.uname small{flex-basis:100%;font-size:12.5px;color:var(--soft)}
+.dls{display:grid;gap:8px}
+.dlb{display:flex;gap:10px;align-items:center;text-decoration:none;background:var(--surface);border:2px solid var(--acc);border-radius:14px;padding:10px 14px;font-size:14.5px;margin:6px 0 10px}
+.dlb .ic{width:22px;height:22px;color:var(--acc)}
+.dlb small{display:block;font-size:12.5px;color:var(--soft)}
+.dlb.bonus{border-style:dashed;border-color:var(--line)}
+.part{margin:40px -16px 14px;padding:20px 16px 22px;background:var(--acc);color:var(--acc-ink)}
+.part .pl{font-size:12px;font-weight:700;letter-spacing:.12em;opacity:.85}
+.part h2{font-size:25px;font-weight:800;line-height:1.2;margin:2px 0 6px}
+.part p{font-size:14.5px;max-width:36em}
+details.row{background:var(--surface);border:1px solid var(--line);border-radius:16px;margin-bottom:8px}
+details.row>summary{list-style:none;cursor:pointer;display:flex;gap:10px;align-items:center;padding:11px 12px}
+details.row>summary::-webkit-details-marker{display:none}
+.lt{min-width:34px;height:34px;padding:0 6px;border-radius:10px;background:var(--acc-soft);color:var(--acc);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px}
+.rt{flex:1;font-weight:600;font-size:15.5px;line-height:1.4}
+.pm{font-family:"Poppins",sans-serif;font-size:22px;font-weight:600;line-height:1;color:var(--acc);width:16px;text-align:center}
+.chk{width:30px;height:30px;min-width:30px;border-radius:9px;border:1.5px dashed var(--soft);display:flex;align-items:center;justify-content:center;color:transparent}
+.chk .ic{width:17px;height:17px;stroke-width:2.6}
+.chk[aria-checked="true"]{background:var(--ok);border:1.5px solid var(--ok);color:#fff}
+details.row.done>summary .rt{color:var(--soft);text-decoration:line-through;text-decoration-thickness:1px}
+details.row.done .lt{background:var(--ok-soft);color:var(--ok)}
+.rb{padding:0 14px 14px;padding-inline-start:56px}
+.rb p,.rb li{font-size:15px;margin-bottom:8px}
+.rb ol,.rb ul{padding-inline-start:20px;margin-bottom:8px}
+.term{position:relative;background:var(--term);color:var(--term-ink);border-radius:12px;padding:38px 14px 12px;margin:8px 0;direction:ltr;text-align:left;font-family:ui-monospace,Consolas,monospace;font-size:14px;line-height:1.7;overflow-x:auto}
+.term .cp{position:absolute;top:8px;right:8px;font-family:"Rubik",sans-serif;font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.3);color:var(--term-ink)}
+.term .cp.ok{border-color:#6FDB93;color:#6FDB93}
+.term pre{white-space:pre;font:inherit}
+.term::before{content:"Terminal";position:absolute;top:9px;left:14px;font-family:"Poppins",sans-serif;font-size:11px;letter-spacing:.08em;opacity:.55}
+.u{color:var(--yel)}
+code .u{color:var(--acc);font-weight:700}
+.addr{font-family:ui-monospace,Consolas,monospace;font-size:14px;background:var(--acc-soft);border-radius:10px;padding:8px 12px;text-align:left;word-break:break-all}
+.addr .u{color:var(--acc);font-weight:700}
+.see{font-size:14px;border-inline-start:3px solid var(--ok);padding:4px 10px;margin:8px 0;color:var(--soft)}
+.see b{color:var(--ok)}
+.tip{font-size:14px;border:1.5px dashed var(--line);border-radius:12px;padding:8px 12px;margin:8px 0}
+.tip b{color:var(--acc)}
+.warn{font-size:14px;border:1.5px solid var(--bad);background:var(--bad-soft);border-radius:12px;padding:8px 12px;margin:8px 0}
+.warn b{color:var(--bad)}
+details.err{background:var(--paper);border:1px solid var(--line);border-radius:12px;margin:8px 0}
+details.err>summary{list-style:none;cursor:pointer;padding:9px 12px;font-weight:600;font-size:14px;display:flex;gap:8px;align-items:center}
+details.err>summary::-webkit-details-marker{display:none}
+details.err>summary .pm{color:var(--bad);font-size:18px;width:12px}
+details.err>summary u{text-underline-offset:3px;direction:ltr;unicode-bidi:plaintext}
+details.err>div{padding:0 12px 10px;font-size:14px}
+.final{margin-top:14px;border:2px solid var(--acc);border-radius:var(--r);padding:14px 16px;background:var(--surface)}
+.final h2{font-size:16px;font-weight:700;margin-bottom:4px}
+.final p{font-size:15px}
+details.zone{margin-top:30px;background:var(--surface);border:2px solid var(--acc);border-radius:var(--r)}
+details.zone>summary{list-style:none;cursor:pointer;display:flex;gap:10px;align-items:center;padding:14px 16px}
+details.zone>summary::-webkit-details-marker{display:none}
+.zt{flex:1}
+.zt b{display:block;font-size:18px;font-weight:800}
+.zt span{display:block;font-size:13.5px;color:var(--soft)}
+.zb{padding:0 16px 16px}
+.zp{font-size:14.5px;color:var(--soft);margin-bottom:10px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px;border:1px solid var(--line)}
+.tbl{width:100%;min-width:620px;border-collapse:collapse;font-size:14px}
+.tbl th{font-size:12.5px;background:var(--acc);color:var(--acc-ink);text-align:start;padding:9px 10px;white-space:nowrap}
+.tbl td{padding:8px 10px;border-bottom:1px dashed var(--line);vertical-align:middle}
+.tbl td:first-child{font-weight:600;white-space:nowrap}
+.tbl tr:nth-child(even) td{background:var(--acc-soft)}
+.reset{font-size:13px;font-weight:600;color:var(--soft);text-decoration:underline;text-underline-offset:3px;margin-top:22px}
+footer{margin-top:30px;text-align:center;font-size:12px;color:var(--soft);border-top:1.5px dashed var(--line);padding-top:14px}
+@media (max-width:520px){.rb{padding-inline-start:14px}}
+@media (min-width:700px){.hintm{display:none}}
+.tbl code{background:transparent;padding:0}
+@media (min-width:1080px){details.zone.cmds{margin-inline:-130px}}
+@media (min-width:1024px){.part{border-radius:var(--r);margin-inline:0;padding:24px 26px 26px}}
+</style>
+</head>
+<body>
+
+<div class="appbar">
+  <a class="rbtn" href="../jb53500-home/" aria-label="לדף הראשי"><svg class="ic" viewBox="0 0 24 24"><path d="m9.5 5 6.5 7-6.5 7"/></svg></a>
+  <div class="logo">Git <b>53500</b></div>
+  <button class="rbtn" id="themeBtn" type="button" aria-label="מצב כהה"></button>
+</div>
+<div class="osbar" role="group" aria-label="בחירת מערכת הפעלה">
+  <span>המחשב שלי:</span>
+  <button class="os" type="button" data-os="win" aria-pressed="false">Windows</button>
+  <button class="os" type="button" data-os="mac" aria-pressed="false">Mac</button>
+  <span class="prog" id="prog"></span>
+</div>
+
+<header class="hero">
+  <span class="kicker">מיישם AI ואוטומציה · 53500 · תרגול כיתה</span>
+  <h1>Git &amp; GitHub <b>תרגול כיתה</b></h1>
+  <p class="lead">שלושה תרגילים. כל שורה נפתחת: מה עושים, והפקודה להעתקה. מסמנים V כשסיימתם, וממשיכים לשורה הבאה.</p>
+</header>
+
+<div class="label">לפני שמתחילים</div>
+<div class="prep">
+  <ul>
+    <li>Git מותקן, וחשבון GitHub פתוח</li>
+    <li><span data-for="win">עובדים ב-<b>Git Bash</b>.</span><span data-for="mac">עובדים ב-<b>Terminal</b>.</span> הפקודות בדף זהות בשתי המערכות</li>
+    <li>מעתיקים פקודה בכפתור "העתק", ומדביקים בטרמינל בקליק ימני, או ב-<span data-for="win">Shift ו-Insert</span><span data-for="mac">Cmd ו-V</span></li>
+  </ul>
+  <div class="uname">
+    <label for="un">שם המשתמש שלי ב-GitHub:</label>
+    <input id="un" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="YOUR-USERNAME">
+    <small>כותבים פעם אחת, והוא נכנס לכל הפקודות והכתובות בתרגילים 2 ו-3</small>
+  </div>
+</div>
+
+<div class="label">הקבצים לתרגול</div>
+<div class="dls">
+  <a class="dlb" href="files/Snake.zip" download="Snake.zip"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span><b>Snake.zip</b><small>תרגיל 2 · משחק הנחש</small></span></a>
+  <a class="dlb" href="files/TicTacToe.zip" download="TicTacToe.zip"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span><b>TicTacToe.zip</b><small>תרגיל 3 · איקס עיגול</small></span></a>
+  <a class="dlb bonus" href="files/Hat-Store.zip" download="Hat-Store.zip"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span><b>Hat-Store.zip</b><small>בונוס למי שסיים: אתר חנות כובעים, אותו תהליך, ושם הריפו Hat-Store</small></span></a>
+</div>
+
+<section class="part"><div class="pl">תרגיל 1</div><h2>פקודות בטרמינל</h2><p>יוצרים תיקייה בסייר הקבצים, ומשם הכל רק בפקודות: לנוע בין תיקיות, ליצור, להציג ולמחוק.</p></section>
+<details class="row" id="e1-0" data-s="e1-0">
+  <summary><span class="lt">0</span><span class="rt">בעזרת סייר הקבצים, צרו תיקייה בשם games, ופתחו טרמינל</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div data-for="win"><p>על שולחן העבודה: קליק ימני, <b>New</b> (חדש), <b>Folder</b> (תיקייה), ושם התיקייה <code>games</code>.</p><p>פותחים טרמינל: לוחצים על Start, מקלידים <b>Git Bash</b> ולוחצים Enter.</p></div><div data-for="mac"><p>על שולחן העבודה: קליק ימני, <b>New Folder</b>, ושם התיקייה <code>games</code>.</p><p>פותחים טרמינל: Cmd ורווח יחד, מקלידים <b>Terminal</b> ולוחצים Enter.</p></div><p>מכאן ועד סוף התרגיל, רק פקודות. לא נוגעים בסייר הקבצים.</p>
+  </div>
+</details><details class="row" id="e1-1" data-s="e1-1">
+  <summary><span class="lt">א</span><span class="rt">הגיעו לתיקייה games</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<p>נכנסים לתיקייה games שעל שולחן העבודה, ובודקים איפה אנחנו:</p><div class="term"><button class="cp" type="button">העתק</button><pre>cd ~/Desktop/games
+pwd</pre></div><p class="see"><b>אמור להופיע:</b> שורה שמסתיימת ב-<code>/Desktop/games</code>.</p><p class="tip"><b>לא עובד:</b> מופיע <code>No such file or directory</code>? ב-Windows שולחן העבודה יושב לפעמים בתוך OneDrive. כתבו <code>cd</code> ורווח, גררו את התיקייה games מסייר הקבצים לתוך החלון, ולחצו Enter.</p>
+  </div>
+</details><details class="row" id="e1-2" data-s="e1-2">
+  <summary><span class="lt">ב</span><span class="rt">עלו תיקייה אחת למעלה</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>cd ..</pre></div><p>שתי הנקודות הן "התיקייה שמעליי". עכשיו אתם בשולחן העבודה.</p>
+  </div>
+</details><details class="row" id="e1-3" data-s="e1-3">
+  <summary><span class="lt">ג</span><span class="rt">הציגו את כל הקבצים והתיקיות</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>ls</pre></div><p class="see"><b>אמור להופיע:</b> הרשימה של מה שיש על שולחן העבודה, וביניהם <code>games</code>.</p><p class="tip"><b>טיפ:</b> <code>ls -a</code> מציג גם קבצים נסתרים, אלה ששמם מתחיל בנקודה.</p>
+  </div>
+</details><details class="row" id="e1-4" data-s="e1-4">
+  <summary><span class="lt">ד</span><span class="rt">נקו את הטרמינל</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>clear</pre></div><p>המסך מתנקה. שום קובץ לא נמחק.</p><p class="tip"><b>טיפ:</b> קיצור מקלדת: Ctrl ו-L.</p>
+  </div>
+</details><details class="row" id="e1-5" data-s="e1-5">
+  <summary><span class="lt">ה</span><span class="rt">היכנסו שוב לתיקייה games</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>cd games</pre></div><p>אנחנו כבר בשולחן העבודה, ולכן מספיק השם של התיקייה, בלי כל הדרך.</p>
+  </div>
+</details><details class="row" id="e1-6" data-s="e1-6">
+  <summary><span class="lt">ו</span><span class="rt">צרו תיקייה חדשה בשם chess</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>mkdir chess</pre></div><p><code>mkdir</code> הוא קיצור של make directory, צור תיקייה.</p>
+  </div>
+</details><details class="row" id="e1-7" data-s="e1-7">
+  <summary><span class="lt">ז</span><span class="rt">היכנסו לתיקייה chess</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>cd chess</pre></div>
+  </div>
+</details><details class="row" id="e1-8" data-s="e1-8">
+  <summary><span class="lt">ח</span><span class="rt">צרו קובץ בשם moves.txt</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>touch moves.txt</pre></div><p><code>touch</code> יוצר קובץ ריק. אם תפתחו עכשיו את סייר הקבצים, תראו אותו שם.</p>
+  </div>
+</details><details class="row" id="e1-9" data-s="e1-9">
+  <summary><span class="lt">ט</span><span class="rt">עלו תיקייה אחת למעלה</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>cd ..</pre></div><p>חזרתם לתיקייה games.</p>
+  </div>
+</details><details class="row" id="e1-10" data-s="e1-10">
+  <summary><span class="lt">י</span><span class="rt">צרו קובץ בשם game.log</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>touch game.log</pre></div>
+  </div>
+</details><details class="row" id="e1-11" data-s="e1-11">
+  <summary><span class="lt">יא</span><span class="rt">הציגו את כל הקבצים והתיקיות</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>ls</pre></div><p class="see"><b>אמור להופיע:</b> <code>chess</code> ו-<code>game.log</code>.</p>
+  </div>
+</details><details class="row" id="e1-12" data-s="e1-12">
+  <summary><span class="lt">יב</span><span class="rt">מחקו את התיקייה chess</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>rm -r chess</pre></div><p><code>-r</code> אומר: התיקייה וכל מה שבתוכה, כולל moves.txt.</p><p class="warn"><b>זהירות:</b> בטרמינל אין סל מחזור ואין "האם אתם בטוחים". בודקים את השם פעמיים לפני Enter.</p>
+  </div>
+</details><details class="row" id="e1-13" data-s="e1-13">
+  <summary><span class="lt">יג</span><span class="rt">מחקו את הקובץ game.log</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>rm game.log
+ls</pre></div><p class="see"><b>אמור להופיע:</b> אחרי <code>ls</code> לא מופיע כלום. התיקייה games ריקה.</p>
+  </div>
+</details><details class="row" id="e1-14" data-s="e1-14">
+  <summary><span class="lt">יד</span><span class="rt">נקו את הטרמינל</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>clear</pre></div>
+  </div>
+</details><details class="row" id="e1-15" data-s="e1-15">
+  <summary><span class="lt">טו</span><span class="rt">הריצו פקודת יציאה</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>exit</pre></div><p>החלון נסגר. זה הסוף של תרגיל 1.</p>
+  </div>
+</details>
+<div class="final"><h2>סיימתם כש</h2><p>עברתם את כל הסעיפים, והתיקייה games ריקה.</p></div>
+
+<section class="part"><div class="pl">תרגיל 2</div><h2>Snake ב-GitHub Pages</h2><p>מעלים אתר של משחק הנחש ל-GitHub Pages, כך שכל אחד יוכל לגלוש אליו ולשחק.</p></section>
+<details class="row" id="e2-1" data-s="e2-1">
+  <summary><span class="lt">א</span><span class="rt">הורידו את התיקייה למחשב</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<a class="dlb" href="files/Snake.zip" download="Snake.zip"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span>הורדה: <b>Snake.zip</b></span></a><div data-for="win"><p>בתיקייה Downloads: קליק ימני על <code>Snake.zip</code>, <b>Extract All</b> (חילוץ הכל), ו-<b>Extract</b> בלי לשנות כלום.</p></div><div data-for="mac"><p>בתיקייה Downloads: לחיצה כפולה על <code>Snake.zip</code>. אם Safari כבר פתח אותו לבד, מדלגים.</p></div><p class="see"><b>אמור להופיע:</b> בתוך Downloads יש תיקייה בשם <code>Snake</code>, ובה שלושה קבצים: <code>index.html</code>, <code>main.js</code> ו-<code>styles.css</code>.</p>
+  </div>
+</details><details class="row" id="e2-2" data-s="e2-2">
+  <summary><span class="lt">ב</span><span class="rt">פתחו Git Bash Terminal כך שיצביע על התיקייה</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div data-for="win"><p>פותחים את התיקייה <code>Snake</code> בסייר הקבצים, קליק ימני על שטח ריק, ובוחרים <b>Open Git Bash here</b>. ב-Windows 11 זה מסתתר תחת <b>Show more options</b>.</p></div><div data-for="mac"><p>פותחים Terminal.</p></div><p>בכל מקרה, מריצים את שלוש הפקודות האלה כדי להיות בטוחים שאתם בתיקייה הנכונה:</p><div class="term"><button class="cp" type="button">העתק</button><pre>cd ~/Downloads/Snake
+pwd
+ls</pre></div><p class="see"><b>אמור להופיע:</b> <code>pwd</code> מסתיים ב-<code>Snake</code>, ו-<code>ls</code> מציג את שלושת הקבצים.</p>
+  </div>
+</details><details class="row" id="e2-3" data-s="e2-3">
+  <summary><span class="lt">ג</span><span class="rt">צרו Local Repo חדש</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>git init -b main</pre></div><p class="see"><b>אמור להופיע:</b> <code>Initialized empty Git repository</code>. נוצרה תיקייה נסתרת בשם <code>.git</code>, ושם Git שומר את כל הגרסאות.</p><p class="tip"><b>טיפ:</b> <code>-b main</code> קובע שהענף הראשי ייקרא main, כמו ב-GitHub.</p>
+  </div>
+</details><details class="row" id="e2-4" data-s="e2-4">
+  <summary><span class="lt">ד</span><span class="rt">צרו גרסה ראשונה</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>git add .
+git commit -m "First version"
+git log --oneline</pre></div><p><code>add .</code> מכניס את כל הקבצים לפריים. <code>commit</code> מצלם, עם משפט שמסביר מה בצילום.</p><p class="see"><b>אמור להופיע:</b> בסוף, שורה אחת: קוד קצר ואחריו <code>First version</code>.</p><details class="err"><summary><span class="pm">+</span><u>Author identity unknown, או Please tell me who you are</u></summary><div><p>Git לא יודע מי אתם. מריצים פעם אחת, עם השם והמייל שלכם, ואז שוב את ה-commit:</p><div class="term"><button class="cp" type="button">העתק</button><pre>git config --global user.name "Your Name"
+git config --global user.email "your.course@gmail.com"</pre></div></div></details>
+  </div>
+</details><details class="row" id="e2-5" data-s="e2-5">
+  <summary><span class="lt">ה</span><span class="rt">ב-GitHub, צרו Repo הנקרא Snake</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<ol><li>נכנסים ל-<a href="https://github.com" target="_blank" rel="noopener">github.com</a> ומתחברים</li><li>למעלה בצד ימין: <b>+</b>, ואז <b>New repository</b></li><li>ב-Repository name כותבים <code>Snake</code></li><li>מסמנים <b>Public</b></li><li><b>לא</b> מסמנים Add a README file</li><li>לוחצים <b>Create repository</b></li></ol><p class="tip"><b>למה Public:</b> ריפו ציבורי הוא תנאי ל-GitHub Pages בחינם. לכן אף פעם לא שמים בו סיסמה או מפתח API.</p>
+  </div>
+</details><details class="row" id="e2-6" data-s="e2-6">
+  <summary><span class="lt">ו</span><span class="rt">בצעו Push מה-Local Repo ל-GitHub Repo</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<p>חוזרים לטרמינל. הפקודה הראשונה מחברת את הריפו המקומי לריפו ב-GitHub, והשנייה מעלה:</p><div class="term"><button class="cp" type="button">העתק</button><pre>git remote add origin https://github.com/<span class="u" data-u>YOUR-USERNAME</span>/Snake.git
+git push -u origin main</pre></div><p>בפעם הראשונה נפתח חלון התחברות ל-GitHub. בוחרים <b>Sign in with your browser</b>, ומאשרים בדפדפן.</p><p class="see"><b>אמור להופיע:</b> כמה שורות, ובסופן <code>[new branch]</code> ו-<code>main</code>.</p><details class="err"><summary><span class="pm">+</span><u>error: src refspec main does not match any</u></summary><div><p>הריפו נוצר בלי <code>-b main</code>, והענף נקרא master. משנים את השם ומעלים שוב:</p><div class="term"><button class="cp" type="button">העתק</button><pre>git branch -M main
+git push -u origin main</pre></div></div></details><details class="err"><summary><span class="pm">+</span><u>remote origin already exists</u></summary><div><p>כבר חיברתם כתובת קודם. מחליפים אותה בנכונה:</p><div class="term"><button class="cp" type="button">העתק</button><pre>git remote set-url origin https://github.com/<span class="u" data-u>YOUR-USERNAME</span>/Snake.git
+git push -u origin main</pre></div></div></details><details class="err"><summary><span class="pm">+</span><u>rejected, fetch first</u></summary><div><p>הריפו ב-GitHub נוצר עם README. מושכים אותו קודם, ואז מעלים:</p><div class="term"><button class="cp" type="button">העתק</button><pre>git pull --rebase origin main
+git push -u origin main</pre></div></div></details><details class="err"><summary><span class="pm">+</span><u>ב-Mac: מבקש Username ו-Password</u></summary><div><p>הסיסמה הרגילה של GitHub לא עובדת כאן. הכי פשוט: פותחים את GitHub Desktop, File, Add Local Repository, בוחרים את התיקייה, ולוחצים <b>Push origin</b>.</p></div></details>
+  </div>
+</details><details class="row" id="e2-7" data-s="e2-7">
+  <summary><span class="lt">ז</span><span class="rt">בדקו שאכן קבצי האתר קיימים ב-GitHub Repo</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<p>מרעננים את עמוד הריפו ב-GitHub:</p><p class="addr" dir="ltr">https://github.com/<span class="u" data-u>YOUR-USERNAME</span>/Snake</p><p class="see"><b>אמור להופיע:</b> שלושת הקבצים, <code>index.html</code>, <code>main.js</code> ו-<code>styles.css</code>, ולידם <code>First version</code>.</p><p class="tip"><b>טיפ:</b> index.html חייב לשבת ישר בריפו, לא בתוך תיקייה. אחרת GitHub Pages לא ימצא את האתר.</p>
+  </div>
+</details><details class="row" id="e2-8" data-s="e2-8">
+  <summary><span class="lt">ח</span><span class="rt">בצעו פריסה של האתר ל-GitHub Pages</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<ol><li>בעמוד הריפו: <b>Settings</b>, בשורה העליונה</li><li>בתפריט מימין או משמאל: <b>Pages</b></li><li>תחת Build and deployment, ב-Source: <b>Deploy from a branch</b></li><li>ב-Branch: <b>main</b>, ולידו <b>/ (root)</b>, ואז <b>Save</b></li><li>מחכים דקה או שתיים ומרעננים</li></ol><p class="see"><b>אמור להופיע:</b> למעלה בעמוד: <code>Your site is live at</code>, עם כתובת ועם כפתור <b>Visit site</b>.</p>
+  </div>
+</details><details class="row" id="e2-9" data-s="e2-9">
+  <summary><span class="lt">ט</span><span class="rt">בדקו שהמשחק באוויר ושניתן לשחק בו גם מהמחשב וגם מהנייד</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<p>הכתובת של האתר שלכם:</p><p class="addr" dir="ltr">https://<span class="u" data-u>YOUR-USERNAME</span>.github.io/Snake/</p><ul><li><b>במחשב:</b> משחקים עם החיצים או עם WASD.</li><li><b>בנייד:</b> שולחים לעצמכם את הקישור בוואטסאפ, פותחים, ומשחקים בהחלקה על המסך.</li></ul><p class="tip"><b>לא עולה:</b> מופיע 404? מחכים עוד דקה ומרעננים. אם עדיין, בודקים ש-index.html נמצא ישר בריפו.</p>
+  </div>
+</details>
+<div class="final"><h2>סיימתם כש</h2><p>הקישור <code>https://<span class="u" data-u>YOUR-USERNAME</span>.github.io/Snake/</code> פותח את המשחק, גם במחשב וגם בטלפון.</p></div>
+
+<section class="part"><div class="pl">תרגיל 3</div><h2>איקס עיגול ב-GitHub Pages</h2><p>אותו תהליך בדיוק, עם אתר איקס עיגול. הפעם נסו לעבוד כמה שפחות עם הדף.</p></section>
+<details class="row" id="e3-1" data-s="e3-1">
+  <summary><span class="lt">א</span><span class="rt">הורידו את התיקייה למחשב</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<a class="dlb" href="files/TicTacToe.zip" download="TicTacToe.zip"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span>הורדה: <b>TicTacToe.zip</b></span></a><div data-for="win"><p>בתיקייה Downloads: קליק ימני על <code>TicTacToe.zip</code>, <b>Extract All</b> (חילוץ הכל), ו-<b>Extract</b> בלי לשנות כלום.</p></div><div data-for="mac"><p>בתיקייה Downloads: לחיצה כפולה על <code>TicTacToe.zip</code>. אם Safari כבר פתח אותו לבד, מדלגים.</p></div><p class="see"><b>אמור להופיע:</b> בתוך Downloads יש תיקייה בשם <code>TicTacToe</code>, ובה שלושה קבצים: <code>index.html</code>, <code>main.js</code> ו-<code>styles.css</code>.</p>
+  </div>
+</details><details class="row" id="e3-2" data-s="e3-2">
+  <summary><span class="lt">ב</span><span class="rt">פתחו Git Bash Terminal כך שיצביע על התיקייה</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div data-for="win"><p>פותחים את התיקייה <code>TicTacToe</code> בסייר הקבצים, קליק ימני על שטח ריק, ובוחרים <b>Open Git Bash here</b>. ב-Windows 11 זה מסתתר תחת <b>Show more options</b>.</p></div><div data-for="mac"><p>פותחים Terminal.</p></div><p>בכל מקרה, מריצים את שלוש הפקודות האלה כדי להיות בטוחים שאתם בתיקייה הנכונה:</p><div class="term"><button class="cp" type="button">העתק</button><pre>cd ~/Downloads/TicTacToe
+pwd
+ls</pre></div><p class="see"><b>אמור להופיע:</b> <code>pwd</code> מסתיים ב-<code>TicTacToe</code>, ו-<code>ls</code> מציג את שלושת הקבצים.</p>
+  </div>
+</details><details class="row" id="e3-3" data-s="e3-3">
+  <summary><span class="lt">ג</span><span class="rt">צרו Local Repo חדש</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>git init -b main</pre></div><p class="see"><b>אמור להופיע:</b> <code>Initialized empty Git repository</code>. נוצרה תיקייה נסתרת בשם <code>.git</code>, ושם Git שומר את כל הגרסאות.</p><p class="tip"><b>טיפ:</b> <code>-b main</code> קובע שהענף הראשי ייקרא main, כמו ב-GitHub.</p>
+  </div>
+</details><details class="row" id="e3-4" data-s="e3-4">
+  <summary><span class="lt">ד</span><span class="rt">צרו גרסה ראשונה</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<div class="term"><button class="cp" type="button">העתק</button><pre>git add .
+git commit -m "First version"
+git log --oneline</pre></div><p><code>add .</code> מכניס את כל הקבצים לפריים. <code>commit</code> מצלם, עם משפט שמסביר מה בצילום.</p><p class="see"><b>אמור להופיע:</b> בסוף, שורה אחת: קוד קצר ואחריו <code>First version</code>.</p><details class="err"><summary><span class="pm">+</span><u>Author identity unknown, או Please tell me who you are</u></summary><div><p>Git לא יודע מי אתם. מריצים פעם אחת, עם השם והמייל שלכם, ואז שוב את ה-commit:</p><div class="term"><button class="cp" type="button">העתק</button><pre>git config --global user.name "Your Name"
+git config --global user.email "your.course@gmail.com"</pre></div></div></details>
+  </div>
+</details><details class="row" id="e3-5" data-s="e3-5">
+  <summary><span class="lt">ה</span><span class="rt">ב-GitHub, צרו Repo הנקרא TicTacToe</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<ol><li>נכנסים ל-<a href="https://github.com" target="_blank" rel="noopener">github.com</a> ומתחברים</li><li>למעלה בצד ימין: <b>+</b>, ואז <b>New repository</b></li><li>ב-Repository name כותבים <code>TicTacToe</code></li><li>מסמנים <b>Public</b></li><li><b>לא</b> מסמנים Add a README file</li><li>לוחצים <b>Create repository</b></li></ol><p class="tip"><b>למה Public:</b> ריפו ציבורי הוא תנאי ל-GitHub Pages בחינם. לכן אף פעם לא שמים בו סיסמה או מפתח API.</p>
+  </div>
+</details><details class="row" id="e3-6" data-s="e3-6">
+  <summary><span class="lt">ו</span><span class="rt">בצעו Push מה-Local Repo ל-GitHub Repo</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<p>חוזרים לטרמינל. הפקודה הראשונה מחברת את הריפו המקומי לריפו ב-GitHub, והשנייה מעלה:</p><div class="term"><button class="cp" type="button">העתק</button><pre>git remote add origin https://github.com/<span class="u" data-u>YOUR-USERNAME</span>/TicTacToe.git
+git push -u origin main</pre></div><p>בפעם הראשונה נפתח חלון התחברות ל-GitHub. בוחרים <b>Sign in with your browser</b>, ומאשרים בדפדפן.</p><p class="see"><b>אמור להופיע:</b> כמה שורות, ובסופן <code>[new branch]</code> ו-<code>main</code>.</p><details class="err"><summary><span class="pm">+</span><u>error: src refspec main does not match any</u></summary><div><p>הריפו נוצר בלי <code>-b main</code>, והענף נקרא master. משנים את השם ומעלים שוב:</p><div class="term"><button class="cp" type="button">העתק</button><pre>git branch -M main
+git push -u origin main</pre></div></div></details><details class="err"><summary><span class="pm">+</span><u>remote origin already exists</u></summary><div><p>כבר חיברתם כתובת קודם. מחליפים אותה בנכונה:</p><div class="term"><button class="cp" type="button">העתק</button><pre>git remote set-url origin https://github.com/<span class="u" data-u>YOUR-USERNAME</span>/TicTacToe.git
+git push -u origin main</pre></div></div></details><details class="err"><summary><span class="pm">+</span><u>rejected, fetch first</u></summary><div><p>הריפו ב-GitHub נוצר עם README. מושכים אותו קודם, ואז מעלים:</p><div class="term"><button class="cp" type="button">העתק</button><pre>git pull --rebase origin main
+git push -u origin main</pre></div></div></details><details class="err"><summary><span class="pm">+</span><u>ב-Mac: מבקש Username ו-Password</u></summary><div><p>הסיסמה הרגילה של GitHub לא עובדת כאן. הכי פשוט: פותחים את GitHub Desktop, File, Add Local Repository, בוחרים את התיקייה, ולוחצים <b>Push origin</b>.</p></div></details>
+  </div>
+</details><details class="row" id="e3-7" data-s="e3-7">
+  <summary><span class="lt">ז</span><span class="rt">בדקו שאכן קבצי האתר קיימים ב-GitHub Repo</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<p>מרעננים את עמוד הריפו ב-GitHub:</p><p class="addr" dir="ltr">https://github.com/<span class="u" data-u>YOUR-USERNAME</span>/TicTacToe</p><p class="see"><b>אמור להופיע:</b> שלושת הקבצים, <code>index.html</code>, <code>main.js</code> ו-<code>styles.css</code>, ולידם <code>First version</code>.</p><p class="tip"><b>טיפ:</b> index.html חייב לשבת ישר בריפו, לא בתוך תיקייה. אחרת GitHub Pages לא ימצא את האתר.</p>
+  </div>
+</details><details class="row" id="e3-8" data-s="e3-8">
+  <summary><span class="lt">ח</span><span class="rt">בצעו פריסה של האתר ל-GitHub Pages</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<ol><li>בעמוד הריפו: <b>Settings</b>, בשורה העליונה</li><li>בתפריט מימין או משמאל: <b>Pages</b></li><li>תחת Build and deployment, ב-Source: <b>Deploy from a branch</b></li><li>ב-Branch: <b>main</b>, ולידו <b>/ (root)</b>, ואז <b>Save</b></li><li>מחכים דקה או שתיים ומרעננים</li></ol><p class="see"><b>אמור להופיע:</b> למעלה בעמוד: <code>Your site is live at</code>, עם כתובת ועם כפתור <b>Visit site</b>.</p>
+  </div>
+</details><details class="row" id="e3-9" data-s="e3-9">
+  <summary><span class="lt">ט</span><span class="rt">בדקו שהמשחק באוויר ושניתן לשחק בו גם מהמחשב וגם מהנייד</span><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את הסעיף"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button><span class="pm">+</span></summary>
+  <div class="rb">
+<p>הכתובת של האתר שלכם:</p><p class="addr" dir="ltr">https://<span class="u" data-u>YOUR-USERNAME</span>.github.io/TicTacToe/</p><ul><li><b>במחשב:</b> לוחצים Start ומשחקים מול המחשב.</li><li><b>בנייד:</b> שולחים לעצמכם את הקישור בוואטסאפ, פותחים, ולוחצים על המשבצות.</li></ul><p class="tip"><b>לא עולה:</b> מופיע 404? מחכים עוד דקה ומרעננים. אם עדיין, בודקים ש-index.html נמצא ישר בריפו.</p>
+  </div>
+</details>
+<div class="final"><h2>סיימתם כש</h2><p>הקישור <code>https://<span class="u" data-u>YOUR-USERNAME</span>.github.io/TicTacToe/</code> פותח את המשחק, גם במחשב וגם בטלפון.</p></div>
+
+<details class="zone cmds" id="cmds">
+  <summary class="zsum"><span class="zt"><b>פקודות נפוצות בטרמינל</b><span>טבלה אחת לכל המערכות: Windows CMD, PowerShell, Mac ו-Linux</span></span><span class="pm">+</span></summary>
+  <div class="zb">
+    <p class="zp">אנחנו עובדים ב-<b>Git Bash</b> ב-Windows וב-<b>Terminal</b> ב-Mac. ב-Git Bash הפקודות זהות לעמודת Linux.</p>
+    <p class="zp hintm">בטלפון גוללים את הטבלה הצידה כדי לראות את כל העמודות.</p>
+    <div class="scroll"><table class="tbl">
+      <thead><tr><th>פקודה</th><th>Windows CMD</th><th>Windows PowerShell</th><th>macOS Terminal</th><th>Linux Terminal</th></tr></thead>
+      <tbody>
+<tr><td>מיקום התיקייה הנוכחית</td><td><code>cd</code></td><td><code>pwd</code></td><td><code>pwd</code></td><td><code>pwd</code></td></tr>
+<tr><td>הצגת קבצים ותיקיות</td><td><code>dir</code></td><td><code>ls</code></td><td><code>ls</code></td><td><code>ls</code></td></tr>
+<tr><td>ניקוי הטרמינל</td><td><code>cls</code></td><td><code>clear</code></td><td><code>clear</code></td><td><code>clear</code></td></tr>
+<tr><td>מעבר לתיקייה אחרת</td><td><code>cd folder</code></td><td><code>cd folder</code></td><td><code>cd folder</code></td><td><code>cd folder</code></td></tr>
+<tr><td>עליית תיקייה</td><td><code>cd ..</code></td><td><code>cd ..</code></td><td><code>cd ..</code></td><td><code>cd ..</code></td></tr>
+<tr><td>חזרה לתיקיית הבית</td><td><code>cd %USERPROFILE%</code></td><td><code>cd ~</code></td><td><code>cd ~</code></td><td><code>cd ~</code></td></tr>
+<tr><td>יצירת תיקייה חדשה</td><td><code>mkdir folder</code></td><td><code>mkdir folder</code></td><td><code>mkdir folder</code></td><td><code>mkdir folder</code></td></tr>
+<tr><td>מחיקת תיקייה ריקה</td><td><code>rmdir folder</code></td><td><code>rmdir folder</code></td><td><code>rmdir folder</code></td><td><code>rmdir folder</code></td></tr>
+<tr><td>מחיקת תיקייה וכל תוכנה</td><td><code>rmdir /s /q folder</code></td><td><code>rm -r folder -force</code></td><td><code>rm -r folder</code></td><td><code>rm -r folder</code></td></tr>
+<tr><td>יצירת קובץ</td><td><code>type nul &gt; file</code></td><td><code>new-item file</code></td><td><code>touch file</code></td><td><code>touch file</code></td></tr>
+<tr><td>מחיקת קובץ</td><td><code>del file</code></td><td><code>rm file</code></td><td><code>rm file</code></td><td><code>rm file</code></td></tr>
+<tr><td>הצגת תוכן קובץ</td><td><code>type file</code></td><td><code>cat file</code></td><td><code>cat file</code></td><td><code>cat file</code></td></tr>
+<tr><td>שינוי שם קובץ</td><td><code>ren oldFile newFile</code></td><td><code>mv oldFile newFile</code></td><td><code>mv oldFile newFile</code></td><td><code>mv oldFile newFile</code></td></tr>
+<tr><td>יציאה</td><td><code>exit</code></td><td><code>exit</code></td><td><code>exit</code></td><td><code>exit</code></td></tr>
+      </tbody>
+    </table></div>
+    <p class="zp" style="margin-top:10px">במקום <code>folder</code> ו-<code>file</code> כותבים את השם האמיתי. שם עם רווח עוטפים במירכאות: <code>cd "My Folder"</code>.</p>
+  </div>
+</details>
+
+<button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button>
+
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v1 · 19.10.2026</footer>
+
+<script>
+(function(){
+  'use strict';
+  var KEY='jbgitprac.v1',S={theme:null,os:null,done:{},user:''};
+  try{var s=JSON.parse(localStorage.getItem(KEY)||'{}');for(var k in s)S[k]=s[k];}catch(e){}
+  if(!S.done||typeof S.done!=='object')S.done={};
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+  var root=document.documentElement,tb=document.getElementById('themeBtn');
+  var SUN='<svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>',MOON='<svg class="ic" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>';
+  function paint(){var d=root.getAttribute('data-theme')==='dark';tb.innerHTML=d?SUN:MOON;tb.setAttribute('aria-label',d?'מצב בהיר':'מצב כהה');}
+  tb.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);S.theme=n;save();paint();});paint();
+  var osb=[].slice.call(document.querySelectorAll('.os'));
+  function paintOs(){osb.forEach(function(b){b.setAttribute('aria-pressed',String(S.os===b.dataset.os));});if(S.os)root.setAttribute('data-os',S.os);}
+  if(!S.os){var mac=/Mac|iPhone|iPad/.test(navigator.platform||navigator.userAgent||'');S.os=mac?'mac':'win';}
+  osb.forEach(function(b){b.addEventListener('click',function(){S.os=b.dataset.os;save();paintOs();});});paintOs();
+  var rows=[].slice.call(document.querySelectorAll('details.row[data-s]')),prog=document.getElementById('prog');
+  function paintRows(){
+    var n=0;
+    rows.forEach(function(r){var on=!!S.done[r.dataset.s];if(on)n++;r.classList.toggle('done',on);r.querySelector('.chk').setAttribute('aria-checked',String(on));});
+    S.home=[n,rows.length];
+    prog.textContent=n===rows.length?'הושלם':'בוצעו '+n+'/'+rows.length;
+  }
+  rows.forEach(function(r){
+    r.querySelector('.chk').addEventListener('click',function(e){
+      e.preventDefault();e.stopPropagation();
+      var id=r.dataset.s,on=!S.done[id];
+      if(on)S.done[id]=1;else delete S.done[id];
+      paintRows();save();
+      if(on){r.open=false;var i=rows.indexOf(r),nx=rows[i+1];if(nx&&!S.done[nx.dataset.s]){nx.open=true;setTimeout(function(){nx.scrollIntoView({behavior:'smooth',block:'nearest'});},60);}}
+    });
+  });
+  paintRows();save();
+  document.getElementById('resetBtn').addEventListener('click',function(){S.done={};paintRows();save();});
+  document.querySelectorAll('details').forEach(function(d){
+    var pm=d.querySelector(':scope>summary .pm');
+    function mark(){if(pm)pm.textContent=d.open?'-':'+';}
+    mark();d.addEventListener('toggle',mark);
+  });
+  var un=document.getElementById('un');
+  function clean(v){return (v||'').trim().replace(/^@/,'').replace(/[^A-Za-z0-9-]/g,'');}
+  function paintUser(){var v=clean(S.user)||'YOUR-USERNAME';document.querySelectorAll('[data-u]').forEach(function(el){el.textContent=v;});}
+  un.value=S.user||'';
+  un.addEventListener('input',function(){S.user=clean(un.value);save();paintUser();});
+  paintUser();
+  function fallback(t){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
+  document.querySelectorAll('.term .cp').forEach(function(b){b.addEventListener('click',function(){var t=b.parentNode.querySelector('pre').innerText;var ok=function(){b.textContent='הועתק';b.classList.add('ok');setTimeout(function(){b.textContent='העתק';b.classList.remove('ok');},1500);};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,function(){fallback(t);ok();});else{fallback(t);ok();}});});
+  if(location.hash.length>1){var t=document.getElementById(location.hash.slice(1));if(t&&t.tagName==='DETAILS')t.open=true;}
+})();
+</script>
+</body>
+</html>
