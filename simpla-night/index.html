@@ -223,6 +223,10 @@
   .wcard.feat .tt,.wgrid.one .tt{font-size:clamp(20px,2vw,26px)}
   .wcard.feat .ss,.wgrid.one .ss{font-size:15.5px;white-space:normal}
   .wcard.feat .play,.wgrid.one .play{width:54px;height:54px}
+  /* the object series: a row of tall episode cards, a swipe row on phones */
+  .wgrid.tall{grid-template-columns:repeat(5,minmax(0,1fr));gap:22px 14px}
+  .wgrid.tall .th{aspect-ratio:9/16}
+  .wgrid.tall .ss{white-space:normal}
   .minis{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
   .mini{border:1.5px dashed var(--line-strong);border-radius:18px;padding:22px}
   .mini .tag{font-size:13px;color:var(--onair);font-weight:500}
@@ -442,6 +446,11 @@
     .wcard.feat .kind,.wgrid.one .kind{top:10px;inset-inline-start:10px;font-size:11px}
     .wcard.feat .play,.wgrid.one .play{width:46px;height:46px;bottom:10px;inset-inline-start:10px}
     .wcard.feat .tt,.wgrid.one .tt{font-size:19px}
+    .wgrid.tall{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:42%;gap:12px;
+      overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;
+      margin-inline:calc(var(--gut) * -1);padding:0 var(--gut) 4px;scroll-padding-inline:var(--gut)}
+    .wgrid.tall::-webkit-scrollbar{display:none}
+    .wgrid.tall .wcard{scroll-snap-align:start}
     .minis,.eps,.teach,.stats{grid-template-columns:minmax(0,1fr)}
     .cl-group{grid-template-columns:minmax(0,1fr);gap:14px;padding:20px 0}
     .cl-row{gap:20px 30px;--lgh:24px}
@@ -545,7 +554,7 @@
   <footer>
     <div class="wrap">
       <span>Simpla · סטודיו ל-UX ו-AI · תל אביב</span>
-      <span>כל הערוצים נחתכו מסרטים שהפקנו. <span class="en">v2.3 · 17.10.2026</span></span>
+      <span>כל הערוצים נחתכו מסרטים שהפקנו. <span class="en">v2.4 · 18.10.2026</span></span>
     </div>
   </footer>
 </main>
@@ -663,6 +672,16 @@
       poster: HF + "c3e02351-94b7-4279-a5d5-26ccb244a80d.jpg",
       text: "עיר שלמה מחימר קפאה, ושליח אחד על קטנוע צובע אותה מחדש רחוב אחרי רחוב, עד שהוא דופק בדלת הנכונה. ספוט ספק בקליי, לא בהזמנת וולט.",
       gets: ["קונספט ותסריט", "עולם קליי", "15 שוטים", "קריינות וסאונד"] },
+    instructions: { kind: "FILM", title: "ההוראות", sub: "סרט קצר", len: "4:01",
+      src: HF + "4159fe62-25df-4f2e-9017-7b08e492e7f6.mp4", preview: HF + "5205d1e0-f3b5-4f16-a6eb-4b2e0e9a8bf2.mp4",
+      poster: HF + "393d0e8e-577f-41f2-a79a-729c93e4fe56.jpg",
+      text: "איש בן שמונים ושתיים מרכיב לבד רהיט מארגז, והקול הדיגיטלי שקורא לו את ההוראות מתחיל להוסיף דברים שלא כתובים במדריך.",
+      gets: ["תסריט", "בימוי", "דמות אחת לאורך כל הסרט", "קריינות וסאונד"] },
+    night: { kind: "FILM", title: "שידורי לילה", sub: "סוף השידורים: מונטאז׳ מכל הסרטים שלנו", len: "1:51",
+      src: HF + "43db6f2b-0b62-4cde-bf8c-76dd27f6d68b.mp4", preview: HF + "021c4623-13fd-4b8f-919a-3fd841a1322b.mp4",
+      poster: HF + "594c3ea7-650b-4f9e-bb90-293de8d0a907.jpg",
+      text: "מישהו מזפזפ בשתיים בלילה. כל ערוץ הוא רסיס מאחד הסרטים שלנו, וכל דמות בו מנסה שיבינו אותה.",
+      gets: ["קונספט", "מונטאז׳", "עריכה", "סאונד"] },
     whofor: { kind: "FILM", title: "בשביל מי זה", sub: "אנתולוגיה מהמנוע היומי", len: "2:53",
       src: HF + "b1b4150d-d826-4789-bd3c-c12357b868f2.mp4", preview: HF + "ffc80726-b6ff-49fd-bee3-e333874b144c.mp4",
       poster: HF + "31744d12-2f0e-4477-84ac-1a44bbde17f2.jpg",
@@ -678,6 +697,21 @@
       poster: HF + "a0171652-f00b-4ba8-bb88-2510cc9f6433.jpg",
       text: "הפרק הראשון בסדרה שמספרת את הביוגרפיה של חפצים יומיומיים. אנכי, לרשתות.",
       gets: ["סדרה", "פורמט אנכי", "עולם ויזואלי"] },
+    undo: { kind: "SERIES", title: "Undo", sub: "ביוגרפיה של אובייקט, פרק 2", len: "1:03", shape: "v",
+      src: HF + "f1e27d1a-e2f1-4845-87b3-631bb5ec03f0.mp4", preview: HF + "b07a8153-1f81-49d5-b3fe-2313f10f4809.mp4",
+      poster: HF + "459a3cf6-f74c-4445-9f2b-92d4bafa71c7.jpg",
+      text: "בדצמבר 1976 שני חוקרים ב-IBM כתבו משפט אחד על האפשרות לקחת פקודה בחזרה. דקה בחימר על הכפתור שנבנה כדי להרגיע אותנו.",
+      gets: ["סדרה", "פורמט אנכי", "מחקר היסטורי"] },
+    magnifier: { kind: "SERIES", title: "הזכוכית המגדלת", sub: "ביוגרפיה של אובייקט, פרק 3", len: "0:40", shape: "v",
+      src: HF + "53e43201-9175-4088-bc8c-847f04513ffe.mp4", preview: HF + "117e6c54-72c3-4d99-952f-f9aa707d9871.mp4",
+      poster: HF + "522e5361-9e89-4e09-a3ef-57bcf28e7222.jpg",
+      text: "ב-1987 נבחרה ב-NeXT זכוכית מגדלת לאייקון החיפוש, כי חיפוש הוא מחט בערימת שחת. האייקון שרד ארבעה עשורים, והתיבה שמתחתיו הולכת ונעלמת.",
+      gets: ["סדרה", "פורמט אנכי", "מחקר היסטורי"] },
+    darkmode: { kind: "SERIES", title: "דארק מוד", sub: "ביוגרפיה של אובייקט, פרק 5", len: "0:59", shape: "v",
+      src: HF + "79bf80b7-7750-4d1a-8e12-378a4255322c.mp4", preview: HF + "17832f35-4a63-4de6-b8e5-80b89aba6953.mp4",
+      poster: HF + "e99eaefb-c320-4fda-9188-4e165e3f5828.jpg",
+      text: "המסך נולד חשוך. ב-1973 זירוקס הלבינו אותו, ובין 2016 ל-2019 כולנו החזרנו את השחור. 59 שניות בחימר.",
+      gets: ["סדרה", "פורמט אנכי", "מחקר היסטורי"] },
     frame: { kind: "SERIES", title: "הפריים", sub: "ביוגרפיה של אובייקט, פרק 6", len: "1:06", shape: "s",
       src: HF + "a960e971-3998-4480-a93d-76350b26344e.mp4", preview: HF + "40c0cbd1-fc41-4c84-8863-ca49432f98ac.mp4",
       poster: HF + "9a682b61-8caa-4cac-b102-be6a9e86a492.jpg",
@@ -708,21 +742,27 @@
       text: "משרטוטים אורתוגרפיים להדמיות איזומטריות נקיות, בתהליך אחד שחוזר על עצמו לכל מוצר חדש בקטלוג." }
   };
 
+  // the object biography series, shown as its own row of tall episode cards on the studio channel
+  var SERIES = { ids: ["burger", "undo", "magnifier", "darkmode", "frame"], tall: true,
+    label: "MINI SERIES · OBJECT BIOGRAPHY", title: "ביוגרפיה של <b>אובייקט</b>",
+    lede: "סדרה קצרה בחימר על חפצים יומיומיים: מאיפה הם באו, ולמה הם נראים ככה. כל פרק בערך דקה." };
+
   // each channel is a page: what the TV plays, the headline beside it, and the blocks below
   var CHANNELS = [
     { key: "00", name: "פתיח", time: "22:00", live: true,
       h: "ערוץ Simpla <b>משדר</b>",
       p: "סטודיו ל-UX ו-AI בתל אביב. כל ערוץ כאן הוא פתרון אחר, וכל מה שמשודר בו נעשה אצלנו. אין פרסומות.",
       now: "abstract", nowNote: "סרט האתר, טייק אחד בחימר", hint: true,
-      reel: ["abstract", "savior", "wolt", "tipranks", "whofor", "future", "juganu", "burger", "frame", "tease"],
+      reel: ["abstract", "night", "savior", "wolt", "instructions", "tipranks", "whofor", "undo", "future", "juganu",
+             "burger", "magnifier", "darkmode", "frame", "tease"],
       blocks: [["guide"], ["clients", ["adopt", "lab", "clients"]], ["for"]] },
     { key: "01", name: "סטודיו", sol: "studio", time: "22:30",
       h: "<b>סרטים</b> שנבנים כמו מוצר",
       p: "סרטי מותג, מסבירי מוצר וסרטים לתחרויות. תסריט, סטוריבורד, עקביות של דמויות, סאונד ועריכה, הכול בבית אחד.",
       tags: ["סרט מותג", "מסביר מוצר", "מסקוט", "סרט לתחרות"],
       now: "savior", nowNote: "סרט לפסטיבל הסרטים של Higgsfield",
-      works: ["savior", "wolt", "burger", "frame", "whofor", "future"],
-      blocks: [["works"], ["sol", "studio"], ["steps"]] },
+      works: ["savior", "wolt", "instructions", "night", "whofor", "future"],
+      blocks: [["works"], ["works", SERIES], ["sol", "studio"], ["steps"]] },
     { key: "02", name: "אפיון", sol: "spec", time: "23:00",
       h: "<b>מוצרים</b> שמבינים במבט",
       p: "מחקר, זרימות, Wireframes ואב-טיפוס. תשע שנים של הובלת UX ומוצר ב-TipRanks: הרבה דאטה, ומשתמשים שצריכים להבין אותו מהר.",
@@ -755,7 +795,8 @@
       h: "מה שאתם צריכים, <b>באור קטן</b>",
       p: "לא כל פרויקט מתחיל כמסלול שלם. לפעמים מספיקה שעה בשבוע עם מישהו שכבר עבר את זה. ליווי, ייעוץ, ומאחורי הקלעים של הסטודיו.",
       actions: true,
-      blocks: [["sol", "guide"], ["about"]] }
+      blocks: [["sol", "guide"], ["about"], ["works", { ids: ["night"], label: "END OF BROADCAST", title: "סוף <b>השידורים</b>",
+        lede: "הערוץ האחרון נסגר עם מונטאז׳ של כל הלילה: רסיס מכל סרט שעשינו, בזפזופ אחד." }]] }
   ];
 
   var AUDIENCES = [
@@ -1094,16 +1135,19 @@
   }
 
   var BLOCKS = {
+    // arg is optional: { ids, label, title, lede, tall } shows a second row of works on the same channel
     works: function (arg, c) {
-      var ids = c.works, x = section("NOW SHOWING", "בשידור <b>בערוץ</b>", ids.length > 1 ? "לחצו על עבודה כדי לצפות בה במסך מלא, ולעבור לבאה." : null);
-      var g = el("div", "wgrid" + (ids.length === 1 ? " one" : ids.length === 2 || ids.length === 4 ? " two" : ""));
+      var o = arg || {}, ids = o.ids || c.works;
+      var x = section(o.label || "NOW SHOWING", o.title || "בשידור <b>בערוץ</b>",
+        o.lede || (ids.length > 1 ? "לחצו על עבודה כדי לצפות בה במסך מלא, ולעבור לבאה." : null));
+      var g = el("div", "wgrid" + (o.tall ? " tall" : ids.length === 1 ? " one" : ids.length === 2 || ids.length === 4 ? " two" : ""));
       ids.forEach(function (id, i) {
         var card = workCard(id, ids);
-        if (i === 0 && (ids.length === 3 || ids.length >= 5)) card.classList.add("feat");
+        if (!o.tall && i === 0 && (ids.length === 3 || ids.length >= 5)) card.classList.add("feat");
         g.appendChild(card);
       });
       x.w.appendChild(g);
-      if (c.minis) {
+      if (!arg && c.minis) {
         var mg = el("div", "minis");
         c.minis.forEach(function (m) {
           var d = MINIS[m], a = el("article", "mini reveal");
