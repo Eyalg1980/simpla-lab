@@ -1,6 +1,59 @@
 {
   "days": [
     {
+      "date": "2026-10-18",
+      "ideas": [
+        {
+          "id": "2026-10-18-ai-actor-casting",
+          "world": "קונספטואלי",
+          "color": "#7B61FF",
+          "hook": "הדמות שאני רואה בפרסומת לא קיימת, ובכל זאת היא זוכרת אותי.",
+          "concept": "שחקנית AI אחת מתוך קטלוג של יותר מ-1,000 שחקנים ממתינה בחדר קאסטינג מלא בעותקים זהים לה, כולן ממתינות שמותג יבחר ויכוון אותה. המצלמה מתקרבת לאט רק אליה, בזמן שהעותקים מסביב נשארים מעומעמים.",
+          "execution": "שפה ויזואלית של עתיד קרוב אופטימי: אור ים-תיכוני חם, חול קרמי וטורקיז רך, אנושי ומקווה ולא מדע בדיוני קר. פריימי מפתח ב-Nano Banana Pro, תנועה ב-Kling 3 std, סאונד עדין ברקע בלי קריינות, 16:9.",
+          "why": "Arcads.ai מציעה כבר יותר מ-1,000 שחקני AI לקמפיינים, ותפקיד המעצב עובר מבחירת תמונה מתוך בנק לבימוי שחקן מתוך קטלוג.",
+          "competition": null,
+          "srcUrl": "https://www.arcads.ai/",
+          "srcLabel": "arcads.ai · קטלוג שחקני AI",
+          "prompts": {
+            "video": "A single android-like female AI 'actor' stands quietly among dozens of identical twins in a softly lit modern casting waiting room, warm Mediterranean daylight streaming through tall windows, sand cream and pale teal palette, static locked-off camera slowly pushing in on the center figure only, the surrounding twins staying soft and slightly out of focus, shallow depth of field, human and hopeful mood rather than cold sci-fi, subtle natural skin texture and gentle fabric folds, calm contemplative atmosphere, 16:9",
+            "script": "קח את ההוק \"הדמות שאני רואה בפרסומת לא קיימת, ובכל זאת היא זוכרת אותי\" ופתח אותו לסרט קונספטואלי של 45 עד 60 שניות: לוגליין, תסריט קריינות בעברית עם ציר זמן מדויק, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בסגנון עתיד קרוב אופטימי.",
+            "image": "A single android-like AI 'actor' stands among dozens of identical twins in a softly lit modern casting waiting room, warm Mediterranean daylight through tall windows, sand cream and pale teal palette, shallow depth of field with only the center figure in sharp focus, human and hopeful mood rather than cold sci-fi, subtle natural skin texture, calm symmetrical composition, generous negative space above for titling in edit, no text",
+            "raw": "הוק: הדמות שאני רואה בפרסומת לא קיימת, ובכל זאת היא זוכרת אותי\nעולם: קונספטואלי\nתחרות: אין\nקונספט: שחקנית AI אחת מתוך קטלוג של יותר מ-1,000 שחקנים ממתינה בחדר קאסטינג מלא בעותקים זהים לה, ממתינה שמותג יבחר ויכוון אותה\nביצוע: שפה ויזואלית של עתיד קרוב אופטימי, Nano Banana Pro לפריימים, Kling 3 לתנועה, 16:9\nלמה עכשיו: Arcads.ai מציעה כבר יותר מ-1,000 שחקני AI לקמפיינים, תפקיד המעצב עובר מבחירת תמונה לבימוי שחקן"
+          }
+        },
+        {
+          "id": "2026-10-18-model-like-font",
+          "world": "סרטוני הסבר",
+          "color": "#FF6B5E",
+          "hook": "בחרתי מודל שפה כמו שבוחרים גופן, ישר בתוך פיגמה.",
+          "concept": "מסך הגדרות פתוח, ורשימת מודלים זזה מבין האופציות כמו תפריט גופנים. יד דיגיטלית עוברת על השמות, עוצרת על Claude Opus 4.6, ובוחרת.",
+          "execution": "שפה ויזואלית קינטית אדיטוריאלית: רקע אפור פחם עמוק, טיפוגרפיה קינטית, קורל וצהוב חם, קומפוזיציה גיאומטרית מינימלית. פריימי מפתח ב-Nano Banana Pro, תנועה ב-Kling 3 std, 16:9.",
+          "why": "Figma Make הוסיפו את Claude Opus 4.6 כאופציה ניסיונית בתוך הכלי, והמודל הופך לרכיב תחליפי בתוך הזרימה, בדיוק מה שאני מראה בסדנאות Weave.",
+          "competition": null,
+          "srcUrl": "https://www.createwith.com/tool/figma/updates/figma-make-adds-claude-opus-46-as-experimental-model-option",
+          "srcLabel": "createwith.com · Figma Make מוסיף Claude Opus 4.6",
+          "prompts": {
+            "video": "Kinetic typography explainer animation, deep charcoal background, a minimal flat UI dropdown panel floats center frame listing AI model names styled like entries in a font selection menu, coral and warm yellow accent highlights, clean geometric sans-serif labels, smooth sliding reveal as the dropdown opens downward and a cursor highlight settles on one entry, generous negative space, minimal camera drift, calm confident mood, 16:9",
+            "script": "קח את ההוק \"בחרתי מודל שפה כמו שבוחרים גופן, ישר בתוך פיגמה\" ופתח אותו לסרטון הסברה של 30 עד 45 שניות: לוגליין, תסריט קריינות בעברית עם ציר זמן מדויק, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בסגנון קינטי אדיטוריאלי.",
+            "image": "Kinetic typography style still, deep charcoal background, a minimal flat UI dropdown panel centered listing AI model names styled like entries in a font selection menu, coral and warm yellow accent highlights, clean geometric sans-serif type, generous negative space around the panel, flat minimal composition, no text",
+            "raw": "הוק: בחרתי מודל שפה כמו שבוחרים גופן, ישר בתוך פיגמה\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: מסך הגדרות ב-Figma Make, רשימת מודלים זזה כמו תפריט גופנים, יד דיגיטלית בוחרת Claude Opus 4.6\nביצוע: שפה ויזואלית קינטית אדיטוריאלית, רקע פחם עמוק, קורל וצהוב, 16:9\nלמה עכשיו: Figma Make הוסיפו את Claude Opus 4.6 כאופציה ניסיונית, המודל הופך לרכיב תחליפי בתוך הזרימה"
+          }
+        }
+      ],
+      "watch": [
+        {
+          "title": "Frame Forward: פסטיבל אנימציית AI עם הפצה ל-14,000 מסכים",
+          "url": "https://awn.com/news/modern-uprising-studios-screenvision-media-announce-frame-forward-animated-ai-festival",
+          "note": "ערוץ הפצה שלא ראינו בתחרויות AI אחרות, גם אם ההגשה למחזור הזה כבר נסגרה"
+        },
+        {
+          "title": "השוואת תמחור Kling מול Veo על Higgsfield",
+          "url": "https://geo.higgsfield.ai/task/blog/kling-vs-veo-pricing-review-higgsfield-ai-video-creation",
+          "note": "דף שיווקי בעיקרו, בלי מספרים קונקרטיים, אבל שימושי להבין את המסגור של היגספילד"
+        }
+      ]
+    },
+    {
       "date": "2026-10-17",
       "ideas": [
         {
