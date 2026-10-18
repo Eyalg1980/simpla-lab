@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-16",
+  "updated": "2026-10-18",
   "ideas": [
     {
       "id": "I-2026-0489",
@@ -45,7 +45,7 @@
       "evidence": "DEPLOY-RUNBOOK מתעד איך עותק שני של כללי הפריסה בזיכרון התיישן ב-5.8.2026 וגרם לתדריך הבוקר להיכשל נגד הוראות ישנות. קבצי הסקיל daily-director ו-meeting-room כותבים במפורש שהעתקת חוקים גרמה לדריפט שהרג גרסאות קודמות של המנועים. ומשימת שומר הבוקר עדיין מצביעה, נכון להיום, על שלושה מזהי טריגר ישנים שהוחלפו ב-10.8.2026 ומעולם לא תוקנו.",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pitched",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-05"
     },
@@ -3871,7 +3871,7 @@
       "evidence": null,
       "lesson": "מיישם AI ואוטומציה 53500, מודול 3 (בנייה), הרצאת האורח של דניאל בוארון סבב שני, context skill מול action skill",
       "sourceInboxId": null,
-      "status": "pitched",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-06"
     },
@@ -3978,7 +3978,7 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pitched",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-09"
     },
@@ -4020,7 +4020,7 @@
       "evidence": null,
       "lesson": "קורס UI/UX 45900, החלטה פתוחה על הלוח (c45-b11-1, לבחור פרויקט שלישי) מאז שהקורס הסתיים ב-1.10.2026",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-11"
     },
@@ -4034,7 +4034,7 @@
       "evidence": null,
       "lesson": "רפלקטיפיי, קורס הבסיס (4 מפגשים של 3 שעות) לעובדי משרד הביטחון וקריית הממשלה",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-11"
     },
@@ -4048,7 +4048,7 @@
       "evidence": null,
       "lesson": "מודול 4, אתיקה נגישות ואבטחה, מפגש 12, קורס מיישם AI 53500",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-12"
     },
@@ -4062,7 +4062,7 @@
       "evidence": null,
       "lesson": "מסמך עשרת ההיבטים, מפגש 7, קורס מיישם AI 53500",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-12"
     },
@@ -4076,7 +4076,7 @@
       "evidence": null,
       "lesson": "קורס 45900, נקודת ההחלטה בסוף מפגש 7 (סף 70 אחוז מוצר חי)",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
       "touchedAt": "2026-10-13"
     },
@@ -4090,7 +4090,7 @@
       "evidence": null,
       "lesson": "קורס 45900, מפגש הזום הסופי (18 או 19.10, תאריך מדויק עדיין פתוח)",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-13"
     },
@@ -4107,7 +4107,7 @@
       "evidence": null,
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
       "touchedAt": "2026-10-14"
     },
@@ -4121,7 +4121,7 @@
       "evidence": null,
       "lesson": "מוד בורד ועקרונות צבע, קורס עיצוב מוצר AI, מודול צבע",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-14"
     },
@@ -4135,7 +4135,7 @@
       "evidence": null,
       "lesson": "אנטומיה של סקיל, קורס מיישם AI ואוטומציה, מודול סקילים",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-14"
     },
@@ -4149,7 +4149,7 @@
       "evidence": null,
       "lesson": "קורס 45900, מפגש 27 (האחרון), הצגת פרויקט הגמר",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-15"
     },
@@ -4163,7 +4163,7 @@
       "evidence": null,
       "lesson": "מיישם AI ואוטומציה, מודול vibe coding",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-15"
     },
@@ -4177,7 +4177,7 @@
       "evidence": "בריצה של היום, 16.10.2026, שליפה ל-filmmakers.festhome.com/en/festival/10485 בחיפוש על IA en Corto החזירה פסטיבל אחר בשם International AI Short Film Festival (דדליין 10.11.2026, לא 18.10), ורק שליפה שנייה ל-festagent.com/en/festivals/ia-en-corto מצאה את הפסטיבל הנכון. DIRECTOR-SPEC מתעד כבר פעם אחת, בסריקה של 21 עד 23.8.2026, שאגרגטור נתן מידע שגוי על תחרות אחת, אבל זו הפעם הראשונה שהטעות היא התאמת שם שגויה בין שני פסטיבלים אמיתיים ולא מידע שגוי מאגרגטור אחד.",
       "lesson": null,
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "pitched",
       "snoozes": 0,
       "touchedAt": "2026-10-16"
     },
@@ -4191,7 +4191,7 @@
       "evidence": null,
       "lesson": "קורס AI Product Design & UX/UI, שיעור תחומי העיצוב (design domains)",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-16"
     },
@@ -4205,9 +4205,37 @@
       "evidence": null,
       "lesson": "קורס AI Product Design & UX/UI, שיעור דפוסי Mobbin",
       "sourceInboxId": null,
-      "status": "pool",
+      "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-16"
+    },
+    {
+      "id": "I-2026-0521",
+      "title": "שלושת המסננים על המסך",
+      "line": "איך נראה מסך שמריץ תלמיד דרך שלושת המסננים (האם חוזר, האם יש כללים ברורים, האם טעות זולה) לפני שהוא נוגע בכלי אוטומציה?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-18",
+      "capability": null,
+      "evidence": null,
+      "lesson": "מודול 6, אוטומציות, מפגשים 16-19, מק\"ט 53500",
+      "sourceInboxId": null,
+      "status": "rejected",
+      "snoozes": 0,
+      "touchedAt": "2026-10-18"
+    },
+    {
+      "id": "I-2026-0522",
+      "title": "RAG זז לפינה",
+      "line": "איך נראה מסך שמציג בבירור מה חלק מהלוח ומה העשרה לרשות, בלי שהתלמיד המהיר ירגיש שהוא מפסיד?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-18",
+      "capability": null,
+      "evidence": null,
+      "lesson": "RAG כהעשרה (מ-8.10.2026), מודול 6, מק\"ט 53500",
+      "sourceInboxId": null,
+      "status": "rejected",
+      "snoozes": 0,
+      "touchedAt": "2026-10-18"
     }
   ]
 }
