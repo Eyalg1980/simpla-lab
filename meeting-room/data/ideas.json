@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18",
+  "updated": "2026-10-19",
   "ideas": [
     {
       "id": "I-2026-0489",
@@ -4236,6 +4236,51 @@
       "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-18"
+    },
+    {
+      "id": "I-2026-0523",
+      "title": "מפת עקביות לפני רינדור",
+      "line": "ראיתי ש-Higgsfield עברה מדקה ל-10+ דקות ברצף אחד עם GPT-6 Astra (14.10.2026), אפשר לבנות כלי שבודק עקביות חזותית בין סצנות לפני שמריצים את כל הסרט, לא אחרי.",
+      "advisor": "visionary",
+      "createdAt": "2026-10-19",
+      "capability": {
+        "name": "Higgsfield מאריכה וידאו ל-10+ דקות ברצף אחד עם GPT-6 Astra ושומרת עקביות בין כמאה סצנות",
+        "releasedAt": "2026-10-14"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-19"
+    },
+    {
+      "id": "I-2026-0524",
+      "title": "תחקור מפגש בלחיצה",
+      "line": "שלוש פעמים בשבועיים האחרונים כתבת את תחקור חמש השורות למפגש 45900 בפריסה חופשית, בלי מבנה קבוע, מתוך הרגל שחוזר על עצמו אחרי כל מפגש.",
+      "advisor": "pain",
+      "createdAt": "2026-10-19",
+      "capability": null,
+      "evidence": "תחקור חמש שורות אחרי כל מפגש 45900, רגיל וחוזר על עצמו, מתועד כ'standing routine' ב-task-management",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-19"
+    },
+    {
+      "id": "I-2026-0525",
+      "title": "מוד בורד באמצע השיעור",
+      "line": "איך מוד בורד שנוצר עם Midjourney באמצע השיעור נראה על מסך הכיתה, לפני שהוא יורד לקובץ מצגת?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-19",
+      "capability": null,
+      "evidence": null,
+      "lesson": "סילבוס UI/UX, 30 מפגשים: מוד בורד עם Midjourney",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-19"
     }
   ]
 }
