@@ -1,6 +1,48 @@
 {
   "days": [
     {
+      "date": "2026-10-19",
+      "ideas": [
+        {
+          "id": "2026-10-19-higgsfield-10min",
+          "world": "סרטוני הסבר",
+          "color": "#FF6B5E",
+          "hook": "Higgsfield עברה מדקה לעשר דקות, ועדיין הבעיה האמיתית לא הייתה האורך.",
+          "concept": "סרט תדמית קצר שמראה סרט שמתפרק מתפירת קליפים נפרדים, לסרט אחד רציף: שרשרת של מאה מסגרות קטנות שנראות כאילו הן עומדות להיסחף בצבע ובצורה, ואז פתאום נשארות מיושרות עד הסוף. ההדגמה המקורית של Higgsfield הייתה סיפור פירמידה במאה סצנות עם ווייסאובר קוהרנטי.",
+          "execution": "שפה ויזואלית קינטית אדיטוריאלית: רקע אפור פחם עמוק, טיפוגרפיה קינטית, קורל וצהוב חם, קומפוזיציה גיאומטרית מינימלית. פריימי מפתח ב-Nano Banana Pro, תנועה ב-Kling 3 std, קריינות קצרה אחת במרכז, 16:9, עד 20 שניות.",
+          "why": "זו בדיוק הבעיה שאני פותר ביד בכל פרויקט וידאו: לא אורך, visual drift בין קליפים מחוברים. GPT-6 Astra של OpenAI נותן ל-Higgsfield קונטקסט חזק מספיק לשמור על עקביות בין סצנות מרובות, וזה משנה את הפייפליין שלי מתפירת קליפים לכתיבת סצנה אחת ארוכה.",
+          "competition": null,
+          "srcUrl": "https://www.winzheng.com/en/article/higgsfield-gpt6-astra-10-minute-ai-video",
+          "srcLabel": "winzheng.com · Higgsfield עם GPT-6 Astra",
+          "prompts": {
+            "video": "Kinetic typography explainer animation, deep charcoal background, a long flat filmstrip of a hundred small scene frames floats center frame, early frames sharp and aligned, later frames subtly drifting in color and shape, coral and warm yellow accent highlights, a thin glowing coral thread sweeps through and restores every frame to alignment, clean geometric composition, generous negative space, calm confident mood, 16:9",
+            "script": "קח את ההוק \"Higgsfield עברה מדקה לעשר דקות, ועדיין הבעיה האמיתית לא הייתה האורך\" ופתח אותו לסרטון הסברה של 30 עד 45 שניות: לוגליין, תסריט קריינות בעברית עם ציר זמן מדויק, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בסגנון קינטי אדיטוריאלי.",
+            "image": "Kinetic typography style still, deep charcoal background, a long flat filmstrip of a hundred small scene frames centered, most frames sharp and aligned, a few near the end subtly drifting in color and shape, coral and warm yellow accent highlights, generous negative space around the strip, flat minimal composition, no text",
+            "raw": "הוק: Higgsfield עברה מדקה לעשר דקות, ועדיין הבעיה האמיתית לא הייתה האורך\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: שרשרת של מאה מסגרות שנראות כאילו עומדות להיסחף בצבע ובצורה, ואז נשארות מיושרות עד הסוף, לפי הדמו של Higgsfield עם פירמידה במאה סצנות\nביצוע: שפה ויזואלית קינטית אדיטוריאלית, רקע פחם עמוק, קורל וצהוב, 16:9\nלמה עכשיו: GPT-6 Astra נותן ל-Higgsfield עקביות בין סצנות מרובות, זה פותר ביד שפתרתי כל פרויקט וידאו, לא עוד אורך"
+          }
+        },
+        {
+          "id": "2026-10-19-date-not-locked",
+          "world": "תיעוד תהליך",
+          "color": "#7B61FF",
+          "hook": "תאריך אחד לא נעול, וכל השאר בלוח הזמנים ממשיך לעבוד כאילו הוא כבר קבוע.",
+          "concept": "יד חרס מנסה בעדינות להדביק אריח תאריך רופף על לוח שנה של חרס, בזמן שהאריחים לידו מהודקים ושקטים. היד לא מצליחה, האריח נשאר תלוי במקצת. אותו מומנט בדיוק עולה היום גם בפוסט ברומה שונה, זה אותו נכס בשני ערוצים.",
+          "execution": "שפה ויזואלית של Clay בבית הסטודיו: Claymation, פלסטלינה בעבודת יד עם טביעות אצבע גלויות, רקע סטודיו קרמי, פלטת קורל צהוב וטורקיז, תאורת סטודיו רכה, עומק שדה רדוד. פריימי מפתח ב-Nano Banana Pro, תנועה עדינה ב-Kling 3 std, בלי קריינות, 9:16, עד 15 שניות.",
+          "why": "קורה לי ממש השבוע עם הזום הסופי של קורס 45900, התאריך עוד לא ננעל בין 18 ל-19 באוקטובר. לקח שחוזר בכל פרויקט שתלוי בדדליין חיצוני אחד שלא בשליטתי.",
+          "competition": null,
+          "srcUrl": "https://eyalg1980.github.io/simpla-lab/jb45900/",
+          "srcLabel": "jb45900 · דף הקורס החי",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field, a small clay hand gently tries to press one loose unpinned date tile flat onto a calendar page while the neighboring tiles sit neatly pinned, the tile springs back up slightly each time, soft handheld micro movement, no text, 9:16, 8 seconds",
+            "script": "קח את ההוק \"תאריך אחד לא נעול, וכל השאר בלוח הזמנים ממשיך לעבוד כאילו הוא כבר קבוע\" ופתח אותו לסרט קונספטואלי קצר של 20 עד 30 שניות: לוגליין, תסריט קריינות בעברית עם ציר זמן מדויק (או סרט שקט לפי ההחלטה), שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בסגנון Clay.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field, a small clay calendar page with one loose unpinned date tile tilting upward, the other tiles neatly pinned flat, no text",
+            "raw": "הוק: תאריך אחד לא נעול, וכל השאר בלוח הזמנים ממשיך לעבוד כאילו הוא כבר קבוע\nעולם: תיעוד תהליך\nתחרות: אין\nקונספט: יד חרס מנסה להדביק אריח תאריך רופף ללוח שנה של חרס, לא מצליחה, האריח נשאר תלוי\nביצוע: שפת Clay, Nano Banana Pro לפריימים, Kling 3 לתנועה, 9:16\nלמה עכשיו: הזום הסופי של קורס 45900 תלוי על תאריך לא נעול, וזה אותו מומנט שעולה היום גם בפוסט ברומה אחרת"
+          }
+        }
+      ],
+      "watch": []
+    },
+    {
       "date": "2026-10-18",
       "ideas": [
         {
