@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Juganu AI · Concert Night | Simpla</title>
+<meta name="description" content="סרט קונספט להשקת Juganu AI, המסכים שמאחוריו, וההצעה של Simpla ל-Juganu.">
+<meta property="og:title" content="Juganu AI · Concert Night">
+<meta property="og:description" content="לילה אחד בעיר. ארבע שאלות. הפנסים עונים. סרט קונספט של Simpla עבור Juganu.">
+<meta property="og:image" content="https://eyalg1980.github.io/simpla-lab/juganu/img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--navy:#1B2D6B;--navy2:#13204F;--cream:#F6F4EE;--paper:#FFFFFF;--text:#3B4566;--muted:#5B6480;--line:#DDE1EA;--yel:#FFE94A;--red:#C93B45;--teal:#1F8C86;--tealbg:#E3F5F4;--r:16px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--cream);color:var(--text);font-family:Rubik,Arial,sans-serif;font-size:17px;line-height:1.65;-webkit-text-size-adjust:100%}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4{color:var(--navy);margin:0;line-height:1.2;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.en{direction:ltr;unicode-bidi:isolate}
+/* hero */
+.hero{background:var(--navy);color:#fff;padding:22px 0 48px}
+.brand{display:flex;justify-content:space-between;align-items:center;font-size:13px;letter-spacing:.14em;font-weight:600;color:#C9D1EA}
+.brand b{color:var(--yel);font-weight:700}
+.hero .eyebrow{margin-top:34px;color:var(--yel)}
+.hero h1{color:#fff;font-size:34px;font-weight:800;margin-top:10px;letter-spacing:-.01em}
+.hero .lede{margin-top:14px;font-size:18px;color:#D5DCF0;max-width:62ch}
+.player{margin-top:26px;border-radius:var(--r);overflow:hidden;background:#000;box-shadow:0 24px 60px rgba(0,0,0,.35);aspect-ratio:16/9}
+.player video{width:100%;height:100%;object-fit:cover}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.pill{font-size:14px;border:1px dashed rgba(255,255,255,.35);border-radius:999px;padding:5px 12px;color:#E4E9F6}
+.full{margin-inline-start:auto;font-size:15px;font-weight:600;color:var(--navy);background:var(--yel);border-radius:10px;padding:9px 16px;text-decoration:none}
+/* tabs */
+.tabs{position:sticky;top:0;z-index:10;background:rgba(246,244,238,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
+.tabs a{flex:none;font-size:15px;font-weight:600;text-decoration:none;color:var(--navy);padding:7px 14px;border-radius:999px;border:1px dashed #B9C1D6}
+.tabs a:hover,.tabs a:focus-visible{background:var(--navy);color:#fff;border-color:var(--navy);outline:none}
+/* sections */
+section{padding:64px 0 8px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--red)}
+h2{font-size:30px;font-weight:700;margin-top:8px}
+.intro{margin-top:14px;font-size:18px;max-width:64ch}
+h3{font-size:21px;font-weight:700}
+/* story strip */
+.strip{margin-top:28px;display:grid;grid-auto-flow:column;grid-auto-columns:78%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
+.strip figure{margin:0;scroll-snap-align:start;background:var(--paper);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.strip img{aspect-ratio:16/9;object-fit:cover;width:100%}
+.strip figcaption{padding:12px 14px 14px;font-size:15.5px;line-height:1.5}
+.strip figcaption b{display:block;color:var(--red);font-size:13px;letter-spacing:.06em;margin-bottom:2px}
+/* principles */
+.princ{margin-top:28px;display:grid;grid-template-columns:1fr;gap:12px}
+.pc{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 18px 20px}
+.pc .n{font-size:26px;font-weight:800;color:var(--teal);line-height:1}
+.pc h3{margin-top:10px;font-size:18px}
+.pc p{margin-top:6px;font-size:15.5px;line-height:1.55}
+/* screens */
+.scr{margin-top:40px;display:grid;gap:18px;align-items:center}
+.shot{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--paper);box-shadow:0 10px 30px rgba(27,45,107,.08)}
+.shot img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.scr .num{font-size:13px;font-weight:700;letter-spacing:.1em;color:var(--red)}
+.scr h3{margin-top:6px;font-size:23px}
+.scr .body{margin-top:10px;font-size:16.5px}
+.kv{margin-top:14px;display:grid;gap:8px}
+.kv div{border-radius:10px;padding:10px 14px;font-size:15px;line-height:1.5}
+.kv .ex{background:var(--tealbg);color:#16524F}
+.kv .us{background:#FFF6B8;color:#3F3A10}
+.kv b{display:block;font-size:12.5px;letter-spacing:.08em;margin-bottom:2px}
+.lamp{margin-top:40px;display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.lamp img{width:120px;height:120px;object-fit:contain}
+.lamp p{font-size:15.5px}
+/* about juganu + simpla */
+.years{margin-top:26px;display:grid;gap:10px}
+.yr{display:grid;grid-template-columns:62px 1fr;gap:12px;align-items:start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.yr b{font-size:20px;font-weight:800;color:var(--navy)}
+.yr .tags{display:flex;flex-wrap:wrap;gap:6px}
+.yr .tags span{font-size:14px;border:1px dashed #B9C1D6;border-radius:999px;padding:3px 10px;color:var(--navy)}
+.note{margin-top:16px;font-size:16px;color:var(--navy);font-weight:500;border-inline-start:4px solid var(--yel);padding-inline-start:12px}
+.cards{margin-top:26px;display:grid;grid-template-columns:1fr;gap:12px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 18px 20px}
+.card .when{font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--red)}
+.card h3{margin-top:6px;font-size:19px}
+.card p{margin-top:6px;font-size:15.5px;line-height:1.55}
+.partners{margin-top:14px;font-size:15.5px;color:var(--muted)}
+.steps3{margin-top:22px;display:grid;grid-template-columns:1fr;gap:12px}
+.steps3 .card .n{font-size:30px;font-weight:800;color:var(--yel);-webkit-text-stroke:1.5px var(--navy);line-height:1}
+.tbl{margin-top:22px;overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
+th,td{text-align:right;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:13px;letter-spacing:.06em;color:var(--muted);font-weight:600;background:#FAFAF7}
+td.m{font-weight:800;color:var(--navy);font-size:18px;width:56px}
+tr:last-child td{border-bottom:0}
+.prices{margin-top:26px;display:grid;grid-template-columns:1fr;gap:14px}
+.price{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px 20px;position:relative}
+.price .k{font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--red)}
+.price h3{margin-top:4px;font-size:21px}
+.price .amt{margin-top:12px;font-size:40px;font-weight:800;color:var(--navy);line-height:1}
+.price .vat{font-size:14px;color:var(--muted);margin-top:4px}
+.price ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:7px;font-size:15.5px}
+.price li{display:flex;gap:8px;align-items:flex-start}
+.price li svg{flex:none;margin-top:5px}
+.price .fit{margin-top:14px;font-size:14px;color:var(--muted)}
+.price.best{background:var(--navy);border-color:var(--navy);color:#D5DCF0}
+.price.best h3,.price.best .amt{color:#fff}
+.price.best .k{color:var(--yel)}
+.price.best .vat,.price.best .fit{color:#AFBAD9}
+.badge{position:absolute;top:18px;left:18px;font-size:12.5px;font-weight:700;background:var(--yel);color:var(--navy);border-radius:999px;padding:4px 10px}
+.addon{margin-top:14px;font-size:15px;color:var(--muted)}
+.pilot{margin-top:26px;display:grid;grid-template-columns:1fr;gap:14px}
+.pilot .card h3{font-size:20px}
+.checks{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:9px;font-size:15.5px}
+.checks li{display:flex;gap:10px;align-items:flex-start}
+.checks svg{flex:none;margin-top:4px}
+.about{margin-top:26px;display:grid;grid-template-columns:1fr;gap:16px}
+.about ul{margin:0;padding:0 18px 0 0;display:grid;gap:8px;font-size:16px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 12px;text-align:center}
+.stat b{display:block;font-size:34px;font-weight:800;color:var(--navy);line-height:1}
+.stat span{display:block;margin-top:6px;font-size:13.5px;line-height:1.4;color:var(--muted)}
+.next{background:var(--navy);color:#D5DCF0;margin-top:64px;padding:56px 0}
+.next h2{color:#fff}
+.next .eyebrow{color:var(--yel)}
+.next .steps3 .card{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#D5DCF0}
+.next .steps3 .card h3{color:#fff}
+.contact{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.contact .who{font-size:18px;color:#fff;font-weight:600;margin-inline-end:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:15.5px;font-weight:600;text-decoration:none;border-radius:10px;padding:10px 16px}
+.btn.y{background:var(--yel);color:var(--navy)}
+.btn.o{border:1.5px solid rgba(255,255,255,.4);color:#fff}
+footer{padding:26px 0 40px;font-size:14px;color:var(--muted)}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
+@media (min-width:760px){
+  .hero{padding-bottom:64px}
+  .hero h1{font-size:52px}
+  h2{font-size:40px}
+  .strip{grid-auto-columns:300px}
+  .princ{grid-template-columns:repeat(2,1fr)}
+  .cards,.steps3{grid-template-columns:repeat(2,1fr)}
+  .prices{grid-template-columns:repeat(3,1fr)}
+  .pilot{grid-template-columns:1fr 1fr}
+}
+@media (min-width:1024px){
+  section{padding-top:88px}
+  .princ{grid-template-columns:repeat(5,1fr)}
+  .scr{grid-template-columns:1.45fr 1fr;gap:36px}
+  .scr.flip{grid-template-columns:1fr 1.45fr}
+  .scr.flip .shot{order:2}
+  .cards{grid-template-columns:repeat(4,1fr)}
+  .steps3{grid-template-columns:repeat(3,1fr)}
+  .about{grid-template-columns:1.3fr 1fr;align-items:start}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ck" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="ph" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol><symbol id="ml" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol><symbol id="pl" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></symbol></svg>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand"><span><b>SIMPLA</b> × JUGANU</span><span>אוקטובר 2026</span></div>
+    <p class="eyebrow">סרט קונספט להשקת <span class="en">Juganu AI</span></p>
+    <h1>לילה אחד בעיר. ארבע שאלות. הפנסים עונים.</h1>
+    <p class="lede"><span class="en">Concert Night</span> הוא סרט של 94 שניות שהפקנו עבור <span class="en">Juganu</span>. מגיעים 12,000 איש להופעה, ומנהל התפעול של העיר מנהל את הערב רק בשאלות. כל תשובה הופכת להחלטה.</p>
+    <div class="player"><video controls playsinline preload="metadata" poster="img/poster.webp"><source src="media/concert-night.mp4" type="video/mp4"></video></div>
+    <div class="meta"><span class="pill">94 שניות</span><span class="pill">ריאליסטי</span><span class="pill">פנסי Solitaire</span><span class="pill">נתוני דוגמה</span><a class="full" href="video.html">לצפייה במסך מלא</a></div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="ניווט בעמוד"><div class="wrap"><a href="#story">הסיפור</a><a href="#screens">המסכים והמוצר</a><a href="#together">Juganu ו-Simpla</a><a href="#offer">ההצעה</a><a href="#tracks">מסלולים</a><a href="#me">מי אני</a><a href="#next">הצעד הבא</a></div></nav>
+
+<main>
+<section id="story"><div class="wrap">
+  <p class="eyebrow">01 · הסיפור</p>
+  <h2>האם העיר מוכנה להערב?</h2>
+  <p class="intro">אירוע גדול הוא הלילה שבו כל מחלקה בעיר צריכה תשובות: תאורה, תנועה, אבטחה ותקשורת. בסרט, דניאל מתפעול העיר לא מחפש במערכות. הוא שואל, והפנסים ברחוב עונים.</p>
+  <div class="strip">
+    <figure><img src="img/s-town-green.webp" alt="כר הדשא בשקיעה, במה נבנית ושורות פנסי Solitaire" loading="lazy"><figcaption><b>17:12</b>הבמה עולה ו-12,000 איש בדרך.</figcaption></figure>
+    <figure><img src="img/s-aerial.webp" alt="מבט רחפן מלמעלה על הפארק ועל פריסת הפנסים" loading="lazy"><figcaption><b>מלמעלה</b>כל פנס הוא נקודה ברשת אחת, וכל נקודה מופיעה במפה.</figcaption></figure>
+    <figure><img src="img/s-fix.webp" alt="טכנאי במנוף מתקן פנס ליד החניון" loading="lazy"><figcaption><b>18:40</b>שלושה פנסים כבויים ליד החניון. מתוקנים לפני השקיעה.</figcaption></figure>
+    <figure><img src="img/s-show.webp" alt="קהל גדול מול במה מוארת בלילה" loading="lazy"><figcaption><b>20:40</b>דשבורד שנבנה ממשפט אחד מלווה את הערב.</figcaption></figure>
+    <figure><img src="img/s-crossing.webp" alt="שוטר מכוון הולכי רגל במעבר חציה מואר" loading="lazy"><figcaption><b>20:45</b>הקהל חוצה באמצע הרחוב. תשובה אחת מביאה אור מלא ושוטר.</figcaption></figure>
+    <figure><img src="img/s-together.webp" alt="אמא מחבקת את בנה ליד המזרקה" loading="lazy"><figcaption><b>21:40</b>ילד נעלם בקהל, ונמצא תוך ארבע דקות.</figcaption></figure>
+    <figure><img src="img/s-after.webp" alt="שביל ריק ופנסים מעומעמים בלילה" loading="lazy"><figcaption><b>23:45</b>הקהל הולך, והפנסים מתעמעמים לבד.</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="screens"><div class="wrap">
+  <p class="eyebrow">02 · המסכים והמוצר</p>
+  <h2><span class="en">Juganu AI</span> כבר עונה. אנחנו מוסיפים את מה שהופך תשובה להחלטה.</h2>
+  <p class="intro">בסרט יש שישה מסכים, כולם בשפה של הדשבורד של Juganu. כל מסך נשען על יכולת שכבר קיימת במוצר, ומוסיף לה חמישה שיפורים של חוויה ואמון.</p>
+  <div class="princ">
+    <div class="pc"><span class="n">01</span><h3>כרטיס תשובה</h3><p>מספר אחד ברור, משפט הסבר והצעד הבא. במקום טקסט חופשי ושמות של API.</p></div>
+    <div class="pc"><span class="n">02</span><h3>מה המערכת הבינה</h3><p>צ׳יפים של מקום, זמן ומקור. המפעיל רואה איך השאלה פורשה לפני שהוא פועל.</p></div>
+    <div class="pc"><span class="n">03</span><h3>מתשובה לפעולה</h3><p>הזמנת עבודה, שינוי תאורה, שוטר בשטח או חוק קבוע. לחיצה אחת, עם אישור ותיעוד.</p></div>
+    <div class="pc"><span class="n">04</span><h3>כל תשובה על המפה</h3><p>מיני-מפה על צילום האוויר מחברת כל מספר לפנס אמיתי בפריסה של העיר.</p></div>
+    <div class="pc"><span class="n">05</span><h3>שכבת אמון</h3><p>ספירות ולא זהויות. פנים מטושטשות, בלי זיהוי פנים, וכל שאילתה נרשמת.</p></div>
+  </div>
+
+  <article class="scr">
+    <figure class="shot"><img src="img/ui-map.webp" alt="Map View עם סמן על כל פנס וכרטיס של פנס Jug_031" loading="lazy"></figure>
+    <div><p class="num">מסך 1 · <span class="en">Map View</span></p><h3>הרשת כולה במבט אחד</h3>
+      <p class="body">צילום הרחפן הופך למפה, וכל סמן יושב על פנס אמיתי. קבוצות התאורה מסומנות על הפארק. לחיצה על פנס פותחת כרטיס עם המצלמות, מצב התאורה ומספר המכשירים המחוברים ל-Wi-Fi.</p>
+      <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>Map View, כרטיס מכשיר ומקרא סטטוס.</div><div class="us"><b>השיפור שלנו</b>מעבר ישיר מהשטח למפה, וכרטיס אחד שמרכז מצלמות, תאורה ו-Wi-Fi.</div></div></div>
+  </article>
+
+  <article class="scr flip">
+    <figure class="shot"><img src="img/ui-lights.webp" alt="AI Assistant: 135 מתוך 138 פנסים דולקים, שלושה כבויים מסומנים על המפה" loading="lazy"></figure>
+    <div><p class="num">מסך 2 · שאלה ראשונה</p><h3>כל הפנסים סביב הדשא עובדים?</h3>
+      <p class="body">135 מתוך 138 דולקים. שלושה כבויים ביציאה מהחניון, והם מסומנים על המפה. הזמנת עבודה יוצאת לצוות השטח בלחיצה אחת.</p>
+      <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>ה-AI Assistant עונה על מצב התאורה מתוך ה-LMS.</div><div class="us"><b>השיפור שלנו</b>כרטיס תשובה, הפנסים הכבויים על המפה, והזמנת עבודה מתוך התשובה.</div></div></div>
+  </article>
+
+  <article class="scr">
+    <figure class="shot"><img src="img/ui-dashboard.webp" alt="דשבורד חי שנבנה ממשפט אחד: מבקרים, הגעה לפי שער, קו ספירה ו-Wi-Fi" loading="lazy"></figure>
+    <div><p class="num">מסך 3 · שאלה שנייה</p><h3>דשבורד לערב, ממשפט אחד</h3>
+      <p class="body">מבקרים על הדשא, הגעה לפי שער, קו ספירה על מצלמת השער, ועומס Wi-Fi לפי פנס. הדשבורד נשמר כלשונית ומשותף עם צוות האירוע.</p>
+      <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>דשבורד שנוצר מפרומפט, ושמירה כלשונית.</div><div class="us"><b>השיפור שלנו</b>רכיבים בשפת המוצר, קו ספירה מה-Marking Tool בתוך הדשבורד, ושיתוף עם הצוות.</div></div></div>
+  </article>
+
+  <article class="scr flip">
+    <figure class="shot"><img src="img/ui-traffic.webp" alt="412 חציות מחוץ למעבר ו-37 רוכבים על המדרכה, עם שתי פעולות" loading="lazy"></figure>
+    <div><p class="num">מסך 4 · שאלה שלישית</p><h3>איפה חוצים מחוץ למעבר?</h3>
+      <p class="body">412 חציות ביציאה מהחניון ו-37 רוכבים על המדרכה, עם נקודה חמה על המפה. מאותה תשובה: אור מלא בקבוצת התאורה של החניון, ושוטר למעבר.</p>
+      <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>Custom Analytics לחציות ולרכיבה על מדרכה, ו-Light Configuration.</div><div class="us"><b>השיפור שלנו</b>שתי פעולות ישירות מתוך התשובה, עם אישור ותיעוד.</div></div></div>
+  </article>
+
+  <article class="scr">
+    <figure class="shot"><img src="img/ui-search.webp" alt="חיפוש בתמונות: שלוש תוצאות עם פנים מטושטשות ומסלול על המפה" loading="lazy"></figure>
+    <div><p class="num">מסך 5 · שאלה רביעית</p><h3>ילד שנעלם בקהל</h3>
+      <p class="body">חיפוש בתמונות מהמצלמות ליד המגרש, לפי צבע הקפוצ׳ון. שלוש תוצאות עם פנים מטושטשות, מסלול על המפה, והמיקום נשלח לשוטר. החיפוש נרשם כתיק.</p>
+      <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>חיפוש בתמונות מהמצלמות, בשפה חופשית.</div><div class="us"><b>השיפור שלנו</b>מחפשים לפי בגדים ולא לפי פנים. טשטוש, הרשאת מפעיל, תיעוד ומסלול על המפה.</div></div></div>
+  </article>
+
+  <article class="scr flip">
+    <figure class="shot"><img src="img/ui-light-config.webp" alt="Light Configuration: קבוצת Town Green מתעמעמת ל-30% אחרי האירוע" loading="lazy"></figure>
+    <div><p class="num">מסך 6 · <span class="en">Light Configuration</span></p><h3>אחרי ההופעה</h3>
+      <p class="body">תזמון מיוחד לערב האירוע, ועמעום ל-30% ב-23:45, כשהמבקרים האחרונים יוצאים. כל שינוי נרשם.</p>
+      <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>קבוצות תאורה, תזמונים ושליטה חיה.</div><div class="us"><b>השיפור שלנו</b>תזמון אירוע שנפתח מתוך הדשבורד, ועמעום אחרי שהספירה מראה שהדשא התרוקן.</div></div></div>
+  </article>
+
+  <div class="lamp"><img src="img/solitaire.webp" alt="פנס Solitaire של Juganu" loading="lazy"><p><b style="color:var(--navy)">הפנס בסרט: Solitaire.</b> בנינו את כל הפריימים לפי תמונות הקטלוג של Juganu, עם החיישנים בשולי הכיפה. כל המספרים בסרט ובמסכים הם נתוני דוגמה.</p></div>
+</div></section>
+
+<section id="together"><div class="wrap">
+  <p class="eyebrow">03 · Juganu ו-Simpla</p>
+  <h2>חמש שנים של מוצר ומרקטינג, מאי 2021 עד מאי 2026</h2>
+  <p class="intro">עיצבנו יחד את המסכים, ובמקביל בנינו את החומרים שמוכרים אותם. מכאן מגיע הזיכרון של המוצר, ומכאן ההצעה.</p>
+  <div class="years">
+    <div class="yr"><b>2021</b><div class="tags"><span>Smart City Dashboard</span><span>Retail Dashboard</span><span>לוגו ושפת מסכים</span><span>דוח Overview במייל</span></div></div>
+    <div class="yr"><b>2022</b><div class="tags"><span>Marking Tool</span><span>אפליקציה לעובדי חנות</span><span>Heatmap ותורים</span><span>Shelves Monitoring</span><span>Rule chain</span></div></div>
+    <div class="yr"><b>2023</b><div class="tags"><span>ספירת רכבים ותנועה</span><span>Vendors</span><span>אפליקציית Carrefour</span><span>עיצוב Sisense</span><span>סרטוני NRF</span></div></div>
+    <div class="yr"><b>2024</b><div class="tags"><span>LMS לניהול תאורה</span><span>הטמעת המותג החדש</span><span>Future Capabilities</span><span>עיצוב Rules</span></div></div>
+    <div class="yr"><b>2025</b><div class="tags"><span>אתר Juganu</span><span>City Pages</span><span>קבוצות תאורה</span><span>מצגות CV2X ו-Smart City</span></div></div>
+    <div class="yr"><b>2026</b><div class="tags"><span>מצגת City</span><span>סרטי מוצר</span><span>חומרים למכירות בארה״ב</span></div></div>
+  </div>
+  <p class="note">המסכים שבנינו יחד הם הבסיס של מה ש-Juganu מוכרת היום: אזורים וקווים, דשבורדים ומפות חום, תצוגה חיה, Wi-Fi ושליטה בתאורה.</p>
+
+  <h3 style="margin-top:48px;font-size:26px">Juganu ב-2026: AI על כל עמוד תאורה</h3>
+  <div class="cards">
+    <div class="card"><p class="when">אוגוסט 2024</p><h3>Peachtree Corners</h3><p>פריסת עיר חכמה מלאה ראשונה בארה״ב.</p></div>
+    <div class="card"><p class="when">אוקטובר 2025</p><h3>Bellevue</h3><p>Civic Innovation Challenge ופיילוט לניהול שולי מדרכה.</p></div>
+    <div class="card"><p class="when">מרץ 2026</p><h3>NVIDIA Cosmos Reason</h3><p>AI שמאמת כל אירוע ומפחית התראות שווא. הוצג ב-ISC West.</p></div>
+    <div class="card"><p class="when">2026</p><h3>המיקוד: ערים בצפון אמריקה</h3><p>הנהלה ייעודית לערים בארה״ב, וקמעונאות ממשיכה במקביל.</p></div>
+  </div>
+  <p class="partners">רשת השותפים: ONE City, nureal.ai, NVIDIA, SmartWAVE ו-Siemens Xcelerator. מי שכותב את התוכן של השותף, קובע איך Juganu נראית בשוק.</p>
+
+  <h3 style="margin-top:48px;font-size:26px">מה משתנה בממשק כשה-AI מבין וידאו</h3>
+  <div class="steps3">
+    <div class="card"><span class="n">01</span><h3 style="margin-top:10px">לשאול</h3><p>המפעיל שואל בשפה חופשית ומקבל תשובה, וידאו ומפה. לא טבלאות.</p></div>
+    <div class="card"><span class="n">02</span><h3 style="margin-top:10px">לאמת</h3><p>כל התראה מגיעה עם הסבר: למה היא אמיתית ומה נפסל.</p></div>
+    <div class="card"><span class="n">03</span><h3 style="margin-top:10px">לפעול</h3><p>מתשובה אחת נוצר חוק, ומהחוק התראה לשטח.</p></div>
+  </div>
+  <p class="note">את שלוש השכבות כבר עיצבנו יחד, בלי AI: Dashboard, Marking Tool ו-Rules.</p>
+</div></section>
+
+<section id="offer"><div class="wrap">
+  <p class="eyebrow">04 · ההצעה</p>
+  <h2>מוצר, מרקטינג והטמעת AI, בריטיינר אחד</h2>
+  <p class="intro">אני מחזיק את הזיכרון של המוצר וגם את השפה של המרקטינג. לכן אותו צוות מעצב את המסך ומספר עליו.</p>
+  <div class="cards">
+    <div class="card"><p class="when">מוצר לערים · מוכן</p><h3>שכבת החוויה של Juganu AI</h3><p>Ask the City: כרטיס תשובה, אימות עם הסבר, ושאלה שהופכת לחוק. אפיון, PRD ואב-טיפוס לחיץ מוכנים.</p></div>
+    <div class="card"><p class="when">מוצר לקמעונאות · הבא בתור</p><h3>Store Pulse</h3><p>סיכום משמרת למנהל החנות בנייד: תורים, מדפים ריקים ואירועים חריגים, עם וידאו ומשימה לעובד.</p></div>
+    <div class="card"><p class="when">מרקטינג · מוכן</p><h3>סרטים להשקה ולמכירה</h3><p>Concert Night, וסרט הפרסונות One City, Three Questions בגרסה ריאליסטית ובחימר. לדמו במכירות, ל-LinkedIn ולכנסים.</p></div>
+    <div class="card"><p class="when">הטמעת AI · בצוותים</p><h3>צוות שעובד עם AI לבד</h3><p>סדנה לצוות המוצר, ספריית פרומפטים לשיווק, וסוכן תוכן שהצוות מפעיל בלי Simpla.</p></div>
+  </div>
+  <h3 style="margin-top:48px;font-size:26px">שלושת החודשים הראשונים</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>חודש</th><th>עיצוב ואפיון מוצר</th><th>מרקטינג</th><th>הטמעת AI</th></tr></thead>
+    <tbody>
+      <tr><td class="m">1</td><td>שכבת החוויה ל-Juganu AI, אב-טיפוס לחיץ</td><td>סרטון דמו של 60 שניות ומצגת Bellevue</td><td>סדנת AI לצוות המוצר</td></tr>
+      <tr><td class="m">2</td><td>Rules בשפה טבעית</td><td>ערכת מכירה לרשויות בארה״ב</td><td>ספריית פרומפטים לשיווק</td></tr>
+      <tr><td class="m">3</td><td>שכבת הסבר AI ל-Shelf Monitoring</td><td>חומרים לכנסי האביב, וגרסה בעברית ל-ONE City</td><td>סוכן תוכן שהצוות מפעיל לבד</td></tr>
+    </tbody>
+  </table></div>
+  <p class="partners">התוכנית נקבעת יחד בפגישת הפתיחה.</p>
+</div></section>
+
+<section id="tracks"><div class="wrap">
+  <p class="eyebrow">05 · מסלולים ותנאים</p>
+  <h2>שלושה ריטיינרים, שלושה מחירים</h2>
+  <div class="prices">
+    <div class="price"><p class="k">מוצר</p><h3>עיצוב ואפיון מוצר</h3><p class="amt">22,000</p><p class="vat">שקלים לחודש, לפני מע״מ</p>
+      <ul><li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>אפיון, UX/UI ואב-טיפוס</li><li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>Design System אחיד</li><li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>יעד מוצר מדיד בכל חודש</li></ul><p class="fit">כשהמיקוד הוא הממשק</p></div>
+    <div class="price"><p class="k">מרקטינג</p><h3>מרקטינג</h3><p class="amt">10,000</p><p class="vat">שקלים לחודש, לפני מע״מ</p>
+      <ul><li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>סרטים ודמו ב-AI</li><li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>מצגות, RFP ותיקי לקוח</li><li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>יעד תוכן מדיד בכל חודש</li></ul><p class="fit">כשהמיקוד הוא המכירה</p></div>
+    <div class="price best"><span class="badge">מומלץ</span><p class="k">משולב</p><h3>מוצר ומרקטינג יחד</h3><p class="amt">26,000</p><p class="vat">שקלים לחודש, לפני מע״מ</p>
+      <ul><li><svg width="16" height="16" style="color:var(--yel)"><use href="#ck"/></svg>כל מה שבשני המסלולים</li><li><svg width="16" height="16" style="color:var(--yel)"><use href="#ck"/></svg>הטמעת AI בצוותים</li><li><svg width="16" height="16" style="color:var(--yel)"><use href="#ck"/></svg>פיילוט 90 יום ושלושה יעדים</li></ul><p class="fit">6,000 פחות משני ריטיינרים נפרדים</p></div>
+  </div>
+  <p class="addon">תוספות: ערכות תוכן לשותפים ב-6,000 לחודש או כערכה חד-פעמית, ו-Sprint לכנס לפי פרויקט.</p>
+
+  <div class="pilot">
+    <div class="card"><p class="when">המסגרת</p><h3>פיילוט של 90 יום, בריטיינר המשולב</h3><p style="margin-top:8px">דצמבר 2026 עד פברואר 2027. אפשר לצאת בסוף כל חודש, בלי קנס. בסוף כל חודש: ציון, משוב ונקודת יציאה.</p>
+      <p style="margin-top:12px"><b style="color:var(--navy)">איך עובדים:</b> בריף של שעה עם יעד ומדד לכל תוצר, גרסה ראשונה תוך 5 ימי עבודה, סקירה שבועית קצרה, וסיכום חודשי. כל תוצר נבנה בשפת המותג של Juganu, והקבצים, הפרומפטים ותהליכי העבודה נשארים אצלכם.</p></div>
+    <div class="card"><p class="when">איך נמדוד הצלחה</p>
+      <ul class="checks"><li><svg width="18" height="18" style="color:var(--teal)"><use href="#ck"/></svg>אב-טיפוס תוך 5 ימי עבודה מהבריף</li><li><svg width="18" height="18" style="color:var(--teal)"><use href="#ck"/></svg>לפחות דמו אחד בפגישת מכירה אמיתית</li><li><svg width="18" height="18" style="color:var(--teal)"><use href="#ck"/></svg>פי 2 נכסי תוכן בחודש לעומת 2026</li><li><svg width="18" height="18" style="color:var(--teal)"><use href="#ck"/></svg>תהליך AI אחד שהצוות מפעיל בלי Simpla</li></ul></div>
+  </div>
+</div></section>
+
+<section id="me"><div class="wrap">
+  <p class="eyebrow">06 · מי אני</p>
+  <h2>אייל גרשון, מייסד Simpla</h2>
+  <div class="about">
+    <ul>
+      <li>מעצב כבר 18 שנה, מחלוצי תחום ה-UX/UI.</li>
+      <li>ראש מחלקת פרודקט דיזיין ב-TipRanks.</li>
+      <li>מייסד Simpla: סטודיו בוטיק ל-UX ולתהליכי עבודה מבוססי AI.</li>
+      <li>מלמד AI ו-UX ב-DesignAI, ב-InMotion וב-John Bryce.</li>
+      <li>מטמיע AI בצוותי שיווק ועיצוב: Cyabra, Empathy, Moonshot, Finout, Connecteam.</li>
+      <li>יוצר ב-AI: תערוכות, וידאו ארט ופרסומות.</li>
+    </ul>
+    <div class="stats">
+      <div class="stat"><b>18</b><span>שנים בעיצוב מוצר</span></div>
+      <div class="stat"><b>5</b><span>שנים עם Juganu</span></div>
+      <div class="stat"><b>600</b><span>משתתפים בכל הרצאה מרכזית ב-DesignAI</span></div>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<section id="next" class="next"><div class="wrap">
+  <p class="eyebrow">הצעד הבא</p>
+  <h2>שעה אחת, שלוש החלטות, התחלה בדצמבר</h2>
+  <div class="steps3">
+    <div class="card"><span class="n">01</span><h3 style="margin-top:10px">הדגמה</h3><p>20 דקות: הסרט, האב-טיפוס ושכבת החוויה ל-Juganu AI.</p></div>
+    <div class="card"><span class="n">02</span><h3 style="margin-top:10px">בחירת ריטיינר</h3><p>סוג הריטיינר, שלושה יעדים ומדד לכל אחד.</p></div>
+    <div class="card"><span class="n">03</span><h3 style="margin-top:10px">פתיחה</h3><p>התחלה בדצמבר 2026, סיכום בסוף פברואר 2027.</p></div>
+  </div>
+  <div class="contact"><span class="who">אייל גרשון · Simpla</span><a class="btn y" href="tel:+972542066907"><svg width="18" height="18"><use href="#ph"/></svg><span class="en">054-2066907</span></a><a class="btn o" href="mailto:eyal@simplaux.com"><svg width="18" height="18"><use href="#ml"/></svg><span class="en">eyal@simplaux.com</span></a></div>
+</div></section>
+
+<footer><div class="wrap">Concert Night הוא סרט קונספט של Simpla עבור Juganu. כל המספרים בסרט ובמסכים הם נתוני דוגמה. © Simpla 2026</div></footer>
+</body>
+</html>
