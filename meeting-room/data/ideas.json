@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19",
+  "updated": "2026-10-20",
   "ideas": [
     {
       "id": "I-2026-0489",
@@ -4281,6 +4281,48 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-10-19"
+    },
+    {
+      "id": "I-2026-0526",
+      "title": "העלאה ידנית לפינבוט, פעמיים ברצף",
+      "line": "פעמיים ברצף, בסבב מאי-יוני וביולי-אוגוסט, העלית את כל התיק המאורגן לפינבוט קובץ קובץ ביד.",
+      "advisor": "pain",
+      "createdAt": "2026-10-20",
+      "capability": null,
+      "evidence": "מתועד ב-business-expenses.md: העלאה ידנית ל-itk.finbot.co.il בשני סבבים נפרדים (מאי-יוני ויולי-אוגוסט 2026), בלי zip ובלי קישור דרייב, קובץ קובץ ביד לכל אחד מהמסמכים בתיקיה המאורגנת.",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-20"
+    },
+    {
+      "id": "I-2026-0527",
+      "title": "עקרון אחד, לא עשרה",
+      "line": "איך נראה מסך שמציג עקרון נגישות אחד מעשרת העקרונות של נילסן בכל פעם, לא את כולם בבת אחת?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-20",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס AI Product Design & UX/UI, שיעור 10 עקרונות נילסן",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-20"
+    },
+    {
+      "id": "I-2026-0528",
+      "title": "מוסקוב בלי המילים הלועזיות",
+      "line": "איך נראה מסך שמתרגם Must, Should, Could, Won't לארבעה צבעים לפני שהמונחים האלה נכנסים לשיעור בכלל?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-20",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס AI Product Design & UX/UI, שיעור MoSCoW לתעדוף פיצ'רים",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-20"
     }
   ]
 }
