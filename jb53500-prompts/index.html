@@ -150,6 +150,18 @@ details.pre0.apx .prompt .pt{color:var(--soft)}
 .ws.done{border-color:color-mix(in srgb,var(--ok) 40%,var(--line))}
 .ws.done .wt{color:var(--soft)}
 .ws.done .wn{background:var(--ok-soft);color:var(--ok)}
+.ws{position:relative}
+.ws .past{position:absolute;top:-8px;left:-8px;width:20px;height:20px;border-radius:50%;background:var(--ok);color:#fff;display:none;align-items:center;justify-content:center;box-shadow:0 0 0 2px var(--acc-soft)}
+.ws .past .ic{width:12px;height:12px;stroke-width:3.2}
+.ws.was .past{display:flex}
+.msbox{margin-top:14px;border:2px dashed var(--acc);border-radius:20px;padding:12px;background:var(--acc-soft)}
+.msh{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin:2px 4px 12px}
+.msn{font-family:"Poppins",sans-serif;font-weight:700;font-size:14px;background:var(--acc);color:var(--acc-ink);padding:4px 14px;border-radius:999px}
+.mst{font-size:13.5px;color:var(--soft);font-weight:600}
+.ws-next{border-style:dashed;border-color:var(--acc)}
+.nextms{display:flex;gap:8px;align-items:center;margin-top:10px;font-weight:700;font-size:14px;padding:8px 18px;border-radius:999px;background:var(--acc);color:var(--acc-ink)}
+.ws{transition:box-shadow .3s}
+.ws.flash{box-shadow:0 0 0 3px var(--acc)}
 .reset{font-size:13px;font-weight:600;color:var(--soft);text-decoration:underline;text-underline-offset:3px;margin-top:16px}
 footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border-top:1.5px dashed var(--line);padding-top:14px}
 @media (min-width:1024px){
@@ -823,22 +835,29 @@ spec/
       <span class="sub">מתן הוראה לקלוד לתקן, לשנות, לסדר וכו' אם דרוש.</span></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
     <li class="ws" data-s="11"><span class="wn">11</span><div class="wt">דחיפת שינויים לגיטהאב.</div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
     <li class="ws" data-s="12"><span class="wn">12</span><div class="wt">ביצוע Rename לשיחה עצמה ולקרוא לה: Init</div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
-    <li class="ws" data-s="13"><span class="wn">13</span><div class="wt">פתיחת שיחה חדשה. יש לוודא שאנו באותה התיקייה של הפרויקט, באותו מודל חזק, לדוגמה Opus 5.5, באותו מאמץ, לדוגמה Medium.</div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
-    <li class="ws" data-s="14"><span class="wn">14</span><div class="wt">הוראה לקלוד: <b>"תכנן את אבן הדרך הראשונה/הבאה"</b> וביצוע Rename של השיחה ל: Milestone 1/2/3...
+  </ol>
+  <div class="msbox" id="msbox">
+    <div class="msh"><span class="msn" id="msNum">Milestone 1</span><span class="mst">שלבים 13 עד 18 חוזרים בכל Milestone</span></div>
+    <ol class="wf">
+    <li class="ws" data-s="13"><span class="past" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="wn">13</span><div class="wt">פתיחת שיחה חדשה. יש לוודא שאנו באותה התיקייה של הפרויקט, באותו מודל חזק, לדוגמה Opus 5.5, באותו מאמץ, לדוגמה Medium.</div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="14"><span class="past" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="wn">14</span><div class="wt">הוראה לקלוד: <b>"תכנן את אבן הדרך הראשונה/הבאה"</b> וביצוע Rename של השיחה ל: Milestone 1/2/3...
       <span class="sub">קלוד אמור להראות בסיום את המשימות של אבן הדרך. אם לא מראה אפשר לבקש להראות מה עליו לבצע.</span></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
-    <li class="ws" data-s="15"><span class="wn">15</span><div class="wt">הוראה לקלוד: <b>"בנה את אבן הדרך הראשונה/הבאה"</b></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
-    <li class="ws" data-s="16"><span class="wn">16</span><div class="wt">הוראה לקלוד: <b>"הרץ בכדי שאבדוק"</b>
+    <li class="ws" data-s="15"><span class="past" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="wn">15</span><div class="wt">הוראה לקלוד: <b>"בנה את אבן הדרך הראשונה/הבאה"</b></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="16"><span class="past" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="wn">16</span><div class="wt">הוראה לקלוד: <b>"הרץ בכדי שאבדוק"</b>
       <span class="sub">קלוד יכתוב בדיוק מה עלינו לבדוק, אנו בודקים שכל מה שצריך להיות בשלב הזה, אכן קיים ועובד.</span>
       <span class="sub">יש לבדוק רק את מה שקלוד מציע כי הוא עדיין לא ביצע את כלל האפליקציה.</span></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
-    <li class="ws" data-s="17"><span class="wn">17</span><div class="wt">אם יש באג, או משהו לא בסדר, עלינו לתקן זאת מיד ע"י בקשה מקלוד ולבדוק שהבאג תוקן.
+    <li class="ws" data-s="17"><span class="past" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="wn">17</span><div class="wt">אם יש באג, או משהו לא בסדר, עלינו לתקן זאת מיד ע"י בקשה מקלוד ולבדוק שהבאג תוקן.
       <span class="sub">אם השינוי צריך להיות גם במסמכי ה-spec הוא יציע לעדכן אותם.</span></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
-    <li class="ws" data-s="18"><span class="wn">18</span><div class="wt">הוראה לקלוד: <b>"דחוף שינויים לגיטהאב"</b></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
-    <li class="ws" data-s="19"><span class="wn">19</span><div class="wt">חזרה לשלב 13 עד 18 עבור כל Milestone.</div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
-  </ol>
+    <li class="ws" data-s="18"><span class="past" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="wn">18</span><div class="wt">הוראה לקלוד: <b>"דחוף שינויים לגיטהאב"</b></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws ws-next"><span class="wn">19</span><div class="wt">חזרה לשלב 13 עד 18 עבור כל Milestone.
+      <button class="nextms" id="nextMs" type="button"><svg class="ic" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8.5M20 4v4.5h-4.5M20 12a8 8 0 0 1-13.7 5.6L4 15.5M4 20v-4.5h4.5"/></svg><span>ל-Milestone 2</span></button>
+      <span class="sub">מנקה את הסימונים בשלבים 13 עד 18 וחוזר לשלב 13. וי קטן בפינה מראה שהשלב כבר בוצע ב-Milestone קודם.</span></div></li>
+    </ol>
+  </div>
   <button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button>
 </section>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v18 · 20.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v19 · 20.10.2026</footer>
 
 <script>
 (function(){
@@ -865,11 +884,26 @@ spec/
   function act(){var b=stB.getBoundingClientRect().top<window.innerHeight*0.45;stbs.forEach(function(a){a.classList.toggle('on',(a.dataset.st==='b')===b);});}
   window.addEventListener('scroll',act,{passive:true});act();
   if(!S.sdd||typeof S.sdd!=='object')S.sdd={};
-  var ws=[].slice.call(document.querySelectorAll('.ws[data-s]')),prog=document.getElementById('prog');
-  function paintWs(){var n=0;ws.forEach(function(r){var on=!!S.sdd[r.dataset.s];if(on)n++;r.classList.toggle('done',on);r.querySelector('.chk').setAttribute('aria-checked',String(on));});prog.textContent=n===ws.length?'הושלם':'בוצעו '+n+'/'+ws.length;prog.classList.toggle('all',n===ws.length);}
+  if(!S.sddPast||typeof S.sddPast!=='object')S.sddPast={};
+  if(!(S.ms>=1))S.ms=1;
+  var ws=[].slice.call(document.querySelectorAll('.ws[data-s]')),prog=document.getElementById('prog'),msNum=document.getElementById('msNum'),nextMs=document.getElementById('nextMs');
+  var LOOP=['13','14','15','16','17','18'];
+  function paintWs(){
+    var n=0;
+    ws.forEach(function(r){var id=r.dataset.s,on=!!S.sdd[id],p=S.sddPast[id]||0;if(on)n++;r.classList.toggle('done',on);r.querySelector('.chk').setAttribute('aria-checked',String(on));r.classList.toggle('was',p>0);var b=r.querySelector('.past');if(b)b.title=p?(p===1?'בוצע ב-Milestone קודם':'בוצע ב-'+p+' Milestones קודמים'):'';});
+    prog.textContent=n===ws.length?'הושלם':'בוצעו '+n+'/'+ws.length;prog.classList.toggle('all',n===ws.length);
+    msNum.textContent='Milestone '+S.ms;nextMs.querySelector('span').textContent='ל-Milestone '+(S.ms+1);
+  }
   ws.forEach(function(r){r.querySelector('.chk').addEventListener('click',function(){var id=r.dataset.s;if(S.sdd[id])delete S.sdd[id];else S.sdd[id]=1;paintWs();save();});});
+  nextMs.addEventListener('click',function(){
+    LOOP.forEach(function(id){if(S.sdd[id]){S.sddPast[id]=(S.sddPast[id]||0)+1;delete S.sdd[id];}});
+    S.ms++;paintWs();save();
+    var t=document.querySelector('.ws[data-s="13"]');
+    t.scrollIntoView({behavior:'smooth',block:'center'});
+    t.classList.add('flash');setTimeout(function(){t.classList.remove('flash');},1600);
+  });
   paintWs();
-  document.getElementById('resetBtn').addEventListener('click',function(){S.sdd={};paintWs();save();});
+  document.getElementById('resetBtn').addEventListener('click',function(){S.sdd={};S.sddPast={};S.ms=1;paintWs();save();});
   document.querySelectorAll('.prompt .cp').forEach(function(b){b.addEventListener('click',function(){var t=b.parentNode.querySelector('pre').innerText;var ok=function(){b.textContent='הועתק';b.classList.add('ok');setTimeout(function(){b.textContent='העתק';b.classList.remove('ok');},1500);};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,function(){fallback(t);ok();});else{fallback(t);ok();}});});
 })();
 </script>
