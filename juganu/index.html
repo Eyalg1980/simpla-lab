@@ -14,345 +14,763 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap">
 <style>
-:root{--navy:#1B2D6B;--navy2:#13204F;--cream:#F6F4EE;--paper:#FFFFFF;--text:#3B4566;--muted:#5B6480;--line:#DDE1EA;--yel:#FFE94A;--red:#C93B45;--teal:#1F8C86;--tealbg:#E3F5F4;--r:16px}
+:root{--navy:#1B2D6B;--navy2:#13204F;--navy3:#0E1838;--cream:#F6F4EE;--paper:#FFFFFF;--text:#3B4566;--muted:#5B6480;--line:#DDE1EA;--yel:#FFE94A;--red:#C93B45;--teal:#1F8C86;--tealbg:#E3F5F4;--coral:#F7636B;--hdr:108px}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:64px}
+html{scroll-behavior:smooth;scroll-padding-top:var(--hdr)}
 body{margin:0;background:var(--cream);color:var(--text);font-family:Rubik,Arial,sans-serif;font-size:17px;line-height:1.65;-webkit-text-size-adjust:100%}
 img,video{display:block;max-width:100%}
 a{color:inherit}
+button{font:inherit;color:inherit}
 h1,h2,h3,h4{color:var(--navy);margin:0;line-height:1.2;text-wrap:balance}
 p{margin:0}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+ul{margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
 .en{direction:ltr;unicode-bidi:isolate}
-/* hero */
-.hero{background:var(--navy);color:#fff;padding:22px 0 48px}
-.brand{display:flex;justify-content:space-between;align-items:center;font-size:13px;letter-spacing:.14em;font-weight:600;color:#C9D1EA}
-.brand b{color:var(--yel);font-weight:700}
-.hero .eyebrow{margin-top:34px;color:var(--yel)}
-.hero h1{color:#fff;font-size:34px;font-weight:800;margin-top:10px;letter-spacing:-.01em}
-.hero .lede{margin-top:14px;font-size:18px;color:#D5DCF0;max-width:62ch}
-.player{margin-top:26px;border-radius:var(--r);overflow:hidden;background:#000;box-shadow:0 24px 60px rgba(0,0,0,.35);aspect-ratio:16/9}
+:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
+
+/* ---------- sticky header ---------- */
+.top{position:sticky;top:0;z-index:50;background:var(--navy3);color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.08)}
+.top .row1{display:flex;align-items:stretch;gap:12px}
+.brand{display:none;align-items:center;font-size:12.5px;letter-spacing:.14em;font-weight:600;color:#AEB9DA;white-space:nowrap}
+.brand b{color:var(--yel)}
+.chaps{flex:1;display:grid;grid-template-columns:repeat(3,1fr)}
+.chaps a{position:relative;display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 4px 13px;text-decoration:none;color:#AEB9DA;font-weight:600;font-size:15.5px;white-space:nowrap}
+.chaps a .no{font-size:12px;font-weight:700;letter-spacing:.08em;opacity:.8}
+.chaps a::after{content:"";position:absolute;inset-inline:10%;bottom:0;height:3px;border-radius:3px 3px 0 0;background:rgba(255,255,255,.12)}
+.chaps a .bar{position:absolute;inset-inline-start:10%;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--yel);width:calc(80% * var(--p,0));z-index:1;transition:width .15s linear}
+.chaps a.on{color:#fff}
+.chaps a.on .no{color:var(--yel);opacity:1}
+.subs{border-top:1px solid rgba(255,255,255,.08)}
+.subnav{display:none;gap:6px;overflow-x:auto;padding:8px 0;scrollbar-width:none}
+.subnav::-webkit-scrollbar{display:none}
+.subnav.on{display:flex}
+.subnav a{flex:none;font-size:14px;text-decoration:none;color:#C9D1EA;padding:5px 12px;border-radius:999px;border:1px dashed rgba(255,255,255,.25)}
+.subnav a.on{background:var(--yel);color:var(--navy);border-color:var(--yel);font-weight:600}
+
+/* ---------- chapter heads ---------- */
+.chapter{position:relative}
+.ch-head{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:start;padding-top:56px}
+.ch-no{font-size:64px;font-weight:800;line-height:.9;color:transparent;-webkit-text-stroke:2px var(--navy)}
+.ch-k{font-size:13px;font-weight:700;letter-spacing:.16em;color:var(--red);margin-top:4px}
+.ch-head h2{font-size:30px;font-weight:800;margin-top:6px}
+.ch-head .intro{grid-column:1 / -1;margin-top:10px;font-size:18px;max-width:66ch}
+.blk{padding-top:56px}
+.blk-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.blk-h h3{font-size:24px;font-weight:700}
+.blk-h .k{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--red)}
+.blk-p{margin-top:8px;max-width:66ch}
+
+/* ---------- 01 film ---------- */
+#film{background:var(--navy);color:#D5DCF0;padding-bottom:64px}
+#film .ch-no{-webkit-text-stroke-color:var(--yel)}
+#film .ch-k{color:var(--yel)}
+#film h1{color:#fff;font-size:34px;font-weight:800;margin-top:6px;letter-spacing:-.01em}
+#film .intro{color:#D5DCF0}
+.player{margin-top:26px;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 24px 60px rgba(0,0,0,.4);aspect-ratio:16/9}
 .player video{width:100%;height:100%;object-fit:cover}
 .meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
 .pill{font-size:14px;border:1px dashed rgba(255,255,255,.35);border-radius:999px;padding:5px 12px;color:#E4E9F6}
 .full{margin-inline-start:auto;font-size:15px;font-weight:600;color:var(--navy);background:var(--yel);border-radius:10px;padding:9px 16px;text-decoration:none}
-/* tabs */
-.tabs{position:sticky;top:0;z-index:10;background:rgba(246,244,238,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.tabs .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
-.tabs a{flex:none;font-size:15px;font-weight:600;text-decoration:none;color:var(--navy);padding:7px 14px;border-radius:999px;border:1px dashed #B9C1D6}
-.tabs a:hover,.tabs a:focus-visible{background:var(--navy);color:#fff;border-color:var(--navy);outline:none}
-/* sections */
-section{padding:64px 0 8px}
-.eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--red)}
-h2{font-size:30px;font-weight:700;margin-top:8px}
-.intro{margin-top:14px;font-size:18px;max-width:64ch}
-h3{font-size:21px;font-weight:700}
-/* story strip */
-.strip{margin-top:28px;display:grid;grid-auto-flow:column;grid-auto-columns:78%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
-.strip figure{margin:0;scroll-snap-align:start;background:var(--paper);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+#film .blk-h h3{color:#fff}
+#film .blk-h .k{color:var(--yel)}
+.strip{margin-top:22px;display:grid;grid-auto-flow:column;grid-auto-columns:78%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-color:rgba(255,255,255,.3) transparent}
+.strip figure{margin:0;scroll-snap-align:start;background:var(--navy2);border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
 .strip img{aspect-ratio:16/9;object-fit:cover;width:100%}
-.strip figcaption{padding:12px 14px 14px;font-size:15.5px;line-height:1.5}
-.strip figcaption b{display:block;color:var(--red);font-size:13px;letter-spacing:.06em;margin-bottom:2px}
-/* principles */
-.princ{margin-top:28px;display:grid;grid-template-columns:1fr;gap:12px}
-.pc{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 18px 20px}
-.pc .n{font-size:26px;font-weight:800;color:var(--teal);line-height:1}
-.pc h3{margin-top:10px;font-size:18px}
-.pc p{margin-top:6px;font-size:15.5px;line-height:1.55}
-/* screens */
-.scr{margin-top:40px;display:grid;gap:18px;align-items:center}
-.shot{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--paper);box-shadow:0 10px 30px rgba(27,45,107,.08)}
-.shot img{width:100%;aspect-ratio:16/9;object-fit:cover}
-.scr .num{font-size:13px;font-weight:700;letter-spacing:.1em;color:var(--red)}
-.scr h3{margin-top:6px;font-size:23px}
-.scr .body{margin-top:10px;font-size:16.5px}
+.strip figcaption{padding:12px 14px 14px;font-size:15.5px;line-height:1.5;color:#D5DCF0}
+.strip figcaption b{display:block;color:var(--yel);font-size:13px;letter-spacing:.06em;margin-bottom:2px}
+
+/* ---------- 02 product ---------- */
+#product{background:var(--paper);padding-bottom:72px}
+#product .ch-no{-webkit-text-stroke-color:var(--teal)}
+.ask3{grid-column:1 / -1;margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+.ask3 span{font-size:15px;background:var(--tealbg);color:#16524F;border-radius:999px;padding:6px 14px}
+.ask3 b{font-weight:700;margin-inline-end:4px}
+.bento{margin-top:24px;display:grid;grid-template-columns:1fr;gap:14px}
+.imp{display:flex;flex-direction:column;background:#F7F9FA;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.imp .txt{padding:18px 20px 16px}
+.imp .n{font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--teal)}
+.imp h4{font-size:20px;font-weight:700;margin-top:4px}
+.imp dl{margin:10px 0 0;display:grid;gap:6px;font-size:15px;line-height:1.5}
+.imp dt{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+.imp dd{margin:0}
+.imp dd.sol{color:var(--navy);font-weight:500}
+.zoomable{position:relative;display:block;width:100%;padding:0;border:0;background:#E9EEF2;cursor:zoom-in}
+.imp .zoomable{margin-top:auto;padding:14px 14px 0;background:linear-gradient(180deg,#F7F9FA,#E8EEF2);height:230px;overflow:hidden}
+.imp .zoomable img{width:100%;border-radius:10px 10px 0 0;box-shadow:0 -2px 16px rgba(27,45,107,.10);object-fit:cover;object-position:top}
+.zoomable .zi{position:absolute;top:10px;left:10px;width:34px;height:34px;border-radius:50%;background:rgba(19,32,79,.78);color:#fff;display:flex;align-items:center;justify-content:center;opacity:.9}
+.zoomable:hover .zi,.zoomable:focus-visible .zi{opacity:1;background:var(--navy)}
+/* tour */
+.tour{margin-top:24px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#F7F9FA}
+.ttabs{display:flex;gap:4px;overflow-x:auto;padding:10px;background:var(--paper);border-bottom:1px solid var(--line);scrollbar-width:none}
+.ttabs::-webkit-scrollbar{display:none}
+.ttabs button{flex:none;display:flex;align-items:center;gap:8px;border:1px solid transparent;background:transparent;border-radius:12px;padding:8px 12px;cursor:pointer;font-size:15px;font-weight:600;color:var(--muted)}
+.ttabs button .tn{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--line);color:var(--navy);font-size:12.5px;font-weight:700}
+.ttabs button[aria-selected="true"]{background:var(--navy);color:#fff}
+.ttabs button[aria-selected="true"] .tn{background:var(--yel)}
+.tpanel{display:grid;gap:0}
+.js .tpanel[hidden]{display:none}
+.tpanel .zoomable{background:#E9EEF2}
+.tpanel .zoomable img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.tpanel .ttxt{padding:20px 20px 22px}
+.tpanel .kick{font-size:13px;font-weight:700;letter-spacing:.1em;color:var(--red)}
+.tpanel h4{font-size:24px;font-weight:700;margin-top:4px}
+.tpanel .body{margin-top:10px;font-size:16.5px}
 .kv{margin-top:14px;display:grid;gap:8px}
 .kv div{border-radius:10px;padding:10px 14px;font-size:15px;line-height:1.5}
 .kv .ex{background:var(--tealbg);color:#16524F}
 .kv .us{background:#FFF6B8;color:#3F3A10}
-.kv b{display:block;font-size:12.5px;letter-spacing:.08em;margin-bottom:2px}
-.lamp{margin-top:40px;display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
-.lamp img{width:120px;height:120px;object-fit:contain}
+.kv b{display:block;font-size:12px;letter-spacing:.08em;margin-bottom:2px}
+.uses{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13.5px;color:var(--muted)}
+.uses a{text-decoration:none;font-weight:600;color:var(--teal);border:1px solid #BFE6E3;background:var(--paper);border-radius:999px;padding:3px 10px}
+.tnav{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
+.tnav button{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:8px 14px;cursor:pointer;font-weight:600;color:var(--navy);font-size:14.5px}
+.tnav button[disabled]{opacity:.35;cursor:default}
+.nojs-note{display:none}
+.lamp{margin-top:28px;display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:center;background:#F7F9FA;border:1px solid var(--line);border-radius:16px;padding:14px 20px}
+.lamp img{width:96px;height:96px;object-fit:contain}
 .lamp p{font-size:15.5px}
-/* about juganu + simpla */
-.years{margin-top:26px;display:grid;gap:10px}
-.yr{display:grid;grid-template-columns:62px 1fr;gap:12px;align-items:start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-.yr b{font-size:20px;font-weight:800;color:var(--navy)}
+
+/* ---------- 03 partnership ---------- */
+#partner{background:var(--cream);padding-bottom:16px}
+.gal{margin-top:22px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.tile{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.tile .zoomable img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.tile.phones .zoomable{display:flex;justify-content:center;gap:10px;padding:10px;background:#E9EEF2;aspect-ratio:16/10;min-height:0;overflow:hidden}
+.tile.phones .zoomable img{height:100%;max-height:100%;min-height:0;width:auto;aspect-ratio:auto;object-fit:contain;border-radius:10px;box-shadow:0 2px 10px rgba(27,45,107,.12)}
+.tile figcaption{padding:10px 12px 12px;font-size:14.5px;line-height:1.45}
+.tile figcaption b{display:block;color:var(--navy);font-size:15px}
+.tile figcaption span{color:var(--muted);font-size:13px}
+details.more{margin-top:14px;background:var(--paper);border:1px solid var(--line);border-radius:14px}
+details.more>summary{list-style:none;cursor:pointer;padding:14px 18px;font-weight:600;color:var(--navy);display:flex;align-items:center;justify-content:space-between;gap:10px}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary .chev{transition:transform .2s}
+details[open]>summary .chev{transform:rotate(180deg)}
+details.more .in{padding:0 18px 16px}
+.years{display:grid;gap:8px}
+.yr{display:grid;grid-template-columns:56px 1fr;gap:10px;align-items:start}
+.yr b{font-size:18px;font-weight:800;color:var(--navy)}
 .yr .tags{display:flex;flex-wrap:wrap;gap:6px}
-.yr .tags span{font-size:14px;border:1px dashed #B9C1D6;border-radius:999px;padding:3px 10px;color:var(--navy)}
-.note{margin-top:16px;font-size:16px;color:var(--navy);font-weight:500;border-inline-start:4px solid var(--yel);padding-inline-start:12px}
-.cards{margin-top:26px;display:grid;grid-template-columns:1fr;gap:12px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 18px 20px}
-.card .when{font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--red)}
-.card h3{margin-top:6px;font-size:19px}
-.card p{margin-top:6px;font-size:15.5px;line-height:1.55}
-.partners{margin-top:14px;font-size:15.5px;color:var(--muted)}
-.steps3{margin-top:22px;display:grid;grid-template-columns:1fr;gap:12px}
-.steps3 .card .n{font-size:30px;font-weight:800;color:var(--yel);-webkit-text-stroke:1.5px var(--navy);line-height:1}
-.tbl{margin-top:22px;overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
-table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
-th,td{text-align:right;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-size:13px;letter-spacing:.06em;color:var(--muted);font-weight:600;background:#FAFAF7}
-td.m{font-weight:800;color:var(--navy);font-size:18px;width:56px}
+.yr .tags span{font-size:13.5px;border:1px dashed #B9C1D6;border-radius:999px;padding:2px 10px;color:var(--navy)}
+.today{margin-top:16px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.mini{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.mini .when{font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--red)}
+.mini h4{font-size:16.5px;margin-top:4px}
+.mini p{font-size:14.5px;margin-top:4px;line-height:1.5}
+.small{margin-top:12px;font-size:15px;color:var(--muted)}
+/* roadmap accordion */
+.acc{margin-top:22px;display:grid;gap:10px}
+.acc details{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.acc summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:16px 18px}
+.acc summary::-webkit-details-marker{display:none}
+.acc .ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff}
+.acc .st{font-size:19px;font-weight:700;color:var(--navy)}
+.acc .ss{display:block;font-size:13.5px;color:var(--muted);font-weight:400}
+.acc .cnt{font-size:12px;font-weight:700;color:#fff;background:#D7263D;border-radius:999px;min-width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;padding:0 7px;margin-inline-start:6px;vertical-align:2px}
+.acc .chev{transition:transform .2s;color:var(--navy)}
+.acc ol{margin:0;padding:0 18px 16px;list-style:none;display:grid;gap:8px}
+.acc li{display:grid;grid-template-columns:1fr;gap:4px;padding:12px 14px;border-radius:12px;background:#F7F8FA}
+.acc li b{color:var(--navy);font-size:16px}
+.acc li p{font-size:14.5px;line-height:1.5}
+.acc li .tg{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tg span{font-size:12px;font-weight:600;border-radius:999px;padding:2px 9px;background:var(--line);color:var(--navy)}
+.tg span.rd{background:var(--tealbg);color:#16524F}
+.tbl{margin-top:16px;overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:15px}
+th,td{text-align:right;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12.5px;letter-spacing:.06em;color:var(--muted);font-weight:600;background:#FAFAF7}
+td.m{font-weight:800;color:var(--navy);font-size:17px;width:56px}
 tr:last-child td{border-bottom:0}
-.prices{margin-top:26px;display:grid;grid-template-columns:1fr;gap:14px}
-.price{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px 20px;position:relative}
-.price .k{font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--red)}
-.price h3{margin-top:4px;font-size:21px}
-.price .amt{margin-top:12px;font-size:40px;font-weight:800;color:var(--navy);line-height:1}
-.price .vat{font-size:14px;color:var(--muted);margin-top:4px}
-.price ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:7px;font-size:15.5px}
-.price li{display:flex;gap:8px;align-items:flex-start}
-.price li svg{flex:none;margin-top:5px}
-.price .fit{margin-top:14px;font-size:14px;color:var(--muted)}
-.price.best{background:var(--navy);border-color:var(--navy);color:#D5DCF0}
-.price.best h3,.price.best .amt{color:#fff}
-.price.best .k{color:var(--yel)}
-.price.best .vat,.price.best .fit{color:#AFBAD9}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.hl td{background:#FFFBE0;font-weight:600;color:var(--navy)}
+/* plans */
+.plans{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px}
+.plan{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px 20px;position:relative;display:flex;flex-direction:column}
+.plan .k{font-size:12.5px;font-weight:700;letter-spacing:.1em;color:var(--red)}
+.plan h4{margin-top:4px;font-size:21px}
+.plan .amt{margin-top:14px;display:flex;align-items:baseline;gap:8px}
+.plan .amt b{font-size:42px;font-weight:800;color:var(--navy);line-height:1;font-variant-numeric:tabular-nums}
+.plan .amt span{font-size:14px;color:var(--muted)}
+.plan .hrs{margin-top:8px;font-size:14.5px;color:var(--text)}
+.plan .hrs b{color:var(--navy)}
+.meter{margin-top:12px;height:12px;border-radius:999px;background:#EEF1F5;overflow:hidden;display:flex}
+.meter i{display:block;height:100%}
+.legend{margin-top:8px;display:flex;flex-wrap:wrap;gap:10px;font-size:12.5px;color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--c);margin-inline-end:5px;vertical-align:-1px}
+.plan ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:15.5px;line-height:1.5}
+.plan li{display:flex;gap:9px;align-items:flex-start}
+.plan li svg{flex:none;margin-top:4px}
+.plan .fit{margin-top:auto;padding-top:16px;font-size:14px;color:var(--muted)}
+.plan.best{background:var(--navy);border-color:var(--navy);color:#D5DCF0}
+.plan.best h4,.plan.best .amt b,.plan.best .hrs b{color:#fff}
+.plan.best .k{color:var(--yel)}
+.plan.best .amt span,.plan.best .fit,.plan.best .legend{color:#AFBAD9}
+.plan.best .hrs{color:#D5DCF0}
+.plan.best .meter{background:rgba(255,255,255,.12)}
 .badge{position:absolute;top:18px;left:18px;font-size:12.5px;font-weight:700;background:var(--yel);color:var(--navy);border-radius:999px;padding:4px 10px}
-.addon{margin-top:14px;font-size:15px;color:var(--muted)}
-.pilot{margin-top:26px;display:grid;grid-template-columns:1fr;gap:14px}
-.pilot .card h3{font-size:20px}
-.checks{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:9px;font-size:15.5px}
+.save{margin-top:12px;font-size:14px;font-weight:600;color:var(--navy);background:var(--yel);border-radius:10px;padding:8px 12px}
+.pilot{margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card .when{font-size:12.5px;font-weight:700;letter-spacing:.08em;color:var(--red)}
+.card h4{font-size:19px;margin-top:4px}
+.card p{margin-top:8px;font-size:15.5px}
+.checks{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:9px;font-size:15.5px}
 .checks li{display:flex;gap:10px;align-items:flex-start}
-.checks svg{flex:none;margin-top:4px}
-.about{margin-top:26px;display:grid;grid-template-columns:1fr;gap:16px}
-.about ul{margin:0;padding:0 18px 0 0;display:grid;gap:8px;font-size:16px}
+.checks svg{flex:none;margin-top:4px;color:var(--teal)}
+.flow{margin-top:14px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.flow div{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.flow b{display:block;font-size:22px;font-weight:800;color:var(--teal);line-height:1}
+.flow h5{margin:6px 0 0;font-size:16px;color:var(--navy)}
+.flow p{font-size:14px;margin-top:2px;line-height:1.45}
+.me{margin-top:22px;display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
+.me ul{padding:0 18px 0 0;display:grid;gap:8px;font-size:16px}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.stat{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 12px;text-align:center}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 10px;text-align:center}
 .stat b{display:block;font-size:34px;font-weight:800;color:var(--navy);line-height:1}
-.stat span{display:block;margin-top:6px;font-size:13.5px;line-height:1.4;color:var(--muted)}
-.next{background:var(--navy);color:#D5DCF0;margin-top:64px;padding:56px 0}
-.next h2{color:#fff}
-.next .eyebrow{color:var(--yel)}
-.next .steps3 .card{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#D5DCF0}
-.next .steps3 .card h3{color:#fff}
-.contact{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.stat span{display:block;margin-top:6px;font-size:13px;line-height:1.4;color:var(--muted)}
+.next{background:var(--navy);color:#D5DCF0;margin-top:64px;padding:52px 0 56px}
+.next h3{color:#fff;font-size:28px;margin-top:6px}
+.next .k{font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--yel)}
+.steps{margin-top:22px;display:grid;grid-template-columns:1fr;gap:10px}
+.steps div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:16px 18px}
+.steps b{font-size:28px;font-weight:800;color:var(--yel);line-height:1}
+.steps h5{margin:8px 0 0;font-size:18px;color:#fff}
+.steps p{font-size:15px;margin-top:4px}
+.contact{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .contact .who{font-size:18px;color:#fff;font-weight:600;margin-inline-end:8px}
 .btn{display:inline-flex;align-items:center;gap:8px;font-size:15.5px;font-weight:600;text-decoration:none;border-radius:10px;padding:10px 16px}
 .btn.y{background:var(--yel);color:var(--navy)}
 .btn.o{border:1.5px solid rgba(255,255,255,.4);color:#fff}
-footer{padding:26px 0 40px;font-size:14px;color:var(--muted)}
-a:focus-visible,.btn:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
+footer{background:var(--navy3);color:#8F9BC0;padding:22px 0 32px;font-size:14px}
+
+/* ---------- lightbox ---------- */
+dialog.lb{width:100vw;height:100vh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:rgba(9,14,32,.96);color:#fff}
+dialog.lb::backdrop{background:rgba(9,14,32,.9)}
+.lb .stage{position:absolute;inset:56px 0 64px;overflow:auto;display:flex;align-items:center;justify-content:center}
+.lb .stage img{max-width:96vw;max-height:100%;object-fit:contain;cursor:zoom-in;border-radius:8px}
+.lb .stage.z{align-items:flex-start;justify-content:flex-start}
+.lb .stage.z img{max-width:none;max-height:none;width:calc(min(2400px,190vw));cursor:zoom-out}
+.lb .lbtop{position:absolute;top:0;inset-inline:0;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:14px;color:#C9D1EA}
+.lb .lbbot{position:absolute;bottom:0;inset-inline:0;min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 14px}
+.lb .cap{flex:1;text-align:center;font-size:15px;color:#E4E9F6;line-height:1.45}
+.lb button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
+.lb button:hover{background:rgba(255,255,255,.16)}
+.lb .hint{font-size:13px;color:#8F9BC0;direction:ltr;unicode-bidi:isolate}
+
 @media (min-width:760px){
-  .hero{padding-bottom:64px}
-  .hero h1{font-size:52px}
-  h2{font-size:40px}
-  .strip{grid-auto-columns:300px}
-  .princ{grid-template-columns:repeat(2,1fr)}
-  .cards,.steps3{grid-template-columns:repeat(2,1fr)}
-  .prices{grid-template-columns:repeat(3,1fr)}
+  :root{--hdr:112px}
+  .imp:nth-child(-n+2) .zoomable{height:250px}
+  .brand{display:flex}
+  .chaps{flex:none;grid-template-columns:repeat(3,minmax(150px,auto));margin-inline-start:auto}
+  .chaps a{padding:16px 22px 15px;font-size:16px}
+  .ch-no{font-size:92px}
+  .ch-head{padding-top:80px;gap:6px 26px}
+  .ch-head h2{font-size:40px}
+  #film h1{font-size:50px}
+  .strip{grid-auto-columns:290px}
+  .bento{grid-template-columns:repeat(6,1fr)}
+  .imp{grid-column:span 3}
+  .imp:nth-child(n+3){grid-column:span 2}
+  .gal{grid-template-columns:repeat(3,1fr);gap:14px}
+  .today{grid-template-columns:repeat(4,1fr)}
+  .plans{grid-template-columns:repeat(3,1fr)}
   .pilot{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:repeat(4,1fr)}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .acc li{grid-template-columns:1fr auto;align-items:center;gap:4px 16px}
+  .acc li .tg{margin-top:0;grid-row:1 / span 2;grid-column:2}
 }
 @media (min-width:1024px){
-  section{padding-top:88px}
-  .princ{grid-template-columns:repeat(5,1fr)}
-  .scr{grid-template-columns:1.45fr 1fr;gap:36px}
-  .scr.flip{grid-template-columns:1fr 1.45fr}
-  .scr.flip .shot{order:2}
-  .cards{grid-template-columns:repeat(4,1fr)}
-  .steps3{grid-template-columns:repeat(3,1fr)}
-  .about{grid-template-columns:1.3fr 1fr;align-items:start}
+  .tpanel{grid-template-columns:1.55fr 1fr}
+  .tpanel .ttxt{padding:24px 26px}
+  .me{grid-template-columns:1.3fr 1fr}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.chaps a .bar{transition:none}}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ck" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="ph" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol><symbol id="ml" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol><symbol id="pl" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></symbol></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="ck" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="ph" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+<symbol id="ml" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+<symbol id="zm" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5L21 21M10.5 7.5v6M7.5 10.5h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="cr" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="cl" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="cd" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-prod" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 21h8M12 17v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-mkt" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 10l5-3v10l-5-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+<symbol id="i-ai" viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.6L12 15l-1.8-4.4L5.5 9l4.7-1.4zM18 15l.9 2.1 2.1.9-2.1.9L18 21l-.9-2.1L15 18l2.1-.9z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+</svg>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="brand"><span><b>SIMPLA</b> × JUGANU</span><span>אוקטובר 2026</span></div>
-    <p class="eyebrow">סרט קונספט להשקת <span class="en">Juganu AI</span></p>
-    <h1>לילה אחד בעיר. ארבע שאלות. הפנסים עונים.</h1>
-    <p class="lede"><span class="en">Concert Night</span> הוא סרט של 94 שניות שהפקנו עבור <span class="en">Juganu</span>. מגיעים 12,000 איש להופעה, ומנהל התפעול של העיר מנהל את הערב רק בשאלות. כל תשובה הופכת להחלטה.</p>
-    <div class="player"><video controls playsinline preload="metadata" poster="img/poster.webp"><source src="media/concert-night.mp4" type="video/mp4"></video></div>
-    <div class="meta"><span class="pill">94 שניות</span><span class="pill">ריאליסטי</span><span class="pill">פנסי Solitaire</span><span class="pill">נתוני דוגמה</span><a class="full" href="video.html">לצפייה במסך מלא</a></div>
+<header class="top">
+  <div class="wrap row1">
+    <span class="brand"><b>SIMPLA</b>&nbsp;×&nbsp;JUGANU</span>
+    <nav class="chaps" aria-label="פרקים">
+      <a href="#film" data-ch="film"><span class="no">01</span><span>הסרט</span><span class="bar"></span></a>
+      <a href="#product" data-ch="product"><span class="no">02</span><span>המוצר</span><span class="bar"></span></a>
+      <a href="#partner" data-ch="partner"><span class="no">03</span><span>השותפות</span><span class="bar"></span></a>
+    </nav>
   </div>
+  <div class="subs"><div class="wrap">
+    <nav class="subnav" data-for="film" aria-label="בפרק הסרט"><a href="#film">הסרט</a><a href="#story">הסיפור בשבעה רגעים</a></nav>
+    <nav class="subnav" data-for="product" aria-label="בפרק המוצר"><a href="#improve">חמישה שיפורים</a><a href="#tour">סיור בשישה מסכים</a></nav>
+    <nav class="subnav" data-for="partner" aria-label="בפרק השותפות"><a href="#built">מה בנינו יחד</a><a href="#roadmap">מה נבנה יחד</a><a href="#plans">מסלולים</a><a href="#pilot">פיילוט</a><a href="#me">מי אני</a><a href="#next">הצעד הבא</a></nav>
+  </div></div>
 </header>
 
-<nav class="tabs" aria-label="ניווט בעמוד"><div class="wrap"><a href="#story">הסיפור</a><a href="#screens">המסכים והמוצר</a><a href="#together">Juganu ו-Simpla</a><a href="#offer">ההצעה</a><a href="#tracks">מסלולים</a><a href="#me">מי אני</a><a href="#next">הצעד הבא</a></div></nav>
-
 <main>
-<section id="story"><div class="wrap">
-  <p class="eyebrow">01 · הסיפור</p>
-  <h2>האם העיר מוכנה להערב?</h2>
-  <p class="intro">אירוע גדול הוא הלילה שבו כל מחלקה בעיר צריכה תשובות: תאורה, תנועה, אבטחה ותקשורת. בסרט, דניאל מתפעול העיר לא מחפש במערכות. הוא שואל, והפנסים ברחוב עונים.</p>
-  <div class="strip">
-    <figure><img src="img/s-town-green.webp" alt="כר הדשא בשקיעה, במה נבנית ושורות פנסי Solitaire" loading="lazy"><figcaption><b>17:12</b>הבמה עולה ו-12,000 איש בדרך.</figcaption></figure>
-    <figure><img src="img/s-aerial.webp" alt="מבט רחפן מלמעלה על הפארק ועל פריסת הפנסים" loading="lazy"><figcaption><b>מלמעלה</b>כל פנס הוא נקודה ברשת אחת, וכל נקודה מופיעה במפה.</figcaption></figure>
-    <figure><img src="img/s-fix.webp" alt="טכנאי במנוף מתקן פנס ליד החניון" loading="lazy"><figcaption><b>18:40</b>שלושה פנסים כבויים ליד החניון. מתוקנים לפני השקיעה.</figcaption></figure>
-    <figure><img src="img/s-show.webp" alt="קהל גדול מול במה מוארת בלילה" loading="lazy"><figcaption><b>20:40</b>דשבורד שנבנה ממשפט אחד מלווה את הערב.</figcaption></figure>
-    <figure><img src="img/s-crossing.webp" alt="שוטר מכוון הולכי רגל במעבר חציה מואר" loading="lazy"><figcaption><b>20:45</b>הקהל חוצה באמצע הרחוב. תשובה אחת מביאה אור מלא ושוטר.</figcaption></figure>
-    <figure><img src="img/s-together.webp" alt="אמא מחבקת את בנה ליד המזרקה" loading="lazy"><figcaption><b>21:40</b>ילד נעלם בקהל, ונמצא תוך ארבע דקות.</figcaption></figure>
-    <figure><img src="img/s-after.webp" alt="שביל ריק ופנסים מעומעמים בלילה" loading="lazy"><figcaption><b>23:45</b>הקהל הולך, והפנסים מתעמעמים לבד.</figcaption></figure>
-  </div>
-</div></section>
+<!-- ================= 01 FILM ================= -->
+<section id="film" class="chapter" data-chapter="film">
+  <div class="wrap">
+    <div class="ch-head">
+      <span class="ch-no" aria-hidden="true">01</span>
+      <div><p class="ch-k">הסרט · סרט קונספט להשקת <span class="en">Juganu AI</span></p>
+      <h1>לילה אחד בעיר. ארבע שאלות. הפנסים עונים.</h1></div>
+      <p class="intro"><span class="en">Concert Night</span> הוא סרט של 94 שניות שהפקנו עבור <span class="en">Juganu</span>. מגיעים 12,000 איש להופעה, ומנהל התפעול של העיר מנהל את הערב רק בשאלות. כל תשובה הופכת להחלטה.</p>
+    </div>
+    <div class="player"><video controls playsinline preload="metadata" poster="img/poster.webp"><source src="media/concert-night.mp4" type="video/mp4"></video></div>
+    <div class="meta"><span class="pill">94 שניות</span><span class="pill">ריאליסטי</span><span class="pill">פנסי Solitaire</span><span class="pill">נתוני דוגמה</span><a class="full" href="video.html">לצפייה במסך מלא</a></div>
 
-<section id="screens"><div class="wrap">
-  <p class="eyebrow">02 · המסכים והמוצר</p>
-  <h2><span class="en">Juganu AI</span> כבר עונה. אנחנו מוסיפים את מה שהופך תשובה להחלטה.</h2>
-  <p class="intro">בסרט יש שישה מסכים, כולם בשפה של הדשבורד של Juganu. כל מסך נשען על יכולת שכבר קיימת במוצר, ומוסיף לה חמישה שיפורים של חוויה ואמון.</p>
-  <div class="princ">
-    <div class="pc"><span class="n">01</span><h3>כרטיס תשובה</h3><p>מספר אחד ברור, משפט הסבר והצעד הבא. במקום טקסט חופשי ושמות של API.</p></div>
-    <div class="pc"><span class="n">02</span><h3>מה המערכת הבינה</h3><p>צ׳יפים של מקום, זמן ומקור. המפעיל רואה איך השאלה פורשה לפני שהוא פועל.</p></div>
-    <div class="pc"><span class="n">03</span><h3>מתשובה לפעולה</h3><p>הזמנת עבודה, שינוי תאורה, שוטר בשטח או חוק קבוע. לחיצה אחת, עם אישור ותיעוד.</p></div>
-    <div class="pc"><span class="n">04</span><h3>כל תשובה על המפה</h3><p>מיני-מפה על צילום האוויר מחברת כל מספר לפנס אמיתי בפריסה של העיר.</p></div>
-    <div class="pc"><span class="n">05</span><h3>שכבת אמון</h3><p>ספירות ולא זהויות. פנים מטושטשות, בלי זיהוי פנים, וכל שאילתה נרשמת.</p></div>
-  </div>
-
-  <article class="scr">
-    <figure class="shot"><img src="img/ui-map.webp" alt="Map View עם סמן על כל פנס וכרטיס של פנס Jug_031" loading="lazy"></figure>
-    <div><p class="num">מסך 1 · <span class="en">Map View</span></p><h3>הרשת כולה במבט אחד</h3>
-      <p class="body">צילום הרחפן הופך למפה, וכל סמן יושב על פנס אמיתי. קבוצות התאורה מסומנות על הפארק. לחיצה על פנס פותחת כרטיס עם המצלמות, מצב התאורה ומספר המכשירים המחוברים ל-Wi-Fi.</p>
-      <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>Map View, כרטיס מכשיר ומקרא סטטוס.</div><div class="us"><b>השיפור שלנו</b>מעבר ישיר מהשטח למפה, וכרטיס אחד שמרכז מצלמות, תאורה ו-Wi-Fi.</div></div></div>
-  </article>
-
-  <article class="scr flip">
-    <figure class="shot"><img src="img/ui-lights.webp" alt="AI Assistant: 135 מתוך 138 פנסים דולקים, שלושה כבויים מסומנים על המפה" loading="lazy"></figure>
-    <div><p class="num">מסך 2 · שאלה ראשונה</p><h3>כל הפנסים סביב הדשא עובדים?</h3>
-      <p class="body">135 מתוך 138 דולקים. שלושה כבויים ביציאה מהחניון, והם מסומנים על המפה. הזמנת עבודה יוצאת לצוות השטח בלחיצה אחת.</p>
-      <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>ה-AI Assistant עונה על מצב התאורה מתוך ה-LMS.</div><div class="us"><b>השיפור שלנו</b>כרטיס תשובה, הפנסים הכבויים על המפה, והזמנת עבודה מתוך התשובה.</div></div></div>
-  </article>
-
-  <article class="scr">
-    <figure class="shot"><img src="img/ui-dashboard.webp" alt="דשבורד חי שנבנה ממשפט אחד: מבקרים, הגעה לפי שער, קו ספירה ו-Wi-Fi" loading="lazy"></figure>
-    <div><p class="num">מסך 3 · שאלה שנייה</p><h3>דשבורד לערב, ממשפט אחד</h3>
-      <p class="body">מבקרים על הדשא, הגעה לפי שער, קו ספירה על מצלמת השער, ועומס Wi-Fi לפי פנס. הדשבורד נשמר כלשונית ומשותף עם צוות האירוע.</p>
-      <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>דשבורד שנוצר מפרומפט, ושמירה כלשונית.</div><div class="us"><b>השיפור שלנו</b>רכיבים בשפת המוצר, קו ספירה מה-Marking Tool בתוך הדשבורד, ושיתוף עם הצוות.</div></div></div>
-  </article>
-
-  <article class="scr flip">
-    <figure class="shot"><img src="img/ui-traffic.webp" alt="412 חציות מחוץ למעבר ו-37 רוכבים על המדרכה, עם שתי פעולות" loading="lazy"></figure>
-    <div><p class="num">מסך 4 · שאלה שלישית</p><h3>איפה חוצים מחוץ למעבר?</h3>
-      <p class="body">412 חציות ביציאה מהחניון ו-37 רוכבים על המדרכה, עם נקודה חמה על המפה. מאותה תשובה: אור מלא בקבוצת התאורה של החניון, ושוטר למעבר.</p>
-      <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>Custom Analytics לחציות ולרכיבה על מדרכה, ו-Light Configuration.</div><div class="us"><b>השיפור שלנו</b>שתי פעולות ישירות מתוך התשובה, עם אישור ותיעוד.</div></div></div>
-  </article>
-
-  <article class="scr">
-    <figure class="shot"><img src="img/ui-search.webp" alt="חיפוש בתמונות: שלוש תוצאות עם פנים מטושטשות ומסלול על המפה" loading="lazy"></figure>
-    <div><p class="num">מסך 5 · שאלה רביעית</p><h3>ילד שנעלם בקהל</h3>
-      <p class="body">חיפוש בתמונות מהמצלמות ליד המגרש, לפי צבע הקפוצ׳ון. שלוש תוצאות עם פנים מטושטשות, מסלול על המפה, והמיקום נשלח לשוטר. החיפוש נרשם כתיק.</p>
-      <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>חיפוש בתמונות מהמצלמות, בשפה חופשית.</div><div class="us"><b>השיפור שלנו</b>מחפשים לפי בגדים ולא לפי פנים. טשטוש, הרשאת מפעיל, תיעוד ומסלול על המפה.</div></div></div>
-  </article>
-
-  <article class="scr flip">
-    <figure class="shot"><img src="img/ui-light-config.webp" alt="Light Configuration: קבוצת Town Green מתעמעמת ל-30% אחרי האירוע" loading="lazy"></figure>
-    <div><p class="num">מסך 6 · <span class="en">Light Configuration</span></p><h3>אחרי ההופעה</h3>
-      <p class="body">תזמון מיוחד לערב האירוע, ועמעום ל-30% ב-23:45, כשהמבקרים האחרונים יוצאים. כל שינוי נרשם.</p>
-      <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>קבוצות תאורה, תזמונים ושליטה חיה.</div><div class="us"><b>השיפור שלנו</b>תזמון אירוע שנפתח מתוך הדשבורד, ועמעום אחרי שהספירה מראה שהדשא התרוקן.</div></div></div>
-  </article>
-
-  <div class="lamp"><img src="img/solitaire.webp" alt="פנס Solitaire של Juganu" loading="lazy"><p><b style="color:var(--navy)">הפנס בסרט: Solitaire.</b> בנינו את כל הפריימים לפי תמונות הקטלוג של Juganu, עם החיישנים בשולי הכיפה. כל המספרים בסרט ובמסכים הם נתוני דוגמה.</p></div>
-</div></section>
-
-<section id="together"><div class="wrap">
-  <p class="eyebrow">03 · Juganu ו-Simpla</p>
-  <h2>חמש שנים של מוצר ומרקטינג, מאי 2021 עד מאי 2026</h2>
-  <p class="intro">עיצבנו יחד את המסכים, ובמקביל בנינו את החומרים שמוכרים אותם. מכאן מגיע הזיכרון של המוצר, ומכאן ההצעה.</p>
-  <div class="years">
-    <div class="yr"><b>2021</b><div class="tags"><span>Smart City Dashboard</span><span>Retail Dashboard</span><span>לוגו ושפת מסכים</span><span>דוח Overview במייל</span></div></div>
-    <div class="yr"><b>2022</b><div class="tags"><span>Marking Tool</span><span>אפליקציה לעובדי חנות</span><span>Heatmap ותורים</span><span>Shelves Monitoring</span><span>Rule chain</span></div></div>
-    <div class="yr"><b>2023</b><div class="tags"><span>ספירת רכבים ותנועה</span><span>Vendors</span><span>אפליקציית Carrefour</span><span>עיצוב Sisense</span><span>סרטוני NRF</span></div></div>
-    <div class="yr"><b>2024</b><div class="tags"><span>LMS לניהול תאורה</span><span>הטמעת המותג החדש</span><span>Future Capabilities</span><span>עיצוב Rules</span></div></div>
-    <div class="yr"><b>2025</b><div class="tags"><span>אתר Juganu</span><span>City Pages</span><span>קבוצות תאורה</span><span>מצגות CV2X ו-Smart City</span></div></div>
-    <div class="yr"><b>2026</b><div class="tags"><span>מצגת City</span><span>סרטי מוצר</span><span>חומרים למכירות בארה״ב</span></div></div>
-  </div>
-  <p class="note">המסכים שבנינו יחד הם הבסיס של מה ש-Juganu מוכרת היום: אזורים וקווים, דשבורדים ומפות חום, תצוגה חיה, Wi-Fi ושליטה בתאורה.</p>
-
-  <h3 style="margin-top:48px;font-size:26px">Juganu ב-2026: AI על כל עמוד תאורה</h3>
-  <div class="cards">
-    <div class="card"><p class="when">אוגוסט 2024</p><h3>Peachtree Corners</h3><p>פריסת עיר חכמה מלאה ראשונה בארה״ב.</p></div>
-    <div class="card"><p class="when">אוקטובר 2025</p><h3>Bellevue</h3><p>Civic Innovation Challenge ופיילוט לניהול שולי מדרכה.</p></div>
-    <div class="card"><p class="when">מרץ 2026</p><h3>NVIDIA Cosmos Reason</h3><p>AI שמאמת כל אירוע ומפחית התראות שווא. הוצג ב-ISC West.</p></div>
-    <div class="card"><p class="when">2026</p><h3>המיקוד: ערים בצפון אמריקה</h3><p>הנהלה ייעודית לערים בארה״ב, וקמעונאות ממשיכה במקביל.</p></div>
-  </div>
-  <p class="partners">רשת השותפים: ONE City, nureal.ai, NVIDIA, SmartWAVE ו-Siemens Xcelerator. מי שכותב את התוכן של השותף, קובע איך Juganu נראית בשוק.</p>
-
-  <h3 style="margin-top:48px;font-size:26px">מה משתנה בממשק כשה-AI מבין וידאו</h3>
-  <div class="steps3">
-    <div class="card"><span class="n">01</span><h3 style="margin-top:10px">לשאול</h3><p>המפעיל שואל בשפה חופשית ומקבל תשובה, וידאו ומפה. לא טבלאות.</p></div>
-    <div class="card"><span class="n">02</span><h3 style="margin-top:10px">לאמת</h3><p>כל התראה מגיעה עם הסבר: למה היא אמיתית ומה נפסל.</p></div>
-    <div class="card"><span class="n">03</span><h3 style="margin-top:10px">לפעול</h3><p>מתשובה אחת נוצר חוק, ומהחוק התראה לשטח.</p></div>
-  </div>
-  <p class="note">את שלוש השכבות כבר עיצבנו יחד, בלי AI: Dashboard, Marking Tool ו-Rules.</p>
-</div></section>
-
-<section id="offer"><div class="wrap">
-  <p class="eyebrow">04 · ההצעה</p>
-  <h2>מוצר, מרקטינג והטמעת AI, בריטיינר אחד</h2>
-  <p class="intro">אני מחזיק את הזיכרון של המוצר וגם את השפה של המרקטינג. לכן אותו צוות מעצב את המסך ומספר עליו.</p>
-  <div class="cards">
-    <div class="card"><p class="when">מוצר לערים · מוכן</p><h3>שכבת החוויה של Juganu AI</h3><p>Ask the City: כרטיס תשובה, אימות עם הסבר, ושאלה שהופכת לחוק. אפיון, PRD ואב-טיפוס לחיץ מוכנים.</p></div>
-    <div class="card"><p class="when">מוצר לקמעונאות · הבא בתור</p><h3>Store Pulse</h3><p>סיכום משמרת למנהל החנות בנייד: תורים, מדפים ריקים ואירועים חריגים, עם וידאו ומשימה לעובד.</p></div>
-    <div class="card"><p class="when">מרקטינג · מוכן</p><h3>סרטים להשקה ולמכירה</h3><p>Concert Night, וסרט הפרסונות One City, Three Questions בגרסה ריאליסטית ובחימר. לדמו במכירות, ל-LinkedIn ולכנסים.</p></div>
-    <div class="card"><p class="when">הטמעת AI · בצוותים</p><h3>צוות שעובד עם AI לבד</h3><p>סדנה לצוות המוצר, ספריית פרומפטים לשיווק, וסוכן תוכן שהצוות מפעיל בלי Simpla.</p></div>
-  </div>
-  <h3 style="margin-top:48px;font-size:26px">שלושת החודשים הראשונים</h3>
-  <div class="tbl"><table>
-    <thead><tr><th>חודש</th><th>עיצוב ואפיון מוצר</th><th>מרקטינג</th><th>הטמעת AI</th></tr></thead>
-    <tbody>
-      <tr><td class="m">1</td><td>שכבת החוויה ל-Juganu AI, אב-טיפוס לחיץ</td><td>סרטון דמו של 60 שניות ומצגת Bellevue</td><td>סדנת AI לצוות המוצר</td></tr>
-      <tr><td class="m">2</td><td>Rules בשפה טבעית</td><td>ערכת מכירה לרשויות בארה״ב</td><td>ספריית פרומפטים לשיווק</td></tr>
-      <tr><td class="m">3</td><td>שכבת הסבר AI ל-Shelf Monitoring</td><td>חומרים לכנסי האביב, וגרסה בעברית ל-ONE City</td><td>סוכן תוכן שהצוות מפעיל לבד</td></tr>
-    </tbody>
-  </table></div>
-  <p class="partners">התוכנית נקבעת יחד בפגישת הפתיחה.</p>
-</div></section>
-
-<section id="tracks"><div class="wrap">
-  <p class="eyebrow">05 · מסלולים ותנאים</p>
-  <h2>שלושה ריטיינרים, שלושה מחירים</h2>
-  <div class="prices">
-    <div class="price"><p class="k">מוצר</p><h3>עיצוב ואפיון מוצר</h3><p class="amt">22,000</p><p class="vat">שקלים לחודש, לפני מע״מ</p>
-      <ul><li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>אפיון, UX/UI ואב-טיפוס</li><li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>Design System אחיד</li><li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>יעד מוצר מדיד בכל חודש</li></ul><p class="fit">כשהמיקוד הוא הממשק</p></div>
-    <div class="price"><p class="k">מרקטינג</p><h3>מרקטינג</h3><p class="amt">10,000</p><p class="vat">שקלים לחודש, לפני מע״מ</p>
-      <ul><li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>סרטים ודמו ב-AI</li><li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>מצגות, RFP ותיקי לקוח</li><li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>יעד תוכן מדיד בכל חודש</li></ul><p class="fit">כשהמיקוד הוא המכירה</p></div>
-    <div class="price best"><span class="badge">מומלץ</span><p class="k">משולב</p><h3>מוצר ומרקטינג יחד</h3><p class="amt">26,000</p><p class="vat">שקלים לחודש, לפני מע״מ</p>
-      <ul><li><svg width="16" height="16" style="color:var(--yel)"><use href="#ck"/></svg>כל מה שבשני המסלולים</li><li><svg width="16" height="16" style="color:var(--yel)"><use href="#ck"/></svg>הטמעת AI בצוותים</li><li><svg width="16" height="16" style="color:var(--yel)"><use href="#ck"/></svg>פיילוט 90 יום ושלושה יעדים</li></ul><p class="fit">6,000 פחות משני ריטיינרים נפרדים</p></div>
-  </div>
-  <p class="addon">תוספות: ערכות תוכן לשותפים ב-6,000 לחודש או כערכה חד-פעמית, ו-Sprint לכנס לפי פרויקט.</p>
-
-  <div class="pilot">
-    <div class="card"><p class="when">המסגרת</p><h3>פיילוט של 90 יום, בריטיינר המשולב</h3><p style="margin-top:8px">דצמבר 2026 עד פברואר 2027. אפשר לצאת בסוף כל חודש, בלי קנס. בסוף כל חודש: ציון, משוב ונקודת יציאה.</p>
-      <p style="margin-top:12px"><b style="color:var(--navy)">איך עובדים:</b> בריף של שעה עם יעד ומדד לכל תוצר, גרסה ראשונה תוך 5 ימי עבודה, סקירה שבועית קצרה, וסיכום חודשי. כל תוצר נבנה בשפת המותג של Juganu, והקבצים, הפרומפטים ותהליכי העבודה נשארים אצלכם.</p></div>
-    <div class="card"><p class="when">איך נמדוד הצלחה</p>
-      <ul class="checks"><li><svg width="18" height="18" style="color:var(--teal)"><use href="#ck"/></svg>אב-טיפוס תוך 5 ימי עבודה מהבריף</li><li><svg width="18" height="18" style="color:var(--teal)"><use href="#ck"/></svg>לפחות דמו אחד בפגישת מכירה אמיתית</li><li><svg width="18" height="18" style="color:var(--teal)"><use href="#ck"/></svg>פי 2 נכסי תוכן בחודש לעומת 2026</li><li><svg width="18" height="18" style="color:var(--teal)"><use href="#ck"/></svg>תהליך AI אחד שהצוות מפעיל בלי Simpla</li></ul></div>
-  </div>
-</div></section>
-
-<section id="me"><div class="wrap">
-  <p class="eyebrow">06 · מי אני</p>
-  <h2>אייל גרשון, מייסד Simpla</h2>
-  <div class="about">
-    <ul>
-      <li>מעצב כבר 18 שנה, מחלוצי תחום ה-UX/UI.</li>
-      <li>ראש מחלקת פרודקט דיזיין ב-TipRanks.</li>
-      <li>מייסד Simpla: סטודיו בוטיק ל-UX ולתהליכי עבודה מבוססי AI.</li>
-      <li>מלמד AI ו-UX ב-DesignAI, ב-InMotion וב-John Bryce.</li>
-      <li>מטמיע AI בצוותי שיווק ועיצוב: Cyabra, Empathy, Moonshot, Finout, Connecteam.</li>
-      <li>יוצר ב-AI: תערוכות, וידאו ארט ופרסומות.</li>
-    </ul>
-    <div class="stats">
-      <div class="stat"><b>18</b><span>שנים בעיצוב מוצר</span></div>
-      <div class="stat"><b>5</b><span>שנים עם Juganu</span></div>
-      <div class="stat"><b>600</b><span>משתתפים בכל הרצאה מרכזית ב-DesignAI</span></div>
+    <div class="blk" id="story" data-sub="story">
+      <div class="blk-h"><span class="k">הסיפור</span><h3>האם העיר מוכנה להערב?</h3></div>
+      <p class="blk-p">אירוע גדול הוא הלילה שבו כל מחלקה בעיר צריכה תשובות: תאורה, תנועה, אבטחה ותקשורת. דניאל מתפעול העיר לא מחפש במערכות. הוא שואל, והפנסים ברחוב עונים.</p>
+      <div class="strip">
+        <figure><img src="img/s-town-green.webp" alt="כר הדשא בשקיעה, במה נבנית ושורות פנסי Solitaire" loading="lazy"><figcaption><b>17:12</b>הבמה עולה ו-12,000 איש בדרך.</figcaption></figure>
+        <figure><img src="img/s-aerial.webp" alt="מבט רחפן מלמעלה על הפארק ועל פריסת הפנסים" loading="lazy"><figcaption><b>מלמעלה</b>כל פנס הוא נקודה ברשת אחת, וכל נקודה מופיעה במפה.</figcaption></figure>
+        <figure><img src="img/s-fix.webp" alt="טכנאי במנוף מתקן פנס ליד החניון" loading="lazy"><figcaption><b>18:40</b>שלושה פנסים כבויים ליד החניון. מתוקנים לפני השקיעה.</figcaption></figure>
+        <figure><img src="img/s-show.webp" alt="קהל גדול מול במה מוארת בלילה" loading="lazy"><figcaption><b>20:40</b>דשבורד שנבנה ממשפט אחד מלווה את הערב.</figcaption></figure>
+        <figure><img src="img/s-crossing.webp" alt="שוטר מכוון הולכי רגל במעבר חציה מואר" loading="lazy"><figcaption><b>20:45</b>הקהל חוצה באמצע הרחוב. תשובה אחת מביאה אור מלא ושוטר.</figcaption></figure>
+        <figure><img src="img/s-together.webp" alt="אמא מחבקת את בנה ליד המזרקה" loading="lazy"><figcaption><b>21:40</b>ילד נעלם בקהל, ונמצא תוך ארבע דקות.</figcaption></figure>
+        <figure><img src="img/s-after.webp" alt="שביל ריק ופנסים מעומעמים בלילה" loading="lazy"><figcaption><b>23:45</b>הקהל הולך, והפנסים מתעמעמים לבד.</figcaption></figure>
+      </div>
     </div>
   </div>
-</div></section>
+</section>
+
+<!-- ================= 02 PRODUCT ================= -->
+<section id="product" class="chapter" data-chapter="product">
+  <div class="wrap">
+    <div class="ch-head">
+      <span class="ch-no" aria-hidden="true">02</span>
+      <div><p class="ch-k">המוצר · המסכים שבסרט</p>
+      <h2><span class="en">Juganu AI</span> כבר עונה. אנחנו מוסיפים את מה שהופך תשובה להחלטה.</h2></div>
+      <p class="intro">כל מסך בסרט נשען על יכולת שכבר קיימת במוצר של Juganu. מעליה אנחנו מוסיפים שכבה של חוויה ואמון, שעובדת לפי שלושה פעלים:</p>
+      <div class="ask3"><span><b>לשאול</b>בשפה חופשית, ולקבל תשובה, וידאו ומפה</span><span><b>לאמת</b>כל התראה עם הסבר: למה היא אמיתית</span><span><b>לפעול</b>מתשובה אחת לחוק, ומהחוק לשטח</span></div>
+    </div>
+
+    <div class="blk" id="improve" data-sub="improve">
+      <div class="blk-h"><span class="k">חמישה שיפורים</span><h3>מה Simpla מוסיפה לכל תשובה</h3></div>
+      <p class="blk-p">כל שיפור מוצג כאן מתוך המסכים של הסרט. לחיצה על תמונה פותחת אותה בגדול.</p>
+      <div class="bento">
+        <article class="imp" id="imp1">
+          <div class="txt"><span class="n">01</span><h4>כרטיס תשובה</h4>
+            <dl><dt>האתגר</dt><dd>תשובה בטקסט חופשי קשה לסרוק כשהמוקד עמוס.</dd><dt>הפתרון</dt><dd class="sol">מספר אחד ברור, משפט הסבר, והצעד הבא בכפתור.</dd></dl></div>
+          <button class="zoomable" data-group="imp" data-full="img/imp-answer.webp" data-cap="כרטיס תשובה: 135 מתוך 138 פנסים דולקים, והזמנת עבודה בלחיצה"><img src="img/imp-answer.webp" alt="כרטיס תשובה עם מספר, הסבר והזמנת עבודה" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button>
+        </article>
+        <article class="imp" id="imp2">
+          <div class="txt"><span class="n">02</span><h4>מה המערכת הבינה</h4>
+            <dl><dt>האתגר</dt><dd>המפעיל לא רואה איך השאלה שלו פורשה.</dd><dt>הפתרון</dt><dd class="sol">צ׳יפים של זמן, מקום ומקור, שאפשר לתקן לפני שפועלים.</dd></dl></div>
+          <button class="zoomable" data-group="imp" data-full="img/imp-chips.webp" data-cap="מה המערכת הבינה: זמן, מקום, תיאור הבגדים, ובלי זיהוי פנים"><img src="img/imp-chips.webp" alt="שאלה וצ׳יפים שמראים איך היא פורשה" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button>
+        </article>
+        <article class="imp" id="imp3">
+          <div class="txt"><span class="n">03</span><h4>מתשובה לפעולה</h4>
+            <dl><dt>האתגר</dt><dd>כדי לפעול צריך לעבור בין מסכים ומערכות.</dd><dt>הפתרון</dt><dd class="sol">תאורה, שוטר או הזמנת עבודה מתוך התשובה, עם אישור ותיעוד.</dd></dl></div>
+          <button class="zoomable" data-group="imp" data-full="img/imp-action.webp" data-cap="מתשובה לפעולה: אור מלא בקבוצת החניון ושוטר למעבר, כל אחד בלחיצה"><img src="img/imp-action.webp" alt="תשובה עם שתי פעולות שבוצעו ואישורים" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button>
+        </article>
+        <article class="imp" id="imp4">
+          <div class="txt"><span class="n">04</span><h4>כל תשובה על המפה</h4>
+            <dl><dt>האתגר</dt><dd>מספר בלי מקום לא אומר לאן לשלוח צוות.</dd><dt>הפתרון</dt><dd class="sol">מיני-מפה על צילום האוויר, שמחברת כל מספר לפנס אמיתי.</dd></dl></div>
+          <button class="zoomable" data-group="imp" data-full="img/imp-map.webp" data-cap="כל תשובה על המפה: נקודה חמה, רוכבים על המדרכה, והפנסים שהודלקו"><img src="img/imp-map.webp" alt="מיני-מפה על צילום אוויר עם נקודה חמה ופנסים" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button>
+        </article>
+        <article class="imp" id="imp5">
+          <div class="txt"><span class="n">05</span><h4>שכבת אמון</h4>
+            <dl><dt>האתגר</dt><dd>עיריות בארה״ב בודקות כל שימוש בווידאו.</dd><dt>הפתרון</dt><dd class="sol">ספירות ולא זהויות, פנים מטושטשות, הרשאת מפעיל, וכל חיפוש נרשם.</dd></dl></div>
+          <button class="zoomable" data-group="imp" data-full="img/imp-trust.webp" data-cap="שכבת אמון: פנים מטושטשות, מסלול על המפה, והחיפוש נרשם כתיק"><img src="img/imp-trust.webp" alt="תוצאות חיפוש עם פנים מטושטשות ותגיות אמון" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button>
+        </article>
+      </div>
+    </div>
+
+    <div class="blk" id="tour" data-sub="tour">
+      <div class="blk-h"><span class="k">סיור במסכים</span><h3>שישה מסכים, לפי סדר הערב</h3></div>
+      <p class="blk-p">בכל מסך: מה קיים היום ב-Juganu, ומה השיפור שלנו.</p>
+      <div class="tour">
+        <div class="ttabs" role="tablist" aria-label="מסכים">
+          <button role="tab" id="tb1" aria-controls="tp1" aria-selected="true"><span class="tn">1</span>Map View</button>
+          <button role="tab" id="tb2" aria-controls="tp2" aria-selected="false" tabindex="-1"><span class="tn">2</span>תאורה</button>
+          <button role="tab" id="tb3" aria-controls="tp3" aria-selected="false" tabindex="-1"><span class="tn">3</span>דשבורד</button>
+          <button role="tab" id="tb4" aria-controls="tp4" aria-selected="false" tabindex="-1"><span class="tn">4</span>תנועה</button>
+          <button role="tab" id="tb5" aria-controls="tp5" aria-selected="false" tabindex="-1"><span class="tn">5</span>חיפוש</button>
+          <button role="tab" id="tb6" aria-controls="tp6" aria-selected="false" tabindex="-1"><span class="tn">6</span>תזמון</button>
+        </div>
+
+        <div class="tpanel" role="tabpanel" id="tp1" aria-labelledby="tb1">
+          <button class="zoomable" data-group="tour" data-full="img/ui-map.webp" data-cap="Map View: סמן על כל פנס, וכרטיס של פנס Jug_031"><img src="img/ui-map.webp" alt="Map View עם סמן על כל פנס וכרטיס של פנס" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button>
+          <div class="ttxt"><p class="kick">מסך 1 מתוך 6 · 17:15</p><h4>הרשת כולה במבט אחד</h4>
+            <p class="body">צילום הרחפן הופך למפה, וכל סמן יושב על פנס אמיתי. קבוצות התאורה מסומנות על הפארק. לחיצה על פנס פותחת כרטיס עם המצלמות, מצב התאורה ומספר המכשירים המחוברים ל-Wi-Fi.</p>
+            <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>Map View, כרטיס מכשיר ומקרא סטטוס.</div><div class="us"><b>השיפור שלנו</b>מעבר ישיר מהשטח למפה, וכרטיס אחד שמרכז מצלמות, תאורה ו-Wi-Fi.</div></div>
+            <p class="uses">שיפורים במסך: <a href="#imp4">04 על המפה</a></p>
+            <div class="tnav"><button type="button" data-step="-1" disabled><svg width="16" height="16"><use href="#cr"/></svg>הקודם</button><button type="button" data-step="1">הבא<svg width="16" height="16"><use href="#cl"/></svg></button></div></div>
+        </div>
+
+        <div class="tpanel" role="tabpanel" id="tp2" aria-labelledby="tb2">
+          <button class="zoomable" data-group="tour" data-full="img/ui-lights.webp" data-cap="שאלה 1: 135 מתוך 138 פנסים דולקים, שלושה כבויים מסומנים על המפה"><img src="img/ui-lights.webp" alt="AI Assistant עם תשובה על מצב הפנסים" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button>
+          <div class="ttxt"><p class="kick">מסך 2 מתוך 6 · 17:14</p><h4>כל הפנסים סביב הדשא עובדים?</h4>
+            <p class="body">135 מתוך 138 דולקים. שלושה כבויים ביציאה מהחניון, והם מסומנים על המפה. הזמנת עבודה יוצאת לצוות השטח בלחיצה אחת.</p>
+            <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>ה-AI Assistant עונה על מצב התאורה מתוך ה-LMS.</div><div class="us"><b>השיפור שלנו</b>כרטיס תשובה, הפנסים הכבויים על המפה, והזמנת עבודה מתוך התשובה.</div></div>
+            <p class="uses">שיפורים במסך: <a href="#imp1">01 כרטיס תשובה</a><a href="#imp3">03 פעולה</a><a href="#imp4">04 על המפה</a></p>
+            <div class="tnav"><button type="button" data-step="-1"><svg width="16" height="16"><use href="#cr"/></svg>הקודם</button><button type="button" data-step="1">הבא<svg width="16" height="16"><use href="#cl"/></svg></button></div></div>
+        </div>
+
+        <div class="tpanel" role="tabpanel" id="tp3" aria-labelledby="tb3">
+          <button class="zoomable" data-group="tour" data-full="img/ui-dashboard.webp" data-cap="שאלה 2: דשבורד לערב, שנבנה ממשפט אחד ונשמר כלשונית"><img src="img/ui-dashboard.webp" alt="דשבורד חי: מבקרים, הגעה לפי שער, קו ספירה ו-Wi-Fi" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button>
+          <div class="ttxt"><p class="kick">מסך 3 מתוך 6 · 19:05</p><h4>דשבורד לערב, ממשפט אחד</h4>
+            <p class="body">מבקרים על הדשא, הגעה לפי שער, קו ספירה על מצלמת השער, ועומס Wi-Fi לפי פנס. הדשבורד נשמר כלשונית ומשותף עם צוות האירוע.</p>
+            <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>דשבורד שנוצר מפרומפט, ושמירה כלשונית.</div><div class="us"><b>השיפור שלנו</b>רכיבים בשפת המוצר, קו ספירה מה-Marking Tool בתוך הדשבורד, ושיתוף עם הצוות.</div></div>
+            <p class="uses">שיפורים במסך: <a href="#imp1">01 כרטיס תשובה</a><a href="#imp2">02 מה הובן</a></p>
+            <div class="tnav"><button type="button" data-step="-1"><svg width="16" height="16"><use href="#cr"/></svg>הקודם</button><button type="button" data-step="1">הבא<svg width="16" height="16"><use href="#cl"/></svg></button></div></div>
+        </div>
+
+        <div class="tpanel" role="tabpanel" id="tp4" aria-labelledby="tb4">
+          <button class="zoomable" data-group="tour" data-full="img/ui-traffic.webp" data-cap="שאלה 3: 412 חציות מחוץ למעבר ו-37 רוכבים על המדרכה, עם שתי פעולות"><img src="img/ui-traffic.webp" alt="תשובה על חציות ורוכבים עם שתי פעולות" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button>
+          <div class="ttxt"><p class="kick">מסך 4 מתוך 6 · 20:42</p><h4>איפה חוצים מחוץ למעבר?</h4>
+            <p class="body">412 חציות ביציאה מהחניון ו-37 רוכבים על המדרכה, עם נקודה חמה על המפה. מאותה תשובה: אור מלא בקבוצת התאורה של החניון, ושוטר למעבר.</p>
+            <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>Custom Analytics לחציות ולרכיבה על מדרכה, ו-Light Configuration.</div><div class="us"><b>השיפור שלנו</b>שתי פעולות ישירות מתוך התשובה, עם אישור ותיעוד.</div></div>
+            <p class="uses">שיפורים במסך: <a href="#imp1">01 כרטיס תשובה</a><a href="#imp3">03 פעולה</a><a href="#imp4">04 על המפה</a></p>
+            <div class="tnav"><button type="button" data-step="-1"><svg width="16" height="16"><use href="#cr"/></svg>הקודם</button><button type="button" data-step="1">הבא<svg width="16" height="16"><use href="#cl"/></svg></button></div></div>
+        </div>
+
+        <div class="tpanel" role="tabpanel" id="tp5" aria-labelledby="tb5">
+          <button class="zoomable" data-group="tour" data-full="img/ui-search.webp" data-cap="שאלה 4: חיפוש בתמונות לפי צבע הקפוצ׳ון, עם פנים מטושטשות ותיעוד"><img src="img/ui-search.webp" alt="חיפוש בתמונות עם שלוש תוצאות ומסלול על המפה" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button>
+          <div class="ttxt"><p class="kick">מסך 5 מתוך 6 · 21:41</p><h4>ילד שנעלם בקהל</h4>
+            <p class="body">חיפוש בתמונות מהמצלמות ליד המגרש, לפי צבע הקפוצ׳ון. שלוש תוצאות עם פנים מטושטשות, מסלול על המפה, והמיקום נשלח לשוטר. החיפוש נרשם כתיק.</p>
+            <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>חיפוש בתמונות מהמצלמות, בשפה חופשית.</div><div class="us"><b>השיפור שלנו</b>מחפשים לפי בגדים ולא לפי פנים. טשטוש, הרשאת מפעיל, תיעוד ומסלול על המפה.</div></div>
+            <p class="uses">שיפורים במסך: <a href="#imp2">02 מה הובן</a><a href="#imp4">04 על המפה</a><a href="#imp5">05 אמון</a></p>
+            <div class="tnav"><button type="button" data-step="-1"><svg width="16" height="16"><use href="#cr"/></svg>הקודם</button><button type="button" data-step="1">הבא<svg width="16" height="16"><use href="#cl"/></svg></button></div></div>
+        </div>
+
+        <div class="tpanel" role="tabpanel" id="tp6" aria-labelledby="tb6">
+          <button class="zoomable" data-group="tour" data-full="img/ui-light-config.webp" data-cap="Light Configuration: קבוצת Town Green מתעמעמת ל-30% אחרי האירוע"><img src="img/ui-light-config.webp" alt="Light Configuration עם תזמון אירוע ועמעום" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button>
+          <div class="ttxt"><p class="kick">מסך 6 מתוך 6 · 23:45</p><h4>אחרי ההופעה</h4>
+            <p class="body">תזמון מיוחד לערב האירוע, ועמעום ל-30% כשהמבקרים האחרונים יוצאים. כל שינוי נרשם.</p>
+            <div class="kv"><div class="ex"><b>קיים היום ב-Juganu</b>קבוצות תאורה, תזמונים ושליטה חיה.</div><div class="us"><b>השיפור שלנו</b>תזמון אירוע שנפתח מתוך הדשבורד, ועמעום אחרי שהספירה מראה שהדשא התרוקן.</div></div>
+            <p class="uses">שיפורים במסך: <a href="#imp3">03 פעולה</a><a href="#imp5">05 אמון</a></p>
+            <div class="tnav"><button type="button" data-step="-1"><svg width="16" height="16"><use href="#cr"/></svg>הקודם</button><button type="button" data-step="1" disabled>הבא<svg width="16" height="16"><use href="#cl"/></svg></button></div></div>
+        </div>
+      </div>
+      <div class="lamp"><img src="img/solitaire.webp" alt="פנס Solitaire של Juganu" loading="lazy"><p><b style="color:var(--navy)">הפנס בסרט: Solitaire.</b> בנינו את כל הפריימים לפי תמונות הקטלוג של Juganu, עם החיישנים בשולי הכיפה. כל המספרים בסרט ובמסכים הם נתוני דוגמה.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 PARTNERSHIP ================= -->
+<section id="partner" class="chapter" data-chapter="partner">
+  <div class="wrap">
+    <div class="ch-head">
+      <span class="ch-no" aria-hidden="true">03</span>
+      <div><p class="ch-k">השותפות · Juganu ו-Simpla</p>
+      <h2>חמש שנים של מוצר ומרקטינג. הפרק הבא, עם AI.</h2></div>
+      <p class="intro">מאי 2021 עד מאי 2026: עיצבנו יחד את המסכים, ובמקביל בנינו את החומרים שמוכרים אותם. מכאן מגיע הזיכרון של המוצר, ומכאן ההצעה.</p>
+    </div>
+
+    <div class="blk" id="built" data-sub="built">
+      <div class="blk-h"><span class="k">מה בנינו יחד</span><h3>המסכים שבנינו הם הבסיס של מה ש-Juganu מוכרת היום</h3></div>
+      <div class="gal">
+        <figure class="tile wide"><button class="zoomable" data-group="built" data-full="img/work/city-vehicle.webp" data-cap="Smart City Dashboard: ספירת רכבים על המפה, 2021 עד 2023"><img src="img/work/city-vehicle.webp" alt="Smart City Dashboard עם ספירת רכבים על מפת לוויין" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button><figcaption><b>Smart City Dashboard</b><span>ספירת רכבים ואזורים על המפה · 2021 עד 2023</span></figcaption></figure>
+        <figure class="tile"><button class="zoomable" data-group="built" data-full="img/work/city-alerts.webp" data-cap="התראות עיר עם וידאו והקשר, 2022"><img src="img/work/city-alerts.webp" alt="התראות עיר עם מיקום על המפה" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button><figcaption><b>התראות עם וידאו והקשר</b><span>2022</span></figcaption></figure>
+        <figure class="tile"><button class="zoomable" data-group="built" data-full="img/work/marking-lines.webp" data-cap="Marking Tool: קווים וכיוון תנועה על תמונת המצלמה, 2021 עד 2024"><img src="img/work/marking-lines.webp" alt="Marking Tool עם קווי ספירה על תמונת מצלמה" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button><figcaption><b>Marking Tool</b><span>קווים וכיוון תנועה על המצלמה · 2021 עד 2024</span></figcaption></figure>
+        <figure class="tile"><button class="zoomable" data-group="built" data-full="img/work/marking-shelves.webp" data-cap="Marking Tool לקמעונאות: סימון מדפים ואזורים"><img src="img/work/marking-shelves.webp" alt="סימון מדפים על תמונת מצלמה בחנות" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button><figcaption><b>סימון מדפים בחנות</b><span>Marking Tool לקמעונאות</span></figcaption></figure>
+        <figure class="tile"><button class="zoomable" data-group="built" data-full="img/work/lms-groups.webp" data-cap="LMS: קבוצות תאורה ותזמון על המפה, 2024 עד 2025"><img src="img/work/lms-groups.webp" alt="מערכת ניהול תאורה עם קבוצות על המפה" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button><figcaption><b>LMS לניהול תאורה</b><span>קבוצות ותזמון · 2024 עד 2025</span></figcaption></figure>
+        <figure class="tile wide"><button class="zoomable" data-group="built" data-full="img/work/retail-overview.webp" data-cap="Retail Dashboard: מדדי חנות והתראות, 2021 עד 2023"><img src="img/work/retail-overview.webp" alt="Retail Dashboard עם מדדי חנות והתראות" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button><figcaption><b>Retail Dashboard</b><span>מדדי חנות, תורים והתראות · 2021 עד 2023</span></figcaption></figure>
+        <figure class="tile"><button class="zoomable" data-group="built" data-full="img/work/retail-queues.webp" data-cap="ניהול תורים: וידאו חי וזמני המתנה לכל קופה"><img src="img/work/retail-queues.webp" alt="מסך ניהול תורים עם וידאו לכל קופה" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button><figcaption><b>ניהול תורים</b><span>וידאו חי וזמני המתנה לכל קופה</span></figcaption></figure>
+        <figure class="tile"><button class="zoomable" data-group="built" data-full="img/work/retail-lms.webp" data-cap="LMS לקמעונאות: תוכנית תאורה ועמעום לפי שעות"><img src="img/work/retail-lms.webp" alt="תזמון תאורה בחנות" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button><figcaption><b>תאורה לחנות</b><span>תוכנית תאורה ועמעום לפי שעות</span></figcaption></figure>
+        <figure class="tile phones"><button class="zoomable" data-group="built" data-full="img/work/mobile-shelf.webp" data-cap="אפליקציה לעובד החנות: זמינות מדפים והתראות, 2022 עד 2024"><img src="img/work/mobile-shelf.webp" alt="אפליקציית עובד: זמינות מדפים" loading="lazy"><img src="img/work/mobile-notifications.webp" alt="אפליקציית עובד: התראות" loading="lazy"><span class="zi"><svg width="18" height="18"><use href="#zm"/></svg></span></button><figcaption><b>אפליקציה לעובד</b><span>מדפים והתראות · 2022 עד 2024</span></figcaption></figure>
+      </div>
+      <details class="more">
+        <summary>כל התוצרים לפי שנים, 2021 עד 2026<svg class="chev" width="18" height="18"><use href="#cd"/></svg></summary>
+        <div class="in"><div class="years">
+          <div class="yr"><b>2021</b><div class="tags"><span>Smart City Dashboard</span><span>Retail Dashboard</span><span>לוגו ושפת מסכים</span><span>דוח Overview במייל</span></div></div>
+          <div class="yr"><b>2022</b><div class="tags"><span>Marking Tool</span><span>אפליקציה לעובדי חנות</span><span>Heatmap ותורים</span><span>Shelves Monitoring</span><span>Rule chain</span></div></div>
+          <div class="yr"><b>2023</b><div class="tags"><span>ספירת רכבים ותנועה</span><span>Vendors</span><span>אפליקציית Carrefour</span><span>עיצוב Sisense</span><span>סרטוני NRF</span></div></div>
+          <div class="yr"><b>2024</b><div class="tags"><span>LMS לניהול תאורה</span><span>הטמעת המותג החדש</span><span>Future Capabilities</span><span>עיצוב Rules</span></div></div>
+          <div class="yr"><b>2025</b><div class="tags"><span>אתר Juganu</span><span>City Pages</span><span>קבוצות תאורה</span><span>מצגות CV2X ו-Smart City</span></div></div>
+          <div class="yr"><b>2026</b><div class="tags"><span>מצגת City</span><span>סרטי מוצר</span><span>חומרים למכירות בארה״ב</span></div></div>
+        </div></div>
+      </details>
+      <div class="today">
+        <div class="mini"><p class="when">אוגוסט 2024</p><h4>Peachtree Corners</h4><p>פריסת עיר חכמה מלאה ראשונה בארה״ב.</p></div>
+        <div class="mini"><p class="when">אוקטובר 2025</p><h4>Bellevue</h4><p>Civic Innovation Challenge ופיילוט לניהול שולי מדרכה.</p></div>
+        <div class="mini"><p class="when">מרץ 2026</p><h4>NVIDIA Cosmos Reason</h4><p>AI שמאמת כל אירוע ומפחית התראות שווא.</p></div>
+        <div class="mini"><p class="when">2026</p><h4>ערים בצפון אמריקה</h4><p>הנהלה ייעודית לערים בארה״ב, וקמעונאות במקביל.</p></div>
+      </div>
+      <p class="small">השותפים: ONE City, nureal.ai, NVIDIA, SmartWAVE ו-Siemens Xcelerator. מי שכותב את התוכן של השותף, קובע איך Juganu נראית בשוק.</p>
+    </div>
+
+    <div class="blk" id="roadmap" data-sub="roadmap">
+      <div class="blk-h"><span class="k">מה נבנה יחד</span><h3>17 פרויקטים לשנה הקרובה, בשלושה מסלולים</h3></div>
+      <p class="blk-p">חלק מוכנים כבר להצגה. את הסדר קובעים יחד בפגישת הפתיחה.</p>
+      <div class="acc">
+        <details open>
+          <summary><span class="ic" style="background:var(--teal)"><svg width="22" height="22"><use href="#i-prod"/></svg></span><span class="st">מוצר<span class="cnt">7</span><span class="ss">עיצוב, אפיון ואב-טיפוס</span></span><svg class="chev" width="20" height="20"><use href="#cd"/></svg></summary>
+          <ol>
+            <li><b>שכבת החוויה של Juganu AI</b><p>כרטיס תשובה, צ׳יפים של מה הובן, פעולה מתוך תשובה ושכבת אמון.</p><div class="tg"><span class="rd">אפיון ואב-טיפוס מוכנים</span><span>מוצר · משולב</span></div></li>
+            <li><b>Rules בשפה טבעית</b><p>חוק במשפט אחד, עם תצוגה מקדימה על השבוע שעבר.</p><div class="tg"><span>מוצר · משולב</span></div></li>
+            <li><b>תדריך שבועי למנהלת העיר</b><p>מה קרה השבוע ומה דורש החלטה, בנייד, עם קישור לכל מספר.</p><div class="tg"><span>מוצר · משולב</span></div></li>
+            <li><b>Store Pulse</b><p>סיכום משמרת למנהל החנות: תורים, מדפים ריקים ואירועים חריגים, עם משימה לעובד.</p><div class="tg"><span>מוצר · משולב</span></div></li>
+            <li><b>שכבת הסבר AI ל-Shelf Monitoring</b><p>לכל התראה ולכל מדף: למה זה קרה ומה עושים.</p><div class="tg"><span>מוצר · משולב</span></div></li>
+            <li><b>אפליקציה לעובד השטח בעירייה</b><p>משימות מתוך התראות, תיעוד בשטח וסגירה במקום.</p><div class="tg"><span>מוצר · משולב</span></div></li>
+            <li><b>Design System אחיד</b><p>רכיבים ושפה אחת לכל המסכים, מ-Map View ועד ה-AI Assistant.</p><div class="tg"><span>מוצר · משולב</span></div></li>
+          </ol>
+        </details>
+        <details>
+          <summary><span class="ic" style="background:var(--coral)"><svg width="22" height="22"><use href="#i-mkt"/></svg></span><span class="st">מרקטינג<span class="cnt">7</span><span class="ss">סרטים, מכירות ושותפים</span></span><svg class="chev" width="20" height="20"><use href="#cd"/></svg></summary>
+          <ol>
+            <li><b>Concert Night, הגרסה הסופית</b><p>עם הדאטה והמסכים האמיתיים, וגרסאות של 30 ו-15 שניות ואנכית לרשתות.</p><div class="tg"><span class="rd">גרסה 2 מוכנה</span><span>מרקטינג · משולב</span></div></li>
+            <li><b>One City, Three Questions</b><p>סרט פרסונות לדמו במכירות, בגרסה ריאליסטית ובחימר.</p><div class="tg"><span class="rd">מוכן בשתי גרסאות</span><span>מרקטינג · משולב</span></div></li>
+            <li><b>ביוגרפיה של עמוד תאורה</b><p>סרט מותג בחימר: מפנס הגז, דרך הלד, ועד עמוד שרואה ומבין.</p><div class="tg"><span>מרקטינג · משולב</span></div></li>
+            <li><b>ערכת מכירה לרשויות בארה״ב</b><p>מצגת, תשובות מוכנות ל-RFP וחומרי Sourcewell.</p><div class="tg"><span>מרקטינג · משולב</span></div></li>
+            <li><b>תיקי מקרה</b><p>Peachtree Corners ו-Bellevue, עם מספרים ותמונות מהשטח.</p><div class="tg"><span>מרקטינג · משולב</span></div></li>
+            <li><b>ערכות שותף</b><p>ONE City בעברית ו-nureal.ai לרכש בארה״ב, בשפת המותג של Juganu.</p><div class="tg"><span>מרקטינג · משולב</span></div></li>
+            <li><b>דמו אינטראקטיבי</b><p>לאתר ולדוכן בכנסים: שאלה, תשובה ומפה, בלי איש מכירות לידו.</p><div class="tg"><span>מרקטינג · משולב</span></div></li>
+          </ol>
+        </details>
+        <details>
+          <summary><span class="ic" style="background:var(--navy)"><svg width="22" height="22"><use href="#i-ai"/></svg></span><span class="st">הטמעת AI<span class="cnt">3</span><span class="ss">צוות שעובד עם AI לבד</span></span><svg class="chev" width="20" height="20"><use href="#cd"/></svg></summary>
+          <ol>
+            <li><b>סדנת AI לצוות המוצר</b><p>מאפיון ועד אב-טיפוס עם AI, על משימה אמיתית של הצוות.</p><div class="tg"><span>משולב</span></div></li>
+            <li><b>ספריית פרומפטים לשיווק</b><p>בשפת המותג של Juganu, לתוכן, למצגות ולתמונות.</p><div class="tg"><span>משולב</span></div></li>
+            <li><b>סוכן תוכן</b><p>סוכן שהצוות מפעיל לבד, בלי Simpla, לפוסטים ולעדכוני מוצר.</p><div class="tg"><span>משולב</span></div></li>
+          </ol>
+        </details>
+      </div>
+      <details class="more">
+        <summary>שלושת החודשים הראשונים, חודש אחרי חודש<svg class="chev" width="18" height="18"><use href="#cd"/></svg></summary>
+        <div class="in"><div class="tbl" style="margin-top:0"><table>
+          <thead><tr><th>חודש</th><th>עיצוב ואפיון מוצר</th><th>מרקטינג</th><th>הטמעת AI</th></tr></thead>
+          <tbody>
+            <tr><td class="m">1</td><td>שכבת החוויה ל-Juganu AI, אב-טיפוס לחיץ</td><td>Concert Night על דאטה אמיתי, ומצגת Bellevue</td><td>סדנת AI לצוות המוצר</td></tr>
+            <tr><td class="m">2</td><td>Rules בשפה טבעית</td><td>ערכת מכירה לרשויות בארה״ב</td><td>ספריית פרומפטים לשיווק</td></tr>
+            <tr><td class="m">3</td><td>שכבת הסבר AI ל-Shelf Monitoring</td><td>חומרים לכנסי האביב, וערכת ONE City בעברית</td><td>סוכן תוכן שהצוות מפעיל לבד</td></tr>
+          </tbody>
+        </table></div></div>
+      </details>
+    </div>
+
+    <div class="blk" id="plans" data-sub="plans">
+      <div class="blk-h"><span class="k">מסלולים</span><h3>שלושה ריטיינרים, מחושבים לפי שעות</h3></div>
+      <p class="blk-p">מוצר ומרקטינג לפי 350 ₪ לשעה. בריטיינר המשולב השעה יורדת ל-300 ₪. כל המחירים לחודש, לפני מע״מ.</p>
+      <div class="plans">
+        <article class="plan">
+          <p class="k">מוצר</p><h4>עיצוב ואפיון מוצר</h4>
+          <div class="amt"><b>18,200</b><span>₪ לחודש</span></div>
+          <p class="hrs"><b>52 שעות</b> בחודש, כ-13 בשבוע · 350 ₪ לשעה</p>
+          <div class="meter" role="img" aria-label="52 שעות מוצר"><i style="width:55.3%;background:var(--teal)"></i></div>
+          <ul>
+            <li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>אפיון ו-UX/UI לפיצ׳ר אחד או שניים בחודש, עד מסירה לפיתוח</li>
+            <li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>אב-טיפוס לחיץ תוך 5 ימי עבודה מהבריף</li>
+            <li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>תחזוקה והרחבה של ה-Design System בפיגמה</li>
+            <li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>סקירה שבועית עם צוות המוצר</li>
+            <li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>יעד מוצר מדיד בכל חודש</li>
+          </ul>
+          <p class="fit">מתאים כשהמיקוד הוא הממשק</p>
+        </article>
+        <article class="plan">
+          <p class="k">מרקטינג</p><h4>מרקטינג</h4>
+          <div class="amt"><b>14,000</b><span>₪ לחודש</span></div>
+          <p class="hrs"><b>40 שעות</b> בחודש, כ-10 בשבוע · 350 ₪ לשעה</p>
+          <div class="meter" role="img" aria-label="40 שעות מרקטינג"><i style="width:42.6%;background:var(--coral)"></i></div>
+          <ul>
+            <li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>סרט AI אחד בחודש עד 90 שניות, או שני סרטונים קצרים</li>
+            <li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>עד שתי מצגות, תשובות RFP או תיקי לקוח</li>
+            <li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>גרסאות לרשתות, לכנסים ולשותפים מכל תוצר</li>
+            <li><svg width="16" height="16" style="color:var(--teal)"><use href="#ck"/></svg>יעד תוכן מדיד בכל חודש</li>
+          </ul>
+          <p class="fit">מתאים כשהמיקוד הוא המכירה</p>
+        </article>
+        <article class="plan best">
+          <span class="badge">מומלץ</span>
+          <p class="k">משולב</p><h4>מוצר, מרקטינג והטמעת AI</h4>
+          <div class="amt"><b>28,200</b><span>₪ לחודש</span></div>
+          <p class="hrs"><b>94 שעות</b> בחודש, כ-23 בשבוע · 300 ₪ לשעה</p>
+          <div class="meter" role="img" aria-label="94 שעות: 48 מוצר, 38 מרקטינג, 8 הטמעת AI"><i style="width:51.1%;background:var(--teal)"></i><i style="width:40.4%;background:var(--coral)"></i><i style="width:8.5%;background:var(--yel)"></i></div>
+          <div class="legend"><span style="--c:var(--teal)">מוצר 48</span><span style="--c:var(--coral)">מרקטינג 38</span><span style="--c:var(--yel)">הטמעת AI 8</span></div>
+          <ul>
+            <li><svg width="16" height="16" style="color:var(--yel)"><use href="#ck"/></svg>כל מה ששני המסלולים כוללים, עם חלוקת שעות גמישה מחודש לחודש</li>
+            <li><svg width="16" height="16" style="color:var(--yel)"><use href="#ck"/></svg>8 שעות בחודש להטמעת AI: סדנה, ספריית פרומפטים וסוכן תוכן</li>
+            <li><svg width="16" height="16" style="color:var(--yel)"><use href="#ck"/></svg>אותו צוות מעצב את המסך ומספר עליו</li>
+            <li><svg width="16" height="16" style="color:var(--yel)"><use href="#ck"/></svg>פיילוט 90 יום עם שלושה יעדים</li>
+          </ul>
+          <p class="save">4,000 ₪ פחות משני המסלולים בנפרד, ועוד 2 שעות בחודש</p>
+        </article>
+      </div>
+      <details class="more">
+        <summary>איך מחושב המחיר<svg class="chev" width="18" height="18"><use href="#cd"/></svg></summary>
+        <div class="in"><div class="tbl" style="margin-top:0"><table>
+          <thead><tr><th>מסלול</th><th>שעות בחודש</th><th>תעריף לשעה</th><th>לחודש, לפני מע״מ</th></tr></thead>
+          <tbody>
+            <tr><td>עיצוב ואפיון מוצר</td><td class="num">52</td><td class="num">350 ₪</td><td class="num">18,200 ₪</td></tr>
+            <tr><td>מרקטינג</td><td class="num">40</td><td class="num">350 ₪</td><td class="num">14,000 ₪</td></tr>
+            <tr><td>שני המסלולים בנפרד</td><td class="num">92</td><td class="num">350 ₪</td><td class="num">32,200 ₪</td></tr>
+            <tr class="hl"><td>משולב</td><td class="num">94</td><td class="num">300 ₪</td><td class="num">28,200 ₪</td></tr>
+          </tbody>
+        </table></div>
+        <p class="small">תוספות כמו ערכות תוכן לשותפים או Sprint לכנס, בהצעה נפרדת.</p></div>
+      </details>
+    </div>
+
+    <div class="blk" id="pilot" data-sub="pilot">
+      <div class="blk-h"><span class="k">פיילוט</span><h3>מתחילים בפיילוט, מודדים כל חודש</h3></div>
+      <div class="pilot">
+        <div class="card"><p class="when">המסגרת</p><h4>90 יום בריטיינר המשולב</h4><p>דצמבר 2026 עד פברואר 2027. אפשר לצאת בסוף כל חודש, בלי קנס. בסוף כל חודש: ציון, משוב ונקודת יציאה. כל תוצר נבנה בשפת המותג של Juganu, והקבצים, הפרומפטים ותהליכי העבודה נשארים אצלכם.</p></div>
+        <div class="card"><p class="when">איך נמדוד הצלחה</p>
+          <ul class="checks"><li><svg width="18" height="18"><use href="#ck"/></svg>אב-טיפוס תוך 5 ימי עבודה מהבריף</li><li><svg width="18" height="18"><use href="#ck"/></svg>לפחות דמו אחד בפגישת מכירה אמיתית</li><li><svg width="18" height="18"><use href="#ck"/></svg>פי 2 נכסי תוכן בחודש לעומת 2026</li><li><svg width="18" height="18"><use href="#ck"/></svg>תהליך AI אחד שהצוות מפעיל בלי Simpla</li></ul></div>
+      </div>
+      <div class="flow">
+        <div><b>01</b><h5>בריף</h5><p>שעה עם הצוות. יעד ומדד לכל תוצר.</p></div>
+        <div><b>02</b><h5>אב-טיפוס</h5><p>גרסה ראשונה תוך 5 ימי עבודה.</p></div>
+        <div><b>03</b><h5>סקירה</h5><p>פגישה שבועית קצרה וערוץ עבודה משותף.</p></div>
+        <div><b>04</b><h5>סיכום</h5><p>ציון, משוב ותוכנית לחודש הבא.</p></div>
+      </div>
+    </div>
+
+    <div class="blk" id="me" data-sub="me">
+      <div class="blk-h"><span class="k">מי אני</span><h3>אייל גרשון, מייסד Simpla</h3></div>
+      <div class="me">
+        <ul>
+          <li>מעצב כבר 18 שנה, מחלוצי תחום ה-UX/UI.</li>
+          <li>ראש מחלקת פרודקט דיזיין ב-TipRanks.</li>
+          <li>מייסד Simpla: סטודיו בוטיק ל-UX ולתהליכי עבודה מבוססי AI.</li>
+          <li>מלמד AI ו-UX ב-DesignAI, ב-InMotion וב-John Bryce.</li>
+          <li>מטמיע AI בצוותי שיווק ועיצוב: Cyabra, Empathy, Moonshot, Finout, Connecteam.</li>
+          <li>יוצר ב-AI: תערוכות, וידאו ארט ופרסומות.</li>
+        </ul>
+        <div class="stats">
+          <div class="stat"><b>18</b><span>שנים בעיצוב מוצר</span></div>
+          <div class="stat"><b>5</b><span>שנים עם Juganu</span></div>
+          <div class="stat"><b>600</b><span>משתתפים בכל הרצאה מרכזית ב-DesignAI</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next" id="next" data-sub="next"><div class="wrap">
+    <p class="k">הצעד הבא</p>
+    <h3>שעה אחת, שלוש החלטות, התחלה בדצמבר</h3>
+    <div class="steps">
+      <div><b>01</b><h5>הדגמה</h5><p>20 דקות: הסרט, האב-טיפוס ושכבת החוויה ל-Juganu AI.</p></div>
+      <div><b>02</b><h5>בחירת ריטיינר</h5><p>סוג הריטיינר, שלושה יעדים ומדד לכל אחד.</p></div>
+      <div><b>03</b><h5>פתיחה</h5><p>התחלה בדצמבר 2026, סיכום בסוף פברואר 2027.</p></div>
+    </div>
+    <div class="contact"><span class="who">אייל גרשון · Simpla</span><a class="btn y" href="tel:+972542066907"><svg width="18" height="18"><use href="#ph"/></svg><span class="en">054-2066907</span></a><a class="btn o" href="mailto:eyal@simplaux.com"><svg width="18" height="18"><use href="#ml"/></svg><span class="en">eyal@simplaux.com</span></a></div>
+  </div></div>
+</section>
 </main>
 
-<section id="next" class="next"><div class="wrap">
-  <p class="eyebrow">הצעד הבא</p>
-  <h2>שעה אחת, שלוש החלטות, התחלה בדצמבר</h2>
-  <div class="steps3">
-    <div class="card"><span class="n">01</span><h3 style="margin-top:10px">הדגמה</h3><p>20 דקות: הסרט, האב-טיפוס ושכבת החוויה ל-Juganu AI.</p></div>
-    <div class="card"><span class="n">02</span><h3 style="margin-top:10px">בחירת ריטיינר</h3><p>סוג הריטיינר, שלושה יעדים ומדד לכל אחד.</p></div>
-    <div class="card"><span class="n">03</span><h3 style="margin-top:10px">פתיחה</h3><p>התחלה בדצמבר 2026, סיכום בסוף פברואר 2027.</p></div>
-  </div>
-  <div class="contact"><span class="who">אייל גרשון · Simpla</span><a class="btn y" href="tel:+972542066907"><svg width="18" height="18"><use href="#ph"/></svg><span class="en">054-2066907</span></a><a class="btn o" href="mailto:eyal@simplaux.com"><svg width="18" height="18"><use href="#ml"/></svg><span class="en">eyal@simplaux.com</span></a></div>
-</div></section>
-
 <footer><div class="wrap">Concert Night הוא סרט קונספט של Simpla עבור Juganu. כל המספרים בסרט ובמסכים הם נתוני דוגמה. © Simpla 2026</div></footer>
+
+<dialog class="lb" id="lb" aria-label="תצוגה מוגדלת">
+  <div class="lbtop"><span class="hint" id="lbCount"></span><button type="button" id="lbClose" aria-label="סגירה"><svg width="20" height="20"><use href="#x"/></svg></button></div>
+  <div class="stage" id="lbStage"><img id="lbImg" alt=""></div>
+  <div class="lbbot"><button type="button" id="lbPrev" aria-label="הקודם"><svg width="22" height="22"><use href="#cr"/></svg></button><p class="cap" id="lbCap"></p><button type="button" id="lbNext" aria-label="הבא"><svg width="22" height="22"><use href="#cl"/></svg></button></div>
+</dialog>
+
+<script>
+(function(){
+  document.documentElement.classList.add("js");
+  var $ = function(s,r){return (r||document).querySelector(s);};
+  var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+
+  /* ---- tour tabs ---- */
+  var tabs = $$(".ttabs [role=tab]"), panels = $$(".tpanel");
+  function selectTab(i, focus){
+    tabs.forEach(function(t,k){ var on = k===i; t.setAttribute("aria-selected", on?"true":"false"); t.tabIndex = on?0:-1; panels[k].hidden = !on; });
+    if(focus) tabs[i].focus();
+    tabs[i].scrollIntoView({block:"nearest", inline:"nearest"});
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener("click", function(){ selectTab(i); });
+    t.addEventListener("keydown", function(e){
+      var d = e.key==="ArrowLeft" ? 1 : e.key==="ArrowRight" ? -1 : 0;
+      if(e.key==="Home"){ selectTab(0,true); e.preventDefault(); }
+      else if(e.key==="End"){ selectTab(tabs.length-1,true); e.preventDefault(); }
+      else if(d){ selectTab((i+d+tabs.length)%tabs.length, true); e.preventDefault(); }
+    });
+  });
+  $$(".tnav button").forEach(function(b){
+    b.addEventListener("click", function(){
+      var cur = tabs.findIndex(function(t){return t.getAttribute("aria-selected")==="true";});
+      var n = Math.max(0, Math.min(tabs.length-1, cur + parseInt(b.dataset.step,10)));
+      selectTab(n);
+      var tour = $("#tour .tour"); var top = tour.getBoundingClientRect().top;
+      if(top < 0) tour.scrollIntoView({block:"start"});
+    });
+  });
+  if(tabs.length) selectTab(0);
+
+  /* ---- lightbox ---- */
+  var lb = $("#lb"), img = $("#lbImg"), cap = $("#lbCap"), cnt = $("#lbCount"), stage = $("#lbStage");
+  var group = [], idx = 0;
+  function show(i){
+    idx = (i + group.length) % group.length;
+    var b = group[idx];
+    stage.classList.remove("z");
+    img.src = b.dataset.full; img.alt = b.querySelector("img").alt;
+    cap.textContent = b.dataset.cap || "";
+    cnt.textContent = (idx+1) + " / " + group.length;
+    $("#lbPrev").style.visibility = group.length>1 ? "visible" : "hidden";
+    $("#lbNext").style.visibility = group.length>1 ? "visible" : "hidden";
+  }
+  $$(".zoomable").forEach(function(b){
+    b.setAttribute("aria-haspopup","dialog");
+    b.addEventListener("click", function(){
+      group = $$('.zoomable[data-group="'+b.dataset.group+'"]');
+      show(group.indexOf(b));
+      if(lb.showModal) lb.showModal(); else lb.setAttribute("open","");
+    });
+  });
+  $("#lbClose").addEventListener("click", function(){ lb.close(); });
+  $("#lbPrev").addEventListener("click", function(){ show(idx-1); });
+  $("#lbNext").addEventListener("click", function(){ show(idx+1); });
+  img.addEventListener("click", function(){ stage.classList.toggle("z"); });
+  lb.addEventListener("keydown", function(e){
+    if(e.key==="ArrowLeft"){ show(idx+1); e.preventDefault(); }
+    if(e.key==="ArrowRight"){ show(idx-1); e.preventDefault(); }
+  });
+  lb.addEventListener("click", function(e){ if(e.target===lb) lb.close(); });
+
+  /* ---- scrollspy: chapters, sub-sections, progress ---- */
+  var chapters = $$("[data-chapter]"), chapLinks = $$(".chaps a"), subnavs = $$(".subnav");
+  var subs = $$("[data-sub]");
+  function onScroll(){
+    var hdr = $(".top").offsetHeight, y = window.scrollY + hdr + 1, vh = window.innerHeight - hdr;
+    var active = chapters[0];
+    chapters.forEach(function(c){ if(c.offsetTop <= y + vh*0.35) active = c; });
+    var key = active.dataset.chapter;
+    chapLinks.forEach(function(a){
+      var c = $("#"+a.dataset.ch);
+      var p = (y - c.offsetTop) / Math.max(1, c.offsetHeight - vh);
+      a.style.setProperty("--p", Math.max(0, Math.min(1, p)).toFixed(3));
+      a.classList.toggle("on", a.dataset.ch===key);
+      if(a.dataset.ch===key) a.setAttribute("aria-current","true"); else a.removeAttribute("aria-current");
+    });
+    subnavs.forEach(function(n){ n.classList.toggle("on", n.dataset.for===key); });
+    var curSub = null;
+    subs.forEach(function(s){ if(active.contains(s) && s.getBoundingClientRect().top <= hdr + vh*0.4) curSub = s.id; });
+    var nav = $('.subnav[data-for="'+key+'"]');
+    if(nav){
+      var links = $$("a", nav), hit = null;
+      links.forEach(function(a){ var on = curSub ? a.getAttribute("href")==="#"+curSub : a===links[0]; a.classList.toggle("on", on); if(on) hit = a; });
+      if(hit && nav.scrollWidth > nav.clientWidth){ var r = hit.getBoundingClientRect(), nr = nav.getBoundingClientRect(); if(r.left < nr.left || r.right > nr.right) nav.scrollLeft += (r.left - nr.left) - 20; }
+    }
+  }
+  var ticking = false;
+  window.addEventListener("scroll", function(){ if(!ticking){ ticking = true; requestAnimationFrame(function(){ onScroll(); ticking = false; }); } }, {passive:true});
+  window.addEventListener("resize", onScroll);
+  onScroll();
+
+  /* open a closed details when its anchor is targeted */
+  function openTarget(){ var t = location.hash && document.getElementById(location.hash.slice(1)); if(t){ var d = t.closest("details"); if(d) d.open = true; } }
+  window.addEventListener("hashchange", openTarget); openTarget();
+})();
+</script>
 </body>
 </html>
