@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="שבעת הפרומפטים של קורס 53500: מעשרת ההיבטים ל-PRD, ארכיטקטורה, Wireframes, Style Guide, Mockups, DESIGN ו-Milestones.">
+<meta name="description" content="קורס 53500, בשני שלבים: שבעת הפרומפטים שבונים את המסמכים, ונוהל הפיתוח ב-Claude Code, Milestone אחר Milestone.">
 <meta name="robots" content="noindex">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F7F5F0">
-<title>שבעת הפרומפטים · 53500</title>
+<title>מהמסמכים למוצר · 53500</title>
 <link rel="icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Crect width="32" height="32" rx="8" fill="%231B2D6B"/%3E%3Cpath d="M9 10h14M9 16h14M9 22h8" fill="none" stroke="%23FFE94A" stroke-width="2.6" stroke-linecap="round"/%3E%3C/svg%3E'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script>(function(){try{var s=JSON.parse(localStorage.getItem('jbprompts.v1')||'{}');if(s.theme)document.documentElement.setAttribute('data-theme',s.theme);}catch(e){}})();</script>
 <style>
-:root{--paper:#F7F5F0;--surface:#FFFFFF;--ink:#141F3D;--soft:#5F6C8A;--line:#E4E0D6;--acc:#1B2D6B;--acc-ink:#FFFFFF;--acc-soft:#E8ECF7;--img:#9A3412;--img-soft:#FDEBDD;--ok:#15803D;--bar:rgba(247,245,240,.94);--r:18px}
-:root[data-theme="dark"]{--paper:#0D1533;--surface:#16204A;--ink:#EDEFF7;--soft:#8B93B8;--line:rgba(237,239,247,.13);--acc:#9DB0FF;--acc-ink:#0D1533;--acc-soft:rgba(157,176,255,.13);--img:#FDBA8C;--img-soft:rgba(253,186,140,.13);--ok:#6FDB93;--bar:rgba(13,21,51,.94)}
+:root{--paper:#F7F5F0;--surface:#FFFFFF;--ink:#141F3D;--soft:#5F6C8A;--line:#E4E0D6;--acc:#1B2D6B;--acc-ink:#FFFFFF;--acc-soft:#E8ECF7;--img:#9A3412;--img-soft:#FDEBDD;--ok:#15803D;--ok-soft:#DCF2E3;--bar:rgba(247,245,240,.94);--r:18px}
+:root[data-theme="dark"]{--paper:#0D1533;--surface:#16204A;--ink:#EDEFF7;--soft:#8B93B8;--line:rgba(237,239,247,.13);--acc:#9DB0FF;--acc-ink:#0D1533;--acc-soft:rgba(157,176,255,.13);--img:#FDBA8C;--img-soft:rgba(253,186,140,.13);--ok:#6FDB93;--ok-soft:rgba(111,219,147,.14);--bar:rgba(13,21,51,.94)}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth;scroll-padding-top:76px}
+html{scroll-behavior:smooth;scroll-padding-top:124px}
 body{font-family:"Rubik","Heebo",-apple-system,sans-serif;background:var(--paper);color:var(--ink);max-width:760px;margin:0 auto;padding:0 16px 64px;line-height:1.65;font-size:15.5px;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
@@ -99,10 +99,64 @@ details.pre0.apx .prompt .pt{color:var(--soft)}
 .hw a{text-underline-offset:3px}
 .hw .hwn{color:var(--soft);font-size:13.5px;margin:0}
 .dl.sm{font-size:12.5px;padding:3px 12px;margin-inline-start:4px;vertical-align:1px}
+/* stages, v18 */
+.stnav{position:sticky;top:var(--abh,57px);z-index:39;display:flex;gap:8px;justify-content:center;background:var(--bar);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin:0 -16px;padding:8px 16px;border-bottom:1px dashed var(--line)}
+.stb{flex:1;max-width:230px;display:flex;gap:6px;justify-content:center;align-items:baseline;text-align:center;padding:6px 12px;border-radius:999px;border:1.5px dashed var(--line);font-size:13.5px;text-decoration:none;color:var(--soft);white-space:nowrap}
+.stb b{font-weight:700;color:var(--ink)}
+.stb.on{background:var(--acc);border:1.5px solid var(--acc);color:var(--acc-ink)}
+.stb.on b{color:var(--acc-ink)}
+.stage{margin-top:22px}
+#stage-b{margin-top:44px}
+.stg-h{display:flex;align-items:center;gap:12px;background:var(--acc);color:var(--acc-ink);border-radius:var(--r);padding:14px 18px}
+.stg-l{flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-width:0}
+.stg-n{font-size:13px;font-weight:700;letter-spacing:.06em;border:1.5px dashed currentColor;border-radius:999px;padding:2px 12px;white-space:nowrap;opacity:.9}
+.stg-t{font-size:clamp(22px,6.2vw,30px);font-weight:800;line-height:1.2}
+.stg-fold{display:inline-flex;gap:6px;align-items:center;font-size:13px;font-weight:600;padding:5px 12px;border-radius:999px;border:1.5px dashed currentColor;color:inherit;white-space:nowrap}
+.stg-fold .ic{width:15px;height:15px;transition:transform .2s}
+.stage.closed .stg-fold .ic{transform:rotate(180deg)}
+.stage.closed .stg-b{display:none}
+.dlg{display:grid;gap:10px}
+.dlc{background:var(--surface);border:2px solid var(--acc);border-radius:var(--r);padding:16px 18px}
+.dlk{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--acc);background:var(--acc-soft);padding:3px 12px;border-radius:999px}
+.dlc h3{font-size:19px;font-weight:700;line-height:1.3;margin:8px 0 6px}
+.dlc h3 .en{font-size:17px}
+.dlc p{font-size:14.5px;margin-bottom:8px}
+.dlc .sm{font-size:13.5px;color:var(--soft)}
+.dlc .sm b{color:var(--ink)}
+.dlc .dl{margin-top:4px}
+.must{display:flex;gap:8px;align-items:flex-start;background:var(--img-soft);color:var(--img);font-weight:700;border-radius:10px;padding:8px 12px}
+.must .ic{margin-top:4px}
+#pre-sdd{margin-top:10px}
+.ul{padding-inline-start:18px;display:grid;gap:7px;margin:2px 0 4px}
+.ul li::marker{color:var(--acc)}
+.tree{direction:ltr;text-align:left;font-family:ui-monospace,Consolas,monospace;font-size:13px;line-height:1.6;background:var(--paper);border:1px dashed var(--line);border-radius:10px;padding:8px 12px;margin:6px 0 2px;white-space:pre;overflow-x:auto}
+.flowh{display:flex;gap:10px;align-items:baseline;margin-bottom:8px}
+.flowh h2{flex:1;font-size:19px;font-weight:700;line-height:1.3}
+.prog{font-size:12.5px;color:var(--soft);font-weight:600;white-space:nowrap}
+.prog.all{color:var(--ok)}
+.wf{list-style:none;display:grid;gap:8px}
+.ws{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px}
+.wn{min-width:34px;height:34px;border-radius:10px;background:var(--acc-soft);color:var(--acc);display:flex;align-items:center;justify-content:center;font-family:"Poppins",sans-serif;font-weight:700}
+.wt{flex:1;font-size:15px;line-height:1.6;padding-top:4px;min-width:0}
+.wt .sub{display:block;font-size:14px;color:var(--soft);margin-top:5px}
+.wt .say{display:block;font-weight:700;margin-top:6px}
+.wt .files{display:block;width:max-content;max-width:100%;direction:ltr;text-align:left;font-family:ui-monospace,Consolas,monospace;font-size:13px;line-height:1.6;background:var(--paper);border:1px dashed var(--line);border-radius:10px;padding:6px 12px;margin-top:6px;margin-left:auto;margin-right:0}
+.wt code{white-space:nowrap}
+.wt code.w{white-space:normal}
+.en{font-family:"Poppins",sans-serif;unicode-bidi:isolate}
+.chk{width:30px;height:30px;min-width:30px;border-radius:9px;border:1.5px dashed var(--soft);display:flex;align-items:center;justify-content:center;color:transparent;margin-top:2px}
+.chk .ic{width:17px;height:17px;stroke-width:2.6}
+.chk[aria-checked="true"]{background:var(--ok);border:1.5px solid var(--ok);color:#fff}
+.ws.done{border-color:color-mix(in srgb,var(--ok) 40%,var(--line))}
+.ws.done .wt{color:var(--soft)}
+.ws.done .wn{background:var(--ok-soft);color:var(--ok)}
+.reset{font-size:13px;font-weight:600;color:var(--soft);text-decoration:underline;text-underline-offset:3px;margin-top:16px}
 footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border-top:1.5px dashed var(--line);padding-top:14px}
 @media (min-width:1024px){
   body{max-width:880px;padding:0 28px 80px}
   .appbar{margin:0 -28px;padding-inline:28px}
+  .stnav{margin:0 -28px;padding-inline:28px}
+  .dlg{grid-template-columns:1fr 1fr;align-items:start}
 }
 </style>
 </head>
@@ -113,6 +167,19 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <div class="logo">Prompts <b>53500</b></div>
   <button class="rbtn" id="themeBtn" type="button" aria-label="מצב כהה"></button>
 </div>
+
+<nav class="stnav" aria-label="מעבר בין השלבים">
+  <a class="stb on" href="#stage-a" data-st="a"><b>שלב א</b> המסמכים</a>
+  <a class="stb" href="#stage-b" data-st="b"><b>שלב ב</b> הפיתוח</a>
+</nav>
+
+<section class="stage" id="stage-a">
+  <div class="stg-h">
+    <div class="stg-l"><span class="stg-n">שלב א</span>
+    <span class="stg-t">בניית המסמכים</span></div>
+    <button class="stg-fold" id="foldA" type="button" aria-expanded="true" aria-controls="stageA-b"><span>קפל</span><svg class="ic" viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg></button>
+  </div>
+  <div class="stg-b" id="stageA-b">
 
 <header class="hero">
   <span class="kicker">תרגיל בית · לקראת מפגש 8</span>
@@ -670,7 +737,108 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   </div></details>
 </div>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v17 · 14.10.2026</footer>
+  </div>
+</section>
+
+<section class="stage" id="stage-b">
+  <div class="stg-h">
+    <div class="stg-l"><span class="stg-n">שלב ב</span>
+    <span class="stg-t">בנייה ופיתוח המוצר</span></div>
+  </div>
+
+  <header class="hero">
+    <span class="kicker">מפגש 10 · Claude Code</span>
+    <h1>Claude Code <b>פיתוח המוצר Milestone אחר Milestone</b></h1>
+    <p class="lead">שבעת המסמכים מוכנים. עכשיו Claude Code בונה מהם את המוצר, אבן דרך אחת בכל פעם, ואתם בודקים ומאשרים כל אחת לפני שממשיכים.</p>
+  </header>
+
+  <div class="label" id="dl">מורידים לפני שמתחילים</div>
+  <div class="dlg">
+    <div class="dlc" id="dl-skill">
+      <span class="dlk">הסקיל</span>
+      <h3><span class="en">spec-driven-development</span></h3>
+      <p>מקים בתיקיית הפרויקט את כל מה שצריך לפיתוח: <code>CLAUDE.md</code>, <code>.gitignore</code> ותיקיית <code>spec</code> עם קבצי תבנית.</p>
+      <p class="must"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.01"/></svg><span>מתקינים ב-Claude Code, לא ב-Claude הרגיל.</span></p>
+      <p class="sm"><b>התקנה:</b> מורידים את ה-ZIP למחשב. ב-Claude Code נכנסים ללשונית Customize, ומעלים לשם את הסקיל ידנית: את קובץ ה-ZIP כמו שהוא.</p>
+      <p class="sm"><b>אם ההעלאה נכשלת:</b> מחלצים את ה-ZIP לתיקייה <code>%USERPROFILE%\.claude\skills</code> (מדביקים בשורת הכתובת של סייר הקבצים, ויוצרים את <code>skills</code> אם אין). בפנים צריכה להיות התיקייה <code>spec-driven-development</code> עם הקובץ <code>SKILL.md</code>. אחר כך פותחים שיחה חדשה ב-Claude Code.</p>
+      <p class="sm">זה לא הסקיל של שלב א, <span class="ltr">spec-driven-docs</span>, שכותב את המסמכים. זה סקיל אחר, לשלב הפיתוח.</p>
+      <a class="dl" href="spec-driven-development.zip" download="spec-driven-development.zip"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> הורדת הסקיל</a>
+    </div>
+    <div class="dlc" id="dl-simon">
+      <span class="dlk">פרויקט לדוגמה</span>
+      <h3>משחק סיימון</h3>
+      <p>שבעת קבצי ה-spec של משחק זיכרון לטלפון: <code>PRD.md</code>, <code>ARCHITECTURE.md</code>, <code>DESIGN.md</code>, <code>MILESTONES.md</code> ושלוש תמונות. על הפרויקט הזה עובדים יחד בכיתה.</p>
+      <p class="sm">בשלב 4 מעתיקים את שבעת הקבצים מתוך ה-ZIP לתיקיית <code>spec</code>, במקום קבצי התבנית.</p>
+      <p class="sm">את הריפו ב-GitHub קוראים <code>Simon</code>, עם S גדולה. כך כתוב במסמך הארכיטקטורה.</p>
+      <p class="sm">המשחק בנוי ב-React עם Vite, ולכן Claude יבקש להתקין Node.js. מתקינים, כמו שכתוב בשלב 9.</p>
+      <a class="dl" href="simon-spec.zip" download="simon-spec.zip"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> הורדת הפרויקט</a>
+    </div>
+  </div>
+
+  <details class="pre0" id="pre-sdd"><summary><span class="pm">+</span><u>מה הסקיל עושה, בקצרה</u></summary><div>
+    <ul class="ul">
+      <li><b>מה הוא.</b> סקיל שמעתיק לתיקיית הפרויקט ערכת פתיחה לפיתוח לפי מסמכים. הוא לא בונה את האפליקציה, לא מריץ git ולא מתקין כלום.</li>
+      <li><b>מפעילים רק ישירות.</b> Claude לא יפעיל אותו מעצמו. כותבים <code>/spec-driven-development he</code> לעברית, או <code>/spec-driven-development en</code> לאנגלית. בלי פרמטר, הוא שואל באיזו שפה.</li>
+      <li><b>מה נוצר בתיקייה.</b>
+<pre class="tree">CLAUDE.md
+.gitignore
+spec/
+  PRD.md
+  ARCHITECTURE.md
+  DESIGN.md
+  MILESTONES.md
+  plans/
+  wireframes.png
+  mockups.png
+  style-guide.png</pre></li>
+      <li><b>קבצי דמה.</b> ארבעת המסמכים ב-<code>spec</code> הם תבניות ריקות, ושלוש התמונות הן תמונות דמה. מוחקים אותם ושמים במקומם את שבעת הקבצים האמיתיים, באותם שמות. אם נשאר קובץ דמה ש-Milestone צריך, Claude עוצר ושואל.</li>
+      <li><b><code>CLAUDE.md</code> מגיע מלא.</b> בו כל כללי העבודה: אבן דרך אחת בכל פעם, בלי commit עד שמבקשים, בלי לקרוא את <code>.env</code>, וחשבונות ומפתחות נשארים אצלכם. Claude קורא אותו רק בתחילת שיחה, ולכן אחרי הסקיל פותחים שיחה חדשה.</li>
+      <li><b>מסמך לכל Milestone.</b> לפני שהוא בונה אבן דרך, Claude כותב לה קובץ תוכנית: <code>spec/plans/milestone-1.md</code>, אחריו <code>milestone-2.md</code>, וכן הלאה.</li>
+      <li><b>המחזור.</b> ארבע פקודות קצרות: "תכנן את אבן הדרך הראשונה", "בנה את אבן הדרך הראשונה", "הרץ כדי שאבדוק", "דחוף שינויים לגיטהאב". אחרי כל אחת Claude עוצר ומחכה לכם.</li>
+      <li><b>סימוני התקדמות.</b> ב-<code>MILESTONES.md</code>, ליד כל אבן דרך: 🟡 נבנתה ומחכה לבדיקה שלכם, ✅ אושרה. הדחיפה לגיטהאב היא גם האישור.</li>
+      <li><b>לא דורס.</b> אם בתיקייה כבר יש <code>CLAUDE.md</code>, <code>.gitignore</code> או <code>spec</code>, הסקיל עוצר ושואל: לדרוס, להוסיף רק מה שחסר, או לבטל.</li>
+    </ul>
+  </div></details>
+
+  <div class="label" id="flow">נוהל העבודה, צעד אחר צעד</div>
+  <div class="flowh"><h2>נוהל עבודה עבור <span class="en">Spec-Driven Development</span></h2><span class="prog" id="prog"></span></div>
+  <ol class="wf">
+    <li class="ws" data-s="1"><span class="wn">1</span><div class="wt">עבודה עם קלוד קוד (לא עם Chat/Cowork)</div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="2"><span class="wn">2</span><div class="wt">פתיחת פרויקט New בתיקייה חדשה ריקה, בעלת שם באנגלית ללא תווים מיוחדים, עדיף לא ב-Desktop או בכל מיני מקומות שאין לנו הרשאה. יש לוודא שאנחנו נמצאים במודל חזק כמו Opus 5.5 ובמאמץ Medium.</div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="3"><span class="wn">3</span><div class="wt">הרצת הסקיל: <code>/spec-driven-development</code> עם פרמטר he או en
+      <span class="sub">הסקיל מעתיק קבצים לתיקיית הפרויקט:</span>
+      <span class="files">CLAUDE.md<br>.gitignore<br>spec</span>
+      <span class="sub"><code>spec</code>: תיקייה המכילה קבצי תבנית</span></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="4"><span class="wn">4</span><div class="wt">העתקת 7 הקבצים האמיתיים של ה-Spec-Driven שבנינו ב-ChatGPT או Gemini, לתיקיית spec שנוצרה בפרויקט שלנו במקום 7 קבצי התבנית.</div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="5"><span class="wn">5</span><div class="wt">בקשה מקלוד לייצר ריפו Git מקומי (קלוד יריץ <code>git init</code>)</div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="6"><span class="wn">6</span><div class="wt">בקשה מקלוד לייצר גרסה ראשונה (קלוד יריץ <code>git add .</code> ו-<code class="w">git commit -m "initial commit"</code>)</div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="7"><span class="wn">7</span><div class="wt">יצירת ריפו ב-GitHub.</div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="8"><span class="wn">8</span><div class="wt">בקשה מקלוד לדחוף את הגרסה לריפו שיצרנו
+      <span class="sub">יש בשלב זה לתת לקלוד את כתובת הריפו (קלוד יריץ <code>git push -u ...</code>)</span>
+      <span class="sub">כדאי לבדוק בלשונית ה-Code ב-GitHub שאכן הקבצים נמצאים שם.</span></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="9"><span class="wn">9</span><div class="wt">בקשה מקלוד לקרוא את מסמכי הפרויקט, לבדוק את הארכיטקטורה, אפיון, בהירות וכו', ולחוות דעה.
+      <span class="say">"קרא את קבצי הפרויקט, בדוק את הארכיטקטורה, האפיון, בהירות הפרויקט וכו' וציין מה דעתך, כתוב את כל השינויים שלדעתך צריך לבצע אך אל תבצע דבר עדיין"</span>
+      <span class="sub">אם ישנה בקשה מקלוד להתקין כלי עבור הפיתוח, יש להתקין. אפשר לבקש מקלוד להתקין, אם הוא לא יכול עלינו להתקין לפי הנחייה שלו.</span></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="10"><span class="wn">10</span><div class="wt">קריאת ההערות של קלוד והחלטה: מה אנו רוצים לבצע בכל הערה.
+      <span class="sub">מתן הוראה לקלוד לתקן, לשנות, לסדר וכו' אם דרוש.</span></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="11"><span class="wn">11</span><div class="wt">דחיפת שינויים לגיטהאב.</div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="12"><span class="wn">12</span><div class="wt">ביצוע Rename לשיחה עצמה ולקרוא לה: Init</div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="13"><span class="wn">13</span><div class="wt">פתיחת שיחה חדשה. יש לוודא שאנו באותה התיקייה של הפרויקט, באותו מודל חזק, לדוגמה Opus 5.5, באותו מאמץ, לדוגמה Medium.</div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="14"><span class="wn">14</span><div class="wt">הוראה לקלוד: <b>"תכנן את אבן הדרך הראשונה/הבאה"</b> וביצוע Rename של השיחה ל: Milestone 1/2/3...
+      <span class="sub">קלוד אמור להראות בסיום את המשימות של אבן הדרך. אם לא מראה אפשר לבקש להראות מה עליו לבצע.</span></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="15"><span class="wn">15</span><div class="wt">הוראה לקלוד: <b>"בנה את אבן הדרך הראשונה/הבאה"</b></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="16"><span class="wn">16</span><div class="wt">הוראה לקלוד: <b>"הרץ בכדי שאבדוק"</b>
+      <span class="sub">קלוד יכתוב בדיוק מה עלינו לבדוק, אנו בודקים שכל מה שצריך להיות בשלב הזה, אכן קיים ועובד.</span>
+      <span class="sub">יש לבדוק רק את מה שקלוד מציע כי הוא עדיין לא ביצע את כלל האפליקציה.</span></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="17"><span class="wn">17</span><div class="wt">אם יש באג, או משהו לא בסדר, עלינו לתקן זאת מיד ע"י בקשה מקלוד ולבדוק שהבאג תוקן.
+      <span class="sub">אם השינוי צריך להיות גם במסמכי ה-spec הוא יציע לעדכן אותם.</span></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="18"><span class="wn">18</span><div class="wt">הוראה לקלוד: <b>"דחוף שינויים לגיטהאב"</b></div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+    <li class="ws" data-s="19"><span class="wn">19</span><div class="wt">חזרה לשלב 13 עד 18 עבור כל Milestone.</div><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי את השלב"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></li>
+  </ol>
+  <button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button>
+</section>
+
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v18 · 20.10.2026</footer>
 
 <script>
 (function(){
@@ -685,6 +853,23 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   document.querySelectorAll('details.pre0').forEach(function(d){d.addEventListener('toggle',function(){d.querySelector('.pm').textContent=d.open?'-':'+';});});
   document.querySelectorAll('a[href^="#pre-"]').forEach(function(l){l.addEventListener('click',function(){var d=document.querySelector(l.getAttribute('href'));if(d)d.open=true;});});
   function fallback(t){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
+  /* stages, v18 */
+  var ab=document.querySelector('.appbar');function abh(){root.style.setProperty('--abh',ab.offsetHeight+'px');}abh();window.addEventListener('resize',abh);
+  var stA=document.getElementById('stage-a'),stB=document.getElementById('stage-b'),fold=document.getElementById('foldA'),stbs=[].slice.call(document.querySelectorAll('.stb'));
+  function setFold(c,keep){stA.classList.toggle('closed',c);fold.querySelector('span').textContent=c?'פתח':'קפל';fold.setAttribute('aria-expanded',String(!c));if(!keep){S.foldA=c;save();}if(typeof act==='function')act();}
+  fold.addEventListener('click',function(){setFold(!stA.classList.contains('closed'));});
+  if(S.foldA)setFold(true,true);
+  function openFor(h){if(!h||h.length<2)return;var t=document.getElementById(h.slice(1));if(t&&t!==stA&&stA.contains(t)&&stA.classList.contains('closed'))setFold(false);}
+  stbs.forEach(function(a){a.addEventListener('click',function(){if(a.dataset.st==='a'&&stA.classList.contains('closed'))setFold(false);});});
+  window.addEventListener('hashchange',function(){openFor(location.hash);});openFor(location.hash);
+  function act(){var b=stB.getBoundingClientRect().top<window.innerHeight*0.45;stbs.forEach(function(a){a.classList.toggle('on',(a.dataset.st==='b')===b);});}
+  window.addEventListener('scroll',act,{passive:true});act();
+  if(!S.sdd||typeof S.sdd!=='object')S.sdd={};
+  var ws=[].slice.call(document.querySelectorAll('.ws[data-s]')),prog=document.getElementById('prog');
+  function paintWs(){var n=0;ws.forEach(function(r){var on=!!S.sdd[r.dataset.s];if(on)n++;r.classList.toggle('done',on);r.querySelector('.chk').setAttribute('aria-checked',String(on));});prog.textContent=n===ws.length?'הושלם':'בוצעו '+n+'/'+ws.length;prog.classList.toggle('all',n===ws.length);}
+  ws.forEach(function(r){r.querySelector('.chk').addEventListener('click',function(){var id=r.dataset.s;if(S.sdd[id])delete S.sdd[id];else S.sdd[id]=1;paintWs();save();});});
+  paintWs();
+  document.getElementById('resetBtn').addEventListener('click',function(){S.sdd={};paintWs();save();});
   document.querySelectorAll('.prompt .cp').forEach(function(b){b.addEventListener('click',function(){var t=b.parentNode.querySelector('pre').innerText;var ok=function(){b.textContent='הועתק';b.classList.add('ok');setTimeout(function(){b.textContent='העתק';b.classList.remove('ok');},1500);};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,function(){fallback(t);ok();});else{fallback(t);ok();}});});
 })();
 </script>
