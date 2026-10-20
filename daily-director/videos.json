@@ -1,6 +1,48 @@
 {
   "days": [
     {
+      "date": "2026-10-20",
+      "ideas": [
+        {
+          "id": "2026-10-20-figma-motion-canvas",
+          "world": "סרטוני הסבר",
+          "color": "#FF6B5E",
+          "hook": "פיגמה שמו ציר זמן שלם של אנימציה בתוך הפריים, בלי כלי חוץ, וזה כבר ארבעה חודשים בחיים.",
+          "concept": "מצלמה נכנסת לתוך פריים פיגמה, ציר זמן קטן עולה בתוכו עם קיי פריימים מהבהבים, ואז נפתח כמו מניפה לשלל פורמטי ייצוא: CSS, React, MP4, GIF. אותו נכס בדיוק עולה היום גם כפוסט ברומה אחרת.",
+          "execution": "שפה קינטית אדיטוריאלית: רקע פחם עמוק, טיפוגרפיה קינטית, קורל וצהוב חם, קומפוזיציה גיאומטרית מינימלית. פריים מפתח ב-Nano Banana Pro, תנועה ב-Kling 3 std, בלי קריינות, 16:9, עד 15 שניות.",
+          "why": "אני בדיוק באמצע בנייה של עמוד נחיתה ל-Weave, וזה הכלי שאני צריך להראות למישהו חדש כל שבוע. אותו נכס עולה היום גם כפוסט, שני ערוצים לאותה תצפית.",
+          "competition": null,
+          "srcUrl": "https://www.cmswire.com/digital-experience/figma-launches-code-layers-motion-at-config-2026/",
+          "srcLabel": "CMSWire · Figma Motion ב-Config 2026",
+          "prompts": {
+            "video": "Kinetic typography explainer animation, deep charcoal background, camera pushes into a flat canvas frame revealing a small animation timeline with blinking diamond keyframes inside it, the timeline then fans out into export format icons (CSS brackets, a React atom, a play triangle, a looping GIF icon), coral and warm yellow accent highlights, clean geometric composition, generous negative space, calm confident mood, no text, 16:9, 8 seconds",
+            "script": "קח את ההוק \"פיגמה שמו ציר זמן שלם של אנימציה בתוך הפריים, בלי כלי חוץ, וזה כבר ארבעה חודשים בחיים\" ופתח אותו לסרטון הסברה של 20 עד 30 שניות: לוגליין, תסריט קריינות בעברית עם ציר זמן מדויק, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בסגנון קינטי אדיטוריאלי.",
+            "image": "Kinetic typography style still, deep charcoal background, a flat canvas frame with a small animation timeline and blinking diamond keyframes inside it, export format icons arranged fanning out to one side (CSS brackets, a React atom, a play triangle, a looping GIF icon), coral and warm yellow accent highlights, generous negative space, flat minimal composition, no text",
+            "raw": "הוק: פיגמה שמו ציר זמן שלם של אנימציה בתוך הפריים, בלי כלי חוץ, וזה כבר ארבעה חודשים בחיים\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: מצלמה נכנסת לפריים פיגמה, ציר זמן עם קיי פריימים נפתח כמו מניפה לפורמטי ייצוא\nביצוע: שפה קינטית אדיטוריאלית, רקע פחם, קורל וצהוב, 16:9\nלמה עכשיו: בדיוק בונה עמוד נחיתה ל-Weave, אותו נכס עולה היום גם כפוסט"
+          }
+        },
+        {
+          "id": "2026-10-20-two-hands-one-frame",
+          "world": "קונספטואלי",
+          "color": "#7B61FF",
+          "hook": "שתי ידיים מעצבות את אותו פריים בדיוק באותה שנייה, ואף אחת מהן לא יודעת על השנייה.",
+          "concept": "שתי ידיים של חרס נכנסות משני צדי פריים אחד ולשות אותו בו זמנית, כל אחת יוצרת צורה שונה על אותו חומר. לרגע נראה שהצורות מתנגשות, ואז הן נושמות אחת לצד השנייה בלי לדרוס. אותו רעיון בדיוק עולה היום כפוסט, על מה קורה לריוויו כשיש יותר מגרסה אחת רצה במקביל.",
+          "execution": "שפת Clay בבית הסטודיו: פלסטלינה בעבודת יד, טביעות אצבע גלויות, רקע סטודיו קרמי, פלטת קורל צהוב וטורקיז, תאורה רכה, עומק שדה רדוד. פריים מפתח ב-Nano Banana Pro, תנועה עדינה ב-Kling 3 std, בלי קריינות, 9:16, עד 12 שניות.",
+          "why": "זה ממחיש בלי מילה אחת את השאלה שמעניינת אותי בפיצ'ר האייג'נט המקביל של פיגמה: לא אם זה עובד, אלא מי סוגר ביקורת כשהשינוי הגיע משני כיוונים.",
+          "competition": null,
+          "srcUrl": "https://framia.converge.ai/page/en-US/news/figma-ai-agent-collaborative-canvas-design",
+          "srcLabel": "Framia · TechCrunch",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field, two clay hands reach in from opposite edges of frame and knead the same lump of clay at the same time, each shaping a different form, the two forms almost collide then settle calmly side by side without crushing each other, soft handheld micro movement, no text, 9:16, 8 seconds",
+            "script": "קח את ההוק \"שתי ידיים מעצבות את אותו פריים בדיוק באותה שנייה, ואף אחת מהן לא יודעת על השנייה\" ופתח אותו לסרט קונספטואלי שקט של 15 עד 20 שניות: לוגליין, החלטה אם יש קריינות או שקט מלא, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בסגנון Clay.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow and teal palette, soft studio lighting, shallow depth of field, two clay hands reaching in from opposite edges toward the same lump of clay, each mid-shaping a different form, no text",
+            "raw": "הוק: שתי ידיים מעצבות את אותו פריים בדיוק באותה שנייה, ואף אחת מהן לא יודעת על השנייה\nעולם: קונספטואלי\nתחרות: אין\nקונספט: שתי ידי חרס לשות את אותו חומר משני צדי הפריים בו זמנית, הצורות כמעט מתנגשות ואז נושמות זו לצד זו\nביצוע: שפת Clay, Nano Banana Pro לפריים, Kling 3 לתנועה, 9:16\nלמה עכשיו: ממחיש את השאלה של ביקורת כשיש יותר מגרסה אחת רצה במקביל על אותו קובץ פיגמה"
+          }
+        }
+      ],
+      "watch": []
+    },
+    {
       "date": "2026-10-19",
       "ideas": [
         {
