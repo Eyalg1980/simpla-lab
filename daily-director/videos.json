@@ -1,6 +1,59 @@
 {
   "days": [
     {
+      "date": "2026-10-21",
+      "ideas": [
+        {
+          "id": "2026-10-21-weave-via-mcp",
+          "world": "סרטוני הסבר",
+          "color": "#FF6B5E",
+          "hook": "ב-14.10 פיגמה אישרו שאפשר להפעיל workflow שלם של Weave מכלי AI חיצוני, בלי לפתוח את הקנבס בכלל.",
+          "concept": "מצלמה מחוץ לפריים קנבס עם קו מקווקו. נוד זוהר קטן פועם ושולח קו אור אחד לתוך הפריים. בתוך הפריים נדלקת שרשרת אייקוני workflow אחד אחרי השני, ובסוף נכס מוכן עף מהצד השני של הפריים. אותו נכס עולה היום גם כפוסט, שני ערוצים לאותה תצפית.",
+          "execution": "שפה קינטית אדיטוריאלית: רקע פחם עמוק, טיפוגרפיה קינטית, קורל וצהוב חם, קומפוזיציה גיאומטרית מינימלית. פריים מפתח ב-Nano Banana Pro, תנועה ב-Kling 3 std, בלי קריינות, 16:9, עד 12 שניות.",
+          "why": "אני בדיוק באמצע בניית כלי הפרומו ל-Weave שעובר לדניאל, וזה משנה את מה שהדמו חייב להראות: לא רק קנבס פתוח, גם קריאה שמגיעה מבחוץ. אותו נכס עולה היום גם כפוסט.",
+          "competition": null,
+          "srcUrl": "https://releasebot.io/updates/figma",
+          "srcLabel": "Figma release notes, Build by design · 14.10",
+          "prompts": {
+            "video": "Kinetic typography explainer animation, deep charcoal background, camera floats outside a dashed-outline canvas frame in dark space, a small glowing command node pulses and sends a single line of light into the frame, inside the frame a sequence of workflow icons lights up one after another and produces a finished asset that flies out the far edge of the frame, coral and warm yellow accent highlights, clean minimal geometric composition, generous negative space, calm confident mood, no text, 16:9, 8 seconds",
+            "script": "קח את ההוק \"ב-14.10 פיגמה אישרו שאפשר להפעיל workflow שלם של Weave מכלי AI חיצוני, בלי לפתוח את הקנבס בכלל\" ופתח אותו לסרטון הסברה של 20 עד 30 שניות: לוגליין, תסריט קריינות בעברית עם ציר זמן מדויק, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בסגנון קינטי אדיטוריאלי.",
+            "image": "Kinetic typography style still, deep charcoal background, a dashed-outline canvas frame floating in dark space with a small glowing command node just outside it sending a single line of light inward, workflow icons lit in sequence inside the frame, coral and warm yellow accent highlights, generous negative space, flat minimal composition, no text",
+            "raw": "הוק: ב-14.10 פיגמה אישרו שאפשר להפעיל workflow שלם של Weave מכלי AI חיצוני, בלי לפתוח את הקנבס בכלל\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: מצלמה מחוץ לפריים, נוד שולח פקודה לתוך הקנבס, workflow שלם של Weave רץ ומפיק נכס בלי לפתוח קובץ\nביצוע: שפה קינטית אדיטוריאלית, רקע פחם, קורל וצהוב, Nano Banana Pro ו-Kling 3, 16:9\nלמה עכשיו: בדיוק בונה את כלי הפרומו ל-Weave, אותו נכס עולה היום גם כפוסט"
+          }
+        },
+        {
+          "id": "2026-10-21-one-photograph",
+          "world": "קונספטואלי",
+          "color": "#71F73C",
+          "hook": "תמונה ישנה אחת על השולחן, והצבע שלה זולג לתוך סרטון שצולם הבוקר.",
+          "concept": "מצלמה חרבה על תמונה מצולמת ישנה שמונחת על שולחן עץ. אור חם זולג ממנה כאילו היא זוהרת, ואז אותו זוהר עובר למסך טלפון סמוך שמנגן קליפ יומיומי. הקליפ קולט את הגרעין ואת הטונים של התמונה ומשנה צבע לנגד העינים, עד שהטלפון עצמו נראה כאילו צולם באותה מצלמה ישנה.",
+          "execution": "שפת עתיד אופטימי קרוב: אור ים תיכוני חם, חול קרם וטורקיז רך, אנושי ומלא תקווה ולא מדע בדיוני קר, עומק שדה רדוד. פריים מפתח ב-Nano Banana Pro, תנועה ב-Kling 3 std, קריינות עברית קלה או שקט מלא, 9:16, 15 שניות.",
+          "why": "השבוע Higgsfield הציגו את Katana, סקיל קלוד שלוקח תמונת רפרנס אחת ומעביר את הסטייל שלה לסרטון שלם. זו הדגמה ישירה של הטכניקה הזו, בלי להגיד את זה במילים.",
+          "competition": "AI Film Festival Africa (AIFFA), דדליין 31.10.2026 23:59 שעון אנטננריבו",
+          "srcUrl": "https://higgsfield.ai/creator-hub/changelog",
+          "srcLabel": "Higgsfield changelog · 8.10",
+          "prompts": {
+            "video": "Optimistic near-future cinematic style, warm Mediterranean light, sand cream and soft teal palette, human and hopeful mood, shallow depth of field, camera pushes slowly in on an old analog photograph lying on a wooden table, a warm glow seems to bleed out of the photograph's edges, the same warm grain and color then spreads onto a nearby phone screen playing ordinary footage until the phone's footage matches the old photograph's tone completely, gentle handheld micro movement, no text, 9:16, 15 seconds",
+            "script": "קח את ההוק \"תמונה ישנה אחת על השולחן, והצבע שלה זולג לתוך סרטון שצולם הבוקר\" ופתח אותו לסרט קונספטואלי של 15 עד 20 שניות, מועמד ל-AI Film Festival Africa (AIFFA), דדליין 31.10.2026: לוגליין, החלטה אם יש קריינות עברית קלה או שקט מלא, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בסגנון עתיד אופטימי קרוב.",
+            "image": "Optimistic near-future cinematic style, warm Mediterranean light, sand cream and soft teal palette, human and hopeful mood, shallow depth of field, an old analog photograph lying on a wooden table with a warm glow bleeding softly out of its edges, a phone screen just visible nearby still showing plain modern footage, no text",
+            "raw": "הוק: תמונה ישנה אחת על השולחן, והצבע שלה זולג לתוך סרטון שצולם הבוקר\nעולם: קונספטואלי\nתחרות: AI Film Festival Africa (AIFFA), דדליין 31.10.2026 23:59 שעון אנטננריבו\nקונספט: אור חם זולג מתמונה ישנה למסך טלפון סמוך עד שהקליפ המודרני קולט את הטונים והגרעין של התמונה\nביצוע: שפת עתיד אופטימי קרוב, אור ים תיכוני, חול וטורקיז, Nano Banana Pro ו-Kling 3, 9:16\nלמה עכשיו: Higgsfield הציגו השבוע Katana, סקיל שמעביר סטייל מתמונת רפרנס אחת לסרטון שלם"
+          }
+        }
+      ],
+      "watch": [
+        {
+          "title": "Higgsfield Ads Studio: מדף מוצר לקמפיין מודעות גמור",
+          "url": "https://finance.yahoo.com/media-advertising/articles/higgsfield-turns-product-page-finished-130000063.html",
+          "note": "כיוון שימושי לפרומו של סימפלה עצמה, קישור לדף מוצר שמפיק קריאייטיב מוכן"
+        },
+        {
+          "title": "Config הודו 2026: Code Layers, Specs ו-Payload לכולם",
+          "url": "https://releasebot.io/updates/figma",
+          "note": "אותו גל הכרזות של יוני, הפעם עם Payload, בק-אנד מובנה בתוך Figma Make"
+        }
+      ]
+    },
+    {
       "date": "2026-10-20",
       "ideas": [
         {
