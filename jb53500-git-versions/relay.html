@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>relay</title></head>
+<body style="font:16px sans-serif;padding:20px">relay<pre id="o"></pre>
+<script>
+(async function(){
+  var o=document.getElementById('o'); function log(s){o.textContent+=s+'\n';}
+  var T='https://github.com';
+  var F=[
+    {u:'https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/f2faf371-d525-434c-b50b-83df33d7376b.mp4',n:'git-versions-demo.mp4',t:'video/mp4'},
+    {u:'https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/b0fb77a3-af8d-4d76-91da-d511b00a9db7.jpg',n:'poster.jpg',t:'image/jpeg'}
+  ];
+  if(!window.opener){log('no opener');return;}
+  try{
+    for(var i=0;i<F.length;i++){
+      var r=await fetch(F[i].u,{cache:'no-store'}); if(!r.ok) throw new Error(F[i].n+' '+r.status);
+      var b=await r.arrayBuffer(); var n=b.byteLength;
+      window.opener.postMessage({kind:'file',name:F[i].n,type:F[i].t,size:n,buf:b},T,[b]); log('sent '+F[i].n+' '+n);
+    }
+    window.opener.postMessage({kind:'done'},T); log('done');
+  }catch(e){ log('ERR '+e); try{window.opener.postMessage({kind:'err',msg:String(e)},T);}catch(_){} }
+})();
+</script>
+</body></html>
