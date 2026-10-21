@@ -857,7 +857,7 @@ spec/
   <button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button>
 </section>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v19 · 20.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v20 · 21.10.2026</footer>
 
 <script>
 (function(){
@@ -878,7 +878,7 @@ spec/
   function setFold(c,keep){stA.classList.toggle('closed',c);fold.querySelector('span').textContent=c?'פתח':'קפל';fold.setAttribute('aria-expanded',String(!c));if(!keep){S.foldA=c;save();}if(typeof act==='function')act();}
   fold.addEventListener('click',function(){setFold(!stA.classList.contains('closed'));});
   if(S.foldA)setFold(true,true);
-  function openFor(h){if(!h||h.length<2)return;var t=document.getElementById(h.slice(1));if(t&&t!==stA&&stA.contains(t)&&stA.classList.contains('closed'))setFold(false);}
+  function openFor(h){if(!h||h.length<2)return;var t=document.getElementById(h.slice(1));if(t&&stA.contains(t)&&stA.classList.contains('closed'))setFold(false);}
   stbs.forEach(function(a){a.addEventListener('click',function(){if(a.dataset.st==='a'&&stA.classList.contains('closed'))setFold(false);});});
   window.addEventListener('hashchange',function(){openFor(location.hash);});openFor(location.hash);
   function act(){var b=stB.getBoundingClientRect().top<window.innerHeight*0.45;stbs.forEach(function(a){a.classList.toggle('on',(a.dataset.st==='b')===b);});}
