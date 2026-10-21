@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20",
+  "updated": "2026-10-21",
   "ideas": [
     {
       "id": "I-2026-0489",
@@ -4323,6 +4323,82 @@
       "status": "pool",
       "snoozes": 0,
       "touchedAt": "2026-10-20"
+    },
+    {
+      "id": "I-2026-0529",
+      "title": "פאנל ניהול אוטומטי",
+      "line": "ראיתי שב-14.10 פיגמה הוסיפו ל-Make בק-אנד מובנה בשם Payload, עם CMS ופאנל ניהול, בלי Supabase בצד.",
+      "advisor": "visionary",
+      "createdAt": "2026-10-21",
+      "capability": {
+        "name": "Figma Make Payload backend",
+        "releasedAt": "2026-10-14"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-21"
+    },
+    {
+      "id": "I-2026-0530",
+      "title": "מעביר סטייל",
+      "line": "ראיתי שב-8.10 הגיע Katana, סקיל קלוד שמעביר סטייל של תמונת רפרנס אחת לסרטון שלם, בלי LUT.",
+      "advisor": "visionary",
+      "createdAt": "2026-10-21",
+      "capability": {
+        "name": "Higgsfield Katana Claude skill",
+        "releasedAt": "2026-10-08"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-21"
+    },
+    {
+      "id": "I-2026-0531",
+      "title": "תחקור מפגש אוטומטי",
+      "line": "עשרים ושבעה מפגשים ברצף ב-45900 אתה כותב לי בעצמך תחקור חמש שורות אחרי כל שיעור, בלי שאף אחד ביקש.",
+      "advisor": "pain",
+      "createdAt": "2026-10-21",
+      "capability": null,
+      "evidence": "הרוטינה הקבועה שאתה מדווח עליה: תחקור חמש שורות לקלוד אחרי כל מפגש בקורס 45900, 27 מפגשים",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-21"
+    },
+    {
+      "id": "I-2026-0532",
+      "title": "פלטת אמון",
+      "line": "איך נראה מסך שמראה לתלמיד איך פלטת צבעים משנה תפיסה של אמון, לפני שהוא בוחר צבע אחד למסך שלו?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-21",
+      "capability": null,
+      "evidence": null,
+      "lesson": "פסיכולוגיה של צבע, קורס עיצוב המוצר",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-21"
+    },
+    {
+      "id": "I-2026-0533",
+      "title": "לפני שפותחים פיגמה",
+      "line": "איך נראה מסך שעוזר לתלמיד לבחור באיזה משלושת תחומי העיצוב הפרויקט שלו באמת גר, לפני שהוא פותח פיגמה?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-21",
+      "capability": null,
+      "evidence": null,
+      "lesson": "תחומי העיצוב, קורס UI/UX",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-21"
     }
   ]
 }
