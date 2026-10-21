@@ -926,6 +926,59 @@ html[data-edc="eve"] [data-edo="morn"]{display:none}
 .edsw-top .edl{font-size:11px;font-weight:900;letter-spacing:.1em;color:var(--ink-3);padding:0 4px 0 10px}
 .edsw-top .edn{margin-right:auto;padding:0 10px}
 @media (max-width:700px){.edsw-top{margin:0 0 22px}.edsw-top .edn{margin-right:0}}
+
+/* ---------- IMPORTANT LINKS AREA (21.10.2026): Eyal's priority order, every link with its meeting.
+   Mobile first. Desktop only inside the min-width:1024px block at the end. ---------- */
+.lk-top{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin-top:24px;position:relative;z-index:1}
+.lk-big{display:flex;gap:14px;align-items:flex-start;min-width:0;background:var(--paper);color:var(--ink);text-decoration:none;
+  border:2px solid transparent;border-radius:var(--radius);padding:16px;box-shadow:0 12px 30px -18px rgba(0,0,0,.55);transition:.16s}
+.lk-big:hover{border-color:var(--coral);transform:translateY(-2px)}
+.lk-big:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.lk-big .st-no{width:48px;height:48px;flex:0 0 48px}
+.lk-big .st-no small{font-family:'Heebo',sans-serif;font-size:10px;opacity:.85}
+.lk-big .st-no b{font-family:'Heebo',sans-serif;font-size:24px;font-weight:900}
+.lk-big .st-no svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.lk-big.b .st-no{background:var(--navy)}
+.lk-big.wide .st-no{background:var(--char)}
+.lk-bt{flex:1;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+.lk-bt > b{font-size:18px;font-weight:900;color:var(--navy);line-height:1.3}
+.lk-bt .lk-d{font-size:14px;line-height:1.6;color:var(--ink-2)}
+.lk-go{display:inline-flex;align-items:center;gap:8px;margin-top:6px;font-size:13.5px;font-weight:800;color:#fff;
+  background:var(--coral);padding:8px 15px;border-radius:99px;transition:.16s}
+.lk-big.b .lk-go{background:var(--navy)}
+.lk-big.wide .lk-go{background:var(--char)}
+.lk-big:hover .lk-go{background:var(--red-dk)}
+.lk-go svg{width:15px;height:15px;flex:0 0 15px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.lk-m{font-size:11.5px;font-weight:700;padding:2px 10px}
+.lk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:12px}
+.lk{display:flex;gap:13px;align-items:flex-start;min-width:0;background:var(--paper);color:inherit;text-decoration:none;
+  border:1.5px solid var(--line);border-radius:var(--radius);padding:15px 16px;box-shadow:var(--shadow);transition:.16s}
+.lk:hover{border-color:var(--coral);transform:translateY(-2px)}
+.lk:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+.lk-i{flex:0 0 38px;height:38px;border-radius:10px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center}
+.lk.dl .lk-i{background:var(--coral)}
+.lk-i svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.lk-t{flex:1;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.lk-t > b{font-size:15px;font-weight:900;color:var(--navy);line-height:1.35;overflow-wrap:anywhere}
+.lk-t .lk-d{font-size:12.5px;line-height:1.6;color:var(--ink-3);overflow-wrap:anywhere}
+.lk-t .lk-d .en{font-size:12px;font-family:'Poppins',sans-serif}
+.lk-x{flex:0 0 16px;width:16px;height:16px;margin-top:3px;fill:none;stroke:var(--ink-3);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:.16s}
+.lk:hover .lk-x{stroke:var(--coral)}
+.lk-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px;padding-top:12px;border-top:1.5px dashed var(--dash)}
+.lk-rl{font-size:11px;font-weight:900;letter-spacing:.06em;color:var(--ink-3);margin-inline-end:4px}
+.lk-row .sl-lk{padding:7px 13px;font-size:12.5px;border-radius:99px}
+.lk-row .sl-lk svg{flex:0 0 15px;width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (min-width:1024px){
+  .hero.lk-hero{padding:38px 44px}
+  .lk-top{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}
+  .lk-top .lk-big.wide{grid-column:1/-1;align-items:center}
+  .lk-big{padding:20px 22px;gap:18px}
+  .lk-big .st-no{width:56px;height:56px;flex-basis:56px}
+  .lk-big .st-no b{font-size:28px}
+  .lk-bt > b{font-size:20px}
+  .lk-big.wide .lk-bt{flex-direction:row;flex-wrap:wrap;align-items:center;column-gap:14px}
+  .lk-big.wide .lk-go{margin:0;margin-inline-start:auto}
+}
 </style>
 </head>
 <body>
@@ -960,6 +1013,7 @@ html[data-edc="eve"] [data-edo="morn"]{display:none}
   </div>
   <nav class="nav" id="nav">
     <button data-p="home" class="on"><svg class="ico" viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg><span class="nl">דף הבית</span><span class="ns">בית</span></button>
+    <button data-p="links"><svg class="ico" viewBox="0 0 24 24"><path d="M10.3 13.7a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1.2 1.2"/><path d="M13.7 10.3a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1.2-1.2"/></svg><span class="nl">קישורים חשובים</span><span class="ns">קישורים</span></button>
     <button data-p="syllabus"><svg class="ico" viewBox="0 0 24 24"><path d="M4 4h11l5 5v11a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1z"/><path d="M14 4v6h6M8 14h8M8 18h5"/></svg><span class="nl">הקורס</span><span class="ns">קורס</span></button>
     <button data-p="project"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg><span class="nl">הפרויקט שלי</span><span class="ns">פרויקט</span></button>
     <button data-p="prompts"><svg class="ico" viewBox="0 0 24 24"><path d="M4 4.5h16v15H4z"/><path d="M7.5 9l2.5 2.5-2.5 2.5M12.5 14.5h4"/></svg><span class="nl">ארגז כלים</span><span class="ns">כלים</span></button>
@@ -968,7 +1022,7 @@ html[data-edc="eve"] [data-edo="morn"]{display:none}
     <button data-p="marketing"><svg class="ico" viewBox="0 0 24 24"><path d="M3 10.5v3a1 1 0 001 1h3l5 4V5.5l-5 4H4a1 1 0 00-1 1z"/><path d="M17 8.5a5 5 0 010 7M20 6a8.5 8.5 0 010 12"/></svg><span class="nl">עזר למרקטינג</span><span class="ns">שיווק</span></button>
   </nav>
   <div class="rail-foot">
-    <b>גרסת סילבוס</b><br>אוקטובר 2026 · 16.10e<br>
+    <b>גרסת סילבוס</b><br>אוקטובר 2026 · 21.10a<br>
     <span style="opacity:.7">עודכן על ידי אייל גרשון, אסף פינקלשטיין ולירון חונן</span>
     <div class="who"><span>מחובר כ<b id="whoami">מרצה</b></span><button id="logout" type="button">יציאה</button></div>
   </div>
@@ -1003,6 +1057,7 @@ html[data-edc="eve"] [data-edo="morn"]{display:none}
 </div>
 
 <div class="quick" id="quick">
+  <button class="qb" data-go="links"><svg viewBox="0 0 24 24"><path d="M10.3 13.7a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1.2 1.2"/><path d="M13.7 10.3a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1.2-1.2"/></svg><b>קישורים חשובים</b><span>דף הפרומפטים, Git, קבצים ומצגות, ולכל קישור המפגש שלו</span></button>
   <button class="qb" data-go="syllabus"><svg viewBox="0 0 24 24"><path d="M4 4h11l5 5v11a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1z"/><path d="M14 4v6h6M8 14h8M8 18h5"/></svg><b>הקורס</b><span>7 מודולים, <i style="font-style:normal" data-ed="meetings">20</i> <span data-ed="unit">מפגשים</span>, והקצב של כל <span data-ed="unit1">מפגש</span></span></button>
   <button class="qb" data-go="project"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg><b>הפרויקט שלי</b><span>מה בונים, איך בוחרים נושא, ומה מגישים</span></button>
   <button class="qb" data-go="prompts"><svg viewBox="0 0 24 24"><path d="M4 4.5h16v15H4z"/><path d="M7.5 9l2.5 2.5-2.5 2.5M12.5 14.5h4"/></svg><b>ארגז כלים</b><span>פרומפטים, מושגים, טבלאות ודוגמאות</span></button>
@@ -1011,6 +1066,16 @@ html[data-edc="eve"] [data-edo="morn"]{display:none}
   <button class="qb" data-go="marketing"><svg viewBox="0 0 24 24"><path d="M3 10.5v3a1 1 0 001 1h3l5 4V5.5l-5 4H4a1 1 0 00-1 1z"/><path d="M17 8.5a5 5 0 010 7M20 6a8.5 8.5 0 010 12"/></svg><b>עזר למרקטינג</b><span>פרסונות, בידול והתנגדויות</span></button>
 </div>
 
+</section>
+<!-- ================= IMPORTANT LINKS (21.10.2026) =================
+     The cards and the sections are built by buildLinks() from the LK list in the script, in Eyal's priority order. -->
+<section class="page" id="p-links">
+<div class="hero lk-hero">
+  <span class="tag">קישורים חשובים</span>
+  <h2 style="font-size:36px;max-width:28ch">מתחילים מדף הפרומפטים.<br>כל השאר, לפי אזורים.</h2>
+  <p>שלב א בונה את המסמכים, ושלב ב בונה את המוצר. מתחת לשניהם כל הקישורים של הקורס, ולכל קישור כתוב לאיזה <span data-ed="unit1">מפגש</span> הוא שייך.</p>
+  <div class="lk-top" id="lktop"></div>
+</div>
 </section>
 <!-- ================= TEACHERS ROOM ================= -->
 <section class="page" id="p-teachers">
@@ -5561,7 +5626,7 @@ function buildDeckIndex(){
           '<span><span class="sn">'+kick+'</span><b>'+d.t+'</b>'+
           '<span>'+n2+' שקפים · '+meta[0]+(meta[1]?' · למרצה בלבד':'')+'</span></span></button>';
       });
-      body+='</div>';
+      body+='</div>'+lkMeet(n);
     }
     tabs+='<button class="ttab'+(i===0?' on':'')+'" type="button" role="tab" data-p="dk-m'+num+'">'+
           '<span class="lbl">'+label+'<span class="cnt" data-ca="'+cnt+'" data-cp="'+pub+'">'+cnt+'</span></span><span>'+sub+'</span></button>';
@@ -5785,15 +5850,134 @@ function buildPlibBar(){
     cards.forEach(c=>{ c.hidden = b.dataset.m!=='all' && c.dataset.m!==b.dataset.m; });
   });
 }
+/* =============== IMPORTANT LINKS AREA (21.10.2026) ===============
+   One list, in Eyal's priority order. Each link carries its meeting as he wrote it (w, morning numbers) and the
+   meetings it belongs to (m). The same list builds the links area and the "links for this meeting" row in the deck index.
+   The evening label comes from mornToEve(), so nothing here is hand-written for the evening. */
+const LKB='https://eyalg1980.github.io/simpla-lab/';
+const LKI={
+  home:'<path d="M3 10l9-7 9 7v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>',
+  term:'<path d="M4 4.5h16v15H4z"/><path d="M7.5 9l2.5 2.5-2.5 2.5M12.5 14.5h4"/>',
+  git:'<circle cx="6" cy="5.5" r="2.2"/><circle cx="6" cy="18.5" r="2.2"/><circle cx="18" cy="8" r="2.2"/><path d="M6 7.7v8.6M18 10.2c0 4.3-5.6 4.3-10.6 6.6"/>',
+  ex:'<rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><path d="M8 12.4l2.6 2.6L16.2 9"/>',
+  play:'<circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z"/>',
+  slides:'<rect x="2.5" y="4.5" width="19" height="13" rx="2"/><path d="M12 17.5V21M8.5 21h7"/>',
+  file:'<path d="M5 3h9l5 5v13a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M14 3v5h5"/><path d="M12 11v6.5M9.2 14.8l2.8 2.8 2.8-2.8"/>',
+  zip:'<path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/>',
+  layers:'<path d="M12 3l9 4.5-9 4.5-9-4.5z"/><path d="M3 12l9 4.5 9-4.5"/><path d="M3 16.5l9 4.5 9-4.5"/>',
+  server:'<rect x="3.5" y="4" width="17" height="6.5" rx="1.5"/><rect x="3.5" y="13.5" width="17" height="6.5" rx="1.5"/><path d="M7 7.25h.01M7 16.75h.01"/>',
+  db:'<ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v13c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-13"/><path d="M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8"/>',
+  globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/>',
+  plan:'<rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.8v3.4M16 2.8v3.4"/>',
+  dl:'<path d="M12 3.5v11M7.5 10l4.5 4.5 4.5-4.5"/><path d="M4 17v2.5a1 1 0 001 1h14a1 1 0 001-1V17"/>',
+  /* external link, mirrored for RTL like the other asymmetric glyphs */
+  ext:'<g transform="translate(24,0) scale(-1,1)"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"/></g>'
+};
+const LK=[
+ {k:'top',h:'הכי חשוב',items:[
+  {st:'א',s:'דף הפרומפטים, שלב א',t:'שלב א: בניית המסמכים',d:'מעשרת ההיבטים לשבעת הפרומפטים. החלק הראשון של דף הפרומפטים.',go:'לשלב א בדף הפרומפטים',w:'מפגשים 7 עד 9',m:[7,8,9],u:LKB+'jb53500-prompts/#stage-a'},
+  {st:'ב',b:1,s:'דף הפרומפטים, שלב ב',t:'שלב ב: אפיון ובנייה ב-Claude\u00a0Code',d:'נוהל 19 השלבים, Milestone אחר Milestone. החלק השני של דף הפרומפטים.',go:'לשלב ב בדף הפרומפטים',w:'מפגש 10 ואילך',m:[10,11],u:LKB+'jb53500-prompts/#stage-b'},
+  {i:'home',wide:1,t:'הדף הראשי לתלמידים',d:'כל התרגילים, הקבצים והמצגות, במקום אחד.',go:'לדף הראשי',w:'לאורך כל הקורס',u:LKB+'jb53500-home/'}
+ ]},
+ {k:'git',h:'Git ו-GitHub',items:[
+  {i:'term',t:'טרמינל',d:'היכרות ראשונה',w:'מפגש 9',m:[9],u:LKB+'jb53500-terminal/'},
+  {i:'git',t:'Git ו-GitHub צעד אחר צעד',d:'התקנה, חשבון ו-GitHub Desktop',w:'מפגש 9',m:[9],u:LKB+'jb53500-git/'},
+  {i:'ex',t:'Git & GitHub: תרגול כיתה',d:'טרמינל, Snake ואיקס עיגול ל-GitHub Pages',w:'מפגש 9',m:[9],u:LKB+'jb53500-git-practice/'},
+  {i:'play',t:'גרסאות ב-Git',d:'סרטון של 5 דקות וריפו לתרגול',w:'מפגש 10',m:[10],u:LKB+'jb53500-git-versions/'},
+  {i:'slides',t:'מצגת Git & GitHub',d:'Google Slides',w:'מפגש 9',m:[9],u:'https://docs.google.com/presentation/d/13zWdNpAQkhfYv2q8zlHpSukWFMpdZ9KfucOY-EbGgko/edit?usp=sharing'}
+ ]},
+ {k:'files',h:'קבצים להורדה',lead:'לחיצה מורידה את הקובץ למחשב.',items:[
+  {i:'file',dl:1,t:'course-stack.md',d:'סטאק הקורס, לתיקיית המוצר',w:'מפגש 7',m:[7],u:LKB+'jb53500-prompts/course-stack.md'},
+  {i:'zip',dl:1,s:'הסקיל spec-driven-docs',t:'spec-driven-docs',d:'הסקיל של שלב א, ל-Claude',w:'מפגש 8',m:[8],u:LKB+'jb53500-prompts/spec-driven-docs.zip'},
+  {i:'zip',dl:1,s:'הסקיל spec-driven-development',t:'spec-driven-development',d:'הסקיל של שלב ב, מתקינים ב-Claude Code',w:'מפגש 10',m:[10],u:LKB+'jb53500-prompts/spec-driven-development.zip'},
+  {i:'zip',dl:1,t:'סיימון: פרויקט לדוגמה',d:'שבעת קבצי ה-spec',w:'מפגש 10',m:[10],u:LKB+'jb53500-prompts/simon-spec.zip'},
+  {i:'file',dl:1,t:'course-stack-plus.md',d:'המסלול המשודרג',w:'רשות',u:LKB+'jb53500-prompts/course-stack-plus.md'}
+ ]},
+ {k:'stack',h:'הסטאק, צד שרת ונתונים',items:[
+  {i:'layers',t:'סטאק הקורס, מוסבר',w:'מפגש 8',m:[8],u:LKB+'jb53500-stack/'},
+  {i:'layers',t:'שני שלבים בסטאק',d:'React עם Vite ו-TypeScript',w:'רשות',u:LKB+'jb53500-tracks/'},
+  {i:'server',t:'Vercel צעד אחר צעד',w:'מפגש 11',m:[11],u:LKB+'jb53500-vercel/'},
+  {i:'db',t:'Supabase צעד אחר צעד',w:'מפגשים 11 ו-12',m:[11,12],u:LKB+'jb53500-supabase/'}
+ ]},
+ {k:'slides',h:'מצגות',lead:'כל מצגת נפתחת בלשונית חדשה.',items:[
+  {i:'slides',t:'UI Design Fundamentals',d:'Google Slides',w:'מפגשים 5 ו-6',m:[5,6],u:'https://docs.google.com/presentation/d/1A_u-yURicSgKWABLbGh9-XS9cczER97J/edit?usp=sharing'},
+  {i:'slides',t:'App Specification',d:'Google Slides',w:'מפגשים 6 עד 8',m:[6,7,8],u:'https://docs.google.com/presentation/d/1xR0OU6jsejZ9VDaz1ADf1w14henetBg6/edit?usp=sharing'},
+  {i:'slides',t:'Claude: היכרות',d:'Google Slides',w:'מפגש 8',m:[8],u:'https://docs.google.com/presentation/d/1hVdQgizzvS_J8tYTneQVB3xkWEh2hGpA/edit?usp=sharing'},
+  {i:'slides',t:'Claude: סקירה מלאה',d:'Google Slides',w:'מפגשים 8 ו-9',m:[8,9],u:'https://docs.google.com/presentation/d/1OvrCU4fcclGdCV58sPdvqO6Yhv9g-uS9BBvnBu4kRGs/edit?usp=sharing'},
+  {i:'slides',t:'פרומפטים ותרגילים',d:'Google Slides',w:'מפגשים 8 ו-9',m:[8,9],u:'https://docs.google.com/presentation/d/1QnCoF3Qek1uyeiJEqThvDNusmgk8BqteCEfJ-7hKhiM/edit?usp=sharing'},
+  {i:'slides',t:'המקבילות: ChatGPT, Gemini ו-Claude',d:'Google Slides',w:'העשרה',u:'https://docs.google.com/presentation/d/1TeF1t4ojbzes6P1am995e3osNI2Z5xmAmYoU8nt_AJU/edit?usp=sharing'},
+  {i:'slides',t:'Vercel: צד השרת של המוצר',d:'Google Drive',w:'מפגש 11',m:[11],u:'https://drive.google.com/file/d/1-lVlUSAFVYrIAqmfoQpkXHQCv5eX6G9J/view?usp=sharing'},
+  {i:'slides',t:'Supabase עם Claude',d:'Google Slides',w:'מפגשים 11 ו-12',m:[11,12],u:'https://docs.google.com/presentation/d/1Y32bYvkSK40Vg9ZB08Kk_ecIhS65t9-o4v7La2EhVho/edit?usp=sharing'}
+ ]},
+ {k:'skills',h:'מאגרי סקילים ותוספים',warn:'<b>לפני שמתקינים:</b> סקיל מהקהילה הוא הוראות, ולפעמים גם קוד, שרצים אצלכם. קוראים את SKILL.md לפני שמתקינים.',items:[
+  {i:'globe',t:'Practice AI',d:'practice-ai.co.il/skills',en:1,w:'מפגש 9',u:'https://practice-ai.co.il/skills'},
+  {i:'globe',t:'Skills IL',d:'agentskills.co.il',en:1,w:'מפגש 9',u:'https://agentskills.co.il/he'},
+  {i:'git',t:'Anthropic: המאגר הרשמי של הסקילים',d:'github.com/anthropics/skills',en:1,w:'מפגש 9',u:'https://github.com/anthropics/skills'},
+  {i:'git',t:'Anthropic: תוספים לפי תפקיד',d:'github.com/anthropics/knowledge-work-plugins',en:1,w:'מפגש 9',u:'https://github.com/anthropics/knowledge-work-plugins'},
+  {i:'globe',t:'skills.sh',d:'skills.sh',en:1,w:'מפגש 9',u:'https://skills.sh'},
+  {i:'git',t:'Awesome Claude Skills',d:'github.com/ComposioHQ/awesome-claude-skills',en:1,w:'מפגש 9',u:'https://github.com/ComposioHQ/awesome-claude-skills'}
+ ]},
+ {k:'lect',h:'למרצה: תוכנית העבודה',staff:1,items:[
+  {i:'plan',t:'תוכנית העבודה',d:'20 מפגשים, מאחורי שער המעבדה',w:'למרצה',u:LKB+'jb53500-plan/'}
+ ]}
+];
+/* section icons, by title, through the same SIC map that buildSections() reads */
+Object.assign(SIC,{'Git ו-GitHub':LKI.git,'קבצים להורדה':LKI.dl,'הסטאק, צד שרת ונתונים':LKI.layers,'מצגות':LKI.slides,
+  'מאגרי סקילים ותוספים':LKI.zip,'למרצה: תוכנית העבודה':LKI.plan});
+function lkIco(k,cls){ return '<svg'+(cls?' class="'+cls+'"':'')+' viewBox="0 0 24 24" aria-hidden="true">'+(LKI[k]||ICO_LINK)+'</svg>'; }
+function lkAttr(x){ return 'href="'+x.u+'"'+(x.dl?' download':' target="_blank" rel="noopener"'); }
+/* the meeting label, in morning numbers, with the evening version beside it for the edition switch */
+function lkW(w){
+  const e=mornToEve(w);
+  if(e===w) return '<span class="tg lk-m'+(/מפגש/.test(w)?'':' tbd')+'">'+w+'</span>';
+  return '<span class="tg lk-m"><span data-edo="morn">'+w+'</span><span data-edo="eve">'+e+'</span></span>';
+}
+function lkCard(x){
+  return '<a class="lk'+(x.dl?' dl':'')+'" '+lkAttr(x)+'><span class="lk-i">'+lkIco(x.i)+'</span>'+
+    '<span class="lk-t"><b>'+x.t+'</b>'+(x.d?'<span class="lk-d">'+(x.en?'<span class="en" lang="en">'+x.d+'</span>':x.d)+'</span>':'')+lkW(x.w)+'</span>'+
+    lkIco(x.dl?'dl':'ext','lk-x')+'</a>';
+}
+function lkBig(x){
+  const badge=x.st?'<span class="st-no"><small>שלב</small><b>'+x.st+'</b></span>':'<span class="st-no">'+lkIco(x.i)+'</span>';
+  return '<a class="lk-big'+(x.b?' b':'')+(x.wide?' wide':'')+'" '+lkAttr(x)+'>'+badge+'<span class="lk-bt">'+lkW(x.w)+
+    '<b>'+x.t+'</b><span class="lk-d">'+x.d+'</span><span class="lk-go">'+x.go+lkIco('ext')+'</span></span></a>';
+}
+function buildLinks(){
+  const pg=document.getElementById('p-links'); if(!pg||pg.dataset.b) return; pg.dataset.b='1';
+  const top=document.getElementById('lktop'); if(top) top.innerHTML=LK[0].items.map(lkBig).join('');
+  let h='';
+  LK.slice(1).forEach(s=>{
+    h+='<h2 class="sec"'+(s.staff?' data-hide-roles="student,marketing"':'')+'>'+s.h+'</h2>';
+    if(s.lead) h+='<p class="lead" style="margin-bottom:14px">'+s.lead+'</p>';
+    if(s.warn) h+='<div class="callout" style="margin-bottom:14px">'+s.warn+'</div>';
+    h+='<div class="lk-grid">'+s.items.map(lkCard).join('')+'</div>';
+  });
+  pg.insertAdjacentHTML('beforeend',h);
+}
+/* the row under each meeting in the deck index: student links only, the skill repositories stay in the links area */
+function lkMeet(n){
+  const L=[];
+  LK.forEach(s=>{ if(s.staff) return; s.items.forEach(x=>{ if(x.m&&x.m.indexOf(n)>-1) L.push(x); }); });
+  if(!L.length) return '';
+  return '<div class="lk-row"><span class="lk-rl">קישורים למפגש</span>'+
+    L.map(x=>'<a class="sl-lk" '+lkAttr(x)+'>'+lkIco(x.st?'term':(x.i||'link'))+(x.s||x.t)+'</a>').join('')+'</div>';
+}
+
 initTabs();
 buildEvening();
 buildPromptLib();
 buildPlibBar();
 buildDeckIndex();
+buildLinks();
 initTabs();
 buildSections();
 /* the deck index is for browsing, so its meeting sections start open */
 document.querySelectorAll('#deckidx .sect').forEach(sc=>{
+  sc.classList.remove('closed');
+  const h=sc.querySelector('h2.sec'); if(h) h.setAttribute('aria-expanded','true');
+});
+/* the links area is a list to scan, so its sections start open too (21.10.2026) */
+document.querySelectorAll('#p-links .sect').forEach(sc=>{
   sc.classList.remove('closed');
   const h=sc.querySelector('h2.sec'); if(h) h.setAttribute('aria-expanded','true');
 });
@@ -5942,10 +6126,10 @@ function heroGo(go){
 })();
 /* =============== ACCESS GATE =============== */
 const ROLE_LABEL={lecturer:'מרצה',admin:'מנהלה',student:'סטודנט',marketing:'מרקטינג',owner:'מנהל מערכת'};
-const FULL=['home','syllabus','project','prompts','decks','teachers','marketing'];
+const FULL=['home','syllabus','project','prompts','decks','teachers','marketing','links'];
 const LECT=FULL.filter(x=>x!=='marketing');
 const ROLE_AREAS={lecturer:LECT,admin:FULL,owner:FULL,
-                  student:['home','syllabus','project','prompts','decks'],
+                  student:['home','syllabus','project','prompts','decks','links'],
                   marketing:['home','marketing','syllabus','project','prompts']};
 /* compact SHA-256, works everywhere including file:// (crypto.subtle needs a secure context) */
 function sha256(msg){

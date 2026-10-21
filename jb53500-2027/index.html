@@ -414,6 +414,34 @@ body.gated{padding-bottom:0}
   .cgrid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
 }
 @media print{.top,.nav,.toast,.srch{display:none!important}body{padding:0;background:#fff}}
+
+/* ===== important links (21.10.2026): Eyal's priority order, every link with its meeting. Mobile first, desktop below ===== */
+.lk-top{display:grid;gap:12px}
+.lk-hero{display:grid;grid-template-columns:48px minmax(0,1fr);gap:14px;align-items:start;position:relative;overflow:hidden;
+  background:var(--sf);border:1px solid var(--line);border-radius:var(--r3);padding:18px;padding-inline-start:24px;text-decoration:none;color:inherit;box-shadow:var(--sh)}
+.lk-hero::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:6px;background:var(--co)}
+.lk-hero:hover{border-color:var(--co);color:inherit}
+.lk-n{font-size:56px;line-height:.85;font-weight:700;color:var(--co);letter-spacing:-.03em;text-align:center}
+.lk-n svg{width:34px;height:34px;margin-top:4px}
+.lk-b{display:grid;gap:6px;min-width:0;justify-items:start}
+.lk-b b{font-size:19px;line-height:1.3}
+.lk-b b span[dir="ltr"]{white-space:nowrap}
+.lk-b .lk-d{color:var(--ink2);font-size:15px}
+.lk-b .btn{margin-top:4px}
+.lk-hero:hover .btn{background:var(--co-deep)}
+.lk-l .dk-t svg{width:24px;height:24px;display:block;margin:0 auto}
+.lk-w{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.lk-warn{border-inline-start:4px solid var(--co);margin:0 0 12px}
+@media (min-width:1024px){
+  .lk-top{grid-template-columns:1fr 1fr;gap:14px}
+  .lk-top .lk-hero.wide{grid-column:1/-1}
+  .lk-hero{grid-template-columns:60px minmax(0,1fr);gap:18px;padding:22px 24px;padding-inline-start:30px}
+  .lk-n{font-size:64px}
+  .lk-b b{font-size:21px}
+}
+@media (min-width:1500px){
+  .decks.wide.lk-l{grid-template-columns:repeat(3,1fr)}
+}
 </style>
 </head>
 <body class="gated">
@@ -439,7 +467,7 @@ body.gated{padding-bottom:0}
 <script>
 (function(){
 'use strict';
-const D=window.D, VER='2027.6';
+const D=window.D, VER='2027.7';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const strip=s=>String(s||'').replace(/<[^>]+>/g,'');
@@ -586,6 +614,92 @@ function promptCard(p,showN){
 }
 function fold(title,html,open){ return '<details class="fold"'+(open?' open':'')+'><summary>'+esc(title)+ic('chev')+'</summary><div class="rich">'+html+'</div></details>'; }
 
+/* ---------- important links (21.10.2026) ----------
+   One list, in Eyal's priority order, the same one the current site uses. w is the meeting as he wrote it (morning numbers),
+   m the meetings it belongs to, which also fills the links section on each meeting page. The evening label is derived. */
+Object.assign(P,{
+ home:'<path d="M3 10l9-7 9 7v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>',
+ term:'<path d="M4 4.5h16v15H4z"/><path d="M7.5 9l2.5 2.5-2.5 2.5M12.5 14.5h4"/>',
+ git:'<circle cx="6" cy="5.5" r="2.2"/><circle cx="6" cy="18.5" r="2.2"/><circle cx="18" cy="8" r="2.2"/><path d="M6 7.7v8.6M18 10.2c0 4.3-5.6 4.3-10.6 6.6"/>',
+ ex:'<rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><path d="M8 12.4l2.6 2.6L16.2 9"/>',
+ slides:'<rect x="2.5" y="4.5" width="19" height="13" rx="2"/><path d="M12 17.5V21M8.5 21h7"/>',
+ file:'<path d="M5 3h9l5 5v13a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M14 3v5h5"/><path d="M12 11v6.5M9.2 14.8l2.8 2.8 2.8-2.8"/>',
+ zip:'<path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/>',
+ layers:'<path d="M12 3l9 4.5-9 4.5-9-4.5z"/><path d="M3 12l9 4.5 9-4.5"/><path d="M3 16.5l9 4.5 9-4.5"/>',
+ server:'<rect x="3.5" y="4" width="17" height="6.5" rx="1.5"/><rect x="3.5" y="13.5" width="17" height="6.5" rx="1.5"/><path d="M7 7.25h.01M7 16.75h.01"/>',
+ db:'<ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v13c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-13"/><path d="M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8"/>',
+ globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/>',
+ plan:'<rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.8v3.4M16 2.8v3.4"/>',
+ dl:'<path d="M12 3.5v11M7.5 10l4.5 4.5 4.5-4.5"/><path d="M4 17v2.5a1 1 0 001 1h14a1 1 0 001-1V17"/>',
+ /* external link, mirrored for RTL */
+ ext:'<g transform="translate(24,0) scale(-1,1)"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"/></g>'
+});
+const LKB='https://eyalg1980.github.io/simpla-lab/';
+const LK=[
+ {k:'top',h:'הכי חשוב',items:[
+  {st:'א',s:'דף הפרומפטים, שלב א',t:'שלב א: בניית המסמכים',d:'מעשרת ההיבטים לשבעת הפרומפטים. החלק הראשון של דף הפרומפטים.',go:'לשלב א בדף הפרומפטים',w:'מפגשים 7 עד 9',m:[7,8,9],u:LKB+'jb53500-prompts/#stage-a'},
+  {st:'ב',s:'דף הפרומפטים, שלב ב',t:'שלב ב: אפיון ובנייה ב-Claude Code',d:'נוהל 19 השלבים, Milestone אחר Milestone. החלק השני של דף הפרומפטים.',go:'לשלב ב בדף הפרומפטים',w:'מפגש 10 ואילך',m:[10,11],u:LKB+'jb53500-prompts/#stage-b'},
+  {i:'home',wide:1,t:'הדף הראשי לתלמידים',d:'כל התרגילים, הקבצים והמצגות, במקום אחד.',go:'לדף הראשי',w:'לאורך כל הקורס',u:LKB+'jb53500-home/'}
+ ]},
+ {k:'git',h:'Git ו-GitHub',items:[
+  {i:'term',t:'טרמינל',d:'היכרות ראשונה',w:'מפגש 9',m:[9],u:LKB+'jb53500-terminal/'},
+  {i:'git',t:'Git ו-GitHub צעד אחר צעד',d:'התקנה, חשבון ו-GitHub Desktop',w:'מפגש 9',m:[9],u:LKB+'jb53500-git/'},
+  {i:'ex',t:'Git & GitHub: תרגול כיתה',d:'טרמינל, Snake ואיקס עיגול ל-GitHub Pages',w:'מפגש 9',m:[9],u:LKB+'jb53500-git-practice/'},
+  {i:'play',t:'גרסאות ב-Git',d:'סרטון של 5 דקות וריפו לתרגול',w:'מפגש 10',m:[10],u:LKB+'jb53500-git-versions/'},
+  {i:'slides',t:'מצגת Git & GitHub',d:'Google Slides',w:'מפגש 9',m:[9],u:'https://docs.google.com/presentation/d/13zWdNpAQkhfYv2q8zlHpSukWFMpdZ9KfucOY-EbGgko/edit?usp=sharing'}
+ ]},
+ {k:'files',h:'קבצים להורדה',lead:'לחיצה מורידה את הקובץ למחשב.',items:[
+  {i:'file',dl:1,t:'course-stack.md',d:'סטאק הקורס, לתיקיית המוצר',w:'מפגש 7',m:[7],u:LKB+'jb53500-prompts/course-stack.md'},
+  {i:'zip',dl:1,s:'הסקיל spec-driven-docs',t:'spec-driven-docs',d:'הסקיל של שלב א, ל-Claude',w:'מפגש 8',m:[8],u:LKB+'jb53500-prompts/spec-driven-docs.zip'},
+  {i:'zip',dl:1,s:'הסקיל spec-driven-development',t:'spec-driven-development',d:'הסקיל של שלב ב, מתקינים ב-Claude Code',w:'מפגש 10',m:[10],u:LKB+'jb53500-prompts/spec-driven-development.zip'},
+  {i:'zip',dl:1,t:'סיימון: פרויקט לדוגמה',d:'שבעת קבצי ה-spec',w:'מפגש 10',m:[10],u:LKB+'jb53500-prompts/simon-spec.zip'},
+  {i:'file',dl:1,t:'course-stack-plus.md',d:'המסלול המשודרג',w:'רשות',u:LKB+'jb53500-prompts/course-stack-plus.md'}
+ ]},
+ {k:'stack',h:'הסטאק, צד שרת ונתונים',items:[
+  {i:'layers',t:'סטאק הקורס, מוסבר',w:'מפגש 8',m:[8],u:LKB+'jb53500-stack/'},
+  {i:'layers',t:'שני שלבים בסטאק',d:'React עם Vite ו-TypeScript',w:'רשות',u:LKB+'jb53500-tracks/'},
+  {i:'server',t:'Vercel צעד אחר צעד',w:'מפגש 11',m:[11],u:LKB+'jb53500-vercel/'},
+  {i:'db',t:'Supabase צעד אחר צעד',w:'מפגשים 11 ו-12',m:[11,12],u:LKB+'jb53500-supabase/'}
+ ]},
+ {k:'slides',h:'מצגות',lead:'כל מצגת נפתחת בלשונית חדשה.',items:[
+  {i:'slides',t:'UI Design Fundamentals',d:'Google Slides',w:'מפגשים 5 ו-6',m:[5,6],u:'https://docs.google.com/presentation/d/1A_u-yURicSgKWABLbGh9-XS9cczER97J/edit?usp=sharing'},
+  {i:'slides',t:'App Specification',d:'Google Slides',w:'מפגשים 6 עד 8',m:[6,7,8],u:'https://docs.google.com/presentation/d/1xR0OU6jsejZ9VDaz1ADf1w14henetBg6/edit?usp=sharing'},
+  {i:'slides',t:'Claude: היכרות',d:'Google Slides',w:'מפגש 8',m:[8],u:'https://docs.google.com/presentation/d/1hVdQgizzvS_J8tYTneQVB3xkWEh2hGpA/edit?usp=sharing'},
+  {i:'slides',t:'Claude: סקירה מלאה',d:'Google Slides',w:'מפגשים 8 ו-9',m:[8,9],u:'https://docs.google.com/presentation/d/1OvrCU4fcclGdCV58sPdvqO6Yhv9g-uS9BBvnBu4kRGs/edit?usp=sharing'},
+  {i:'slides',t:'פרומפטים ותרגילים',d:'Google Slides',w:'מפגשים 8 ו-9',m:[8,9],u:'https://docs.google.com/presentation/d/1QnCoF3Qek1uyeiJEqThvDNusmgk8BqteCEfJ-7hKhiM/edit?usp=sharing'},
+  {i:'slides',t:'המקבילות: ChatGPT, Gemini ו-Claude',d:'Google Slides',w:'העשרה',u:'https://docs.google.com/presentation/d/1TeF1t4ojbzes6P1am995e3osNI2Z5xmAmYoU8nt_AJU/edit?usp=sharing'},
+  {i:'slides',t:'Vercel: צד השרת של המוצר',d:'Google Drive',w:'מפגש 11',m:[11],u:'https://drive.google.com/file/d/1-lVlUSAFVYrIAqmfoQpkXHQCv5eX6G9J/view?usp=sharing'},
+  {i:'slides',t:'Supabase עם Claude',d:'Google Slides',w:'מפגשים 11 ו-12',m:[11,12],u:'https://docs.google.com/presentation/d/1Y32bYvkSK40Vg9ZB08Kk_ecIhS65t9-o4v7La2EhVho/edit?usp=sharing'}
+ ]},
+ {k:'skills',h:'מאגרי סקילים ותוספים',warn:'<b>לפני שמתקינים:</b> סקיל מהקהילה הוא הוראות, ולפעמים גם קוד, שרצים אצלכם. קוראים את <span dir="ltr" lang="en">SKILL.md</span> לפני שמתקינים.',items:[
+  {i:'globe',t:'Practice AI',d:'practice-ai.co.il/skills',en:1,w:'מפגש 9',u:'https://practice-ai.co.il/skills'},
+  {i:'globe',t:'Skills IL',d:'agentskills.co.il',en:1,w:'מפגש 9',u:'https://agentskills.co.il/he'},
+  {i:'git',t:'Anthropic: המאגר הרשמי של הסקילים',d:'github.com/anthropics/skills',en:1,w:'מפגש 9',u:'https://github.com/anthropics/skills'},
+  {i:'git',t:'Anthropic: תוספים לפי תפקיד',d:'github.com/anthropics/knowledge-work-plugins',en:1,w:'מפגש 9',u:'https://github.com/anthropics/knowledge-work-plugins'},
+  {i:'globe',t:'skills.sh',d:'skills.sh',en:1,w:'מפגש 9',u:'https://skills.sh'},
+  {i:'git',t:'Awesome Claude Skills',d:'github.com/ComposioHQ/awesome-claude-skills',en:1,w:'מפגש 9',u:'https://github.com/ComposioHQ/awesome-claude-skills'}
+ ]},
+ {k:'lect',h:'למרצה: תוכנית העבודה',staff:1,items:[
+  {i:'plan',t:'תוכנית העבודה',d:'20 מפגשים, מאחורי שער המעבדה',w:'למרצה',u:LKB+'jb53500-plan/'}
+ ]}
+];
+/* the meeting label in the current edition: "מפגשים 7 עד 9" becomes "ערבים 9-12" in the evening */
+const lkW=w=>ED!=='eve'?w:String(w)
+  .replace(/מפגשים\s+(\d+)\s*(?:עד|-)\s*(\d+)/g,(m,a,b)=>'ערבים '+eveOf(+a)[0]+'-'+eveOf(+b)[1])
+  .replace(/מפגשים\s+(\d+)\s+ו-(\d+)/g,(m,a,b)=>'ערבים '+eveOf(+a)[0]+'-'+eveOf(+b)[1])
+  .replace(/מפגש\s+(\d+)/g,(m,n)=>lblM(+n));
+const lkAttr=x=>'href="'+esc(x.u)+'"'+(x.dl?' download':' target="_blank" rel="noopener"');
+const lkFor=n=>LK.filter(s=>!s.staff).flatMap(s=>s.items.filter(x=>x.m&&x.m.indexOf(n)>-1));
+function lkCard(x,compact){
+  const d=x.d?'<span>'+(x.en?'<span dir="ltr" lang="en">'+esc(x.d)+'</span>':esc(x.d))+'</span>':'';
+  const tags=compact?'':'<span class="lk-w"><span class="tag">'+esc(lkW(x.w))+'</span>'+(x.dl?'<span class="tag">קובץ להורדה</span>':'')+'</span>';
+  return '<a class="dk" '+lkAttr(x)+'><span class="dk-t">'+ic(x.i||'link')+'</span><span><b>'+esc(compact&&x.s?x.s:x.t)+'</b>'+d+tags+'</span></a>';
+}
+function lkBig(x){
+  return '<a class="lk-hero'+(x.wide?' wide':'')+'" '+lkAttr(x)+'><span class="lk-n" aria-hidden="true">'+(x.st?esc(x.st):ic(x.i))+'</span>'+
+    '<span class="lk-b"><span class="tag">'+esc(lkW(x.w))+'</span><b>'+esc(x.t)+'</b><span class="lk-d">'+esc(x.d)+'</span><span class="btn sm">'+esc(x.go)+ic('ext')+'</span></span></a>';
+}
+
 /* ---------- screens ---------- */
 /* Today: the line stays on top, and tapping a station shows that meeting below it, without leaving the screen */
 let VSEL=0;
@@ -660,6 +774,8 @@ function studentHub(n){
   h+='</div><aside>';
   const dks=DECKS_BY[n]||[];
   h+='<section class="sec" style="margin-top:22px"><h2>מצגונים <span class="ct">'+dks.length+'</span></h2>'+(dks.length?'<div class="decks">'+dks.map(k=>deckCard(k)).join('')+'</div>':'<p class="empty">אין מצגונים למפגש הזה.</p>')+'</section>';
+  const lks=lkFor(n);
+  if(lks.length) h+='<section class="sec"><h2>קישורים חשובים <span class="ct">'+lks.length+'</span></h2><div class="decks lk-l">'+lks.map(x=>lkCard(x,true)).join('')+'</div><p style="margin:10px 0 0"><a href="#/l">כל הקישורים החשובים</a></p></section>';
   const cs=TBY[n]||[];
   if(cs.length) h+='<section class="sec"><h2>מושגים <span class="ct">'+cs.length+'</span></h2><div class="cgrid" style="grid-template-columns:repeat(2,minmax(0,1fr))">'+cs.map(conCard).join('')+'</div></section>';
   h+='</aside></div>';
@@ -826,6 +942,19 @@ function vDeck(id,i){
    '<div class="dots" role="group" aria-label="מעבר לשקף">'+d.slides.map((x,k)=>'<button type="button" data-dkgo="'+k+'" aria-label="שקף '+(k+1)+'"'+(k===DK.i?' aria-current="true"':'')+'><i></i></button>').join('')+'</div></div>';
 }
 
+/* important links: the two stages of the prompts page and the student home first, then every area, each link with its meeting */
+function vLinks(){
+  let h='<h1>קישורים חשובים</h1><p class="lede" style="margin-top:6px">מתחילים מדף הפרומפטים: שלב א בונה את המסמכים, ושלב ב בונה את המוצר. מתחת לשניהם כל הקישורים של הקורס לפי אזורים, ולכל קישור כתוב לאיזה '+U().one+' הוא שייך.</p>';
+  h+='<section class="sec" aria-labelledby="lk-top"><h2 id="lk-top">'+esc(LK[0].h)+'</h2><div class="lk-top">'+LK[0].items.map(lkBig).join('')+'</div></section>';
+  LK.slice(1).forEach(s=>{
+    if(s.staff&&!isStaff()) return;
+    h+='<section class="sec" aria-labelledby="lk-'+s.k+'"><h2 id="lk-'+s.k+'">'+esc(s.h)+' <span class="ct">'+s.items.length+'</span></h2>'+
+      (s.lead?'<p class="sub">'+esc(s.lead)+'</p>':'')+(s.warn?'<p class="lect-note lk-warn">'+s.warn+'</p>':'')+
+      '<div class="decks wide lk-l">'+s.items.map(x=>lkCard(x)).join('')+'</div></section>';
+  });
+  return h;
+}
+
 function vMore(sub){
   if(sub==='a11y') return '<a class="back" href="#/more">'+ic('arrow')+'הגדרות</a><article class="prose"><h1>הצהרת נגישות</h1><p class="muted">עודכנה ב-16.10.2026, בגרסה '+VER+'.</p>'+
    '<p>האתר נבנה כדי לעמוד ברמה AA של WCAG 2.2, שעליה מבוסס התקן הישראלי ת"י 5568. הבדיקות נעשו בדפדפן, במקלדת בלבד, ובמצב בהיר וכהה.</p><h2 class="sec">מה עשינו</h2><ul>'+
@@ -910,7 +1039,7 @@ function bidi(root){
 }
 
 /* ---------- shell ---------- */
-const NAV=[['','היום','today'],['m',null,'line'],['p','הפרויקט','folder'],['t','כלים','tools'],['more','הגדרות','gear']];
+const NAV=[['','היום','today'],['l','קישורים','link'],['m',null,'line'],['p','הפרויקט','folder'],['t','כלים','tools'],['more','הגדרות','gear']];
 function drawNav(sec){
   $('#nav').innerHTML=NAV.map(x=>'<a href="#/'+x[0]+'"'+(sec===x[0]?' aria-current="page"':'')+'>'+ic(x[2])+'<span>'+(x[1]||U().many)+'</span></a>').join('')+
     '<div class="nv-side"><b>'+(ED==='eve'?'ערב '+NEXTE:'מפגש '+NEXT+', '+fmtD(MEET[NEXT].date))+'</b>'+esc(MEET[NEXT].title)+'<br><br>חיפוש בכל האתר: <kbd>Ctrl</kbd> + <kbd>K</kbd></div>';
@@ -942,6 +1071,7 @@ function route(){
   else if(s0==='t'){ if(seg[1]==='prompts'&&seg[2]){ TSTATE.f='all'; } html=vTools(seg[1]); title='כלים'; }
   else if(s0==='c'){ html=vConcept(seg.slice(1).join('/')); title=seg.slice(1).join('/'); sec='t'; }
   else if(s0==='d'){ html=vDeck(seg[1],+(seg[2]||1)-1); title=D.DECKS[seg[1]]?D.DECKS[seg[1]].t:''; sec='m'; }
+  else if(s0==='l'){ html=vLinks(); title='קישורים'; }
   else if(s0==='more'){ html=vMore(seg[1]); title='הגדרות'; }
   else html=vMissing();
   main.innerHTML=html; bidi(main); drawNav(sec);
