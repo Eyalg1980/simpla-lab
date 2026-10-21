@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="סרטון הדגמה לתלמידי קורס 53500: איך עובדות גרסאות ב-Git, על ריפו אמיתי ב-GitHub. commit, תגית, ענפים, Pull Request, merge ו-Release, ואחריו ריפו פתוח להתנסות.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F5F0">
+<title>גרסאות ב-Git, סרטון · 53500</title>
+<link rel="icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Crect width="32" height="32" rx="8" fill="%231B2D6B"/%3E%3Cpath d="M12 9.5v13l10.5-6.5z" fill="%23FFE94A"/%3E%3C/svg%3E'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem('jbgitver.v1')||'{}');if(s.theme)document.documentElement.setAttribute('data-theme',s.theme);}catch(e){}})();</script>
+<style>
+:root{--paper:#F7F5F0;--surface:#FFFFFF;--ink:#141F3D;--soft:#5F6C8A;--line:#E4E0D6;--acc:#1B2D6B;--acc-ink:#FFFFFF;--acc-soft:#E8ECF7;--yel:#FFE94A;--yel-ink:#141F3D;--yel-soft:#FFF8C7;--ok:#15803D;--bar:rgba(247,245,240,.94);--r:18px}
+:root[data-theme="dark"]{--paper:#0D1533;--surface:#16204A;--ink:#EDEFF7;--soft:#8B93B8;--line:rgba(237,239,247,.13);--acc:#9DB0FF;--acc-ink:#0D1533;--acc-soft:rgba(157,176,255,.13);--yel-soft:rgba(255,233,74,.12);--ok:#6FDB93;--bar:rgba(13,21,51,.94)}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:"Rubik","Heebo",-apple-system,sans-serif;background:var(--paper);color:var(--ink);max-width:760px;margin:0 auto;padding:0 16px 64px;line-height:1.65;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.ic{width:1.1em;height:1.1em;flex:none;vertical-align:-.18em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+code,.mono{font-family:ui-monospace,Consolas,monospace;font-size:.88em;direction:ltr;unicode-bidi:isolate;background:var(--acc-soft);padding:1px 6px;border-radius:6px}
+.appbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:10px;background:var(--bar);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin:0 -16px;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;border-bottom:1px solid var(--line)}
+.rbtn{width:36px;height:36px;min-width:36px;border-radius:50%;border:1.5px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink);text-decoration:none}
+.rbtn .ic{width:18px;height:18px}
+.logo{flex:1;text-align:center;font-family:"Poppins",sans-serif;font-size:15px;font-weight:300;letter-spacing:1.8px;text-transform:uppercase}
+.logo b{font-weight:700}
+.hero{padding:28px 0 4px;text-align:center}
+.kicker{display:inline-flex;gap:6px;align-items:center;background:var(--acc);color:var(--acc-ink);font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:999px;margin-bottom:12px}
+h1{font-weight:300;font-size:clamp(30px,8vw,46px);line-height:1.1}
+h1 b{font-weight:800;display:block}
+.lead{color:var(--soft);max-width:34em;margin:12px auto 0}
+.vid{margin:22px -16px 0;background:#0D1533;overflow:hidden}
+.vid video{display:block;width:100%;aspect-ratio:16/9;background:#0D1533}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:12px 0 4px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;border:1.5px dashed var(--line);color:var(--soft);white-space:nowrap}
+.chip .t{font-family:"Poppins",sans-serif;font-weight:600;font-size:12px;direction:ltr}
+.chip.on{background:var(--acc);border:1.5px solid var(--acc);color:var(--acc-ink)}
+.label{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--acc);margin:34px 0 8px}
+.repo{display:block;text-decoration:none;margin-top:26px;border:2px solid var(--acc);border-radius:var(--r);background:var(--surface);padding:16px 18px}
+.repo .pl{font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--acc)}
+.repo b{display:block;font-size:20px;font-weight:800;line-height:1.3;margin:2px 0 4px}
+.repo .u{display:inline-block;font-family:ui-monospace,Consolas,monospace;font-size:13px;direction:ltr;background:var(--yel);color:var(--yel-ink);padding:3px 10px;border-radius:8px}
+.todo{display:grid;gap:8px;margin-top:12px}
+.todo a{display:flex;gap:12px;align-items:center;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:11px 14px}
+.todo .n{min-width:30px;height:30px;border-radius:9px;background:var(--acc-soft);color:var(--acc);display:flex;align-items:center;justify-content:center;font-family:"Poppins",sans-serif;font-weight:700;font-size:14px}
+.todo .tx{flex:1;font-size:14.5px}
+.todo .tx b{display:block;font-size:15px}
+.todo .ic{color:var(--soft)}
+.tip{font-size:14px;border:1.5px dashed var(--line);border-radius:12px;padding:9px 12px;margin:10px 0 0}
+.tip b{color:var(--acc)}
+.grp{font-size:13px;font-weight:700;color:var(--soft);margin:22px 2px 8px}
+.ch{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px 14px;margin-bottom:10px;transition:border-color .2s,box-shadow .2s}
+.ch.on{border-color:var(--acc);box-shadow:0 0 0 2px var(--acc-soft)}
+.chh{display:flex;gap:12px;align-items:flex-start}
+.play{flex:none;display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 11px 0 12px;border-radius:999px;background:var(--acc-soft);color:var(--acc);font-family:"Poppins",sans-serif;font-weight:600;font-size:13px;direction:ltr}
+.play .ic{width:13px;height:13px;fill:currentColor;stroke:none}
+.ch.on .play{background:var(--acc);color:var(--acc-ink)}
+.chh h3{flex:1;font-size:17px;font-weight:700;line-height:1.35;margin-top:3px}
+.chh h3 small{display:block;font-size:12.5px;font-weight:600;color:var(--soft);letter-spacing:.04em}
+.ch p{font-size:15px;margin-top:8px}
+.ch .go{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:13.5px;font-weight:600;color:var(--acc);text-decoration:none;border-bottom:1.5px dashed var(--acc);padding-bottom:1px}
+.ch .go .ic{width:15px;height:15px}
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--surface);border-radius:14px;overflow:hidden}
+.tbl th{font-size:12px;color:var(--soft);text-align:start;padding:9px 12px;border-bottom:1.5px solid var(--line)}
+.tbl td{padding:9px 12px;border-bottom:1px dashed var(--line);vertical-align:top}
+.tbl td:first-child{white-space:nowrap;font-weight:600}
+.next{display:grid;gap:10px;margin-top:30px}
+.nx{position:relative;display:block;text-decoration:none;border-radius:var(--r);padding:14px 18px 16px;padding-inline-end:52px;border:2px solid var(--acc);background:var(--acc);color:var(--acc-ink)}
+.nx .pl{font-size:11.5px;font-weight:700;letter-spacing:.1em;opacity:.85}
+.nx b{display:block;font-size:19px;font-weight:800;line-height:1.25;margin:2px 0}
+.nx span{display:block;font-size:14px;opacity:.9}
+.nx>.ic{position:absolute;inset-inline-end:16px;top:50%;margin-top:-11px;width:22px;height:22px}
+.nx.home{background:var(--surface);color:var(--ink);border:1.5px dashed var(--line)}
+.nx.home .pl{color:var(--acc)}
+footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border-top:1.5px dashed var(--line);padding-top:14px}
+@media (min-width:1024px){
+  body{max-width:1040px;padding:0 28px 72px}
+  .appbar{margin:0 -28px;padding-inline:28px}
+  .vid{margin:24px 0 0;border-radius:var(--r);box-shadow:0 30px 60px -30px rgba(13,21,51,.45)}
+  .cols{display:grid;grid-template-columns:1fr 340px;gap:28px;align-items:start}
+  .cols main{grid-column:1;grid-row:1}
+  .cols .side{grid-column:2;grid-row:1}
+  .side{position:sticky;top:80px}
+  .next{grid-template-columns:1fr 1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="appbar">
+  <a class="rbtn" href="../jb53500-home/" aria-label="לדף הראשי"><svg class="ic" viewBox="0 0 24 24"><path d="m9.5 5 6.5 7-6.5 7"/></svg></a>
+  <div class="logo">Git <b>53500</b></div>
+  <button class="rbtn" id="themeBtn" type="button" aria-label="מצב כהה"></button>
+</div>
+
+<header class="hero">
+  <div class="kicker"><svg class="ic" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg>סרטון הדגמה · 5 דקות</div>
+  <h1>גרסאות <b>ב-Git</b></h1>
+  <p class="lead">איך שינוי קטן עובר מהמפתח ללקוח, על ריפו אמיתי ב-GitHub. צפו בסרטון, ואז פתחו את הריפו ועקבו אחרי אותו סיפור בעצמכם.</p>
+</header>
+
+<div class="vid"><video id="v" controls playsinline preload="metadata" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/b0fb77a3-af8d-4d76-91da-d511b00a9db7.jpg" src="https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/5765e24b-2c0a-4a17-8f02-8a2b0b6f25f4.mp4"></video></div>
+<nav class="chips" id="chips" aria-label="פרקים בסרטון"></nav>
+
+<div class="cols">
+<aside class="side">
+  <a class="repo" href="https://github.com/Eyalg1980/git-versions-demo" target="_blank" rel="noopener">
+    <span class="pl">להתנסות</span>
+    <b>הריפו מהסרטון, פתוח לכולם</b>
+    <span class="u">github.com/eyalg1980/git-versions-demo</span>
+  </a>
+  <div class="todo">
+    <a href="https://github.com/Eyalg1980/git-versions-demo/branches/all" target="_blank" rel="noopener"><span class="n">1</span><span class="tx"><b>Branches</b>שלושה ענפים: main, staging ו-dev</span><svg class="ic" viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-8 8M10 6H6a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4"/></svg></a>
+    <a href="https://github.com/Eyalg1980/git-versions-demo/tags" target="_blank" rel="noopener"><span class="n">2</span><span class="tx"><b>Tags</b>חמש תגיות, מ-v1 ועד v3.1</span><svg class="ic" viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-8 8M10 6H6a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4"/></svg></a>
+    <a href="https://github.com/Eyalg1980/git-versions-demo/commits/main" target="_blank" rel="noopener"><span class="n">3</span><span class="tx"><b>Commits</b>כל ההיסטוריה של main, כולל שני המיזוגים</span><svg class="ic" viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-8 8M10 6H6a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4"/></svg></a>
+    <a href="https://github.com/Eyalg1980/git-versions-demo/pulls?q=is%3Apr+is%3Aclosed" target="_blank" rel="noopener"><span class="n">4</span><span class="tx"><b>Pull requests</b>שתי בקשות המיזוג, סגורות</span><svg class="ic" viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-8 8M10 6H6a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4"/></svg></a>
+    <a href="https://github.com/Eyalg1980/git-versions-demo/releases/tag/v3.1" target="_blank" rel="noopener"><span class="n">5</span><span class="tx"><b>Release</b>v3.1, הגרסה האחרונה</span><svg class="ic" viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-8 8M10 6H6a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4"/></svg></a>
+  </div>
+  <p class="tip"><b>רוצים לנסות לבד?</b> לחצו על Fork בריפו, ותקבלו עותק משלכם: אפשר לפתוח בו ענפים, לשמור commits ולמזג בלי לגעת במקור.</p>
+</aside>
+<main>
+  <div class="label">הסרטון, חלק אחרי חלק</div>
+  <div id="chapters"></div>
+
+  <div class="label">מילון קצר</div>
+  <table class="tbl">
+    <tr><th>מונח</th><th>מה זה</th></tr>
+    <tr><td>Repository</td><td>תיקיית הפרויקט, יחד עם כל ההיסטוריה שלה. בקיצור: ריפו.</td></tr>
+    <tr><td>commit</td><td>שמירה. מצב של הקבצים ברגע מסוים, עם הודעה קצרה ומזהה ייחודי.</td></tr>
+    <tr><td>Tag</td><td>תגית. שם קבוע שנועצים על commit מסוים, כמו <code>v3</code>.</td></tr>
+    <tr><td>Release</td><td>גרסה שמפרסמים ב-GitHub, על בסיס תגית.</td></tr>
+    <tr><td>branch</td><td>ענף. קו עבודה נפרד, שלא משפיע על הענפים האחרים עד שממזגים.</td></tr>
+    <tr><td>Pull Request</td><td>בקשה להכניס שינויים מענף אחד לענף אחר. בקיצור: PR.</td></tr>
+    <tr><td>merge</td><td>מיזוג. משלב את השינויים של שני ענפים בלי למחוק אף אחד מהם.</td></tr>
+    <tr><td>hotfix</td><td>תיקון דחוף שנעשה ישר על הגרסה של הלקוח.</td></tr>
+    <tr><td><code>main</code> · <code>staging</code> · <code>dev</code></td><td>הלקוח, הבדיקות, המפתחים. שלושה ענפים, שלוש סביבות.</td></tr>
+  </table>
+</main>
+
+
+</div>
+
+<nav class="next" aria-label="לאן ממשיכים">
+  <a class="nx" href="../jb53500-git-practice/"><span class="pl">בכיתה · מפגש 9</span><b>Git &amp; GitHub, תרגול</b><span>טרמינל, ושני משחקים ל-GitHub Pages</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
+  <a class="nx home" href="../jb53500-git/"><span class="pl">תרגיל בית</span><b>Git צעד אחר צעד</b><span>התקנה, חשבון GitHub ו-GitHub Desktop</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
+  <a class="nx home" href="../jb53500-home/"><span class="pl">53500</span><b>הדף הראשי</b><span>כל התרגילים, הקבצים והמצגות</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
+</nav>
+
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v1 · 21.10.2026</footer>
+
+<script>
+(function(){
+  var R='https://github.com/Eyalg1980/git-versions-demo';
+  var CH=[
+    {g:'פתיחה',t:11.2,n:'Git ו-GitHub',k:'מושגים',p:'Git הוא כלי ששומר את כל ההיסטוריה של הקוד: כל שינוי שנשמר נשאר, ואפשר לחזור אליו. GitHub הוא אתר שמחזיק את הפרויקט בענן, כדי שכל הצוות יעבוד על אותו קוד. Git הוא הכלי, GitHub הוא המקום.'},
+    {t:31.0,n:'Repository',k:'פתיחה',p:'Repository, או בקיצור ריפו, הוא תיקיית הפרויקט יחד עם כל ההיסטוריה שלה. יוצרים ריפו חדש מכפתור New ב-GitHub, נותנים לו שם, ובוחרים אם הוא ציבורי (Public) או פרטי (Private).',u:R,l:'הדף הראשי של הריפו'},
+    {t:52.7,n:'השמירה הראשונה',k:'פתיחה',p:'מוסיפים קובץ ראשון ושומרים. השמירה נקראת commit, ולכל commit יש הודעה קצרה שמסבירה מה השתנה. ל-commit הראשון אין commit לפניו, ולכן GitHub כותב לידו 0 parents.',u:R+'/commit/97af8d2',l:'ה-commit הראשון'},
+    {g:'הסיפור, בשמונה שלבים',t:74.1,n:'commit = שמירה',k:'שלב 1',p:'כל commit נערם על הקודם, בסדר שבו הדברים קרו. לכל אחד יש מזהה ייחודי, רצף של אותיות ומספרים כמו <code>9b68711</code>, וכך Git יודע בדיוק על איזו נקודה בהיסטוריה מדברים.',u:R+'/commits/v3',l:'שלושת ה-commits הראשונים'},
+    {t:95.9,n:'גרסה = תגית',k:'שלב 2',p:'commit הוא שמירה. Tag הוא שם קבוע שנועצים על commit מסוים. <code>v1</code>, <code>v2</code> ו-<code>v3</code> הן תגיות, והתגית <code>v3</code> מצביעה בדיוק על ה-commit <code>9b68711</code>.',u:R+'/tags',l:'כל התגיות'},
+    {t:120.4,n:'שלושה ענפים, שלוש סביבות',k:'הרקע',p:'בצוות אמיתי לא עובדים ישר על הגרסה של הלקוח. יש שלושה ענפים, וכל אחד רץ בסביבה אחרת: <code>main</code> הוא Production, מה שהלקוח רואה. <code>staging</code> הוא המקום שבו צוות הבדיקות בודק. <code>dev</code> הוא המקום שבו המפתחים עובדים.'},
+    {t:141.3,n:'פותחים ענפים',k:'שלב 3',p:'<code>dev</code> ו-<code>staging</code> נפתחים מ-<code>v3</code>. בזמן שהעבודה החדשה קורית בהם, <code>main</code> לא זז, והלקוח ממשיך לראות את <code>v3</code>.',u:R+'/branches/all',l:'שלושת הענפים'},
+    {t:159.8,n:'עובדים ב-dev',k:'שלב 4',p:'המפתחים שומרים שלושה commits ב-<code>dev</code>: מצב כהה, התאמה למובייל ועמוד הרשמה. אלה עדיין לא גרסה. הם יושבים בענף של המפתחים, והלקוח לא רואה אותם.',u:R+'/commits/dev',l:'ה-commits של dev'},
+    {t:176.2,n:'תיקון דחוף: hotfix',k:'שלב 5',p:'באג אצל הלקוח לא יכול לחכות לפיצ׳רים החדשים, אז מתקנים אותו ישר על <code>main</code> ומוציאים גרסת תיקון: <code>v3.0.1</code>. רק הספרה האחרונה עולה, כי זה תיקון ולא פיצ׳ר.',u:R+'/releases/tag/v3.0.1',l:'גרסת התיקון'},
+    {t:199.1,n:'Pull Request ל-staging',k:'שלב 6',p:'Pull Request הוא בקשה להכניס שינויים מענף אחד לענף אחר, כאן מ-<code>dev</code> לתוך <code>staging</code>. GitHub בודק אם יש התנגשויות, ואחרי לחיצה על Merge השינויים עוברים לבדיקות.',u:R+'/pull/1',l:'Pull Request #1'},
+    {t:223.1,n:'מ-staging ל-main',k:'שלב 7',p:'אחרי שהבדיקות עברו, Pull Request שני מכניס את <code>staging</code> לתוך <code>main</code>. ה-merge משלב את השינויים החדשים עם ה-hotfix שכבר ישב ב-<code>main</code>, ולא מוחק אותו. בגלל זה ממזגים, ולא מעתיקים קוד מעל.',u:R+'/pull/2',l:'Pull Request #2'},
+    {t:246.1,n:'נולדה גרסה: v3.1',k:'שלב 8',p:'רק עכשיו נולדת גרסה. יוצרים Release עם התגית <code>v3.1</code> על <code>main</code>, והיא מצביעה על commit המיזוג. זו הגרסה שהלקוח מקבל, ואפשר תמיד לחזור אליה.',u:R+'/releases/tag/v3.1',l:'Release v3.1'},
+    {g:'סיכום',t:262.5,n:'כל הסיפור בתמונה אחת',k:'סיכום',p:'commits ב-<code>dev</code>, בדיקות ב-<code>staging</code>, וגרסה נולדת רק ב-<code>main</code>. המספר עולה רק כשמשהו מגיע ללקוח: <code>v3</code>, <code>v3.0.1</code>, <code>v3.1</code>.'},
+    {t:281.3,n:'ומה אצלנו בכיתה?',k:'בקורס',p:'בקורס עובדים רק עם השורה התחתונה: ענף <code>main</code> אחד, ותגית checkpoint בסוף כל מודול. את הפקודות לא מקלידים: מבקשים מ-Claude Code, או לוחצים ב-GitHub Desktop.'}
+  ];
+  var v=document.getElementById('v'),wrap=document.getElementById('chapters'),chips=document.getElementById('chips');
+  var PLAY='<svg class="ic" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg>';
+  var EXT='<svg class="ic" viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-8 8M10 6H6a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4"/></svg>';
+  function fmt(t){t=Math.floor(t);return Math.floor(t/60)+':'+String(t%60).padStart(2,'0');}
+  var cards=[],cps=[];
+  CH.forEach(function(c,i){
+    if(c.g){var g=document.createElement('div');g.className='grp';g.textContent=c.g;wrap.appendChild(g);}
+    var d=document.createElement('section');d.className='ch';d.id='ch'+(i+1);
+    d.innerHTML='<div class="chh"><button class="play" type="button">'+PLAY+fmt(c.t)+'</button><h3><small>'+c.k+'</small>'+c.n+'</h3></div><p>'+c.p+'</p>'+(c.u?'<a class="go" href="'+c.u+'" target="_blank" rel="noopener">'+EXT+'לפתוח בריפו: '+c.l+'</a>':'');
+    wrap.appendChild(d);cards.push(d);
+    var b=document.createElement('button');b.type='button';b.className='chip';b.innerHTML='<span class="t">'+fmt(c.t)+'</span>'+c.n;chips.appendChild(b);cps.push(b);
+    function go(){try{v.currentTime=c.t+0.05;var p=v.play();if(p&&p.catch)p.catch(function(){});}catch(e){}v.scrollIntoView({behavior:'smooth',block:'center'});}
+    d.querySelector('.play').addEventListener('click',go);b.addEventListener('click',go);
+  });
+  var cur=-1;
+  v.addEventListener('timeupdate',function(){
+    var t=v.currentTime,k=-1;for(var i=0;i<CH.length;i++)if(t>=CH[i].t-0.2)k=i;
+    if(k===cur)return;cur=k;
+    cards.forEach(function(c,i){c.classList.toggle('on',i===k);});
+    cps.forEach(function(c,i){c.classList.toggle('on',i===k);});
+    if(k>=0){var cp=cps[k];var l=cp.offsetLeft-chips.offsetLeft;chips.scrollTo({left:l-chips.clientWidth/2+cp.clientWidth/2,behavior:'smooth'});}
+  });
+  var KEY='jbgitver.v1',S={};try{S=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){S={};}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+  var root=document.documentElement,tb=document.getElementById('themeBtn');
+  var SUN='<svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>',MOON='<svg class="ic" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>';
+  function paint(){var d=root.getAttribute('data-theme')==='dark';tb.innerHTML=d?SUN:MOON;tb.setAttribute('aria-label',d?'מצב בהיר':'מצב כהה');}
+  tb.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);S.theme=n;save();paint();});paint();
+})();
+</script>
+</body>
+</html>
