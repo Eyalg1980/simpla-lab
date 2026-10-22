@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="סילבוס קורס Figma Weave מקוון בג׳ון ברייס: 5 מפגשים, 20 שעות לימוד ו-20 שעות עבודה בבית, עם פרויקט גמר.">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Crect width="32" height="32" rx="7" fill="%23DF2537"/%3E%3Cpath d="M16 9.6c-2-1.5-4.4-2.2-6.8-2.2-.5 0-.9.4-.9.9v13.4c0 .5.4.9.9.9 2.4 0 4.8.7 6.8 2.2 2-1.5 4.4-2.2 6.8-2.2.5 0 .9-.4.9-.9V8.3c0-.5-.4-.9-.9-.9-2.4 0-4.8.7-6.8 2.2z" fill="none" stroke="%23fff" stroke-width="1.9" stroke-linejoin="round"/%3E%3Cpath d="M16 9.6v15.2" fill="none" stroke="%23fff" stroke-width="1.9"/%3E%3C/svg%3E'>
+<title>סילבוס Figma Weave · ג׳ון ברייס</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700&family=Assistant:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+</head>
+<body>
+<style>
+  /* Layout: John Bryce course-page family (45900 guide). One narrow reading column, masthead with a heavy rule, a numbered session rail, then two short reference blocks. Dark first, light through the toggle or the system. */
+  :root{
+    --paper:#171415;
+    --surface:#1F1B1D;
+    --ink:#F3EFEF;
+    --muted:#A69B9E;
+    --faint:#8B8083;
+    --line:#332C2E;
+    --line-soft:#272122;
+    --accent:#FF5C6B;
+    --accent-ink:#FF8790;
+    --accent-soft:#2B1D20;
+    --display:"Frank Ruhl Libre","Times New Roman",serif;
+    --body:"Assistant","Segoe UI",system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",monospace;
+    color-scheme:dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --paper:#FAF8F7;--surface:#FFFFFF;--ink:#1C1719;--muted:#6E6467;--faint:#857B7E;--line:#E5DEDD;--line-soft:#F0EAE9;
+      --accent:#DF2537;--accent-ink:#B01A29;--accent-soft:#FBEDEE;color-scheme:light;
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#FAF8F7;--surface:#FFFFFF;--ink:#1C1719;--muted:#6E6467;--faint:#857B7E;--line:#E5DEDD;--line-soft:#F0EAE9;
+    --accent:#DF2537;--accent-ink:#B01A29;--accent-soft:#FBEDEE;color-scheme:light;
+  }
+
+  *{box-sizing:border-box}
+  body{direction:rtl;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,p,ol,ul,dl,dd{margin:0}
+  .page{
+    max-width:74ch;margin:0 auto;
+    padding-left:max(22px,env(safe-area-inset-left,0px));
+    padding-right:max(22px,env(safe-area-inset-right,0px));
+    padding-block:0 80px;
+  }
+  a{color:var(--accent-ink)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  /* masthead */
+  .masthead{padding:52px 0 26px;border-bottom:2px solid var(--ink);display:flex;flex-direction:column;gap:14px}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .kicker{font-size:12px;letter-spacing:.16em;color:var(--accent);font-weight:700}
+  .theme{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;cursor:pointer;background:var(--surface);color:var(--muted);border:1px solid var(--line);transition:color .15s,border-color .15s}
+  .theme:hover{color:var(--accent);border-color:var(--accent)}
+  .theme svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .theme .sun{display:none}
+  .theme.is-dark .sun{display:block}
+  .theme.is-dark .moon{display:none}
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(36px,7vw,54px);line-height:1.06;letter-spacing:-.01em;text-wrap:balance}
+  h1 span{display:block}
+  .h1-en{direction:ltr;text-align:right;font-family:var(--body);font-weight:700;font-size:.62em;letter-spacing:0;color:var(--accent);margin-bottom:6px}
+  .standfirst{color:var(--muted);font-size:17px;max-width:56ch}
+  .figures{display:flex;flex-wrap:wrap;gap:10px 28px;padding-top:6px}
+  .figures div{display:flex;align-items:baseline;gap:7px}
+  .figures b{font-family:var(--display);font-size:30px;line-height:1;font-weight:700;font-variant-numeric:tabular-nums}
+  .figures span{color:var(--muted);font-size:14px}
+
+  /* sections */
+  section{padding-top:44px;scroll-margin-top:16px}
+  h2{font-family:var(--display);font-weight:700;font-size:26px;line-height:1.2;margin:0 0 6px;text-wrap:balance}
+  .section-note{color:var(--faint);font-size:14px;margin:0 0 18px}
+
+  /* session rail */
+  ol.rail{list-style:none;padding:0;display:flex;flex-direction:column}
+  ol.rail > li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid var(--line-soft)}
+  ol.rail > li:first-child{border-top:1px solid var(--line-soft)}
+  .num{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--accent);padding-top:4px;font-variant-numeric:tabular-nums}
+  .stage{display:grid;gap:6px;min-width:0}
+  .stage h3{font-size:17px;font-weight:700;line-height:1.4}
+  .stage p{color:var(--muted);font-size:15px}
+  .outs{display:grid;gap:3px;margin-top:4px;font-size:14px;color:var(--muted)}
+  .outs div{display:grid;grid-template-columns:4.2em minmax(0,1fr);gap:8px}
+  .outs dt{color:var(--ink);font-weight:600}
+  .hrs{font-family:var(--body);font-size:11.5px;font-weight:600;color:var(--accent-ink);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-inline-start:6px;white-space:nowrap}
+  .ltr{direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+
+  /* project table */
+  .scroll{overflow-x:auto}
+  table{border-collapse:collapse;width:100%;font-size:15px}
+  th,td{text-align:right;padding:10px 12px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  th{font-size:12px;letter-spacing:.08em;color:var(--faint);font-weight:600;border-bottom:1px solid var(--line)}
+  tbody tr:last-child td{border-bottom:none}
+  td.sk{font-family:var(--mono);font-size:12.5px;color:var(--accent);white-space:nowrap;font-variant-numeric:tabular-nums;width:1%}
+  .criteria{margin-top:16px;font-size:15px;color:var(--muted)}
+  .criteria b{color:var(--ink)}
+
+  /* rules block */
+  .rules{display:flex;flex-direction:column}
+  .rule{background:var(--surface);border:1px solid var(--line);padding:14px 16px}
+  .rule:first-child{border-radius:10px 10px 0 0}
+  .rule:last-child{border-radius:0 0 10px 10px}
+  .rule + .rule{border-top:none}
+  .rule b{display:block;margin-bottom:2px}
+  .rule span{color:var(--muted);font-size:14.5px}
+
+  .links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-size:14.5px}
+  footer{margin-top:52px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px;color:var(--faint);font-variant-numeric:tabular-nums}
+
+  @media (max-width:520px){
+    ol.rail > li{grid-template-columns:32px minmax(0,1fr);gap:12px}
+    .outs div{grid-template-columns:minmax(0,1fr);gap:0}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="page" lang="he" dir="rtl">
+
+  <header class="masthead">
+    <div class="top">
+      <span class="kicker">JOHN BRYCE · קורס מקוון</span>
+      <button class="theme" id="theme" type="button" aria-label="החלפת מצב בהיר וכהה">
+        <svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+      </button>
+    </div>
+    <h1><span class="h1-en">Figma Weave</span><span class="h1-he">מפרומפט בודד למערכת יצירה</span></h1>
+    <p class="standfirst">בונים Workflows לתמונות, לתוכן ממותג ולווידאו, והופכים אותם למערכת קבועה. כל מפגש חצי הדגמה וחצי Hands-on, וכל משימת בית מקדמת את פרויקט הגמר: ערכת תוכן למותג אחד.</p>
+    <div class="figures">
+      <div><b>5</b><span>מפגשים של 4 שעות</span></div>
+      <div><b>20</b><span>שעות לימוד</span></div>
+      <div><b>20</b><span>שעות עבודה בבית</span></div>
+    </div>
+  </header>
+
+  <section id="sessions">
+    <h2>המפגשים</h2>
+    <p class="section-note">מה לומדים, מה עושים בכיתה ומה ממשיכים בבית. כל משימת בית היא כ-4 שעות.</p>
+    <ol class="rail">
+      <li>
+        <span class="num">01</span>
+        <div class="stage">
+          <h3>יסודות: מפרומפט ל-Workflow</h3>
+          <p>ה-Canvas ו-Nodes הבסיס, מודלי התמונה Nano Banana, GPT Image, Flux ו-Seedream והשוואה ביניהם, LLM בתוך ה-Workflow וניהול קרדיטים.</p>
+          <dl class="outs">
+            <div><dt>בכיתה</dt><dd>תמונת רפרנס, שיפור פרומפט והרצה בשלושה מודלים במקביל.</dd></div>
+            <div><dt>בבית</dt><dd>בחירת מותג, Moodboard ושלושה Workflows קצרים.</dd></div>
+          </dl>
+        </div>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <div class="stage">
+          <h3>שליטה בתוצרים: Prompt Template ווריאציות</h3>
+          <p>מאגרים של דמות, מיקום וזווית מצלמה, Iterators וייבוא CSV, פורמטים <span class="ltr">9:16, 1:1, 4:5, 16:9</span>, עריכה וקומפוזיטינג.</p>
+          <dl class="outs">
+            <div><dt>בכיתה</dt><dd>Banner Generator שמוציא קריאייטיב אחד בארבעה פורמטים.</dd></div>
+            <div><dt>בבית</dt><dd>קרוסלה של חמש תמונות ועשר וריאציות מקובץ CSV.</dd></div>
+          </dl>
+        </div>
+      </li>
+      <li>
+        <span class="num">03</span>
+        <div class="stage">
+          <h3>שפת מותג, עקביות ו-LoRA</h3>
+          <p>חמשת השלבים לתשתית מותג, System Prompt מותגי, Style Reference מול LoRA, אימון LoRA ב-fal.ai או Astria, ודמות עקבית.</p>
+          <dl class="outs">
+            <div><dt>בכיתה</dt><dd>Workflow ממותג שמייצר נכסים חדשים בשפת המותג.</dd></div>
+            <div><dt>בבית</dt><dd>LoRA או Style System למותג, ודמות עקבית בשישה מצבים.</dd></div>
+          </dl>
+        </div>
+      </li>
+      <li>
+        <span class="num">04</span>
+        <div class="stage">
+          <h3>וידאו ו-Motion</h3>
+          <p>Kling, Veo, Runway ו-Seedance, Storyboard Generator, Image to Video, קול ודמות מדברת, GIF Loop ו-Figma Motion.</p>
+          <dl class="outs">
+            <div><dt>בכיתה</dt><dd>הנפשת הסטוריבורד לשלושה שוטים רצופים.</dd></div>
+            <div><dt>בבית</dt><dd>סרטון של 15 עד 30 שניות, כולל סאונד.</dd></div>
+          </dl>
+        </div>
+      </li>
+      <li>
+        <span class="num">05</span>
+        <div class="stage">
+          <h3>מ-Workflow למערכת: Save, Templates ו-App</h3>
+          <p>Save Workflow וספרייה מסודרת, Templates וה-Community, Design App ו-Publish, ו-Weave tools בתוך Figma Design.</p>
+          <dl class="outs">
+            <div><dt>בכיתה</dt><dd>Workflow קיים הופך ל-Design App ומשותף עם תלמיד אחר.</dd></div>
+            <div><dt>בבית</dt><dd>גמר הפרויקט, סידור הספרייה ותיעוד.</dd></div>
+          </dl>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="project">
+    <h2>פרויקט גמר</h2>
+    <p class="section-note">ערכת תוכן למותג אחד. כל משימת בית מוסיפה לה חלק.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>רכיב</th><th>נבנה במפגש</th></tr></thead>
+        <tbody>
+          <tr><td>שפת מותג: Moodboard, ו-System Prompt או LoRA</td><td class="sk">1, 3</td></tr>
+          <tr><td>Banner Generator בארבעה פורמטים, וקרוסלה</td><td class="sk">2</td></tr>
+          <tr><td>דמות או פרזנטור עקביים</td><td class="sk">3</td></tr>
+          <tr><td>סרטון קצר עם סאונד</td><td class="sk">4</td></tr>
+          <tr><td>Design App שמישהו אחר יכול להריץ, ועמוד תיעוד קצר</td><td class="sk">5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="criteria"><b>קריטריונים:</b> נאמנות למותג, שימוש חוזר עם קלט אחר, סדר ותיעוד.</p>
+  </section>
+
+  <section id="before">
+    <h2>לפני שמתחילים</h2>
+    <p class="section-note">מה צריך להכין לפני המפגש הראשון.</p>
+    <div class="rules">
+      <div class="rule"><b>חשבון Figma Weave בתוכנית Starter ומעלה</b><span>התוכנית החינמית לא כוללת מודלי וידאו ומודלים מיובאים, ולכן מפגשים 3 ו-4 לא יעבדו בה.</span></div>
+      <div class="rule"><b>חשבון fal.ai או Astria</b><span>לאימון LoRA במפגש 3. תשלום חד-פעמי לאימון.</span></div>
+    </div>
+    <p class="links">
+      <a href="https://weave.figma.com" target="_blank" rel="noopener">Figma Weave</a>
+      <a href="https://weave.figma.com/pricing" target="_blank" rel="noopener">תוכניות וקרדיטים</a>
+      <a href="https://help.weavy.ai" target="_blank" rel="noopener">מרכז העזרה</a>
+    </p>
+  </section>
+
+  <footer><span>אייל גרשון · Simpla × John Bryce</span><span>גרסה 1 · 22.10.2026</span></footer>
+</div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById("theme");
+    var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: light)") : null;
+    try {
+      var saved = localStorage.getItem("jb-weave-theme");
+      if (saved === "dark" || saved === "light") root.setAttribute("data-theme", saved);
+    } catch (e) {}
+    function current() {
+      var t = root.getAttribute("data-theme");
+      if (t === "dark" || t === "light") return t;
+      return mq && mq.matches ? "light" : "dark";
+    }
+    function paint() { btn.classList.toggle("is-dark", current() === "dark"); }
+    btn.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("jb-weave-theme", next); } catch (e) {}
+      paint();
+    });
+    if (mq && mq.addEventListener) mq.addEventListener("change", paint);
+    paint();
+  })();
+</script>
+</body>
+</html>
