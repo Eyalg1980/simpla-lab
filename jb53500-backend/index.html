@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="מפגש 11 בקורס 53500: בונים אפליקציית בדיחות לנייד. הדף והשרת יושבים יחד ב-Vercel, ומפתח ה-API של OpenAI נשאר בשרת בלבד.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F5F0">
+<title>Backend ב-Vercel · 53500</title>
+<link rel="icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Crect width="32" height="32" rx="8" fill="%231B2D6B"/%3E%3Ccircle cx="16" cy="15" r="8.5" fill="%23FFE94A"/%3E%3Ccircle cx="13" cy="13" r="1.3" fill="%231B2D6B"/%3E%3Ccircle cx="19" cy="13" r="1.3" fill="%231B2D6B"/%3E%3Cpath d="M12 17q4 3.5 8 0" fill="none" stroke="%231B2D6B" stroke-width="1.6" stroke-linecap="round"/%3E%3C/svg%3E'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem('jbbackend.v1')||'{}');if(s.theme)document.documentElement.setAttribute('data-theme',s.theme);}catch(e){}})();</script>
+<style>
+:root{--paper:#F7F5F0;--surface:#FFFFFF;--ink:#141F3D;--soft:#5F6C8A;--line:#E4E0D6;--acc:#1B2D6B;--acc-ink:#FFFFFF;--acc-soft:#E8ECF7;--yel:#FFE94A;--yel-ink:#141F3D;--yel-soft:#FFF8C7;--ok:#15803D;--ok-soft:#E3F3E8;--bad:#B91C1C;--bad-soft:#FBE6E6;--term:#141F3D;--term-ink:#E8ECF7;--bar:rgba(247,245,240,.94);--r:18px;--b:#B45309;--b-ink:#FFFFFF;--b-soft:#FDEBD6;--g:#0F766E;--g-ink:#FFFFFF;--g-soft:#DDF2EF}
+:root[data-theme="dark"]{--paper:#0D1533;--surface:#16204A;--ink:#EDEFF7;--soft:#8B93B8;--line:rgba(237,239,247,.13);--acc:#9DB0FF;--acc-ink:#0D1533;--acc-soft:rgba(157,176,255,.13);--yel-soft:rgba(255,233,74,.12);--ok:#6FDB93;--ok-soft:rgba(111,219,147,.12);--bad:#FF8A8A;--bad-soft:rgba(255,138,138,.12);--term:#070C22;--term-ink:#DDE3FF;--bar:rgba(13,21,51,.94);--b:#FDBA74;--b-ink:#0D1533;--b-soft:rgba(253,186,116,.12);--g:#5EEAD4;--g-ink:#0D1533;--g-soft:rgba(94,234,212,.12)}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{font-family:"Rubik","Heebo",-apple-system,sans-serif;background:var(--paper);color:var(--ink);max-width:760px;margin:0 auto;padding:0 16px 64px;line-height:1.65;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.ic{width:1.1em;height:1.1em;flex:none;vertical-align:-.18em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+code,.l{font-family:ui-monospace,Consolas,monospace;font-size:.88em;direction:ltr;unicode-bidi:isolate}
+code{background:var(--acc-soft);padding:1px 6px;border-radius:6px;white-space:nowrap}
+.appbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:10px;background:var(--bar);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin:0 -16px;padding:calc(10px + env(safe-area-inset-top)) 16px 10px}
+.rbtn{width:36px;height:36px;min-width:36px;border-radius:50%;border:1.5px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink);text-decoration:none}
+.rbtn .ic{width:18px;height:18px}
+.logo{flex:1;text-align:center;font-family:"Poppins",sans-serif;font-size:15px;font-weight:300;letter-spacing:1.8px;text-transform:uppercase}
+.logo b{font-weight:700}
+.osbar{position:sticky;top:calc(56px + env(safe-area-inset-top));z-index:39;background:var(--bar);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin:0 -16px;padding:6px 16px 12px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none}
+.osbar::-webkit-scrollbar{display:none}
+.jump{font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;border:1.5px dashed var(--line);color:var(--soft);text-decoration:none;white-space:nowrap}
+.prog{margin-inline-start:auto;font-size:12.5px;color:var(--soft);font-weight:600;white-space:nowrap;padding-inline-start:6px}
+.hero{padding:30px 0 6px;text-align:center}
+.kicker{display:inline-flex;gap:6px;align-items:center;background:var(--acc);color:var(--acc-ink);font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:999px;margin-bottom:12px}
+h1{font-weight:300;font-size:clamp(30px,8vw,44px);line-height:1.1}
+h1 b{font-weight:800;display:block}
+.lead{color:var(--soft);max-width:34em;margin:12px auto 0}
+.phone{width:226px;margin:24px auto 0;border:7px solid var(--ink);border-radius:32px;overflow:hidden;background:#F7F5F0;box-shadow:0 18px 40px -18px rgba(20,31,61,.45)}
+.phone img{display:block;width:100%;height:auto}
+.cap{font-size:12.5px;color:var(--soft);margin-top:8px}
+.idea{margin:22px 0 6px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:start}
+.idea div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;font-size:13.5px}
+.idea b{display:block;font-size:15px;margin-bottom:2px}
+.idea .k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--acc);margin-bottom:2px}
+.fresh{margin:16px auto 0;max-width:40em;border:1.5px dashed var(--line);border-radius:14px;padding:10px 14px;font-size:13.5px;color:var(--soft);text-align:start}
+.fresh b{color:var(--ink)}
+.fresh ul{padding-inline-start:18px;margin-top:4px}
+.label{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--acc);margin:34px 0 8px}
+h2.sec{font-size:24px;font-weight:800;line-height:1.25;margin-bottom:8px}
+.sec-lead{font-size:15px;color:var(--soft);margin-bottom:12px}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.cmp div{border-radius:14px;padding:12px 14px;font-size:14px;background:var(--surface);border:1px solid var(--line)}
+.cmp div.yes{border:2px solid var(--ok)}
+.cmp b{display:block;font-size:15px;margin-bottom:4px}
+.cmp div.no b{color:var(--bad)}
+.cmp div.yes b{color:var(--ok)}
+.dgm{display:block;width:100%;max-width:380px;height:auto;margin:10px auto 4px}
+.dgm text{font-family:"Rubik",sans-serif;fill:var(--ink)}
+.dgm .mono{font-family:ui-monospace,Consolas,monospace}
+.dgm .soft{fill:var(--soft)}
+.dgm .box{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+.dgm .vb{fill:var(--acc-soft);stroke:var(--acc);stroke-width:2}
+.dgm .ar{stroke:var(--acc);stroke-width:2;fill:none}
+.dgm .ah{fill:var(--acc)}
+.dgm .key{fill:var(--yel)}
+.dgm .keyt{fill:#141F3D}
+.dgm .lockic{fill:none;stroke:#141F3D;stroke-width:1.6;stroke-linecap:round}
+.cards{display:grid;gap:8px;margin:10px 0}
+.card{border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:14.5px;background:var(--surface)}
+.card b{display:block;font-size:15.5px;margin-bottom:2px}
+.card .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--acc-soft);color:var(--acc);font-family:"Poppins",sans-serif;font-weight:700;font-size:13px;align-items:center;justify-content:center;margin-inline-end:6px;vertical-align:1px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 16px 14px;margin-bottom:10px}
+.step.done{opacity:.62}
+.sh{display:flex;gap:12px;align-items:flex-start}
+.n{min-width:34px;height:34px;border-radius:10px;background:var(--acc-soft);color:var(--acc);display:flex;align-items:center;justify-content:center;font-family:"Poppins",sans-serif;font-weight:700}
+.sh h3{flex:1;font-size:17px;font-weight:700;line-height:1.35;margin-top:4px}
+.sh h3 small{display:block;font-size:13px;font-weight:400;color:var(--soft)}
+.chk{width:30px;height:30px;min-width:30px;border-radius:9px;border:1.5px dashed var(--soft);display:flex;align-items:center;justify-content:center;color:transparent}
+.chk .ic{width:17px;height:17px;stroke-width:2.6}
+.chk[aria-checked="true"]{background:var(--ok);border:1.5px solid var(--ok);color:#fff}
+.body{margin-top:10px;padding-inline-start:46px}
+.body p{margin-bottom:8px;font-size:15px}
+.body ul,.body ol{padding-inline-start:18px;margin-bottom:8px}
+.body li{margin-bottom:4px;font-size:15px}
+.term{position:relative;background:var(--term);color:var(--term-ink);border-radius:12px;padding:40px 14px 12px;margin:8px 0;direction:ltr;text-align:left;font-family:ui-monospace,Consolas,monospace;font-size:13px;line-height:1.6;overflow-x:auto}
+.term .cp{position:absolute;top:8px;right:8px;font-family:"Rubik",sans-serif;font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.3);color:var(--term-ink)}
+.term .cp.ok{border-color:#6FDB93;color:#6FDB93}
+.term .fn{position:absolute;top:10px;left:14px;font-size:12px;opacity:.7}
+.term pre{white-space:pre;font:inherit}
+.see{font-size:14px;border-inline-start:3px solid var(--ok);padding:4px 10px;margin:8px 0;color:var(--soft)}
+.see b{color:var(--ok)}
+.tip{font-size:14px;border:1.5px dashed var(--line);border-radius:12px;padding:8px 12px;margin:8px 0}
+.tip b{color:var(--acc)}
+.warn{font-size:14px;border:1.5px solid var(--bad);background:var(--bad-soft);border-radius:12px;padding:8px 12px;margin:8px 0}
+.warn b{color:var(--bad)}
+.note{font-size:14px;border:1.5px solid var(--b);background:var(--b-soft);border-radius:12px;padding:8px 12px;margin:8px 0}
+.note b{color:var(--b)}
+.prompt{position:relative;margin:8px 0}
+.prompt pre{white-space:pre-wrap;font-family:"Rubik",sans-serif;font-size:14.5px;line-height:1.75;background:var(--yel-soft);border:1.5px dashed var(--b);border-radius:12px;padding:38px 14px 14px}
+.prompt .cp{position:absolute;top:8px;inset-inline-end:10px;font-size:12px;font-weight:600;padding:3px 12px;border-radius:999px;border:1.5px dashed var(--b);background:var(--surface)}
+.prompt .cp.ok{border-color:var(--ok);color:var(--ok)}
+.prompt .pt{position:absolute;top:10px;inset-inline-start:14px;font-size:11.5px;font-weight:700;color:var(--b)}
+.part{margin:44px -16px 16px;padding:22px 16px 24px;background:var(--acc);color:var(--acc-ink)}
+.part.b{background:var(--b);color:var(--b-ink)}
+.part.g{background:var(--g);color:var(--g-ink)}
+.part .pl{font-size:12px;font-weight:700;letter-spacing:.12em;opacity:.85}
+.part h2{font-size:26px;font-weight:800;line-height:1.2;margin:2px 0 6px}
+.part p{font-size:14.5px;max-width:36em}
+.trackA .step{border-inline-start:5px solid var(--acc)}
+.trackB .step{border-inline-start:5px solid var(--b)}
+.trackB .n{background:var(--b-soft);color:var(--b)}
+.trackC .step{border-inline-start:5px solid var(--g)}
+.trackC .n{background:var(--g-soft);color:var(--g)}
+.tblwrap{overflow-x:auto;border-radius:14px;margin:8px 0}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.tbl th{font-size:12px;color:var(--soft);text-align:start;padding:9px 10px;border-bottom:1.5px solid var(--line)}
+.tbl td{padding:9px 10px;border-bottom:1px dashed var(--line);vertical-align:top}
+.tbl td:first-child{white-space:nowrap;font-weight:600}
+.tbl tr:last-child td{border-bottom:0}
+.t3 td{white-space:normal!important}
+.t3 td:first-child{width:28%}
+.t3 .l{word-break:break-all}
+@media (max-width:520px){.t3{font-size:13px}.t3 td,.t3 th{padding:8px 7px}}
+details.err{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:8px}
+details.err>summary{list-style:none;cursor:pointer;padding:12px 14px;font-weight:600;font-size:14.5px;display:flex;gap:8px;align-items:center}
+details.err>summary::-webkit-details-marker{display:none}
+details.err>summary .pm{font-family:"Poppins",sans-serif;color:var(--bad);width:12px;flex:none}
+details.err>summary u{text-underline-offset:3px}
+details.err>div{padding:0 14px 12px;font-size:14.5px}
+details.err>div p{margin-bottom:8px}
+details.err>div ul,details.err>div ol{padding-inline-start:18px;margin-bottom:8px}
+details.err.more>summary .pm{color:var(--soft)}
+.dl{display:flex;gap:12px;align-items:center;text-decoration:none;border:2px solid var(--acc);border-radius:14px;padding:12px 14px;margin:10px 0;background:var(--surface)}
+.dl .ic{width:24px;height:24px;color:var(--acc)}
+.dl b{display:block}
+.dl span{font-size:13.5px;color:var(--soft)}
+.next{display:grid;gap:10px;margin-top:30px}
+.nx{position:relative;display:block;text-decoration:none;border-radius:var(--r);padding:14px 18px 16px;padding-inline-end:52px;border:1.5px dashed var(--line);background:var(--surface);color:var(--ink)}
+.nx .pl{font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--acc)}
+.nx b{display:block;font-size:19px;font-weight:800;line-height:1.25;margin:2px 0}
+.nx span{display:block;font-size:14px;color:var(--soft)}
+.nx>.ic{position:absolute;inset-inline-end:16px;top:50%;margin-top:-11px;width:22px;height:22px}
+.foot2{margin-top:26px;text-align:center}
+.reset{font-size:13px;font-weight:600;color:var(--soft);text-decoration:underline;text-underline-offset:3px}
+footer{margin-top:10px;text-align:center;font-size:12px;color:var(--soft);border-top:1.5px dashed var(--line);padding-top:14px}
+@media (max-width:520px){.idea{grid-template-columns:1fr}.body{padding-inline-start:0}.cmp{grid-template-columns:1fr}}
+@media (min-width:1024px){.part{border-radius:var(--r);margin-inline:0;padding:26px 28px 28px}.cards.four{grid-template-columns:1fr 1fr}.next{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<div class="appbar">
+  <a class="rbtn" href="../jb53500-home/" aria-label="לדף הראשי"><svg class="ic" viewBox="0 0 24 24"><path d="m9.5 5 6.5 7-6.5 7"/></svg></a>
+  <div class="logo">Backend <b>53500</b></div>
+  <button class="rbtn" id="themeBtn" type="button" aria-label="מצב כהה"></button>
+</div>
+<nav class="osbar" aria-label="קפיצה בדף">
+  <a class="jump" href="#why">למה שרת</a>
+  <a class="jump" href="#vercel">Vercel</a>
+  <a class="jump" href="#partA">השלבים</a>
+  <a class="jump" href="#errors">תקלות</a>
+  <span class="prog" id="prog"></span>
+</nav>
+
+<header class="hero">
+  <span class="kicker">מפגש 11 · שכבת השרת</span>
+  <h1>Backend ב-Vercel <b>עם מפתח של OpenAI</b></h1>
+  <p class="lead">בונים אפליקציית בדיחות לנייד. הדף והשרת יושבים יחד ב-Vercel, ומפתח ה-API נשאר בשרת בלבד. היום בלי Supabase.</p>
+  <div class="phone"><img src="app-shot.webp" width="390" height="440" alt="מסך האפליקציה: כותרת מכונת הבדיחות, תיבה עם המילה חתולים, כפתור עוד בדיחה, ובדיחה על חתול"></div>
+  <p class="cap">כך זה ייראה בסוף השיעור. הבדיחה בצילום היא דוגמה.</p>
+  <div class="idea">
+    <div><span class="k">הדף</span><b><code>index.html</code></b>מה שרואים בטלפון. כותבים נושא ולוחצים.</div>
+    <div><span class="k">השרת</span><b><code>api/joke.js</code></b>הקוד שמדבר עם OpenAI ומחזיר בדיחה.</div>
+    <div><span class="k">המפתח</span><b><code>OPENAI_API_KEY</code></b>יושב בהגדרות של Vercel. לא בקוד.</div>
+  </div>
+  <div class="fresh"><b>צריך לפני שמתחילים:</b>
+    <ul>
+      <li>חשבון GitHub ו-Git שעובד, כמו בתרגיל הסנייק</li>
+      <li>Claude Code מותקן ומחובר, כמו בתרגיל סיימון</li>
+      <li>כרטיס אשראי לקרדיט של 5 דולר ב-OpenAI</li>
+    </ul>
+  </div>
+</header>
+
+<section id="why">
+<div class="label">01 · למה צריך שרת</div>
+<h2 class="sec">הסנייק לא היה צריך שרת. הבדיחות כן.</h2>
+<p class="sec-lead">ב-GitHub Pages כל קובץ יורד לדפדפן כמו שהוא. זה מצוין למשחק. אבל כאן יש מודל AI, ולמודל יש מפתח שעולה כסף.</p>
+<div class="cmp">
+  <div class="no"><b>מפתח בקוד של הדף</b>כל מי שפותח את האתר יכול לראות את הקוד ולהעתיק את המפתח. מכאן הוא משתמש בקרדיט שלכם.</div>
+  <div class="yes"><b>מפתח בשרת</b>הדף מבקש בדיחה מהשרת שלכם. השרת מוסיף את המפתח, פונה ל-OpenAI, ומחזיר רק את הבדיחה.</div>
+</div>
+
+<svg class="dgm" viewBox="0 0 340 430" role="img" aria-label="תרשים: הטלפון שולח נושא אל api/joke ב-Vercel. Vercel מוסיף את המפתח ופונה ל-OpenAI. הבדיחה חוזרת דרך Vercel אל הטלפון." direction="ltr">
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0 10 5 0 10z"/></marker></defs>
+  <rect class="box" x="40" y="8" width="260" height="70" rx="16"/>
+  <text x="170" y="38" text-anchor="middle" font-size="17" font-weight="700">הטלפון של המשתמש</text>
+  <text x="170" y="61" text-anchor="middle" font-size="13" class="mono soft">index.html</text>
+
+  <line class="ar" x1="200" y1="80" x2="200" y2="146" marker-end="url(#ah)"/>
+  <line class="ar" x1="140" y1="146" x2="140" y2="80" marker-end="url(#ah)"/>
+  <text x="268" y="108" text-anchor="middle" font-size="11" class="mono">POST /api/joke</text>
+  <text x="268" y="125" text-anchor="middle" font-size="12" class="soft">שולח נושא</text>
+  <text x="76" y="108" text-anchor="middle" font-size="12" class="soft">מקבל</text>
+  <text x="76" y="125" text-anchor="middle" font-size="12" class="soft">בדיחה בלבד</text>
+
+  <rect class="vb" x="20" y="150" width="300" height="118" rx="18"/>
+  <text x="170" y="180" text-anchor="middle" font-size="19" font-weight="800" style="font-family:Poppins,sans-serif">Vercel</text>
+  <text x="170" y="203" text-anchor="middle" font-size="13" class="mono">api/joke.js</text>
+  <rect class="key" x="80" y="218" width="180" height="32" rx="16"/>
+  <g transform="translate(96 225)"><rect class="lockic" x="1" y="7" width="12" height="10" rx="2"/><path class="lockic" d="M4 7V4.5a3 3 0 0 1 6 0V7"/></g>
+  <text x="182" y="239" text-anchor="middle" font-size="12" font-weight="700" class="mono keyt">OPENAI_API_KEY</text>
+
+  <line class="ar" x1="200" y1="270" x2="200" y2="336" marker-end="url(#ah)"/>
+  <line class="ar" x1="140" y1="336" x2="140" y2="270" marker-end="url(#ah)"/>
+  <text x="268" y="298" text-anchor="middle" font-size="11" class="mono">Bearer ••••</text>
+  <text x="268" y="315" text-anchor="middle" font-size="12" class="soft">המפתח נוסף כאן</text>
+  <text x="76" y="306" text-anchor="middle" font-size="12" class="soft">הבדיחה</text>
+
+  <rect class="box" x="40" y="340" width="260" height="70" rx="16"/>
+  <text x="170" y="370" text-anchor="middle" font-size="17" font-weight="700">OpenAI</text>
+  <text x="170" y="393" text-anchor="middle" font-size="13" class="mono soft">GPT-5</text>
+</svg>
+<div class="tip"><b>כמו במסעדה:</b> הסועד מזמין מהמלצר, והמלצר נכנס למטבח. הסועד לא נכנס למטבח ולא מקבל את המפתח שלו. הדפדפן הוא הסועד, <code>/api/joke</code> הוא המלצר, ו-OpenAI הוא המטבח.</div>
+</section>
+
+<section id="vercel">
+<div class="label">02 · Vercel בקצרה</div>
+<h2 class="sec">שירות אירוח שגם מריץ קוד</h2>
+<p class="sec-lead">Vercel עושה שני דברים: מגיש את הקבצים של האתר, ומריץ קוד שרת קטן כשמישהו פונה אליו. ארבעה דברים שכדאי להכיר:</p>
+<div class="cards four">
+  <div class="card"><b><span class="num">1</span>מחובר ל-GitHub</b>כל push לענף <code>main</code> מעלה גרסה חדשה לאוויר. ענף אחר מקבל כתובת Preview משלו, לבדיקה לפני שמעלים.</div>
+  <div class="card"><b><span class="num">2</span>תיקיית api</b>כל קובץ בתיקייה <code>api</code> הופך לכתובת. <code>api/joke.js</code> עונה ב-<code>/api/joke</code>. הקוד רץ רק כשמישהו פונה אליו, ולכן קוראים לו Serverless Function.</div>
+  <div class="card"><b><span class="num">3</span>Environment Variables</b>המקום לסודות. משתנה מסוג Secret אי אפשר לקרוא אחרי השמירה, גם לא אתם. שינוי במשתנה נכנס לתוקף רק בפריסה הבאה.</div>
+  <div class="card"><b><span class="num">4</span>Logs</b>כל מה שהפונקציה כותבת ב-<code>console.log</code> וב-<code>console.error</code>. כאן מחפשים כשמשהו לא עובד. בתוכנית החינמית נשמר שעה.</div>
+</div>
+
+<div class="tblwrap"><table class="tbl t3">
+  <thead><tr><th></th><th>GitHub Pages</th><th>Vercel</th></tr></thead>
+  <tbody>
+    <tr><td>מה מוגש</td><td>קבצים בלבד</td><td>קבצים וגם קוד שרת</td></tr>
+    <tr><td>מקום לסודות</td><td>אין</td><td>Environment Variables</td></tr>
+    <tr><td>כתובת</td><td><span class="l">user.github.io/repo</span></td><td><span class="l">project.vercel.app</span></td></tr>
+    <tr><td>עדכון</td><td>push ל-main</td><td>push ל-main, וכל ענף מקבל Preview</td></tr>
+    <tr><td>דומיין משלכם</td><td>כן</td><td>כן, עד 50 לפרויקט בחינם</td></tr>
+    <tr><td>מחיר</td><td>חינם</td><td>Hobby חינם, לשימוש אישי</td></tr>
+  </tbody>
+</table></div>
+
+<details class="err more"><summary><span class="pm">+</span><u>מה כוללת התוכנית החינמית, Hobby</u></summary><div>
+  <ul>
+    <li>מיליון קריאות לפונקציה בחודש, ו-4 שעות CPU פעיל</li>
+    <li>100 פריסות ביום, ועד 200 פרויקטים</li>
+    <li>פונקציה יכולה לרוץ עד 5 דקות. בדיחה לוקחת כמה שניות</li>
+    <li>Logs נשמרים שעה אחת</li>
+    <li>עד 50 דומיינים לפרויקט</li>
+    <li>חריגה ממכסה: בדרך כלל מחכים 30 יום עד שהשירות חוזר</li>
+  </ul>
+  <p><b>שימוש אישי ולא מסחרי בלבד.</b> פרויקט של קורס הוא שימוש אישי. אתר שגובה כסף, מוכר מוצר או שירות, מציג פרסומות, או נבנה בתשלום ללקוח, צריך את התוכנית Pro.</p>
+</div></details>
+
+<div class="label">03 · כמה זה עולה</div>
+<div class="cards">
+  <div class="card"><b>בצד של Vercel: חינם</b>בתוכנית Hobby, לפרויקט של הקורס.</div>
+  <div class="card"><b>בצד של OpenAI: משלמים מראש, לפי שימוש</b>קונים קרדיט, מינימום 5 דולר. GPT-5 עולה 1.25 דולר למיליון טוקנים שנכנסים, ו-10 דולר למיליון טוקנים שיוצאים. בדיחה היא כמה מאות טוקנים, כלומר פחות מסנט לבדיחה, בהערכה גסה. 5 דולר מספיקים לכל התרגולים.</div>
+</div>
+<div class="note"><b>המנוי של ChatGPT לא כולל API.</b> החיוב של ה-API נפרד מהמנוי. גם מי שמשלם על ChatGPT Plus צריך לקנות קרדיט בנפרד.</div>
+</section>
+
+<!-- ========== PART A ========== -->
+<div class="part" id="partA">
+  <div class="pl">חלק א · שני שלבים</div>
+  <h2>מכינים את OpenAI</h2>
+  <p>קרדיט ומגבלת הוצאה. את המפתח עצמו יוצרים רק בשלב 9, ברגע שצריך אותו.</p>
+</div>
+<section class="trackA">
+
+<article class="step" data-s="s1">
+  <div class="sh"><span class="n">1</span><h3>חשבון OpenAI וקרדיט<small>platform.openai.com, לא chatgpt.com</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>נכנסים ל-<a href="https://platform.openai.com/" target="_blank" rel="noopener">platform.openai.com</a> ונרשמים או מתחברים</li>
+      <li>עוברים לדף ה-<a href="https://platform.openai.com/account/billing" target="_blank" rel="noopener">Billing</a></li>
+      <li>לוחצים <b>Buy credits</b> או <b>Add to credit balance</b>, מה שמופיע</li>
+      <li>קונים 5 דולר, המינימום</li>
+      <li>מכבים את <b>Auto recharge</b>. הוא מופעל כברירת מחדל, וטוען כסף לבד כשהיתרה יורדת</li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> יתרה של 5 דולר בדף ה-Billing.</p>
+    <div class="tip"><b>תוקף:</b> קרדיט שנקנה פג אחרי שנה.</div>
+  </div>
+</article>
+
+<article class="step" data-s="s2">
+  <div class="sh"><span class="n">2</span><h3>מגבלת הוצאה חודשית<small>רשת ביטחון. שתי דקות</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>נכנסים ל-<a href="https://platform.openai.com/settings/" target="_blank" rel="noopener">Settings</a> של הפרויקט, ללשונית <b>Limits</b></li>
+      <li>תחת <b>Spend</b> לוחצים <b>Edit spend limit</b></li>
+      <li>ב-<b>Monthly spend limit</b> כותבים 5</li>
+      <li>מפעילים <b>Enforce a hard limit</b> ושומרים</li>
+    </ol>
+    <p>מעכשיו, כשמגיעים ל-5 דולר בחודש, OpenAI פשוט מפסיקה לענות עד החודש הבא. בלי הפתעות בחשבון.</p>
+    <div class="tip"><b>למה זה חשוב:</b> הכתובת של האפליקציה שלכם פתוחה לכל העולם. המגבלה מבטיחה שגם אם מישהו ינצל אותה, ההפסד מוגבל.</div>
+  </div>
+</article>
+</section>
+
+<!-- ========== PART B ========== -->
+<div class="part b" id="partB">
+  <div class="pl">חלק ב · ארבעה שלבים</div>
+  <h2>Claude Code בונה</h2>
+  <p>תיקייה חדשה, פרומפט אחד, בדיקה שלכם, ו-push ל-GitHub.</p>
+</div>
+<section class="trackB">
+
+<article class="step" data-s="s3">
+  <div class="sh"><span class="n">3</span><h3>תיקייה וריפו חדשים<small>כמו בתרגיל הסנייק</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>יוצרים תיקייה בשם <code>joke-app</code> בתיקיית הקורס</li>
+      <li>פותחים אותה ב-Claude Code</li>
+      <li>מבקשים ממנו לחבר אותה לריפו חדש:</li>
+    </ol>
+    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>צור ריפו ציבורי חדש ב-GitHub בשם joke-app, חבר אליו את התיקייה הזו, ותגיד לי מה הכתובת שלו.</pre></div>
+    <div class="tip"><b>ציבורי זה בסדר.</b> אין בקוד שום סוד. המפתח לא ייכנס לריפו אף פעם.</div>
+  </div>
+</article>
+
+<article class="step" data-s="s4">
+  <div class="sh"><span class="n">4</span><h3>מדביקים את הפרומפט<small>האפיון, ואחריו הדרישות הטכניות ל-Vercel</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p>תשעת השורות הראשונות הן האפיון של האפליקציה. החלק השני אומר ל-Claude איך לבנות אותה כך שתעבוד ב-Vercel.</p>
+    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>אתר אינטרנט מותאם למובייל המציג למשתמש תיבת טקסט ולחצן.
+המשתמש מכניס בתיבה נושא, האפליקציה מציגה לו בדיחה בנושא.
+אם הכניס "חתולים" יש להציג בדיחה על חתולים.
+קיים מודל AI שמייצר את הבדיחה. המודל הוא GPT-5.
+אם לא הכניס דבר בתיבה, יש לייצר לו בדיחה כללית כלשהי.
+על ה-UI להיות בעברית.
+התקנת האפליקציה הינה ע"י PWA.
+הגישה ל-AI מתבצעת בצד ה-Backend.
+על ה-API Key להיות אך ורק ב-Backend.
+
+דרישות טכניות:
+1. האתר וה-Backend מתארחים יחד ב-Vercel, מתוך הריפו הזה ב-GitHub. לא ב-GitHub Pages.
+2. בלי framework ובלי שלב build: קבצי HTML, CSS ו-JavaScript רגילים בשורש הריפו.
+3. ה-Backend הוא Vercel Function אחת בקובץ <span class="l">api/joke.js</span>, עם <span class="l">export default</span> שבתוכו <span class="l">fetch(request)</span>. היא מקבלת POST עם JSON שיש בו שדה topic, ומחזירה JSON עם שדה joke.
+4. ב-<span class="l">package.json</span> יש <span class="l">"type": "module"</span>. בלי ספריות חיצוניות: הקריאה ל-OpenAI נעשית עם fetch אל Responses API.
+5. המפתח נקרא רק מ-<span class="l">process.env.OPENAI_API_KEY</span>. שם המודל נקרא מ-<span class="l">process.env.OPENAI_MODEL</span>, וברירת המחדל היא <span class="l">gpt-5</span>.
+6. הדף פונה רק ל-<span class="l">/api/joke</span>, באותה כתובת. בלי CORS, ובלי פנייה ישירה ל-OpenAI מהדפדפן.
+7. הנושא מוגבל ל-100 תווים. כשחסר מפתח או שיש שגיאה, הדף מציג הודעה קצרה בעברית, והפרטים הטכניים נרשמים ב-console.error כדי שיופיעו ב-Logs של Vercel.
+8. PWA: קובץ <span class="l">manifest.webmanifest</span> עם השדות <span class="l">name, short_name, start_url, display: standalone, lang: he, dir: rtl</span>, ואייקונים בגודל 192 ו-512. וגם service worker בגישת <span class="l">network-first</span>, שלא שומר במטמון שום בקשה ל-<span class="l">/api</span>.
+9. קובץ <span class="l">.gitignore</span> שכולל את <span class="l">.env</span> ואת <span class="l">.vercel</span>, כדי שלא יעלו ל-GitHub.
+10. לפני שאתה כותב קוד, בדוק בתיעוד העדכני של OpenAI ושל Vercel את מבנה הבקשה והתשובה.
+11. בסוף, הסבר לי בחמש שורות פשוטות איפה המפתח נמצא ולמה הוא לא מגיע לדפדפן. אל תבקש ממני את המפתח.</pre></div>
+    <p class="see"><b>אמור להופיע:</b> Claude מציג תוכנית או שואל שאלה. מאשרים. בסוף יש בתיקייה <code>index.html</code>, תיקיית <code>api</code>, <code>manifest.webmanifest</code>, <code>sw.js</code>, אייקונים, <code>package.json</code> ו-<code>.gitignore</code>.</p>
+    <div class="warn"><b>Claude מבקש את המפתח?</b> לא נותנים. לא לצ׳אט, לא לקובץ. המפתח הולך רק ל-Vercel, בשלב 9.</div>
+    <div class="note"><b>על GPT-5:</b> הוא עובד, אבל OpenAI כבר סימנה אותו כמודל קודם. הגרסה ש-<code>gpt-5</code> מצביע עליה היום מתוכננת להיכבות ב-11.12.2026. לכן שם המודל נשמר כמשתנה, <code>OPENAI_MODEL</code>, וכדי להחליף מודל לא נוגעים בקוד. איך מחליפים, בסוף הדף.</div>
+  </div>
+</article>
+
+<article class="step" data-s="s5">
+  <div class="sh"><span class="n">5</span><h3>בודקים חמישה דברים<small>אתם מאשרים את הקוד, לא רק Claude</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>הקובץ נמצא בנתיב <code>api/joke.js</code>, בדיוק</li>
+      <li>בקובץ הזה המפתח מגיע מ-<code>process.env.OPENAI_API_KEY</code>, ולא כתוב בו שום מפתח</li>
+      <li>ב-<code>index.html</code> הפנייה היא ל-<code>/api/joke</code>, ואין שם <code>api.openai.com</code></li>
+      <li>ב-<code>package.json</code> יש <code>"type": "module"</code></li>
+      <li>ב-<code>.gitignore</code> יש <code>.env</code></li>
+    </ol>
+    <p>ובדיקה אחרונה, שClaude יעשה בשבילכם:</p>
+    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>חפש בכל הקבצים בתיקייה את המחרוזת sk- ואת המחרוזת api.openai.com. תגיד לי באילו קבצים כל אחת מופיעה.</pre></div>
+    <p class="see"><b>אמור להופיע:</b> <code>sk-</code> לא מופיע בשום מקום. <code>api.openai.com</code> מופיע רק ב-<code>api/joke.js</code>.</p>
+  </div>
+</article>
+
+<article class="step" data-s="s6">
+  <div class="sh"><span class="n">6</span><h3>Commit ו-Push<small>הקוד עולה ל-GitHub</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>תעשה commit לכל הקבצים עם ההודעה "joke app first version" ותדחוף ל-main.</pre></div>
+    <p class="see"><b>אמור להופיע:</b> בדף הריפו ב-GitHub רואים את כל הקבצים ואת תיקיית <code>api</code>. אין שם קובץ <code>.env</code>.</p>
+  </div>
+</article>
+</section>
+
+<!-- ========== PART C ========== -->
+<div class="part g" id="partC">
+  <div class="pl">חלק ג · שבעה שלבים</div>
+  <h2>עולים ל-Vercel</h2>
+  <p>מייבאים את הריפו, שמים את המפתח, בודקים, ומתקינים בטלפון.</p>
+</div>
+<section class="trackC">
+
+<article class="step" data-s="s7">
+  <div class="sh"><span class="n">7</span><h3>חשבון Vercel<small>מי שכבר פתח, מסמן ועובר הלאה</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>נכנסים ל-<a href="https://vercel.com/signup" target="_blank" rel="noopener">vercel.com/signup</a></li>
+      <li>נרשמים עם <b>GitHub</b>, באותו חשבון שבו נמצא הריפו</li>
+      <li>בוחרים בתוכנית <b>Hobby</b>, החינמית</li>
+    </ol>
+  </div>
+</article>
+
+<article class="step" data-s="s8">
+  <div class="sh"><span class="n">8</span><h3>מייבאים את הריפו ופורסים<small>פעם אחת. מכאן כל push עולה לבד</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>בדשבורד של Vercel לוחצים <b>New Project</b>. אין כפתור כזה? לוחצים <b>Add New</b>, ואז <b>Project</b></li>
+      <li>ליד הריפו <code>joke-app</code> לוחצים <b>Import</b>. הריפו לא ברשימה? נותנים ל-Vercel גישה אליו בחלון של GitHub שנפתח</li>
+      <li>ב-<b>Framework Preset</b> בוחרים <b>Other</b>. שאר ההגדרות נשארות כמו שהן</li>
+      <li>לוחצים <b>Deploy</b></li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> כתובת בסגנון <code>joke-app-xxxx.vercel.app</code>. פותחים אותה, כותבים "חתולים", ולוחצים.</p>
+    <div class="tip"><b>מופיע "חסר מפתח בשרת"? מצוין.</b> זה אומר שהשרת עובד: הדף דיבר עם <code>/api/joke</code>, והפונקציה גילתה שאין לה מפתח. זה השלב הבא.</div>
+  </div>
+</article>
+
+<article class="step" data-s="s9">
+  <div class="sh"><span class="n">9</span><h3>יוצרים מפתח ושמים אותו ב-Vercel<small>שתי לשוניות פתוחות זו ליד זו</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p><b>לשונית 1, OpenAI:</b></p>
+    <ol>
+      <li>נכנסים ל-<a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">platform.openai.com/api-keys</a></li>
+      <li>לוחצים <b>Create new secret key</b>, קוראים לו <code>joke-app</code>, ויוצרים</li>
+      <li>מעתיקים את המפתח. הוא מוצג במלואו רק פעם אחת</li>
+    </ol>
+    <p><b>לשונית 2, Vercel:</b></p>
+    <ol>
+      <li>בפרויקט <code>joke-app</code> פותחים <b>Settings</b>, ואז <b>Environment Variables</b> בתפריט הצד</li>
+      <li>ב-<b>Key</b> כותבים בדיוק <code>OPENAI_API_KEY</code></li>
+      <li>ב-<b>Value</b> מדביקים את המפתח</li>
+      <li>ב-<b>Type</b> בוחרים <b>Secret</b>, ומשאירים את כל הסביבות מסומנות</li>
+      <li>שומרים, וסוגרים את החלון של OpenAI</li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> שורה בטבלה עם <code>OPENAI_API_KEY</code> והתווית Secret. הערך מוסתר, וגם אתם כבר לא יכולים לקרוא אותו.</p>
+    <div class="warn"><b>המפתח נכנס רק לכאן.</b> לא לקובץ בתיקייה, לא לצ׳אט עם Claude, לא לוואטסאפ, ולא לפתק במחשב. אבד? יוצרים חדש. זה לוקח דקה.</div>
+  </div>
+</article>
+
+<article class="step" data-s="s10">
+  <div class="sh"><span class="n">10</span><h3>Redeploy<small>הפריסה הקיימת לא רואה מפתח חדש</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>בפרויקט פותחים <b>Deployments</b></li>
+      <li>ליד הפריסה העליונה לוחצים על שלוש הנקודות, ואז <b>Redeploy</b></li>
+      <li>מחכים שהסטטוס יהיה <b>Ready</b></li>
+    </ol>
+    <div class="tip"><b>למה צריך את זה:</b> הפונקציה מקבלת את המשתנים ברגע הפריסה. פריסה שכבר רצה לא יודעת שהוספתם מפתח. גם כל push חדש יפתור את זה.</div>
+  </div>
+</article>
+
+<article class="step" data-s="s11">
+  <div class="sh"><span class="n">11</span><h3>בודקים בארבעה מקומות<small>לא רק "זה עובד", אלא "זה עובד נכון"</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li><b>בטלפון:</b> פותחים את הכתובת. "חתולים" מביא בדיחה על חתולים. תיבה ריקה מביאה בדיחה כללית</li>
+      <li><b>ב-Network, במחשב:</b> F12, לשונית Network, ולוחצים על הכפתור. הבקשה הולכת ל-<code>joke</code> בכתובת שלכם, ולא ל-<code>api.openai.com</code>. בתשובה יש רק <code>joke</code></li>
+      <li><b>בקוד הדף:</b> Ctrl+U, ואז Ctrl+F ומחפשים <code>sk-</code>. אין תוצאות</li>
+      <li><b>ב-Logs של Vercel:</b> בתפריט הצד של הפרויקט. מופיעה שורה על כל בדיחה שהוגשה</li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> בדיחה בטלפון, ובשום מקום בדפדפן אין זכר למפתח.</p>
+  </div>
+</article>
+
+<article class="step" data-s="s12">
+  <div class="sh"><span class="n">12</span><h3>מתקינים בטלפון<small>אתר שמתנהג כמו אפליקציה. זה PWA</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p><b>אנדרואיד, ב-Chrome:</b> פותחים את הכתובת, לוחצים על שלוש הנקודות בפינה, ובוחרים "התקנת אפליקציה" או "הוספה למסך הבית". השם משתנה בין גרסאות.</p>
+    <p><b>אייפון, ב-Safari:</b> פותחים את הכתובת, לוחצים על כפתור השיתוף, ובוחרים "הוספה למסך הבית". מ-iOS 16.4 זה עובד גם מ-Chrome, Edge ו-Firefox.</p>
+    <p class="see"><b>אמור להופיע:</b> אייקון של פרצוף צהוב במסך הבית. האפליקציה נפתחת על כל המסך, בלי שורת כתובת.</p>
+    <div class="tip"><b>למה זה עובד עכשיו:</b> כדי שאתר יותקן צריך HTTPS, קובץ manifest, ואייקונים בגודל 192 ו-512. את ה-HTTPS נותן Vercel, ואת השאר כתב Claude לפי הפרומפט.</div>
+  </div>
+</article>
+
+<article class="step" data-s="s13">
+  <div class="sh"><span class="n">13</span><h3>משנים, דוחפים, רואים<small>הלולאה שתעבדו בה מעכשיו</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>הוסף מתחת לבדיחה כפתור "שתפו" שמשתף אותה בוואטסאפ. אחר כך תעשה commit ותדחוף ל-main.</pre></div>
+    <ol>
+      <li>ב-Vercel, ב-<b>Deployments</b>, מופיעה פריסה חדשה. מחכים ל-Ready</li>
+      <li>סוגרים את האפליקציה בטלפון ופותחים מחדש</li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> הכפתור החדש, בלי לגעת ב-Vercel בכלל.</p>
+  </div>
+</article>
+</section>
+
+<section id="errors">
+<div class="label">04 · כשמשהו לא עובד</div>
+<h2 class="sec">מה כתוב, ומה עושים</h2>
+<p class="sec-lead">ההודעה בדף אומרת איפה לחפש. הפרטים המלאים תמיד ב-Logs של Vercel.</p>
+
+<details class="err"><summary><span class="pm">+</span><u>"חסר מפתח בשרת"</u></summary><div>
+  <p>אין ב-Vercel משתנה בשם <code>OPENAI_API_KEY</code>, או שלא עשיתם Redeploy אחרי שהוספתם אותו.</p>
+  <ol><li>בודקים את השם, אות באות, באותיות גדולות</li><li>עושים Redeploy, שלב 10</li></ol>
+</div></details>
+
+<details class="err"><summary><span class="pm">+</span><u>"המפתח לא תקין"</u></summary><div>
+  <p>המפתח הועתק עם רווח או בלי חלק ממנו, או שנמחק ב-OpenAI.</p>
+  <ol><li>יוצרים מפתח חדש ב-<a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">api-keys</a></li><li>ב-Vercel, ליד המשתנה: שלוש נקודות, <b>Edit</b>, ומדביקים ערך חדש. את הערך הישן אי אפשר לראות, רק להחליף</li><li>Redeploy</li></ol>
+</div></details>
+
+<details class="err"><summary><span class="pm">+</span><u>"נגמר הקרדיט" או "הגעתם למגבלת ההוצאה"</u></summary><div>
+  <p>נגמרה היתרה ב-OpenAI, או שהגעתם למגבלה מהשלב השני. טוענים קרדיט ב-<a href="https://platform.openai.com/account/billing" target="_blank" rel="noopener">Billing</a>, או מעלים את המגבלה ב-Limits. אין צורך ב-Redeploy.</p>
+</div></details>
+
+<details class="err"><summary><span class="pm">+</span><u>"יותר מדי בקשות"</u></summary><div>
+  <p>שלחתם הרבה בקשות בזמן קצר. מחכים דקה ומנסים שוב.</p>
+</div></details>
+
+<details class="err"><summary><span class="pm">+</span><u>"המודל לא נמצא"</u></summary><div>
+  <p>שם המודל שגוי, או שהמודל כבר נכבה. בודקים את <code>OPENAI_MODEL</code> ב-Vercel, אם הוספתם אותו. בלי המשתנה, הקוד משתמש ב-<code>gpt-5</code>.</p>
+</div></details>
+
+<details class="err"><summary><span class="pm">+</span><u>הכפתור מחזיר שגיאה 404</u></summary><div>
+  <p>Vercel לא מוצא את הפונקציה.</p>
+  <ul><li>בודקים ב-GitHub שהנתיב הוא בדיוק <code>api/joke.js</code>, בשורש הריפו</li><li>ב-Vercel, ב-Settings: Framework Preset הוא Other, ו-Root Directory ריק</li></ul>
+</div></details>
+
+<details class="err"><summary><span class="pm">+</span><u>פתחתי את index.html מהמחשב והכפתור לא עובד</u></summary><div>
+  <p>זה צפוי. מהמחשב אין שרת, ולכן אין <code>/api/joke</code>. בודקים תמיד בכתובת של Vercel.</p>
+</div></details>
+
+<details class="err"><summary><span class="pm">+</span><u>ב-Logs יש שגיאה על import</u></summary><div>
+  <p>חסר <code>"type": "module"</code> ב-<code>package.json</code>. מבקשים מ-Claude להוסיף, ודוחפים.</p>
+</div></details>
+
+<details class="err"><summary><span class="pm">+</span><u>הפריסה נכשלה, Error ב-Deployments</u></summary><div>
+  <p>פותחים את הפריסה, מעתיקים את השגיאה מה-Build Logs, ומדביקים ל-Claude Code עם הבקשה "תתקן ותדחוף".</p>
+</div></details>
+
+<details class="err"><summary><span class="pm">+</span><u>אין בטלפון אפשרות להתקין</u></summary><div>
+  <ul>
+    <li>פתחתם את הקישור מתוך וואטסאפ או אינסטגרם? פותחים אותו ב-Chrome או ב-Safari עצמם</li>
+    <li>האפליקציה כבר מותקנת? אז האפשרות לא תופיע שוב</li>
+    <li>עדיין לא? מבקשים מ-Claude: "בדוק שה-manifest תקין, מקושר מ-index.html, ויש בו אייקונים בגודל 192 ו-512"</li>
+  </ul>
+</div></details>
+
+<details class="err"><summary><span class="pm">+</span><u>אחרי push רואים בטלפון את הגרסה הישנה</u></summary><div>
+  <p>מחכים שהפריסה החדשה תהיה Ready, סוגרים את האפליקציה לגמרי, ופותחים שוב.</p>
+</div></details>
+</section>
+
+<section id="security">
+<div class="label">05 · אבטחה</div>
+<h2 class="sec">מה מגן עליכם היום, ומה עוד לא</h2>
+<div class="cards">
+  <div class="card"><b>המפתח</b>רק ב-Vercel, כ-Secret. לא בקוד, לא בריפו, לא בצ׳אט. דלף? מוחקים אותו ב-<a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">api-keys</a> בלחיצה על הפח, יוצרים חדש, מעדכנים ב-Vercel, ו-Redeploy.</div>
+  <div class="card"><b>הכתובת פתוחה</b>כל מי שמכיר את <code>/api/joke</code> יכול לבקש בדיחות על חשבונכם. מה שמגביל אותו היום: נושא קצר, תשובה קצרה, מגבלת הוצאה חודשית, ו-Auto recharge כבוי.</div>
+  <div class="card"><b>מה עוד לא עשינו</b>הגבלת קצב לכל משתמש, וזיהוי משתמשים. את זה נלמד במפגש האבטחה.</div>
+</div>
+<div class="tip"><b>ולמה אין CORS הפעם?</b> הדף והפונקציה יושבים באותה כתובת. צריך CORS רק כשדף מכתובת אחת פונה לשרת בכתובת אחרת, כמו במדריך הקודם.</div>
+</section>
+
+<section id="more">
+<div class="label">06 · להעמקה</div>
+
+<details class="err more" id="model"><summary><span class="pm">+</span><u>מחליפים מודל בלי לגעת בקוד</u></summary><div>
+  <ol>
+    <li>ב-Vercel, ב-Environment Variables, מוסיפים <code>OPENAI_MODEL</code> מסוג <b>Config</b>. זה לא סוד, ולכן אפשר שיישאר קריא</li>
+    <li>בערך כותבים את שם המודל</li>
+    <li>Redeploy</li>
+  </ol>
+  <p>לפי OpenAI, המחליף הרשמי של GPT-5 הוא <code>gpt-5.6-sol</code>. לתרגול זול יש את <code>gpt-5.6-luna</code>: 0.20 דולר למיליון טוקנים שנכנסים, ו-1.20 דולר למיליון שיוצאים.</p>
+</div></details>
+
+<details class="err more" id="domain"><summary><span class="pm">+</span><u>דומיין אמיתי משלכם</u></summary><div>
+  <ol>
+    <li>בפרויקט: <b>Settings</b>, ואז <b>Domains</b>, ואז <b>Add Domain</b></li>
+    <li>כותבים את הדומיין. אין לכם? אפשר לקנות דרך Vercel או אצל רשם דומיינים</li>
+    <li>Vercel מציג רשומת DNS להוספה אצל הרשם: <b>A</b> לדומיין ראשי כמו <code>example.com</code>, או <b>CNAME</b> לתת-דומיין כמו <code>app.example.com</code></li>
+    <li>מוסיפים את הרשומה אצל הרשם, ומחכים שהסטטוס ב-Vercel יהיה תקין. שינויי DNS לוקחים זמן להתפשט</li>
+  </ol>
+  <p>בתוכנית Hobby אפשר עד 50 דומיינים לפרויקט.</p>
+</div></details>
+
+<details class="err more" id="connector"><summary><span class="pm">+</span><u>Vercel בתוך Claude</u></summary><div>
+  <p>יש ל-Claude מחבר בשם Vercel, בספריית המחברים. דרכו Claude רואה את הפרויקטים, הפריסות והשגיאות שלכם. שימושי במיוחד כשפריסה נכשלת: "תבדוק למה הפריסה האחרונה של joke-app נכשלה".</p>
+  <p>המחבר מקבל את אותה גישה שיש לחשבון שלכם. מחברים רק כשצריך.</p>
+</div></details>
+
+<details class="err more" id="code"><summary><span class="pm">+</span><u>הקוד המלא של השרת, ופתרון להורדה</u></summary><div>
+  <p>כך נראית הפונקציה בגרסה שבנינו לבדיקה. אצלכם Claude יכתוב משהו דומה, לא זהה.</p>
+  <div class="term"><span class="fn">api/joke.js</span><button class="cp" type="button">העתק</button><pre id="codeView">טוען...</pre></div>
+  <a class="dl" href="joke-app.zip" download><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg><div><b>joke-app.zip</b><span>כל הקבצים, למי שנתקע. מחלצים לתיקיית הריפו, דוחפים, וממשיכים משלב 7.</span></div></a>
+</div></details>
+
+<details class="err more" id="glossary"><summary><span class="pm">+</span><u>מילון</u></summary><div>
+<div class="tblwrap"><table class="tbl">
+  <tbody>
+    <tr><td>Frontend</td><td>מה שרץ בדפדפן: HTML, CSS ו-JavaScript. כל אחד יכול לראות אותו</td></tr>
+    <tr><td>Backend</td><td>קוד שרץ בשרת. המשתמש רואה רק את התשובה שלו</td></tr>
+    <tr><td>API</td><td>כתובת שתוכנה פונה אליה כדי לקבל שירות, כמו <code>/api/joke</code></td></tr>
+    <tr><td>API Key</td><td>סיסמה של תוכנה. מי שמחזיק בה משתמש בחשבון שלכם</td></tr>
+    <tr><td>Serverless Function</td><td>קוד שרת קטן שרץ רק כשפונים אליו. אין שרת שצריך לתחזק</td></tr>
+    <tr><td>Environment Variable</td><td>הגדרה שנשמרת בשרת ולא בקוד. Secret לסודות, Config לכל השאר</td></tr>
+    <tr><td>Deploy</td><td>העלאת גרסה לאוויר. Redeploy: העלאה מחדש של אותה גרסה</td></tr>
+    <tr><td>Production, Preview</td><td>הגרסה שכולם רואים, מול גרסת בדיקה עם כתובת משלה</td></tr>
+    <tr><td>Logs</td><td>יומן של מה שקרה בכל פנייה לפונקציה</td></tr>
+    <tr><td>PWA</td><td>אתר שאפשר להתקין במסך הבית ולפתוח כמו אפליקציה</td></tr>
+    <tr><td>Manifest</td><td>קובץ שמתאר את האפליקציה לטלפון: שם, אייקון, צבעים</td></tr>
+    <tr><td>Service Worker</td><td>קוד שרץ ברקע בדפדפן ומטפל בטעינת הקבצים</td></tr>
+    <tr><td>Token</td><td>יחידת הטקסט שלפיה OpenAI מחייבת. בערך חלק ממילה</td></tr>
+  </tbody>
+</table></div>
+</div></details>
+
+<details class="err more" id="sources"><summary><span class="pm">+</span><u>מקורות, נבדקו ב-22.10.2026</u></summary><div>
+  <ul>
+    <li><a href="https://developers.openai.com/api/docs/models/gpt-5" target="_blank" rel="noopener">OpenAI: GPT-5 model</a> ו-<a href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Deprecations</a></li>
+    <li><a href="https://developers.openai.com/api/docs/guides/text" target="_blank" rel="noopener">OpenAI: Text generation, Responses API</a></li>
+    <li><a href="https://help.openai.com/en/articles/8264644-setting-up-and-managing-prepaid-api-billing" target="_blank" rel="noopener">OpenAI: Prepaid API billing</a> ו-<a href="https://help.openai.com/en/articles/9039756-managing-billing-settings-on-chatgpt-web-and-platform" target="_blank" rel="noopener">ChatGPT and API billing</a></li>
+    <li><a href="https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key" target="_blank" rel="noopener">OpenAI: Where do I find my API key</a></li>
+    <li><a href="https://developers.openai.com/api/docs/guides/spend-limits" target="_blank" rel="noopener">OpenAI: Spend limits</a> ו-<a href="https://developers.openai.com/api/docs/guides/error-codes" target="_blank" rel="noopener">Error codes</a></li>
+    <li><a href="https://vercel.com/docs/functions/runtimes/node-js" target="_blank" rel="noopener">Vercel: Node.js runtime</a></li>
+    <li><a href="https://vercel.com/docs/environment-variables/sensitive-environment-variables" target="_blank" rel="noopener">Vercel: Config and Secret environment variables</a></li>
+    <li><a href="https://vercel.com/docs/git" target="_blank" rel="noopener">Vercel: Deploying Git repositories</a></li>
+    <li><a href="https://vercel.com/docs/plans/hobby" target="_blank" rel="noopener">Vercel: Hobby plan</a></li>
+    <li><a href="https://vercel.com/docs/domains/working-with-domains/add-a-domain" target="_blank" rel="noopener">Vercel: Adding a custom domain</a></li>
+    <li><a href="https://web.dev/articles/install-criteria" target="_blank" rel="noopener">web.dev: Install criteria</a> ו-<a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable" target="_blank" rel="noopener">MDN: Making PWAs installable</a></li>
+  </ul>
+</div></details>
+</section>
+
+<nav class="next" aria-label="לאן ממשיכים">
+  <a class="nx" href="../jb53500-home/"><span class="pl">53500</span><b>הדף הראשי</b><span>כל התרגילים, הקבצים והמצגות</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
+  <a class="nx" href="../jb53500-vercel/"><span class="pl">המדריך הקודם</span><b>GitHub Pages ו-Vercel יחד</b><span>האתר ב-GitHub Pages, הפונקציה ב-Vercel, עם Gemini</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
+</nav>
+
+<div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v1 · 22.10.2026</footer>
+
+<script>
+(function(){
+  'use strict';
+  var KEY='jbbackend.v1',S={theme:null,done:{}};
+  try{var s=JSON.parse(localStorage.getItem(KEY)||'{}');for(var k in s)S[k]=s[k];}catch(e){}
+  if(!S.done||typeof S.done!=='object')S.done={};
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+
+  var root=document.documentElement,tb=document.getElementById('themeBtn');
+  var SUN='<svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>',MOON='<svg class="ic" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>';
+  function paint(){var d=root.getAttribute('data-theme')==='dark';tb.innerHTML=d?SUN:MOON;tb.setAttribute('aria-label',d?'מצב בהיר':'מצב כהה');}
+  tb.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);S.theme=n;save();paint();});
+  paint();
+
+  var steps=[].slice.call(document.querySelectorAll('.step[data-s]')),prog=document.getElementById('prog');
+  function paintSteps(){
+    var h=0;
+    steps.forEach(function(st){var on=!!S.done[st.dataset.s];st.classList.toggle('done',on);st.querySelector('.chk').setAttribute('aria-checked',String(on));if(on)h++;});
+    prog.textContent=h===steps.length?'הכול הושלם':h+'/'+steps.length;
+  }
+  steps.forEach(function(st){st.querySelector('.chk').addEventListener('click',function(){var id=st.dataset.s;if(S.done[id])delete S.done[id];else S.done[id]=1;paintSteps();save();});});
+  paintSteps();
+  document.getElementById('resetBtn').addEventListener('click',function(){S.done={};paintSteps();save();});
+
+  document.querySelectorAll('details').forEach(function(d){
+    var pm=d.querySelector('summary .pm');
+    function mark(){if(pm)pm.textContent=d.open?'-':'+';}
+    mark();d.addEventListener('toggle',mark);
+  });
+  function reveal(id){
+    var t=id&&document.getElementById(id);if(!t)return null;
+    var d=t.tagName==='DETAILS'?t:t.closest('details');
+    while(d){d.open=true;d=d.parentElement?d.parentElement.closest('details'):null;}
+    return t;
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){reveal(a.getAttribute('href').slice(1));});});
+  if(location.hash.length>1){var t0=reveal(location.hash.slice(1));if(t0)setTimeout(function(){t0.scrollIntoView();},60);}
+
+  // Show the reference function from the same folder, so the page and the ZIP never drift apart
+  var cv=document.getElementById('codeView');
+  fetch('code/joke.js').then(function(r){if(!r.ok)throw 0;return r.text();}).then(function(t){cv.textContent=t;}).catch(function(){cv.textContent='// Download joke-app.zip to see the full code';});
+
+  function fallback(t){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
+  document.querySelectorAll('.term .cp,.prompt .cp').forEach(function(b){b.addEventListener('click',function(){
+    var t=b.parentNode.querySelector('pre').innerText;
+    var ok=function(){b.textContent='הועתק';b.classList.add('ok');setTimeout(function(){b.textContent='העתק';b.classList.remove('ok');},1500);};
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,function(){fallback(t);ok();});else{fallback(t);ok();}
+  });});
+})();
+</script>
+</body>
+</html>
