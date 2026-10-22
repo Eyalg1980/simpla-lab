@@ -11,7 +11,7 @@
 </head>
 <body>
 <style>
-  /* Layout: John Bryce course-page family (45900 guide). One narrow reading column, a navy header band with the John Bryce red edge, navy headings, a numbered session rail grouped by module, then two short reference blocks. Dark first, light through the toggle or the system. */
+  /* Layout: John Bryce course-page family (45900 guide). One narrow reading column, a navy header band with the John Bryce red edge, navy headings, a numbered session rail grouped by module, then what Weave is with workflow screenshots, the org rollout steps, the lecturer, and requirements. Dark first, light through the toggle or the system. */
   :root{
     --paper:#171415;
     --surface:#1F1B1D;
@@ -61,9 +61,12 @@
   .band{background:var(--band-bg);color:var(--band-ink);border-bottom:3px solid var(--accent)}
   .band-in{max-width:74ch;margin:0 auto;padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px));padding-block:26px 34px;display:flex;flex-direction:column;gap:14px}
   .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
-  .brands{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+  .brands{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
   .brand{direction:ltr;unicode-bidi:isolate;font-weight:700;font-size:14px;letter-spacing:.02em;padding:5px 12px;border:1px solid var(--band-line);border-radius:999px;color:var(--band-ink);white-space:nowrap}
-  .brands .x{color:var(--band-muted);font-size:13px}
+  .brands .x{color:var(--band-muted);font-size:15px}
+  .logo-jb{height:44px;width:auto;display:block;border-radius:5px}
+  .weave-lock{display:inline-flex;align-items:center;gap:9px;direction:ltr;unicode-bidi:isolate;font-weight:700;font-size:17px;letter-spacing:.01em;color:var(--band-ink);white-space:nowrap}
+  .weave-lock img{height:22px;width:auto;display:block}
   .kicker{font-size:12px;letter-spacing:.14em;color:var(--band-muted);font-weight:700;padding-top:10px}
   .theme{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;cursor:pointer;background:transparent;color:var(--band-muted);border:1px solid var(--band-line);transition:color .15s,border-color .15s}
   .theme:hover{color:var(--band-ink);border-color:var(--band-ink)}
@@ -79,6 +82,28 @@
   .figures div{display:flex;align-items:baseline;gap:7px}
   .figures b{font-family:var(--display);font-size:30px;line-height:1;font-weight:700;font-variant-numeric:tabular-nums;color:var(--band-ink)}
   .figures span{color:var(--band-muted);font-size:14px}
+
+  /* about weave */
+  .lede{color:var(--muted);font-size:16px;max-width:62ch}
+  .pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+  .pillar{border-top:2px solid var(--navy);padding-top:10px;display:grid;gap:3px;min-width:0}
+  .pillar b{color:var(--navy);font-size:15.5px}
+  .pillar span{color:var(--muted);font-size:14px}
+  .shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 16px;margin-top:26px}
+  .shots figure{margin:0;display:grid;gap:7px;min-width:0}
+  .shots a{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#111}
+  .shots img{display:block;width:100%;height:auto;aspect-ratio:12/7;object-fit:cover}
+  .shots figcaption{font-size:13.5px;color:var(--muted);line-height:1.5}
+  .shots figcaption b{color:var(--ink);font-weight:600}
+
+  /* implementation steps */
+  .steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 18px;border-top:1px solid var(--line)}
+  .steps li{padding:14px 0 16px;border-bottom:1px solid var(--line-soft);display:grid;gap:3px;min-width:0}
+  .steps .n{font-family:var(--mono);font-size:12.5px;color:var(--accent);font-variant-numeric:tabular-nums}
+  .steps b{color:var(--navy);font-size:15.5px}
+  .steps span{color:var(--muted);font-size:14px}
+  .orgs{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin-top:16px;font-size:14px;color:var(--muted)}
+  .orgs span.o{direction:ltr;unicode-bidi:isolate;border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:var(--surface);color:var(--ink);font-size:13px}
 
   /* about */
   .about{display:grid;grid-template-columns:132px minmax(0,1fr);gap:22px;align-items:start}
@@ -134,7 +159,11 @@
   .links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-size:14.5px}
   footer{margin-top:52px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px;color:var(--faint);font-variant-numeric:tabular-nums}
 
+  @media (max-width:760px){
+    .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
   @media (max-width:520px){
+    .pillars,.shots,.steps{grid-template-columns:minmax(0,1fr)}
     .about{grid-template-columns:minmax(0,1fr);gap:14px}
     .about img{width:104px;height:104px}
     ol.rail > li{grid-template-columns:32px minmax(0,1fr);gap:12px}
@@ -146,7 +175,7 @@
 <div lang="he" dir="rtl">
 <header class="band"><div class="band-in">  
     <div class="top">
-      <div class="brands" aria-label="John Bryce ו-Figma Weave"><span class="brand">John Bryce</span><span class="x">×</span><span class="brand">Figma Weave</span></div>
+      <div class="brands"><img class="logo-jb" src="img/jb-logo.webp" alt="John Bryce" width="106" height="44"><span class="x" aria-hidden="true">×</span><span class="weave-lock"><img src="img/weave-mark.png" alt="" width="25" height="22"><span>Figma Weave</span></span></div>
       <button class="theme" id="theme" type="button" aria-label="החלפת מצב בהיר וכהה">
         <svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
         <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
@@ -165,6 +194,22 @@
 <div class="page">
 
 
+
+  <section id="weave">
+    <h2>מה זה Figma Weave</h2>
+    <p class="lede">Figma Weave, לשעבר Weavy, היא פלטפורמת Nodes ליצירה עם AI, שנרכשה על ידי Figma. על Canvas אחד מחברים מודלי תמונה, מודלי שפה, מודלי וידאו, כלי עריכה וקומפוזיטינג ומודלים מאומנים. במקום פרומפט חד-פעמי בונים תהליך קבוע, ומריצים אותו שוב ושוב עם קלט אחר.</p>
+    <div class="pillars">
+      <div class="pillar"><b>פרומפט טמפלט</b><span>מבנה קבוע עם משתנים, שמחזיק עקביות בין הרצות.</span></div>
+      <div class="pillar"><b>מודל מאומן</b><span>LoRA שלמד את שפת המותג ומחזיר אותה בכל תמונה.</span></div>
+      <div class="pillar"><b>Workflow</b><span>מחבר את השניים עם כלי AI נוספים לתהליך אחד.</span></div>
+    </div>
+    <div class="shots">
+      <figure><a href="img/wf-canvas.webp" target="_blank" rel="noopener"><img src="img/wf-canvas.webp" alt="Workflow ב-Figma Weave: פרומפט ותמונת מוצר שמזינים שלושה Nodes" loading="lazy" width="1200" height="698"></a><figcaption><b>Workflow על ה-Canvas.</b> פרומפט ותמונת מוצר מזינים שלושה Nodes, וכל אחד מחזיר וריאציה אחרת.</figcaption></figure>
+      <figure><a href="img/wf-lora.webp" target="_blank" rel="noopener"><img src="img/wf-lora.webp" alt="פרומפט טמפלט ומודל LoRA מחוברים למודל תמונה" loading="lazy" width="1200" height="677"></a><figcaption><b>חיבור מודל מאומן.</b> פרומפט טמפלט ו-LoRA של שפת המותג נכנסים יחד למודל התמונה.</figcaption></figure>
+      <figure><a href="img/wf-screens.webp" target="_blank" rel="noopener"><img src="img/wf-screens.webp" alt="שורה של Nodes שמייצרת מסכי אפליקציה בשפת מותג אחת" loading="lazy" width="1200" height="698"></a><figcaption><b>שכפול לתוצרים.</b> אותה LoRA ופרומפט אחר לכל מסך: סדרת מסכי אפליקציה בשפה אחת.</figcaption></figure>
+      <figure><a href="img/wf-app.webp" target="_blank" rel="noopener"><img src="img/wf-app.webp" alt="תצוגת Design App עם שדות קלט ותוצאה" loading="lazy" width="1200" height="698"></a><figcaption><b>Design App.</b> הצוות רואה רק את שדות הקלט, מחליף תמונה או פרומפט, ומקבל תוצר בלחיצה.</figcaption></figure>
+    </div>
+  </section>
 
   <section id="sessions">
     <h2>המפגשים</h2>
@@ -311,14 +356,28 @@
     <p class="criteria"><b>קריטריונים:</b> נאמנות למותג, שימוש חוזר עם קלט אחר, עקביות דמות, סדר ותיעוד.</p>
   </section>
 
+  <section id="org">
+    <h2>תהליך ההטמעה בארגון</h2>
+    <p class="section-note">את אותו תהליך אני מוביל בצוותי עיצוב ושיווק, והוא גם השלד של הקורס.</p>
+    <ol class="steps">
+      <li><span class="n">01</span><b>מיפוי</b><span>אילו נכסים הצוות מייצר שוב ושוב, ואיפה AI חוסך הכי הרבה.</span></li>
+      <li><span class="n">02</span><b>Visual Brainstorming</b><span>מערכי המותג לקטלוג של מוטיבים, טקסטורות וצבעים.</span></li>
+      <li><span class="n">03</span><b>Prompt Template ו-Crafting</b><span>שפה ויזואלית מדויקת, בצמוד לצוות העיצוב.</span></li>
+      <li><span class="n">04</span><b>Model Training</b><span>אימון LoRA על השפה שנבנתה.</span></li>
+      <li><span class="n">05</span><b>Workflows ואפליקציות</b><span>תהליך קבוע לכל משימה חוזרת, וממשק פשוט לצוות.</span></li>
+      <li><span class="n">06</span><b>הכשרה והעברה</b><span>הצוות לומד לבנות ולתחזק בעצמו, בלי תלות חיצונית.</span></li>
+    </ol>
+    <p class="orgs"><span>הטמעות והכשרות:</span><span class="o">Connecteam</span><span class="o">Cyabra</span><span class="o">Finout</span><span class="o">Moonshot</span><span class="o">Empathy</span><span class="o">שורת הדין</span></p>
+  </section>
+
   <section id="about">
     <h2>על המרצה</h2>
     <div class="about">
-      <img src="data:image/webp;base64,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" alt="אייל גרשון" width="132" height="132">
+      <img src="img/eyal.webp" alt="אייל גרשון" width="132" height="132">
       <div class="about-text">
         <h3>אייל גרשון</h3>
         <p class="role">מייסד Simpla · מרצה ל-UX ו-AI בג׳ון ברייס</p>
-        <p>מעצב כבר 18 שנה. הוביל את ה-UX והמוצר ב-TipRanks, ומאז 2020 מנהל את Simpla, סטודיו בוטיק ל-UX ו-AI. מלווה צוותי עיצוב, שיווק ווידאו בהטמעת Figma Weave, בין היתר ב-Connecteam, Finout, Moonshot ו-Cyabra. יוצר סרטים ותערוכות ב-AI.</p>
+        <p>מעצב כבר 18 שנה. הוביל את ה-UX והמוצר ב-TipRanks, ומאז 2020 מנהל את Simpla, סטודיו בוטיק ל-UX ו-AI. מלווה צוותי עיצוב, שיווק ווידאו בהטמעת Figma Weave בארגונים, ויוצר סרטים ותערוכות ב-AI.</p>
         <div class="tags"><span>Head of Product &amp; UX ב-TipRanks</span><span>מרצה ב-DESIGN AI 2024 ו-2025</span><span>מומחה Figma Weave</span></div>
       </div>
     </div>
@@ -340,7 +399,7 @@
     </p>
   </section>
 
-  <footer><span>אייל גרשון · Simpla × John Bryce</span><span>גרסה 3 · 22.10.2026</span></footer>
+  <footer><span>אייל גרשון · Simpla × John Bryce</span><span>גרסה 4 · 22.10.2026</span></footer>
 </div>
 </div>
 
