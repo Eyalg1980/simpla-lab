@@ -83,6 +83,21 @@
   .figures b{font-family:var(--display);font-size:30px;line-height:1;font-weight:700;font-variant-numeric:tabular-nums;color:var(--band-ink)}
   .figures span{color:var(--band-muted);font-size:14px}
 
+  /* final project */
+  .proj-hero{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:12px;padding:26px 24px 22px;display:grid;gap:12px}
+  .proj-k{font-size:12px;letter-spacing:.14em;color:var(--accent);font-weight:700}
+  h2.proj-title{font-size:clamp(34px,6.4vw,50px);line-height:1.04;margin:0;letter-spacing:-.01em}
+  .proj-title span{display:block;color:var(--accent)}
+  .proj-lede{color:var(--muted);font-size:16.5px;max-width:58ch}
+  .proj-meta{display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:12px;border-top:1px solid var(--line-soft);font-size:14px;color:var(--muted)}
+  .proj-meta b{font-family:var(--display);font-size:20px;color:var(--navy);margin-inline-end:4px;font-variant-numeric:tabular-nums}
+  h3.sub{font-size:17px;font-weight:700;color:var(--navy);margin:30px 0 10px}
+  .crit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .crit div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:13px 15px;display:grid;gap:3px;min-width:0}
+  .crit b{color:var(--navy);font-size:15.5px}
+  .crit span{color:var(--muted);font-size:14px}
+  .proj-p{color:var(--muted);font-size:15.5px;max-width:62ch}
+
   /* about weave */
   .lede{color:var(--muted);font-size:16px;max-width:62ch}
   .pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
@@ -163,7 +178,8 @@
     .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
   }
   @media (max-width:520px){
-    .pillars,.shots,.steps{grid-template-columns:minmax(0,1fr)}
+    .pillars,.shots,.steps,.crit{grid-template-columns:minmax(0,1fr)}
+    .proj-hero{padding:22px 18px 18px}
     .about{grid-template-columns:minmax(0,1fr);gap:14px}
     .about img{width:104px;height:104px}
     ol.rail > li{grid-template-columns:32px minmax(0,1fr);gap:12px}
@@ -337,8 +353,14 @@
   </section>
 
   <section id="project">
-    <h2>פרויקט גמר</h2>
-    <p class="section-note">ערכת תוכן ווידאו למותג אחד. כ-36 שעות עבודה בבית, וכל משימה מוסיפה לה חלק.</p>
+    <div class="proj-hero">
+      <p class="proj-k">פרויקט גמר</p>
+      <h2 class="proj-title">ערכת תוכן למותג<span>לשימוש חוזר</span></h2>
+      <p class="proj-lede">כל תלמיד בוחר מותג אחד, אמיתי או מומצא, ובונה לו מערכת יצירה שלמה. לא אוסף של קבצים, אלא Workflows ואפליקציות שאפשר להריץ שוב ושוב עם קלט חדש, ולקבל בכל פעם תוכן חדש בשפת המותג.</p>
+      <div class="proj-meta"><span><b>כ-36</b> שעות עבודה בבית</span><span><b>10</b> מפגשים, חלק אחרי חלק</span><span><b>הצגה</b> במפגש 10</span></div>
+    </div>
+
+    <h3 class="sub">מה מגישים</h3>
     <div class="scroll">
       <table>
         <thead><tr><th>רכיב</th><th>מפגש</th></tr></thead>
@@ -353,7 +375,17 @@
         </tbody>
       </table>
     </div>
-    <p class="criteria"><b>קריטריונים:</b> נאמנות למותג, שימוש חוזר עם קלט אחר, עקביות דמות, סדר ותיעוד.</p>
+
+    <h3 class="sub">מה הופך אותה לערכה לשימוש חוזר</h3>
+    <div class="crit">
+      <div><b>נאמנות למותג</b><span>כל תוצר נראה ומרגיש כמו המותג, בתמונה, בבאנר ובסרטון.</span></div>
+      <div><b>שימוש חוזר</b><span>מישהו אחר מריץ את האפליקציה עם קלט חדש ומקבל תוצאה טובה, בלי לגעת ב-Workflow.</span></div>
+      <div><b>עקביות דמות</b><span>אותה דמות מופיעה בתמונות, בפורמטים השונים ובסרטון.</span></div>
+      <div><b>סדר ותיעוד</b><span>ספרייה מסודרת ועמוד קצר שמסביר מה נבנה, למה, ואיך מריצים.</span></div>
+    </div>
+
+    <h3 class="sub">ההצגה</h3>
+    <p class="proj-p">במפגש האחרון כל תלמיד מציג את הערכה: הדגמה חיה של אפליקציה עם קלט שהכיתה בוחרת, הסרטון, ועמוד הנחיתה. אחרי כל הצגה יש פידבק מהכיתה ומהמרצה.</p>
   </section>
 
   <section id="org">
@@ -399,7 +431,7 @@
     </p>
   </section>
 
-  <footer><span>אייל גרשון · Simpla × John Bryce</span><span>גרסה 5 · 22.10.2026</span></footer>
+  <footer><span>אייל גרשון · Simpla × John Bryce</span><span>גרסה 6 · 22.10.2026</span></footer>
 </div>
 </div>
 
