@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22",
+ "updated": "2026-10-23",
  "ideas": [
   {
    "id": "I-2026-0489",
@@ -4475,6 +4475,65 @@
    "status": "pool",
    "snoozes": 0,
    "touchedAt": "2026-10-22"
+  },
+  {
+   "id": "I-2026-0539",
+   "title": "משוב בלי להמתין",
+   "line": "דגם כל כך מהיר וזול שאפשר להשאיר אותו פתוח כל השיעור ולתת לכל תלמיד משוב מיידי על מה שהוא כותב, לא בסוף התרגיל",
+   "advisor": "visionary",
+   "createdAt": "2026-10-23",
+   "capability": {
+    "name": "Claude Haiku 5.5, הדגם הקטן והמהיר ביותר של אנתרופיק",
+    "releasedAt": "2026-10-07"
+   },
+   "evidence": null,
+   "lesson": null,
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-10-23"
+  },
+  {
+   "id": "I-2026-0540",
+   "title": "השבוע החמישי שהתאריך לא ננעל",
+   "line": "אותו תאריך זום לא ננעל (45900) חוזר ומופיע בבריף הבוקר בלי פתרון, 14.10, 18.10, 19.10, 21.10, 22.10",
+   "advisor": "pain",
+   "createdAt": "2026-10-23",
+   "capability": null,
+   "evidence": "task-management.md, יומן בריף הבוקר: מופיע כפריט פתוח ב-14.10 (טרם נעול, 18 או 19.10), ב-18.10 (עדיין לא מוגדר), ב-19.10 (עדיין לא נעול), ב-21.10 (הסיכוי לסגור סוף סוף), ו-22.10 (מועבד כלסגור הפתוח). חמש הזכרות ברצף בלי שהתאריך בפועל ננעל.",
+   "lesson": null,
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-10-23"
+  },
+  {
+   "id": "I-2026-0541",
+   "title": "עשר היוריסטיקות על המסך",
+   "line": "איך נראות עשר ההיוריסטיקות של נילסן כשסטודנט בודק מסך אמיתי בזמן אמת, לא רשימה סטטית בשקף",
+   "advisor": "teacher",
+   "createdAt": "2026-10-23",
+   "capability": null,
+   "evidence": null,
+   "lesson": "מודול 10 היוריסטיקות של נילסן, קורס 45900",
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-10-23"
+  },
+  {
+   "id": "I-2026-0542",
+   "title": "MoSCoW כצ'יפים לגרירה",
+   "line": "איך נראה Must-Should-Could-Won't כשארבע עמודות גרירה על המסך, לא טבלה שממלאים",
+   "advisor": "teacher",
+   "createdAt": "2026-10-23",
+   "capability": null,
+   "evidence": null,
+   "lesson": "מודול MoSCoW לתעדוף פיצ'רים, קורס 45900",
+   "sourceInboxId": null,
+   "status": "pool",
+   "snoozes": 0,
+   "touchedAt": "2026-10-23"
   }
  ]
 }
