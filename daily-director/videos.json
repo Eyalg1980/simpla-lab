@@ -1,6 +1,47 @@
 {
  "days": [
   {
+   "date": "2026-10-23",
+   "ideas": [
+    {
+     "id": "2026-10-23-academy-vs-desk",
+     "world": "קונספטואלי",
+     "color": "#71F73C",
+     "hook": "100 מיליון דולר מול שולחן אחד. אותה החלטה בדיוק, בשני קני מידה הפוכים בתכלית.",
+     "concept": "מצלמה דוממת מחזיקה פריים מפוצל. בצד אחד אולם עצום מלא אור חם, עשרות דמויות קטנות לומדות זו לצד זו. בצד השני שולחן יחיד עם מנורה קטנה, דמות אחת, ערימת עמודים דקה. בלי קאט, קו דק של אור נמשך ומחבר בין שני הצדדים עד שהם נראים כמו שני חצאים של אותה תמונה.",
+     "execution": "שפת עתיד אופטימי קרוב: אור ים תיכוני חם, חול קרם וטורקיז רגוע, אנושי ומקרב ולא מדע בדיוני קר, עומק שדה רדוד. פריים מפתח ב-Nano Banana Pro, תנועה ב-Kling 3 std, בלי קריינות, 16:9, 8 שניות.",
+     "why": "אנתרופיק שמו 100 מיליון דולר על הכשרת 10,000 מהנדסים ב-2.10, ואני באותו שבוע סוגר סילבוס של 82 שעות לקורס אחד. אותו נכס עולה היום גם כפוסט בפוסט ברינסטורם, שני ערוצים לאותה תובנה.",
+     "competition": null,
+     "srcUrl": "https://www.anthropic.com/news",
+     "srcLabel": "Anthropic Newsroom · Claude Frontier Academy, 2.10",
+     "prompts": {
+      "video": "Optimistic near-future visual style, warm Mediterranean light, sand cream and soft teal palette, human and hopeful mood rather than cold sci-fi, shallow depth of field, static split frame, left half shows a vast warmly lit hall with dozens of small human figures studying together, right half shows one small desk with a single warm lamp, one figure, and a thin stack of papers, no cut, a thin line of light slowly draws itself across the seam connecting both halves until they read as one image, calm confident pacing, no text, 16:9, 8 seconds",
+      "script": "קח את ההוק \"100 מיליון דולר מול שולחן אחד, אותה החלטה בדיוק, בשני קני מידה הפוכים בתכלית\" ופתח אותו לסרטון הסברה או קונספט של 20 עד 30 שניות: לוגליין, תסריט קריינות בעברית עם ציר זמן מדויק או שקט מלא, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בסגנון עתיד אופטימי קרוב.",
+      "image": "Optimistic near-future visual style, warm Mediterranean light, sand cream and soft teal palette, human and hopeful mood, shallow depth of field, split frame still, left half a vast warmly lit hall with dozens of small human figures studying together, right half one small desk with a warm lamp, one figure, and a thin stack of papers, a faint line of light connecting the two halves, no text",
+      "raw": "הוק: 100 מיליון דולר מול שולחן אחד, אותה החלטה בדיוק, בשני קני מידה הפוכים בתכלית\nעולם: קונספטואלי\nתחרות: אין\nקונספט: פריים מפוצל, אולם עצום מול שולחן יחיד, קו אור מחבר בין השניים\nביצוע: עתיד אופטימי קרוב, אור ים תיכוני חם, Nano Banana Pro ו-Kling 3, 16:9\nלמה עכשיו: אנתרופיק הכניסו 100 מיליון דולר להכשרת 10,000 מהנדסים ב-2.10, ואני באותו שבוע סוגר סילבוס של 82 שעות לקורס אחד, אותו נכס עולה היום גם כפוסט"
+     }
+    },
+    {
+     "id": "2026-10-23-locked-agent",
+     "world": "סרטוני הסבר",
+     "color": "#FF6B5E",
+     "hook": "פיגמה הכריזו על Figma Agent ב-Config 2026. ארבעה חודשים אחר כך הוא עדיין נעול מאחורי בטא סגורה, גם למי שמשלם.",
+     "concept": "מצלמה על מסגרת קנבס ראשונה שמחזיקה מנעול קטן מקווקו, סגור. חיתוך למסגרת שנייה לצידה: שתי ידיים גיאומטריות פשוטות מעבירות ביניהן עצם זוהר קטן, ברצף קבוע, כאילו הן בונות בעצמן את מה שהמנעול חוסם.",
+     "execution": "שפה קינטית אדיטוריאלית: רקע פחם עמוק, קורל וצהוב חם, קומפוזיציה גיאומטרית מינימלית, הרבה שטח ריק. פריים מפתח ב-Nano Banana Pro, תנועה ב-Kling 3 std, בלי קריינות, 16:9, 8 שניות.",
+     "why": "אני בדיוק בונה קורס שמלמד להרכיב בעצמך את הגשר הזה, פיגמה ויב ביד אחת וקלוד ביד שנייה, בזמן שהסוכן הרשמי עדיין נעול. אותו נכס עולה היום גם כפוסט ראשון בפוסט ברינסטורם.",
+     "competition": null,
+     "srcUrl": "https://www.banani.co/blog/figma-ai-features-review",
+     "srcLabel": "Banani · סיכום פיצ'רי Figma AI ל-2026",
+     "prompts": {
+      "video": "Kinetic typography explainer animation, deep charcoal background, coral and warm yellow accent highlights, clean minimal geometric composition, generous negative space, camera holds on a canvas frame containing a small dashed padlock icon shown locked, then cuts to a second frame beside it where two simple geometric hands pass a small glowing object back and forth in a steady repeating rhythm, calm confident mood, no text, 16:9, 8 seconds",
+      "script": "קח את ההוק \"פיגמה הכריזו על Figma Agent ב-Config 2026, ארבעה חודשים אחר כך הוא עדיין נעול מאחורי בטא סגורה\" ופתח אותו לסרטון הסברה של 20 עד 30 שניות: לוגליין, תסריט קריינות בעברית עם ציר זמן מדויק, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בסגנון קינטי אדיטוריאלי.",
+      "image": "Kinetic typography style still, deep charcoal background, coral and warm yellow accent highlights, generous negative space, flat minimal composition, a canvas frame containing a small dashed padlock icon shown locked beside a second frame with two simple geometric hands passing a small glowing object between them, no text",
+      "raw": "הוק: פיגמה הכריזו על Figma Agent ב-Config 2026, ארבעה חודשים אחר כך הוא עדיין נעול מאחורי בטא סגורה\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: מנעול מקווקו נעול במסגרת אחת, שתי ידיים מעבירות עצם זוהר במסגרת שנייה\nביצוע: שפה קינטית אדיטוריאלית, רקע פחם, קורל וצהוב, Nano Banana Pro ו-Kling 3, 16:9\nלמה עכשיו: אני בונה קורס שמלמד להרכיב בעצמך את הגשר הזה בזמן שהסוכן הרשמי נעול, אותו נכס עולה היום גם כפוסט"
+     }
+    }
+   ]
+  },
+  {
    "date": "2026-10-22",
    "ideas": [
     {
