@@ -203,6 +203,22 @@ details.api-cat.nomatch{display:none}
 .api-models code,.api-facts dd,.api-note,.api-use,.api-h span{overflow-wrap:anywhere;word-break:break-word}
 .api-models code{white-space:normal}
 .api-facts dd[dir="ltr"]{text-align:left}
+/* v4, 24.10.2026: the API index opens with a full-bleed divider band */
+.appx{margin:64px -16px 22px;padding:28px 16px 22px;background:#141F3D;color:#FFFFFF;box-shadow:inset 0 6px 0 #FFE94A}
+.appx-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.appx-k{font-size:12px;font-weight:700;letter-spacing:.14em;padding:4px 12px;border-radius:999px;border:1.5px dashed rgba(255,255,255,.4)}
+.appx-no{font-family:"Poppins",sans-serif;font-weight:300;font-size:44px;line-height:1;color:#FFE94A}
+.appx h2{font-size:40px;font-weight:800;line-height:1.05;letter-spacing:-.01em;margin:0 0 10px}
+.appx p{font-size:15px;line-height:1.55;color:rgba(255,255,255,.78);max-width:34em}
+.appx-n{display:flex;gap:28px;margin-top:18px;padding-top:14px;border-top:1.5px dashed rgba(255,255,255,.28)}
+.appx-n span{display:flex;flex-direction:column;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.72)}
+.appx-n b{font-family:"Poppins",sans-serif;font-weight:600;font-size:28px;line-height:1.1;color:#FFFFFF}
+:root[data-theme="dark"] .appx{background:#FFE94A;color:#0D1533;box-shadow:inset 0 6px 0 #0D1533}
+:root[data-theme="dark"] .appx-k{border-color:rgba(13,21,51,.45)}
+:root[data-theme="dark"] .appx-no,:root[data-theme="dark"] .appx-n b{color:#0D1533}
+:root[data-theme="dark"] .appx p,:root[data-theme="dark"] .appx-n span{color:rgba(13,21,51,.78)}
+:root[data-theme="dark"] .appx-n{border-top-color:rgba(13,21,51,.3)}
+@media (min-width:1024px){.appx{margin-inline:0;border-radius:var(--r);padding:38px 36px 30px}.appx h2{font-size:56px}.appx-no{font-size:64px}}
 </style>
 </head>
 <body>
@@ -684,9 +700,13 @@ details.api-cat.nomatch{display:none}
 </section>
 
 <section id="apis">
-<div class="label">07 · נספח</div>
-<h2 class="sec">אינדקס ה-API: מה קיים, כמה עולה, ואיפה מתחילים</h2>
-<p class="intro">99 שירותים ב-21 קטגוריות. לכל אחד יש תיעוד, API Reference, מחירון, ודף ליצירת מפתח. המחירים נבדקו מול הדפים הרשמיים ב-24.10.2026, והם משתנים, אז לפני שמתחילים פותחים את המחירון.</p>
+<header class="appx">
+  <div class="appx-top"><span class="appx-k">נספח</span><span class="appx-no" aria-hidden="true">07</span></div>
+  <h2>אינדקס ה-API</h2>
+  <p>מה קיים, כמה עולה, ואיפה מתחילים. כל השירותים שהמוצרים שלכם עשויים להצטרך, במקום אחד.</p>
+  <div class="appx-n"><span><b>99</b>שירותים</span><span><b>21</b>קטגוריות</span><span><b>21</b>פרויקטים</span></div>
+</header>
+<p class="intro">לכל שירות יש תיעוד, API Reference, מחירון, ודף ליצירת מפתח. המחירים נבדקו מול הדפים הרשמיים ב-24.10.2026, והם משתנים, אז לפני שמתחילים פותחים את המחירון.</p>
 <div class="api-rules">
   <div><b>מתחילים מהמודל שכבר יש</b>Gemini Flash קורא תמונות ו-PDF, מתרגם ומסכם. ספק נוסף רק כשהמודל לא מספיק.</div>
   <div><b>כל מפתח ב-Vercel, מסוג Secret</b>הדף פונה ל-<code>/api</code>, והפונקציה מוסיפה את המפתח. באוטומציה הוא יושב ב-Credentials של n8n.</div>
@@ -1579,7 +1599,7 @@ details.api-cat.nomatch{display:none}
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v3 · 24.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v4 · 24.10.2026</footer>
 
 <script>
 (function(){
