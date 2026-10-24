@@ -257,6 +257,26 @@ details.api-cat.nomatch{display:none}
 .apx-legend b{color:var(--ink)}
 #api-catalog-wrap .api,#api-catalog-wrap details{scroll-margin-top:64px}
 @media (min-width:1024px){.pop-list{grid-template-columns:1fr 1fr}.apx-map{grid-template-columns:repeat(3,1fr)}.apx-map a{grid-template-columns:1fr;align-content:start;row-gap:2px}.apx-map .n{grid-row:auto;justify-self:start}.apx-rules ol{columns:2;column-gap:32px}}
+/* v6: part B as a ready spec plus milestones */
+.mt{display:inline-block;font-family:"Rubik",sans-serif;font-size:11px;font-weight:700;line-height:1.5;padding:0 8px;border-radius:999px;border:1.5px dashed var(--g);color:var(--g);margin-inline-start:8px;vertical-align:3px;white-space:nowrap}
+.trackB .mt{border-color:var(--b);color:var(--b)}
+.step[id]{scroll-margin-top:70px}
+.brief{margin:6px 0 10px;border:2px solid var(--b);box-shadow:0 0 0 5px var(--b-soft);border-radius:18px;background:var(--surface);padding:16px 18px 18px}
+.brief .bl{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--b);margin-bottom:6px}
+.brief p{font-size:18.5px;line-height:1.75;font-weight:500;color:var(--ink)}
+.dl.spec{border-color:var(--b)}
+.dl.spec .ic{color:var(--b)}
+.prompt .ast::after{content:"*";color:var(--b);font-weight:800;font-size:17px;margin-inline-start:2px}
+.astn{position:relative;font-size:13.5px;line-height:1.65;color:var(--soft);padding-inline-start:16px;margin:4px 0 10px}
+.astn::before{content:"*";position:absolute;inset-inline-start:0;top:-2px;font-size:19px;font-weight:800;color:var(--b)}
+.astn s{color:var(--ink);text-decoration-thickness:1.5px}
+.body .msl{list-style:none;padding:0;margin:10px 0;display:grid;gap:8px;counter-reset:ms}
+.msl li{counter-increment:ms;border:1.5px dashed var(--b);border-radius:12px;padding:10px 12px;margin:0;font-size:14.5px}
+.msl li::before{content:"Milestone " counter(ms);display:block;font-family:"Poppins",sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--b)}
+.msl li b{display:block;font-size:15.5px;margin-bottom:2px}
+.msl .hand{display:block;margin-top:4px;font-size:13px;color:var(--soft)}
+.msl .hand a{color:var(--b);font-weight:600}
+@media (min-width:1024px){.brief{padding:22px 26px 24px}.brief p{font-size:21px}.body .msl{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
@@ -421,59 +441,100 @@ details.api-cat.nomatch{display:none}
 <!-- ========== PART B ========== -->
 <div class="part b" id="partB">
   <div class="pl">חלק ב · ארבעה שלבים</div>
-  <h2>Claude Code בונה</h2>
-  <p>תיקייה חדשה, פרומפט אחד, בדיקה שלכם, ו-push ל-GitHub.</p>
+  <h2>Claude Code בונה, Milestone אחרי Milestone</h2>
+  <p>הפעם לא מאפיינים: האיפיון של אפליקציית הבדיחות כבר מוכן. מורידים אותו, מדביקים פרומפט אחד, ו-Claude בונה בשלושה Milestones.</p>
 </div>
 <section class="trackB">
 
 <article class="step" data-s="s3">
-  <div class="sh"><span class="n">3</span><h3>תיקייה וריפו חדשים<small>כמו בתרגיל הסנייק</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">3</span><h3>המוצר והאיפיון שלו<span class="mt">הקמה</span><small>כבר מאופיין. מורידים, ולא כותבים אפיון</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
+    <div class="brief">
+      <div class="bl">מה בונים</div>
+      <p>אתר אינטרנט מותאם למובייל המציג למשתמש תיבת טקסט ולחצן.<br>
+המשתמש מכניס בתיבה נושא, האפליקציה מציגה לו בדיחה בנושא.<br>
+אם הכניס "חתולים" יש להציג בדיחה על חתולים.<br>
+קיים מודל AI שמייצר את הבדיחה. המודל הוא GPT-5.<br>
+אם לא הכניס דבר בתיבה, יש לייצר לו בדיחה כללית כלשהי.<br>
+על ה-UI להיות בעברית.<br>
+התקנת האפליקציה הינה ע"י PWA.<br>
+הגישה ל-AI מתבצעת בצד ה-Backend.<br>
+על ה-API Key להיות אך ורק ב-Backend.</p>
+    </div>
+    <a class="dl spec" href="joke-app-spec.zip" download><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg><div><b>joke-app-spec.zip</b><span>תיקיית איפיון לדוגמה: 11 קבצים, מ-PRD ועד MILESTONES</span></div></a>
     <ol>
-      <li>יוצרים תיקייה בשם <code>joke-app</code> בתיקיית הקורס</li>
-      <li>פותחים אותה ב-Claude Code</li>
-      <li>מבקשים ממנו לחבר אותה לריפו חדש:</li>
+      <li>יוצרים תיקייה בשם <code>joke-app</code> בתיקיית הקורס, ומחלצים לתוכה את ה-zip. הקבצים נשארים ישר בתיקייה, Claude יסדר אותם</li>
+      <li>פותחים את התיקייה ב-Claude Code: לשונית <b>Code</b>, מצב <b>Local</b></li>
     </ol>
-    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>צור ריפו ציבורי חדש ב-GitHub בשם joke-app, חבר אליו את התיקייה הזו, ותגיד לי מה הכתובת שלו.</pre></div>
-    <div class="tip"><b>ציבורי זה בסדר.</b> אין בקוד שום סוד. המפתח לא ייכנס לריפו אף פעם.</div>
+    <details class="err more"><summary><span class="pm">+</span><u>מה יש בתיקיית האיפיון</u></summary><div>
+      <ul>
+        <li><code>product-10-definitions.md</code> ו-<code>MVP.md</code>: מה המוצר עושה, ומה נכנס לגרסה הראשונה</li>
+        <li><code>PRD.md</code>: הדרישות, מקרי הקצה ומדדי ההצלחה</li>
+        <li><code>tech-stack.md</code> ו-<code>ARCHITECTURE.md</code>: Vercel, ה-Responses API, איפה המפתח, ומבנה התיקיות</li>
+        <li><code>wireframes.png</code>, <code>style-guide.png</code> ו-<code>mockups.png</code>: איך המסך נראה</li>
+        <li><code>DESIGN.md</code>: המסך, ארבעת המצבים, הצבעים והגופנים</li>
+        <li><code>MILESTONES.md</code>: שלושה Milestones, עם תנאי השלמה לכל אחד</li>
+        <li><code>course-stack.md</code>: סטאק הקורס, שממנו נגזרו ההחלטות</li>
+      </ul>
+      <p>זה מה שהסקיל <code>spec-driven-docs</code> מייצר. שווה לפתוח את <code>MILESTONES.md</code> לפני שמתחילים, ולראות מה עומד לקרות.</p>
+    </div></details>
   </div>
 </article>
 
 <article class="step" data-s="s4">
-  <div class="sh"><span class="n">4</span><h3>מדביקים את הפרומפט<small>האפיון, ואחריו הדרישות הטכניות ל-Vercel</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">4</span><h3>מדביקים את הפרומפט<span class="mt">הקמה</span><small>בשיחה הראשונה. Claude מקים את הפרויקט</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
-    <p>תשעת השורות הראשונות הן האפיון של האפליקציה. החלק השני אומר ל-Claude איך לבנות אותה כך שתעבוד ב-Vercel.</p>
-    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>אתר אינטרנט מותאם למובייל המציג למשתמש תיבת טקסט ולחצן.
-המשתמש מכניס בתיבה נושא, האפליקציה מציגה לו בדיחה בנושא.
-אם הכניס "חתולים" יש להציג בדיחה על חתולים.
-קיים מודל AI שמייצר את הבדיחה. המודל הוא GPT-5.
-אם לא הכניס דבר בתיבה, יש לייצר לו בדיחה כללית כלשהי.
-על ה-UI להיות בעברית.
-התקנת האפליקציה הינה ע"י PWA.
-הגישה ל-AI מתבצעת בצד ה-Backend.
-על ה-API Key להיות אך ורק ב-Backend.
+    <p>זה הפרומפט מ<a href="../jb53500-prompts/#opt-b">אופציה ב בדף הפרומפטים</a>, מותאם לפרויקט: Claude יוצר את הריפו בעצמו, והלינק החי הוא ב-Vercel. קודם מחליפים בו את שם המשתמש בשם שלכם ב-GitHub.</p>
+    <div class="prompt"><span class="pt">Claude Code, שיחה ראשונה</span><button class="cp" type="button">העתק</button><pre>מצורפים בתיקייה שבעת מסמכי הספק של הפרויקט. אנא בצע את הפעולות הבאות:
 
-דרישות טכניות:
-1. האתר וה-Backend מתארחים יחד ב-Vercel, מתוך הריפו הזה ב-GitHub. לא ב-GitHub Pages.
-2. בלי framework ובלי שלב build: קבצי HTML, CSS ו-JavaScript רגילים בשורש הריפו.
-3. ה-Backend הוא Vercel Function אחת בקובץ <span class="l">api/joke.js</span>, עם <span class="l">export default</span> שבתוכו <span class="l">fetch(request)</span>. היא מקבלת POST עם JSON שיש בו שדה topic, ומחזירה JSON עם שדה joke.
-4. ב-<span class="l">package.json</span> יש <span class="l">"type": "module"</span>. בלי ספריות חיצוניות: הקריאה ל-OpenAI נעשית עם fetch אל Responses API.
-5. המפתח נקרא רק מ-<span class="l">process.env.OPENAI_API_KEY</span>. שם המודל נקרא מ-<span class="l">process.env.OPENAI_MODEL</span>, וברירת המחדל היא <span class="l">gpt-5</span>.
-6. הדף פונה רק ל-<span class="l">/api/joke</span>, באותה כתובת. בלי CORS, ובלי פנייה ישירה ל-OpenAI מהדפדפן.
-7. הנושא מוגבל ל-100 תווים. כשחסר מפתח או שיש שגיאה, הדף מציג הודעה קצרה בעברית, והפרטים הטכניים נרשמים ב-console.error כדי שיופיעו ב-Logs של Vercel.
-8. PWA: קובץ <span class="l">manifest.webmanifest</span> עם השדות <span class="l">name, short_name, start_url, display: standalone, lang: he, dir: rtl</span>, ואייקונים בגודל 192 ו-512. וגם service worker בגישת <span class="l">network-first</span>, שלא שומר במטמון שום בקשה ל-<span class="l">/api</span>.
-9. קובץ <span class="l">.gitignore</span> שכולל את <span class="l">.env</span> ואת <span class="l">.vercel</span>, כדי שלא יעלו ל-GitHub.
-10. לפני שאתה כותב קוד, בדוק בתיעוד העדכני של OpenAI ושל Vercel את מבנה הבקשה והתשובה.
-11. בסוף, הסבר לי בחמש שורות פשוטות איפה המפתח נמצא ולמה הוא לא מגיע לדפדפן. אל תבקש ממני את המפתח.</pre></div>
-    <p class="see"><b>אמור להופיע:</b> Claude מציג תוכנית או שואל שאלה. מאשרים. בסוף יש בתיקייה <code>index.html</code>, תיקיית <code>api</code>, <code>manifest.webmanifest</code>, <code>sw.js</code>, אייקונים, <code>package.json</code> ו-<code>.gitignore</code>.</p>
+שפת האפליקציה:
+האפליקציה תהיה בעברית (כולל כיוון RTL).
+
+הנחיה שוטפת:
+במהלך שלב ההקמה (במיוחד) ובכל מיילסטון: הנחה אותי צעד אחר צעד מהו השלב הבא, בצורה עניינית, קצרה, מצומצמת וברורה.
+
+שלב ההקמה (פעם אחת, לפני שמתחילים מיילסטונים):
+1. בשיחה הראשונה הזו, לפני תחילת העבודה: הצע עם איזה מודל כדאי לבצע את שלב ההקמה ואת שלבי המיילסטונים (Sonnet או Opus), מבחינת איכות התוצר מול כלכלת הטוקנים.
+2. סדר את הקבצים: תיקיית spec בתוך התיקייה הראשית, ושם את שבעת המסמכים.
+3. פתח תיקיית plans בתוך spec. אחרי תכנון או בנייה של כל מיילסטון, תעד אותו בקובץ: milestone-1.md, milestone-2.md וכן הלאה. גם השיחות ייקראו באותם שמות.
+4. צור ריפו ציבורי חדש ב-GitHub בשם joke-app, חבר אליו את התיקייה ודחוף קומיט ראשון. שם המשתמש: [שם המשתמש שלכם ב-GitHub]. הסיסמה אמורה להיות שמורה אצלך - אם לא, בקש ממני.
+5. הלינק החי יהיה ב-Vercel, לא ב-GitHub Pages. ב-Milestone 1 הנחה אותי לייבא את הריפו ל-Vercel, ומשם כל דחיפה מתעדכנת לבד. ספק לי את הלינק בסוף כל שלב.
+6. צור קובץ CLAUDE.md בתיקיית הפרויקט שמכיל את כל ההנחיות האלה.
+
+עבודה שוטפת - מיילסטונים:
+1. קרא את שבעת המסמכים, בדוק אותם ובנה את התוכנית המתאימה לבניית הפרויקט.
+2. בנה את הפרויקט מיילסטון אחרי מיילסטון, לפי קובץ המיילסטונים. לכל מיילסטון אפתח שיחה חדשה תחת אותה תיקייה.
+3. לכל מיילסטון ארבעה שלבים: תכנון, בנייה, הרצה (כדי שאוכל לבדוק), דחיפה (כדי שאוכל לצפות בלינק).<span class="ast" aria-hidden="true"></span>
+
+כלל חשוב:
+לפני שאתה שואל שאלות: קרא קודם את הקבצים, חדד מולי את הנקודות שציינתי, ואז התחל</pre></div>
+    <p class="astn">בפרומפט המקורי יש בעבודה השוטפת סעיף רביעי: <s>בסוף כל מיילסטון צור קובץ build שאפשר להעלות לאוויר ולבדוק</s>. כאן הוא ירד, כי לאפליקציה הזו אין שלב build: היא HTML, CSS ו-JavaScript רגילים, ו-Vercel מעלה כל push לאוויר כמו שהוא. מאותה סיבה הלינק החי בסעיף 5 הוא ב-Vercel ולא ב-GitHub Pages, שמגיש רק קבצים ולא מריץ את <code>api/joke.js</code>.</p>
+    <p class="see"><b>אמור להופיע:</b> Claude ממליץ על מודל, מסדר את הקבצים בתיקיית <code>spec</code>, פותח את <code>plans</code>, יוצר את הריפו <code>joke-app</code> וכותב <code>CLAUDE.md</code>. עונים לשאלות שלו, צעד אחר צעד.</p>
+    <div class="tip"><b>ציבורי זה בסדר.</b> אין בקוד שום סוד. המפתח לא ייכנס לריפו אף פעם.</div>
+  </div>
+</article>
+
+<article class="step" data-s="s5">
+  <div class="sh"><span class="n">5</span><h3>Milestone אחרי Milestone<small>שלושה Milestones, שיחה חדשה לכל אחד</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p>כשההקמה נגמרת, פותחים שיחה חדשה באותה תיקייה, קוראים לה <code>milestone-1</code>, ומדביקים:</p>
+    <div class="prompt"><span class="pt">שיחה חדשה לכל Milestone</span><button class="cp" type="button">העתק</button><pre>קרא את CLAUDE.md ואת קובץ המיילסטונים בתיקיית spec, והתחל את מיילסטון 1.</pre></div>
+    <p>בכל Milestone ארבעה שלבים: תכנון, בנייה, הרצה כדי שתבדקו, ודחיפה. בסוף Claude עוצר ומחכה לאישור שלכם. ב-Milestone הבא מחליפים את המספר, גם בשם השיחה.</p>
+    <ol class="msl">
+      <li><b>Walking Skeleton</b>הדף והפונקציה באוויר ב-Vercel, עם בדיחה זמנית מהשרת. עוד בלי AI.<span class="hand">ביד: <a href="#s7">שלבים 7 ו-8</a></span></li>
+      <li><b>בדיחה מ-GPT-5</b>לפני הקוד שמים את המפתח ב-Vercel. אחרי הדחיפה בודקים את הקוד, עושים Redeploy ובודקים באתר.<span class="hand">ביד: <a href="#s9">שלב 9</a>, ואחרי הקוד <a href="#s6">6</a>, <a href="#s10">10</a> ו-<a href="#s11">11</a></span></li>
+      <li><b>התקנה בטלפון</b>manifest, אייקונים ו-service worker. האתר נפתח כאפליקציה.<span class="hand">ביד: <a href="#s12">שלב 12</a></span></li>
+    </ol>
+    <div class="tip"><b>מתי ממשיכים:</b> כשכל תנאי ההשלמה של ה-Milestone ב-<code>MILESTONES.md</code> מתקיימים. רק אז כותבים ל-Claude שאפשר להמשיך.</div>
     <div class="warn"><b>Claude מבקש את המפתח?</b> לא נותנים. לא לצ׳אט, לא לקובץ. המפתח הולך רק ל-Vercel, בשלב 9.</div>
     <div class="note"><b>על GPT-5:</b> הוא עובד, אבל OpenAI כבר סימנה אותו כמודל קודם. הגרסה ש-<code>gpt-5</code> מצביע עליה היום מתוכננת להיכבות ב-11.12.2026. לכן שם המודל נשמר כמשתנה, <code>OPENAI_MODEL</code>, וכדי להחליף מודל לא נוגעים בקוד. איך מחליפים, בסוף הדף.</div>
   </div>
 </article>
 
-<article class="step" data-s="s5">
-  <div class="sh"><span class="n">5</span><h3>בודקים חמישה דברים<small>אתם מאשרים את הקוד, לא רק Claude</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="s6" id="s6">
+  <div class="sh"><span class="n">6</span><h3>בודקים חמישה דברים<span class="mt">Milestone 2</span><small>אתם מאשרים את הקוד, לא רק Claude</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
+    <p>בסוף Milestone 2, לפני שמאשרים ל-Claude להמשיך, פותחים את הקבצים ובודקים בעצמכם:</p>
     <ol>
       <li>הקובץ נמצא בנתיב <code>api/joke.js</code>, בדיוק</li>
       <li>בקובץ הזה המפתח מגיע מ-<code>process.env.OPENAI_API_KEY</code>, ולא כתוב בו שום מפתח</li>
@@ -481,31 +542,24 @@ details.api-cat.nomatch{display:none}
       <li>ב-<code>package.json</code> יש <code>"type": "module"</code></li>
       <li>ב-<code>.gitignore</code> יש <code>.env</code></li>
     </ol>
-    <p>ובדיקה אחרונה, שClaude יעשה בשבילכם:</p>
+    <p>ובדיקה אחרונה, ש-Claude יעשה בשבילכם:</p>
     <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>חפש בכל הקבצים בתיקייה את המחרוזת sk- ואת המחרוזת api.openai.com. תגיד לי באילו קבצים כל אחת מופיעה.</pre></div>
     <p class="see"><b>אמור להופיע:</b> <code>sk-</code> לא מופיע בשום מקום. <code>api.openai.com</code> מופיע רק ב-<code>api/joke.js</code>.</p>
   </div>
 </article>
 
-<article class="step" data-s="s6">
-  <div class="sh"><span class="n">6</span><h3>Commit ו-Push<small>הקוד עולה ל-GitHub</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
-    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>תעשה commit לכל הקבצים עם ההודעה "joke app first version" ותדחוף ל-main.</pre></div>
-    <p class="see"><b>אמור להופיע:</b> בדף הריפו ב-GitHub רואים את כל הקבצים ואת תיקיית <code>api</code>. אין שם קובץ <code>.env</code>.</p>
-  </div>
-</article>
 </section>
 
 <!-- ========== PART C ========== -->
 <div class="part g" id="partC">
   <div class="pl">חלק ג · שבעה שלבים</div>
   <h2>עולים ל-Vercel</h2>
-  <p>מייבאים את הריפו, שמים את המפתח, בודקים, ומתקינים בטלפון.</p>
+  <p>שבעה שלבים שעושים ביד, לאורך ה-Milestones. התג ליד כל שלב אומר באיזה Milestone, ו-Claude יגיד לכם מתי.</p>
 </div>
 <section class="trackC">
 
-<article class="step" data-s="s7">
-  <div class="sh"><span class="n">7</span><h3>חשבון Vercel<small>מי שכבר פתח, מסמן ועובר הלאה</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="s7" id="s7">
+  <div class="sh"><span class="n">7</span><h3>חשבון Vercel<span class="mt">Milestone 1</span><small>מי שכבר פתח, מסמן ועובר הלאה</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li>נכנסים ל-<a href="https://vercel.com/signup" target="_blank" rel="noopener">vercel.com/signup</a></li>
@@ -515,8 +569,8 @@ details.api-cat.nomatch{display:none}
   </div>
 </article>
 
-<article class="step" data-s="s8">
-  <div class="sh"><span class="n">8</span><h3>מייבאים את הריפו ופורסים<small>פעם אחת. מכאן כל push עולה לבד</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="s8" id="s8">
+  <div class="sh"><span class="n">8</span><h3>מייבאים את הריפו ופורסים<span class="mt">Milestone 1</span><small>פעם אחת. מכאן כל push עולה לבד</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li>בדשבורד של Vercel לוחצים <b>New Project</b>. אין כפתור כזה? לוחצים <b>Add New</b>, ואז <b>Project</b></li>
@@ -524,13 +578,13 @@ details.api-cat.nomatch{display:none}
       <li>ב-<b>Framework Preset</b> בוחרים <b>Other</b>. שאר ההגדרות נשארות כמו שהן</li>
       <li>לוחצים <b>Deploy</b></li>
     </ol>
-    <p class="see"><b>אמור להופיע:</b> כתובת בסגנון <code>joke-app-xxxx.vercel.app</code>. פותחים אותה, כותבים "חתולים", ולוחצים.</p>
-    <div class="tip"><b>מופיע "חסר מפתח בשרת"? מצוין.</b> זה אומר שהשרת עובד: הדף דיבר עם <code>/api/joke</code>, והפונקציה גילתה שאין לה מפתח. זה השלב הבא.</div>
+    <p class="see"><b>אמור להופיע:</b> כתובת בסגנון <code>joke-app-xxxx.vercel.app</code>. פותחים אותה, כותבים "חתולים", ולוחצים. מופיע "בדיחה זמנית מהשרת: חתולים".</p>
+    <div class="tip"><b>בדיחה זמנית? מצוין.</b> זה אומר שהשרת עובד: הדף דיבר עם <code>/api/joke</code> באותה כתובת, והפונקציה ענתה. הבדיחה האמיתית מגיעה ב-Milestone 2. שולחים ל-Claude את הכתובת, ובודקים איתו את תנאי ההשלמה.</div>
   </div>
 </article>
 
-<article class="step" data-s="s9">
-  <div class="sh"><span class="n">9</span><h3>יוצרים מפתח ושמים אותו ב-Vercel<small>שתי לשוניות פתוחות זו ליד זו</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="s9" id="s9">
+  <div class="sh"><span class="n">9</span><h3>יוצרים מפתח ושמים אותו ב-Vercel<span class="mt">Milestone 2</span><small>שתי לשוניות פתוחות זו ליד זו</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <p><b>לשונית 1, OpenAI:</b></p>
     <ol>
@@ -551,8 +605,8 @@ details.api-cat.nomatch{display:none}
   </div>
 </article>
 
-<article class="step" data-s="s10">
-  <div class="sh"><span class="n">10</span><h3>Redeploy<small>הפריסה הקיימת לא רואה מפתח חדש</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="s10" id="s10">
+  <div class="sh"><span class="n">10</span><h3>Redeploy<span class="mt">Milestone 2</span><small>הפריסה הקיימת לא רואה מפתח חדש</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li>בפרויקט פותחים <b>Deployments</b></li>
@@ -563,8 +617,8 @@ details.api-cat.nomatch{display:none}
   </div>
 </article>
 
-<article class="step" data-s="s11">
-  <div class="sh"><span class="n">11</span><h3>בודקים בארבעה מקומות<small>לא רק "זה עובד", אלא "זה עובד נכון"</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="s11" id="s11">
+  <div class="sh"><span class="n">11</span><h3>בודקים בארבעה מקומות<span class="mt">Milestone 2</span><small>לא רק "זה עובד", אלא "זה עובד נכון"</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li><b>בטלפון:</b> פותחים את הכתובת. "חתולים" מביא בדיחה על חתולים. תיבה ריקה מביאה בדיחה כללית</li>
@@ -576,18 +630,18 @@ details.api-cat.nomatch{display:none}
   </div>
 </article>
 
-<article class="step" data-s="s12">
-  <div class="sh"><span class="n">12</span><h3>מתקינים בטלפון<small>אתר שמתנהג כמו אפליקציה. זה PWA</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="s12" id="s12">
+  <div class="sh"><span class="n">12</span><h3>מתקינים בטלפון<span class="mt">Milestone 3</span><small>אתר שמתנהג כמו אפליקציה. זה PWA</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <p><b>אנדרואיד, ב-Chrome:</b> פותחים את הכתובת, לוחצים על שלוש הנקודות בפינה, ובוחרים "התקנת אפליקציה" או "הוספה למסך הבית". השם משתנה בין גרסאות.</p>
     <p><b>אייפון, ב-Safari:</b> פותחים את הכתובת, לוחצים על כפתור השיתוף, ובוחרים "הוספה למסך הבית". מ-iOS 16.4 זה עובד גם מ-Chrome, Edge ו-Firefox.</p>
     <p class="see"><b>אמור להופיע:</b> אייקון של פרצוף צהוב במסך הבית. האפליקציה נפתחת על כל המסך, בלי שורת כתובת.</p>
-    <div class="tip"><b>למה זה עובד עכשיו:</b> כדי שאתר יותקן צריך HTTPS, קובץ manifest, ואייקונים בגודל 192 ו-512. את ה-HTTPS נותן Vercel, ואת השאר כתב Claude לפי הפרומפט.</div>
+    <div class="tip"><b>למה זה עובד עכשיו:</b> כדי שאתר יותקן צריך HTTPS, קובץ manifest, ואייקונים בגודל 192 ו-512. את ה-HTTPS נותן Vercel, ואת השאר כתב Claude ב-Milestone 3.</div>
   </div>
 </article>
 
-<article class="step" data-s="s13">
-  <div class="sh"><span class="n">13</span><h3>משנים, דוחפים, רואים<small>הלולאה שתעבדו בה מעכשיו</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="s13" id="s13">
+  <div class="sh"><span class="n">13</span><h3>משנים, דוחפים, רואים<span class="mt">אחרי הכל</span><small>הלולאה שתעבדו בה מעכשיו</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>הוסף מתחת לבדיחה כפתור "שתפו" שמשתף אותה בוואטסאפ. אחר כך תעשה commit ותדחוף ל-main.</pre></div>
     <ol>
@@ -1767,7 +1821,7 @@ details.api-cat.nomatch{display:none}
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v5 · 24.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v6 · 24.10.2026</footer>
 
 <script>
 (function(){
