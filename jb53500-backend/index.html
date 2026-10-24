@@ -299,7 +299,7 @@ details.api-cat.nomatch{display:none}
   <span class="kicker">מפגש 11 · שכבת השרת</span>
   <h1>Backend ב-Vercel <b>עם מפתח של OpenAI</b></h1>
   <p class="lead">בונים אפליקציית בדיחות לנייד. הדף והשרת יושבים יחד ב-Vercel, ומפתח ה-API נשאר בשרת בלבד. היום בלי Supabase.</p>
-  <div class="phone"><img src="app-shot.webp" width="390" height="440" alt="מסך האפליקציה: כותרת מכונת הבדיחות, תיבה עם המילה חתולים, כפתור עוד בדיחה, ובדיחה על חתול"></div>
+  <div class="phone"><img src="app-shot.webp" width="390" height="720" alt="מסך האפליקציה בדיחה בלחיצה: לוגו צבעוני, תיבה עם המילה חתולים, כפתור אדום עוד בדיחה, ובועה עם בדיחה על חתול וכפתור אדום צוחק בפינה"></div>
   <p class="cap">כך זה ייראה בסוף השיעור. הבדיחה בצילום היא דוגמה.</p>
   <div class="idea">
     <div><span class="k">הדף</span><b><code>index.html</code></b>מה שרואים בטלפון. כותבים נושא ולוחצים.</div>
@@ -461,9 +461,9 @@ details.api-cat.nomatch{display:none}
 הגישה ל-AI מתבצעת בצד ה-Backend.<br>
 על ה-API Key להיות אך ורק ב-Backend.</p>
     </div>
-    <a class="dl spec" href="joke-app-spec.zip" download><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg><div><b>joke-app-spec.zip</b><span>תיקיית איפיון לדוגמה: 11 קבצים, מ-PRD ועד MILESTONES</span></div></a>
+    <a class="dl spec" href="joke-app-spec.zip" download><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg><div><b>joke-app-spec.zip</b><span>תיקיית איפיון לדוגמה: שבעת המסמכים, ותיקיית assets עם הלוגו, הדמות, הרקע והאייקונים</span></div></a>
     <ol>
-      <li>יוצרים תיקייה בשם <code>joke-app</code> בתיקיית הקורס, ומחלצים לתוכה את ה-zip. הקבצים נשארים ישר בתיקייה, Claude יסדר אותם</li>
+      <li>יוצרים תיקייה בשם <code>joke-app</code> בתיקיית הקורס, ומחלצים לתוכה את ה-zip. הקבצים נשארים ישר בתיקייה, Claude יסדר אותם. תיקיית <code>assets</code> נשארת בשורש</li>
       <li>פותחים את התיקייה ב-Claude Code: לשונית <b>Code</b>, מצב <b>Local</b></li>
     </ol>
     <details class="err more"><summary><span class="pm">+</span><u>מה יש בתיקיית האיפיון</u></summary><div>
@@ -473,6 +473,7 @@ details.api-cat.nomatch{display:none}
         <li><code>tech-stack.md</code> ו-<code>ARCHITECTURE.md</code>: Vercel, ה-Responses API, איפה המפתח, ומבנה התיקיות</li>
         <li><code>wireframes.png</code>, <code>style-guide.png</code> ו-<code>mockups.png</code>: איך המסך נראה</li>
         <li><code>DESIGN.md</code>: המסך, ארבעת המצבים, הצבעים והגופנים</li>
+        <li><code>assets/</code>: הלוגו, ארבעת הציורים של הדמות, הרקע והאייקונים, כקבצי SVG ו-PNG. Claude משתמש בהם כמו שהם</li>
         <li><code>MILESTONES.md</code>: שלושה Milestones, עם תנאי השלמה לכל אחד</li>
         <li><code>course-stack.md</code>: סטאק הקורס, שממנו נגזרו ההחלטות</li>
       </ul>
@@ -484,7 +485,7 @@ details.api-cat.nomatch{display:none}
 <article class="step" data-s="s4">
   <div class="sh"><span class="n">4</span><h3>מדביקים את הפרומפט<span class="mt">הקמה</span><small>בשיחה הראשונה. Claude מקים את הפרויקט</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
-    <p>זה הפרומפט מ<a href="../jb53500-prompts/#opt-b">אופציה ב בדף הפרומפטים</a>, מותאם לפרויקט: Claude יוצר את הריפו בעצמו, והלינק החי הוא ב-Vercel. קודם מחליפים בו את שם המשתמש בשם שלכם ב-GitHub.</p>
+    <p>זה הפרומפט מ<a href="../jb53500-prompts/#opt-b">אופציה ב בדף הפרומפטים</a>, מותאם לפרויקט: Claude יוצר את הריפו ואת קבצי ההגנה על המפתחות, והלינק החי הוא ב-Vercel. קודם מחליפים בו את שם המשתמש בשם שלכם ב-GitHub.</p>
     <div class="prompt"><span class="pt">Claude Code, שיחה ראשונה</span><button class="cp" type="button">העתק</button><pre>מצורפים בתיקייה שבעת מסמכי הספק של הפרויקט. אנא בצע את הפעולות הבאות:
 
 שפת האפליקציה:
@@ -492,24 +493,25 @@ details.api-cat.nomatch{display:none}
 
 הנחיה שוטפת:
 במהלך שלב ההקמה (במיוחד) ובכל מיילסטון: הנחה אותי צעד אחר צעד מהו השלב הבא, בצורה עניינית, קצרה, מצומצמת וברורה.
+מפתחות: אל תבקש ממני אף מפתח, ואל תכתוב או תקרא מפתח בשום קובץ. מפתח ה-production אני שומר ב-Vercel, ומפתח ה-dev אני מדביק בעצמי ב-.env.local.
 
 שלב ההקמה (פעם אחת, לפני שמתחילים מיילסטונים):
 1. בשיחה הראשונה הזו, לפני תחילת העבודה: הצע עם איזה מודל כדאי לבצע את שלב ההקמה ואת שלבי המיילסטונים (Sonnet או Opus), מבחינת איכות התוצר מול כלכלת הטוקנים.
-2. סדר את הקבצים: תיקיית spec בתוך התיקייה הראשית, ושם את שבעת המסמכים.
+2. סדר את הקבצים: תיקיית spec בתוך התיקייה הראשית, ושם את שבעת המסמכים. תיקיית assets נשארת בשורש, כי האפליקציה משתמשת בה.
 3. פתח תיקיית plans בתוך spec. אחרי תכנון או בנייה של כל מיילסטון, תעד אותו בקובץ: milestone-1.md, milestone-2.md וכן הלאה. גם השיחות ייקראו באותם שמות.
-4. צור ריפו ציבורי חדש ב-GitHub בשם joke-app, חבר אליו את התיקייה ודחוף קומיט ראשון. שם המשתמש: [שם המשתמש שלכם ב-GitHub]. הסיסמה אמורה להיות שמורה אצלך - אם לא, בקש ממני.
-5. הלינק החי יהיה ב-Vercel, לא ב-GitHub Pages. ב-Milestone 1 הנחה אותי לייבא את הריפו ל-Vercel, ומשם כל דחיפה מתעדכנת לבד. ספק לי את הלינק בסוף כל שלב.
+4. לפני הקומיט הראשון: צור .gitignore שמתעלם מ-.env, מ-.env.*, מ-.vercel ומ-node_modules, עם החריגה !.env.example. צור .env.example עם OPENAI_API_KEY= ו-OPENAI_MODEL= ריקים, ו-.claude/settings.json שחוסם לך את הקריאה של .env ושל .env.*. אחר כך צור ריפו ציבורי חדש ב-GitHub בשם joke-app, חבר אליו את התיקייה ודחוף קומיט ראשון. שם המשתמש: [שם המשתמש שלכם ב-GitHub]. הסיסמה אמורה להיות שמורה אצלך - אם לא, בקש ממני.
+5. הלינק החי יהיה ב-Vercel, לא ב-GitHub Pages. ב-Milestone 1 הנחה אותי לייבא את הריפו ל-Vercel ולשמור בו את המפתח, ומשם כל דחיפה מתעדכנת לבד. ספק לי את הלינק בסוף כל שלב.
 6. צור קובץ CLAUDE.md בתיקיית הפרויקט שמכיל את כל ההנחיות האלה.
 
 עבודה שוטפת - מיילסטונים:
 1. קרא את שבעת המסמכים, בדוק אותם ובנה את התוכנית המתאימה לבניית הפרויקט.
 2. בנה את הפרויקט מיילסטון אחרי מיילסטון, לפי קובץ המיילסטונים. לכל מיילסטון אפתח שיחה חדשה תחת אותה תיקייה.
-3. לכל מיילסטון ארבעה שלבים: תכנון, בנייה, הרצה (כדי שאוכל לבדוק), דחיפה (כדי שאוכל לצפות בלינק).<span class="ast" aria-hidden="true"></span>
+3. לכל מיילסטון ארבעה שלבים: תכנון, בנייה, הרצה (כדי שאוכל לבדוק: בכתובת של Vercel, או במחשב עם vercel dev, לפי מה שאבחר), דחיפה (כדי שאוכל לצפות בלינק).<span class="ast" aria-hidden="true"></span>
 
 כלל חשוב:
 לפני שאתה שואל שאלות: קרא קודם את הקבצים, חדד מולי את הנקודות שציינתי, ואז התחל</pre></div>
     <p class="astn">בפרומפט המקורי יש בעבודה השוטפת סעיף רביעי: <s>בסוף כל מיילסטון צור קובץ build שאפשר להעלות לאוויר ולבדוק</s>. כאן הוא ירד, כי לאפליקציה הזו אין שלב build: היא HTML, CSS ו-JavaScript רגילים, ו-Vercel מעלה כל push לאוויר כמו שהוא. מאותה סיבה הלינק החי בסעיף 5 הוא ב-Vercel ולא ב-GitHub Pages, שמגיש רק קבצים ולא מריץ את <code>api/joke.js</code>.</p>
-    <p class="see"><b>אמור להופיע:</b> Claude ממליץ על מודל, מסדר את הקבצים בתיקיית <code>spec</code>, פותח את <code>plans</code>, יוצר את הריפו <code>joke-app</code> וכותב <code>CLAUDE.md</code>. עונים לשאלות שלו, צעד אחר צעד.</p>
+    <p class="see"><b>אמור להופיע:</b> Claude ממליץ על מודל, מסדר את הקבצים בתיקיית <code>spec</code>, פותח את <code>plans</code>, יוצר את <code dir="ltr">.gitignore</code>, את <code dir="ltr">.env.example</code> ואת <code dir="ltr">.claude/settings.json</code>, יוצר את הריפו <code>joke-app</code> וכותב <code>CLAUDE.md</code>. עונים לשאלות שלו, צעד אחר צעד.</p>
     <div class="tip"><b>ציבורי זה בסדר.</b> אין בקוד שום סוד. המפתח לא ייכנס לריפו אף פעם.</div>
   </div>
 </article>
@@ -521,12 +523,13 @@ details.api-cat.nomatch{display:none}
     <div class="prompt"><span class="pt">שיחה חדשה לכל Milestone</span><button class="cp" type="button">העתק</button><pre>קרא את CLAUDE.md ואת קובץ המיילסטונים בתיקיית spec, והתחל את מיילסטון 1.</pre></div>
     <p>בכל Milestone ארבעה שלבים: תכנון, בנייה, הרצה כדי שתבדקו, ודחיפה. בסוף Claude עוצר ומחכה לאישור שלכם. ב-Milestone הבא מחליפים את המספר, גם בשם השיחה.</p>
     <ol class="msl">
-      <li><b>Walking Skeleton</b>הדף והפונקציה באוויר ב-Vercel, עם בדיחה זמנית מהשרת. עוד בלי AI.<span class="hand">ביד: <a href="#s7">שלבים 7 ו-8</a></span></li>
-      <li><b>בדיחה מ-GPT-5</b>לפני הקוד שמים את המפתח ב-Vercel. אחרי הדחיפה בודקים את הקוד, עושים Redeploy ובודקים באתר.<span class="hand">ביד: <a href="#s9">שלב 9</a>, ואחרי הקוד <a href="#s6">6</a>, <a href="#s10">10</a> ו-<a href="#s11">11</a></span></li>
+      <li><b>Walking Skeleton</b>הדף והפונקציה באוויר ב-Vercel, עם בדיחה זמנית מהשרת, והמפתח כבר שמור שם. עוד בלי AI.<span class="hand">ביד: <a href="#s7">שלבים 7</a>, <a href="#s8">8</a>, <a href="#s9">9</a> ו-<a href="#s10">10</a></span></li>
+      <li><b>בדיחה מ-GPT-5</b>הפונקציה פונה ל-GPT-5 עם המפתח שכבר בשרת. אחרי הדחיפה בודקים את הקוד, ואז את האתר.<span class="hand">ביד: <a href="#s6">שלב 6</a> ו-<a href="#s11">11</a></span></li>
       <li><b>התקנה בטלפון</b>manifest, אייקונים ו-service worker. האתר נפתח כאפליקציה.<span class="hand">ביד: <a href="#s12">שלב 12</a></span></li>
     </ol>
     <div class="tip"><b>מתי ממשיכים:</b> כשכל תנאי ההשלמה של ה-Milestone ב-<code>MILESTONES.md</code> מתקיימים. רק אז כותבים ל-Claude שאפשר להמשיך.</div>
-    <div class="warn"><b>Claude מבקש את המפתח?</b> לא נותנים. לא לצ׳אט, לא לקובץ. המפתח הולך רק ל-Vercel, בשלב 9.</div>
+    <div class="note"><b>איפה מריצים? אתם בוחרים.</b> אפשר לבדוק כל Milestone בכתובת של Vercel אחרי push, ואפשר להריץ גם במחשב עם <code>vercel dev</code>. מי שמריץ במחשב מוסיף ב-Milestone 1 מפתח dev ואת הקובץ <code dir="ltr">.env.local</code>, <a href="#s9">בסוף שלב 9</a>.</div>
+    <div class="warn"><b>Claude מבקש מפתח?</b> לא נותנים. לא לצ׳אט, ולא לקובץ ש-Claude כותב. מפתח ה-production הולך רק ל-Vercel, בשלב 9. מפתח ה-dev אתם מדביקים בעצמכם ב-<code dir="ltr">.env.local</code>.</div>
     <div class="note"><b>על GPT-5:</b> הוא עובד, אבל OpenAI כבר סימנה אותו כמודל קודם. הגרסה ש-<code>gpt-5</code> מצביע עליה היום מתוכננת להיכבות ב-11.12.2026. לכן שם המודל נשמר כמשתנה, <code>OPENAI_MODEL</code>, וכדי להחליף מודל לא נוגעים בקוד. איך מחליפים, בסוף הדף.</div>
   </div>
 </article>
@@ -540,7 +543,7 @@ details.api-cat.nomatch{display:none}
       <li>בקובץ הזה המפתח מגיע מ-<code>process.env.OPENAI_API_KEY</code>, ולא כתוב בו שום מפתח</li>
       <li>ב-<code>index.html</code> הפנייה היא ל-<code>/api/joke</code>, ואין שם <code>api.openai.com</code></li>
       <li>ב-<code>package.json</code> יש <code>"type": "module"</code></li>
-      <li>ב-<code>.gitignore</code> יש <code>.env</code></li>
+      <li>ב-<code dir="ltr">.gitignore</code> יש <code dir="ltr">.env</code> ו-<code dir="ltr">.env.*</code>, ובריפו ב-GitHub אין <code dir="ltr">.env.local</code></li>
     </ol>
     <p>ובדיקה אחרונה, ש-Claude יעשה בשבילכם:</p>
     <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>חפש בכל הקבצים בתיקייה את המחרוזת sk- ואת המחרוזת api.openai.com. תגיד לי באילו קבצים כל אחת מופיעה.</pre></div>
@@ -578,18 +581,18 @@ details.api-cat.nomatch{display:none}
       <li>ב-<b>Framework Preset</b> בוחרים <b>Other</b>. שאר ההגדרות נשארות כמו שהן</li>
       <li>לוחצים <b>Deploy</b></li>
     </ol>
-    <p class="see"><b>אמור להופיע:</b> כתובת בסגנון <code>joke-app-xxxx.vercel.app</code>. פותחים אותה, כותבים "חתולים", ולוחצים. מופיע "בדיחה זמנית מהשרת: חתולים".</p>
-    <div class="tip"><b>בדיחה זמנית? מצוין.</b> זה אומר שהשרת עובד: הדף דיבר עם <code>/api/joke</code> באותה כתובת, והפונקציה ענתה. הבדיחה האמיתית מגיעה ב-Milestone 2. שולחים ל-Claude את הכתובת, ובודקים איתו את תנאי ההשלמה.</div>
+    <p class="see"><b>אמור להופיע:</b> כתובת בסגנון <code>joke-app-xxxx.vercel.app</code>. פותחים אותה, כותבים "חתולים", ולוחצים. מופיע "בדיחה זמנית מהשרת: חתולים. המפתח: חסר".</p>
+    <div class="tip"><b>"המפתח: חסר"? מצוין.</b> זה אומר שהשרת עובד: הדף דיבר עם <code>/api/joke</code> באותה כתובת, והפונקציה ענתה. רק המפתח חסר, וזה השלב הבא. הבדיחה האמיתית מגיעה ב-Milestone 2.</div>
   </div>
 </article>
 
 <article class="step" data-s="s9" id="s9">
-  <div class="sh"><span class="n">9</span><h3>יוצרים מפתח ושמים אותו ב-Vercel<span class="mt">Milestone 2</span><small>שתי לשוניות פתוחות זו ליד זו</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">9</span><h3>יוצרים מפתח ושמים אותו ב-Vercel<span class="mt">Milestone 1</span><small>שתי לשוניות פתוחות זו ליד זו</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <p><b>לשונית 1, OpenAI:</b></p>
     <ol>
       <li>נכנסים ל-<a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">platform.openai.com/api-keys</a></li>
-      <li>לוחצים <b>Create new secret key</b>, קוראים לו <code>joke-app</code>, ויוצרים</li>
+      <li>לוחצים <b>Create new secret key</b>, קוראים לו <code>joke-in-a-click</code>, ויוצרים</li>
       <li>מעתיקים את המפתח. הוא מוצג במלואו רק פעם אחת</li>
     </ol>
     <p><b>לשונית 2, Vercel:</b></p>
@@ -597,22 +600,44 @@ details.api-cat.nomatch{display:none}
       <li>בפרויקט <code>joke-app</code> פותחים <b>Settings</b>, ואז <b>Environment Variables</b> בתפריט הצד</li>
       <li>ב-<b>Key</b> כותבים בדיוק <code>OPENAI_API_KEY</code></li>
       <li>ב-<b>Value</b> מדביקים את המפתח</li>
-      <li>ב-<b>Type</b> בוחרים <b>Secret</b>, ומשאירים את כל הסביבות מסומנות</li>
+      <li>ב-<b>Type</b> בוחרים <b>Secret</b>, ובסביבות מסמנים <b>Production</b> ו-<b>Preview</b>. סביבת Development לא זמינה למשתנה Secret, ולכן להרצה מקומית יש מפתח נפרד</li>
       <li>שומרים, וסוגרים את החלון של OpenAI</li>
     </ol>
     <p class="see"><b>אמור להופיע:</b> שורה בטבלה עם <code>OPENAI_API_KEY</code> והתווית Secret. הערך מוסתר, וגם אתם כבר לא יכולים לקרוא אותו.</p>
-    <div class="warn"><b>המפתח נכנס רק לכאן.</b> לא לקובץ בתיקייה, לא לצ׳אט עם Claude, לא לוואטסאפ, ולא לפתק במחשב. אבד? יוצרים חדש. זה לוקח דקה.</div>
+    <div class="warn"><b>מפתח ה-production נכנס רק לכאן.</b> לא לקובץ בתיקייה, לא לצ׳אט עם Claude, לא לוואטסאפ, ולא לפתק במחשב. אבד? יוצרים חדש. זה לוקח דקה.</div>
+    <details class="err more" id="local-run"><summary><span class="pm">+</span><u>מריצים גם במחשב? מפתח dev והקובץ <span dir="ltr">.env.local</span></u></summary><div>
+      <p>רק למי שבחר להריץ במחשב עם <code>vercel dev</code>. מי שבודק בכתובת של Vercel מדלג.</p>
+      <ol>
+        <li>ב-OpenAI יוצרים מפתח נוסף, מפתח dev, בשם <code>joke-in-a-click-dev</code>. אף פעם לא את מפתח ה-production</li>
+        <li>בטרמינל, בתיקיית הפרויקט, מעתיקים את קובץ הדוגמה ופותחים את העותק:</li>
+      </ol>
+      <div class="term"><span class="fn">PowerShell</span><button class="cp" type="button">העתק</button><pre>Copy-Item .env.example .env.local
+notepad .env.local</pre></div>
+      <ol start="3">
+        <li>מדביקים את מפתח ה-dev אחרי הסימן <code>=</code> בשורה <code>OPENAI_API_KEY=</code>, ושומרים. ביד, לא דרך Claude</li>
+        <li>מתקינים את ה-CLI של Vercel ומחברים את התיקייה לפרויקט, פעם אחת:</li>
+      </ol>
+      <div class="term"><span class="fn">PowerShell</span><button class="cp" type="button">העתק</button><pre>npm i -g vercel
+vercel login
+vercel link</pre></div>
+      <ol start="5">
+        <li>מריצים: <code>vercel dev</code>, ופותחים את <code>http://localhost:3000</code>. גם Claude יכול להריץ את הפקודה בשבילכם</li>
+      </ol>
+      <p class="see"><b>אמור להופיע:</b> אותה תוצאה כמו בכתובת של Vercel. ב-GitHub אין <code dir="ltr">.env.local</code>, כי הוא ב-<code dir="ltr">.gitignore</code>.</p>
+      <div class="note"><b>ארבעת הכללים של <code dir="ltr">.env.local</code>:</b> <code dir="ltr">.gitignore</code> לפני הקומיט הראשון. <code dir="ltr">.claude/settings.json</code> שחוסם ל-Claude את הקריאה שלו. מפתח dev נפרד, שאתם מדביקים בעצמכם. ו-<code dir="ltr">.env.example</code> ריק בריפו. Claude יצר את שלושת הקבצים בשלב ההקמה.</div>
+    </div></details>
   </div>
 </article>
 
 <article class="step" data-s="s10" id="s10">
-  <div class="sh"><span class="n">10</span><h3>Redeploy<span class="mt">Milestone 2</span><small>הפריסה הקיימת לא רואה מפתח חדש</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">10</span><h3>Redeploy<span class="mt">Milestone 1</span><small>הפריסה הקיימת לא רואה מפתח חדש</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li>בפרויקט פותחים <b>Deployments</b></li>
       <li>ליד הפריסה העליונה לוחצים על שלוש הנקודות, ואז <b>Redeploy</b></li>
       <li>מחכים שהסטטוס יהיה <b>Ready</b></li>
     </ol>
+    <p class="see"><b>אמור להופיע:</b> אותה לחיצה בכתובת מציגה עכשיו "המפתח: נמצא". רק כן או לא, אף פעם לא המפתח עצמו.</p>
     <div class="tip"><b>למה צריך את זה:</b> הפונקציה מקבלת את המשתנים ברגע הפריסה. פריסה שכבר רצה לא יודעת שהוספתם מפתח. גם כל push חדש יפתור את זה.</div>
   </div>
 </article>
@@ -635,7 +660,7 @@ details.api-cat.nomatch{display:none}
   <div class="body">
     <p><b>אנדרואיד, ב-Chrome:</b> פותחים את הכתובת, לוחצים על שלוש הנקודות בפינה, ובוחרים "התקנת אפליקציה" או "הוספה למסך הבית". השם משתנה בין גרסאות.</p>
     <p><b>אייפון, ב-Safari:</b> פותחים את הכתובת, לוחצים על כפתור השיתוף, ובוחרים "הוספה למסך הבית". מ-iOS 16.4 זה עובד גם מ-Chrome, Edge ו-Firefox.</p>
-    <p class="see"><b>אמור להופיע:</b> אייקון של פרצוף צהוב במסך הבית. האפליקציה נפתחת על כל המסך, בלי שורת כתובת.</p>
+    <p class="see"><b>אמור להופיע:</b> אייקון של כפתור אדום צוחק, על רקע צהוב, במסך הבית. האפליקציה נפתחת על כל המסך, בלי שורת כתובת.</p>
     <div class="tip"><b>למה זה עובד עכשיו:</b> כדי שאתר יותקן צריך HTTPS, קובץ manifest, ואייקונים בגודל 192 ו-512. את ה-HTTPS נותן Vercel, ואת השאר כתב Claude ב-Milestone 3.</div>
   </div>
 </article>
@@ -1821,7 +1846,7 @@ details.api-cat.nomatch{display:none}
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v6 · 24.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v7 · 24.10.2026</footer>
 
 <script>
 (function(){

@@ -255,10 +255,21 @@ footer{margin-top:60px;text-align:center;font-size:12.5px;color:var(--soft);bord
     <ul>
       <li><b>במשתני הסביבה של הפונקציות,</b> ב-Vercel או ב-Netlify. הפונקציה קוראת אותו משם.</li>
       <li><b>ב-Credentials של n8n,</b> לאוטומציות. באוטומציה אין דפדפן, ולכן היא רשאית לפנות למודל ישירות.</li>
-      <li>לא בקוד, לא בקובץ הגדרות בריפו, לא בתיקיית המוצר, ולא בצ׳אט.</li>
+      <li>לא בקוד, לא בקובץ הגדרות בריפו, ולא בצ׳אט. החריג היחיד: <code dir="ltr">.env.local</code> במחשב, למי שמריץ מקומית, לפי ארבעת הכללים למטה.</li>
       <li>ערך שאינו סוד אבל לא שייך לקוד, כמו כתובת הפרויקט ב-Supabase או קישור לגיליון, נשמר כמשתנה סביבה מסוג <b>Config</b>.</li>
       <li>המפתח <b>הציבורי</b> של Supabase נכנס לדף רק במוצר עם כניסת משתמשים, ורק בשביל הכניסה. הוא לא פותח אף טבלה.</li>
     </ul>
+  </div>
+  <div class="iron">
+    <h3>הרצה מקומית: הקובץ <code dir="ltr">.env.local</code></h3>
+    <p>הפונקציות רצות בענן, ב-Vercel. מי שבוחר להריץ אותן גם במחשב, עם <code>vercel dev</code>, שם מפתח בקובץ <code dir="ltr">.env.local</code> בשורש התיקייה, ורק בארבעה תנאים:</p>
+    <ul>
+      <li><b><code dir="ltr">.gitignore</code> לפני הקומיט הראשון,</b> עם <code dir="ltr">.env</code>, <code dir="ltr">.env.*</code> והחריגה <code dir="ltr">!.env.example</code>.</li>
+      <li><b>Claude לא קורא את הקובץ.</b> בתיקייה יש <code dir="ltr">.claude/settings.json</code> שחוסם את <code>Read(./.env)</code> ואת <code>Read(./.env.*)</code>. הקובץ הזה כן נכנס לריפו.</li>
+      <li><b>מפתח dev נפרד,</b> עם שם משלו, שמודבק ביד. Claude לא כותב אותו, לא קורא אותו ולא מבקש אותו.</li>
+      <li><b><code dir="ltr">.env.example</code> בריפו,</b> עם אותם שמות וערכים ריקים.</li>
+    </ul>
+    <p>בענן אין קובץ <code dir="ltr">.env</code>: מפתח ה-production ב-Vercel, מסוג Secret, ב-Production וב-Preview.</p>
   </div>
   <div class="note"><b>מילון קצר:</b> בכל המסמך, "פונקציה" היא פונקציה ב-Vercel או ב-Netlify. בוחרים אחת מהן לכל הפרויקט, לא את שתיהן.</div>
 </section>
@@ -550,7 +561,7 @@ footer{margin-top:60px;text-align:center;font-size:12.5px;color:var(--soft);bord
   <div class="note"><b>מה לא השתנה מהיום הראשון:</b> אתר סטטי בלי שלב בנייה, Supabase כברירת המחדל לנתונים, n8n לאוטומציות, Git עם ענף main בלבד, וחוק המפתחות.</div>
 </section>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · לפי course-stack.md מ-24.10.2026 · v5 · 24.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · לפי course-stack.md מ-24.10.2026 · v6 · 24.10.2026</footer>
 </div>
 </body>
 </html>

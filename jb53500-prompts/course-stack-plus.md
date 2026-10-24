@@ -43,7 +43,7 @@
 
 - כל משתנה סביבה ששמו מתחיל ב-`VITE_` נכנס לקוד שהדפדפן מקבל, וכל אחד יכול לקרוא אותו. מותר להשתמש בו רק לכתובת של Supabase ולמפתח הציבורי שלו (publishable key), ורק במוצר עם כניסת משתמשים, בשביל הכניסה. במוצר בלי כניסה אין משתני `VITE_` בכלל.
 - מפתח סודי, כמו המפתח של Gemini או המפתח הסודי של Supabase, נשמר בלי הקידומת `VITE_`, ורק הפונקציה קוראת אותו, דרך `process.env`.
-- הקובץ `.env.local` נשאר במחשב, ולא נכנס לריפו. הוא מופיע ב-`.gitignore`.
+- הקובץ `.env.local` נשאר במחשב, ולא נכנס לריפו. ארבעת הכללים של הרצה מקומית ב-course-stack.md חלים גם כאן: `.gitignore` לפני הקומיט הראשון, חסימת הקריאה ב-`.claude/settings.json`, מפתח dev נפרד שמודבק ביד, ו-`.env.example` ריק בריפו.
 - את אותם ערכים מגדירים גם בדשבורד של Vercel, ב-Environment Variables.
 
 ## המבנה
@@ -54,7 +54,7 @@ package.json
 vite.config.ts
 tsconfig.json
 vercel.json           הפניה של כל הכתובות, חוץ מ-api, לאתר
-.gitignore            כולל .env.local ו-node_modules
+.gitignore            כולל .env, .env.*, !.env.example ו-node_modules
 public/               תמונות וקבצים קבועים
 src/
   main.tsx            נקודת הכניסה

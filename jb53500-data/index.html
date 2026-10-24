@@ -231,8 +231,8 @@ code.w{white-space:normal;word-break:break-word}
 <header class="hero">
   <span class="kicker">השכבה השלישית · דאטה</span>
   <h1>דאטה <b>מהגיליון אל Supabase</b></h1>
-  <p class="lead">ממשיכים את מכונת הבדיחות. קודם קוראים בדיחות מגיליון Google. אחר כך נותנים לאפליקציה זיכרון: היא שומרת כל בדיחה, וסופרת מי צחק.</p>
-  <div class="phone"><img src="app-v2-shot.webp" width="390" height="665" alt="מסך האפליקציה: שני כפתורים, ספרו לי בדיחה ובדיחה אקראית מהמאגר, בדיחה על חתול עם כפתור צחקתם ומונה, ומתחת רשימת הכי מצחיקות"></div>
+  <p class="lead">ממשיכים את בדיחה בלחיצה. קודם קוראים בדיחות מגיליון Google. אחר כך נותנים לאפליקציה זיכרון: היא שומרת כל בדיחה, וסופרת מי צחק.</p>
+  <div class="phone"><img src="app-v2-shot.webp" width="390" height="900" alt="מסך האפליקציה בדיחה בלחיצה: לוגו צבעוני, כפתור אדום עוד בדיחה וכפתור לבן בדיחה אקראית מהמאגר, בועה עם בדיחה על חתול וכפתור צחקתי, ומתחת רשימת הכי מצחיקות"></div>
   <p class="cap">כך זה ייראה בסוף. כפתור שני, כפתור "צחקתי", ורשימה שנשמרת.</p>
   <div class="idea">
     <div><span class="k">הגיליון</span><b><code>api/random.js</code></b>בדיחות שאתם כותבים ביד, ב-Google Sheets. האפליקציה רק קוראת.</div>
@@ -543,6 +543,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
     </table></div>
     <div class="warn"><b>המפתח הסודי עוקף את כל המנעולים.</b> הוא נכנס רק ל-Vercel. לא לקובץ, לא לצ׳אט עם Claude, ולא לבודק בשלב 9. גם המחבר של Supabase לא יודע לקרוא אותו, וזה בכוונה.</div>
     <div class="note"><b>זה המקום היחיד שבו המפתח הסודי חי.</b> רק השרת מדבר עם הטבלה, ולכן רק השרת מחזיק את המפתח שלה, בדיוק כמו המפתח של OpenAI.</div>
+    <div class="tip"><b>מריצים גם במחשב?</b> אותם ארבעה כללים של <a href="../jb53500-backend/#local-run"><code dir="ltr">.env.local</code> מדף ה-Backend</a>. ב-Supabase יוצרים מפתח סודי נוסף בשם <code>dev</code>, ומדביקים אותו ביד ב-<code dir="ltr">.env.local</code>. את המפתח של Vercel לא מעתיקים לשם.</div>
   </div>
 </article>
 
@@ -724,7 +725,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v1 · 24.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v2 · 24.10.2026</footer>
 
 <script>
 (function(){
