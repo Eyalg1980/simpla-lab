@@ -147,6 +147,62 @@ details.err.more>summary .pm{color:var(--soft)}
 footer{margin-top:10px;text-align:center;font-size:12px;color:var(--soft);border-top:1.5px dashed var(--line);padding-top:14px}
 @media (max-width:520px){.idea{grid-template-columns:1fr}.body{padding-inline-start:0}.cmp{grid-template-columns:1fr}}
 @media (min-width:1024px){.part{border-radius:var(--r);margin-inline:0;padding:26px 28px 28px}.cards.four{grid-template-columns:1fr 1fr}.next{grid-template-columns:1fr 1fr}}
+
+/* v3, 24.10.2026: API index appendix */
+:root{--cnt:#D7263D}
+.cnt{display:inline-flex;align-items:center;justify-content:center;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--cnt);color:#fff;font-family:"Poppins",sans-serif;font-weight:700;font-size:11px;line-height:1;margin-inline-start:6px;flex:none}
+.cnt.z{background:transparent;color:var(--soft);box-shadow:inset 0 0 0 1px var(--line)}
+#apis .intro{font-size:15px;margin-bottom:10px}
+.api-rules{display:grid;gap:8px;margin:10px 0 14px}
+.api-rules div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14px}
+.api-rules b{display:block;font-size:14.5px}
+.api-index{display:grid;gap:10px;margin:10px 0 12px}
+.api-grp .gl{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--soft);margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;font-size:13px;font-weight:600;text-decoration:none;padding:5px 10px 5px 8px;border-radius:999px;border:1.5px dashed var(--line);background:var(--surface);color:var(--ink)}
+.chip:hover{border-color:var(--acc)}
+.api-search{position:sticky;top:calc(104px + env(safe-area-inset-top));z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--bar);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin:0 -16px 10px;padding:8px 16px;border-bottom:1px solid var(--line)}
+.api-search input{flex:1 1 220px;min-width:0;font:inherit;font-size:15px;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:8px 14px}
+.api-search input:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
+.api-found{font-size:12.5px;font-weight:600;color:var(--soft)}
+.api-all{font-size:12.5px;font-weight:700;color:var(--acc);padding:6px 12px;border-radius:999px;border:1.5px dashed var(--line)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.label.api-gl{margin-top:22px}
+details.api-cat>summary u,details.api-proj>summary u{flex:1}
+.api-when{color:var(--soft);font-size:14px}
+.api-list{display:grid;gap:8px}
+.api{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--paper)}
+.api-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
+.api-h b{font-size:15.5px}
+.api-h span{font-size:13px;color:var(--soft)}
+.api-use{font-size:14px;margin:2px 0 6px}
+.api-models{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}
+.api-models code{background:var(--surface);font-size:12px}
+.api-facts{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:13.5px;margin:0 0 6px}
+.api-facts dt{font-weight:700;color:var(--soft)}
+.api-facts dd{margin:0}
+.api-note{font-size:13.5px;color:var(--soft);border-inline-start:3px solid var(--b);padding-inline-start:8px;margin-bottom:6px}
+.api-links{display:flex;flex-wrap:wrap;gap:6px}
+.api-links a,.api-links .nokey{font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);text-decoration:none;color:var(--acc)}
+.api-links .nokey{color:var(--soft);border-style:dashed}
+.api.hide{display:none}
+details.api-cat.nomatch{display:none}
+.ptbl td:first-child{font-weight:700}
+.ptbl td{font-size:13.5px}
+.pchip{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;margin:2px;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);text-decoration:none;color:var(--ink);white-space:nowrap}
+.pchip.off{color:var(--soft);border-style:dashed}
+.ptbl .none{color:var(--soft);font-size:12px}
+@media (min-width:1024px){.api-list{grid-template-columns:1fr 1fr}.api-rules{grid-template-columns:1fr 1fr}}
+.plist{display:grid;gap:0;margin:8px 0}
+.prow{padding:9px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.prow>b{display:block;font-size:14.5px;margin-bottom:2px}
+.prow .pl{display:inline-block;min-width:38px;font-size:11.5px;font-weight:700;color:var(--soft)}
+.prow .none{color:var(--soft);font-size:12px}
+@media (min-width:1024px){.plist{grid-template-columns:1fr 1fr;column-gap:24px}}
+.api,.api-list>*,.api-cat>div{min-width:0}
+.api-models code,.api-facts dd,.api-note,.api-use,.api-h span{overflow-wrap:anywhere;word-break:break-word}
+.api-models code{white-space:normal}
+.api-facts dd[dir="ltr"]{text-align:left}
 </style>
 </head>
 <body>
@@ -161,6 +217,7 @@ footer{margin-top:10px;text-align:center;font-size:12px;color:var(--soft);border
   <a class="jump" href="#vercel">Vercel</a>
   <a class="jump" href="#partA">השלבים</a>
   <a class="jump" href="#errors">תקלות</a>
+  <a class="jump" href="#apis">API</a>
   <span class="prog" id="prog"></span>
 </nav>
 
@@ -565,7 +622,7 @@ footer{margin-top:10px;text-align:center;font-size:12px;color:var(--soft);border
     <li>בערך כותבים את שם המודל</li>
     <li>Redeploy</li>
   </ol>
-  <p>לפי OpenAI, המחליף הרשמי של GPT-5 הוא <code>gpt-5.6-sol</code>. לתרגול זול יש את <code>gpt-5.6-luna</code>: 0.20 דולר למיליון טוקנים שנכנסים, ו-1.20 דולר למיליון שיוצאים.</p>
+  <p>לפי OpenAI, המחליף הרשמי של GPT-5 הוא <code>gpt-5.6-sol</code>. בדף המחירים הדור הנוכחי הוא GPT-6, והזול בו הוא <code>gpt-6-luna</code>: 0.10 דולר למיליון טוקנים שנכנסים, ו-0.50 דולר למיליון שיוצאים. מספיק לבדיחות. ספקים ומודלים נוספים, עם מחירים, ב<a href="#apis">אינדקס ה-API</a> בסוף הדף.</p>
 </div></details>
 
 <details class="err more" id="domain"><summary><span class="pm">+</span><u>דומיין אמיתי משלכם</u></summary><div>
@@ -626,6 +683,895 @@ footer{margin-top:10px;text-align:center;font-size:12px;color:var(--soft);border
 </div></details>
 </section>
 
+<section id="apis">
+<div class="label">07 · נספח</div>
+<h2 class="sec">אינדקס ה-API: מה קיים, כמה עולה, ואיפה מתחילים</h2>
+<p class="intro">99 שירותים ב-21 קטגוריות. לכל אחד יש תיעוד, API Reference, מחירון, ודף ליצירת מפתח. המחירים נבדקו מול הדפים הרשמיים ב-24.10.2026, והם משתנים, אז לפני שמתחילים פותחים את המחירון.</p>
+<div class="api-rules">
+  <div><b>מתחילים מהמודל שכבר יש</b>Gemini Flash קורא תמונות ו-PDF, מתרגם ומסכם. ספק נוסף רק כשהמודל לא מספיק.</div>
+  <div><b>כל מפתח ב-Vercel, מסוג Secret</b>הדף פונה ל-<code>/api</code>, והפונקציה מוסיפה את המפתח. באוטומציה הוא יושב ב-Credentials של n8n.</div>
+  <div><b>שכבה חינמית = נתוני דמה</b>אצל רוב הספקים, מה ששולחים בשכבה החינמית משמש לשיפור המוצר שלהם.</div>
+  <div><b>מגבלת הוצאה מהיום הראשון</b>אצל ספק בתשלום: קרדיט מראש, בלי טעינה אוטומטית, ותקרה חודשית אם יש.</div>
+  <div><b>חסום מחוץ לישראל</b>קבצי המחירים של הרשתות, ולפעמים אתרים ממשלתיים. ל-Vercel אין אזור בישראל, אז מושכים מ-n8n במחשב בישראל.</div>
+  <div><b>"לא אומת"</b>הדף הרשמי לא הציג את המספר בבדיקה שלנו. פותחים את המחירון לפני שמחליטים.</div>
+</div>
+<div class="api-index"><div class="api-grp"><span class="gl">מודלים ו-AI</span><div class="chips"><a class="chip" href="#api-llm">מודלי שפה<span class="cnt">8</span></a><a class="chip" href="#api-vision_docs">קריאת תמונות ו-PDF<span class="cnt">5</span></a><a class="chip" href="#api-embeddings">Embeddings ו-RAG<span class="cnt">6</span></a><a class="chip" href="#api-web_search">חיפוש ואיסוף מהרשת<span class="cnt">10</span></a><a class="chip" href="#api-moderation">סינון תוכן<span class="cnt">2</span></a><a class="chip" href="#api-translation">תרגום<span class="cnt">2</span></a></div></div><div class="api-grp"><span class="gl">מדיה וקול</span><div class="chips"><a class="chip" href="#api-image">יצירת תמונות<span class="cnt">8</span></a><a class="chip" href="#api-video">יצירת וידאו<span class="cnt">7</span></a><a class="chip" href="#api-tts">טקסט לדיבור<span class="cnt">4</span></a><a class="chip" href="#api-stt">דיבור לטקסט<span class="cnt">5</span></a><a class="chip" href="#api-realtime">שיחה קולית בזמן אמת<span class="cnt">3</span></a><a class="chip" href="#api-music_sfx">מוזיקה ואפקטים<span class="cnt">4</span></a></div></div><div class="api-grp"><span class="gl">שירותים לאפליקציה</span><div class="chips"><a class="chip" href="#api-maps">מפות ומקומות<span class="cnt">6</span></a><a class="chip" href="#api-flights">טיסות<span class="cnt">4</span></a><a class="chip" href="#api-weather">מזג אוויר<span class="cnt">2</span></a><a class="chip" href="#api-messaging">הודעות: מייל, SMS ו-WhatsApp<span class="cnt">6</span></a><a class="chip" href="#api-google_workspace">Google: יומן, Sheets ו-Gmail<span class="cnt">3</span></a><a class="chip" href="#api-israel_data">מידע ציבורי בישראל<span class="cnt">7</span></a><a class="chip" href="#api-business_systems">מערכות עסקיות<span class="cnt">2</span></a><a class="chip" href="#api-news_feeds">חדשות ופידים<span class="cnt">2</span></a><a class="chip" href="#api-other_common">עוד שימושיים<span class="cnt">3</span></a></div></div></div>
+<div class="api-search">
+  <label for="apiQ" class="vh">חיפוש באינדקס</label>
+  <input id="apiQ" type="search" placeholder="חיפוש: ספק, מודל או שימוש. למשל PDF, עברית, Places" autocomplete="off" spellcheck="false">
+  <span class="api-found" id="apiFound" aria-live="polite"></span>
+  <button type="button" class="api-all" id="apiAll">לפתוח הכל</button>
+</div>
+<details class="err more api-proj" id="api-projects"><summary><span class="pm">+</span><u>הפרויקטים שלכם: איזה API כל אחד צריך</u><span class="cnt">21</span></summary><div>
+<p>לפי מסמכי האפיון, ה-PRD והפידבק של כל פרויקט. לחיצה על קטגוריה קופצת אליה. <b>חובה</b> הוא מה שה-MVP צריך, <b>רשות</b> הוא הרחבה או המוצר המלא.</p>
+<div class="plist"><div class="prow"><b>Tripwise</b><div><span class="pl">חובה</span><a class="pchip" href="#api-messaging" title="תזכורת במייל לפני הטיול">הודעות: מייל, SMS ו-WhatsApp</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-maps" title="אימות אטרקציות, שעות פתיחה ומיקום (מחוץ לתכולה כרגע)">מפות ומקומות</a></div></div><div class="prow"><b>יועץ תוכן לעסקים</b><div><span class="pl">חובה</span><a class="pchip" href="#api-business_systems" title="Airtable כבסיס הנתונים של השירותים, הלידים והסטטוס">מערכות עסקיות</a><a class="pchip" href="#api-messaging" title="התראה במייל לבעל העסק ואישור אוטומטי ללקוח">הודעות: מייל, SMS ו-WhatsApp</a></div><div><span class="pl">רשות</span><span class="none">אין</span></div></div><div class="prow"><b>סל חכם</b><div><span class="pl">חובה</span><a class="pchip" href="#api-israel_data" title="קבצי שקיפות המחירים של רשתות השיווק, משיכה יומית">מידע ציבורי בישראל</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-israel_data" title="קבצי מבצעים, שמתפרסמים בנפרד ממחירי המדף">מידע ציבורי בישראל</a></div></div><div class="prow"><b>Flexication</b><div><span class="pl">חובה</span><a class="pchip" href="#api-messaging" title="מיילים לעובד ולמנהל על הגשה, סטטוס ותזכורות">הודעות: מייל, SMS ו-WhatsApp</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-embeddings" title="עוזר שעונה על שאלות לפי מסמך המדיניות (שכבת ה-AI שהוצעה)">Embeddings ו-RAG</a><a class="pchip" href="#api-business_systems" title="חיבור למערכת שכר (מחוץ לתכולה)">מערכות עסקיות</a></div></div><div class="prow"><b>FNH Pipeline</b><div><span class="pl">חובה</span><a class="pchip" href="#api-google_workspace" title="Google Sheets כבסיס הנתונים של הצוות">Google: יומן, Sheets ו-Gmail</a><a class="pchip" href="#api-vision_docs" title="קריאת צילומי מסך מהווידאו וכתיבת טיוטת מלל">קריאת תמונות ו-PDF</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-llm" title="מפתח מודל בתשלום לפני עבודה על חומרים אמיתיים של המותג">מודלי שפה</a><a class="pchip" href="#api-google_workspace" title="זיהוי קבצים שהועלו לדרייב (נדחה לאחרי הקורס)">Google: יומן, Sheets ו-Gmail</a><a class="pchip" href="#api-other_common" title="פרסום אוטומטי ומענה לתגובות ברשתות (נדחה)">עוד שימושיים</a><a class="pchip" href="#api-translation" title="כלי תרגום במסלול הקורסים (נדחה)">תרגום</a></div></div><div class="prow"><b>כושר ותזונה</b><div><span class="pl">חובה</span><a class="pchip" href="#api-messaging" title="תזכורות השלמת נתונים ואימון, בקשת פידבק ודוח שבועי">הודעות: מייל, SMS ו-WhatsApp</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-other_common" title="טבלת ערכים תזונתיים כדי שהמודל לא ימציא קלוריות">עוד שימושיים</a></div></div><div class="prow"><b>Home-me</b><div><span class="pl">חובה</span><a class="pchip" href="#api-google_workspace" title="קריאת אירועים מ-Google Calendar לתיבת ממתין לאישור">Google: יומן, Sheets ו-Gmail</a><a class="pchip" href="#api-messaging" title="שתי התראות במייל: תזכורת למשימה ואירוע שממתין לאישור">הודעות: מייל, SMS ו-WhatsApp</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-google_workspace" title="חיבור יומן נפרד לכל הורה (נדחה)">Google: יומן, Sheets ו-Gmail</a><a class="pchip" href="#api-messaging" title="התראות Push (ירדו)">הודעות: מייל, SMS ו-WhatsApp</a></div></div><div class="prow"><b>החייאת לידים</b><div><span class="pl">חובה</span><a class="pchip" href="#api-google_workspace" title="קריאת לידים מ-Google Sheets וכתיבת ליד חם לעמודה ייעודית">Google: יומן, Sheets ו-Gmail</a><a class="pchip" href="#api-messaging" title="מייל ללידים עם שלושה כפתורי תגובה וקליטת התגובה">הודעות: מייל, SMS ו-WhatsApp</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-messaging" title="שליחת הודעות WhatsApp בשם העסק (המוצר המלא)">הודעות: מייל, SMS ו-WhatsApp</a><a class="pchip" href="#api-israel_data" title="חלון שליחה שחוסם שבת, חגים וימי זיכרון">מידע ציבורי בישראל</a><a class="pchip" href="#api-business_systems" title="חיבור ל-CRM חיצוני ו-Webhook (מחוץ ל-MVP)">מערכות עסקיות</a><a class="pchip" href="#api-llm" title="מפתח מודל בתשלום לסיווג לידים אמיתיים">מודלי שפה</a></div></div><div class="prow"><b>סמנכ״ל (דשבורד ניהולי מעל Arbox)</b><div><span class="pl">חובה</span><a class="pchip" href="#api-business_systems" title="משיכת דוחות יומית מ-Arbox">מערכות עסקיות</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-llm" title="מפתח מודל בתשלום לפני שליחת נתוני עסק אמיתיים">מודלי שפה</a><a class="pchip" href="#api-other_common" title="קליטת דוח שהועלה ידנית, כגיבוי למשיכה">עוד שימושיים</a></div></div><div class="prow"><b>MedDo</b><div><span class="pl">חובה</span><a class="pchip" href="#api-vision_docs" title="קריאת צילום או PDF של מסמך רפואי וחילוץ שדות עם ציטוט">קריאת תמונות ו-PDF</a><a class="pchip" href="#api-messaging" title="תזכורת יומית במייל למשימה שהגיע מועדה">הודעות: מייל, SMS ו-WhatsApp</a><a class="pchip" href="#api-google_workspace" title="כפתור הוסף ליומן שפותח אירוע ממולא">Google: יומן, Sheets ו-Gmail</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-google_workspace" title="כתיבה אוטומטית ליומן או קובץ ics (אם יישאר זמן)">Google: יומן, Sheets ו-Gmail</a></div></div><div class="prow"><b>SafeRide</b><div><span class="pl">חובה</span><a class="pchip" href="#api-messaging" title="התראות ותזכורות במייל להורים, כולל ביטול הסעה">הודעות: מייל, SMS ו-WhatsApp</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-maps" title="חישוב קרבה ומסלול בין בתים (מחוץ לגרסת הקורס)">מפות ומקומות</a><a class="pchip" href="#api-messaging" title="WhatsApp או SMS להורים (מחוץ לגרסת הקורס)">הודעות: מייל, SMS ו-WhatsApp</a></div></div><div class="prow"><b>סטודיו פיטנה</b><div><span class="pl">חובה</span><a class="pchip" href="#api-messaging" title="הודעה למנהלת ולעובדת כשמורה מבטלת שיעור, ותזכורת שבועית">הודעות: מייל, SMS ו-WhatsApp</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-business_systems" title="הצגת לוח השיעורים או הרשמה מתוך Arbox (הרחבה)">מערכות עסקיות</a></div></div><div class="prow"><b>Doctor in Greece</b><div><span class="pl">חובה</span><a class="pchip" href="#api-translation" title="זיהוי שפת התייר, סיכום מובנה בעברית ובאנגלית והצעת תחום התמחות">תרגום</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-stt" title="תמלול שיחה וקליטת פרטים בקול (נשלל לקורס)">דיבור לטקסט</a><a class="pchip" href="#api-realtime" title="תרגום קולי בזמן אמת בין הנציגה לתייר (נשלל לקורס)">שיחה קולית בזמן אמת</a><a class="pchip" href="#api-messaging" title="הודעה לרופא כשמשייכים לו פנייה">הודעות: מייל, SMS ו-WhatsApp</a></div></div><div class="prow"><b>VIP בשדה התעופה</b><div><span class="pl">חובה</span><a class="pchip" href="#api-messaging" title="מייל ללקוח עם אישור ההזמנה ושעת המפגש">הודעות: מייל, SMS ו-WhatsApp</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-flights" title="בדיקת קיום טיסה ושינויים בשעת הטיסה">טיסות</a></div></div><div class="prow"><b>Yalla Trip</b><div><span class="pl">חובה</span><a class="pchip" href="#api-maps" title="שעות פתיחה, תמונות ודירוג שירות של מקומות">מפות ומקומות</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-israel_data" title="התרעות פיקוד העורף לאזור המסלול (ירד לגרסת הקורס)">מידע ציבורי בישראל</a><a class="pchip" href="#api-weather" title="מזג אוויר ועומס חום במסך הראשי">מזג אוויר</a><a class="pchip" href="#api-maps" title="Street View וזיהוי ביקורות מזויפות (מחוץ לגרסת הקורס)">מפות ומקומות</a><a class="pchip" href="#api-messaging" title="התראות Push (מחוץ לגרסת הקורס)">הודעות: מייל, SMS ו-WhatsApp</a></div></div><div class="prow"><b>WIZEROLL</b><div><span class="pl">חובה</span><a class="pchip" href="#api-messaging" title="מייל ללקוח עם תשובת ההתאמה, התראה ותזכורות לבעל העסק">הודעות: מייל, SMS ו-WhatsApp</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-video" title="סרטון תדמית שנוצר ב-AI (נכס תוכן, לא בזמן ריצה)">יצירת וידאו</a><a class="pchip" href="#api-other_common" title="תצוגת מוצר ב-360 מעלות">עוד שימושיים</a></div></div><div class="prow"><b>Unfold Diary</b><div><span class="pl">חובה</span><a class="pchip" href="#api-moderation" title="דגל אדום על תוכן חמור בצ׳ק-אין">סינון תוכן</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-messaging" title="שליחת צ׳ק-אין וסיכום שבועי (ירד בדמו)">הודעות: מייל, SMS ו-WhatsApp</a></div></div><div class="prow"><b>Smart Occupancy</b><div><span class="pl">חובה</span><span class="none">אין</span></div><div><span class="pl">רשות</span><a class="pchip" href="#api-other_common" title="חיבור לסניף בסריקת QR מהדפדפן">עוד שימושיים</a></div></div><div class="prow"><b>סגרנו?</b><div><span class="pl">חובה</span><a class="pchip" href="#api-vision_docs" title="קריאת צילום קבלה לפריטים וסכומים">קריאת תמונות ו-PDF</a><a class="pchip" href="#api-messaging" title="שיתוף סיכום החוב לוואטסאפ">הודעות: מייל, SMS ו-WhatsApp</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-other_common" title="המרת מטבע ועדכון שער (ירד)">עוד שימושיים</a></div></div><div class="prow"><b>Unhyped</b><div><span class="pl">חובה</span><a class="pchip" href="#api-llm" title="פייפליין של שני מודלים: מסנן זול וכותב חזק">מודלי שפה</a><a class="pchip" href="#api-news_feeds" title="איסוף ידיעות ממקורות חינמיים לדמו">חדשות ופידים</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-news_feeds" title="איסוף מ-X (רק במוצר האמיתי)">חדשות ופידים</a><a class="pchip" href="#api-tts" title="פודקאסט יומי בשני קולות (ירד, מודגם ידנית)">טקסט לדיבור</a><a class="pchip" href="#api-embeddings" title="איחוד ידיעות כפולות לסיפור אחד">Embeddings ו-RAG</a><a class="pchip" href="#api-messaging" title="שליחת התדריך היומי">הודעות: מייל, SMS ו-WhatsApp</a></div></div><div class="prow"><b>מערכת מכרזים</b><div><span class="pl">חובה</span><a class="pchip" href="#api-vision_docs" title="קריאת PDF של מכרז בעברית וחילוץ דרישות עם עמוד, סעיף וציטוט">קריאת תמונות ו-PDF</a></div><div><span class="pl">רשות</span><a class="pchip" href="#api-other_common" title="חילוץ טקסט מ-PDF בקוד כמסלול גיבוי">עוד שימושיים</a><a class="pchip" href="#api-vision_docs" title="OCR למכרזים סרוקים (מחוץ ל-MVP)">קריאת תמונות ו-PDF</a></div></div></div>
+<div class="tip"><b>הכי נפוץ: מייל.</b> כמעט כל פרויקט שולח תזכורת או התראה. בקורס זה Gmail דרך n8n, לכתובות בדיקה. ברוב הפרויקטים, קריאת תמונה או PDF נעשית במודל ברירת המחדל, בלי מפתח נוסף.</div>
+</div></details>
+<div class="label api-gl">מודלים ו-AI</div>
+<details class="err more api-cat" id="api-llm"><summary><span class="pm">+</span><u>מודלי שפה</u><span class="cnt">8</span></summary><div>
+<p class="api-when">טקסט פנימה, טקסט החוצה: ניסוח, סיווג, חילוץ, סיכום. כאן מתחילים.</p>
+<div class="api-list">
+<article class="api" data-q="מודלי שפה openai responses api צ&#x27;אט, סיכום, כתיבה וקריאה לכלים, דרך endpoint אחד gpt-6-luna הוא הזול ביותר ומספיק לרוב התרגילים; ה-sdk קורא את המפתח ממשתנה סביבה, ולכן הוא יושב רק ב-vercel. לא מצוין gpt-6-luna gpt-6.1-sol gpt-6-astra">
+<div class="api-h"><b>OpenAI</b><span>Responses API</span></div>
+<p class="api-use">צ&#x27;אט, סיכום, כתיבה וקריאה לכלים, דרך endpoint אחד</p>
+<p class="api-models"><code>gpt-6-luna</code><code>gpt-6.1-sol</code><code>gpt-6-astra</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">gpt-6-luna: $0.10 in / $0.50 out; gpt-6.1-sol: $2.00 in / $10.00 out; gpt-6-astra: $10.00 in / $50.00 out (per 1M tokens, Standard tier)</dd></dl>
+<p class="api-note">gpt-6-luna הוא הזול ביותר ומספיק לרוב התרגילים; ה-SDK קורא את המפתח ממשתנה סביבה, ולכן הוא יושב רק ב-Vercel.</p>
+<div class="api-links"><a href="https://developers.openai.com/api/docs/quickstart" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.openai.com/api/docs/api-reference/responses" target="_blank" rel="noopener">API Reference</a><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="מודלי שפה google gemini api (ai studio) מודל כללי זול עם שכבה חינמית, מקבל גם תמונות, אודיו, וידאו ו-pdf הדרך הזולה להתחיל בלי כרטיס אשראי, אבל לא שולחים בשכבה החינמית מידע של לקוחות; המחיר של gemini-3.8-flash מוכפל ב-1.1.2027. לא מצוין (ישראל מופיעה ברשימת האזורים הזמינים) gemini-3.1-flash-lite gemini-3.5-flash-lite gemini-3.8-flash">
+<div class="api-h"><b>Google</b><span>Gemini API (AI Studio)</span></div>
+<p class="api-use">מודל כללי זול עם שכבה חינמית, מקבל גם תמונות, אודיו, וידאו ו-PDF</p>
+<p class="api-models"><code>gemini-3.1-flash-lite</code><code>gemini-3.5-flash-lite</code><code>gemini-3.8-flash</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">gemini-3.1-flash-lite: $0.25 in / $1.50 out; gemini-3.5-flash-lite: $0.30 in / $2.50 out; gemini-3.8-flash: $0.75 in / $3.75 out until 31.12.2026, then $1.50 in / $7.50 out (per 1M tokens, paid tier)</dd><dt>בחינם</dt><dd>שכבה חינמית ב-AI Studio למודלי Flash ו-Flash-Lite, עם מגבלות קצב; בשכבה החינמית התוכן משמש לשיפור המוצרים של Google, בשכבה בתשלום לא</dd></dl>
+<p class="api-note">הדרך הזולה להתחיל בלי כרטיס אשראי, אבל לא שולחים בשכבה החינמית מידע של לקוחות; המחיר של gemini-3.8-flash מוכפל ב-1.1.2027.</p>
+<div class="api-links"><a href="https://ai.google.dev/gemini-api/docs/quickstart" target="_blank" rel="noopener">תיעוד</a><a href="https://ai.google.dev/api" target="_blank" rel="noopener">API Reference</a><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="מודלי שפה anthropic claude api (messages) כתיבה, ניתוח מסמכים ארוכים, קוד וסוכנים יש תקרת הוצאה חודשית לפי דרגת שימוש (בדרגת start: $500); ב-haiku המחיר קופץ פי 5 כשהפרומפט עובר 100k טוקנים. עברית לא ברשימת השפות שנמדדו; לפי התיעוד claude עובד ברוב השפות שנכתבות ב-unicode claude-haiku-5-5 claude-sonnet-5-5 claude-opus-5-5">
+<div class="api-h"><b>Anthropic</b><span>Claude API (Messages)</span></div>
+<p class="api-use">כתיבה, ניתוח מסמכים ארוכים, קוד וסוכנים</p>
+<p class="api-models"><code>claude-haiku-5-5</code><code>claude-sonnet-5-5</code><code>claude-opus-5-5</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">claude-haiku-5-5: $0.10 in / $0.50 out for prompts up to 100K tokens, $0.50 in / $2.50 out above; claude-sonnet-5-5: $2 in / $10 out; claude-opus-5-5: $4 in / $20 out (per 1M tokens)</dd><dt>עברית</dt><dd>עברית לא ברשימת השפות שנמדדו; לפי התיעוד Claude עובד ברוב השפות שנכתבות ב-Unicode</dd></dl>
+<p class="api-note">יש תקרת הוצאה חודשית לפי דרגת שימוש (בדרגת Start: $500); ב-Haiku המחיר קופץ פי 5 כשהפרומפט עובר 100K טוקנים.</p>
+<div class="api-links"><a href="https://platform.claude.com/docs/en/get-started" target="_blank" rel="noopener">תיעוד</a><a href="https://platform.claude.com/docs/en/api/overview" target="_blank" rel="noopener">API Reference</a><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://platform.claude.com/settings/keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="מודלי שפה mistral ai mistral studio api מודלים אירופיים זולים לטקסט, עם ocr, embeddings ו-moderation באותו מפתח large 4 זול יותר מ-medium 3.5, אז שווה לנסות אותו קודם; המפתח נוצר בקונסולה תחת api keys. כן, עברית מופיעה ברשימת השפות של מודלי השפה של mistral mistral-small-2603 mistral-large-4">
+<div class="api-h"><b>Mistral AI</b><span>Mistral Studio API</span></div>
+<p class="api-use">מודלים אירופיים זולים לטקסט, עם OCR, Embeddings ו-Moderation באותו מפתח</p>
+<p class="api-models"><code>mistral-small-2603</code><code>mistral-large-4</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">mistral-small-2603 (Small 4): $0.15 in / $0.60 out; mistral-large-4: $1.36 in / $4.18 out; Mistral Medium 3.5: $1.50 in / $7.50 out (per 1M tokens)</dd><dt>בחינם</dt><dd>מצב Free עם גישת API בלי כרטיס אשראי, במגבלות שימוש וקצב</dd><dt>עברית</dt><dd>כן, עברית מופיעה ברשימת השפות של מודלי השפה של Mistral</dd></dl>
+<p class="api-note">Large 4 זול יותר מ-Medium 3.5, אז שווה לנסות אותו קודם; המפתח נוצר בקונסולה תחת API Keys.</p>
+<div class="api-links"><a href="https://docs.mistral.ai/getting-started/quickstart" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.mistral.ai/api" target="_blank" rel="noopener">API Reference</a><a href="https://docs.mistral.ai/inference/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://console.mistral.ai" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="מודלי שפה xai grok api מודלי grok עם חלון הקשר ארוך וחיפוש מובנה ב-x ובאינטרנט גם הכלים בתשלום: web_search עולה $5 לכל 1,000 קריאות. לא מצוין grok-4.3 grok-4.7">
+<div class="api-h"><b>xAI</b><span>Grok API</span></div>
+<p class="api-use">מודלי Grok עם חלון הקשר ארוך וחיפוש מובנה ב-X ובאינטרנט</p>
+<p class="api-models"><code>grok-4.3</code><code>grok-4.7</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">grok-4.3: $1.25 in / $2.50 out; grok-4.7: $2.00 in / $6.00 out (per 1M tokens; a prompt of 200K tokens or more is billed at long-context rates for the whole request)</dd><dt>בחינם</dt><dd>לא מצוין; צריך לטעון קרדיט כדי להתחיל</dd></dl>
+<p class="api-note">גם הכלים בתשלום: web_search עולה $5 לכל 1,000 קריאות.</p>
+<div class="api-links"><a href="https://docs.x.ai/developers/quickstart" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.x.ai/developers/rest-api-reference/inference" target="_blank" rel="noopener">API Reference</a><a href="https://docs.x.ai/developers/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://console.x.ai/team/default/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="מודלי שפה deepseek deepseek api מודל זול מאוד שתואם ל-sdk של openai מחוץ לשעות השיא (01:00-04:00 ו-06:00-10:00 utc בימי חול) המחיר חצי; התיעוד לא מציין איפה נשמר המידע, אז לא שולחים מידע רגיש של לקוחות. לא מצוין deepseek-flash deepseek-v4-pro">
+<div class="api-h"><b>DeepSeek</b><span>DeepSeek API</span></div>
+<p class="api-use">מודל זול מאוד שתואם ל-SDK של OpenAI</p>
+<p class="api-models"><code>deepseek-flash</code><code>deepseek-v4-pro</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">deepseek-flash: $0.30 in (cache miss) / $1.20 out at peak, $0.15 / $0.60 off-peak; deepseek-v4-pro: $1.32 / $3.96 at peak, $0.66 / $1.98 off-peak (per 1M tokens)</dd><dt>בחינם</dt><dd>לא מצוין; החיוב יורד מיתרה שנטענה מראש או מיתרה שהוענקה</dd></dl>
+<p class="api-note">מחוץ לשעות השיא (01:00-04:00 ו-06:00-10:00 UTC בימי חול) המחיר חצי; התיעוד לא מציין איפה נשמר המידע, אז לא שולחים מידע רגיש של לקוחות.</p>
+<div class="api-links"><a href="https://api-docs.deepseek.com/" target="_blank" rel="noopener">תיעוד</a><a href="https://api-docs.deepseek.com/api/create-chat-completion" target="_blank" rel="noopener">API Reference</a><a href="https://api-docs.deepseek.com/quick_start/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://platform.deepseek.com/api_keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="מודלי שפה groq groqcloud api הרצה מהירה מאוד של מודלים פתוחים, לצ&#x27;אט שחייב תשובה מיידית תואם ל-sdk של openai; מודלים שמסומנים preview מיועדים לניסוי בלבד ולא לפרודקשן. לא מצוין openai/gpt-oss-20b openai/gpt-oss-120b">
+<div class="api-h"><b>Groq</b><span>GroqCloud API</span></div>
+<p class="api-use">הרצה מהירה מאוד של מודלים פתוחים, לצ&#x27;אט שחייב תשובה מיידית</p>
+<p class="api-models"><code>openai/gpt-oss-20b</code><code>openai/gpt-oss-120b</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">openai/gpt-oss-20b: $0.075 in / $0.30 out; openai/gpt-oss-120b: $0.15 in / $0.60 out (per 1M tokens)</dd><dt>בחינם</dt><dd>יש תוכנית Free עם מגבלות קצב; שדרוג לתוכנית Developer מעלה את המגבלות</dd></dl>
+<p class="api-note">תואם ל-SDK של OpenAI; מודלים שמסומנים Preview מיועדים לניסוי בלבד ולא לפרודקשן.</p>
+<div class="api-links"><a href="https://console.groq.com/docs/quickstart" target="_blank" rel="noopener">תיעוד</a><a href="https://console.groq.com/docs/api-reference" target="_blank" rel="noopener">API Reference</a><a href="https://console.groq.com/docs/models" target="_blank" rel="noopener">מחירון</a><a href="https://console.groq.com/keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="מודלי שפה openrouter openrouter api (אגרגטור) מפתח אחד למאות מודלים מספקים שונים, כדי להשוות ולהחליף מודל בלי לשנות קוד תואם ל-sdk של openai (base url: https://openrouter.ai/api/v1); אפשר להגדיר תקרת קרדיט לכל מפתח, ומפתח בלי תקרה אסור שיגיע לקוד צד לקוח. תלוי במודל שבוחרים openrouter/auto deepseek/deepseek-v4.1-flash-1017">
+<div class="api-h"><b>OpenRouter</b><span>OpenRouter API (אגרגטור)</span></div>
+<p class="api-use">מפתח אחד למאות מודלים מספקים שונים, כדי להשוות ולהחליף מודל בלי לשנות קוד</p>
+<p class="api-models"><code>openrouter/auto</code><code>deepseek/deepseek-v4.1-flash-1017</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Model prices passed through with no markup, plus a 5.5% platform fee (Standard pay-as-you-go). Example: deepseek/deepseek-v4.1-flash-1017: $0.06 in / $0.60 out per 1M tokens; openrouter/auto is billed at the rate of the model it picks</dd><dt>בחינם</dt><dd>יש מודלים חינמיים (סיומת :free), עד 50 בקשות ביום; אחרי רכישה של 10 קרדיטים לפחות, עד 1,000 בקשות ביום</dd><dt>עברית</dt><dd>תלוי במודל שבוחרים</dd></dl>
+<p class="api-note">תואם ל-SDK של OpenAI (base URL: https://openrouter.ai/api/v1); אפשר להגדיר תקרת קרדיט לכל מפתח, ומפתח בלי תקרה אסור שיגיע לקוד צד לקוח.</p>
+<div class="api-links"><a href="https://openrouter.ai/docs/quickstart" target="_blank" rel="noopener">תיעוד</a><a href="https://openrouter.ai/docs/api-reference/overview" target="_blank" rel="noopener">API Reference</a><a href="https://openrouter.ai/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://openrouter.ai/keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-vision_docs"><summary><span class="pm">+</span><u>קריאת תמונות ו-PDF</u><span class="cnt">5</span></summary><div>
+<p class="api-when">צילום קבלה, מסמך סרוק, מכרז ארוך. ברוב המקרים מודל השפה עושה את זה בעצמו.</p>
+<div class="api-list">
+<article class="api" data-q="קריאת תמונות ו-pdf google gemini api: תמונות ו-pdf שאלות על תמונה או pdf שלם, חילוץ טבלאות ושדות עד 50mb או 1,000 עמודים לקובץ pdf; קבצים שעולים דרך files api נשמרים 48 שעות. לא מצוין gemini-3.5-flash-lite gemini-3.8-flash">
+<div class="api-h"><b>Google</b><span>Gemini API: תמונות ו-PDF</span></div>
+<p class="api-use">שאלות על תמונה או PDF שלם, חילוץ טבלאות ושדות</p>
+<p class="api-models"><code>gemini-3.5-flash-lite</code><code>gemini-3.8-flash</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Each PDF page counts as 258 tokens; gemini-3.5-flash-lite: $0.30 in / $2.50 out per 1M tokens (paid tier)</dd><dt>בחינם</dt><dd>שכבה חינמית ב-AI Studio עם מגבלות קצב; התוכן בשכבה החינמית משמש לשיפור המוצרים של Google</dd></dl>
+<p class="api-note">עד 50MB או 1,000 עמודים לקובץ PDF; קבצים שעולים דרך Files API נשמרים 48 שעות.</p>
+<div class="api-links"><a href="https://ai.google.dev/gemini-api/docs/document-processing" target="_blank" rel="noopener">תיעוד</a><a href="https://ai.google.dev/api" target="_blank" rel="noopener">API Reference</a><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="קריאת תמונות ו-pdf openai responses api: קלט תמונה וקובץ ניתוח תמונות, צילומי מסך וקבצי pdf בתוך אותה קריאה למודל עד 50mb לקובץ ו-50mb לכל הבקשה; pdf נשלח גם כטקסט וגם כתמונות עמודים, ולכן צורך יותר טוקנים מטקסט רגיל. לא מצוין gpt-6-luna gpt-6.1-sol">
+<div class="api-h"><b>OpenAI</b><span>Responses API: קלט תמונה וקובץ</span></div>
+<p class="api-use">ניתוח תמונות, צילומי מסך וקבצי PDF בתוך אותה קריאה למודל</p>
+<p class="api-models"><code>gpt-6-luna</code><code>gpt-6.1-sol</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Billed as tokens (extracted text plus page images); gpt-6-luna: $0.10 in / $0.50 out per 1M tokens</dd></dl>
+<p class="api-note">עד 50MB לקובץ ו-50MB לכל הבקשה; PDF נשלח גם כטקסט וגם כתמונות עמודים, ולכן צורך יותר טוקנים מטקסט רגיל.</p>
+<div class="api-links"><a href="https://developers.openai.com/api/docs/guides/pdf-files" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.openai.com/api/docs/api-reference/responses" target="_blank" rel="noopener">API Reference</a><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="קריאת תמונות ו-pdf anthropic claude api: pdf support קריאת pdf כולל גרפים וטבלאות, עם ציטוט מהמסמך עד 32mb ו-600 עמודים לבקשה (100 עמודים כשחלון ההקשר קטן מ-1m); pdf עם סיסמה או הצפנה לא נתמך. לא מצוין claude-haiku-5-5 claude-sonnet-5-5">
+<div class="api-h"><b>Anthropic</b><span>Claude API: PDF support</span></div>
+<p class="api-use">קריאת PDF כולל גרפים וטבלאות, עם ציטוט מהמסמך</p>
+<p class="api-models"><code>claude-haiku-5-5</code><code>claude-sonnet-5-5</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">No extra PDF fee: about 1,500-3,000 text tokens per page plus image tokens, at the model&#x27;s rate (claude-haiku-5-5: $0.10 in / $0.50 out per 1M tokens)</dd></dl>
+<p class="api-note">עד 32MB ו-600 עמודים לבקשה (100 עמודים כשחלון ההקשר קטן מ-1M); PDF עם סיסמה או הצפנה לא נתמך.</p>
+<div class="api-links"><a href="https://platform.claude.com/docs/en/build-with-claude/pdf-support" target="_blank" rel="noopener">תיעוד</a><a href="https://platform.claude.com/docs/en/api/overview" target="_blank" rel="noopener">API Reference</a><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://platform.claude.com/settings/keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="קריאת תמונות ו-pdf mistral ai mistral ocr המרת pdf, סריקות ותמונות ל-markdown מסודר, לפני rag מקבל pdf, תמונות, docx ו-pptx, כקישור, כ-base64 או כקובץ שהועלה. כן, עברית מופיעה ברשימת השפות של ה-ocr של mistral mistral-ocr-latest mistral-ocr-4-1">
+<div class="api-h"><b>Mistral AI</b><span>Mistral OCR</span></div>
+<p class="api-use">המרת PDF, סריקות ותמונות ל-Markdown מסודר, לפני RAG</p>
+<p class="api-models"><code>mistral-ocr-latest</code><code>mistral-ocr-4-1</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">OCR 4.1: $4 per 1,000 pages ($5 per 1,000 annotated pages); OCR 3: $2 per 1,000 pages</dd><dt>בחינם</dt><dd>מצב Free של Mistral Studio, במגבלות שימוש וקצב</dd><dt>עברית</dt><dd>כן, עברית מופיעה ברשימת השפות של ה-OCR של Mistral</dd></dl>
+<p class="api-note">מקבל PDF, תמונות, DOCX ו-PPTX, כקישור, כ-Base64 או כקובץ שהועלה.</p>
+<div class="api-links"><a href="https://docs.mistral.ai/capabilities/document_ai/basic_ocr" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.mistral.ai/api" target="_blank" rel="noopener">API Reference</a><a href="https://docs.mistral.ai/inference/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://console.mistral.ai" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="קריאת תמונות ו-pdf google cloud document ai: enterprise document ocr ocr ארגוני לסריקות בכמות גדולה, עם מיקום מדויק של כל מילה אין מפתח api פשוט: צריך פרויקט google cloud עם חיוב וחשבון שירות (service account); בקשה מקוונת מוגבלת ל-15 עמודים. כן לטקסט מודפס (קוד iw); כתב יד בעברית לא מסומן כנתמך pretrained-ocr-v2.1-2024-08-07">
+<div class="api-h"><b>Google Cloud</b><span>Document AI: Enterprise Document OCR</span></div>
+<p class="api-use">OCR ארגוני לסריקות בכמות גדולה, עם מיקום מדויק של כל מילה</p>
+<p class="api-models"><code>pretrained-ocr-v2.1-2024-08-07</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">$1.50 per 1,000 pages (1 to 5,000,000 pages/month), $0.60 per 1,000 pages above; OCR add-ons: $6 per 1,000 pages</dd><dt>בחינם</dt><dd>אין שכבה חינמית ייעודית; לחשבון Google Cloud חדש מוצע קרדיט כללי של $300</dd><dt>עברית</dt><dd>כן לטקסט מודפס (קוד iw); כתב יד בעברית לא מסומן כנתמך</dd></dl>
+<p class="api-note">אין מפתח API פשוט: צריך פרויקט Google Cloud עם חיוב וחשבון שירות (service account); בקשה מקוונת מוגבלת ל-15 עמודים.</p>
+<div class="api-links"><a href="https://docs.cloud.google.com/document-ai/docs/setup" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.cloud.google.com/document-ai/docs/reference/rest/v1/projects.locations.processors/process" target="_blank" rel="noopener">API Reference</a><a href="https://cloud.google.com/document-ai/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-embeddings"><summary><span class="pm">+</span><u>Embeddings ו-RAG</u><span class="cnt">6</span></summary><div>
+<p class="api-when">חיפוש לפי משמעות במסמכים שלכם. רק כשהמסמכים לא נכנסים לפרומפט אחד.</p>
+<div class="api-list">
+<article class="api" data-q="embeddings ו-rag openai embeddings api הפיכת טקסט לווקטור לחיפוש סמנטי ו-rag small מחזיר 1536 ממדים כברירת מחדל; בוחרים מודל אחד ונשארים איתו, כי וקטורים ממודלים שונים לא ניתנים להשוואה. לא מצוין בשמה; התיעוד מציין ביצועים רב-לשוניים משופרים text-embedding-3-small text-embedding-3-large">
+<div class="api-h"><b>OpenAI</b><span>Embeddings API</span></div>
+<p class="api-use">הפיכת טקסט לווקטור לחיפוש סמנטי ו-RAG</p>
+<p class="api-models"><code>text-embedding-3-small</code><code>text-embedding-3-large</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">text-embedding-3-small: $0.02 per 1M tokens; text-embedding-3-large: $0.13 per 1M tokens</dd></dl>
+<p class="api-note">small מחזיר 1536 ממדים כברירת מחדל; בוחרים מודל אחד ונשארים איתו, כי וקטורים ממודלים שונים לא ניתנים להשוואה.</p>
+<div class="api-links"><a href="https://developers.openai.com/api/docs/guides/embeddings" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.openai.com/api/docs/api-reference/embeddings" target="_blank" rel="noopener">API Reference</a><a href="https://developers.openai.com/api/docs/models/text-embedding-3-small" target="_blank" rel="noopener">מחירון</a><a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="embeddings ו-rag google gemini api: embeddings embeddings רב-מודליים לטקסט, תמונות, אודיו, וידאו ו-pdf gemini-embedding-2 מקבל עד 8,192 טוקנים, עם ממדים גמישים מ-128 עד 3072 (מומלץ 768, 1536 או 3072). לא מצוין בשמה; המודל תומך ביותר מ-100 שפות gemini-embedding-2 gemini-embedding-001">
+<div class="api-h"><b>Google</b><span>Gemini API: Embeddings</span></div>
+<p class="api-use">Embeddings רב-מודליים לטקסט, תמונות, אודיו, וידאו ו-PDF</p>
+<p class="api-models"><code>gemini-embedding-2</code><code>gemini-embedding-001</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd>לא אומת (סעיף ה-Embedding בעמוד התמחור לא נטען); Batch עולה 50% מהמחיר הרגיל</dd><dt>בחינם</dt><dd>לא אומת</dd></dl>
+<p class="api-note">gemini-embedding-2 מקבל עד 8,192 טוקנים, עם ממדים גמישים מ-128 עד 3072 (מומלץ 768, 1536 או 3072).</p>
+<div class="api-links"><a href="https://ai.google.dev/gemini-api/docs/embeddings" target="_blank" rel="noopener">תיעוד</a><a href="https://ai.google.dev/api/embeddings" target="_blank" rel="noopener">API Reference</a><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="embeddings ו-rag cohere embed + rerank embeddings ודירוג מחדש של תוצאות חיפוש, לשיפור הדיוק של rag rerank הוא שלב שני: שולפים כמה עשרות קטעים מ-pgvector, ואז cohere מדרג מחדש ומחזיר את הרלוונטיים ביותר. כן ל-embed-multilingual-v3.0 (עברית ברשימת השפות); מודלי rerank 5 מוגדרים רב-לשוניים embed-v5.0-fast embed-multilingual-v3.0 rerank-v5.0-fast">
+<div class="api-h"><b>Cohere</b><span>Embed + Rerank</span></div>
+<p class="api-use">Embeddings ודירוג מחדש של תוצאות חיפוש, לשיפור הדיוק של RAG</p>
+<p class="api-models"><code>embed-v5.0-fast</code><code>embed-multilingual-v3.0</code><code>rerank-v5.0-fast</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd>לא אומת (עמוד התמחור מציג רק מחירי Model Vault לפי שעה)</dd><dt>בחינם</dt><dd>מפתח Trial חינמי: עד 1,000 קריאות בחודש, אסור לשימוש מסחרי או בפרודקשן</dd><dt>עברית</dt><dd>כן ל-embed-multilingual-v3.0 (עברית ברשימת השפות); מודלי Rerank 5 מוגדרים רב-לשוניים</dd></dl>
+<p class="api-note">Rerank הוא שלב שני: שולפים כמה עשרות קטעים מ-pgvector, ואז Cohere מדרג מחדש ומחזיר את הרלוונטיים ביותר.</p>
+<div class="api-links"><a href="https://docs.cohere.com/docs/reranking-quickstart" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.cohere.com/reference/about" target="_blank" rel="noopener">API Reference</a><a href="https://cohere.com/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://dashboard.cohere.com/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="embeddings ו-rag voyage ai embeddings + rerankers embeddings ו-rerank איכותיים לחיפוש ו-rag, עם מכסה חינמית גדולה embeddings ו-rerank באותו מפתח; המכסה החינמית מספיקה בקלות לפרויקט של הקורס. לא מצוין; voyage-4 ו-voyage-4-large מוגדרים רב-לשוניים voyage-4-lite voyage-4 rerank-2.5-lite">
+<div class="api-h"><b>Voyage AI</b><span>Embeddings + Rerankers</span></div>
+<p class="api-use">Embeddings ו-Rerank איכותיים לחיפוש ו-RAG, עם מכסה חינמית גדולה</p>
+<p class="api-models"><code>voyage-4-lite</code><code>voyage-4</code><code>rerank-2.5-lite</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">voyage-4-lite: $0.02; voyage-4: $0.06; voyage-4-large: $0.12; rerank-2.5-lite: $0.02; rerank-2.5: $0.05 (per 1M tokens)</dd><dt>בחינם</dt><dd>200 מיליון טוקנים חינם לחשבון למודלי voyage-4 (בעמוד התמחור יש סתירה לגבי המכסה החינמית של ה-Rerankers)</dd></dl>
+<p class="api-note">Embeddings ו-Rerank באותו מפתח; המכסה החינמית מספיקה בקלות לפרויקט של הקורס.</p>
+<div class="api-links"><a href="https://docs.voyageai.com/docs/quickstart-tutorial" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.voyageai.com/reference" target="_blank" rel="noopener">API Reference</a><a href="https://docs.voyageai.com/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://dashboard.voyageai.com/organization/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="embeddings ו-rag mistral ai mistral embed embeddings זולים לטקסט, באותו מפתח של mistral מחזיר וקטור של 1024 ממדים; כדאי אם כבר עובדים עם mistral. לא מצוין mistral-embed">
+<div class="api-h"><b>Mistral AI</b><span>Mistral Embed</span></div>
+<p class="api-use">Embeddings זולים לטקסט, באותו מפתח של Mistral</p>
+<p class="api-models"><code>mistral-embed</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">mistral-embed: $0.10 per 1M tokens</dd><dt>בחינם</dt><dd>מצב Free של Mistral Studio, במגבלות שימוש וקצב</dd></dl>
+<p class="api-note">מחזיר וקטור של 1024 ממדים; כדאי אם כבר עובדים עם Mistral.</p>
+<div class="api-links"><a href="https://docs.mistral.ai/studio/knowledge-rag/embeddings/text_embeddings" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.mistral.ai/api" target="_blank" rel="noopener">API Reference</a><a href="https://docs.mistral.ai/inference/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://console.mistral.ai" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="embeddings ו-rag supabase ai &amp; vectors (pgvector) צד האחסון: שמירת הווקטורים וחיפוש דמיון בתוך מסד הנתונים של הפרויקט אין מפתח נפרד: מפעילים את התוסף vector בלוח הבקרה (database, extensions) ומשתמשים במפתחות של הפרויקט מתוך ה-vercel function. לא רלוונטי: pgvector שומר וקטורים, והשפה תלויה במודל ה-embedding vector">
+<div class="api-h"><b>Supabase</b><span>AI &amp; Vectors (pgvector)</span></div>
+<p class="api-use">צד האחסון: שמירת הווקטורים וחיפוש דמיון בתוך מסד הנתונים של הפרויקט</p>
+<p class="api-models"><code>vector</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Included in the Supabase plan: Free (500 MB database per project, 2 active projects), Pro $25/month</dd><dt>בחינם</dt><dd>כן, כלול בתוכנית Free של Supabase (500MB למסד לכל פרויקט; פרויקט לא פעיל מושהה אחרי שבוע)</dd><dt>עברית</dt><dd>לא רלוונטי: pgvector שומר וקטורים, והשפה תלויה במודל ה-Embedding</dd></dl>
+<p class="api-note">אין מפתח נפרד: מפעילים את התוסף vector בלוח הבקרה (Database, Extensions) ומשתמשים במפתחות של הפרויקט מתוך ה-Vercel Function.</p>
+<div class="api-links"><a href="https://supabase.com/docs/guides/ai" target="_blank" rel="noopener">תיעוד</a><a href="https://supabase.com/docs/guides/database/extensions/pgvector" target="_blank" rel="noopener">API Reference</a><a href="https://supabase.com/pricing" target="_blank" rel="noopener">מחירון</a></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-web_search"><summary><span class="pm">+</span><u>חיפוש ואיסוף מהרשת</u><span class="cnt">10</span></summary><div>
+<p class="api-when">תשובות עם מקורות עדכניים, או קריאת דף אינטרנט לתוך המודל.</p>
+<div class="api-list">
+<article class="api" data-q="חיפוש ואיסוף מהרשת tavily tavily search api חיפוש שנבנה לסוכני ai, מחזיר תוצאות נקיות ותקצירים מחזיר תוצאות מוכנות למודל, בלי לנקות html; עדיף להתחיל ב-basic שעולה קרדיט אחד. לא מצוין search (basic) search (advanced) extract">
+<div class="api-h"><b>Tavily</b><span>Tavily Search API</span></div>
+<p class="api-use">חיפוש שנבנה לסוכני AI, מחזיר תוצאות נקיות ותקצירים</p>
+<p class="api-models"><code>search (basic)</code><code>search (advanced)</code><code>extract</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Pay-as-you-go $0.008 per credit; basic search = 1 credit, advanced search = 2 credits, extract = 1 credit per 5 URLs; Project plan $30/month for 4,000 credits</dd><dt>בחינם</dt><dd>1,000 קרדיטים בחודש, בלי כרטיס אשראי</dd></dl>
+<p class="api-note">מחזיר תוצאות מוכנות למודל, בלי לנקות HTML; עדיף להתחיל ב-basic שעולה קרדיט אחד.</p>
+<div class="api-links"><a href="https://docs.tavily.com/documentation/quickstart" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.tavily.com/documentation/api-reference/endpoint/search" target="_blank" rel="noopener">API Reference</a><a href="https://docs.tavily.com/documentation/api-credits" target="_blank" rel="noopener">מחירון</a><a href="https://app.tavily.com" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="חיפוש ואיסוף מהרשת exa exa search api חיפוש סמנטי ברשת, עם אפשרות לקבל את תוכן העמודים באותה קריאה lite מספיק לרוב הסוכנים; deep איטי ויקר יותר ומתאים למחקר. לא מצוין lite search auto search deep search">
+<div class="api-h"><b>Exa</b><span>Exa Search API</span></div>
+<p class="api-use">חיפוש סמנטי ברשת, עם אפשרות לקבל את תוכן העמודים באותה קריאה</p>
+<p class="api-models"><code>Lite Search</code><code>Auto Search</code><code>Deep Search</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Per 1k requests (up to 10 results): Lite $4, Auto $7, Deep $12; +$1 per 1k requests for each result above 10; Contents $1 per 1k pages; Answer $5 per 1k requests</dd><dt>בחינם</dt><dd>$10 קרדיט בכל חודש ועוד $10 בהרשמה, בלי אמצעי תשלום</dd></dl>
+<p class="api-note">Lite מספיק לרוב הסוכנים; Deep איטי ויקר יותר ומתאים למחקר.</p>
+<div class="api-links"><a href="https://exa.ai/docs/search/quickstart" target="_blank" rel="noopener">תיעוד</a><a href="https://exa.ai/docs/reference/search" target="_blank" rel="noopener">API Reference</a><a href="https://exa.ai/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://dashboard.exa.ai/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="חיפוש ואיסוף מהרשת brave brave search api אינדקס חיפוש עצמאי עם תוצאות רשת רגילות, מתאים גם ל-rag צריך כרטיס אשראי כדי להפעיל תוכנית, גם בשביל הקרדיט החינמי; המפתח נשלח בכותרת x-subscription-token. לא מצוין search answers">
+<div class="api-h"><b>Brave</b><span>Brave Search API</span></div>
+<p class="api-use">אינדקס חיפוש עצמאי עם תוצאות רשת רגילות, מתאים גם ל-RAG</p>
+<p class="api-models"><code>Search</code><code>Answers</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Search: $5.00 per 1,000 requests; Answers: $4.00 per 1,000 queries + $5.00 per 1M input tokens and $5.00 per 1M output tokens</dd><dt>בחינם</dt><dd>$5 קרדיט חינם בכל חודש לכל תוכנית</dd></dl>
+<p class="api-note">צריך כרטיס אשראי כדי להפעיל תוכנית, גם בשביל הקרדיט החינמי; המפתח נשלח בכותרת X-Subscription-Token.</p>
+<div class="api-links"><a href="https://api-dashboard.search.brave.com/documentation/quickstart" target="_blank" rel="noopener">תיעוד</a><a href="https://api-dashboard.search.brave.com/documentation/services/web-search" target="_blank" rel="noopener">API Reference</a><a href="https://api-dashboard.search.brave.com/documentation/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://api-dashboard.search.brave.com/app/keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="חיפוש ואיסוף מהרשת perplexity search api + agent api חיפוש ברשת עם תוצאות מדורגות, או תשובה מנומקת עם מקורות דרך agent api התמיכה ב-sonar chat completions הסתיימה ב-27.9.2026; פרויקט חדש עובד עם agent api או עם search api. לא מצוין perplexity/sonar">
+<div class="api-h"><b>Perplexity</b><span>Search API + Agent API</span></div>
+<p class="api-use">חיפוש ברשת עם תוצאות מדורגות, או תשובה מנומקת עם מקורות דרך Agent API</p>
+<p class="api-models"><code>perplexity/sonar</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Search API: $5.00 per 1K requests ($1.00 with search_type fast); Agent API: model tokens + web_search $2.50 per 1,000 invocations; perplexity/sonar: $0.25 in / $2.50 out per 1M tokens</dd></dl>
+<p class="api-note">התמיכה ב-Sonar Chat Completions הסתיימה ב-27.9.2026; פרויקט חדש עובד עם Agent API או עם Search API.</p>
+<div class="api-links"><a href="https://docs.perplexity.ai/docs/search/quickstart" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.perplexity.ai/api-reference/search-post" target="_blank" rel="noopener">API Reference</a><a href="https://docs.perplexity.ai/docs/getting-started/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://console.perplexity.ai" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="חיפוש ואיסוף מהרשת firecrawl firecrawl api סריקת אתרים והפיכת עמודים ל-markdown נקי, כולל סריקה של אתר שלם מתאים לבניית בסיס ידע ל-rag מאתר של לקוח; לפני crawl מגבילים את מספר העמודים כדי לא לשרוף קרדיטים. לא מצוין scrape crawl search">
+<div class="api-h"><b>Firecrawl</b><span>Firecrawl API</span></div>
+<p class="api-use">סריקת אתרים והפיכת עמודים ל-Markdown נקי, כולל סריקה של אתר שלם</p>
+<p class="api-models"><code>scrape</code><code>crawl</code><code>search</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Scrape or crawl: 1 credit per page; search: 2 credits per 10 results; Hobby $19/month (5,000 credits, monthly billing), Standard $99/month (100,000 credits)</dd><dt>בחינם</dt><dd>1,000 קרדיטים בחודש בתוכנית Free</dd></dl>
+<p class="api-note">מתאים לבניית בסיס ידע ל-RAG מאתר של לקוח; לפני crawl מגבילים את מספר העמודים כדי לא לשרוף קרדיטים.</p>
+<div class="api-links"><a href="https://docs.firecrawl.dev/introduction" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.firecrawl.dev/api-reference/v2-introduction" target="_blank" rel="noopener">API Reference</a><a href="https://www.firecrawl.dev/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://www.firecrawl.dev/app/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="חיפוש ואיסוף מהרשת jina ai jina reader הופך כל כתובת לטקסט נקי למודל, פשוט על ידי הוספת r.jina.ai לפני ה-url הכי קל לניסוי ראשון, בלי הרשמה; החיפוש (s.jina.ai) דורש מפתח. לא מצוין r.jina.ai s.jina.ai">
+<div class="api-h"><b>Jina AI</b><span>Jina Reader</span></div>
+<p class="api-use">הופך כל כתובת לטקסט נקי למודל, פשוט על ידי הוספת r.jina.ai לפני ה-URL</p>
+<p class="api-models"><code>r.jina.ai</code><code>s.jina.ai</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd>לא אומת (העמוד אומר שהתמחור לפי טוקנים, אבל לא מציג מחיר); s.jina.ai costs from 10,000 tokens per request</dd><dt>בחינם</dt><dd>Reader עובד בלי מפתח עד 20 בקשות לדקה; כל מפתח חדש מקבל 10 מיליון טוקנים חינם</dd></dl>
+<p class="api-note">הכי קל לניסוי ראשון, בלי הרשמה; החיפוש (s.jina.ai) דורש מפתח.</p>
+<div class="api-links"><a href="https://jina.ai/reader/" target="_blank" rel="noopener">תיעוד</a><a href="https://jina.ai/reader/" target="_blank" rel="noopener">API Reference</a><a href="https://jina.ai/reader/" target="_blank" rel="noopener">מחירון</a><span class="nokey">לא אומת</span></div>
+</article>
+<article class="api" data-q="חיפוש ואיסוף מהרשת openai web search tool (responses api) חיפוש מובנה: המודל מחפש בעצמו ומחזיר תשובה עם מקורות משתמשים ב-type web_search ולא ב-web_search_preview הישן; התיעוד ממליץ על gpt-5.5 לחיפוש. לא מצוין web_search">
+<div class="api-h"><b>OpenAI</b><span>Web search tool (Responses API)</span></div>
+<p class="api-use">חיפוש מובנה: המודל מחפש בעצמו ומחזיר תשובה עם מקורות</p>
+<p class="api-models"><code>web_search</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">$10.00 per 1k calls + search content tokens billed at the model&#x27;s per-token rates</dd></dl>
+<p class="api-note">משתמשים ב-type web_search ולא ב-web_search_preview הישן; התיעוד ממליץ על gpt-5.5 לחיפוש.</p>
+<div class="api-links"><a href="https://developers.openai.com/api/docs/guides/tools-web-search" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.openai.com/api/docs/api-reference/responses" target="_blank" rel="noopener">API Reference</a><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="חיפוש ואיסוף מהרשת google grounding with google search (gemini api) חיבור תשובות gemini לתוצאות google search עם מקורות במודלי gemini 3 ומעלה כל שאילתת חיפוש שהמודל מריץ מחויבת בנפרד, ובקשה אחת יכולה להריץ כמה שאילתות. לא מצוין google_search">
+<div class="api-h"><b>Google</b><span>Grounding with Google Search (Gemini API)</span></div>
+<p class="api-use">חיבור תשובות Gemini לתוצאות Google Search עם מקורות</p>
+<p class="api-models"><code>google_search</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Gemini 3 and newer: 5,000 free search queries/month (paid tier, shared), then $14 per 1,000 queries; Gemini 2.5 Flash: 1,500 RPD free, then $35 per 1,000 grounded prompts</dd><dt>בחינם</dt><dd>במודלי Gemini 3 ומעלה לא זמין בשכבה החינמית; ב-Gemini 2.5 Flash ו-Flash-Lite עד 500 בקשות ביום בחינם</dd></dl>
+<p class="api-note">במודלי Gemini 3 ומעלה כל שאילתת חיפוש שהמודל מריץ מחויבת בנפרד, ובקשה אחת יכולה להריץ כמה שאילתות.</p>
+<div class="api-links"><a href="https://ai.google.dev/gemini-api/docs/google-search" target="_blank" rel="noopener">תיעוד</a><a href="https://ai.google.dev/api" target="_blank" rel="noopener">API Reference</a><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="חיפוש ואיסוף מהרשת anthropic web search tool (claude api) חיפוש מובנה ב-claude, עם ציטוטים מהמקורות מנהל הארגון יכול לכבות את הכלי בקונסולה, ואז הבקשה נכשלת בשגיאה 400; max_uses מגביל כמה חיפושים יקרו בבקשה. לא מצוין web_search_20250305 web_search_20260209">
+<div class="api-h"><b>Anthropic</b><span>Web search tool (Claude API)</span></div>
+<p class="api-use">חיפוש מובנה ב-Claude, עם ציטוטים מהמקורות</p>
+<p class="api-models"><code>web_search_20250305</code><code>web_search_20260209</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">$10 per 1,000 searches + standard token costs for search-generated content</dd></dl>
+<p class="api-note">מנהל הארגון יכול לכבות את הכלי בקונסולה, ואז הבקשה נכשלת בשגיאה 400; max_uses מגביל כמה חיפושים יקרו בבקשה.</p>
+<div class="api-links"><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool" target="_blank" rel="noopener">תיעוד</a><a href="https://platform.claude.com/docs/en/api/overview" target="_blank" rel="noopener">API Reference</a><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://platform.claude.com/settings/keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="חיפוש ואיסוף מהרשת xai web search tool (grok api) חיפוש מובנה ב-grok ברשת וב-x x_search מחויב לפי פריט שנשלף ולא לפי קריאה. לא מצוין web_search x_search">
+<div class="api-h"><b>xAI</b><span>Web search tool (Grok API)</span></div>
+<p class="api-use">חיפוש מובנה ב-Grok ברשת וב-X</p>
+<p class="api-models"><code>web_search</code><code>x_search</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">web_search: $5 per 1k calls; x_search: $5 per 1k posts and $10 per 1k profiles</dd></dl>
+<p class="api-note">x_search מחויב לפי פריט שנשלף ולא לפי קריאה.</p>
+<div class="api-links"><a href="https://docs.x.ai/developers/quickstart" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.x.ai/developers/rest-api-reference/inference" target="_blank" rel="noopener">API Reference</a><a href="https://docs.x.ai/developers/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://console.x.ai/team/default/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-moderation"><summary><span class="pm">+</span><u>סינון תוכן</u><span class="cnt">2</span></summary><div>
+<p class="api-when">בדיקה אם טקסט פוגעני או מסוכן, לפני שמציגים או שומרים אותו.</p>
+<div class="api-list">
+<article class="api" data-q="סינון תוכן openai moderation api בדיקה אם טקסט או תמונה של משתמש פוגעניים, לפני שהם מגיעים למודל מקבל טקסט ותמונות; מריצים אותו בתוך ה-vercel function על כל קלט של משתמש, לפני הקריאה למודל. לא מצוין omni-moderation-latest">
+<div class="api-h"><b>OpenAI</b><span>Moderation API</span></div>
+<p class="api-use">בדיקה אם טקסט או תמונה של משתמש פוגעניים, לפני שהם מגיעים למודל</p>
+<p class="api-models"><code>omni-moderation-latest</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Free</dd><dt>בחינם</dt><dd>חינם: לפי התיעוד, ה-endpoint חינמי לשימוש</dd></dl>
+<p class="api-note">מקבל טקסט ותמונות; מריצים אותו בתוך ה-Vercel Function על כל קלט של משתמש, לפני הקריאה למודל.</p>
+<div class="api-links"><a href="https://developers.openai.com/api/docs/guides/moderation" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.openai.com/api/docs/api-reference/moderations" target="_blank" rel="noopener">API Reference</a><a href="https://developers.openai.com/api/docs/guides/moderation" target="_blank" rel="noopener">מחירון</a><a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="סינון תוכן mistral ai mistral moderation 2 חלופה חינמית לסינון תוכן, כולל זיהוי מידע אישי וניסיונות jailbreak מסווג 11 קטגוריות, כולל pii, ייעוץ רפואי, פיננסי ומשפטי, ו-jailbreak; יש גרסה לטקסט חופשי וגרסה לשיחה. לא מצוין mistral-moderation-2603">
+<div class="api-h"><b>Mistral AI</b><span>Mistral Moderation 2</span></div>
+<p class="api-use">חלופה חינמית לסינון תוכן, כולל זיהוי מידע אישי וניסיונות Jailbreak</p>
+<p class="api-models"><code>mistral-moderation-2603</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Free (input, cached input and output all listed as Free)</dd><dt>בחינם</dt><dd>חינם לפי עמוד התמחור</dd></dl>
+<p class="api-note">מסווג 11 קטגוריות, כולל PII, ייעוץ רפואי, פיננסי ומשפטי, ו-Jailbreak; יש גרסה לטקסט חופשי וגרסה לשיחה.</p>
+<div class="api-links"><a href="https://docs.mistral.ai/capabilities/guardrailing" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.mistral.ai/api" target="_blank" rel="noopener">API Reference</a><a href="https://docs.mistral.ai/inference/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://console.mistral.ai" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-translation"><summary><span class="pm">+</span><u>תרגום</u><span class="cnt">2</span></summary><div>
+<p class="api-when">תרגום ייעודי. לרוב מודל השפה מתרגם טוב מספיק, בלי מפתח נוסף.</p>
+<div class="api-list">
+<article class="api" data-q="תרגום deepl deepl api תרגום מקצועי של טקסט ומסמכים, עם מילון מונחים מפתח חינמי עובד מול https://api-free.deepl.com ומפתח בתשלום מול https://api.deepl.com, וזו טעות נפוצה. כן, עברית נתמכת במודל הדור הבא של deepl, כולל מילון מונחים ופנייה רשמית או לא רשמית; זמינות ב-api נבדקת ב-endpoint /v3/languages">
+<div class="api-h"><b>DeepL</b><span>DeepL API</span></div>
+<p class="api-use">תרגום מקצועי של טקסט ומסמכים, עם מילון מונחים</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>לא אומת (עמוד התמחור לא הציג מחירי API)</dd><dt>בחינם</dt><dd>מפתח API חינמי בלי כרטיס אשראי; תוכנית API Free הוותיקה (500,000 תווים בחודש) כבר לא נמכרת, והמכסה בתוכנית החדשה לא אומתה</dd><dt>עברית</dt><dd>כן, עברית נתמכת במודל הדור הבא של DeepL, כולל מילון מונחים ופנייה רשמית או לא רשמית; זמינות ב-API נבדקת ב-endpoint /v3/languages</dd></dl>
+<p class="api-note">מפתח חינמי עובד מול https://api-free.deepl.com ומפתח בתשלום מול https://api.deepl.com, וזו טעות נפוצה.</p>
+<div class="api-links"><a href="https://developers.deepl.com/docs/getting-started/quickstart" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.deepl.com/api-reference/translate/request-translation" target="_blank" rel="noopener">API Reference</a><a href="https://www.deepl.com/pro-api#api-pricing" target="_blank" rel="noopener">מחירון</a><a href="https://www.deepl.com/your-account/keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="תרגום google cloud cloud translation api תרגום מכונה מהיר וזול לכמויות, כולל זיהוי שפה רק basic v2 עובד עם מפתח api (את v3 מפעילים עם חשבון שירות); צריך פרויקט עם חיוב פעיל, ולהגביל את המפתח ל-translation api. כן (קוד he או iw), גם ב-nmt וגם ב-translation llm v2 (basic, nmt) v3 (advanced, nmt / translation llm)">
+<div class="api-h"><b>Google Cloud</b><span>Cloud Translation API</span></div>
+<p class="api-use">תרגום מכונה מהיר וזול לכמויות, כולל זיהוי שפה</p>
+<p class="api-models"><code>v2 (Basic, NMT)</code><code>v3 (Advanced, NMT / Translation LLM)</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">NMT text: first 500,000 characters/month free, then $20.00 per 1M characters; document translation: $0.08 per page</dd><dt>בחינם</dt><dd>500,000 תווים בחודש, כקרדיט של $10 שמשותף ל-Basic ול-Advanced ולא עובר לחודש הבא</dd><dt>עברית</dt><dd>כן (קוד he או iw), גם ב-NMT וגם ב-Translation LLM</dd></dl>
+<p class="api-note">רק Basic v2 עובד עם מפתח API (את v3 מפעילים עם חשבון שירות); צריך פרויקט עם חיוב פעיל, ולהגביל את המפתח ל-Translation API.</p>
+<div class="api-links"><a href="https://docs.cloud.google.com/translate/docs/setup" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.cloud.google.com/translate/docs/reference/rest" target="_blank" rel="noopener">API Reference</a><a href="https://cloud.google.com/translate/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+</div>
+</div></details>
+<div class="label api-gl">מדיה וקול</div>
+<details class="err more api-cat" id="api-image"><summary><span class="pm">+</span><u>יצירת תמונות</u><span class="cnt">8</span></summary><div>
+<p class="api-when">תמונה מטקסט, או עריכה של תמונה קיימת.</p>
+<div class="api-list">
+<article class="api" data-q="יצירת תמונות openai gpt image יצירה ועריכה של תמונות מטקסט ומתמונות ייחוס ייתכן שיידרש אימות ארגון (organization verification) בקונסולה לפני השימוש; שומרים את התמונה ב-supabase storage ומחזירים לדפדפן רק קישור, בגלל מגבלת 4.5mb. לא מצוין gpt-image-2.5-flare gpt-image-2.5-sunburst gpt-image-2">
+<div class="api-h"><b>OpenAI</b><span>GPT Image</span></div>
+<p class="api-use">יצירה ועריכה של תמונות מטקסט ומתמונות ייחוס</p>
+<p class="api-models"><code>gpt-image-2.5-flare</code><code>gpt-image-2.5-sunburst</code><code>gpt-image-2</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">gpt-image-2.5-flare and gpt-image-2.5-sunburst: text input $5.00, image input $8.00, image output $30.00 per 1M tokens (Batch: image output $15.00). No per-image table; OpenAI points to the calculator in the image generation guide</dd><dt>בחינם</dt><dd>אין</dd></dl>
+<p class="api-note">ייתכן שיידרש אימות ארגון (Organization Verification) בקונסולה לפני השימוש; שומרים את התמונה ב-Supabase Storage ומחזירים לדפדפן רק קישור, בגלל מגבלת 4.5MB.</p>
+<div class="api-links"><a href="https://developers.openai.com/api/docs/guides/image-generation" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.openai.com/api/reference/resources/images/methods/generate" target="_blank" rel="noopener">API Reference</a><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="יצירת תמונות google gemini native image (nano banana) יצירה ועריכה של תמונות בשיחה, כולל טקסט בתוך התמונה כל תמונה מסומנת ב-synthid; gemini-2.5-flash-image סומן להשבתה ב-2.10.2026 ו-imagen 4 מסומן כמושבת, אז לא בונים עליהם. לא מצוין: התיעוד מבטיח טקסט קריא בתמונה, בלי רשימת שפות gemini-3.1-flash-lite-image gemini-nano-banana-2.1 gemini-3-pro-image">
+<div class="api-h"><b>Google</b><span>Gemini native image (Nano Banana)</span></div>
+<p class="api-use">יצירה ועריכה של תמונות בשיחה, כולל טקסט בתוך התמונה</p>
+<p class="api-models"><code>gemini-3.1-flash-lite-image</code><code>gemini-nano-banana-2.1</code><code>gemini-3-pro-image</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">gemini-3.1-flash-lite-image: about $0.0336 per 1K image; gemini-nano-banana-2.1: $0.0336 per 1K, $0.0504 per 2K, $0.113 per 4K image; gemini-3-pro-image: $0.134 per 1K/2K image, $0.24 per 4K. Batch is half price</dd><dt>בחינם</dt><dd>אין: ה-Free Tier לא זמין למודלי התמונה</dd></dl>
+<p class="api-note">כל תמונה מסומנת ב-SynthID; gemini-2.5-flash-image סומן להשבתה ב-2.10.2026 ו-Imagen 4 מסומן כמושבת, אז לא בונים עליהם.</p>
+<div class="api-links"><a href="https://ai.google.dev/gemini-api/docs/image-generation" target="_blank" rel="noopener">תיעוד</a><a href="https://ai.google.dev/api" target="_blank" rel="noopener">API Reference</a><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="יצירת תמונות black forest labs flux api תמונות פוטוריאליסטיות ועריכה עם עד 10 תמונות ייחוס אסינכרוני: הבקשה מחזירה polling_url ומושכים עד status=ready; הקישור לתמונה תקף 10 דקות בלבד, אז מורידים מיד ל-supabase storage. לא מצוין flux-2-klein-9b flux-2-pro flux-3-image">
+<div class="api-h"><b>Black Forest Labs</b><span>FLUX API</span></div>
+<p class="api-use">תמונות פוטוריאליסטיות ועריכה עם עד 10 תמונות ייחוס</p>
+<p class="api-models"><code>flux-2-klein-9b</code><code>flux-2-pro</code><code>flux-3-image</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd>1 credit = $0.01. FLUX 3 is priced per image by resolution, FLUX.2 per megapixel. Per-model rates: לא אומת (the pricing calculator shows $0.048 per image for its default selection)</dd></dl>
+<p class="api-note">אסינכרוני: הבקשה מחזירה polling_url ומושכים עד status=Ready; הקישור לתמונה תקף 10 דקות בלבד, אז מורידים מיד ל-Supabase Storage.</p>
+<div class="api-links"><a href="https://docs.bfl.ml/quick_start/generating_images" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.bfl.ml/api-reference/utility/generate-an-image-with-flux-3.md" target="_blank" rel="noopener">API Reference</a><a href="https://bfl.ai/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://dashboard.bfl.ai" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="יצירת תמונות stability ai stable image תמונות מהירות וזולות (core, ultra, sd 3.5) core עונה מיד עם קובץ התמונה (bytes או base64, 1.5 מגה-פיקסל); כותבים פרומפט באנגלית ושומרים את הקובץ ב-supabase storage. התיעוד של core מציין שאנגלית היא השפה הנתמכת היחידה בשירות; טקסט עברי בתמונה לא מצוין v2beta/stable-image/generate/core sd 3.5 flash stable image ultra">
+<div class="api-h"><b>Stability AI</b><span>Stable Image</span></div>
+<p class="api-use">תמונות מהירות וזולות (Core, Ultra, SD 3.5)</p>
+<p class="api-models"><code>v2beta/stable-image/generate/core</code><code>SD 3.5 Flash</code><code>Stable Image Ultra</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">1 credit = $0.01. Stable Image Core: 3 credits per image; SD 3.5 Flash: 2.5 credits; SD 3.5 Medium: 3.5; SD 3.5 Large: 6.5; Stable Image Ultra: 8 credits</dd><dt>בחינם</dt><dd>25 קרדיטים חינם בהרשמה</dd><dt>עברית</dt><dd>התיעוד של Core מציין שאנגלית היא השפה הנתמכת היחידה בשירות; טקסט עברי בתמונה לא מצוין</dd></dl>
+<p class="api-note">Core עונה מיד עם קובץ התמונה (bytes או base64, 1.5 מגה-פיקסל); כותבים פרומפט באנגלית ושומרים את הקובץ ב-Supabase Storage.</p>
+<div class="api-links"><a href="https://docs.stability.ai/getting-started.md" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.stability.ai/api-reference" target="_blank" rel="noopener">API Reference</a><a href="https://docs.stability.ai/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://platform.stability.ai/dashboard/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="יצירת תמונות ideogram ideogram api תמונות עם טיפוגרפיה חדה: פוסטרים, לוגואים, באנרים טוענים יתרה מראש ($1 עד $300, עם טעינה אוטומטית אופציונלית); קישורי התמונות פגים, אז מורידים ושומרים ב-supabase storage. לא מצוין ideogram-4-5 ideogram-3">
+<div class="api-h"><b>Ideogram</b><span>Ideogram API</span></div>
+<p class="api-use">תמונות עם טיפוגרפיה חדה: פוסטרים, לוגואים, באנרים</p>
+<p class="api-models"><code>ideogram-4-5</code><code>ideogram-3</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd>Pay as you go: 1 credit = $0.01. Per-image credits: לא אומת (the table loads dynamically)</dd><dt>בחינם</dt><dd>אין ל-API: תשלום מראש</dd></dl>
+<p class="api-note">טוענים יתרה מראש ($1 עד $300, עם טעינה אוטומטית אופציונלית); קישורי התמונות פגים, אז מורידים ושומרים ב-Supabase Storage.</p>
+<div class="api-links"><a href="https://developer.ideogram.ai/ideogram-api/api-overview" target="_blank" rel="noopener">תיעוד</a><a href="https://developer.ideogram.ai/api-reference/images/generate/ideogram-4-5" target="_blank" rel="noopener">API Reference</a><a href="https://ideogram.ai/api-pricing" target="_blank" rel="noopener">מחירון</a><a href="https://ideogram.ai/platform" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="יצירת תמונות recraft recraft api תמונות ווקטורים (svg) לעיצוב, אייקונים ולוגואים ה-api עובד עם ה-sdk של openai (base url https://external.api.recraft.ai/v1); המודל הדיפולטיבי הוא recraftv4_1. לא מצוין recraftv4_1_flash recraftv4_1 recraftv3">
+<div class="api-h"><b>Recraft</b><span>Recraft API</span></div>
+<p class="api-use">תמונות ווקטורים (SVG) לעיצוב, אייקונים ולוגואים</p>
+<p class="api-models"><code>recraftv4_1_flash</code><code>recraftv4_1</code><code>recraftv3</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">V4.1 Flash: $0.007 per raster image; V4.1: $0.035 per raster image, $0.08 per vector image; V3: $0.04 raster, $0.08 vector. $1 = 1,000 API units</dd><dt>בחינם</dt><dd>לא מצוין: קונים יחידות מראש, והן לא פגות</dd></dl>
+<p class="api-note">ה-API עובד עם ה-SDK של OpenAI (base URL https://external.api.recraft.ai/v1); המודל הדיפולטיבי הוא recraftv4_1.</p>
+<div class="api-links"><a href="https://www.recraft.ai/docs" target="_blank" rel="noopener">תיעוד</a><a href="https://www.recraft.ai/docs/api-reference/endpoints.md" target="_blank" rel="noopener">API Reference</a><a href="https://www.recraft.ai/docs/api-reference/pricing.md" target="_blank" rel="noopener">מחירון</a><a href="https://app.recraft.ai/profile/api" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="יצירת תמונות fal.ai fal model apis (אגרגטור) מפתח אחד למאות מודלים: flux, nano banana ועוד משלמים רק על תוצאה מוצלחת; עובדים דרך התור queue.fal.run (status_url או webhook), וקבצי התוצאה פגים, אז מעתיקים ל-supabase storage. תלוי במודל; לא מצוין fal-ai/flux/schnell fal-ai/flux/dev fal-ai/nano-banana-2">
+<div class="api-h"><b>fal.ai</b><span>fal Model APIs (אגרגטור)</span></div>
+<p class="api-use">מפתח אחד למאות מודלים: FLUX, Nano Banana ועוד</p>
+<p class="api-models"><code>fal-ai/flux/schnell</code><code>fal-ai/flux/dev</code><code>fal-ai/nano-banana-2</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">FLUX.1 [schnell]: $0.003 per megapixel; fal-ai/flux/dev: $0.025 per image; Nano Banana 2: $0.08 per image; Nano Banana Pro: $0.15 per image</dd><dt>בחינם</dt><dd>לא מצוין: מודל קרדיטים בתשלום מראש</dd><dt>עברית</dt><dd>תלוי במודל; לא מצוין</dd></dl>
+<p class="api-note">משלמים רק על תוצאה מוצלחת; עובדים דרך התור queue.fal.run (status_url או webhook), וקבצי התוצאה פגים, אז מעתיקים ל-Supabase Storage.</p>
+<div class="api-links"><a href="https://fal.ai/docs/documentation" target="_blank" rel="noopener">תיעוד</a><a href="https://fal.ai/docs/model-api-reference/image-generation-api/flux-schnell" target="_blank" rel="noopener">API Reference</a><a href="https://fal.ai/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://fal.ai/dashboard/keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="יצירת תמונות replicate replicate (אגרגטור) מפתח אחד למודלים רשמיים של כמה ספקים קרדיט מראש עם טעינה אוטומטית (סף מינימלי $5); למודל איטי משתמשים ב-webhook במקום לחכות בתוך הפונקציה. תלוי במודל; לא מצוין black-forest-labs/flux-schnell ideogram-ai/ideogram-v3-turbo google/nano-banana-2">
+<div class="api-h"><b>Replicate</b><span>Replicate (אגרגטור)</span></div>
+<p class="api-use">מפתח אחד למודלים רשמיים של כמה ספקים</p>
+<p class="api-models"><code>black-forest-labs/flux-schnell</code><code>ideogram-ai/ideogram-v3-turbo</code><code>google/nano-banana-2</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">FLUX Schnell: $3.00 per 1,000 output images; Ideogram v3 Turbo: $0.03 per image; FLUX 1.1 Pro: $0.04 per image; Recraft V3: $0.04 per image</dd><dt>בחינם</dt><dd>אין: צריך לרכוש קרדיט מראש</dd><dt>עברית</dt><dd>תלוי במודל; לא מצוין</dd></dl>
+<p class="api-note">קרדיט מראש עם טעינה אוטומטית (סף מינימלי $5); למודל איטי משתמשים ב-webhook במקום לחכות בתוך הפונקציה.</p>
+<div class="api-links"><a href="https://replicate.com/docs" target="_blank" rel="noopener">תיעוד</a><a href="https://replicate.com/docs/reference/http" target="_blank" rel="noopener">API Reference</a><a href="https://replicate.com/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://replicate.com/account/api-tokens" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-video"><summary><span class="pm">+</span><u>יצירת וידאו</u><span class="cnt">7</span></summary><div>
+<p class="api-when">סרטון קצר מטקסט או מתמונה. משימה ארוכה: שולחים, ובודקים אחר כך.</p>
+<div class="api-list">
+<article class="api" data-q="יצירת וידאו google gemini omni flash (מחליף את veo ב-gemini api) וידאו עם סאונד מטקסט ותמונה, כולל עריכה בשיחה veo 3.1 preview הושבת ב-gemini api ב-22.10.2026; מקבלים uri של וידאו, מושכים עד שהוא active ומורידים ל-supabase storage. כל וידאו מסומן ב-synthid. לא מצוין gemini-omni-1.1-flash">
+<div class="api-h"><b>Google</b><span>Gemini Omni Flash (מחליף את Veo ב-Gemini API)</span></div>
+<p class="api-use">וידאו עם סאונד מטקסט ותמונה, כולל עריכה בשיחה</p>
+<p class="api-models"><code>gemini-omni-1.1-flash</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Input $1.50 per 1M tokens; video output $17.50 per 1M tokens, about $0.10 per second of 720p video (5,792 tokens per second)</dd><dt>בחינם</dt><dd>אין</dd></dl>
+<p class="api-note">Veo 3.1 Preview הושבת ב-Gemini API ב-22.10.2026; מקבלים URI של וידאו, מושכים עד שהוא ACTIVE ומורידים ל-Supabase Storage. כל וידאו מסומן ב-SynthID.</p>
+<div class="api-links"><a href="https://ai.google.dev/gemini-api/docs/omni" target="_blank" rel="noopener">תיעוד</a><a href="https://ai.google.dev/api" target="_blank" rel="noopener">API Reference</a><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="יצירת וידאו runway runway api וידאו מתמונה או טקסט, כולל veo 3.1 של google דרך אותו מפתח המשימה אסינכרונית; ה-sdk יודע לחכות לסיום, אבל בפונקציה עדיף לשמור את מזהה המשימה ולבדוק סטטוס בקריאה נפרדת (מגבלת 300 שניות). לא מצוין gen4_turbo gen4.5 veo3.1_fast">
+<div class="api-h"><b>Runway</b><span>Runway API</span></div>
+<p class="api-use">וידאו מתמונה או טקסט, כולל Veo 3.1 של Google דרך אותו מפתח</p>
+<p class="api-models"><code>gen4_turbo</code><code>gen4.5</code><code>veo3.1_fast</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">1 credit = $0.01. gen4_turbo: 5 credits per second; gen4.5: 12 credits per second; veo3.1_fast: 10 credits per second without audio, 15 with audio; veo3.1: 20 without audio, 40 with audio</dd><dt>בחינם</dt><dd>אין: רכישה מינימלית $10 (1,000 קרדיטים)</dd></dl>
+<p class="api-note">המשימה אסינכרונית; ה-SDK יודע לחכות לסיום, אבל בפונקציה עדיף לשמור את מזהה המשימה ולבדוק סטטוס בקריאה נפרדת (מגבלת 300 שניות).</p>
+<div class="api-links"><a href="https://docs.dev.runwayml.com/guides/using-the-api" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.dev.runwayml.com/api" target="_blank" rel="noopener">API Reference</a><a href="https://docs.dev.runwayml.com/guides/pricing/" target="_blank" rel="noopener">מחירון</a><a href="https://dev.runway.com/" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="יצירת וידאו luma ai luma api (ray) וידאו קולנועי מטקסט ומתמונה אסינכרוני: מקבלים מזהה ומושכים get /generations/{id}; קישורי הפלט תקפים שעה, אז מורידים מיד ל-supabase storage. לא מצוין ray-3.2">
+<div class="api-h"><b>Luma AI</b><span>Luma API (Ray)</span></div>
+<p class="api-use">וידאו קולנועי מטקסט ומתמונה</p>
+<p class="api-models"><code>ray-3.2</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">ray-3.2 per 5s video: 360p $0.06, 540p $0.15, 720p $0.30, 1080p $1.20 (per 10s: 720p $0.90). Rates may change before GA</dd><dt>בחינם</dt><dd>אין: תשלום לפי שימוש מהבקשה הראשונה</dd></dl>
+<p class="api-note">אסינכרוני: מקבלים מזהה ומושכים GET /generations/{id}; קישורי הפלט תקפים שעה, אז מורידים מיד ל-Supabase Storage.</p>
+<div class="api-links"><a href="https://docs.agents.lumalabs.ai/" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.agents.lumalabs.ai/api" target="_blank" rel="noopener">API Reference</a><a href="https://docs.agents.lumalabs.ai/guides/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://platform.lumalabs.ai" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="יצירת וידאו kling ai kling api (רשמי) וידאו מטקסט ומתמונה מהמודלים של kuaishou עמודי התיעוד והמחירים של kling נטענים רק בדפדפן ולא אומתו כאן; הדרך הפשוטה למתחילים היא kling דרך fal.ai או replicate, שם המחיר מאומת. לא מצוין לא אומת">
+<div class="api-h"><b>Kling AI</b><span>Kling API (רשמי)</span></div>
+<p class="api-use">וידאו מטקסט ומתמונה מהמודלים של Kuaishou</p>
+<p class="api-models"><code>לא אומת</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd>לא אומת</dd><dt>בחינם</dt><dd>לא אומת</dd></dl>
+<p class="api-note">עמודי התיעוד והמחירים של Kling נטענים רק בדפדפן ולא אומתו כאן; הדרך הפשוטה למתחילים היא Kling דרך fal.ai או Replicate, שם המחיר מאומת.</p>
+<div class="api-links"><a href="https://kling.ai/document-api/quickStart/userManual" target="_blank" rel="noopener">תיעוד</a><a href="https://kling.ai/document-api/guides/get-started/overview" target="_blank" rel="noopener">API Reference</a><a href="https://kling.ai/dev/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://kling.ai/dev" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="יצירת וידאו minimax minimax video (h3, hailuo) וידאו זול לפי שנייה, כולל רזולוציה נמוכה לטיוטות צריך מפתח pay-as-you-go (לא מפתח m plan) ויתרה טעונה; המשימה אסינכרונית ובסיום מחזירה קישור הורדה ישיר. hailuo מסומן legacy. לא מצוין minimax-h3 minimax-h3-max minimax-hailuo-2.3-fast">
+<div class="api-h"><b>MiniMax</b><span>MiniMax Video (H3, Hailuo)</span></div>
+<p class="api-use">וידאו זול לפי שנייה, כולל רזולוציה נמוכה לטיוטות</p>
+<p class="api-models"><code>MiniMax-H3</code><code>MiniMax-H3-Max</code><code>MiniMax-Hailuo-2.3-Fast</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">MiniMax-H3-Lite 480P: $0.025 per second; MiniMax-H3-Max 480P: $0.05 per second; MiniMax-H3 768P: $0.08 per second; legacy MiniMax-Hailuo-2.3-Fast 768P 6s: $0.19 per video</dd><dt>בחינם</dt><dd>אין קרדיט חינם; ב-H3 חמש תמונות הייחוס הראשונות בכל משימה חינם</dd></dl>
+<p class="api-note">צריך מפתח Pay-as-you-go (לא מפתח M Plan) ויתרה טעונה; המשימה אסינכרונית ובסיום מחזירה קישור הורדה ישיר. Hailuo מסומן Legacy.</p>
+<div class="api-links"><a href="https://platform.minimax.io/docs/guides/video-generation" target="_blank" rel="noopener">תיעוד</a><a href="https://platform.minimax.io/docs/api-reference/video-generation-v2-create.md" target="_blank" rel="noopener">API Reference</a><a href="https://platform.minimax.io/docs/pricing/overview.md" target="_blank" rel="noopener">מחירון</a><a href="https://platform.minimax.io/user-center/basic-information/interface-key" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="יצירת וידאו fal.ai fal video apis (אגרגטור) kling, hailuo, seedance ועוד במפתח אחד שולחים לתור queue.fal.run ומקבלים status_url ו-response_url; עדיף webhook שמעדכן שורה ב-supabase, והקבצים פגים לפי הגדרות ה-media. לא מצוין fal-ai/kling-video/v2.5-turbo/pro/image-to-video fal-ai/minimax/hailuo-2.3-fast/standard/image-to-video">
+<div class="api-h"><b>fal.ai</b><span>fal Video APIs (אגרגטור)</span></div>
+<p class="api-use">Kling, Hailuo, Seedance ועוד במפתח אחד</p>
+<p class="api-models"><code>fal-ai/kling-video/v2.5-turbo/pro/image-to-video</code><code>fal-ai/minimax/hailuo-2.3-fast/standard/image-to-video</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd>Kling Video v2.5 Turbo Pro (image-to-video): $0.07 per second; Kling Video v3 Pro: $0.14 per second; Seedance 2: $0.014 per 1,000 tokens. Hailuo price: לא אומת</dd><dt>בחינם</dt><dd>לא מצוין: מודל קרדיטים בתשלום מראש</dd></dl>
+<p class="api-note">שולחים לתור queue.fal.run ומקבלים status_url ו-response_url; עדיף webhook שמעדכן שורה ב-Supabase, והקבצים פגים לפי הגדרות ה-media.</p>
+<div class="api-links"><a href="https://fal.ai/docs/documentation/model-apis/inference/queue" target="_blank" rel="noopener">תיעוד</a><a href="https://fal.ai/docs/model-api-reference/video-generation-api/kling-video-v2.5-turbo-pro" target="_blank" rel="noopener">API Reference</a><a href="https://fal.ai/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://fal.ai/dashboard/keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="יצירת וידאו replicate replicate video (אגרגטור) veo, kling, hailuo ו-wan בלי חשבון נפרד אצל כל ספק וידאו לוקח יותר מ-300 שניות לפעמים, אז משתמשים ב-webhook או בבדיקת סטטוס, ושומרים את הקובץ ב-supabase storage. לא מצוין wavespeedai/wan-2.1-i2v-480p kwaivgi/kling-v2.5-turbo-pro google/veo-3.1-lite">
+<div class="api-h"><b>Replicate</b><span>Replicate Video (אגרגטור)</span></div>
+<p class="api-use">Veo, Kling, Hailuo ו-Wan בלי חשבון נפרד אצל כל ספק</p>
+<p class="api-models"><code>wavespeedai/wan-2.1-i2v-480p</code><code>kwaivgi/kling-v2.5-turbo-pro</code><code>google/veo-3.1-lite</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd>Wan 2.1 i2v 480p: $0.09 per second of output video; Wan 2.1 i2v 720p: $0.25 per second. Other models: price on each model page (לא אומת)</dd><dt>בחינם</dt><dd>אין: צריך לרכוש קרדיט מראש</dd></dl>
+<p class="api-note">וידאו לוקח יותר מ-300 שניות לפעמים, אז משתמשים ב-webhook או בבדיקת סטטוס, ושומרים את הקובץ ב-Supabase Storage.</p>
+<div class="api-links"><a href="https://replicate.com/docs" target="_blank" rel="noopener">תיעוד</a><a href="https://replicate.com/docs/reference/http" target="_blank" rel="noopener">API Reference</a><a href="https://replicate.com/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://replicate.com/account/api-tokens" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-tts"><summary><span class="pm">+</span><u>טקסט לדיבור</u><span class="cnt">4</span></summary><div>
+<p class="api-when">קול מוקלט מטקסט: הקראה, פודקאסט, הודעה קולית.</p>
+<div class="api-list">
+<article class="api" data-q="טקסט לדיבור openai text to speech (/v1/audio/speech) הקראת טקסט בקולות מוכנים עם הנחיות טון מודלי ה-tts מסומנים deprecated ויושבתו ב-6.1.2027; היעד להמשך הוא gpt-realtime-2.1-mini דרך realtime api. 13 קולות, מומלצים marin ו-cedar. כן: עברית מופיעה ברשימת השפות במדריך ה-tts gpt-4o-mini-tts">
+<div class="api-h"><b>OpenAI</b><span>Text to speech (/v1/audio/speech)</span></div>
+<p class="api-use">הקראת טקסט בקולות מוכנים עם הנחיות טון</p>
+<p class="api-models"><code>gpt-4o-mini-tts</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">gpt-4o-mini-tts: text input $0.60 per 1M tokens, audio output $12.00 per 1M tokens</dd><dt>בחינם</dt><dd>אין</dd><dt>עברית</dt><dd>כן: עברית מופיעה ברשימת השפות במדריך ה-TTS</dd></dl>
+<p class="api-note">מודלי ה-TTS מסומנים deprecated ויושבתו ב-6.1.2027; היעד להמשך הוא gpt-realtime-2.1-mini דרך Realtime API. 13 קולות, מומלצים marin ו-cedar.</p>
+<div class="api-links"><a href="https://developers.openai.com/api/docs/guides/text-to-speech" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.openai.com/api/docs/api-reference/audio/createSpeech" target="_blank" rel="noopener">API Reference</a><a href="https://developers.openai.com/api/docs/models/gpt-4o-mini-tts" target="_blank" rel="noopener">מחירון</a><a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="טקסט לדיבור elevenlabs elevenapi text to speech קולות טבעיים מאוד, שיבוט קול ודיבור רגשי ברירת המחדל של ה-api היא eleven_multilingual_v2 שלא תומך בעברית, אז שולחים model_id במפורש. כן: eleven_v4, eleven_v4_turbo, eleven_v3 ו-eleven_v3_conversational. לא ב-eleven_multilingual_v2 וב-eleven_flash_v2_5 eleven_v4_turbo eleven_v3 eleven_v4">
+<div class="api-h"><b>ElevenLabs</b><span>ElevenAPI Text to Speech</span></div>
+<p class="api-use">קולות טבעיים מאוד, שיבוט קול ודיבור רגשי</p>
+<p class="api-models"><code>eleven_v4_turbo</code><code>eleven_v3</code><code>eleven_v4</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">v4 Turbo: $0.04 per 1K characters; v3: $0.08 per 1K characters; v4: $0.08 per 1K characters; Flash/Turbo: $0.04 per 1K characters</dd><dt>בחינם</dt><dd>תוכנית Free: 10k קרדיטים בחודש, בלי רישיון מסחרי</dd><dt>עברית</dt><dd>כן: eleven_v4, eleven_v4_turbo, eleven_v3 ו-eleven_v3_conversational. לא ב-eleven_multilingual_v2 וב-eleven_flash_v2_5</dd></dl>
+<p class="api-note">ברירת המחדל של ה-API היא eleven_multilingual_v2 שלא תומך בעברית, אז שולחים model_id במפורש.</p>
+<div class="api-links"><a href="https://elevenlabs.io/docs/quickstart" target="_blank" rel="noopener">תיעוד</a><a href="https://elevenlabs.io/docs/api-reference/text-to-speech/convert" target="_blank" rel="noopener">API Reference</a><a href="https://elevenlabs.io/pricing/api" target="_blank" rel="noopener">מחירון</a><a href="https://elevenlabs.io/app/api/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="טקסט לדיבור google gemini tts הקראה עם שליטה בסגנון בפרומפט, עד 2 דוברים 30 קולות מוכנים; הפלט הוא wav או pcm ב-24khz, אז קובץ ארוך שומרים ב-supabase storage ומחזירים קישור (מגבלת 4.5mb). כן: עברית מסומנת כנתמכת בשני מודלי 3.8 gemini-3.8-flash-lite-tts gemini-3.8-flash-tts">
+<div class="api-h"><b>Google</b><span>Gemini TTS</span></div>
+<p class="api-use">הקראה עם שליטה בסגנון בפרומפט, עד 2 דוברים</p>
+<p class="api-models"><code>gemini-3.8-flash-lite-tts</code><code>gemini-3.8-flash-tts</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">gemini-3.8-flash-lite-tts: text input $0.50, audio output $6.00 per 1M tokens (about $0.0015 per 10 seconds of audio); gemini-3.8-flash-tts: audio output $9.00 per 1M tokens (about $0.00225 per 10 seconds). Prices valid until 31.12.2026 and double from 1.1.2027</dd><dt>בחינם</dt><dd>כן: Free Tier חינמי ב-Standard, עם מגבלות קצב, והנתונים עשויים לשמש לשיפור המוצר</dd><dt>עברית</dt><dd>כן: עברית מסומנת כנתמכת בשני מודלי 3.8</dd></dl>
+<p class="api-note">30 קולות מוכנים; הפלט הוא WAV או PCM ב-24kHz, אז קובץ ארוך שומרים ב-Supabase Storage ומחזירים קישור (מגבלת 4.5MB).</p>
+<div class="api-links"><a href="https://ai.google.dev/gemini-api/docs/speech-generation" target="_blank" rel="noopener">תיעוד</a><a href="https://ai.google.dev/api" target="_blank" rel="noopener">API Reference</a><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="טקסט לדיבור microsoft azure ai speech (text to speech) הקראה ארגונית עם ssml וקולות neural צריך מנוי azure ומשאב speech; שולחים ssml ל-endpoint האזורי עם speech_key ו-speech_region שנשמרים ב-vercel. he-il מופיע בטבלת השפות של azure speech לתמלול; טבלת הקולות לא נטענה, אז קולות tts בעברית לא אומתו כאן neural neural hd">
+<div class="api-h"><b>Microsoft</b><span>Azure AI Speech (Text to speech)</span></div>
+<p class="api-use">הקראה ארגונית עם SSML וקולות Neural</p>
+<p class="api-models"><code>Neural</code><code>Neural HD</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd>לא אומת (המחירים בעמוד נטענים דינמית)</dd><dt>בחינם</dt><dd>שכבת F0: 0.5 מיליון תווים Neural בחודש חינם</dd><dt>עברית</dt><dd>he-IL מופיע בטבלת השפות של Azure Speech לתמלול; טבלת הקולות לא נטענה, אז קולות TTS בעברית לא אומתו כאן</dd></dl>
+<p class="api-note">צריך מנוי Azure ומשאב Speech; שולחים SSML ל-endpoint האזורי עם SPEECH_KEY ו-SPEECH_REGION שנשמרים ב-Vercel.</p>
+<div class="api-links"><a href="https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-text-to-speech" target="_blank" rel="noopener">תיעוד</a><a href="https://learn.microsoft.com/en-us/azure/ai-services/speech-service/rest-text-to-speech" target="_blank" rel="noopener">API Reference</a><a href="https://azure.microsoft.com/en-us/pricing/details/speech/" target="_blank" rel="noopener">מחירון</a><a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAIFoundry" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-stt"><summary><span class="pm">+</span><u>דיבור לטקסט</u><span class="cnt">5</span></summary><div>
+<p class="api-when">תמלול הקלטה או שיחה.</p>
+<div class="api-list">
+<article class="api" data-q="דיבור לטקסט openai speech to text (/v1/audio/transcriptions) תמלול קבצי אודיו מוקלטים קובץ עד 25mb, אבל לפונקציה מגיעים רק 4.5mb: מעלים את ההקלטה ל-supabase storage והפונקציה שולחת משם. whisper-1 ו-gpt-4o-*-transcribe יושבתו ב-26.2.2027. לא מצוין במדריך של gpt-transcribe gpt-transcribe gpt-4o-mini-transcribe">
+<div class="api-h"><b>OpenAI</b><span>Speech to text (/v1/audio/transcriptions)</span></div>
+<p class="api-use">תמלול קבצי אודיו מוקלטים</p>
+<p class="api-models"><code>gpt-transcribe</code><code>gpt-4o-mini-transcribe</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">gpt-transcribe: $0.0045 per minute; gpt-4o-mini-transcribe: $0.003 per minute (deprecated); gpt-4o-transcribe: $0.006 per minute (deprecated)</dd><dt>בחינם</dt><dd>אין</dd></dl>
+<p class="api-note">קובץ עד 25MB, אבל לפונקציה מגיעים רק 4.5MB: מעלים את ההקלטה ל-Supabase Storage והפונקציה שולחת משם. whisper-1 ו-gpt-4o-*-transcribe יושבתו ב-26.2.2027.</p>
+<div class="api-links"><a href="https://developers.openai.com/api/docs/guides/speech-to-text" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.openai.com/api/docs/api-reference/audio" target="_blank" rel="noopener">API Reference</a><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="דיבור לטקסט elevenlabs scribe תמלול עם זיהוי דוברים, גם בזמן אמת קבצים עד 3gb ועד 10 שעות; תוצאה אסינכרונית יכולה להגיע ל-webhook שמגדירים בממשק. כן, ברמת דיוק good (wer מעל 10% ועד 20%) scribe_v2 scribe_v2_realtime">
+<div class="api-h"><b>ElevenLabs</b><span>Scribe</span></div>
+<p class="api-use">תמלול עם זיהוי דוברים, גם בזמן אמת</p>
+<p class="api-models"><code>scribe_v2</code><code>scribe_v2_realtime</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Scribe v2: $0.22 per hour; Scribe v2 Realtime: $0.39 per hour</dd><dt>בחינם</dt><dd>תוכנית Free: 10k קרדיטים בחודש</dd><dt>עברית</dt><dd>כן, ברמת דיוק Good (WER מעל 10% ועד 20%)</dd></dl>
+<p class="api-note">קבצים עד 3GB ועד 10 שעות; תוצאה אסינכרונית יכולה להגיע ל-webhook שמגדירים בממשק.</p>
+<div class="api-links"><a href="https://elevenlabs.io/docs/capabilities/speech-to-text" target="_blank" rel="noopener">תיעוד</a><a href="https://elevenlabs.io/docs/api-reference/speech-to-text/convert" target="_blank" rel="noopener">API Reference</a><a href="https://elevenlabs.io/pricing/api" target="_blank" rel="noopener">מחירון</a><a href="https://elevenlabs.io/app/api/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="דיבור לטקסט deepgram deepgram speech-to-text תמלול מהיר וזול, מוקלט וסטרימינג אפשר לשלוח קישור לקובץ (למשל קישור חתום מ-supabase storage) במקום להעביר את הקובץ דרך הפונקציה. כן: nova-3 עם קוד he (גם במצב רב-לשוני); לא ב-nova-2 nova-3">
+<div class="api-h"><b>Deepgram</b><span>Deepgram Speech-to-Text</span></div>
+<p class="api-use">תמלול מהיר וזול, מוקלט וסטרימינג</p>
+<p class="api-models"><code>nova-3</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Nova-3 pre-recorded: $0.0043 per minute (monolingual), $0.0052 per minute (multilingual); Nova-3 streaming monolingual: $0.0048 per minute (current price)</dd><dt>בחינם</dt><dd>$200 קרדיט חינם לחשבון חדש</dd><dt>עברית</dt><dd>כן: nova-3 עם קוד he (גם במצב רב-לשוני); לא ב-nova-2</dd></dl>
+<p class="api-note">אפשר לשלוח קישור לקובץ (למשל קישור חתום מ-Supabase Storage) במקום להעביר את הקובץ דרך הפונקציה.</p>
+<div class="api-links"><a href="https://developers.deepgram.com/guides/fundamentals/make-your-first-api-request" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.deepgram.com/reference/pre-recorded" target="_blank" rel="noopener">API Reference</a><a href="https://deepgram.com/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://console.deepgram.com/signup?jump=keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="דיבור לטקסט assemblyai assemblyai speech-to-text תמלול מוקלט וסטרימינג עם זיהוי דוברים אסינכרוני: שולחים audio_url ל-post /v2/transcript ומושכים get /v2/transcript/{id} עד completed, או מקבלים webhook. כן: universal-3.5 pro ו-universal-2 (מוקלט), u-3.6 pro realtime (סטרימינג) universal-2 universal-3-5-pro">
+<div class="api-h"><b>AssemblyAI</b><span>AssemblyAI Speech-to-Text</span></div>
+<p class="api-use">תמלול מוקלט וסטרימינג עם זיהוי דוברים</p>
+<p class="api-models"><code>universal-2</code><code>universal-3-5-pro</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Universal-2: $0.15 per hour; Universal-3.5 Pro: $0.21 per hour; streaming Universal-Streaming: $0.15 per hour; U-3.6 Pro Realtime: $0.45 per hour</dd><dt>בחינם</dt><dd>עד 185 שעות תמלול מוקלט ועד 333 שעות סטרימינג</dd><dt>עברית</dt><dd>כן: Universal-3.5 Pro ו-Universal-2 (מוקלט), U-3.6 Pro Realtime (סטרימינג)</dd></dl>
+<p class="api-note">אסינכרוני: שולחים audio_url ל-POST /v2/transcript ומושכים GET /v2/transcript/{id} עד completed, או מקבלים webhook.</p>
+<div class="api-links"><a href="https://www.assemblyai.com/docs/pre-recorded-audio/getting-started/transcribe-an-audio-file" target="_blank" rel="noopener">תיעוד</a><a href="https://www.assemblyai.com/docs/pre-recorded-audio/api-reference/transcripts/submit" target="_blank" rel="noopener">API Reference</a><a href="https://www.assemblyai.com/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://www.assemblyai.com/dashboard/home" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="דיבור לטקסט google gemini 3.5 transcribe תמלול עם זיהוי שפה אוטומטי ב-85+ שפות עד שעה אודיו לבקשה (30 דקות עם זיהוי דוברים); קובץ ארוך מעלים דרך files api ולא דרך גוף הבקשה. כן: he-il ברשימת השפות gemini-3.5-transcribe gemini-3.5-transcribe-live">
+<div class="api-h"><b>Google</b><span>Gemini 3.5 Transcribe</span></div>
+<p class="api-use">תמלול עם זיהוי שפה אוטומטי ב-85+ שפות</p>
+<p class="api-models"><code>gemini-3.5-transcribe</code><code>gemini-3.5-transcribe-live</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Audio input $2.00 per 1M tokens ($0.003 per minute) plus text output $12.00 per 1M tokens ($0.002 per minute), about $0.005 per minute blended</dd><dt>בחינם</dt><dd>כן: Free Tier חינמי</dd><dt>עברית</dt><dd>כן: he-IL ברשימת השפות</dd></dl>
+<p class="api-note">עד שעה אודיו לבקשה (30 דקות עם זיהוי דוברים); קובץ ארוך מעלים דרך Files API ולא דרך גוף הבקשה.</p>
+<div class="api-links"><a href="https://ai.google.dev/gemini-api/docs/transcribe" target="_blank" rel="noopener">תיעוד</a><a href="https://ai.google.dev/api" target="_blank" rel="noopener">API Reference</a><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-realtime"><summary><span class="pm">+</span><u>שיחה קולית בזמן אמת</u><span class="cnt">3</span></summary><div>
+<p class="api-when">סוכן שמדבר ומקשיב בזמן אמת.</p>
+<div class="api-list">
+<article class="api" data-q="שיחה קולית בזמן אמת openai realtime api / gpt-live שיחה קולית דו-כיוונית עם כלים ופונקציות הדפדפן מתחבר ב-webrtc עם מפתח זמני שהפונקציה ב-vercel יוצרת ב-post /v1/realtime/client_secrets, כך שהמפתח הקבוע לא יוצא לדפדפן. לא מצוין gpt-realtime-2.1-mini gpt-realtime-2.1 gpt-live-1">
+<div class="api-h"><b>OpenAI</b><span>Realtime API / GPT-Live</span></div>
+<p class="api-use">שיחה קולית דו-כיוונית עם כלים ופונקציות</p>
+<p class="api-models"><code>gpt-realtime-2.1-mini</code><code>gpt-realtime-2.1</code><code>gpt-live-1</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">gpt-realtime-2.1-mini: audio input $10.00, audio output $20.00 per 1M tokens; gpt-realtime-2.1: audio input $32.00, audio output $64.00 per 1M tokens; gpt-live-1: $0.05 per minute, billed per second (backend model billed separately)</dd><dt>בחינם</dt><dd>אין</dd></dl>
+<p class="api-note">הדפדפן מתחבר ב-WebRTC עם מפתח זמני שהפונקציה ב-Vercel יוצרת ב-POST /v1/realtime/client_secrets, כך שהמפתח הקבוע לא יוצא לדפדפן.</p>
+<div class="api-links"><a href="https://developers.openai.com/api/docs/guides/realtime" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.openai.com/api/docs/api-reference/realtime-sessions" target="_blank" rel="noopener">API Reference</a><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="שיחה קולית בזמן אמת google gemini live api שיחה קולית ווידאו בזמן אמת עם מודל gemini חיבור websocket; בדפדפן משתמשים ב-ephemeral token שהשרת מנפיק (נשלח כ-access_token) ולא במפתח הקבוע. כן: עברית (he) ברשימת 99 השפות של live api gemini-3.8-live gemini-2.5-flash-native-audio-preview-12-2025">
+<div class="api-h"><b>Google</b><span>Gemini Live API</span></div>
+<p class="api-use">שיחה קולית ווידאו בזמן אמת עם מודל Gemini</p>
+<p class="api-models"><code>gemini-3.8-live</code><code>gemini-2.5-flash-native-audio-preview-12-2025</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">gemini-3.8-live: audio input $3.00 per 1M tokens ($0.005 per minute), audio output $12.00 per 1M tokens ($0.018 per minute)</dd><dt>בחינם</dt><dd>כן: Free Tier חינמי</dd><dt>עברית</dt><dd>כן: עברית (he) ברשימת 99 השפות של Live API</dd></dl>
+<p class="api-note">חיבור WebSocket; בדפדפן משתמשים ב-ephemeral token שהשרת מנפיק (נשלח כ-access_token) ולא במפתח הקבוע.</p>
+<div class="api-links"><a href="https://ai.google.dev/gemini-api/docs/live-api" target="_blank" rel="noopener">תיעוד</a><a href="https://ai.google.dev/api" target="_blank" rel="noopener">API Reference</a><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="שיחה קולית בזמן אמת elevenlabs elevenagents סוכן קולי מוכן עם widget להטמעה באתר לסוכן פרטי השרת מבקש signed url עם המפתח והדפדפן מקבל רק אותו (תקף 15 דקות להתחלת השיחה). eleven_v3_conversational (מצב expressive) תומך בעברית; עמוד הסוכנים מציין 31 שפות בלי לפרט eleven_v3_conversational">
+<div class="api-h"><b>ElevenLabs</b><span>ElevenAgents</span></div>
+<p class="api-use">סוכן קולי מוכן עם widget להטמעה באתר</p>
+<p class="api-models"><code>eleven_v3_conversational</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">$0.08 per minute (Speech Engine); burst $0.16 per minute above the concurrency limit; LLM usage billed separately</dd><dt>בחינם</dt><dd>תוכנית Free: 10k קרדיטים בחודש; כמות דקות הסוכן בחינם לא אומתה</dd><dt>עברית</dt><dd>eleven_v3_conversational (מצב Expressive) תומך בעברית; עמוד הסוכנים מציין 31 שפות בלי לפרט</dd></dl>
+<p class="api-note">לסוכן פרטי השרת מבקש signed URL עם המפתח והדפדפן מקבל רק אותו (תקף 15 דקות להתחלת השיחה).</p>
+<div class="api-links"><a href="https://elevenlabs.io/docs/agents-platform/overview" target="_blank" rel="noopener">תיעוד</a><a href="https://elevenlabs.io/docs/eleven-agents/api-reference/conversations/get-signed-url" target="_blank" rel="noopener">API Reference</a><a href="https://elevenlabs.io/pricing/api" target="_blank" rel="noopener">מחירון</a><a href="https://elevenlabs.io/app/api/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-music_sfx"><summary><span class="pm">+</span><u>מוזיקה ואפקטים</u><span class="cnt">4</span></summary><div>
+<p class="api-when">מוזיקת רקע ואפקטים קוליים.</p>
+<div class="api-list">
+<article class="api" data-q="מוזיקה ואפקטים elevenlabs eleven music שירים ומוזיקת רקע מטקסט, עם או בלי שירה עד 5 דקות, mp3 או wav; ברירת המחדל היא music_v1, אז שולחים model_id כדי לקבל את music_v2_5. שומרים את הקובץ ב-supabase storage. לא מצוין: התיעוד מציין רב-לשוניות בלי עברית music_v1 music_v2 music_v2_5">
+<div class="api-h"><b>ElevenLabs</b><span>Eleven Music</span></div>
+<p class="api-use">שירים ומוזיקת רקע מטקסט, עם או בלי שירה</p>
+<p class="api-models"><code>music_v1</code><code>music_v2</code><code>music_v2_5</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">$0.150 per minute of music; $1.50 per finetune</dd><dt>בחינם</dt><dd>אין: Music API זמין למנויים בתשלום</dd></dl>
+<p class="api-note">עד 5 דקות, MP3 או WAV; ברירת המחדל היא music_v1, אז שולחים model_id כדי לקבל את music_v2_5. שומרים את הקובץ ב-Supabase Storage.</p>
+<div class="api-links"><a href="https://elevenlabs.io/docs/capabilities/music" target="_blank" rel="noopener">תיעוד</a><a href="https://elevenlabs.io/docs/api-reference/music/compose" target="_blank" rel="noopener">API Reference</a><a href="https://elevenlabs.io/pricing/api" target="_blank" rel="noopener">מחירון</a><a href="https://elevenlabs.io/app/api/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="מוזיקה ואפקטים elevenlabs sound effects אפקטים קוליים קצרים ולופים מטקסט עד 30 שניות לאפקט; לופ חלק זמין ב-mp3 בלבד, wav ב-48khz לאפקט שאינו לופ. לא מצוין eleven_text_to_sound_v2">
+<div class="api-h"><b>ElevenLabs</b><span>Sound Effects</span></div>
+<p class="api-use">אפקטים קוליים קצרים ולופים מטקסט</p>
+<p class="api-models"><code>eleven_text_to_sound_v2</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">$0.120 per minute of sound effects (40 credits per second when duration is set)</dd><dt>בחינם</dt><dd>תוכנית Free: 10k קרדיטים בחודש</dd></dl>
+<p class="api-note">עד 30 שניות לאפקט; לופ חלק זמין ב-MP3 בלבד, WAV ב-48kHz לאפקט שאינו לופ.</p>
+<div class="api-links"><a href="https://elevenlabs.io/docs/capabilities/sound-effects" target="_blank" rel="noopener">תיעוד</a><a href="https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert" target="_blank" rel="noopener">API Reference</a><a href="https://elevenlabs.io/pricing/api" target="_blank" rel="noopener">מחירון</a><a href="https://elevenlabs.io/app/api/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="מוזיקה ואפקטים stability ai stable audio מוזיקה ואודיו מטקסט, עד כ-6 דקות אסינכרוני: הבקשה מחזירה id (http 202) ומושכים get /v2beta/audio/results/{id} עד 200; עד 380 שניות, mp3 או wav. לא מצוין stable-audio-3">
+<div class="api-h"><b>Stability AI</b><span>Stable Audio</span></div>
+<p class="api-use">מוזיקה ואודיו מטקסט, עד כ-6 דקות</p>
+<p class="api-models"><code>stable-audio-3</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">8 credits per successful generation (1 credit = $0.01)</dd><dt>בחינם</dt><dd>25 קרדיטים חינם בהרשמה</dd></dl>
+<p class="api-note">אסינכרוני: הבקשה מחזירה id (HTTP 202) ומושכים GET /v2beta/audio/results/{id} עד 200; עד 380 שניות, MP3 או WAV.</p>
+<div class="api-links"><a href="https://docs.stability.ai/api-reference/stable-audio/text-to-audio.md" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.stability.ai/api-reference" target="_blank" rel="noopener">API Reference</a><a href="https://docs.stability.ai/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://platform.stability.ai/dashboard/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="מוזיקה ואפקטים google lyria (gemini api) שירים מלאים או קליפים של 30 שניות, כולל שירה ומילים כל אודיו מסומן ב-synthid; פלט סטריאו 44.1khz ב-mp3 (ב-lyria 3.5 אפשר גם wav). לא מצוין: lyria 3.5 כותב מילים בשפת הפרומפט, אבל עברית לא מופיעה ברשימה lyria-3-clip-preview lyria-3.5">
+<div class="api-h"><b>Google</b><span>Lyria (Gemini API)</span></div>
+<p class="api-use">שירים מלאים או קליפים של 30 שניות, כולל שירה ומילים</p>
+<p class="api-models"><code>lyria-3-clip-preview</code><code>lyria-3.5</code></p>
+<dl class="api-facts"><dt>מחיר</dt><dd dir="ltr">Lyria 3 Clip Preview (30s): $0.04 per song; Lyria 3.5 (full song): $0.08 per song; Lyria 3 Pro Preview: $0.08 per song</dd><dt>בחינם</dt><dd>אין</dd></dl>
+<p class="api-note">כל אודיו מסומן ב-SynthID; פלט סטריאו 44.1kHz ב-MP3 (ב-Lyria 3.5 אפשר גם WAV).</p>
+<div class="api-links"><a href="https://ai.google.dev/gemini-api/docs/music-generation" target="_blank" rel="noopener">תיעוד</a><a href="https://ai.google.dev/api" target="_blank" rel="noopener">API Reference</a><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+</div>
+</div></details>
+<div class="label api-gl">שירותים לאפליקציה</div>
+<details class="err more api-cat" id="api-maps"><summary><span class="pm">+</span><u>מפות ומקומות</u><span class="cnt">6</span></summary><div>
+<p class="api-when">חיפוש מקום, שעות פתיחה, כתובת לנקודה, מרחק ומסלול.</p>
+<div class="api-list">
+<article class="api" data-q="מפות ומקומות google maps platform places api (new) חיפוש עסקים ומקומות, פרטי מקום והשלמה אוטומטית של כתובות נדרש פרויקט עם חשבון חיוב פעיל ב-google cloud גם בתוך המכסה החינמית, וחובה לשלוח field mask (רשימת שדות) כי בלעדיו הבקשה נכשלת. פרמטר languagecode קובע את שפת התוצאות (בטבלת השפות של google עברית מופיעה כ-iw), ו-regioncode=il מטה את החיפוש לישראל">
+<div class="api-h"><b>Google Maps Platform</b><span>Places API (New)</span></div>
+<p class="api-use">חיפוש עסקים ומקומות, פרטי מקום והשלמה אוטומטית של כתובות</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>Text Search Pro: $32.00 ל-1,000 אחרי המכסה; Place Details Essentials: $5.00 ל-1,000; Place Details Pro: $17.00 ל-1,000; Autocomplete Requests: $2.83 ל-1,000</dd><dt>בחינם</dt><dd>מכסה חינמית חודשית לכל SKU: 10,000 ל-Essentials, 5,000 ל-Pro, 1,000 ל-Enterprise; Text Search Essentials (IDs Only) ללא הגבלה</dd><dt>עברית</dt><dd>פרמטר languageCode קובע את שפת התוצאות (בטבלת השפות של Google עברית מופיעה כ-iw), ו-regionCode=IL מטה את החיפוש לישראל</dd></dl>
+<p class="api-note">נדרש פרויקט עם חשבון חיוב פעיל ב-Google Cloud גם בתוך המכסה החינמית, וחובה לשלוח field mask (רשימת שדות) כי בלעדיו הבקשה נכשלת.</p>
+<div class="api-links"><a href="https://developers.google.com/maps/documentation/places/web-service/op-overview" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.google.com/maps/documentation/places/web-service/reference/rest" target="_blank" rel="noopener">API Reference</a><a href="https://developers.google.com/maps/billing-and-pricing/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://console.cloud.google.com/google/maps-apis/start" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="מפות ומקומות google maps platform geocoding api המרת כתובת לקואורדינטות ולהפך יש גרסת v3 וגרסת v4 (זמינה לכלל), ומותר לשמור place id ללא הגבלת זמן, אבל שאר התוצאות כפופות למגבלות השמירה (caching) בתנאי השירות. עברית נתמכת ברשימת השפות של google maps platform (קוד iw)">
+<div class="api-h"><b>Google Maps Platform</b><span>Geocoding API</span></div>
+<p class="api-use">המרת כתובת לקואורדינטות ולהפך</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>Geocoding Essentials: $5.00 ל-1,000 בקשות אחרי המכסה החינמית</dd><dt>בחינם</dt><dd>10,000 בקשות בחודש</dd><dt>עברית</dt><dd>עברית נתמכת ברשימת השפות של Google Maps Platform (קוד iw)</dd></dl>
+<p class="api-note">יש גרסת v3 וגרסת v4 (זמינה לכלל), ומותר לשמור place ID ללא הגבלת זמן, אבל שאר התוצאות כפופות למגבלות השמירה (caching) בתנאי השירות.</p>
+<div class="api-links"><a href="https://developers.google.com/maps/documentation/geocoding/overview" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.google.com/maps/documentation/geocoding/reference/rest" target="_blank" rel="noopener">API Reference</a><a href="https://developers.google.com/maps/billing-and-pricing/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://console.cloud.google.com/google/maps-apis/start" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="מפות ומקומות google maps platform routes api מסלול, מרחק וזמן נסיעה בין נקודות, ומטריצת מרחקים המפתח נשמר ב-vercel בלבד, ומגבילים אותו ל-api הספציפי, עם מפתח נפרד לכל אפליקציה. languagecode בגוף הבקשה יחד עם routes.localizedvalues ב-field mask מחזיר טקסט מקומי; computeroutematrix מחזיר en-us כברירת מחדל">
+<div class="api-h"><b>Google Maps Platform</b><span>Routes API</span></div>
+<p class="api-use">מסלול, מרחק וזמן נסיעה בין נקודות, ומטריצת מרחקים</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>Compute Routes Essentials: $5.00 ל-1,000; Compute Route Matrix Essentials: $5.00 ל-1,000, אחרי המכסה החינמית</dd><dt>בחינם</dt><dd>10,000 בחודש לכל אחד מה-SKU של Essentials</dd><dt>עברית</dt><dd>languageCode בגוף הבקשה יחד עם routes.localizedValues ב-field mask מחזיר טקסט מקומי; ComputeRouteMatrix מחזיר en-US כברירת מחדל</dd></dl>
+<p class="api-note">המפתח נשמר ב-Vercel בלבד, ומגבילים אותו ל-API הספציפי, עם מפתח נפרד לכל אפליקציה.</p>
+<div class="api-links"><a href="https://developers.google.com/maps/documentation/routes/overview" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.google.com/maps/documentation/routes/reference/rest" target="_blank" rel="noopener">API Reference</a><a href="https://developers.google.com/maps/billing-and-pricing/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://console.cloud.google.com/google/maps-apis/start" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="מפות ומקומות google maps platform maps embed api הטמעת מפה של מקום, חיפוש או מסלול באתר בעזרת iframe המפתח מופיע בכתובת ה-iframe ולכן גלוי בדפדפן, אז זה החריג לכלל של מפתחות ב-vercel: מגבילים אותו לכתובת האתר שלכם (http referrer) ול-maps embed api בלבד. לא מצוין">
+<div class="api-h"><b>Google Maps Platform</b><span>Maps Embed API</span></div>
+<p class="api-use">הטמעת מפה של מקום, חיפוש או מסלול באתר בעזרת iframe</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>ללא עלות</dd><dt>בחינם</dt><dd>חינם, ללא הגבלת בקשות</dd></dl>
+<p class="api-note">המפתח מופיע בכתובת ה-iframe ולכן גלוי בדפדפן, אז זה החריג לכלל של מפתחות ב-Vercel: מגבילים אותו לכתובת האתר שלכם (HTTP referrer) ול-Maps Embed API בלבד.</p>
+<div class="api-links"><a href="https://developers.google.com/maps/documentation/embed/get-started" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.google.com/maps/documentation/embed/embedding-map" target="_blank" rel="noopener">API Reference</a><a href="https://developers.google.com/maps/documentation/embed/usage-and-billing" target="_blank" rel="noopener">מחירון</a><a href="https://developers.google.com/maps/documentation/embed/get-api-key" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="מפות ומקומות mapbox geocoding api v6, search box api, מפות web מפות אינטראקטיביות, חיפוש כתובות ו-geocoding טוקן ציבורי (pk) גלוי בדפדפן וטוקן סודי (sk) רק ב-vercel, ואסור לשמור תוצאות temporary: שמירה דורשת permanent=true וכרטיס אשראי. language=he נתמך בכיסוי חלקי (limited coverage)">
+<div class="api-h"><b>Mapbox</b><span>Geocoding API v6, Search Box API, מפות web</span></div>
+<p class="api-use">מפות אינטראקטיביות, חיפוש כתובות ו-geocoding</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>Temporary Geocoding: $0.75 ל-1,000 אחרי 100,000; Permanent Geocoding: $5.00 ל-1,000 מהבקשה הראשונה; טעינות מפה ב-web: $5.00 ל-1,000 אחרי 50,000</dd><dt>בחינם</dt><dd>בחודש: 100,000 בקשות Temporary Geocoding, 50,000 טעינות מפה ב-web, 100,000 בקשות Directions</dd><dt>עברית</dt><dd>language=he נתמך בכיסוי חלקי (Limited coverage)</dd></dl>
+<p class="api-note">טוקן ציבורי (pk) גלוי בדפדפן וטוקן סודי (sk) רק ב-Vercel, ואסור לשמור תוצאות Temporary: שמירה דורשת permanent=true וכרטיס אשראי.</p>
+<div class="api-links"><a href="https://docs.mapbox.com/help/getting-started/search/" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.mapbox.com/api/search/geocoding/" target="_blank" rel="noopener">API Reference</a><a href="https://www.mapbox.com/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://console.mapbox.com/account/access-tokens/" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="מפות ומקומות openstreetmap nominatim geocoding חינמי על בסיס נתוני openstreetmap חובה לשלוח user-agent או referer שמזהה את האפליקציה, לשמור תוצאות במטמון ולתת ייחוס ל-openstreetmap, והשלמה אוטומטית (autocomplete) אסורה. accept-language=he לשמות בעברית, ו-countrycodes=il לסינון תוצאות לישראל">
+<div class="api-h"><b>OpenStreetMap</b><span>Nominatim</span></div>
+<p class="api-use">geocoding חינמי על בסיס נתוני OpenStreetMap</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>חינם</dd><dt>בחינם</dt><dd>שימוש קל בלבד: עד בקשה אחת בשנייה, וסקריפט קבוע מוגבל ל-4 בקשות בדקה</dd><dt>עברית</dt><dd>accept-language=he לשמות בעברית, ו-countrycodes=il לסינון תוצאות לישראל</dd></dl>
+<p class="api-note">חובה לשלוח User-Agent או Referer שמזהה את האפליקציה, לשמור תוצאות במטמון ולתת ייחוס ל-OpenStreetMap, והשלמה אוטומטית (autocomplete) אסורה.</p>
+<div class="api-links"><a href="https://nominatim.org/release-docs/latest/api/Overview/" target="_blank" rel="noopener">תיעוד</a><a href="https://nominatim.org/release-docs/latest/api/Search/" target="_blank" rel="noopener">API Reference</a><a href="https://operations.osmfoundation.org/policies/nominatim/" target="_blank" rel="noopener">מחירון</a><span class="nokey">לא נדרש מפתח</span></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-flights"><summary><span class="pm">+</span><u>טיסות</u><span class="cnt">4</span></summary><div>
+<p class="api-when">סטטוס ושעה מעודכנת של טיסה.</p>
+<div class="api-list">
+<article class="api" data-q="טיסות aerodatabox flight status ו-fids (לוח המראות ונחיתות לפי שדה) סטטוס טיסה לפי מספר טיסה, ולוח המראות ונחיתות של שדה תעופה מותר לשמור את הנתונים עד 7 ימים בלבד, ובתוכנית החינמית חובה לציין את aerodatabox כמקור. לא מצוין">
+<div class="api-h"><b>AeroDataBox</b><span>Flight status ו-FIDS (לוח המראות ונחיתות לפי שדה)</span></div>
+<p class="api-use">סטטוס טיסה לפי מספר טיסה, ולוח המראות ונחיתות של שדה תעופה</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>Pro: $7.50 לחודש ב-API.Market או $8 ב-RapidAPI ל-5,000 יחידות; Starter ישיר: $19 לחודש ל-40,000 יחידות; קריאה עולה 1, 2 או 6 יחידות לפי Tier</dd><dt>בחינם</dt><dd>Basic: 400 יחידות בחודש ב-RapidAPI, או ניסיון של 7 ימים ב-API.Market</dd></dl>
+<p class="api-note">מותר לשמור את הנתונים עד 7 ימים בלבד, ובתוכנית החינמית חובה לציין את AeroDataBox כמקור.</p>
+<div class="api-links"><a href="https://aerodatabox.com/doc" target="_blank" rel="noopener">תיעוד</a><a href="https://aerodatabox.com/api-spec" target="_blank" rel="noopener">API Reference</a><a href="https://aerodatabox.com/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://aerodatabox.com/pricing#subscribe" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="טיסות aviationstack (apilayer) aviationstack api טיסות בזמן אמת, שדות תעופה וחברות תעופה התוכנית החינמית לא כוללת לוחות זמנים עתידיים (flight schedules) ונתונים היסטוריים, ואסורה לשימוש מסחרי. לא מצוין">
+<div class="api-h"><b>Aviationstack (APILayer)</b><span>Aviationstack API</span></div>
+<p class="api-use">טיסות בזמן אמת, שדות תעופה וחברות תעופה</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>Basic: $49.99 לחודש ל-10,000 בקשות; Professional: $149.99 לחודש ל-50,000 בקשות; Business: $499.99 לחודש ל-250,000 בקשות</dd><dt>בחינם</dt><dd>100 בקשות בחודש, לשימוש אישי ולא מסחרי</dd></dl>
+<p class="api-note">התוכנית החינמית לא כוללת לוחות זמנים עתידיים (Flight Schedules) ונתונים היסטוריים, ואסורה לשימוש מסחרי.</p>
+<div class="api-links"><a href="https://docs.apilayer.com/aviationstack/docs/api-documentation" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.apilayer.com/aviationstack/docs/api-documentation" target="_blank" rel="noopener">API Reference</a><a href="https://aviationstack.com/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://aviationstack.com/signup/free" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="טיסות flightaware aeroapi סטטוס טיסה ומעקב מסלול בזמן אמת אפליקציה עסקית דורשת standard ומעלה, וב-personal יש מגבלה של 10 result sets בדקה ואין התראות או היסטוריה. לא מצוין">
+<div class="api-h"><b>FlightAware</b><span>AeroAPI</span></div>
+<p class="api-use">סטטוס טיסה ומעקב מסלול בזמן אמת</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>Personal: ללא מינימום, תשלום לפי result set (15 רשומות), התעריף לכל endpoint לא אומת; Standard: מינימום $100 לחודש; Premium: מינימום $1,000 לחודש</dd><dt>בחינם</dt><dd>ב-Personal עד $5 שימוש חינם בחודש ($10 למי שמזין נתוני ADS-B), לשימוש אישי או אקדמי בלבד</dd></dl>
+<p class="api-note">אפליקציה עסקית דורשת Standard ומעלה, וב-Personal יש מגבלה של 10 result sets בדקה ואין התראות או היסטוריה.</p>
+<div class="api-links"><a href="https://www.flightaware.com/aeroapi/portal/documentation" target="_blank" rel="noopener">תיעוד</a><a href="https://www.flightaware.com/aeroapi/portal/documentation" target="_blank" rel="noopener">API Reference</a><a href="https://flightaware.com/commercial/aeroapi/" target="_blank" rel="noopener">מחירון</a><a href="https://www.flightaware.com/aeroapi/signup/personal" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="טיסות נתב״ג, מידע פתוח מאגר הטיסות ב-data.gov.il טיסות נכנסות ויוצאות בנתב״ג, עם סטטוס ושעה מעודכנת חלון מתגלגל של כשלושה ימים, נתב״ג בלבד. לא נבדק מכאן, כי האתר חוסם גישה אוטומטית. לטיסות בשדות אחרים צריך ספק מסחרי.">
+<div class="api-h"><b>נתב״ג, מידע פתוח</b><span>מאגר הטיסות ב-data.gov.il</span></div>
+<p class="api-use">טיסות נכנסות ויוצאות בנתב״ג, עם סטטוס ושעה מעודכנת</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>ללא עלות</dd><dt>בחינם</dt><dd>מאגר פתוח</dd></dl>
+<p class="api-note">חלון מתגלגל של כשלושה ימים, נתב״ג בלבד. לא נבדק מכאן, כי האתר חוסם גישה אוטומטית. לטיסות בשדות אחרים צריך ספק מסחרי.</p>
+<div class="api-links"><a href="https://docs.ckan.org/en/latest/api/index.html" target="_blank" rel="noopener">תיעוד</a><span class="nokey">לא נדרש מפתח</span></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-weather"><summary><span class="pm">+</span><u>מזג אוויר</u><span class="cnt">2</span></summary><div>
+<p class="api-when">תחזית ומצב נוכחי לפי מיקום.</p>
+<div class="api-list">
+<article class="api" data-q="מזג אוויר open-meteo weather forecast api תחזית שעתית ויומית לפי קואורדינטות אתר עסקי עם מנויים או פרסומות נחשב שימוש מסחרי, והמגבלה נספרת לפי כתובת ip כך שמ-vercel אפשר להגיע אליה מהר יותר. לא מצוין (אין פרמטר שפה, הנתונים מספריים); timezone=auto מחזיר שעון מקומי">
+<div class="api-h"><b>Open-Meteo</b><span>Weather Forecast API</span></div>
+<p class="api-use">תחזית שעתית ויומית לפי קואורדינטות</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>מנויים מסחריים: API Standard עד מיליון קריאות בחודש, API Professional עד 5 מיליון; המחיר לא מופיע בטקסט העמוד (לא אומת)</dd><dt>בחינם</dt><dd>לשימוש לא מסחרי בלבד: עד 10,000 קריאות ביום, 5,000 בשעה, 600 בדקה, 300,000 בחודש, ברישיון CC BY 4.0</dd></dl>
+<p class="api-note">אתר עסקי עם מנויים או פרסומות נחשב שימוש מסחרי, והמגבלה נספרת לפי כתובת IP כך שמ-Vercel אפשר להגיע אליה מהר יותר.</p>
+<div class="api-links"><a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener">תיעוד</a><a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener">API Reference</a><a href="https://open-meteo.com/en/pricing" target="_blank" rel="noopener">מחירון</a><span class="nokey">לא נדרש מפתח</span></div>
+</article>
+<article class="api" data-q="מזג אוויר openweather one call api (גרסאות 3.0 ו-4.0) מזג אוויר נוכחי, תחזית והתראות במנוי אחד צריך להירשם למנוי one call api ולמלא טופס חיוב, תקרת ברירת המחדל היא 2,000 קריאות ביום (ניתן לשנות), ומפתח חדש מופעל תוך עד שעתיים. lang=he נתמך">
+<div class="api-h"><b>OpenWeather</b><span>One Call API (גרסאות 3.0 ו-4.0)</span></div>
+<p class="api-use">מזג אוויר נוכחי, תחזית והתראות במנוי אחד</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>$0.0015 לכל קריאה מעבר ל-1,000 הקריאות החינמיות ביום</dd><dt>בחינם</dt><dd>1,000 קריאות ביום במנוי One Call API, משותף לגרסאות 3.0 ו-4.0</dd><dt>עברית</dt><dd>lang=he נתמך</dd></dl>
+<p class="api-note">צריך להירשם למנוי One Call API ולמלא טופס חיוב, תקרת ברירת המחדל היא 2,000 קריאות ביום (ניתן לשנות), ומפתח חדש מופעל תוך עד שעתיים.</p>
+<div class="api-links"><a href="https://openweathermap.org/api/one-call-4" target="_blank" rel="noopener">תיעוד</a><a href="https://openweathermap.org/api/one-call-3" target="_blank" rel="noopener">API Reference</a><a href="https://openweathermap.org/price" target="_blank" rel="noopener">מחירון</a><a href="https://home.openweathermap.org/api_keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-messaging"><summary><span class="pm">+</span><u>הודעות: מייל, SMS ו-WhatsApp</u><span class="cnt">6</span></summary><div>
+<p class="api-when">התראה, תזכורת או אישור שיוצאים מהמערכת.</p>
+<div class="api-list">
+<article class="api" data-q="הודעות: מייל, sms ו-whatsapp meta whatsapp business platform, cloud api שליחת הודעות וואטסאפ מהאפליקציה: אישורים, תזכורות ושירות לקוחות מחוץ לחלון של 24 שעות מאז ההודעה האחרונה של הלקוח מותר לשלוח רק תבניות שאושרו מראש, והטוקן הזמני פג מהר ולכן בייצור משתמשים בטוקן של system user. לא מצוין">
+<div class="api-h"><b>Meta</b><span>WhatsApp Business Platform, Cloud API</span></div>
+<p class="api-use">שליחת הודעות וואטסאפ מהאפליקציה: אישורים, תזכורות ושירות לקוחות</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>תשלום לכל הודעה שנמסרה, לפי קטגוריה (שיווק, utility, אימות, שירות) ולפי מדינת הנמען; ישראל היא שוק נפרד (972), והתעריף לישראל לא אומת (מוצג רק במחשבון באתר)</dd><dt>בחינם</dt><dd>1,000 הודעות שירות בחודש לכל מספר עסקי, והודעות שהמשתמשים שולחים לעסק לא מחויבות; מ-1.10.2026 הודעות שירות מעבר למכסה והודעות utility בחלון פתוח בתשלום</dd></dl>
+<p class="api-note">מחוץ לחלון של 24 שעות מאז ההודעה האחרונה של הלקוח מותר לשלוח רק תבניות שאושרו מראש, והטוקן הזמני פג מהר ולכן בייצור משתמשים בטוקן של System User.</p>
+<div class="api-links"><a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages" target="_blank" rel="noopener">API Reference</a><a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://developers.facebook.com/apps" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="הודעות: מייל, sms ו-whatsapp twilio programmable messaging (sms) שליחת sms לטלפונים בישראל sms בעברית לישראל יקר, כי הודעה של 140 תווים כבר נחשבת שלושה סגמנטים. הודעה בעברית מקודדת ucs-2: עד 70 תווים בסגמנט יחיד ו-67 לכל סגמנט בהודעה ארוכה, וכל סגמנט מחויב בנפרד">
+<div class="api-h"><b>Twilio</b><span>Programmable Messaging (SMS)</span></div>
+<p class="api-use">שליחת SMS לטלפונים בישראל</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>יוצא לישראל: $0.2575 לסגמנט; נכנס: $0.0075 לסגמנט; מספר נייד ישראלי: $15 לחודש; Alphanumeric Sender ID ללא עלות</dd><dt>בחינם</dt><dd>חשבון ניסיון בלי כרטיס אשראי, ששולח ממספר הניסיון רק לנמענים מאומתים</dd><dt>עברית</dt><dd>הודעה בעברית מקודדת UCS-2: עד 70 תווים בסגמנט יחיד ו-67 לכל סגמנט בהודעה ארוכה, וכל סגמנט מחויב בנפרד</dd></dl>
+<p class="api-note">SMS בעברית לישראל יקר, כי הודעה של 140 תווים כבר נחשבת שלושה סגמנטים.</p>
+<div class="api-links"><a href="https://www.twilio.com/docs/messaging/quickstart" target="_blank" rel="noopener">תיעוד</a><a href="https://www.twilio.com/docs/messaging/api" target="_blank" rel="noopener">API Reference</a><a href="https://www.twilio.com/en-us/sms/pricing/il" target="_blank" rel="noopener">מחירון</a><a href="https://1console.twilio.com/" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="הודעות: מייל, sms ו-whatsapp twilio whatsapp business api דרך twilio וואטסאפ דרך אותו חשבון twilio, עם sandbox לבדיקות משלמים גם ל-twilio וגם ל-meta, לכן זה יקר יותר מ-cloud api ישיר, אבל ה-sandbox מאפשר להתחיל לבדוק מהר. לא מצוין">
+<div class="api-h"><b>Twilio</b><span>WhatsApp Business API דרך Twilio</span></div>
+<p class="api-use">וואטסאפ דרך אותו חשבון Twilio, עם Sandbox לבדיקות</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>עמלת Twilio: $0.005 לכל הודעה נכנסת או יוצאת, ובנוסף עמלת Meta לכל תבנית לפי קטגוריה ומדינה (utility ואימות מתחילים ב-$0.0034)</dd><dt>בחינם</dt><dd>Twilio Sandbox for WhatsApp לבדיקות, בלי לחכות לרישום שולח</dd></dl>
+<p class="api-note">משלמים גם ל-Twilio וגם ל-Meta, לכן זה יקר יותר מ-Cloud API ישיר, אבל ה-Sandbox מאפשר להתחיל לבדוק מהר.</p>
+<div class="api-links"><a href="https://www.twilio.com/docs/whatsapp/quickstart" target="_blank" rel="noopener">תיעוד</a><a href="https://www.twilio.com/docs/messaging/api" target="_blank" rel="noopener">API Reference</a><a href="https://www.twilio.com/en-us/whatsapp/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://1console.twilio.com/" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="הודעות: מייל, sms ו-whatsapp telegram bot api בוט טלגרם ששולח התראות ומקבל פקודות דרך webhook שומרים את הטוקן כמו סיסמה ב-vercel בלבד, ושולחים עד הודעה אחת בשנייה לכל צ&#x27;אט ועד 20 הודעות בדקה לקבוצה. לא מצוין">
+<div class="api-h"><b>Telegram</b><span>Bot API</span></div>
+<p class="api-use">בוט טלגרם ששולח התראות ומקבל פקודות דרך webhook</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>חינם; רק שידור מעל 30 הודעות בשנייה עולה 0.1 Telegram Stars להודעה</dd><dt>בחינם</dt><dd>שליחת הודעות למשתמשים ללא עלות</dd></dl>
+<p class="api-note">שומרים את הטוקן כמו סיסמה ב-Vercel בלבד, ושולחים עד הודעה אחת בשנייה לכל צ&#x27;אט ועד 20 הודעות בדקה לקבוצה.</p>
+<div class="api-links"><a href="https://core.telegram.org/bots/tutorial" target="_blank" rel="noopener">תיעוד</a><a href="https://core.telegram.org/bots/api" target="_blank" rel="noopener">API Reference</a><a href="https://core.telegram.org/bots/faq" target="_blank" rel="noopener">מחירון</a><a href="https://t.me/botfather" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="הודעות: מייל, sms ו-whatsapp resend email api (transactional) מיילים אוטומטיים מהאפליקציה: אישור הרשמה, איפוס סיסמה, קבלה כדי לשלוח צריך דומיין משלכם מאומת ב-resend, ויש מגבלה של 10 בקשות בשנייה לצוות. לא מצוין">
+<div class="api-h"><b>Resend</b><span>Email API (Transactional)</span></div>
+<p class="api-use">מיילים אוטומטיים מהאפליקציה: אישור הרשמה, איפוס סיסמה, קבלה</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>Pro: $20 לחודש ל-50,000 מיילים; Scale: $90 לחודש ל-100,000 מיילים; חריגה: $0.90 לכל 1,000 מיילים</dd><dt>בחינם</dt><dd>3,000 מיילים בחודש, עד 100 ביום, 3 דומיינים, שמירת נתונים 30 יום</dd></dl>
+<p class="api-note">כדי לשלוח צריך דומיין משלכם מאומת ב-Resend, ויש מגבלה של 10 בקשות בשנייה לצוות.</p>
+<div class="api-links"><a href="https://resend.com/docs/introduction" target="_blank" rel="noopener">תיעוד</a><a href="https://www.resend.com/docs/api-reference/introduction" target="_blank" rel="noopener">API Reference</a><a href="https://resend.com/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://resend.com/api-keys" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="הודעות: מייל, sms ו-whatsapp 019 019 sms api שליחת sms מספק ישראלי, כולל קבלת תשובות מחוץ לסטאק הקורס. רלוונטי למוצר מלא שצריך sms דו-כיווני בשם העסק.">
+<div class="api-h"><b>019</b><span>019 SMS API</span></div>
+<p class="api-use">שליחת SMS מספק ישראלי, כולל קבלת תשובות</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>לא אומת</dd></dl>
+<p class="api-note">מחוץ לסטאק הקורס. רלוונטי למוצר מלא שצריך SMS דו-כיווני בשם העסק.</p>
+<div class="api-links"><a href="https://docs.019sms.co.il/sms/" target="_blank" rel="noopener">תיעוד</a><span class="nokey">חשבון אצל 019, על שם העסק</span></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-google_workspace"><summary><span class="pm">+</span><u>Google: יומן, Sheets ו-Gmail</u><span class="cnt">3</span></summary><div>
+<p class="api-when">בקורס דרך n8n, בחשבון אחד של בעל המוצר.</p>
+<div class="api-list">
+<article class="api" data-q="google: יומן, sheets ו-gmail google google calendar api יצירה וקריאה של אירועים ביומן, למשל תורים ופגישות נדרש oauth, ובקורס מתחברים דרך n8n עם החשבון היחיד של בעל העסק, כך שאין צורך לבנות מסך התחברות. לא מצוין">
+<div class="api-h"><b>Google</b><span>Google Calendar API</span></div>
+<p class="api-use">יצירה וקריאה של אירועים ביומן, למשל תורים ופגישות</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>ללא עלות לשימוש רגיל; Google מתכננת לחייב על חריגה מהמכסות בהמשך 2026</dd><dt>בחינם</dt><dd>10,000 בקשות בדקה לפרויקט, 600 בדקה לכל משתמש</dd></dl>
+<p class="api-note">נדרש OAuth, ובקורס מתחברים דרך n8n עם החשבון היחיד של בעל העסק, כך שאין צורך לבנות מסך התחברות.</p>
+<div class="api-links"><a href="https://developers.google.com/workspace/calendar/api/quickstart/nodejs" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.google.com/workspace/calendar/api/v3/reference" target="_blank" rel="noopener">API Reference</a><a href="https://developers.google.com/workspace/calendar/api/guides/quota" target="_blank" rel="noopener">מחירון</a><a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="google: יומן, sheets ו-gmail google google sheets api קריאה וכתיבה של שורות בגיליון, למשל לידים מטופס המכסה של 60 בקשות בדקה למשתמש נגמרת מהר, לכן לא קוראים ל-sheets בכל טעינת עמוד אלא דרך n8n או שמירה ב-supabase. לא מצוין">
+<div class="api-h"><b>Google</b><span>Google Sheets API</span></div>
+<p class="api-use">קריאה וכתיבה של שורות בגיליון, למשל לידים מטופס</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>ללא עלות לשימוש רגיל; Google מתכננת לחייב על חריגה מהמכסות בהמשך 2026</dd><dt>בחינם</dt><dd>300 בקשות קריאה ו-300 בקשות כתיבה בדקה לפרויקט, 60 בדקה לכל משתמש</dd></dl>
+<p class="api-note">המכסה של 60 בקשות בדקה למשתמש נגמרת מהר, לכן לא קוראים ל-Sheets בכל טעינת עמוד אלא דרך n8n או שמירה ב-Supabase.</p>
+<div class="api-links"><a href="https://developers.google.com/workspace/sheets/api/quickstart/nodejs" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.google.com/workspace/sheets/api/reference/rest" target="_blank" rel="noopener">API Reference</a><a href="https://developers.google.com/workspace/sheets/api/limits" target="_blank" rel="noopener">מחירון</a><a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+<article class="api" data-q="google: יומן, sheets ו-gmail google gmail api שליחת מיילים מחשבון ה-gmail של בעל העסק וקריאת תיבת הדואר בקורס מתחברים דרך n8n עם חשבון הבעלים, וכשאפליקציית oauth במצב testing ההרשאה פגה אחרי 7 ימים וצריך להתחבר מחדש. לא מצוין">
+<div class="api-h"><b>Google</b><span>Gmail API</span></div>
+<p class="api-use">שליחת מיילים מחשבון ה-Gmail של בעל העסק וקריאת תיבת הדואר</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>ללא עלות עד 80,000,000 יחידות מכסה ביום לפרויקט; כל שליחה (messages.send) עולה 100 יחידות</dd><dt>בחינם</dt><dd>1,200,000 יחידות בדקה לפרויקט, 6,000 בדקה לכל משתמש; חשבון Gmail פרטי מוגבל ל-500 מיילים ביום</dd></dl>
+<p class="api-note">בקורס מתחברים דרך n8n עם חשבון הבעלים, וכשאפליקציית OAuth במצב Testing ההרשאה פגה אחרי 7 ימים וצריך להתחבר מחדש.</p>
+<div class="api-links"><a href="https://developers.google.com/workspace/gmail/api/quickstart/nodejs" target="_blank" rel="noopener">תיעוד</a><a href="https://developers.google.com/workspace/gmail/api/reference/rest" target="_blank" rel="noopener">API Reference</a><a href="https://developers.google.com/workspace/gmail/api/reference/quota" target="_blank" rel="noopener">מחירון</a><a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-israel_data"><summary><span class="pm">+</span><u>מידע ציבורי בישראל</u><span class="cnt">7</span></summary><div>
+<p class="api-when">חגים ושבת, שערי מטבע, מאגרי מידע ממשלתיים ועירוניים.</p>
+<div class="api-list">
+<article class="api" data-q="מידע ציבורי בישראל data.gov.il (אתר המידע הממשלתי) ckan action api ו-datastore שליפת מאגרי מידע ממשלתיים בפורמט json, למשל רשימות יישובים, רחובות ותחנות שולפים טבלה עם datastore_search ו-resource_id של המשאב, ומותר שימוש מסחרי בתנאי שמציינים את מקור המידע. המאגרים ממשלתיים ורובם בעברית">
+<div class="api-h"><b>data.gov.il (אתר המידע הממשלתי)</b><span>CKAN Action API ו-DataStore</span></div>
+<p class="api-use">שליפת מאגרי מידע ממשלתיים בפורמט JSON, למשל רשימות יישובים, רחובות ותחנות</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>ללא עלות</dd><dt>בחינם</dt><dd>כל המאגרים הציבוריים</dd><dt>עברית</dt><dd>המאגרים ממשלתיים ורובם בעברית</dd></dl>
+<p class="api-note">שולפים טבלה עם datastore_search ו-resource_id של המשאב, ומותר שימוש מסחרי בתנאי שמציינים את מקור המידע.</p>
+<div class="api-links"><a href="https://docs.ckan.org/en/latest/api/index.html" target="_blank" rel="noopener">תיעוד</a><a href="https://docs.ckan.org/en/latest/maintaining/datastore.html#ckanext.datastore.logic.action.datastore_search" target="_blank" rel="noopener">API Reference</a><a href="https://data.gov.il/terms-of-use" target="_blank" rel="noopener">מחירון</a><span class="nokey">לא נדרש מפתח לקריאת מאגרים ציבוריים</span></div>
+</article>
+<article class="api" data-q="מידע ציבורי בישראל hebcal rest apis (לוח עברי, זמני שבת, המרת תאריכים, זמנים) חגים, זמני כניסת ויציאת שבת והמרת תאריך עברי התוכן ברישיון cc by 4.0 ולכן חובה לתת קרדיט ל-hebcal.com. lg=he לעברית עם ניקוד, lg=he-x-nonikud בלי ניקוד, ו-i=on ללוח החגים של ישראל">
+<div class="api-h"><b>Hebcal</b><span>REST APIs (לוח עברי, זמני שבת, המרת תאריכים, זמנים)</span></div>
+<p class="api-use">חגים, זמני כניסת ויציאת שבת והמרת תאריך עברי</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>חינם</dd><dt>בחינם</dt><dd>ללא הרשמה; מעל 90 בקשות בחלון של 10 שניות עלול להחזיר שגיאה 429</dd><dt>עברית</dt><dd>lg=he לעברית עם ניקוד, lg=he-x-NoNikud בלי ניקוד, ו-i=on ללוח החגים של ישראל</dd></dl>
+<p class="api-note">התוכן ברישיון CC BY 4.0 ולכן חובה לתת קרדיט ל-Hebcal.com.</p>
+<div class="api-links"><a href="https://www.hebcal.com/home/developer-apis" target="_blank" rel="noopener">תיעוד</a><a href="https://www.hebcal.com/home/195/jewish-calendar-rest-api" target="_blank" rel="noopener">API Reference</a><a href="https://www.hebcal.com/home/developer-apis" target="_blank" rel="noopener">מחירון</a><span class="nokey">לא נדרש מפתח</span></div>
+</article>
+<article class="api" data-q="מידע ציבורי בישראל בנק ישראל שערי חליפין יציגים, ממשק sdmx של מאגר הסדרות השער היציג של דולר, יורו ומטבעות אחרים מול השקל השער היציג מתפרסם פעם ביום עסקים, זמן קצר אחרי 15:15 (בימי שישי וערבי חג אחרי 12:15), ומסננים שערים יציגים בלבד עם c[data_type]=of00. לא מצוין">
+<div class="api-h"><b>בנק ישראל</b><span>שערי חליפין יציגים, ממשק SDMX של מאגר הסדרות</span></div>
+<p class="api-use">השער היציג של דולר, יורו ומטבעות אחרים מול השקל</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>ללא עלות</dd><dt>בחינם</dt><dd>ללא הרשמה</dd></dl>
+<p class="api-note">השער היציג מתפרסם פעם ביום עסקים, זמן קצר אחרי 15:15 (בימי שישי וערבי חג אחרי 12:15), ומסננים שערים יציגים בלבד עם c[DATA_TYPE]=OF00.</p>
+<div class="api-links"><a href="https://www.boi.org.il/media/mtqp3c0p/extracting-representative-exchange-rates-from-the-new-series-database.pdf" target="_blank" rel="noopener">תיעוד</a><a href="https://www.boi.org.il/media/zodneksc/extracting-series-from-the-new-series-database-representative-exchange-rates-example.pdf" target="_blank" rel="noopener">API Reference</a><a href="https://boi.org.il/en/economic-roles/financial-markets/explanatory-notes-to-the-representative-exchange-rates/" target="_blank" rel="noopener">מחירון</a><span class="nokey">לא נדרש מפתח (המדריך הרשמי לא מזכיר מפתח)</span></div>
+</article>
+<article class="api" data-q="מידע ציבורי בישראל רשתות השיווק (שקיפות מחירים) קבצי מחירים לפי חוק קידום התחרות בענף המזון השוואת מחירי מוצרים בין סופרמרקטים וסניפים לא נמצא api רשמי: כל קמעונאי גדול מפרסם באינטרנט קבצים לכל סניף בנפרד, והרשות להגנת הצרכן מפתחת מאגר מרכזי, כך שצריך אוטומציה (למשל ב-n8n) שמורידה ומפענחת קבצים מכל רשת. לא מצוין">
+<div class="api-h"><b>רשתות השיווק (שקיפות מחירים)</b><span>קבצי מחירים לפי חוק קידום התחרות בענף המזון</span></div>
+<p class="api-use">השוואת מחירי מוצרים בין סופרמרקטים וסניפים</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>ללא עלות</dd><dt>בחינם</dt><dd>הקבצים פומביים</dd></dl>
+<p class="api-note">לא נמצא API רשמי: כל קמעונאי גדול מפרסם באינטרנט קבצים לכל סניף בנפרד, והרשות להגנת הצרכן מפתחת מאגר מרכזי, כך שצריך אוטומציה (למשל ב-n8n) שמורידה ומפענחת קבצים מכל רשת.</p>
+<div class="api-links"><a href="https://www.gov.il/BlobFolder/reports/pfta_annual_reports/he/%D7%93%D7%99%D7%9F%20%D7%95%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%9C%D7%A9%D7%A0%D7%AA%202024.pdf" target="_blank" rel="noopener">תיעוד</a><span class="nokey">לא נדרש מפתח</span></div>
+</article>
+<article class="api" data-q="מידע ציבורי בישראל הלשכה המרכזית לסטטיסטיקה api מדדי מחירים, סדרות עיתיות ו-sdmx מדד המחירים לצרכן, הצמדה למדד וסדרות נתונים רשמיות חובה לשלוח כותרת user-agent בכל בקשה, והפורמט נבחר עם format=json, xml או csv. lang=he (ברירת המחדל) או lang=en">
+<div class="api-h"><b>הלשכה המרכזית לסטטיסטיקה</b><span>API מדדי מחירים, סדרות עיתיות ו-SDMX</span></div>
+<p class="api-use">מדד המחירים לצרכן, הצמדה למדד וסדרות נתונים רשמיות</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>ללא עלות</dd><dt>בחינם</dt><dd>ללא הרשמה</dd><dt>עברית</dt><dd>lang=he (ברירת המחדל) או lang=en</dd></dl>
+<p class="api-note">חובה לשלוח כותרת User-Agent בכל בקשה, והפורמט נבחר עם format=json, xml או csv.</p>
+<div class="api-links"><a href="https://www.cbs.gov.il/he/Pages/ממשק-API.aspx" target="_blank" rel="noopener">תיעוד</a><a href="https://www.cbs.gov.il/he/Pages/מדדי-מחירים-באמצעות-API.aspx" target="_blank" rel="noopener">API Reference</a><a href="https://www.cbs.gov.il/he/Pages/ממשק-API.aspx" target="_blank" rel="noopener">מחירון</a><span class="nokey">לא נדרש מפתח (התיעוד לא מזכיר מפתח)</span></div>
+</article>
+<article class="api" data-q="מידע ציבורי בישראל govmap (פורטל המפות הממשלתי) govmap api (פונקציות javascript, כולל geocode) מפה ממשלתית של ישראל וחיפוש כתובת בעברית הממשק מבוסס javascript בדפדפן ודורש טוקן, ותנאי השימוש לא אומתו, לכן כדאי לבדוק אותם לפני שימוש באפליקציה עסקית. תיעוד בעברית">
+<div class="api-h"><b>GovMap (פורטל המפות הממשלתי)</b><span>GovMap API (פונקציות JavaScript, כולל geocode)</span></div>
+<p class="api-use">מפה ממשלתית של ישראל וחיפוש כתובת בעברית</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>לא אומת</dd><dt>בחינם</dt><dd>לא אומת</dd><dt>עברית</dt><dd>תיעוד בעברית</dd></dl>
+<p class="api-note">הממשק מבוסס JavaScript בדפדפן ודורש טוקן, ותנאי השימוש לא אומתו, לכן כדאי לבדוק אותם לפני שימוש באפליקציה עסקית.</p>
+<div class="api-links"><a href="https://api.govmap.gov.il/docs/intro/javascript-functions" target="_blank" rel="noopener">תיעוד</a><a href="https://api.govmap.gov.il/docs/javascript-functions/geocode" target="_blank" rel="noopener">API Reference</a><span class="nokey">נדרש טוקן (YOUR_API_TOKEN בדוגמאות), דרך הקבלה לא אומתה</span></div>
+</article>
+<article class="api" data-q="מידע ציבורי בישראל עיריית תל אביב-יפו פורטל המידע הפתוח מאגרים עירוניים, כולל רישוי עסקים לא אומת אם כל מאגר זמין כ-api או רק כקובץ להורדה. בודקים מאגר אחר מאגר.">
+<div class="api-h"><b>עיריית תל אביב-יפו</b><span>פורטל המידע הפתוח</span></div>
+<p class="api-use">מאגרים עירוניים, כולל רישוי עסקים</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>ללא עלות</dd><dt>בחינם</dt><dd>מאגרים פתוחים</dd></dl>
+<p class="api-note">לא אומת אם כל מאגר זמין כ-API או רק כקובץ להורדה. בודקים מאגר אחר מאגר.</p>
+<div class="api-links"><a href="https://opendatasource.tel-aviv.gov.il/en" target="_blank" rel="noopener">תיעוד</a><span class="nokey">לא נדרש מפתח</span></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-business_systems"><summary><span class="pm">+</span><u>מערכות עסקיות</u><span class="cnt">2</span></summary><div>
+<p class="api-when">המערכות שהעסק כבר עובד בהן: ניהול סטודיו, טבלאות, CRM.</p>
+<div class="api-list">
+<article class="api" data-q="מערכות עסקיות arbox arbox api ניהול סטודיו: לידים, לקוחות, מנויים, לוח שיעורים ודוחות המפתח עובר בכותרת apikey. חלק מהבקשות צריכות מזהה סניף (location_box_fk) שמקבלים מהתמיכה, ולוח השיעורים מוגבל ל-7 ימים בבקשה. בקורס: משיכה מ-n8n, והמפתח ב-credentials שלו. התיעוד בעברית">
+<div class="api-h"><b>Arbox</b><span>Arbox API</span></div>
+<p class="api-use">ניהול סטודיו: לידים, לקוחות, מנויים, לוח שיעורים ודוחות</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>לא מצוין בתיעוד</dd><dt>עברית</dt><dd>התיעוד בעברית</dd></dl>
+<p class="api-note">המפתח עובר בכותרת apiKey. חלק מהבקשות צריכות מזהה סניף (location_box_fk) שמקבלים מהתמיכה, ולוח השיעורים מוגבל ל-7 ימים בבקשה. בקורס: משיכה מ-n8n, והמפתח ב-Credentials שלו.</p>
+<div class="api-links"><a href="https://help.arboxapp.com/he/articles/9013934-api-documentation-arbox" target="_blank" rel="noopener">תיעוד</a><span class="nokey">המפתח בהגדרות של Arbox, תחת פרטי העסק</span></div>
+</article>
+<article class="api" data-q="מערכות עסקיות airtable web api טבלאות שבעל העסק עורך ביד, כחלופה ל-supabase ברמות 0 ו-1 5 בקשות בשנייה לכל base. מפתח מסוג personal access token, עם הרשאות רק למה שצריך. אין מפתח ציבורי: הכל דרך פונקציה או n8n.">
+<div class="api-h"><b>Airtable</b><span>Web API</span></div>
+<p class="api-use">טבלאות שבעל העסק עורך ביד, כחלופה ל-Supabase ברמות 0 ו-1</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>Team: 20 דולר למשתמש לחודש, בחיוב שנתי</dd><dt>בחינם</dt><dd>יש תוכנית Free, עם מכסת קריאות API חודשית לכל Workspace. בודקים בדף המחירים</dd></dl>
+<p class="api-note">5 בקשות בשנייה לכל base. מפתח מסוג Personal access token, עם הרשאות רק למה שצריך. אין מפתח ציבורי: הכל דרך פונקציה או n8n.</p>
+<div class="api-links"><a href="https://airtable.com/developers/web/api/introduction" target="_blank" rel="noopener">תיעוד</a><a href="https://airtable.com/developers/web/api/rate-limits" target="_blank" rel="noopener">API Reference</a><a href="https://airtable.com/pricing" target="_blank" rel="noopener">מחירון</a><a href="https://airtable.com/create/tokens" target="_blank" rel="noopener">מפתח</a></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-news_feeds"><summary><span class="pm">+</span><u>חדשות ופידים</u><span class="cnt">2</span></summary><div>
+<p class="api-when">איסוף ידיעות ממקורות קבועים.</p>
+<div class="api-list">
+<article class="api" data-q="חדשות ופידים rss הצומת rss read ב-n8n איסוף ידיעות מכל אתר שמפרסם rss, בלי מפתח הדרך הפשוטה לדמו: רשימת מקורות קבועה, ו-n8n מושך פעם ביום.">
+<div class="api-h"><b>RSS</b><span>הצומת RSS Read ב-n8n</span></div>
+<p class="api-use">איסוף ידיעות מכל אתר שמפרסם RSS, בלי מפתח</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>חינם</dd><dt>בחינם</dt><dd>חינם</dd></dl>
+<p class="api-note">הדרך הפשוטה לדמו: רשימת מקורות קבועה, ו-n8n מושך פעם ביום.</p>
+<div class="api-links"><a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.rssfeedread/" target="_blank" rel="noopener">תיעוד</a><span class="nokey">לא נדרש מפתח</span></div>
+</article>
+<article class="api" data-q="חדשות ופידים hacker news hacker news api הסיפורים המובילים, תגובות ומשתמשים ב-hacker news כתובת הבסיס: hacker-news.firebaseio.com/v0. מתאים כמקור חינמי לדמו של איסוף חדשות.">
+<div class="api-h"><b>Hacker News</b><span>Hacker News API</span></div>
+<p class="api-use">הסיפורים המובילים, תגובות ומשתמשים ב-Hacker News</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>חינם</dd><dt>בחינם</dt><dd>אין כרגע מגבלת קצב, לפי התיעוד</dd></dl>
+<p class="api-note">כתובת הבסיס: hacker-news.firebaseio.com/v0. מתאים כמקור חינמי לדמו של איסוף חדשות.</p>
+<div class="api-links"><a href="https://github.com/HackerNews/API" target="_blank" rel="noopener">תיעוד</a><span class="nokey">לא נדרש מפתח</span></div>
+</article>
+</div>
+</div></details>
+<details class="err more api-cat" id="api-other_common"><summary><span class="pm">+</span><u>עוד שימושיים</u><span class="cnt">3</span></summary><div>
+<p class="api-when">שערי מטבע, תשלומים, ומה שעדיף לעשות בקוד בלי API.</p>
+<div class="api-list">
+<article class="api" data-q="עוד שימושיים frankfurter frankfurter api שערי מטבע יומיים והמרת מטבעות, כולל ils השערים מתעדכנים פעם ביום ממקורות של בנקים מרכזיים, ולשער היציג הרשמי של ישראל משתמשים בבנק ישראל. לא מצוין">
+<div class="api-h"><b>Frankfurter</b><span>Frankfurter API</span></div>
+<p class="api-use">שערי מטבע יומיים והמרת מטבעות, כולל ILS</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>חינם</dd><dt>בחינם</dt><dd>ללא מכסות יומיות או חודשיות, עם הגבלת קצב נגד שימוש לרעה</dd></dl>
+<p class="api-note">השערים מתעדכנים פעם ביום ממקורות של בנקים מרכזיים, ולשער היציג הרשמי של ישראל משתמשים בבנק ישראל.</p>
+<div class="api-links"><a href="https://frankfurter.dev" target="_blank" rel="noopener">תיעוד</a><a href="https://frankfurter.dev/currencies/ils/" target="_blank" rel="noopener">API Reference</a><a href="https://frankfurter.dev/license/" target="_blank" rel="noopener">מחירון</a><span class="nokey">לא נדרש מפתח</span></div>
+</article>
+<article class="api" data-q="עוד שימושיים goqr.me qr code api יצירת תמונת qr מכתובת או טקסט עדיף לייצר qr בקוד עם ספרייה כמו qrcode ב-npm, כדי לא לשלוח את התוכן לשרת חיצוני. לא מצוין">
+<div class="api-h"><b>goQR.me</b><span>QR code API</span></div>
+<p class="api-use">יצירת תמונת QR מכתובת או טקסט</p>
+<dl class="api-facts"><dt>מחיר</dt><dd>לא אומת</dd><dt>בחינם</dt><dd>לא אומת</dd></dl>
+<p class="api-note">עדיף לייצר QR בקוד עם ספרייה כמו qrcode ב-npm, כדי לא לשלוח את התוכן לשרת חיצוני.</p>
+<div class="api-links"><a href="https://goqr.me/api" target="_blank" rel="noopener">תיעוד</a><a href="https://goqr.me/api/doc/" target="_blank" rel="noopener">API Reference</a><a href="https://goqr.me/legal/" target="_blank" rel="noopener">מחירון</a><span class="nokey">לא נדרש מפתח (הדוגמה הרשמית ללא מפתח)</span></div>
+</article>
+<article class="api" data-q="עוד שימושיים stripe תשלומים (הערה בלבד) סליקת כרטיסי אשראי ישראל לא מופיעה ברשימת 51 המדינות שבהן עסק יכול להירשם ל-stripe, ותשלומים נמצאים מחוץ לסטאק הקורס. לא מצוין">
+<div class="api-h"><b>Stripe</b><span>תשלומים (הערה בלבד)</span></div>
+<p class="api-use">סליקת כרטיסי אשראי</p>
+<p class="api-note">ישראל לא מופיעה ברשימת 51 המדינות שבהן עסק יכול להירשם ל-Stripe, ותשלומים נמצאים מחוץ לסטאק הקורס.</p>
+<div class="api-links"><a href="https://stripe.com/global" target="_blank" rel="noopener">תיעוד</a></div>
+</article>
+</div>
+</div></details>
+</section>
+
 <nav class="next" aria-label="לאן ממשיכים">
   <a class="nx" href="../jb53500-data/"><span class="pl">השלב הבא</span><b>דאטה: Google Sheets ו-Supabase</b><span>האפליקציה קוראת מגיליון, ושומרת בדיחות וצחוקים</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
   <a class="nx" href="../jb53500-home/"><span class="pl">53500</span><b>הדף הראשי</b><span>כל התרגילים, הקבצים והמצגות</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
@@ -633,7 +1579,7 @@ footer{margin-top:10px;text-align:center;font-size:12px;color:var(--soft);border
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v2 · 24.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v3 · 24.10.2026</footer>
 
 <script>
 (function(){
@@ -672,6 +1618,23 @@ footer{margin-top:10px;text-align:center;font-size:12px;color:var(--soft);border
   }
   document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){reveal(a.getAttribute('href').slice(1));});});
   if(location.hash.length>1){var t0=reveal(location.hash.slice(1));if(t0)setTimeout(function(){t0.scrollIntoView();},60);}
+
+  // API index: search across all provider cards, and open or close every category
+  (function(){
+    var q=document.getElementById('apiQ');if(!q)return;
+    var cards=[].slice.call(document.querySelectorAll('#apis .api'));
+    var cats=[].slice.call(document.querySelectorAll('#apis details.api-cat'));
+    var found=document.getElementById('apiFound'),all=document.getElementById('apiAll');
+    function norm(s){return String(s||'').toLowerCase().replace(/[֑-ׇ]/g,'').trim();}
+    function run(){
+      var t=norm(q.value),n=0;
+      cards.forEach(function(c){var ok=!t||c.getAttribute('data-q').indexOf(t)>-1;c.classList.toggle('hide',!ok);if(ok&&t)n++;});
+      cats.forEach(function(d){var any=d.querySelector('.api:not(.hide)');d.classList.toggle('nomatch',!!t&&!any);if(t&&any)d.open=true;});
+      found.innerHTML=t?('נמצאו<span class="cnt'+(n?'':' z')+'">'+n+'</span>'):'';
+    }
+    q.addEventListener('input',run);
+    all.addEventListener('click',function(){var open=all.getAttribute('data-open')!=='1';cats.forEach(function(d){d.open=open;});all.setAttribute('data-open',open?'1':'0');all.textContent=open?'לסגור הכל':'לפתוח הכל';});
+  })();
 
   // Show the reference function from the same folder, so the page and the ZIP never drift apart
   var cv=document.getElementById('codeView');

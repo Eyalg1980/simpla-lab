@@ -191,6 +191,7 @@ footer{margin-top:60px;text-align:center;font-size:12.5px;color:var(--soft);bord
   <a href="#be">צד שרת</a>
   <a href="#da">נתונים</a>
   <a href="#x">חוצה שכבות</a>
+  <a href="#apis">שירותים חיצוניים</a>
   <a href="#not">מה לא בסטאק</a>
   <a href="#old">הסטאק הישן</a>
 </nav>
@@ -458,6 +459,19 @@ footer{margin-top:60px;text-align:center;font-size:12.5px;color:var(--soft);bord
     </dl>
   </article>
 
+  <article class="tool x" id="apis">
+    <h3>שירותים חיצוניים (API) <span class="tag">לפי הצורך</span></h3>
+    <p class="what">כל שירות שהמוצר פונה אליו מבחוץ: מודל נוסף, תמונה וקול, מפות, טיסות, הודעות, מידע ציבורי.</p>
+    <dl class="facts">
+      <dt>איך ניגשים</dt><dd>רק מפונקציה ב-Vercel, או מ-n8n באוטומציה. המפתח נשמר כ-Secret ב-Vercel, בשם שמתאר אותו, או ב-Credentials של n8n.</dd>
+      <dt>לפני שמוסיפים</dt><dd>בודקים אם מודל ברירת המחדל כבר עושה את זה: קריאת תמונה ו-PDF, תרגום, סיכום וסיווג. ספק נוסף רק כשדרישת Must מחייבת.</dd>
+      <dt>כסף</dt><dd>בשכבה חינמית רק נתוני דמה. אצל ספק בתשלום: קרדיט מראש, בלי טעינה אוטומטית, ומגבלת הוצאה חודשית כשיש.</dd>
+      <dt>ישראל</dt><dd>מקור שחוסם גישה מחוץ לישראל, כמו קבצי המחירים של הרשתות, נמשך מ-n8n במחשב בישראל. ל-Vercel אין אזור בישראל.</dd>
+      <dt>משימה ארוכה</dt><dd>יצירת וידאו, למשל: שולחים, בודקים אחר כך, ושומרים את התוצר ב-Supabase Storage.</dd>
+      <dt>האינדקס</dt><dd><a href="../jb53500-backend/#apis">אינדקס ה-API</a>: 99 שירותים ב-21 קטגוריות, עם תיעוד, מחירון ודף מפתח לכל אחד, ומה כל פרויקט בכיתה צריך.</dd>
+    </dl>
+  </article>
+
   <article class="tool x">
     <h3>Git ו-GitHub <span class="tag main">גרסאות ופרסום</span></h3>
     <p class="what">Git מצלם את התיקייה בכל קומיט. GitHub הוא האלבום באינטרנט, וממנו האתר והפונקציות עולים לאוויר.</p>
@@ -486,6 +500,7 @@ footer{margin-top:60px;text-align:center;font-size:12.5px;color:var(--soft);bord
       <tr><td>Make</td><td>האוטומציות נבנות ב-n8n.</td></tr>
       <tr><td>התראות Push</td><td>דורשות הרשמה, הרשאות ושירות נוסף. גדול מדי לגרסה ראשונה.</td></tr>
       <tr><td>עדכון בזמן אמת בין מסכים</td><td>מרענון אחד לשני מספיק ל-MVP.</td></tr>
+      <tr><td>סליקה ותשלומים</td><td>מחוץ לסטאק. Stripe גם לא מציע רישום לעסק בישראל.</td></tr>
       <tr><td>שירות דיוור</td><td>מייל יוצא דרך n8n, מחשבון Gmail, לכתובות בדיקה. יוצא מן הכלל: Resend ברמה 3.</td></tr>
     </tbody>
   </table></div>
@@ -535,7 +550,7 @@ footer{margin-top:60px;text-align:center;font-size:12.5px;color:var(--soft);bord
   <div class="note"><b>מה לא השתנה מהיום הראשון:</b> אתר סטטי בלי שלב בנייה, Supabase כברירת המחדל לנתונים, n8n לאוטומציות, Git עם ענף main בלבד, וחוק המפתחות.</div>
 </section>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · לפי course-stack.md מ-24.10.2026 · v4 · 24.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · לפי course-stack.md מ-24.10.2026 · v5 · 24.10.2026</footer>
 </div>
 </body>
 </html>
