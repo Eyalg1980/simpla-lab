@@ -162,6 +162,27 @@ details.pre0.apx .prompt .pt{color:var(--soft)}
 .nextms{display:flex;gap:8px;align-items:center;margin-top:10px;font-weight:700;font-size:14px;padding:8px 18px;border-radius:999px;background:var(--acc);color:var(--acc-ink)}
 .ws{transition:box-shadow .3s}
 .ws.flash{box-shadow:0 0 0 3px var(--acc)}
+/* options A/B, v21 */
+.dlg.one{grid-template-columns:1fr}
+details.opt{margin-top:12px;background:var(--surface);border:2px solid var(--acc);border-radius:var(--r)}
+details.opt>summary{list-style:none;cursor:pointer;display:flex;gap:14px;align-items:center;padding:16px 18px}
+details.opt>summary::-webkit-details-marker{display:none}
+.optk{flex:none;font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--acc);color:var(--acc-ink);padding:4px 12px;border-radius:999px;white-space:nowrap}
+.optt{flex:1;display:flex;flex-direction:column;min-width:0}
+.optt b{font-size:19px;font-weight:700;line-height:1.3}
+.optt small{font-size:13.5px;color:var(--soft);margin-top:3px;line-height:1.5}
+details.opt .chev{width:22px;height:22px;flex:none;color:var(--acc);transition:transform .2s}
+details.opt[open] .chev{transform:rotate(180deg)}
+.optb{padding:2px 14px 18px;border-top:1.5px dashed var(--line)}
+.vid{display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:var(--acc-soft);border-radius:14px;padding:14px 16px;margin-top:16px}
+.vidi{width:44px;height:44px;flex:none;border-radius:12px;background:var(--acc);color:var(--acc-ink);display:flex;align-items:center;justify-content:center}
+.vidi .ic{width:22px;height:22px}
+.vidt{flex:1;min-width:200px;display:flex;flex-direction:column;font-size:14px;color:var(--soft)}
+.vidt b{font-size:15.5px;color:var(--ink)}
+ol.steps{padding-inline-start:22px;display:grid;gap:9px;font-size:15px}
+ol.steps li::marker{font-family:"Poppins",sans-serif;font-weight:700;color:var(--acc)}
+.sm2{font-size:13.5px;color:var(--soft);margin-top:4px}
+.sm2 a{color:var(--acc);font-weight:600}
 .reset{font-size:13px;font-weight:600;color:var(--soft);text-decoration:underline;text-underline-offset:3px;margin-top:16px}
 footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border-top:1.5px dashed var(--line);padding-top:14px}
 @media (min-width:1024px){
@@ -761,11 +782,28 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
   <header class="hero">
     <span class="kicker">מפגש 10 · Claude Code</span>
     <h1>Claude Code <b>פיתוח המוצר Milestone אחר Milestone</b></h1>
-    <p class="lead">שבעת המסמכים מוכנים. עכשיו Claude Code בונה מהם את המוצר, אבן דרך אחת בכל פעם, ואתם בודקים ומאשרים כל אחת לפני שממשיכים.</p>
+    <p class="lead">שבעת המסמכים מוכנים. עכשיו Claude Code בונה מהם את המוצר, אבן דרך אחת בכל פעם, ואתם בודקים ומאשרים כל אחת לפני שממשיכים. יש שתי דרכים: עם סקיל, או עם פרומפט אחד. בוחרים אחת.</p>
   </header>
 
-  <div class="label" id="dl">מורידים לפני שמתחילים</div>
-  <div class="dlg">
+  <div class="label" id="dl">הפרויקט לדוגמה, לשתי הדרכים</div>
+  <div class="dlg one">
+    <div class="dlc" id="dl-simon">
+      <span class="dlk">פרויקט לדוגמה</span>
+      <h3>משחק סיימון</h3>
+      <p>שבעת קבצי ה-spec של משחק זיכרון לטלפון: <code>PRD.md</code>, <code>ARCHITECTURE.md</code>, <code>DESIGN.md</code>, <code>MILESTONES.md</code> ושלוש תמונות. על הפרויקט הזה עובדים יחד בכיתה.</p>
+      <p class="sm"><b>באופציה א:</b> בשלב 4 מעתיקים את שבעת הקבצים מתוך ה-ZIP לתיקיית <code>spec</code>, במקום קבצי התבנית. <b>באופציה ב:</b> מחלצים את ה-ZIP לתיקייה, ו-Claude מסדר את הקבצים בעצמו.</p>
+      <p class="sm">את הריפו ב-GitHub קוראים <code>Simon</code>, עם S גדולה. כך כתוב במסמך הארכיטקטורה.</p>
+      <p class="sm">המשחק בנוי ב-React עם Vite, ולכן Claude יבקש להתקין Node.js. מתקינים.</p>
+      <a class="dl" href="simon-spec.zip" download="simon-spec.zip"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> הורדת הפרויקט</a>
+    </div>
+  </div>
+
+  <div class="label" id="ways">בוחרים דרך אחת</div>
+  <details class="opt" id="opt-a">
+    <summary><span class="optk">אופציה א</span><span class="optt"><b>באמצעות סקיל</b><small>הסקיל מקים את התיקייה, ו-19 שלבים מובילים אתכם, Milestone אחרי Milestone.</small></span><svg class="ic chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
+    <div class="optb">
+  <div class="label">הסקיל</div>
+  <div class="dlg one">
     <div class="dlc" id="dl-skill">
       <span class="dlk">הסקיל</span>
       <h3><span class="en">spec-driven-development</span></h3>
@@ -775,15 +813,6 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
       <p class="sm"><b>אם ההעלאה נכשלת:</b> מחלצים את ה-ZIP לתיקייה <code>%USERPROFILE%\.claude\skills</code> (מדביקים בשורת הכתובת של סייר הקבצים, ויוצרים את <code>skills</code> אם אין). בפנים צריכה להיות התיקייה <code>spec-driven-development</code> עם הקובץ <code>SKILL.md</code>. אחר כך פותחים שיחה חדשה ב-Claude Code.</p>
       <p class="sm">זה לא הסקיל של שלב א, <span class="ltr">spec-driven-docs</span>, שכותב את המסמכים. זה סקיל אחר, לשלב הפיתוח.</p>
       <a class="dl" href="spec-driven-development.zip" download="spec-driven-development.zip"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> הורדת הסקיל</a>
-    </div>
-    <div class="dlc" id="dl-simon">
-      <span class="dlk">פרויקט לדוגמה</span>
-      <h3>משחק סיימון</h3>
-      <p>שבעת קבצי ה-spec של משחק זיכרון לטלפון: <code>PRD.md</code>, <code>ARCHITECTURE.md</code>, <code>DESIGN.md</code>, <code>MILESTONES.md</code> ושלוש תמונות. על הפרויקט הזה עובדים יחד בכיתה.</p>
-      <p class="sm">בשלב 4 מעתיקים את שבעת הקבצים מתוך ה-ZIP לתיקיית <code>spec</code>, במקום קבצי התבנית.</p>
-      <p class="sm">את הריפו ב-GitHub קוראים <code>Simon</code>, עם S גדולה. כך כתוב במסמך הארכיטקטורה.</p>
-      <p class="sm">המשחק בנוי ב-React עם Vite, ולכן Claude יבקש להתקין Node.js. מתקינים, כמו שכתוב בשלב 9.</p>
-      <a class="dl" href="simon-spec.zip" download="simon-spec.zip"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> הורדת הפרויקט</a>
     </div>
   </div>
 
@@ -855,9 +884,59 @@ spec/
     </ol>
   </div>
   <button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button>
+    </div>
+  </details>
+
+  <details class="opt" id="opt-b">
+    <summary><span class="optk">אופציה ב</span><span class="optt"><b>באמצעות פרומפט</b><small>בלי סקיל. פרומפט אחד בשיחה הראשונה, ו-Claude מקים הכל בעצמו. עם סרטון הדרכה של חצי שעה.</small></span><svg class="ic chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
+    <div class="optb">
+      <div class="vid">
+        <span class="vidi"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3z"/></svg></span>
+        <div class="vidt"><b>סרטון הדרכה: בניית סיימון ב-Claude Code, בלי סקיל</b><span>חצי שעה. הפרומפט בשיחה הראשונה, שלב ההקמה, והעבודה Milestone אחרי Milestone.</span></div>
+        <a class="dl" href="https://drive.google.com/file/d/1wSTwt2_lTQC14dbTn-1b3hp_jn2KngOY/view?usp=sharing" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7z"/></svg> לצפייה</a>
+      </div>
+
+      <div class="label" id="b-steps">שלבי העבודה, בקצרה</div>
+      <ol class="steps">
+        <li><b>מורידים ומחלצים.</b> את קבצי סיימון, מהכרטיס למעלה, לתיקייה חדשה עם שם באנגלית. לא ב-Desktop.</li>
+        <li><b>משייכים את התיקייה ל-Claude Code.</b> בלשונית Code, במצב Local, בוחרים את התיקייה.</li>
+        <li><b>מדביקים את הפרומפט בשיחה הראשונה.</b> קודם מחליפים בו את שם המשתמש בשם שלכם ב-GitHub.</li>
+        <li><b>שלב ההקמה, פעם אחת.</b> Claude ממליץ על מודל, מסדר את הקבצים בתיקיית <code>spec</code>, פותח את <code>plans</code>, מחבר ל-GitHub, יוצר לינק חי ב-GitHub Pages וכותב <code>CLAUDE.md</code>. עונים לשאלות שלו, צעד אחר צעד.</li>
+        <li><b>שיחה חדשה לכל Milestone.</b> באותה תיקייה, ובשם של ה-Milestone: <code>milestone-1</code>, <code>milestone-2</code> וכן הלאה.</li>
+        <li><b>ארבעה שלבים בכל Milestone.</b> תכנון, בנייה, הרצה כדי שתבדקו, ודחיפה. בסוף כל אחד מקבלים את הלינק החי, ובודקים בו.</li>
+      </ol>
+
+      <div class="label" id="b-prompt">הפרומפט</div>
+      <div class="prompt"><span class="pt">Claude Code, שיחה ראשונה</span><button class="cp" type="button">העתק</button><pre>מצורפים בתיקייה שבעת מסמכי הספק של הפרויקט. אנא בצע את הפעולות הבאות:
+
+שפת האפליקציה:
+האפליקציה תהיה בעברית (כולל כיוון RTL).
+
+הנחיה שוטפת:
+במהלך שלב ההקמה (במיוחד) ובכל מיילסטון: הנחה אותי צעד אחר צעד מהו השלב הבא, בצורה עניינית, קצרה, מצומצמת וברורה.
+
+שלב ההקמה (פעם אחת, לפני שמתחילים מיילסטונים):
+1. בשיחה הראשונה הזו, לפני תחילת העבודה: הצע עם איזה מודל כדאי לבצע את שלב ההקמה ואת שלבי המיילסטונים (Sonnet או Opus), מבחינת איכות התוצר מול כלכלת הטוקנים.
+2. סדר את הקבצים: תיקיית spec בתוך התיקייה הראשית, ושם את שבעת המסמכים.
+3. פתח תיקיית plans בתוך spec. אחרי תכנון או בנייה של כל מיילסטון, תעד אותו בקובץ: milestone-1.md, milestone-2.md וכן הלאה. גם השיחות ייקראו באותם שמות.
+4. ודא שהגיט מחובר לגיטהאב ודחוף קומיט מקומי לריפו. שם המשתמש: [שם המשתמש שלכם ב-GitHub]. הסיסמה אמורה להיות שמורה אצלך - אם לא, בקש ממני.
+5. צור לינק חי (GitHub Pages) שמתעדכן עם כל דחיפה, וספק לי את הלינק בסוף כל שלב.
+6. צור קובץ CLAUDE.md בתיקיית הפרויקט שמכיל את כל ההנחיות האלה.
+
+עבודה שוטפת - מיילסטונים:
+1. קרא את שבעת המסמכים, בדוק אותם ובנה את התוכנית המתאימה לבניית הפרויקט.
+2. בנה את הפרויקט מיילסטון אחרי מיילסטון, לפי קובץ המיילסטונים. לכל מיילסטון אפתח שיחה חדשה תחת אותה תיקייה.
+3. לכל מיילסטון ארבעה שלבים: תכנון, בנייה, הרצה (כדי שאוכל לבדוק), דחיפה (כדי שאוכל לצפות בלינק).
+4. בסוף כל מיילסטון צור קובץ build שאפשר להעלות לאוויר ולבדוק.
+
+כלל חשוב:
+לפני שאתה שואל שאלות: קרא קודם את הקבצים, חדד מולי את הנקודות שציינתי, ואז התחל</pre></div>
+      <p class="sm2">את שם המשתמש בשלב 4 מחליפים בשם שלכם ב-GitHub. הפרומפט גם <a href="https://docs.google.com/document/d/11n5mFaNXsiI7C6VBZSr4axQN-mw6ttMOcv3EZj6ktx8/edit?tab=t.0" target="_blank" rel="noopener">כ-Google Doc</a>.</p>
+    </div>
+  </details>
 </section>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v20 · 21.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v21 · 24.10.2026</footer>
 
 <script>
 (function(){
@@ -878,7 +957,9 @@ spec/
   function setFold(c,keep){stA.classList.toggle('closed',c);fold.querySelector('span').textContent=c?'פתח':'קפל';fold.setAttribute('aria-expanded',String(!c));if(!keep){S.foldA=c;save();}if(typeof act==='function')act();}
   fold.addEventListener('click',function(){setFold(!stA.classList.contains('closed'));});
   if(S.foldA)setFold(true,true);
-  function openFor(h){if(!h||h.length<2)return;var t=document.getElementById(h.slice(1));if(t&&stA.contains(t)&&stA.classList.contains('closed'))setFold(false);}
+  if(!S.opts||typeof S.opts!=='object')S.opts={};
+  [].slice.call(document.querySelectorAll('details.opt')).forEach(function(d){if(S.opts[d.id])d.open=true;d.addEventListener('toggle',function(){S.opts[d.id]=d.open?1:0;save();});});
+  function openFor(h){if(!h||h.length<2)return;var t=document.getElementById(h.slice(1));if(t&&stA.contains(t)&&stA.classList.contains('closed'))setFold(false);var e=t;while(e){if(e.tagName==='DETAILS')e.open=true;e=e.parentElement;}if(t&&t.closest('details.opt'))setTimeout(function(){t.scrollIntoView();},40);}
   stbs.forEach(function(a){a.addEventListener('click',function(){if(a.dataset.st==='a'&&stA.classList.contains('closed'))setFold(false);});});
   window.addEventListener('hashchange',function(){openFor(location.hash);});openFor(location.hash);
   function act(){var b=stB.getBoundingClientRect().top<window.innerHeight*0.45;stbs.forEach(function(a){a.classList.toggle('on',(a.dataset.st==='b')===b);});}

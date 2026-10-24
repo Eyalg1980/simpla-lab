@@ -467,7 +467,7 @@ body.gated{padding-bottom:0}
 <script>
 (function(){
 'use strict';
-const D=window.D, VER='2027.7';
+const D=window.D, VER='2027.8';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const strip=s=>String(s||'').replace(/<[^>]+>/g,'');
@@ -656,10 +656,12 @@ const LK=[
   {i:'file',dl:1,t:'course-stack-plus.md',d:'המסלול המשודרג',w:'רשות',u:LKB+'jb53500-prompts/course-stack-plus.md'}
  ]},
  {k:'stack',h:'הסטאק, צד שרת ונתונים',items:[
+  {i:'server',t:'Backend: אפליקציית הבדיחות ב-Vercel',d:'צד שרת עם מפתח OpenAI, 13 שלבים',w:'מפגש 11',m:[11],u:LKB+'jb53500-backend/'},
+  {i:'db',t:'שכבת הדאטה: Google Sheets ו-Supabase',d:'ההמשך של אפליקציית הבדיחות',w:'מפגש ההשלמות, אחרי מפגש 11',m:[11],u:LKB+'jb53500-data/'},
   {i:'layers',t:'סטאק הקורס, מוסבר',w:'מפגש 8',m:[8],u:LKB+'jb53500-stack/'},
   {i:'layers',t:'שני שלבים בסטאק',d:'React עם Vite ו-TypeScript',w:'רשות',u:LKB+'jb53500-tracks/'},
-  {i:'server',t:'Vercel צעד אחר צעד',w:'מפגש ההשלמות, אחרי מפגש 11',m:[11],u:LKB+'jb53500-vercel/'},
-  {i:'db',t:'Supabase צעד אחר צעד',w:'מפגש ההשלמות, אחרי מפגש 11',m:[11],u:LKB+'jb53500-supabase/'}
+  {i:'server',t:'Vercel צעד אחר צעד',d:'המדריך הקודם: האתר ב-GitHub Pages והפונקציה ב-Vercel',w:'מפגש ההשלמות, אחרי מפגש 11',m:[11],u:LKB+'jb53500-vercel/'},
+  {i:'db',t:'Supabase צעד אחר צעד',d:'המדריך הקודם: מפתח ציבורי בדפדפן',w:'מפגש ההשלמות, אחרי מפגש 11',m:[11],u:LKB+'jb53500-supabase/'}
  ]},
  {k:'slides',h:'מצגות',lead:'כל מצגת נפתחת בלשונית חדשה.',items:[
   {i:'slides',t:'UI Design Fundamentals',d:'Google Slides',w:'מפגשים 5 ו-6',m:[5,6],u:'https://docs.google.com/presentation/d/1A_u-yURicSgKWABLbGh9-XS9cczER97J/edit?usp=sharing'},
