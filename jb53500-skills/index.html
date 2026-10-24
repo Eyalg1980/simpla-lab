@@ -142,7 +142,7 @@ footer a{text-underline-offset:3px}
 
 <footer>
   <p>קורס 53500 · ג'ון ברייס · <a href="../jb53500-home/">לדף הראשי של הקורס</a></p>
-  <p class="ver">v1 · 24.10.2026</p>
+  <p class="ver">v2 · 24.10.2026</p>
 </footer>
 
 <script>
@@ -628,7 +628,22 @@ fatal: not a git repository (or any of the parent directories): .git`}
  ]}
 ];
 
-var LEAD=3;
+// Order per category: the new ideas first, the weakest of the original picks last (under "show more").
+var ORDER=[
+ ['prompt-upgrader','error-explainer','instructions-checker','idea-critic','concept-explainer'],
+ ['my-voice-writer','my-context-card','opportunity-filter','explain-my-world','my-creative-brief'],
+ ['lead-to-row','request-to-user-story','text-to-tasks-json','compare-cards','shot-list-csv'],
+ ['inbox-triage','supabase-table-planner','meeting-prep','bug-investigator','latest-version-finder'],
+ ['morning-brief','site-watch','personal-digest','weekly-wrap','change-radar'],
+ ['submission-packer','folder-organizer','report-cleaner','project-starter'],
+ ['lead-pipeline','skill-safety-check','research-to-plan','skill-tester','preproduction-studio']
+];
+var MORE_N=1;
+CATS.forEach(function(cat,ci){
+  var o=ORDER[ci];
+  cat.ideas.sort(function(a,b){return o.indexOf(a.slug)-o.indexOf(b.slug);});
+  cat.lead=cat.ideas.length-MORE_N;
+});
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 var TEXTS=[];
 function promptRow(label,hint,text){
@@ -652,14 +667,14 @@ function card(cat,ci,idea,ii){
 }
 var html='';
 CATS.forEach(function(cat,ci){
-  var lead=cat.ideas.slice(0,LEAD),more=cat.ideas.slice(LEAD);
+  var lead=cat.ideas.slice(0,cat.lead),more=cat.ideas.slice(cat.lead);
   html+='<section class="cat" id="cat-'+(ci+1)+'">'+
     '<button class="cat-h" type="button" aria-expanded="false" aria-controls="cb-'+(ci+1)+'"><span class="cn">'+(ci+1)+'</span>'+
     '<span class="ct"><b>'+esc(cat.t)+' <span class="cnt">'+cat.ideas.length+'</span></b><small>'+esc(cat.s)+'</small></span>'+IC.chev+'</button>'+
     '<div class="cat-b" id="cb-'+(ci+1)+'" hidden><p class="need">'+cat.need+'</p>'+
     lead.map(function(x,ii){return card(cat,ci,x,ii);}).join('');
   if(more.length){
-    html+='<div class="more">'+more.map(function(x,ii){return card(cat,ci,x,ii+LEAD);}).join('')+'</div>'+
+    html+='<div class="more">'+more.map(function(x,ii){return card(cat,ci,x,ii+cat.lead);}).join('')+'</div>'+
       '<button class="morebtn" type="button" data-n="'+more.length+'"><span>'+moreLabel(more.length,false)+'</span>'+IC.down+'</button>';
   }
   html+='</div></section>';
@@ -706,7 +721,7 @@ function openFromHash(){
   var m=/^#(?:cat-(\d)|i(\d)-(\d))$/.exec(location.hash||'');if(!m)return;
   var c=m[1]||m[2];var s=document.getElementById('cat-'+c);if(!s)return;
   setCat(s,true);
-  if(m[3]&&+m[3]>LEAD){s.classList.add('all');var mb=s.querySelector('.morebtn');if(mb)mb.querySelector('span').textContent=moreLabel(+mb.getAttribute('data-n'),true);}
+  if(m[3]&&+m[3]>CATS[+c-1].lead){s.classList.add('all');var mb=s.querySelector('.morebtn');if(mb)mb.querySelector('span').textContent=moreLabel(+mb.getAttribute('data-n'),true);}
   var el=document.getElementById(location.hash.slice(1));if(el)setTimeout(function(){el.scrollIntoView({block:'start'});},30);
 }
 openFromHash();window.addEventListener('hashchange',openFromHash);
