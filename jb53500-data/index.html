@@ -543,7 +543,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
     </table></div>
     <div class="warn"><b>המפתח הסודי עוקף את כל המנעולים.</b> הוא נכנס רק ל-Vercel. לא לקובץ, לא לצ׳אט עם Claude, ולא לבודק בשלב 9. גם המחבר של Supabase לא יודע לקרוא אותו, וזה בכוונה.</div>
     <div class="note"><b>זה המקום היחיד שבו המפתח הסודי חי.</b> רק השרת מדבר עם הטבלה, ולכן רק השרת מחזיק את המפתח שלה, בדיוק כמו המפתח של OpenAI.</div>
-    <div class="tip"><b>מריצים גם במחשב?</b> אותם ארבעה כללים של <a href="../jb53500-backend/#local-run"><code dir="ltr">.env.local</code> מדף ה-Backend</a>. ב-Supabase יוצרים מפתח סודי נוסף בשם <code>dev</code>, ומדביקים אותו ביד ב-<code dir="ltr">.env.local</code>. את המפתח של Vercel לא מעתיקים לשם.</div>
+    <div class="tip"><b>מריצים גם במחשב?</b> אותם ארבעה כללים של <a href="../jb53500-backend/#local-run"><code dir="ltr">.env.local</code> מדף ה-Backend</a>. ב-Supabase יוצרים מפתח סודי נוסף בשם <code>dev</code>, ומדביקים אותו ביד ב-<code dir="ltr">.env.local</code>. את המפתח של Vercel לא מעתיקים לשם. בקובץ יש שתי שורות בלבד, <code>OPENAI_API_KEY</code> ו-<code>SUPABASE_SECRET_KEY</code>. הכתובות, <code>SUPABASE_URL</code> ו-<code>SHEET_CSV_URL</code>, נשארות ב-Vercel כ-Config.</div>
   </div>
 </article>
 
@@ -725,7 +725,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v2 · 24.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v3 · 24.10.2026</footer>
 
 <script>
 (function(){

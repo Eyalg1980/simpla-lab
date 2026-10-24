@@ -499,7 +499,7 @@ details.api-cat.nomatch{display:none}
 1. בשיחה הראשונה הזו, לפני תחילת העבודה: הצע עם איזה מודל כדאי לבצע את שלב ההקמה ואת שלבי המיילסטונים (Sonnet או Opus), מבחינת איכות התוצר מול כלכלת הטוקנים.
 2. סדר את הקבצים: תיקיית spec בתוך התיקייה הראשית, ושם את שבעת המסמכים. תיקיית assets נשארת בשורש, כי האפליקציה משתמשת בה.
 3. פתח תיקיית plans בתוך spec. אחרי תכנון או בנייה של כל מיילסטון, תעד אותו בקובץ: milestone-1.md, milestone-2.md וכן הלאה. גם השיחות ייקראו באותם שמות.
-4. לפני הקומיט הראשון: צור .gitignore שמתעלם מ-.env, מ-.env.*, מ-.vercel ומ-node_modules, עם החריגה !.env.example. צור .env.example עם OPENAI_API_KEY= ו-OPENAI_MODEL= ריקים, ו-.claude/settings.json שחוסם לך את הקריאה של .env ושל .env.*. אחר כך צור ריפו ציבורי חדש ב-GitHub בשם joke-app, חבר אליו את התיקייה ודחוף קומיט ראשון. שם המשתמש: [שם המשתמש שלכם ב-GitHub]. הסיסמה אמורה להיות שמורה אצלך - אם לא, בקש ממני.
+4. לפני הקומיט הראשון: צור .gitignore שמתעלם מ-.env, מ-.env.*, מ-.vercel ומ-node_modules, עם החריגה !.env.example. צור .env.example עם השורה OPENAI_API_KEY= בלבד, בלי ערך ובלי הערות, ו-.claude/settings.json שחוסם לך את הקריאה של .env ושל .env.*. אחר כך צור ריפו ציבורי חדש ב-GitHub בשם joke-app, חבר אליו את התיקייה ודחוף קומיט ראשון. שם המשתמש: [שם המשתמש שלכם ב-GitHub]. הסיסמה אמורה להיות שמורה אצלך - אם לא, בקש ממני.
 5. הלינק החי יהיה ב-Vercel, לא ב-GitHub Pages. ב-Milestone 1 הנחה אותי לייבא את הריפו ל-Vercel ולשמור בו את המפתח, ומשם כל דחיפה מתעדכנת לבד. ספק לי את הלינק בסוף כל שלב.
 6. צור קובץ CLAUDE.md בתיקיית הפרויקט שמכיל את כל ההנחיות האלה.
 
@@ -614,7 +614,7 @@ details.api-cat.nomatch{display:none}
       <div class="term"><span class="fn">PowerShell</span><button class="cp" type="button">העתק</button><pre>Copy-Item .env.example .env.local
 notepad .env.local</pre></div>
       <ol start="3">
-        <li>מדביקים את מפתח ה-dev אחרי הסימן <code>=</code> בשורה <code>OPENAI_API_KEY=</code>, ושומרים. ביד, לא דרך Claude</li>
+        <li>מדביקים את מפתח ה-dev אחרי הסימן <code>=</code> בשורה <code>OPENAI_API_KEY=</code>, ושומרים. ביד, לא דרך Claude. זו השורה היחידה בקובץ: בלי הערות ובלי משתנים נוספים</li>
         <li>מתקינים את ה-CLI של Vercel ומחברים את התיקייה לפרויקט, פעם אחת:</li>
       </ol>
       <div class="term"><span class="fn">PowerShell</span><button class="cp" type="button">העתק</button><pre>npm i -g vercel
@@ -624,7 +624,7 @@ vercel link</pre></div>
         <li>מריצים: <code>vercel dev</code>, ופותחים את <code>http://localhost:3000</code>. גם Claude יכול להריץ את הפקודה בשבילכם</li>
       </ol>
       <p class="see"><b>אמור להופיע:</b> אותה תוצאה כמו בכתובת של Vercel. ב-GitHub אין <code dir="ltr">.env.local</code>, כי הוא ב-<code dir="ltr">.gitignore</code>.</p>
-      <div class="note"><b>ארבעת הכללים של <code dir="ltr">.env.local</code>:</b> <code dir="ltr">.gitignore</code> לפני הקומיט הראשון. <code dir="ltr">.claude/settings.json</code> שחוסם ל-Claude את הקריאה שלו. מפתח dev נפרד, שאתם מדביקים בעצמכם. ו-<code dir="ltr">.env.example</code> ריק בריפו. Claude יצר את שלושת הקבצים בשלב ההקמה.</div>
+      <div class="note"><b>ארבעת הכללים של <code dir="ltr">.env.local</code>:</b> <code dir="ltr">.gitignore</code> לפני הקומיט הראשון. <code dir="ltr">.claude/settings.json</code> שחוסם ל-Claude את הקריאה שלו. מפתח dev נפרד, שאתם מדביקים בעצמכם. ו-<code dir="ltr">.env.example</code> בריפו, עם שורת המפתח בלבד. Claude יצר את שלושת הקבצים בשלב ההקמה.</div>
     </div></details>
   </div>
 </article>
@@ -1846,7 +1846,7 @@ vercel link</pre></div>
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v7 · 24.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v8 · 24.10.2026</footer>
 
 <script>
 (function(){

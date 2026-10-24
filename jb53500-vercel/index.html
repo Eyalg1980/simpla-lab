@@ -328,7 +328,7 @@ details.err>div ul{padding-inline-start:18px;margin-bottom:8px}
       <li>בפרויקט של המוצר פותחים <b>Settings</b>, ואז <b>Environment Variables</b> בתפריט הצד</li>
       <li>ב-<b>Key</b> כותבים בדיוק <code>GEMINI_API_KEY</code></li>
       <li>ב-<b>Value</b> מדביקים את המפתח</li>
-      <li>ב-<b>Type</b> בוחרים <b>Secret</b>, ומשאירים את כל הסביבות מסומנות. שומרים</li>
+      <li>ב-<b>Type</b> בוחרים <b>Secret</b>, ובסביבות מסמנים <b>Production</b> ו-<b>Preview</b>. שומרים</li>
       <li>ב-<b>Deployments</b>, ליד הפריסה העליונה, לוחצים על שלוש הנקודות ואז <b>Redeploy</b></li>
     </ol>
     <p class="see"><b>אמור להופיע:</b> שורה בטבלה עם <code>GEMINI_API_KEY</code> והתווית Secret. הערך מוסתר, וגם אתם כבר לא יכולים לקרוא אותו.</p>
@@ -337,6 +337,7 @@ details.err>div ul{padding-inline-start:18px;margin-bottom:8px}
       <div class="lock"><b>Config</b>אפשר לקרוא שוב אחרי השמירה. להגדרות שאינן סוד, כמו שם המודל</div>
       <div class="lock"><b>Redeploy</b>משתנה חדש נכנס רק לפריסה חדשה. גם דחיפה חדשה עושה את זה</div>
     </div>
+    <div class="tip"><b>מריצים גם במחשב?</b> מפתח dev נפרד בקובץ <code dir="ltr">.env.local</code>, שורה אחת בלבד: <code>GEMINI_API_KEY=</code> והמפתח. לפי ארבעת הכללים <a href="../jb53500-backend/#local-run">בדף ה-Backend</a>. Secret לא זמין בסביבת Development, ולכן מפתח נפרד.</div>
     <div class="tip"><b>רוצים להחליף מודל בלי לגעת בקוד?</b> מוסיפים גם משתנה מסוג Config בשם <code>GEMINI_MODEL</code>, עם שם המודל. הקוד שבשלב הבא קורא אותו, ויש בו ברירת מחדל.</div>
   </div>
 </article>
@@ -363,7 +364,7 @@ details.err>div ul{padding-inline-start:18px;margin-bottom:8px}
 3. לפני שאתה כותב את הקריאה למודל, קרא את התיעוד העדכני של Gemini API, ובחר ברירת מחדל מבין מודלי ה-Flash העדכניים.
 4. הפונקציה מקבלת רק POST עם JSON, מגבילה את אורך הקלט, ומחזירה תמיד JSON, גם בשגיאה. היא לא מחזירה את המפתח, ולא הודעת שגיאה גולמית של הספק. הפרטים הטכניים נרשמים ב-<span class="l">console.error</span>.
 5. חבר את הכפתור במסך הראשי: הוא פונה ל-<span class="l">/api/ask</span>, מציג מצב טעינה, ומציג את התשובה או הודעת שגיאה בעברית.
-6. ודא שב-<span class="l">.gitignore</span> יש <span class="l">.env</span> ו-<span class="l">.vercel</span>.
+6. ודא שב-<span class="l">.gitignore</span> יש <span class="l">.env</span>, <span class="l">.env.*</span> עם החריגה <span class="l">!.env.example</span>, ו-<span class="l">.vercel</span>, ושיש <span class="l">.claude/settings.json</span> שחוסם לך את הקריאה של <span class="l">.env</span> ושל <span class="l">.env.*</span>.
 7. בסוף הסבר לי איך אני בודק, ופרט מה לא יכולת לבדוק בעצמך.
 
 אל תדחוף ל-GitHub לפני שאישרתי.</pre></div>
@@ -569,7 +570,7 @@ export default {
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v4 · 24.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v5 · 24.10.2026</footer>
 
 <script>
 (function(){

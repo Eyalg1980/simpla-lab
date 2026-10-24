@@ -267,7 +267,7 @@ footer{margin-top:60px;text-align:center;font-size:12.5px;color:var(--soft);bord
       <li><b><code dir="ltr">.gitignore</code> לפני הקומיט הראשון,</b> עם <code dir="ltr">.env</code>, <code dir="ltr">.env.*</code> והחריגה <code dir="ltr">!.env.example</code>.</li>
       <li><b>Claude לא קורא את הקובץ.</b> בתיקייה יש <code dir="ltr">.claude/settings.json</code> שחוסם את <code>Read(./.env)</code> ואת <code>Read(./.env.*)</code>. הקובץ הזה כן נכנס לריפו.</li>
       <li><b>מפתח dev נפרד,</b> עם שם משלו, שמודבק ביד. Claude לא כותב אותו, לא קורא אותו ולא מבקש אותו.</li>
-      <li><b><code dir="ltr">.env.example</code> בריפו,</b> עם אותם שמות וערכים ריקים.</li>
+      <li><b><code dir="ltr">.env.example</code> בריפו,</b> עם שמות המפתחות הסודיים בלבד, בלי ערכים ובלי הערות. <code dir="ltr">.env.local</code> מכיל את אותן שורות ושום דבר נוסף. ערך שאינו סוד נשמר ב-Vercel כ-Config, גם בסביבת Development.</li>
     </ul>
     <p>בענן אין קובץ <code dir="ltr">.env</code>: מפתח ה-production ב-Vercel, מסוג Secret, ב-Production וב-Preview.</p>
   </div>
@@ -561,7 +561,7 @@ footer{margin-top:60px;text-align:center;font-size:12.5px;color:var(--soft);bord
   <div class="note"><b>מה לא השתנה מהיום הראשון:</b> אתר סטטי בלי שלב בנייה, Supabase כברירת המחדל לנתונים, n8n לאוטומציות, Git עם ענף main בלבד, וחוק המפתחות.</div>
 </section>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · לפי course-stack.md מ-24.10.2026 · v6 · 24.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · לפי course-stack.md מ-24.10.2026 · v7 · 24.10.2026</footer>
 </div>
 </body>
 </html>

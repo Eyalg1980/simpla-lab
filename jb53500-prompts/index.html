@@ -297,7 +297,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
 1. **`.gitignore` לפני הקומיט הראשון.** הוא כולל את `.env`, את `.env.*` ואת החריגה `!.env.example`. כך שום קובץ סודות לא עולה ל-GitHub.
 2. **Claude לא קורא את הקובץ.** בתיקייה יש `.claude/settings.json`, ובו `permissions.deny` על `Read(./.env)` ועל `Read(./.env.*)`. הקובץ הזה כן נכנס לריפו.
 3. **מפתח dev נפרד.** מפתח אחר מזה שב-Vercel, עם שם משלו, כדי שאפשר יהיה לבטל אותו בלי לשבור את האתר החי. הסטודנט מדביק אותו ב-`.env.local` בעצמו. Claude לא כותב אותו, לא קורא אותו ולא מבקש אותו.
-4. **`.env.example` בריפו.** אותם שמות משתנים, עם ערכים ריקים, כדי שכל אחד יידע מה צריך למלא.
+4. **`.env.example` בריפו.** רק שמות המפתחות הסודיים, שורה לכל מפתח, בלי ערכים ובלי הערות. `.env.local` מכיל בדיוק את אותן שורות, עם מפתחות ה-dev, ושום דבר נוסף. ערך שאינו סוד, כמו שם המודל או כתובת, לא נכנס לקובץ: הוא נשמר ב-Vercel כ-Config, גם בסביבת Development, ו-`vercel dev` טוען אותו לבד.
 
 בענן אין קובץ `.env` בכלל: מפתח ה-production יושב ב-Vercel, מסוג Secret, בסביבות Production ו-Preview. משתנה מסוג Secret לא זמין בסביבת Development של Vercel, ולכן להרצה מקומית יש מפתח נפרד.
 
@@ -881,6 +881,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:var(--soft);border
       <li><b>מה נוצר בתיקייה.</b>
 <pre class="tree">CLAUDE.md
 .gitignore
+.claude/settings.json
 spec/
   PRD.md
   ARCHITECTURE.md
@@ -891,7 +892,7 @@ spec/
   mockups.png
   style-guide.png</pre></li>
       <li><b>קבצי דמה.</b> ארבעת המסמכים ב-<code>spec</code> הם תבניות ריקות, ושלוש התמונות הן תמונות דמה. מוחקים אותם ושמים במקומם את שבעת הקבצים האמיתיים, באותם שמות. אם נשאר קובץ דמה ש-Milestone צריך, Claude עוצר ושואל.</li>
-      <li><b><code>CLAUDE.md</code> מגיע מלא.</b> בו כל כללי העבודה: אבן דרך אחת בכל פעם, בלי commit עד שמבקשים, בלי לקרוא את <code>.env</code>, וחשבונות ומפתחות נשארים אצלכם. Claude קורא אותו רק בתחילת שיחה, ולכן אחרי הסקיל פותחים שיחה חדשה.</li>
+      <li><b><code>CLAUDE.md</code> מגיע מלא.</b> בו כל כללי העבודה: אבן דרך אחת בכל פעם, בלי commit עד שמבקשים, בלי לקרוא את <code dir="ltr">.env</code> ואת <code dir="ltr">.env.local</code>, וחשבונות ומפתחות נשארים אצלכם. הקובץ <code dir="ltr">.claude/settings.json</code> חוסם את הקריאה גם בפועל. Claude קורא אותו רק בתחילת שיחה, ולכן אחרי הסקיל פותחים שיחה חדשה.</li>
       <li><b>מסמך לכל Milestone.</b> לפני שהוא בונה אבן דרך, Claude כותב לה קובץ תוכנית: <code>spec/plans/milestone-1.md</code>, אחריו <code>milestone-2.md</code>, וכן הלאה.</li>
       <li><b>המחזור.</b> ארבע פקודות קצרות: "תכנן את אבן הדרך הראשונה", "בנה את אבן הדרך הראשונה", "הרץ כדי שאבדוק", "דחוף שינויים לגיטהאב". אחרי כל אחת Claude עוצר ומחכה לכם.</li>
       <li><b>סימוני התקדמות.</b> ב-<code>MILESTONES.md</code>, ליד כל אבן דרך: 🟡 נבנתה ומחכה לבדיקה שלכם, ✅ אושרה. הדחיפה לגיטהאב היא גם האישור.</li>
@@ -994,7 +995,7 @@ spec/
   </details>
 </section>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v24 · 24.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v25 · 24.10.2026</footer>
 
 <script>
 (function(){
