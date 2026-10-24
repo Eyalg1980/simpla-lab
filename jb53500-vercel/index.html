@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="תרגיל התקנה בבית לתלמידי קורס 53500: חשבון Vercel ומפתח של Gemini. ההמשך, מהפונקציה הראשונה ועד פונקציית ה-AI של המוצר, בכיתה.">
+<meta name="description" content="תרגיל התקנה בבית לתלמידי קורס 53500: חשבון Vercel, קרדיט ומגבלת הוצאה ב-OpenAI, וגישה ל-Gemini. בכיתה: המוצר עובר ל-Vercel, עם פונקציית AI באותה כתובת.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F7F5F0">
 <title>Vercel צעד אחר צעד · 53500</title>
@@ -166,6 +166,13 @@ details.err.more>div ul{padding-inline-start:18px}
 footer{margin-top:10px}
 @media (max-width:520px){.osbar>span:first-child{display:none}}
 @media (min-width:1024px){.next{grid-template-columns:1fr 1fr}}
+/* v4, 24.10.2026: site and functions together on Vercel */
+.fresh b{color:var(--ink)}
+a.pcard.go2{position:relative;padding-inline-end:52px;margin:0 0 10px}
+a.pcard.go2>.ic{position:absolute;inset-inline-end:16px;top:50%;margin-top:-11px;width:22px;height:22px;color:var(--acc)}
+.prompt pre .l{direction:ltr;unicode-bidi:isolate;font-family:ui-monospace,Consolas,monospace;font-size:.92em}
+details.err>div ul{padding-inline-start:18px;margin-bottom:8px}
+.trackB .n{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -177,16 +184,23 @@ footer{margin-top:10px}
 </div>
 <div class="osbar">
   <a class="jump" href="#home">בבית</a>
-  <a class="jump" href="#partA">חלק א</a>
-  <a class="jump" href="#partB">חלק ב</a>
+  <a class="jump" href="#class">בכיתה</a>
+  <a class="jump" href="#partB">המוצר</a>
   <span class="prog" id="prog"></span>
 </div>
 
 <header class="hero">
-  <span class="kicker">תרגיל התקנה בבית · 4 מתוך 4</span>
-  <h1>Vercel <b>חשבון ומפתח</b></h1>
-  <p class="lead">כעשר דקות. פותחים חשבון Vercel, ומכינים מפתח של Gemini.</p>
+  <span class="kicker">תרגיל התקנה בבית · 4 מתוך 5</span>
+  <h1>Vercel <b>ושני מודלים</b></h1>
+  <p class="lead">כרבע שעה. פותחים חשבון Vercel, מכינים את OpenAI לתרגיל הבדיחות, ונכנסים ל-Gemini, המודל החינמי של המוצר שלכם.</p>
+  <p class="fresh"><b>עודכן ב-24.10.2026.</b> האתר והפונקציות יושבים עכשיו יחד ב-Vercel, באותה כתובת. המוצר כבר לא צריך את GitHub Pages, ואין צורך ב-CORS.</p>
 </header>
+
+<div class="idea">
+  <div><b>Vercel</b>הבית של האתר ושל צד השרת. חינם, בתוכנית Hobby</div>
+  <div><b>OpenAI</b>לתרגיל הבדיחות במפגש 11. 5 דולר, עם מגבלה</div>
+  <div><b>Gemini</b>למוצר שלכם. יש לו שכבה חינמית</div>
+</div>
 
 <section class="trackH" id="home">
 <div class="label">בבית · עושים עכשיו</div>
@@ -195,7 +209,6 @@ footer{margin-top:10px}
   <div class="sh"><span class="n"><svg class="ic" viewBox="0 0 24 24"><path d="M4 11.5 12 4l8 7.5M6.5 9.8V20h11V9.8M10 20v-5.5h4V20"/></svg></span><h2>פותחים חשבון Vercel<small>עם חשבון ה-GitHub של הקורס</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <p>צריך חשבון GitHub. עוד אין? קודם <a href="../jb53500-git/">דף Git</a>.</p>
-    <div class="tip"><b>כבר עובדים עם Netlify?</b> אפשר להישאר שם. בסטאק הקורס שתיהן שוות ערך, ובוחרים אחת לכל הפרויקט. בכיתה המדריך על Vercel.</div>
     <ol>
       <li>נכנסים ל-<a href="https://vercel.com/signup" target="_blank" rel="noopener">vercel.com/signup</a></li>
       <li>נרשמים עם <b>GitHub</b>, בחשבון שפתחתם לקורס</li>
@@ -203,11 +216,41 @@ footer{margin-top:10px}
     </ol>
     <p class="see"><b>אמור להופיע:</b> הדשבורד של Vercel, מחובר עם חשבון ה-GitHub שלכם.</p>
     <div class="tip"><b>Hobby היא לשימוש אישי ולא מסחרי.</b> פרויקט של קורס הוא שימוש אישי. אתר שגובה כסף או מציג פרסומות צריך תוכנית בתשלום.</div>
+    <div class="tip"><b>כבר עובדים עם Netlify?</b> אפשר להישאר שם: גם ב-Netlify האתר והפונקציות יושבים יחד. בכיתה המדריך על Vercel, ו<a href="#netlify">בסוף הדף</a> יש טבלת השוואה.</div>
+  </div>
+</article>
+
+<article class="step" data-s="o1">
+  <div class="sh"><span class="n"><svg class="ic" viewBox="0 0 24 24"><path d="M4 11.5 12 4l8 7.5M6.5 9.8V20h11V9.8M10 20v-5.5h4V20"/></svg></span><h2>חשבון OpenAI וקרדיט של 5 דולר<small>לתרגיל הבדיחות. platform.openai.com, לא chatgpt.com</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>נכנסים ל-<a href="https://platform.openai.com/" target="_blank" rel="noopener">platform.openai.com</a> ונרשמים או מתחברים</li>
+      <li>עוברים לדף ה-<a href="https://platform.openai.com/account/billing" target="_blank" rel="noopener">Billing</a></li>
+      <li>לוחצים <b>Buy credits</b> או <b>Add to credit balance</b>, מה שמופיע</li>
+      <li>קונים 5 דולר, המינימום</li>
+      <li>מכבים את <b>Auto recharge</b>. הוא מופעל כברירת מחדל, וטוען כסף לבד כשהיתרה יורדת</li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> יתרה של 5 דולר בדף ה-Billing.</p>
+    <div class="tip"><b>מנוי ChatGPT לא כולל את זה.</b> ה-API הוא חשבון נפרד, עם תשלום לפי שימוש. 5 דולר מספיקים בהרבה לתרגיל, וקרדיט שנקנה פג אחרי שנה.</div>
+  </div>
+</article>
+
+<article class="step" data-s="o2">
+  <div class="sh"><span class="n"><svg class="ic" viewBox="0 0 24 24"><path d="M4 11.5 12 4l8 7.5M6.5 9.8V20h11V9.8M10 20v-5.5h4V20"/></svg></span><h2>מגבלת הוצאה חודשית ב-OpenAI<small>רשת ביטחון. שתי דקות</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <ol>
+      <li>נכנסים ל-<a href="https://platform.openai.com/settings/" target="_blank" rel="noopener">Settings</a> של הפרויקט, ללשונית <b>Limits</b></li>
+      <li>תחת <b>Spend</b> לוחצים <b>Edit spend limit</b></li>
+      <li>ב-<b>Monthly spend limit</b> כותבים 5</li>
+      <li>מפעילים <b>Enforce a hard limit</b> ושומרים</li>
+    </ol>
+    <p>מעכשיו, כשמגיעים ל-5 דולר בחודש, OpenAI פשוט מפסיקה לענות עד החודש הבא. בלי הפתעות בחשבון.</p>
+    <div class="tip"><b>את המפתח עצמו לא יוצרים עכשיו.</b> יוצרים אותו בכיתה, בשלב 9 של <a href="../jb53500-backend/#partC">דף ה-Backend</a>, ומדביקים אותו ישר ל-Vercel. מפתח שלא נוצר לא יכול לדלוף.</div>
   </div>
 </article>
 
 <article class="step" data-s="h2">
-  <div class="sh"><span class="n"><svg class="ic" viewBox="0 0 24 24"><path d="M4 11.5 12 4l8 7.5M6.5 9.8V20h11V9.8M10 20v-5.5h4V20"/></svg></span><h2>מכינים מפתח של Gemini<small>המודל שנעבוד איתו בכיתה. יש לו שכבה חינמית</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n"><svg class="ic" viewBox="0 0 24 24"><path d="M4 11.5 12 4l8 7.5M6.5 9.8V20h11V9.8M10 20v-5.5h4V20"/></svg></span><h2>נכנסים ל-Gemini ב-Google AI Studio<small>המודל של המוצר שלכם. יש לו שכבה חינמית</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li>נכנסים ל-<a href="https://aistudio.google.com/api-keys" target="_blank" rel="noopener">Google AI Studio</a>, לדף API keys, עם הג׳ימייל של הקורס, ומאשרים את תנאי השימוש</li>
@@ -220,206 +263,135 @@ footer{margin-top:10px}
   </div>
 </article>
 
-<div class="donew" id="doneBox"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><div><b>סיימתם כש:</b> אתם מחוברים ל-Vercel עם חשבון ה-GitHub, ובדף API keys של AI Studio מופיע מפתח.</div></div>
+<div class="donew" id="doneBox"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><div><b>סיימתם כש:</b> אתם מחוברים ל-Vercel עם חשבון ה-GitHub, ב-OpenAI יש 5 דולר עם Auto recharge כבוי ומגבלה של 5 דולר, ובדף API keys של AI Studio מופיע מפתח.</div></div>
 </section>
 
-<div class="label">בכיתה · לא צריך להכין בבית</div>
+<div class="label" id="class">בכיתה · לא צריך להכין בבית</div>
 
-<details class="zone" id="partA">
-<summary class="pcard"><span class="pl">בכיתה · חלק א</span><b>פעם אחת, לאט</b><span>שלבים 3 עד 6: חיבור הריפו, פונקציה ראשונה וסוד ראשון</span><i class="pm" aria-hidden="true">+</i></summary>
-<div class="trackA">
-<p class="zp">צריך ריפו ב-GitHub שאתם הבעלים שלו, עם אתר שכבר עובד ב-GitHub Pages, ותיקיית המוצר במחשב מחוברת אליו. עושים כל צעד בעצמכם, ועוצרים לראות מה קרה.</p>
-
-<details class="err more"><summary><span class="pm">+</span><u>רקע: למה צריך צד שרת</u></summary><div>
-<p>האתר שלכם ב-GitHub Pages הוא קבצים שנשלחים לדפדפן. כל מה שכתוב בהם, כל גולש יכול לקרוא. מפתח של מודל AI שווה כסף, ולכן הוא לא יכול לשבת שם.</p>
-    <p>הפתרון: הדפדפן פונה לפונקציה. הפונקציה מוסיפה את המפתח, פונה למודל, ומחזירה לדפדפן רק את התשובה.</p>
-    <div class="locks">
-      <div class="lock"><b>צד הלקוח · GitHub Pages</b><code>username.github.io</code><br>מה שהגולש רואה. הכל גלוי</div>
-      <div class="lock"><b>צד השרת · Vercel</b><code>project.vercel.app/api</code><br>כאן רץ הקוד שמחזיק סוד</div>
-      <div class="lock"><b>הנתונים · Supabase</b><code>xxxx.supabase.co</code><br>כאן הטבלאות. מדריך נפרד</div>
-    </div>
-    <p>אלה שלוש השכבות מהמצגת של מפגש 7. לכל שכבה יש עכשיו כתובת משלה.</p>
+<details class="err more"><summary><span class="pm">+</span><u>רקע: למה הכל עובר ל-Vercel</u></summary><div>
+  <p>עד עכשיו האתר ישב ב-GitHub Pages. ברגע שיש למוצר צד שרת, האתר עובר ל-Vercel, ויושב שם יחד עם הפונקציות, באותה כתובת.</p>
+  <div class="locks">
+    <div class="lock"><b>הדף</b><code>my-product.vercel.app</code><br>מה שהגולש רואה. הכל גלוי</div>
+    <div class="lock"><b>הפונקציות</b><code>my-product.vercel.app/api</code><br>כאן רץ הקוד שמחזיק את המפתחות</div>
+    <div class="lock"><b>הנתונים</b><code>Supabase</code><br>רק הפונקציות מדברות איתו. <a href="../jb53500-supabase/">מדריך נפרד</a></div>
+  </div>
+  <p>שלושה דברים נעשים פשוטים יותר:</p>
+  <ul>
+    <li>הדף פונה לפונקציה בכתובת קצרה, <code>/api/ask</code>. אין שתי כתובות שצריך להתאים</li>
+    <li>אין צורך ב-CORS. הדפדפן מגביל פניות בין אתרים בכתובות שונות, וכאן זה אותו אתר</li>
+    <li>כל דחיפה ל-GitHub מעדכנת את הדף ואת הפונקציות באותו רגע</li>
+  </ul>
+  <div class="tip"><b>GitHub Pages לא נעלם מהקורס.</b> אתר בלי צד שרת, כמו תיק עבודות או דף נחיתה, יכול להישאר שם.</div>
 </div></details>
 
-<article class="step" data-s="a3">
-  <div class="sh"><span class="n">3</span><h2>מחברים את הריפו<small>פעם אחת. מכאן כל דחיפה נפרסת לבד</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
-    <ol>
-      <li>בדשבורד של Vercel לוחצים <b>New Project</b></li>
-      <li>ברשימת הריפו בוחרים את הריפו של המוצר. אם הוא לא מופיע, נותנים ל-Vercel גישה אליו בחלון של GitHub שנפתח</li>
-      <li>ב-<b>Framework Preset</b> בוחרים <b>Other</b>. את שאר ההגדרות משאירים כמו שהן</li>
-      <li>לוחצים <b>Deploy</b></li>
-    </ol>
-    <p class="see"><b>אמור להופיע:</b> אחרי דקה בערך, כתובת בסגנון <code>my-product.vercel.app</code>. האתר שלכם נפתח גם ממנה.</p>
-    <div class="tip"><b>שתי כתובות, אתר אחד:</b> מעכשיו אותו ריפו מתפרסם בשני מקומות. הכתובת שאתם שולחים לאנשים נשארת זו של GitHub Pages. את Vercel צריך בשביל הפונקציות.</div>
-  </div>
-</article>
-
-<article class="step" data-s="a4">
-  <div class="sh"><span class="n">4</span><h2>מעלים פונקציה ראשונה<small>שני קבצים קטנים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
-    <p>פותחים את תיקיית המוצר בלשונית <b>Code</b> של Claude, ושולחים:</p>
-    <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>צור שני קבצים, בדיוק כמו שכתוב כאן, ואל תשנה שום קובץ אחר.
-
-1. בשורש התיקייה, קובץ package.json:<span class="ltr">{
-  "private": true,
-  "type": "module"
-}</span>
-2. תיקייה חדשה בשם api בשורש, ובתוכה קובץ hello.js:<span class="ltr">export default {
-  fetch(request) {
-    return Response.json({
-      message: 'שלום מצד השרת',
-      time: new Date().toISOString(),
-    });
-  },
-};</span>
-אחר כך צור קומיט בשם "First Vercel function" ודחוף ל-GitHub.</pre></div>
-    <p>מה כתוב בקובץ <code>hello.js</code>: כשמגיעה בקשה, הפונקציה מחזירה תשובה בפורמט JSON, עם הודעה ועם השעה בשרת. זה הכל.</p>
-    <div class="locks">
-      <div class="lock"><b>הקובץ</b><code>api/hello.js</code><br>בתיקיית api שבשורש הריפו</div>
-      <div class="lock"><b>הכתובת</b><code>/api/hello</code><br>שם הקובץ הוא שם הכתובת</div>
-      <div class="lock"><b>הקובץ השני</b><code>package.json</code><br>אומר ל-Vercel באיזה תחביר הקוד כתוב</div>
-    </div>
-    <p class="see"><b>אמור להופיע:</b> ב-Vercel, תחת <b>Deployments</b>, פריסה חדשה עם שם הקומיט שלכם. אחרי דקה בערך היא מסומנת Ready.</p>
-  </div>
-</article>
-
-<article class="step" data-s="a5">
-  <div class="sh"><span class="n">5</span><h2>בודקים שהפונקציה חיה<small>בדפדפן, ואז בלוגים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
-    <ol>
-      <li>פותחים בדפדפן את כתובת הפרויקט ב-Vercel, ומוסיפים בסופה <code>/api/hello</code></li>
-      <li>מרעננים את הדף פעמיים</li>
-      <li>ב-Vercel, בתפריט הצד של הפרויקט, פותחים את <b>Logs</b></li>
-    </ol>
-    <div class="term"><button class="cp" type="button">העתק</button><pre>https://my-product.vercel.app/api/hello</pre></div>
-    <p class="see"><b>אמור להופיע:</b> בדפדפן, ההודעה והשעה. בכל רענון השעה מתעדכנת, כי הקוד רץ בשרת מחדש בכל פנייה. ב-Logs, שורה לכל פנייה שלכם.</p>
-    <div class="tip"><b>Logs הוא המקום הראשון לחפש בו כשמשהו נשבר.</b> בתוכנית Hobby הלוגים נשמרים שעה אחת, אז בודקים מיד אחרי התקלה.</div>
-  </div>
-</article>
-
-<article class="step" data-s="a6">
-  <div class="sh"><span class="n">6</span><h2>שומרים סוד, ונתקעים בכוונה<small>למה צריך פריסה חדשה אחרי כל שינוי במשתנה</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
-    <p>קודם פונקציה שבודקת אם הסוד קיים, בלי לחשוף אותו. שולחים ל-Claude:</p>
-    <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>צור בתיקיית api קובץ check.js, בדיוק כך, ואל תשנה שום קובץ אחר:<span class="ltr">export default {
-  fetch(request) {
-    return Response.json({
-      hasKey: Boolean(process.env.GEMINI_API_KEY),
-    });
-  },
-};</span>
-אחר כך צור קומיט בשם "Add key check" ודחוף ל-GitHub.</pre></div>
-    <p>מחכים שהפריסה תסתיים, ופותחים את <code>/api/check</code>. התשובה: <code>{"hasKey": false}</code>. עכשיו מוסיפים את הסוד:</p>
-    <ol>
-      <li>ב-Vercel, בתפריט הצד של הפרויקט, פותחים את <b>Environment Variables</b></li>
-      <li>תחת <b>Type</b> בוחרים <b>Secret</b></li>
-      <li>בשם כותבים <code>GEMINI_API_KEY</code>, אות באות</li>
-      <li>בערך מדביקים את המפתח מ-Google AI Studio. את הסביבות משאירים כמו שהן, ולוחצים <b>Save</b></li>
-      <li>מרעננים את <code>/api/check</code></li>
-    </ol>
-    <p class="see"><b>אמור להופיע:</b> עדיין <code>false</code>. זו לא תקלה. משתנה חדש נכנס רק לפריסה חדשה.</p>
-    <p>ב-<b>Deployments</b> פותחים את תפריט שלוש הנקודות של הפריסה האחרונה ובוחרים <b>Redeploy</b>. אפשר גם פשוט לדחוף קומיט חדש. מרעננים שוב.</p>
-    <p class="see"><b>אמור להופיע:</b> <code>{"hasKey": true}</code>.</p>
-    <div class="locks">
-      <div class="lock"><b>Config</b>ערך שאפשר לקרוא שוב אחרי השמירה. מתאים להגדרות שאינן סוד</div>
-      <div class="lock"><b>Secret</b>אחרי השמירה אי אפשר לראות אותו שוב, רק להחליף. מתאים למפתחות</div>
-      <div class="lock"><b>בקוד</b><code>process.env.NAME</code><br>כך הפונקציה קוראת את הערך</div>
-    </div>
-    <div class="warn"><b>הפונקציה מחזירה רק כן או לא.</b> לא כותבים פונקציה שמחזירה את המפתח עצמו, גם לא לבדיקה. מה שפונקציה מחזירה, כל גולש יכול לקרוא.</div>
-  </div>
-</article>
-</div>
-</details>
+<a class="pcard go2" id="partA" href="../jb53500-backend/"><span class="pl">בכיתה · חלק א · מפגש 11</span><b>האפליקציה הראשונה על Vercel</b><span>אפליקציית הבדיחות: Claude Code בונה, Vercel מארח את הדף ואת השרת, ומפתח OpenAI נשמר כסוד. המדריך המלא בדף נפרד.</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
 
 <details class="zone b" id="partB">
-<summary class="pcard b"><span class="pl">בכיתה · חלק ב</span><b>עם Claude Code</b><span>הוא כותב את הפונקציה של המוצר, אתם קוראים ומאשרים</span><i class="pm" aria-hidden="true">+</i></summary>
+<summary class="pcard b"><span class="pl">בכיתה · חלק ב</span><b>המוצר שלכם עובר ל-Vercel</b><span>Claude Code כותב את פונקציית ה-AI, אתם קוראים, מאשרים ובודקים</span><i class="pm" aria-hidden="true">+</i></summary>
 <div class="trackB">
-<p class="zp">אותם רכיבים, הפעם על המוצר שלכם: פונקציה שמקבלת שאלה מהאתר, פונה למודל עם המפתח הסודי, ומחזירה תשובה.</p>
+<p class="zp">אותו מבנה כמו בתרגיל הבדיחות, הפעם על המוצר שלכם: הדף והפונקציה באותה כתובת ב-Vercel, והמפתח של Gemini שמור כסוד.</p>
 
-<article class="step" data-s="b1">
+<article class="step" data-s="p1">
   <div class="sh"><span class="n">ב1</span><h2>מה צריך<small>ארבעה דברים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li><b>Claude Desktop ותוכנית בתשלום:</b> הלשונית Code לא כלולה בתוכנית החינמית</li>
-      <li><b>תיקיית המוצר:</b> עם <code>ARCHITECTURE.md</code>,‏ <code>PRD.md</code>,‏ <code>course-stack.md</code> ומסמך עשרת ההיבטים</li>
-      <li><b>הפרויקט ב-Vercel מחלק א:</b> מחובר לריפו, עם הסוד <code>GEMINI_API_KEY</code></li>
+      <li><b>תיקיית המוצר:</b> עם <code>ARCHITECTURE.md</code>,‏ <code>PRD.md</code>,‏ <code>product-10-definitions.md</code> ו-<a href="../jb53500-prompts/course-stack.md"><code>course-stack.md</code></a> בגרסה מ-24.10.2026</li>
+      <li><b>תרגיל הבדיחות עובד:</b> אתם כבר מכירים Import, Secret ו-Redeploy</li>
       <li><b>מסך ראשי שעובד:</b> עם כפתור או טופס שאמור להפעיל את ה-AI</li>
     </ol>
+    <div class="warn"><b>מחליפים את course-stack.md לפני שמתחילים.</b> גרסה ישנה יותר עוד אומרת שהאתר ב-GitHub Pages ושצריך CORS, ו-Claude יבנה לפיה. מורידים את הקובץ מ<a href="../jb53500-prompts/">דף הפרומפטים</a> ושמים אותו בתיקיית המוצר, במקום הישן.</div>
   </div>
 </article>
 
-<article class="step" data-s="b2">
-  <div class="sh"><span class="n">ב2</span><h2>רושמים שתי כתובות<small>Claude יצטרך את שתיהן</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="p2">
+  <div class="sh"><span class="n">ב2</span><h2>מייבאים את ריפו המוצר ל-Vercel<small>פעם אחת. מכאן כל דחיפה נפרסת לבד</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
-    <div class="acts">
-      <div class="lock"><b>כתובת האתר</b><code>https://username.github.io</code><br>רק עד הסיומת <code>github.io</code>. בלי שם הריפו, ובלי לוכסן בסוף</div>
-      <div class="lock"><b>כתובת הפרויקט ב-Vercel</b><code>https://my-product.vercel.app</code><br>הכתובת הקצרה שמופיעה בדשבורד תחת Domains</div>
+    <ol>
+      <li>בדשבורד של Vercel לוחצים <b>New Project</b>. אין כפתור כזה? לוחצים <b>Add New</b>, ואז <b>Project</b></li>
+      <li>ליד הריפו של המוצר לוחצים <b>Import</b>. הריפו לא ברשימה? נותנים ל-Vercel גישה אליו בחלון של GitHub שנפתח</li>
+      <li>ב-<b>Framework Preset</b> בוחרים <b>Other</b>. שאר ההגדרות נשארות כמו שהן</li>
+      <li>לוחצים <b>Deploy</b></li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> כתובת בסגנון <code>my-product.vercel.app</code>. המוצר נפתח ממנה, באותו מראה כמו ב-GitHub Pages. הכפתור של ה-AI עוד לא עובד, וזה צפוי.</p>
+    <div class="tip"><b>זו הכתובת של המוצר מעכשיו.</b> אותה שולחים לאנשים, ואותה פותחים בטלפון. את GitHub Pages מכבים בסוף, בשלב ב6.</div>
+    <div class="tip"><b>במסלול המשודרג, עם React ו-Vite:</b> לא בוחרים Other. Vercel מזהה את Vite לבד, ומשאירים את מה שהוא בחר.</div>
+  </div>
+</article>
+
+<article class="step" data-s="p3">
+  <div class="sh"><span class="n">ב3</span><h2>שמים את המפתח של Gemini ב-Vercel<small>ואז Redeploy</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p><b>לשונית 1, Google AI Studio:</b> בדף <a href="https://aistudio.google.com/api-keys" target="_blank" rel="noopener">API keys</a> מעתיקים את המפתח שהכנתם בבית.</p>
+    <p><b>לשונית 2, Vercel:</b></p>
+    <ol>
+      <li>בפרויקט של המוצר פותחים <b>Settings</b>, ואז <b>Environment Variables</b> בתפריט הצד</li>
+      <li>ב-<b>Key</b> כותבים בדיוק <code>GEMINI_API_KEY</code></li>
+      <li>ב-<b>Value</b> מדביקים את המפתח</li>
+      <li>ב-<b>Type</b> בוחרים <b>Secret</b>, ומשאירים את כל הסביבות מסומנות. שומרים</li>
+      <li>ב-<b>Deployments</b>, ליד הפריסה העליונה, לוחצים על שלוש הנקודות ואז <b>Redeploy</b></li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> שורה בטבלה עם <code>GEMINI_API_KEY</code> והתווית Secret. הערך מוסתר, וגם אתם כבר לא יכולים לקרוא אותו.</p>
+    <div class="locks">
+      <div class="lock"><b>Secret</b>אחרי השמירה אי אפשר לראות אותו שוב, רק להחליף. למפתחות</div>
+      <div class="lock"><b>Config</b>אפשר לקרוא שוב אחרי השמירה. להגדרות שאינן סוד, כמו שם המודל</div>
+      <div class="lock"><b>Redeploy</b>משתנה חדש נכנס רק לפריסה חדשה. גם דחיפה חדשה עושה את זה</div>
     </div>
-    <div class="tip"><b>למה בלי שם הריפו:</b> הדפדפן מזהה אתר לפי תחילת הכתובת בלבד, מה שנקרא Origin. הפונקציה תשווה את ה-Origin של מי שפונה אליה לכתובת הזו, אות באות.</div>
+    <div class="tip"><b>רוצים להחליף מודל בלי לגעת בקוד?</b> מוסיפים גם משתנה מסוג Config בשם <code>GEMINI_MODEL</code>, עם שם המודל. הקוד שבשלב הבא קורא אותו, ויש בו ברירת מחדל.</div>
   </div>
 </article>
 
-<article class="step" data-s="b3">
-  <div class="sh"><span class="n">ב3</span><h2>מבקשים מ-Claude לכתוב את הפונקציה<small>קודם תוכנית, אחר כך קוד</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="p4">
+  <div class="sh"><span class="n">ב4</span><h2>מבקשים מ-Claude לכתוב את הפונקציה<small>קודם תוכנית, אחר כך קוד</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
-    <p>בלשונית Code, במצב <b>Manual</b>. ממלאים את שתי הכתובות, ושולחים:</p>
+    <p>בלשונית Code, במצב <b>Manual</b>, שולחים:</p>
     <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>הוסף למוצר פונקציית צד שרת ב-Vercel, שקוראת למודל ה-AI.
 
 קרא קודם, מתיקיית המוצר:
-- course-stack.md: הסעיפים "חוק הברזל: מפתחות" ו"צד השרת".
+- course-stack.md: הסעיפים "חוק הברזל: מפתחות", "צד השרת" ו"שכבת ה-AI".
 - ARCHITECTURE.md: הסעיף "שכבת ה-AI".
 - product-10-definitions.md: הסעיף "שכבת ה-AI והפרומפט המרכזי".
 
-הפרטים שלי:
-- כתובת האתר ב-GitHub Pages: [להדביק כאן]
-- כתובת הפרויקט ב-Vercel: [להדביק כאן]
-- המפתח שמור ב-Vercel כ-Environment Variable בשם GEMINI_API_KEY. אל תבקש אותו, ואל תכתוב אותו בשום קובץ.
+איך זה בנוי:
+- האתר והפונקציות מתארחים יחד ב-Vercel, מאותו ריפו. הדף פונה לפונקציה בכתובת יחסית, <span class="l">/api/ask</span>. בלי CORS.
+- המפתח שמור ב-Vercel כ-Environment Variable מסוג Secret, בשם <span class="l">GEMINI_API_KEY</span>. אל תבקש אותו, ואל תכתוב אותו בשום קובץ.
+- שם המודל נקרא מ-<span class="l">process.env.GEMINI_MODEL</span>, ואם הוא חסר יש ברירת מחדל בקוד.
 
 המשימה:
 1. הצג לי תוכנית: אילו קבצים תיצור או תשנה, מה הפונקציה מקבלת ומה היא מחזירה. חכה לאישור שלי.
-2. צור את הפונקציה בקובץ api/ask.js, במבנה שהתיעוד העדכני של Vercel מגדיר לפרויקט בלי framework.
-3. לפני שאתה כותב את הקריאה למודל, קרא את התיעוד העדכני של הספק, ובדוק את שם המודל.
-4. הפונקציה מקבלת POST עם JSON, מגבילה את אורך הקלט, ומחזירה תמיד JSON, גם בשגיאה. היא לא מחזירה את המפתח, ולא הודעת שגיאה גולמית של הספק.
-5. הפונקציה מאשרת בקשות רק מכתובת האתר שלי, בכותרות CORS, ועונה גם לבקשת OPTIONS.
-6. חבר את הכפתור במסך הראשי: הוא פונה לכתובת המלאה של הפונקציה ב-Vercel, מציג מצב טעינה, ומציג את התשובה או הודעת שגיאה בעברית.
+2. צור את הפונקציה בקובץ <span class="l">api/ask.js</span>, עם <span class="l">export default</span> שבתוכו <span class="l">fetch(request)</span>, לפי התיעוד העדכני של Vercel לפרויקט בלי framework. ב-<span class="l">package.json</span> יש <span class="l">"type": "module"</span>.
+3. לפני שאתה כותב את הקריאה למודל, קרא את התיעוד העדכני של Gemini API, ובחר ברירת מחדל מבין מודלי ה-Flash העדכניים.
+4. הפונקציה מקבלת רק POST עם JSON, מגבילה את אורך הקלט, ומחזירה תמיד JSON, גם בשגיאה. היא לא מחזירה את המפתח, ולא הודעת שגיאה גולמית של הספק. הפרטים הטכניים נרשמים ב-<span class="l">console.error</span>.
+5. חבר את הכפתור במסך הראשי: הוא פונה ל-<span class="l">/api/ask</span>, מציג מצב טעינה, ומציג את התשובה או הודעת שגיאה בעברית.
+6. ודא שב-<span class="l">.gitignore</span> יש <span class="l">.env</span> ו-<span class="l">.vercel</span>.
 7. בסוף הסבר לי איך אני בודק, ופרט מה לא יכולת לבדוק בעצמך.
 
 אל תדחוף ל-GitHub לפני שאישרתי.</pre></div>
+    <div class="warn"><b>Claude מבקש את המפתח?</b> לא נותנים. כותבים לו: "המפתח שמור ב-Vercel. קרא אותו בקוד מתוך process.env, ואל תבקש אותו ממני."</div>
   </div>
 </article>
 
-<article class="step" data-s="b4">
-  <div class="sh"><span class="n">ב4</span><h2>קוראים לפני שמאשרים<small>חמישה דברים לחפש בקוד</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="p5">
+  <div class="sh"><span class="n">ב5</span><h2>קוראים לפני שמאשרים<small>חמישה דברים לחפש בקוד</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <div class="acts">
       <div class="lock"><b><code>process.env.GEMINI_API_KEY</code></b>כך הפונקציה קוראת את הסוד. המפתח עצמו לא מופיע בשום קובץ</div>
-      <div class="lock"><b><code>Access-Control-Allow-Origin</code></b>הערך הוא כתובת האתר שלכם. לא כוכבית</div>
-      <div class="lock"><b><code>OPTIONS</code></b>לפני בקשת POST הדפדפן שואל את השרת אם מותר. הפונקציה צריכה לענות גם על השאלה הזו</div>
+      <div class="lock"><b><code>fetch('/api/ask'</code></b>בקוד של הדף. כתובת קצרה, בלי <code>https</code> ובלי שם דומיין</div>
       <div class="lock"><b><code>slice</code> או בדיקת אורך</b>הגבלה על אורך הטקסט שנשלח למודל. בלי זה, כל גולש יכול לשלוח ספר שלם על חשבונכם</div>
       <div class="lock"><b><code>console.error</code></b>מה שנכתב כאן מופיע ב-Logs של Vercel. הגולש מקבל רק הודעה קצרה</div>
+      <div class="lock"><b><code>"type": "module"</code></b>בקובץ <code>package.json</code>, בשורש הריפו</div>
     </div>
-    <div class="warn"><b>עוצרים ושואלים לפני שמאשרים:</b> מפתח שכתוב בקובץ. כוכבית ב-<code>Access-Control-Allow-Origin</code>. פונקציה שמחזירה ערך מתוך <code>process.env</code>. ספרייה חדשה שלא ביקשתם. שינוי בקבצים שלא קשורים למשימה.</div>
+    <div class="warn"><b>עוצרים ושואלים לפני שמאשרים:</b> מפתח שכתוב בקובץ. הכתובת <code>googleapis.com</code> בקוד של הדף. כותרות <code>Access-Control-Allow-Origin</code>, שכבר לא צריך. פונקציה שמחזירה ערך מתוך <code>process.env</code>. ספרייה חדשה שלא ביקשתם. שינוי בקבצים שלא קשורים למשימה.</div>
     <p>זה מה ש-Claude אמור לכתוב, בערך. שם המודל והפרומפט יהיו שלכם:</p>
-    <div class="term"><button class="cp" type="button">העתק</button><pre>const SITE = 'https://username.github.io';
-const MODEL = 'gemini-3.8-flash';
+    <div class="term"><button class="cp" type="button">העתק</button><pre>const MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
 const ROLE = 'הפרומפט המרכזי של המוצר';
 
-const cors = {
-  'Access-Control-Allow-Origin': SITE,
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-};
-
 function reply(body, status = 200) {
-  return Response.json(body, { status, headers: cors });
+  return Response.json(body, { status });
 }
 
 export default {
   async fetch(request) {
-    if (request.method === 'OPTIONS') {
-      return new Response(null, { status: 204, headers: cors });
-    }
     if (request.method !== 'POST') {
       return reply({ error: 'POST only' }, 405);
     }
@@ -443,14 +415,20 @@ export default {
 
     const url = 'https://generativelanguage.googleapis.com/v1beta/models/'
       + MODEL + ':generateContent';
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'x-goog-api-key': key, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        system_instruction: { parts: [{ text: ROLE }] },
-        contents: [{ parts: [{ text: question }] }],
-      }),
-    });
+    let res;
+    try {
+      res = await fetch(url, {
+        method: 'POST',
+        headers: { 'x-goog-api-key': key, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          system_instruction: { parts: [{ text: ROLE }] },
+          contents: [{ parts: [{ text: question }] }],
+        }),
+      });
+    } catch (e) {
+      console.error('network error', e);
+      return reply({ error: 'model did not answer' }, 502);
+    }
 
     if (!res.ok) {
       console.error('model error', res.status, await res.text());
@@ -463,11 +441,9 @@ export default {
     return reply({ answer });
   },
 };</pre></div>
-    <p>ובצד של האתר, הכפתור פונה לפונקציה כך:</p>
-    <div class="term"><button class="cp" type="button">העתק</button><pre>const API = 'https://my-product.vercel.app/api/ask';
-
-async function ask(question) {
-  const res = await fetch(API, {
+    <p>ובצד של הדף, הכפתור פונה לפונקציה כך:</p>
+    <div class="term"><button class="cp" type="button">העתק</button><pre>async function ask(question) {
+  const res = await fetch('/api/ask', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ question }),
@@ -479,36 +455,28 @@ async function ask(question) {
   </div>
 </article>
 
-<article class="step" data-s="b5">
-  <div class="sh"><span class="n">ב5</span><h2>דוחפים ובודקים, בארבעה מקומות<small>האתר, הרשת, הקוד והלוגים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="p6">
+  <div class="sh"><span class="n">ב6</span><h2>דוחפים ובודקים, בארבעה מקומות<small>ואז מכבים את GitHub Pages</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
-    <p>מאשרים ל-Claude ליצור קומיט ולדחוף. מחכים שהפריסה ב-Vercel תסומן Ready, ושגם GitHub Pages יתעדכן, בדרך כלל דקה או שתיים.</p>
+    <p>מאשרים ל-Claude ליצור קומיט ולדחוף. מחכים שהפריסה ב-Vercel תסומן Ready, בדרך כלל תוך דקה.</p>
     <ol>
-      <li><b>באתר:</b> פותחים את כתובת GitHub Pages בחלון פרטי, ומפעילים את הכפתור. מגיעה תשובה מהמודל</li>
-      <li><b>ברשת:</b> פותחים את כלי המפתחים (F12, וב-Mac ‏Cmd+Option+I), עוברים ל-<b>Network</b>, ומפעילים שוב. מופיעה בקשה אל <code>vercel.app</code>. אין בקשה ישירה אל ספק המודל</li>
-      <li><b>בקוד:</b> בכלי המפתחים מחפשים בכל קובצי הדף (Ctrl+Shift+F, וב-Mac ‏Cmd+Option+F) את השם <code>GEMINI_API_KEY</code>. הוא לא מופיע. השם קיים רק בפונקציה שבשרת</li>
+      <li><b>באתר:</b> פותחים את כתובת Vercel בחלון פרטי, וגם בטלפון, ומפעילים את הכפתור. מגיעה תשובה מהמודל</li>
+      <li><b>ברשת:</b> פותחים את כלי המפתחים (F12, וב-Mac ‏Cmd+Option+I), עוברים ל-<b>Network</b>, ומפעילים שוב. מופיעה בקשה בשם <code>ask</code>, באותה כתובת של האתר. אין בקשה אל <code>googleapis.com</code></li>
+      <li><b>בקוד:</b> בכלי המפתחים מחפשים בכל קובצי הדף (Ctrl+Shift+F, וב-Mac ‏Cmd+Option+F) את <code>GEMINI_API_KEY</code>. הוא לא מופיע. השם קיים רק בפונקציה שבשרת</li>
       <li><b>בלוגים:</b> ב-Vercel, תחת Logs, מופיעה שורה לכל לחיצה שלכם</li>
     </ol>
-    <p class="see"><b>אמור להופיע:</b> תשובה באתר, בקשה אחת ל-Vercel, אפס מפתחות בדפדפן.</p>
-    <div class="tip"><b>ניקיון:</b> את <code>api/check.js</code> אפשר למחוק עכשיו. הוא שימש רק לתרגול.</div>
-  </div>
-</article>
-
-<article class="step" data-s="b6">
-  <div class="sh"><span class="n">ב6</span><h2>רואים את המנעול עובד<small>שגיאת CORS, בכוונה</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
+    <p class="see"><b>אמור להופיע:</b> תשובה באתר, בקשה אחת ל-<code>/api/ask</code>, אפס מפתחות בדפדפן.</p>
+    <p><b>עכשיו מכבים את הגרסה הישנה,</b> כדי שלא תישאר באוויר גרסה שהכפתור שלה שבור:</p>
     <ol>
-      <li>פותחים את הקובץ <code>index.html</code> ישר מהמחשב, בלחיצה כפולה</li>
-      <li>פותחים את כלי המפתחים, ועוברים ל-<b>Console</b></li>
-      <li>מפעילים את הכפתור</li>
+      <li>בריפו ב-GitHub פותחים <b>Settings</b>, ואז <b>Pages</b> בתפריט הצד</li>
+      <li>ליד <b>Your site is live at</b> לוחצים על שלוש הנקודות</li>
+      <li>בוחרים <b>Unpublish site</b></li>
     </ol>
-    <p class="see"><b>אמור להופיע:</b> שגיאה אדומה שמזכירה את המילה CORS. הבקשה נחסמה.</p>
-    <p>זו לא תקלה. הפונקציה עונה רק לאתר שבכתובת שהגדרתם, וקובץ מקומי הוא לא האתר הזה. מעכשיו בודקים את ה-AI מהאתר החי.</p>
-    <div class="tip"><b>CORS עוצר אתרים אחרים, לא את כל העולם.</b> מי שמכיר את כתובת הפונקציה יכול לפנות אליה מתוכנה, בלי דפדפן. לכן מגבילים את אורך הקלט, ועוקבים אחרי השימוש אצל ספק המודל. נחזור לזה במפגש האבטחה.</div>
+    <div class="tip"><b>פתחתם את <code>index.html</code> ישר מהמחשב, והכפתור מחזיר שגיאה?</b> זה צפוי. לקובץ מקומי אין <code>/api/ask</code>: הפונקציה חיה רק ב-Vercel. את ה-AI בודקים תמיד מהכתובת החיה.</div>
   </div>
 </article>
 
-<article class="step" data-s="b7">
+<article class="step" data-s="p7">
   <div class="sh"><span class="n">ב7</span><h2>רשות: מחברים את Vercel ל-Claude<small>כדי ש-Claude יקרא פריסות ולוגים במקומכם</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
@@ -532,27 +500,27 @@ async function ask(question) {
 
 <div class="label">כשמשהו לא עובד</div>
 
-<details class="err"><summary><span class="pm">+</span><u>הכתובת <code>/api/hello</code> מחזירה 404</u></summary><div>הקובץ לא נמצא בתיקיית <code>api</code> שבשורש הריפו, או שהפריסה עוד לא הסתיימה. בודקים ב-Deployments שהפריסה האחרונה מסומנת Ready, ושהקומיט שלכם מופיע בה. בודקים גם ב-GitHub שהתיקייה <code>api</code> נמצאת ליד <code>index.html</code>, ולא בתוך תיקייה אחרת.</div></details>
-<details class="err"><summary><span class="pm">+</span><u>הפונקציה מחזירה שגיאה 500</u></summary><div>פותחים את Logs ב-Vercel, מוצאים את השורה האדומה, ומעתיקים אותה ל-Claude: "זו השגיאה מהלוג של Vercel. הסבר לי מה היא אומרת לפני שאתה מתקן." הסיבה הנפוצה: המשתנה לא הוגדר, או שלא הייתה פריסה חדשה אחרי שהוגדר.</div></details>
-<details class="err"><summary><span class="pm">+</span><u>הכתובת <code>/api/check</code> ממשיכה להחזיר <code>false</code></u></summary><div>או שהשם לא זהה אות באות ל-<code>GEMINI_API_KEY</code>, או שלא הייתה פריסה חדשה אחרי השמירה. בודקים את השם ב-Environment Variables, ועושים Redeploy.</div></details>
-<details class="err"><summary><span class="pm">+</span><u>בקונסול מופיעה שגיאת CORS</u></summary><div>הכתובת שכתובה בפונקציה לא זהה לכתובת האתר. בודקים: מתחילה ב-<code>https</code>, נגמרת ב-<code>github.io</code>, בלי שם הריפו ובלי לוכסן בסוף. או שפתחתם את האתר מקובץ מקומי, ואז זו ההתנהגות הנכונה.</div></details>
-<details class="err"><summary><span class="pm">+</span><u>הפריסה נכשלת, והשגיאה מזכירה export או module</u></summary><div>חסר בשורש הריפו הקובץ <code>package.json</code> עם השורה <code>"type": "module"</code>. חוזרים לשלב 4.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>הכתובת <code>/api/ask</code> מחזירה 404</u></summary><div>שלוש סיבות נפוצות. הקובץ לא נמצא בתיקיית <code>api</code> שבשורש הריפו, ליד <code>index.html</code>. הפריסה עוד לא הסתיימה: בודקים ב-Deployments שהאחרונה מסומנת Ready, ושהקומיט שלכם מופיע בה. או שפתחתם את האתר מכתובת GitHub Pages, ושם אין פונקציות בכלל.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>הפונקציה מחזירה שגיאה 500</u></summary><div>פותחים את Logs ב-Vercel, מוצאים את השורה האדומה, ומעתיקים אותה ל-Claude: "זו השגיאה מהלוג של Vercel. הסבר לי מה היא אומרת לפני שאתה מתקן." הסיבה הנפוצה: המשתנה לא הוגדר, השם לא זהה אות באות ל-<code>GEMINI_API_KEY</code>, או שלא הייתה פריסה חדשה אחרי שהוגדר.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>האתר מציג הודעת שגיאה במקום תשובה</u></summary><div>הפונקציה עובדת, והספק החזיר שגיאה. הסיבה המדויקת כתובה ב-Logs. בשכבה החינמית זו בדרך כלל מכסה לדקה: מחכים רגע ומנסים שוב. אם השגיאה מזכירה שם של מודל, בודקים את <code>GEMINI_MODEL</code>, או מבקשים מ-Claude לבדוק את שם המודל בתיעוד העדכני.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>הכפתור מחזיר שגיאה כשפותחים את הקובץ מהמחשב</u></summary><div>זו ההתנהגות הנכונה. לקובץ מקומי אין <code>/api/ask</code>, כי הפונקציה רצה רק ב-Vercel. בודקים מהכתובת <code>vercel.app</code>.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>בכתובת GitHub Pages הכפתור לא עובד</u></summary><div>גם זה צפוי: ל-GitHub Pages אין פונקציות. הכתובת של המוצר היא עכשיו זו של Vercel. מכבים את GitHub Pages לפי שלב ב6, ומעדכנים את הקישור בכל מקום ששלחתם אותו.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>Claude הוסיף כותרות CORS, או טיפול ב-OPTIONS</u></summary><div>לא צריך אותם, כי הדף והפונקציה באותה כתובת. בודקים קודם ש-<code>course-stack.md</code> בתיקייה הוא הגרסה מ-24.10.2026. אחר כך כותבים: "הדף והפונקציה באותו פרויקט ב-Vercel. הסר את כותרות ה-CORS ואת הטיפול ב-OPTIONS, והסבר לי מה שינית."</div></details>
+<details class="err"><summary><span class="pm">+</span><u>הפריסה נכשלת, והשגיאה מזכירה export או module</u></summary><div>חסר בשורש הריפו הקובץ <code>package.json</code> עם השורה <code>"type": "module"</code>. מבקשים מ-Claude להוסיף אותו, ודוחפים שוב.</div></details>
 <details class="err"><summary><span class="pm">+</span><u>דחפתי, ואין פריסה חדשה</u></summary><div>ב-Vercel, בהגדרות הפרויקט תחת Git, בודקים שהפרויקט מחובר לריפו הנכון. בודקים ב-GitHub שהקומיט באמת הגיע לענף <code>main</code>. אם הכל נראה תקין, פותחים את Deployments ויוצרים פריסה ידנית עם Create Deployment.</div></details>
 <details class="err"><summary><span class="pm">+</span><u>הכתובת מבקשת ממני להתחבר ל-Vercel</u></summary><div>בדרך כלל זה אומר שפתחתם כתובת של פריסה מסוימת: ארוכה, עם אותיות ומספרים באמצע. משתמשים בכתובת הקצרה של הפרויקט, שמופיעה בדשבורד תחת Domains.</div></details>
-<details class="err"><summary><span class="pm">+</span><u>האתר מציג הודעת שגיאה במקום תשובה</u></summary><div>הפונקציה עובדת, והספק החזיר שגיאה. הסיבה המדויקת כתובה ב-Logs. בשכבה החינמית זו בדרך כלל מכסה לדקה: מחכים רגע ומנסים שוב. אם השגיאה מזכירה שם של מודל, מבקשים מ-Claude לבדוק את שם המודל בתיעוד העדכני.</div></details>
-<details class="err"><summary><span class="pm">+</span><u>עובד מכתובת Vercel, ולא מכתובת GitHub Pages</u></summary><div>שתי בדיקות. האחת, שהכפתור פונה לכתובת המלאה של הפונקציה, עם <code>https://</code> ושם הפרויקט, ולא רק ל-<code>/api/ask</code>. השנייה, ש-GitHub Pages כבר התעדכן: לפעמים הוא מתעדכן דקה או שתיים אחרי Vercel.</div></details>
 <details class="err"><summary><span class="pm">+</span><u>המפתח נדחף בטעות לריפו</u></summary><div>מחליפים אותו מיד: ב-Google AI Studio מוחקים את המפתח ויוצרים חדש, מעדכנים את הערך ב-Vercel, ועושים Redeploy. למחוק את השורה מהקוד לא מספיק, כי ההיסטוריה של Git שומרת כל גרסה. מפתח שנחשף פעם אחת נחשב חשוף.</div></details>
-<details class="err"><summary><span class="pm">+</span><u>Claude מבקש את המפתח</u></summary><div>לא נותנים. כותבים לו: "המפתח שמור ב-Vercel. קרא אותו בקוד מתוך process.env, ואל תבקש אותו ממני."</div></details>
 
 <div class="label">נספחים</div>
 
 <details class="err more" id="netlify"><summary><span class="pm">+</span><u>Netlify: אותו רעיון, שמות אחרים</u></summary><div>
-<p>Netlify עושה את אותה עבודה: מחברים ריפו, כל דחיפה נפרסת, ופונקציות רצות בשרת עם סודות. מי שמבין את Vercel מבין גם את Netlify.</p>
+<p>Netlify עושה את אותה עבודה: מחברים ריפו, כל דחיפה נפרסת, והאתר והפונקציות יושבים יחד, עם סודות. מי שמבין את Vercel מבין גם את Netlify.</p>
     <div class="tblwrap"><table class="tbl">
       <thead><tr><th></th><th>Vercel</th><th>Netlify</th></tr></thead>
       <tbody>
         <tr><td>הקובץ</td><td><code>api/ask.js</code></td><td><code>netlify/functions/ask.mjs</code></td></tr>
-        <tr><td>הכתובת</td><td>לפי שם הקובץ: <code>/api/ask</code></td><td>נקבעת בתוך הקובץ, בשורת <code>config</code></td></tr>
+        <tr><td>הכתובת</td><td>לפי שם הקובץ: <code>/api/ask</code></td><td>נקבעת בתוך הקובץ, בשורת <code>config</code>. אפשר לקבוע גם שם <code>/api/ask</code></td></tr>
+        <tr><td>האתר</td><td>באותו פרויקט ובאותה כתובת</td><td>באותו פרויקט ובאותה כתובת</td></tr>
         <tr><td>הסוד</td><td>Environment Variables, מסוג Secret</td><td>Environment variables, בהגדרות הפרויקט</td></tr>
         <tr><td>בקוד</td><td><code>process.env.NAME</code></td><td><code>process.env.NAME</code></td></tr>
         <tr><td>פריסה</td><td>כל דחיפה ל-main</td><td>כל דחיפה ל-main</td></tr>
@@ -562,43 +530,46 @@ async function ask(question) {
     </table></div>
     <div class="tip"><b>מה בוחרים:</b> בכיתה כולנו על Vercel, כדי שאפשר יהיה לעזור לכל אחד. מי שכבר עובד עם Netlify יכול להישאר שם, אבל כדאי לשים לב למכסת הפריסות: בקורס דוחפים כמה פעמים ביום, ו-300 קרדיטים נגמרים מהר.</div>
 </div></details>
-<details class="err more"><summary><span class="pm">+</span><u>דף סיכום: עשרה מושגים</u></summary><div>
+<details class="err more"><summary><span class="pm">+</span><u>מילון: שנים עשר מושגים</u></summary><div>
 <div class="tblwrap"><table class="tbl">
   <thead><tr><th>המושג</th><th>מה הוא</th></tr></thead>
   <tbody>
     <tr><td>Function</td><td>קובץ קוד שרץ בשרת בכל פעם שפונים לכתובת שלו</td></tr>
     <tr><td>api</td><td>התיקייה בשורש הריפו. כל קובץ בה הוא פונקציה</td></tr>
+    <tr><td>כתובת יחסית</td><td>כתובת בלי שם הדומיין, כמו <code>/api/ask</code>. הדפדפן משלים אותה מהאתר שהוא נמצא בו</td></tr>
     <tr><td>Environment Variable</td><td>ערך שנשמר ב-Vercel ולא בקוד. הפונקציה קוראת אותו ב-<code>process.env</code></td></tr>
     <tr><td>Secret</td><td>סוג של משתנה שאי אפשר לקרוא שוב אחרי השמירה. למפתחות</td></tr>
+    <tr><td>Config</td><td>סוג של משתנה שאפשר לקרוא שוב. להגדרות שאינן סוד</td></tr>
     <tr><td>Deployment</td><td>גרסה אחת של הפרויקט באוויר. נוצרת בכל דחיפה</td></tr>
     <tr><td>Redeploy</td><td>פריסה מחדש בלי שינוי בקוד. נדרשת אחרי שינוי במשתנה</td></tr>
     <tr><td>Logs</td><td>מה שקרה בכל פנייה לפונקציה. ב-Hobby נשמר שעה</td></tr>
-    <tr><td>Origin</td><td>תחילת הכתובת של אתר: <code>https</code> ושם הדומיין, בלי ההמשך</td></tr>
-    <tr><td>CORS</td><td>הכלל שקובע אילו אתרים רשאים לפנות לפונקציה מהדפדפן</td></tr>
+    <tr><td>CORS</td><td>כלל של הדפדפן לפניות בין אתרים בכתובות שונות. כשהדף והפונקציה באותה כתובת, לא צריך אותו</td></tr>
+    <tr><td>Spend limit</td><td>תקרת הוצאה חודשית אצל ספק המודל. כשמגיעים אליה, הוא מפסיק לענות</td></tr>
     <tr><td>Hobby</td><td>התוכנית החינמית של Vercel. לשימוש אישי ולא מסחרי</td></tr>
   </tbody>
 </table></div>
 </div></details>
-<details class="err more"><summary><span class="pm">+</span><u>מקורות</u></summary><div>
+<details class="err more"><summary><span class="pm">+</span><u>מקורות, נבדקו ב-24.10.2026</u></summary><div>
 <ul>
       <li><a href="https://vercel.com/docs/functions/quickstart" target="_blank" rel="noopener">Vercel: Getting started with Vercel Functions</a></li>
       <li><a href="https://vercel.com/docs/functions/functions-api-reference" target="_blank" rel="noopener">Vercel: Functions API Reference</a></li>
       <li><a href="https://vercel.com/docs/environment-variables/sensitive-environment-variables" target="_blank" rel="noopener">Vercel: Config and Secret environment variables</a></li>
       <li><a href="https://vercel.com/docs/git" target="_blank" rel="noopener">Vercel: Deploying Git Repositories</a></li>
       <li><a href="https://vercel.com/docs/plans/hobby" target="_blank" rel="noopener">Vercel: Hobby Plan</a> ו-<a href="https://vercel.com/docs/limits/fair-use-guidelines" target="_blank" rel="noopener">Fair Use Guidelines</a></li>
-      <li><a href="https://vercel.com/kb/guide/how-to-enable-cors" target="_blank" rel="noopener">Vercel: How to enable CORS</a></li>
+      <li><a href="https://help.openai.com/en/articles/8264644-setting-up-and-managing-prepaid-api-billing" target="_blank" rel="noopener">OpenAI: Prepaid API billing</a> ו-<a href="https://developers.openai.com/api/docs/guides/spend-limits" target="_blank" rel="noopener">Spend limits</a></li>
+      <li><a href="https://ai.google.dev/gemini-api/docs/models" target="_blank" rel="noopener">Google: Gemini models</a> ו-<a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini Developer API pricing</a></li>
+      <li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site" target="_blank" rel="noopener">GitHub: Unpublishing a GitHub Pages site</a></li>
       <li><a href="https://docs.netlify.com/build/functions/get-started/" target="_blank" rel="noopener">Netlify: Get started with functions</a></li>
-      <li><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Google: Gemini Developer API pricing</a></li>
     </ul>
 </div></details>
 
 <nav class="next" aria-label="לאן ממשיכים">
-  <div class="nx last"><span class="pl">זה היה האחרון</span><b>ארבעת תרגילי ההתקנה מאחוריכם</b><span>את ההמשך עושים יחד בכיתה</span></div>
+  <a class="nx" href="../jb53500-sheets/"><span class="pl">התקנה 5 מתוך 5</span><b>Google Sheets: גיליון הבדיחות</b><span>עשר דקות: גיליון, פרסום כ-CSV, וקישור שמור</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
   <a class="nx home" href="../jb53500-home/"><span class="pl">53500</span><b>הדף הראשי</b><span>כל התרגילים, הקבצים והמצגות</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v3 · 8.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v4 · 24.10.2026</footer>
 
 <script>
 (function(){

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="תרגיל התקנה בבית לתלמידי קורס 53500: חשבון, ארגון ופרויקט ב-Supabase. ההמשך, מהטבלה הראשונה ועד אתר שקורא ממנה, בכיתה.">
+<meta name="description" content="תרגיל התקנה בבית לתלמידי קורס 53500: חשבון, ארגון ופרויקט ב-Supabase. בכיתה: טבלאות נעולות, שרק הפונקציות ב-Vercel ניגשות אליהן.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F7F5F0">
 <title>Supabase צעד אחר צעד · 53500</title>
@@ -165,6 +165,17 @@ details.err.more>div ul{padding-inline-start:18px}
 footer{margin-top:10px}
 @media (max-width:520px){.osbar>span:first-child{display:none}}
 @media (min-width:1024px){.next{grid-template-columns:1fr 1fr}}
+/* v4, 24.10.2026: tables locked, data only through Vercel functions */
+.fresh b{color:var(--ink)}
+.note{font-size:14px;border:1.5px solid var(--b);background:var(--b-soft);border-radius:12px;padding:8px 12px;margin:8px 0}
+.note b{color:var(--b)}
+code.w{white-space:normal}
+a.pcard.go2{position:relative;padding-inline-end:52px;margin:0 0 10px}
+a.pcard.go2>.ic{position:absolute;inset-inline-end:16px;top:50%;margin-top:-11px;width:22px;height:22px;color:var(--acc)}
+.prompt pre .l{direction:ltr;unicode-bidi:isolate;font-family:ui-monospace,Consolas,monospace;font-size:.92em}
+details.err>div ul{padding-inline-start:18px;margin-bottom:8px}
+.trackB .n{white-space:nowrap}
+.idea code{font-size:.85em}
 </style>
 </head>
 <body>
@@ -176,16 +187,23 @@ footer{margin-top:10px}
 </div>
 <div class="osbar">
   <a class="jump" href="#home">בבית</a>
-  <a class="jump" href="#partA">חלק א</a>
-  <a class="jump" href="#partB">חלק ב</a>
+  <a class="jump" href="#class">בכיתה</a>
+  <a class="jump" href="#partB">המוצר</a>
   <span class="prog" id="prog"></span>
 </div>
 
 <header class="hero">
-  <span class="kicker">תרגיל התקנה בבית · 3 מתוך 4</span>
+  <span class="kicker">תרגיל התקנה בבית · 3 מתוך 5</span>
   <h1>Supabase <b>חשבון ופרויקט</b></h1>
   <p class="lead">כעשר דקות. פותחים חשבון, ארגון ופרויקט אחד.</p>
+  <p class="fresh"><b>עודכן ב-24.10.2026.</b> הטבלאות נעולות לעולם, ורק הפונקציות ב-Vercel ניגשות אליהן, עם המפתח הסודי. הדפדפן כבר לא מדבר עם Supabase ישירות.</p>
 </header>
+
+<div class="idea">
+  <div><b>הדף</b>פונה רק לכתובות <code>/api</code> של האתר. אין בו שום מפתח</div>
+  <div><b>Vercel</b>הפונקציות מחזיקות את המפתח הסודי, ובודקות כל בקשה</div>
+  <div><b>Supabase</b>RLS דולק, בלי policy, והרשאות רק לשרת</div>
+</div>
 
 <section class="trackH" id="home">
 <div class="label">בבית · עושים עכשיו</div>
@@ -199,8 +217,9 @@ footer{margin-top:10px}
       <li>יוצרים <b>פרויקט חדש</b>: שם באנגלית, סיסמה לבסיס הנתונים, ואזור באירופה</li>
       <li>את הסיסמה שומרים במקום בטוח. לא בתיקיית המוצר, ולא בצ׳אט</li>
     </ol>
-    <div class="tip"><b>למה ארגון נפרד לקורס:</b> בכיתה Claude יקבל גישה לכל הפרויקטים שבארגון שתבחרו. ארגון שיש בו רק את פרויקט הקורס שומר על כל השאר בחוץ.</div>
     <p class="see"><b>אמור להופיע:</b> אחרי דקה או שתיים, מסך הבית של הפרויקט.</p>
+    <div class="tip"><b>למה ארגון נפרד לקורס:</b> בכיתה Claude יקבל גישה לכל הפרויקטים שבארגון שתבחרו. ארגון שיש בו רק את פרויקט הקורס שומר על כל השאר בחוץ.</div>
+    <div class="tip"><b>את המפתחות לא מעתיקים עכשיו.</b> המפתח הסודי יעבור בכיתה ישר ל-Vercel, ורק לשם.</div>
     <div class="tip"><b>חושבים על Airtable?</b> גם אז פותחים את החשבון. קבצים שמשתמשים מעלים נשמרים ב-Supabase גם בפרויקט שעובד עם Airtable, והתרגול בכיתה כאן.</div>
     <div class="tip"><b>פרויקט חינמי נרדם:</b> אחרי כשבוע בלי פעילות הוא מושהה. אם זה קרה עד הכיתה, נכנסים לדשבורד ולוחצים <b>Resume project</b>.</div>
   </div>
@@ -209,203 +228,188 @@ footer{margin-top:10px}
 <div class="donew" id="doneBox"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><div><b>סיימתם כש:</b> מסך הבית של הפרויקט נפתח, והסיסמה של בסיס הנתונים שמורה אצלכם.</div></div>
 </section>
 
-<div class="label">בכיתה · לא צריך להכין בבית</div>
+<div class="label" id="class">בכיתה · לא צריך להכין בבית</div>
 
-<details class="zone" id="partA">
-<summary class="pcard"><span class="pl">בכיתה · חלק א</span><b>ביד, בדשבורד</b><span>שלבים 2 עד 6: טבלה, מפתחות, ושלושת המנעולים</span><i class="pm" aria-hidden="true">+</i></summary>
-<div class="trackA">
-<p class="zp">עושים כל צעד בעצמכם, פעם אחת, כדי לדעת מה אתם מאשרים כש-Claude יעשה אותו בשבילכם.</p>
-
-<article class="step" data-s="a2">
-  <div class="sh"><span class="n">2</span><h2>יוצרים טבלת תרגול<small>טבלה אחת, שתי עמודות</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
-    <ol>
-      <li>בתפריט הצד נכנסים ל-<b>Table Editor</b>, ולוחצים <b>New table</b></li>
-      <li>שם הטבלה: <code>practice</code></li>
-      <li>את העמודות <code>id</code> ו-<code>created_at</code> משאירים. Supabase מוסיף אותן לבד</li>
-      <li>לוחצים <b>Add column</b> פעמיים: <code>title</code> מסוג <code>text</code>, ו-<code>price</code> מסוג <code>int4</code></li>
-      <li>את הסימון של Row Level Security משאירים דולק, ולוחצים <b>Save</b></li>
-    </ol>
-    <div class="tip"><b>שמות:</b> טבלאות ועמודות באנגלית, באותיות קטנות, עם קו תחתון במקום רווח. התוכן עצמו בעברית.</div>
+<details class="err more"><summary><span class="pm">+</span><u>רקע: למה הדפדפן לא מדבר עם Supabase</u></summary><div>
+  <p>בגרסה הקודמת של הדף, האתר פנה לטבלאות ישירות עם המפתח הציבורי, ופתחנו לו שלושה מנעולים. עכשיו שיש לנו שרת ב-Vercel, עושים את זה פשוט ובטוח יותר: הטבלאות נעולות לגמרי, ורק הפונקציות ניגשות אליהן.</p>
+  <div class="locks">
+    <div class="lock"><b>1. Grant</b>רק ל-<code>service_role</code>, התפקיד של המפתח הסודי. <code>anon</code> ו-<code>authenticated</code> בחוץ</div>
+    <div class="lock"><b>2. RLS</b>דולק, כמו תמיד. בלי כלל, אף שורה לא יוצאת</div>
+    <div class="lock"><b>3. Policy</b>אין אף אחת. אין דלת, ולכן אין דלת שנשכחה פתוחה</div>
   </div>
-</article>
+  <ul>
+    <li>כל כלל על הנתונים כתוב בקוד של הפונקציה, במקום אחד שאפשר לקרוא</li>
+    <li>אין בדף שום מפתח או כתובת של Supabase</li>
+    <li>טעות בהגדרה לא פותחת את הטבלה לעולם, כי אין כלל שאפשר לטעות בו</li>
+  </ul>
+  <div class="note"><b>שינוי של Supabase מ-30.10.2026:</b> טבלה חדשה כבר לא מקבלת הרשאות אוטומטית, גם לא לשרת. לכן בכל migration יש <code>grant</code> מפורש ל-<code>service_role</code>. בלי השורה הזו, הפונקציה תקבל <code class="w">42501 permission denied for table</code>. מדריכים וסרטונים ישנים לא מזכירים את זה.</div>
+  <div class="tip"><b>יוצא מן הכלל אחד: כניסת משתמשים.</b> במוצר שיש בו כניסה, הדף משתמש במפתח הציבורי רק בשביל הכניסה עצמה, ב-Supabase Auth. הנתונים ממשיכים לעבור דרך הפונקציות, והפונקציה בודקת מי המשתמש לפני כל גישה. הפרטים בסעיף "הרשאות" ב-<a href="../jb53500-prompts/course-stack.md"><code>course-stack.md</code></a>.</div>
+</div></details>
 
-<article class="step" data-s="a3">
-  <div class="sh"><span class="n">3</span><h2>מכניסים חמש שורות<small>בעברית, כמו שהמוצר ייראה</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
-    <ol>
-      <li>פותחים את הטבלה <code>practice</code> ב-Table Editor</li>
-      <li>מעל הטבלה לוחצים <b>Insert</b>, ובוחרים <b>Insert row</b></li>
-      <li>ממלאים <code>title</code> ו-<code>price</code>, ושומרים. חוזרים על זה חמש פעמים</li>
-    </ol>
-    <p class="see"><b>אמור להופיע:</b> חמש שורות בטבלה, כל אחת עם מספר <code>id</code> משלה.</p>
-  </div>
-</article>
-
-<article class="step" data-s="a4">
-  <div class="sh"><span class="n">4</span><h2>מוצאים את הכתובת ואת המפתח הציבורי<small>שני הדברים היחידים שנכנסים לקוד של האתר</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
-    <p>לוחצים על <b>Connect</b> בראש המסך, או נכנסים ל-<b>Settings</b> ואז <b>API Keys</b>.</p>
-    <div class="locks">
-      <div class="lock"><b>כתובת הפרויקט</b><code>https://xxxx.supabase.co</code><br>נכנסת לקוד של האתר</div>
-      <div class="lock"><b>מפתח ציבורי</b><code>sb_publishable_...</code><br>נכנס לקוד של האתר</div>
-      <div class="lock"><b>מפתח סודי</b><code>sb_secret_...</code><br>לא נכנס לשום מקום שאנחנו בונים</div>
-    </div>
-    <div class="warn"><b>המפתח הסודי עוקף את כל המנעולים.</b> הוא לא נכנס לקוד, לא לריפו, לא לתיקיית המוצר, ולא לצ׳אט עם Claude. הריפו שלכם ציבורי.</div>
-    <p>מפתח ארוך שמתחיל ב-<code>eyJ</code> שייך לשיטה הישנה: <code>anon</code> הוא הציבורי, ו-<code>service_role</code> הוא הסודי. שתי השיטות עובדות.</p>
-  </div>
-</article>
-
-<article class="step" data-s="a5" id="check">
-  <div class="sh"><span class="n">5</span><h2>בודקים מהדפדפן, ונתקעים בכוונה<small>ככה האתר שלכם רואה את הטבלה כרגע</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
-    <p>הטבלה מלאה, ובדשבורד רואים אותה. האתר עדיין לא. ממלאים את שלושת השדות ולוחצים על הכפתור:</p>
-    <div class="check">
-      <h3>בודק החיבור</h3>
-      <p class="sub">הפנייה יוצאת מהדפדפן שלכם ישר לפרויקט שלכם. הדף לא שומר את מה שהקלדתם.</p>
-      <label for="cUrl">כתובת הפרויקט</label>
-      <input id="cUrl" type="url" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://xxxx.supabase.co">
-      <label for="cKey">המפתח הציבורי בלבד</label>
-      <input id="cKey" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="sb_publishable_...">
-      <label for="cTable">שם הטבלה</label>
-      <input id="cTable" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" value="practice">
-      <button class="go" id="cGo" type="button">בדוק מה האתר רואה</button>
-      <div class="res" id="cRes" role="status" aria-live="polite"></div>
-    </div>
-    <p class="see"><b>אמור להופיע:</b> שגיאת <code>permission denied</code>, או אפס שורות. שתיהן אומרות אותו דבר: האתר עדיין לא רשאי לקרוא.</p>
-  </div>
-</article>
-
-<article class="step" data-s="a6">
-  <div class="sh"><span class="n">6</span><h2>פותחים שלושה מנעולים<small>ארבע שורות SQL, פעם אחת ביד</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
-    <div class="locks">
-      <div class="lock"><b>1. Grant</b>האם לתפקיד הזה מותר לגשת לטבלה בכלל</div>
-      <div class="lock"><b>2. RLS</b>מנעול על כל השורות. דולק: אף שורה לא יוצאת בלי כלל</div>
-      <div class="lock"><b>3. Policy</b>הכלל: אילו שורות מותר, ולמי</div>
-    </div>
-    <p>בתפריט הצד נכנסים ל-<b>SQL Editor</b>, מדביקים, ולוחצים <b>Run</b>:</p>
-    <div class="term"><button class="cp" type="button">העתק</button><pre>grant select on public.practice to anon;
-
-alter table public.practice enable row level security;
-
-create policy "public can read practice"
-on public.practice
-for select to anon
-using (true);</pre></div>
-    <p>בעברית: לגולש אנונימי (<code>anon</code>) מותר לקרוא (<code>select</code>) את כל השורות (<code>true</code>). לא לכתוב, לא לשנות, ולא למחוק.</p>
-    <p>חוזרים ל<a href="#check">בודק שבשלב 5</a> ולוחצים שוב.</p>
-    <p class="see"><b>אמור להופיע:</b> חמש השורות שהכנסתם.</p>
-  </div>
-</article>
-</div>
-</details>
+<a class="pcard go2" id="partA" href="../jb53500-data/#partB"><span class="pl">בכיתה · חלק א · מפגש הדאטה</span><b>הטבלה הראשונה, נעולה</b><span>באפליקציית הבדיחות: Claude בונה טבלה דרך המחבר, בודק הנעילה מוכיח שהעולם בחוץ, והמפתח הסודי עובר ל-Vercel. המדריך המלא בדף נפרד.</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
 
 <details class="zone b" id="partB">
-<summary class="pcard b"><span class="pl">בכיתה · חלק ב</span><b>עם Claude</b><span>הוא בונה מתוך מסמך הארכיטקטורה, אתם קוראים ומאשרים</span><i class="pm" aria-hidden="true">+</i></summary>
+<summary class="pcard b"><span class="pl">בכיתה · חלק ב</span><b>הנתונים של המוצר שלכם</b><span>Claude בונה מתוך מסמך הארכיטקטורה, והפונקציות ב-Vercel ניגשות לטבלאות</span><i class="pm" aria-hidden="true">+</i></summary>
 <div class="trackB">
-<p class="zp">אותם צעדים, הפעם על הטבלאות האמיתיות של המוצר. Claude מציג כל פעולה לפני שהיא רצה.</p>
+<p class="zp">אותו מבנה כמו בטבלת הבדיחות, הפעם על הטבלאות האמיתיות של המוצר. Claude מציג כל פעולה לפני שהיא רצה.</p>
 
-<article class="step" data-s="b1">
-  <div class="sh"><span class="n">ב1</span><h2>מה צריך<small>ארבעה דברים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="q1">
+  <div class="sh"><span class="n">ב1</span><h2>מה צריך<small>חמישה דברים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li><b>Claude Desktop ותוכנית בתשלום:</b> הלשונית Code לא כלולה בתוכנית החינמית</li>
-      <li><b>תיקיית המוצר:</b> עם <code>ARCHITECTURE.md</code>,‏ <code>PRD.md</code> ו-<code>course-stack.md</code></li>
+      <li><b>תיקיית המוצר:</b> עם <code>ARCHITECTURE.md</code>,‏ <code>PRD.md</code> ו-<a href="../jb53500-prompts/course-stack.md"><code>course-stack.md</code></a> בגרסה מ-24.10.2026</li>
+      <li><b>המוצר כבר ב-Vercel:</b> עם פונקציה אחת שעובדת, לפי <a href="../jb53500-vercel/#partB">חלק ב בדף Vercel</a></li>
       <li><b>הפרויקט שפתחתם בבית:</b> בארגון של הקורס ב-Supabase</li>
       <li><b>בלי נתונים אמיתיים:</b> בפרויקט יש רק נתוני דוגמה. לא לקוחות, לא טלפונים, לא מיילים</li>
     </ol>
   </div>
 </article>
 
-<article class="step" data-s="b2">
-  <div class="sh"><span class="n">ב2</span><h2>מחברים את Supabase ל-Claude<small>פעם אחת</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="q2">
+  <div class="sh"><span class="n">ב2</span><h2>מחברים את Supabase ל-Claude, ומדליקים את המחבר<small>חיברתם במפגש הדאטה? מסמנים וממשיכים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li>ב-Claude Desktop לוחצים <b>Customize</b> בסרגל הצד, ואז <b>Connectors</b></li>
-      <li>לוחצים על ה-<b>+</b> שליד Connectors, ומחפשים <b>Supabase</b></li>
-      <li>לוחצים <b>Connect</b>. נפתח דפדפן</li>
-      <li>מתחברים ל-Supabase, ובוחרים את <b>הארגון של הקורס</b>. לא ארגון אחר</li>
-    </ol>
-    <p class="see"><b>אמור להופיע:</b> Supabase ברשימת המחברים שלכם, מחובר.</p>
-  </div>
-</article>
-
-<article class="step" data-s="b3">
-  <div class="sh"><span class="n">ב3</span><h2>פותחים את תיקיית המוצר, ומדליקים את המחבר</h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
-    <ol>
+      <li>לוחצים על ה-<b>+</b>, מחפשים <b>Supabase</b>, ולוחצים <b>Connect</b>. בדפדפן שנפתח בוחרים את <b>הארגון של הקורס</b>, לא ארגון אחר</li>
       <li>בלשונית <b>Code</b> בוחרים <b>Local</b>, ואז את תיקיית המוצר</li>
       <li>במצב ההרשאות, ליד כפתור השליחה, בוחרים <b>Manual</b></li>
       <li>לוחצים על ה-<b>+</b> שליד תיבת ההודעה, בוחרים <b>Connectors</b>, ומוודאים ש-Supabase דולק</li>
     </ol>
-    <div class="tip"><b>בדיקה מהירה:</b> שואלים את Claude "אילו מחברים זמינים לך בשיחה הזו?". Supabase אמור להופיע בתשובה.</div>
+    <div class="tip"><b>בדיקה מהירה:</b> שואלים את Claude "אילו פרויקטים יש לי ב-Supabase?". הפרויקט שלכם מופיע בתשובה.</div>
   </div>
 </article>
 
-<article class="step" data-s="b4">
-  <div class="sh"><span class="n">ב4</span><h2>מבקשים מ-Claude לבנות את בסיס הנתונים<small>מתוך מסמך הארכיטקטורה שכבר כתבתם</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="q3">
+  <div class="sh"><span class="n">ב3</span><h2>Claude בונה את הטבלאות, נעולות<small>מתוך מסמך הארכיטקטורה שכבר כתבתם</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
-    <p>מעתיקים, מדביקים בתיבת ההודעה ושולחים:</p>
     <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>בנה את בסיס הנתונים של המוצר ב-Supabase, דרך המחבר.
 
-קרא קודם, מתיקיית המוצר: ARCHITECTURE.md (הסעיף "מבנה הנתונים"), PRD.md ו-course-stack.md.
+קרא קודם, מתיקיית המוצר: <span class="l">ARCHITECTURE.md</span> (הסעיף "מבנה הנתונים"), <span class="l">PRD.md</span> ו-<span class="l">course-stack.md</span> (הסעיף "נתונים").
+
+איך זה בנוי: רק הפונקציות ב-Vercel ניגשות לטבלאות, עם המפתח הסודי. הדפדפן לא מדבר עם Supabase ישירות.
 
 1. הצג לי את הפרויקטים שיש בארגון, ושאל אותי באיזה מהם לעבוד. אל תיצור פרויקט חדש.
-2. אם יש טבלה בשם practice, זו טבלת תרגול. שאל אותי אם למחוק אותה.
+2. אם יש טבלאות תרגול, כמו practice או jokes, שאל אותי מה לעשות בהן. אל תמחק לבד.
 3. הצג לי את הטבלאות שאתה מתכנן: שמות, עמודות וסוגים. חכה לאישור שלי לפני שאתה יוצר משהו.
-4. צור את הטבלאות ב-migration. לכל טבלה שלושה דברים יחד: grant לכל תפקיד רק על מה שהוא צריך, הפעלת Row Level Security, ו-policy לכל פעולה שמותרת.
-5. הכנס לכל טבלה חמש שורות דוגמה בעברית.
-6. הרץ את בדיקת האבטחה של Supabase (advisors), והצג לי מה נמצא.
-7. בסוף הצג לי: הטבלאות, מי רשאי לעשות מה בכל אחת, כתובת הפרויקט, והמפתח הציבורי.
+4. צור את הטבלאות ב-migration. לכל טבלה: הפעל RLS ואל תוסיף אף policy, revoke all מ-anon ומ-authenticated, ו-grant ל-service_role רק על הפעולות שהמוצר צריך.
+5. פעולה שצריכה לקרות בבת אחת, כמו מונה או תפיסת המקום האחרון, נכתבת כפונקציה בבסיס הנתונים: security invoker, search_path ריק, revoke execute מ-public, מ-anon ומ-authenticated, ו-grant execute ל-service_role.
+6. הכנס לכל טבלה חמש שורות דוגמה בעברית.
+7. הרץ את בדיקת האבטחה של Supabase (get_advisors), והסבר לי בעברית פשוטה מה נמצא.
+8. בסוף הצג לי: הטבלאות, אילו פעולות מותרות ל-service_role בכל אחת, וכתובת הפרויקט.
 
 לפני כל פעולה הסבר במשפט אחד בעברית מה היא עושה.
 אל תמחק טבלה או נתונים בלי לשאול אותי. את המפתח הסודי אל תבקש ואל תציג.
-אם משהו שונה ממה שכתוב ב-ARCHITECTURE.md, אמור לי. אל תעדכן את המסמך לבד.</pre></div>
+אם משהו שונה ממה שכתוב ב-<span class="l">ARCHITECTURE.md</span>, אמור לי. אל תעדכן את המסמך לבד.</pre></div>
   </div>
 </article>
 
-<article class="step" data-s="b5">
-  <div class="sh"><span class="n">ב5</span><h2>קוראים לפני שמאשרים<small>אלה הפעולות ש-Claude יציג</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="q4">
+  <div class="sh"><span class="n">ב4</span><h2>קוראים לפני שמאשרים<small>אלה הפעולות ש-Claude יציג</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <div class="acts">
       <div class="lock"><b><code>list_projects</code> <code>list_tables</code></b>קריאה בלבד. מאשרים</div>
-      <div class="lock"><b><code>apply_migration</code></b>יוצרת או משנה טבלאות. קוראים את ה-SQL ומחפשים בו את שלושת המנעולים: <code>grant</code>,‏ <code>enable row level security</code> ו-<code>create policy</code></div>
+      <div class="lock"><b><code>apply_migration</code></b>יוצרת או משנה טבלאות. קוראים את ה-SQL ומחפשים בו ארבעה דברים: <code>enable row level security</code>, ‏<code>revoke all ... from anon, authenticated</code>, ‏<code>grant ... to service_role</code>, ואין בכלל <code>create policy</code></div>
       <div class="lock"><b><code>execute_sql</code></b>מריצה SQL. <code>insert</code> הוא נתוני הדוגמה. על כל דבר אחר עוצרים וקוראים</div>
-      <div class="lock"><b><code>get_advisors</code></b>בדיקת האבטחה של Supabase. קריאה בלבד</div>
-      <div class="lock"><b><code>get_project_url</code> <code>get_publishable_keys</code></b>מביאות את הכתובת ואת המפתח הציבורי</div>
+      <div class="lock"><b><code>get_advisors</code></b>בדיקת האבטחה של Supabase. קריאה בלבד. צפויה הערה: RLS דולק בלי policy. זה בכוונה</div>
+      <div class="lock"><b><code>get_project_url</code> <code>get_publishable_keys</code></b>מביאות את הכתובת ואת המפתח הציבורי, לבודק הנעילה</div>
       <div class="lock"><b><code>create_project</code></b>פרויקט חדש. לא אמור לקרות, כבר יש לכם אחד. לא מאשרים</div>
     </div>
-    <div class="warn"><b>עוצרים ושואלים לפני שמאשרים:</b> <code>drop</code>,‏ <code>delete</code>,‏ <code>truncate</code>,‏ <code>grant all</code>, או <code>disable row level security</code>. וגם policy של כתיבה, שינוי או מחיקה לתפקיד <code>anon</code> עם <code>(true)</code>: זה אומר שכל גולש יכול לשנות את הטבלה.</div>
+    <div class="warn"><b>עוצרים ושואלים לפני שמאשרים:</b> <code>drop</code>,‏ <code>delete</code>,‏ <code>truncate</code>,‏ <code>grant all</code>,‏ <code>disable row level security</code>, כל <code>grant</code> ל-<code>anon</code> או ל-<code>authenticated</code>, וכל <code>create policy</code>.</div>
+    <div class="warn"><b>Supabase מציע לתת grant ל-anon? לא מקבלים.</b> זו עצה לאתר שפונה ל-Supabase ישירות מהדפדפן. אצלנו הדפדפן בחוץ, וזה בדיוק העיקרון.</div>
     <div class="tip"><b>אישור חד-פעמי:</b> כש-Claude מציע לאשר פעולה "תמיד", לא בוחרים בזה לפעולות שכותבות. מאשרים כל פעם מחדש.</div>
   </div>
 </article>
 
-<article class="step" data-s="b6">
-  <div class="sh"><span class="n">ב6</span><h2>בודקים, ומחברים את האתר<small>Claude בונה, אתם מאמתים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="q5">
+  <div class="sh"><span class="n">ב5</span><h2>בודקים שהטבלאות נעולות לעולם<small>נכשלים בכוונה</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li><b>בדשבורד:</b> פותחים את Table Editor. הטבלאות שם, ובכל אחת חמש שורות</li>
-      <li><b>ב<a href="#check">בודק החיבור</a>:</b> מקלידים את שם הטבלה המרכזית. חוזרות שורות</li>
-      <li><b>בטבלה שאסור לגולש לקרוא:</b> אותה בדיקה. הפעם אמורה לחזור שגיאה, או אפס שורות</li>
+      <li>מבקשים מ-Claude: "תן לי את כתובת הפרויקט ואת המפתח הציבורי (publishable). רק את שני אלה."</li>
+      <li>פותחים את <a href="../jb53500-data/#lock">בודק הנעילה בדף הדאטה</a>, ובודקים כל טבלה של המוצר, אחת אחת</li>
     </ol>
-    <p>כשהגעתם ל-Milestone שצריך נתונים, מחברים את האתר:</p>
-    <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>חבר את האתר לנתונים שב-Supabase.
-השתמש בספרייה supabase-js מה-CDN, בלי כלי בנייה. בקוד מותר לשים רק את כתובת הפרויקט ואת המפתח הציבורי.
-הצג במסך הראשי את הנתונים מהטבלה המרכזית, במקום נתוני הדמה.
-אם הנתונים לא מגיעים, הצג לי את השגיאה המדויקת לפני שאתה משנה משהו ב-Supabase.</pre></div>
-    <p>זה מה ש-Claude אמור לכתוב, בערך. שתי שורות חיבור, ושורת קריאה:</p>
-    <div class="term"><button class="cp" type="button">העתק</button><pre>&lt;script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"&gt;&lt;/script&gt;
-&lt;script&gt;
-  const { createClient } = window.supabase;
-  const db = createClient('PROJECT_URL', 'PUBLISHABLE_KEY');
+    <p class="see"><b>אמור להופיע:</b> "נעול" בכל טבלה. גם עכשיו, כשיש בה שורות.</p>
+    <div class="tip"><b>למה המפתח הציבורי מותר בבודק?</b> הוא נועד להיות גלוי, וכל אחד בעולם יכול להשיג אותו. בודקים בדיוק את מה שכל אחד יכול לנסות.</div>
+  </div>
+</article>
 
-  async function load() {
-    const { data, error } = await db.from('practice').select('*');
-    console.log(data, error);
+<article class="step" data-s="q6">
+  <div class="sh"><span class="n">ב6</span><h2>המפתח הסודי עובר ל-Vercel<small>שתי לשוניות, זו ליד זו</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p><b>לשונית 1, Supabase:</b> <b>Settings</b>, ואז <b>API Keys</b>. ב-<b>Secret keys</b> מעתיקים מפתח שמתחיל ב-<code>sb_secret_</code>. אין? יוצרים אחד, וקוראים לו <code>vercel</code>.</p>
+    <p><b>לשונית 2, Vercel:</b> בפרויקט של המוצר, ב-<b>Settings</b> ואז <b>Environment Variables</b>, מוסיפים שניים:</p>
+    <div class="tblwrap"><table class="tbl">
+      <thead><tr><th>Key</th><th>Value</th><th>Type</th></tr></thead>
+      <tbody>
+        <tr><td><code>SUPABASE_URL</code></td><td>כתובת הפרויקט, <code>https://xxxx.supabase.co</code></td><td>Config</td></tr>
+        <tr><td><code>SUPABASE_SECRET_KEY</code></td><td>המפתח הסודי</td><td>Secret</td></tr>
+      </tbody>
+    </table></div>
+    <p>אחר כך <b>Redeploy</b>, או פשוט הדחיפה הבאה.</p>
+    <div class="warn"><b>המפתח הסודי עוקף את כל המנעולים.</b> הוא נכנס רק ל-Vercel. לא לקובץ, לא לריפו, לא לצ׳אט עם Claude, ולא לבודק הנעילה. גם המחבר של Supabase לא יודע לקרוא אותו, וזה בכוונה.</div>
+    <div class="tip"><b>מפתח שמתחיל ב-<code>eyJ</code>?</b> זו השיטה הישנה: <code>service_role</code> הוא הסודי, ו-<code>anon</code> הוא הציבורי. היא עדיין עובדת, אבל בפרויקט חדש עובדים עם <code>sb_secret_</code> ו-<code>sb_publishable_</code>.</div>
+  </div>
+</article>
+
+<article class="step" data-s="q7">
+  <div class="sh"><span class="n">ב7</span><h2>Claude מחבר את הפונקציות לנתונים<small>הדף מקבל נתונים רק מ-<code>/api</code></small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p>כשהגעתם ל-Milestone שצריך נתונים, שולחים:</p>
+    <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>חבר את המוצר לטבלאות ב-Supabase. כל הגישה ל-Supabase עוברת רק דרך הפונקציות ב-Vercel. הדף לא מדבר עם Supabase ישירות.
+
+קרא קודם: <span class="l">course-stack.md</span> (הסעיפים "צד השרת", "נתונים" ו"הרשאות") ו-<span class="l">ARCHITECTURE.md</span>.
+
+דרישות:
+1. השתמש בספרייה הרשמית <span class="l">@supabase/supabase-js</span>, והוסף אותה ל-dependencies ב-<span class="l">package.json</span>. צור לקוח אחד בקובץ <span class="l">lib/supabase.js</span>, מחוץ לתיקיית api. הכתובת מ-<span class="l">process.env.SUPABASE_URL</span>, והמפתח מ-<span class="l">process.env.SUPABASE_SECRET_KEY</span>.
+2. הצג לי תוכנית: אילו פונקציות ב-api, מה כל אחת מקבלת ומה היא מחזירה, ולאיזו טבלה היא ניגשת. חכה לאישור שלי.
+3. כל פונקציה בודקת את הקלט שהיא מקבלת, ומחזירה תמיד JSON. פונקציה שמשנה נתונים מקבלת רק POST.
+4. פעולה שצריכה לקרות בבת אחת קוראת לפונקציה שבבסיס הנתונים דרך rpc, ולא קוראת ואז כותבת.
+5. אם במוצר יש כניסת משתמשים, פעל לפי הסעיף "הרשאות": הפונקציה מאמתת את המשתמש מהטוקן, ולא סומכת על מזהה משתמש שהדף שולח.
+6. בדף: החלף את נתוני הדמה בנתונים מהפונקציות. טקסט שמגיע מהנתונים מוצג עם textContent.
+7. המפתח הסודי לא מופיע בשום קובץ. אל תבקש אותו ממני, הוא כבר ב-Vercel.
+
+אל תדחוף ל-GitHub לפני שאישרתי.</pre></div>
+    <p>ככה נראה <code>lib/supabase.js</code>, בערך. קובץ אחד, שכל הפונקציות משתמשות בו:</p>
+    <div class="term"><button class="cp" type="button">העתק</button><pre>import { createClient } from '@supabase/supabase-js';
+
+let client = null;
+let usedFor = '';
+
+export function getSupabase() {
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SECRET_KEY;
+  if (!url || !key) return null;
+  if (!client || usedFor !== url + key) {
+    client = createClient(url, key, {
+      auth: { persistSession: false, autoRefreshToken: false },
+    });
+    usedFor = url + key;
   }
-  load();
-&lt;/script&gt;</pre></div>
+  return client;
+}</pre></div>
+  </div>
+</article>
+
+<article class="step" data-s="q8">
+  <div class="sh"><span class="n">ב8</span><h2>בודקים, דוחפים, ובודקים שוב<small>הקוד, האתר, הטבלה, והמנעול</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p><b>לפני הדחיפה,</b> שלושה דברים בקוד:</p>
+    <ol>
+      <li>ב-<code>lib/supabase.js</code> המפתח מגיע מ-<code>process.env.SUPABASE_SECRET_KEY</code></li>
+      <li>ב-<code>package.json</code> יש <code>@supabase/supabase-js</code> תחת dependencies</li>
+      <li>החיפוש הזה לא מוצא כלום:</li>
+    </ol>
+    <div class="prompt"><span class="pt">Claude, לשונית Code</span><button class="cp" type="button">העתק</button><pre>חפש בקובצי הקוד בתיקייה, כלומר בקבצים מסוג html, js, css ו-json, את המחרוזות <span class="l">sb_secret</span>, <span class="l">sb_publishable</span> ו-<span class="l">supabase.co</span>. תגיד לי באילו קבצים כל אחת מופיעה.</pre></div>
+    <p class="see"><b>אמור להופיע:</b> אף אחת מהשלוש לא מופיעה בקוד. הכתובת והמפתח יושבים ב-Vercel. במוצר עם כניסת משתמשים, <code>sb_publishable</code> וכתובת הפרויקט יכולים להופיע בדף, רק בקוד של הכניסה.</p>
+    <p><b>אחרי הדחיפה,</b> ארבעה מקומות:</p>
+    <ol>
+      <li><b>באתר, בטלפון:</b> הנתונים מהטבלה מופיעים במקום נתוני הדמה. פעולה ששומרת משהו נשארת אחרי רענון</li>
+      <li><b>ב-Table Editor:</b> השינוי שעשיתם באתר מופיע בטבלה</li>
+      <li><b>ב-Logs של Vercel:</b> שורה לכל פנייה, בלי שגיאות אדומות</li>
+      <li><b>בבודק הנעילה:</b> עדיין "נעול"</li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> המוצר זוכר. והעולם עדיין לא יכול לקרוא את מה שהוא זוכר.</p>
   </div>
 </article>
 </div>
@@ -413,42 +417,58 @@ using (true);</pre></div>
 
 <div class="label">כשמשהו לא עובד</div>
 
-<details class="err"><summary><span class="pm">+</span><u>permission denied for table, קוד 42501</u></summary><div>המנעול הראשון סגור: חסר <code>grant</code>. מריצים את שורת ה-grant משלב 6, או מבקשים מ-Claude: "האתר מקבל 42501 על הטבלה הזו. הצג לי איזה grant חסר, ותקן רק אותו." לא פותרים את זה עם <code>grant all</code>.</div></details>
-<details class="err"><summary><span class="pm">+</span><u>אין שגיאה, אבל חוזרות אפס שורות</u></summary><div>או שהטבלה ריקה, או ש-RLS דולק ואין policy שמתירה לקרוא. בודקים בדשבורד שיש שורות, ואז מוסיפים policy כמו בשלב 6. זו לא תקלה: ככה Supabase מגן על טבלה שלא הגדרתם לה כלל.</div></details>
-<details class="err"><summary><span class="pm">+</span><u>Invalid API key</u></summary><div>המפתח הועתק חלקית, או שהוא שייך לפרויקט אחר. מעתיקים שוב את המפתח הציבורי, מ-Connect או מ-Settings ואז API Keys.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>permission denied for table, קוד 42501</u></summary><div>חסר <code>grant</code> ל-<code>service_role</code>, בגלל השינוי של Supabase מ-30.10.2026. מבקשים מ-Claude: "הפונקציה מקבלת 42501 על הטבלה הזו. הוסף grant ל-service_role רק על הפעולות שהפונקציה צריכה. אל תיתן grant ל-anon או ל-authenticated." לא פותרים את זה עם <code>grant all</code>.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>permission denied for function</u></summary><div>חסר <code>grant execute</code> ל-<code>service_role</code> על הפונקציה שבבסיס הנתונים. מבקשים מ-Claude להוסיף רק אותו.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>Supabase מציע להוסיף policy או grant ל-anon</u></summary><div>לא מקבלים. העצה מתאימה לאתר שמדבר עם Supabase ישירות. אצלנו רק הפונקציות ניגשות לטבלאות, עם המפתח הסודי, והטבלה צריכה להישאר נעולה.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>הפונקציה כותבת בלוג שחסרה כתובת או מפתח</u></summary><div>המשתנים לא הוגדרו בפרויקט הנכון ב-Vercel, השם לא זהה אות באות ל-<code>SUPABASE_URL</code> ול-<code>SUPABASE_SECRET_KEY</code>, או שלא הייתה פריסה חדשה אחרי שהוגדרו. בודקים, ועושים Redeploy.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>שגיאה שאומרת שאסור להשתמש במפתח הסודי בדפדפן</u></summary><div>הקוד שפונה ל-Supabase רץ בדף, ולא בפונקציה. Supabase מזהה פנייה מדפדפן עם מפתח סודי, ודוחה אותה. מבקשים מ-Claude להעביר את הקריאה לפונקציה ב-<code>api</code>, ומחליפים את המפתח הסודי, כי הוא כבר הגיע לדפדפן.</div></details>
 <details class="err"><summary><span class="pm">+</span><u>Could not find the table</u></summary><div>שם הטבלה לא מדויק. בודקים איות ואותיות קטנות. אם הטבלה נוצרה לפני רגע, מחכים כמה שניות ומנסים שוב.</div></details>
-<details class="err"><summary><span class="pm">+</span><u>policy already exists</u></summary><div>הרצתם את ה-SQL של שלב 6 פעמיים. הכלל כבר קיים, ואין מה לתקן.</div></details>
-<details class="err"><summary><span class="pm">+</span><u>האתר עבד בשבוע שעבר, והיום לא מגיע לפרויקט</u></summary><div>בתוכנית החינמית פרויקט מושהה אחרי כשבוע בלי פעילות. נכנסים לדשבורד, בוחרים את הפרויקט, ולוחצים <b>Resume project</b>. הנתונים חוזרים כמו שהיו.</div></details>
-<details class="err"><summary><span class="pm">+</span><u>אי אפשר ליצור פרויקט נוסף</u></summary><div>התוכנית החינמית מאפשרת שני פרויקטים פעילים. למוצר שלכם מספיק אחד.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>המוצר עבד בשבוע שעבר, והיום לא מגיע לנתונים</u></summary><div>בתוכנית החינמית פרויקט מושהה אחרי כשבוע בלי פעילות. נכנסים לדשבורד, בוחרים את הפרויקט, ולוחצים <b>Resume project</b>. הנתונים חוזרים כמו שהיו. יום לפני הצגה בודקים שהפרויקט פעיל.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>אי אפשר ליצור פרויקט נוסף</u></summary><div>התוכנית החינמית מאפשרת שני פרויקטים פעילים. למוצר שלכם מספיק אחד, ואפשר להוסיף לו טבלאות.</div></details>
 <details class="err"><summary><span class="pm">+</span><u>Claude לא רואה את Supabase</u></summary><div>לוחצים על ה-<b>+</b> שליד תיבת ההודעה, בוחרים <b>Connectors</b>, ומדליקים את Supabase. אם הוא לא ברשימה, חוזרים לשלב ב2.</div></details>
-<details class="err"><summary><span class="pm">+</span><u>Claude מבקש את המפתח הסודי, או את סיסמת בסיס הנתונים</u></summary><div>לא נותנים. המחבר כבר מחובר לחשבון שלכם, ו-Claude לא צריך אף אחד מהם. כותבים לו: "עבוד רק דרך המחבר, ובלי המפתח הסודי."</div></details>
-<details class="err"><summary><span class="pm">+</span><u>הדבקתי בטעות את המפתח הסודי בקוד או בצ׳אט</u></summary><div>מחליפים אותו מיד: בדשבורד, ב-Settings ואז API Keys, יוצרים מפתח סודי חדש ומוחקים את הישן. מפתח שנחשף פעם אחת נחשב חשוף.</div></details>
+<details class="err"><summary><span class="pm">+</span><u>Claude מבקש את המפתח הסודי, או את סיסמת בסיס הנתונים</u></summary><div>לא נותנים. המחבר כבר מחובר לחשבון שלכם, והמפתח הסודי כבר ב-Vercel. כותבים לו: "עבוד דרך המחבר. המפתח הסודי שמור ב-Vercel, וקרא אותו בקוד מתוך process.env."</div></details>
+<details class="err"><summary><span class="pm">+</span><u>המפתח הסודי הגיע בטעות לקוד, לריפו או לצ׳אט</u></summary><div>מחליפים אותו מיד, בסדר הזה: בדשבורד, ב-Settings ואז API Keys, יוצרים מפתח סודי חדש. מעדכנים אותו ב-Vercel ועושים Redeploy. רק אז מוחקים את הישן, כדי שהמוצר לא ייפול באמצע. מפתח שנחשף פעם אחת נחשב חשוף.</div></details>
 
-<div class="label">נספח</div>
+<div class="label">נספחים</div>
 
-<details class="err more"><summary><span class="pm">+</span><u>דף סיכום: שמונה מושגים</u></summary><div>
+<details class="err more"><summary><span class="pm">+</span><u>מילון: שנים עשר מושגים</u></summary><div>
 <div class="tblwrap"><table class="tbl">
   <thead><tr><th>המושג</th><th>מה הוא</th></tr></thead>
   <tbody>
-    <tr><td>Project URL</td><td>הכתובת של הפרויקט. נכנסת לקוד</td></tr>
-    <tr><td>Publishable key</td><td>המפתח הציבורי. נכנס לקוד, ומוגן בשלושת המנעולים</td></tr>
-    <tr><td>Secret key</td><td>עוקף את המנעולים. לא נכנס לשום מקום שאנחנו בונים</td></tr>
+    <tr><td>Project URL</td><td>הכתובת של הפרויקט. נשמרת ב-Vercel כ-Config</td></tr>
+    <tr><td>Secret key</td><td>המפתח של השרת. עוקף את המנעולים, ונשמר רק ב-Vercel כ-Secret</td></tr>
+    <tr><td>Publishable key</td><td>המפתח הציבורי. אצלנו רק לבודק הנעילה, ולכניסת משתמשים</td></tr>
+    <tr><td>service_role</td><td>התפקיד שהמפתח הסודי פועל בשמו. רק לו יש grant</td></tr>
+    <tr><td>anon</td><td>התפקיד של גולש שלא התחבר. אצלנו בחוץ</td></tr>
+    <tr><td>authenticated</td><td>התפקיד של משתמש מחובר. אצלנו גם הוא בחוץ, והפונקציה מחליטה בשבילו</td></tr>
     <tr><td>Grant</td><td>מנעול 1: לאיזה תפקיד מותר לגשת לטבלה</td></tr>
     <tr><td>RLS</td><td>מנעול 2: בלי כלל, אף שורה לא יוצאת</td></tr>
-    <tr><td>Policy</td><td>מנעול 3: הכלל עצמו. אילו שורות, ולמי</td></tr>
-    <tr><td>anon</td><td>התפקיד של גולש שלא התחבר</td></tr>
+    <tr><td>Policy</td><td>מנעול 3: כלל שפותח שורות לתפקיד. אצלנו אין אף אחד</td></tr>
     <tr><td>Migration</td><td>שינוי במבנה הטבלאות, שנשמר בהיסטוריה של הפרויקט</td></tr>
+    <tr><td>rpc</td><td>קריאה מהפונקציה לפונקציה שבתוך בסיס הנתונים, כמו <code>add_laugh</code></td></tr>
+    <tr><td>Advisors</td><td>בדיקת האבטחה והביצועים של Supabase</td></tr>
   </tbody>
 </table></div>
 </div></details>
+<details class="err more"><summary><span class="pm">+</span><u>מקורות, נבדקו ב-24.10.2026</u></summary><div>
+<ul>
+    <li><a href="https://supabase.com/changelog/45329-breaking-change-tables-not-exposed-to-data-and-graphql-api-automatically" target="_blank" rel="noopener">Supabase: Tables not exposed to Data API automatically</a></li>
+    <li><a href="https://supabase.com/docs/guides/getting-started/api-keys" target="_blank" rel="noopener">Supabase: API keys</a></li>
+    <li><a href="https://supabase.com/docs/guides/database/postgres/row-level-security" target="_blank" rel="noopener">Supabase: Row Level Security</a></li>
+    <li><a href="https://supabase.com/docs/guides/database/functions" target="_blank" rel="noopener">Supabase: Database functions</a></li>
+    <li><a href="https://supabase.com/docs/guides/ai-tools/mcp" target="_blank" rel="noopener">Supabase: MCP server</a></li>
+    <li><a href="https://supabase.com/docs/reference/javascript/auth-getuser" target="_blank" rel="noopener">Supabase: auth.getUser</a> ו-<a href="https://supabase.com/docs/guides/auth/general-configuration" target="_blank" rel="noopener">Auth general configuration</a></li>
+    <li><a href="https://vercel.com/docs/environment-variables/sensitive-environment-variables" target="_blank" rel="noopener">Vercel: Config and Secret environment variables</a></li>
+  </ul>
+</div></details>
 
 <nav class="next" aria-label="לאן ממשיכים">
-  <a class="nx" href="../jb53500-vercel/"><span class="pl">התרגיל הבא · 4 מתוך 4</span><b>Vercel</b><span>חשבון ומפתח</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
+  <a class="nx" href="../jb53500-vercel/"><span class="pl">התרגיל הבא · 4 מתוך 5</span><b>Vercel ושני מודלים</b><span>חשבון Vercel, קרדיט ב-OpenAI, וגישה ל-Gemini</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
   <a class="nx home" href="../jb53500-home/"><span class="pl">53500</span><b>הדף הראשי</b><span>כל התרגילים, הקבצים והמצגות</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v3 · 8.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v4 · 24.10.2026</footer>
 
 <script>
 (function(){
@@ -498,67 +518,6 @@ using (true);</pre></div>
   if(location.hash.length>1){var t0=reveal(location.hash.slice(1));if(t0)setTimeout(function(){t0.scrollIntoView();},60);}
   function fallback(t){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
   document.querySelectorAll('.term .cp,.prompt .cp').forEach(function(b){b.addEventListener('click',function(){var t=b.parentNode.querySelector('pre').innerText;var ok=function(){b.textContent='הועתק';b.classList.add('ok');setTimeout(function(){b.textContent='העתק';b.classList.remove('ok');},1500);};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,function(){fallback(t);ok();});else{fallback(t);ok();}});});
-
-  /* בודק החיבור */
-  var LIB='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
-  var go=document.getElementById('cGo'),res=document.getElementById('cRes');
-  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
-  function show(kind,title,text,raw,rows){
-    res.className='res show '+kind;res.textContent='';
-    res.appendChild(el('b','t',title));
-    if(text)res.appendChild(el('div','',text));
-    if(rows&&rows.length){
-      var cols=Object.keys(rows[0]).slice(0,5),t=el('table'),hr=el('tr');
-      cols.forEach(function(c){hr.appendChild(el('th','',c));});t.appendChild(hr);
-      rows.forEach(function(r){var tr=el('tr');cols.forEach(function(c){var v=r[c];tr.appendChild(el('td','',v==null?'':String(typeof v==='object'?JSON.stringify(v):v).slice(0,60)));});t.appendChild(tr);});
-      res.appendChild(t);
-    }
-    if(raw)res.appendChild(el('div','raw',raw));
-  }
-  function legacyRole(k){try{var p=k.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');while(p.length%4)p+='=';return JSON.parse(atob(p)).role||'';}catch(e){return '';}}
-  function loadLib(cb){
-    if(window.supabase&&window.supabase.createClient)return cb(null);
-    var sc=document.createElement('script');sc.src=LIB;
-    sc.onload=function(){cb(window.supabase&&window.supabase.createClient?null:new Error('lib'));};
-    sc.onerror=function(){cb(new Error('lib'));};
-    document.head.appendChild(sc);
-  }
-  function busy(on){go.disabled=on;go.textContent=on?'בודק...':'בדוק מה האתר רואה';}
-  function run(){
-    var url=document.getElementById('cUrl').value.trim().replace(/\/+$/,''),
-        key=document.getElementById('cKey').value.trim(),
-        table=document.getElementById('cTable').value.trim();
-    if(!url||!key||!table)return show('mid','חסר שדה','ממלאים את שלושת השדות: כתובת, מפתח ציבורי ושם טבלה.');
-    if(key.indexOf('sb_secret_')===0||legacyRole(key)==='service_role'){
-      document.getElementById('cKey').value='';
-      return show('stop','זה המפתח הסודי','מחקתי אותו מהשדה. המפתח הסודי לא נכנס לדף הזה, ולא לשום אתר. אם הדבקתם אותו גם במקום אחר, מחליפים אותו בדשבורד, ב-Settings ואז API Keys.');
-    }
-    if(!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(url))return show('mid','הכתובת לא נראית כמו כתובת של פרויקט','כתובת של פרויקט נראית כך: https://xxxx.supabase.co, בלי שום דבר אחריה.');
-    if(!/^[a-z_][a-z0-9_]*$/i.test(table))return show('mid','שם הטבלה לא תקין','שם טבלה הוא מילה אחת באנגלית, באותיות קטנות, עם קו תחתון במקום רווח.');
-    busy(true);
-    loadLib(function(err){
-      if(err){busy(false);return show('mid','הספרייה של Supabase לא נטענה','בודקים את החיבור לאינטרנט, ומנסים שוב.');}
-      var db;
-      try{db=window.supabase.createClient(url,key,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});}
-      catch(e){busy(false);return show('mid','לא הצלחתי ליצור חיבור','בודקים את הכתובת ואת המפתח.',String(e&&e.message||e));}
-      db.from(table).select('*').limit(5).then(function(r){
-        busy(false);
-        var e=r.error,st=r.status||0;
-        if(!e){
-          var n=(r.data||[]).length;
-          if(n)return show('good','עובד. האתר רואה את הטבלה',n===5?'אלה חמש השורות הראשונות:':'חזרו '+n+' שורות:',null,r.data);
-          return show('mid','אין שגיאה, אבל חזרו אפס שורות','או שהטבלה ריקה, או שמנעול 3 סגור: RLS דולק, ואין policy שמתירה לקרוא.');
-        }
-        var code=e.code||'',msg=e.message||'',raw=(code?code+': ':'')+msg+(e.hint?'\n'+e.hint:'')+(st?'\nHTTP '+st:'');
-        if(code==='42501')return show('stop','מנעול 1 סגור: אין grant','האתר לא רשאי לגשת לטבלה הזו. אם עוד לא הרצתם את שלב 6, זה בדיוק מה שאמור לקרות.',raw);
-        if(code==='PGRST205'||code==='42P01'||/could not find the table/i.test(msg)||st===404)return show('mid','לא נמצאה טבלה בשם הזה','בודקים איות ואותיות קטנות.',raw);
-        if(/invalid api key/i.test(msg)||(st===401&&!code))return show('mid','המפתח לא התקבל','מעתיקים שוב את המפתח הציבורי, במלואו, מאותו פרויקט.',raw);
-        if(/failed to fetch|networkerror|load failed/i.test(msg)||st===0)return show('mid','לא הצלחתי להגיע לפרויקט','בודקים את הכתובת, ושהפרויקט לא מושהה (Paused) בדשבורד.',raw);
-        show('mid','חזרה שגיאה אחרת','מעתיקים את השורות האלה ל-Claude, ושואלים מה הן אומרות:',raw);
-      },function(x){busy(false);show('mid','לא הצלחתי להגיע לפרויקט','בודקים את הכתובת, ושהפרויקט לא מושהה (Paused) בדשבורד.',String(x&&x.message||x));});
-    });
-  }
-  go.addEventListener('click',run);
 })();
 </script>
 </body>

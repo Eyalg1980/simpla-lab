@@ -211,17 +211,17 @@ td[colspan]{font-weight:400;white-space:normal}
 <section id="path">
   <div class="label">הדרך</div>
   <h2>אותו מוצר, שתי תחנות<small>השלב השני הוא רשות. מוצר שעובד בשלב הראשון הוא מוצר גמור</small></h2>
-  <div class="map" role="img" aria-label="תרשים: שלב 1, הסטאק של הקורס ב-HTML, CSS ו-JavaScript על GitHub Pages. אחריו, למי שרוצה, שלב 2: React עם Vite ו-TypeScript על Vercel. Supabase, n8n ושכבת ה-AI נשארים זהים בשניהם.">
+  <div class="map" role="img" aria-label="תרשים: שלב 1, הסטאק של הקורס ב-HTML, CSS ו-JavaScript על Vercel, יחד עם הפונקציות. אחריו, למי שרוצה, שלב 2: React עם Vite ו-TypeScript על Vercel. Supabase, n8n ושכבת ה-AI נשארים זהים בשניהם.">
     <div class="flow two">
       <div class="lay fe">
         <span class="t">שלב 1 · כולם</span>
         <b>הסטאק של הקורס</b>
         <ul>
           <li>HTML, CSS ו-JavaScript</li>
-          <li>האתר ב-GitHub Pages</li>
-          <li>פונקציות ב-Vercel</li>
+          <li>האתר והפונקציות ב-Vercel</li>
+          <li>באותה כתובת, בלי CORS</li>
         </ul>
-        <span class="addr">username.github.io</span>
+        <span class="addr">my-product.vercel.app</span>
       </div>
       <div class="arr"><span>&larr;</span>כשהבסיס<br>באוויר</div>
       <div class="lay up">
@@ -255,7 +255,7 @@ td[colspan]{font-weight:400;white-space:normal}
     </dl>
   </article>
 
-  <div class="note"><b>סיימתם את שלב 1 כש:</b> המוצר באוויר ב-GitHub Pages, לפחות פונקציה אחת ב-Vercel עובדת, והנתונים נשמרים ב-Supabase. כל הפרטים בדף <a href="../jb53500-stack/">סטאק הקורס</a>.</div>
+  <div class="note"><b>סיימתם את שלב 1 כש:</b> המוצר באוויר ב-Vercel, לפחות פונקציה אחת עובדת, והנתונים נשמרים ב-Supabase דרך הפונקציות. כל הפרטים בדף <a href="../jb53500-stack/">סטאק הקורס</a>.</div>
 </section>
 
 <!-- ================================================================ STAGE 2 -->
@@ -295,7 +295,7 @@ td[colspan]{font-weight:400;white-space:normal}
     <h3>Vercel <span class="tag main">אתר ופונקציות יחד</span></h3>
     <p class="what">אותו Vercel משלב 1, עכשיו גם לאתר עצמו.</p>
     <dl class="facts">
-      <dt>מה משתנה</dt><dd>האתר והפונקציות באותו פרויקט ובאותה כתובת. GitHub Pages כבר לא בשימוש, וגם לא צריך יותר כותרות CORS.</dd>
+      <dt>מה משתנה</dt><dd>כלום בכתובת: כמו בשלב 1, האתר והפונקציות באותו פרויקט ובאותה כתובת, בלי CORS. מה שמשתנה הוא שלב הבנייה.</dd>
       <dt>פריסה</dt><dd>Vercel מזהה את Vite לבד. כל דחיפה ל-main בונה ומעדכנת הכל.</dd>
     </dl>
   </article>
@@ -310,12 +310,12 @@ td[colspan]{font-weight:400;white-space:normal}
     <tbody>
       <tr><td>צד הלקוח</td><td>HTML, CSS ו-JavaScript</td><td>React עם TypeScript</td></tr>
       <tr><td>שלב בנייה</td><td>אין</td><td>Vite, לפני כל פריסה</td></tr>
-      <tr><td>האתר</td><td>GitHub Pages</td><td>Vercel</td></tr>
+      <tr><td>האתר</td><td>Vercel, עם הפונקציות</td><td>Vercel, עם הפונקציות</td></tr>
       <tr><td>הפונקציות</td><td>Vercel, תיקיית api</td><td>Vercel, תיקיית api, באותו פרויקט</td></tr>
-      <tr><td>CORS</td><td>הפונקציה מאשרת את כתובת האתר</td><td>לא צריך, אותה כתובת</td></tr>
+      <tr><td>CORS</td><td>לא צריך, אותה כתובת</td><td>לא צריך, אותה כתובת</td></tr>
       <tr><td>רואים שינוי</td><td>מרעננים את הדף</td><td><code>npm run dev</code>, ומופיע מיד</td></tr>
       <tr><td>ריפו</td><td>אחד</td><td>ריפו חדש למסלול המשודרג</td></tr>
-      <tr><td>נתונים, AI, n8n</td><td colspan="2">ללא שינוי. אותו Supabase, אותן טבלאות ואותן הרשאות</td></tr>
+      <tr><td>נתונים, AI, n8n</td><td colspan="2">ללא שינוי. אותו Supabase, אותן טבלאות נעולות, ורק הפונקציות ניגשות אליהן</td></tr>
     </tbody>
   </table></div>
 
@@ -353,7 +353,7 @@ td[colspan]{font-weight:400;white-space:normal}
     <li><b>מסך אחרי מסך.</b> כל Milestone מעביר מסך אחד, באותו מראה כמו ב-DESIGN.md. בלי פיצ'רים חדשים בזמן המעבר.</li>
     <li><b>החלפה.</b> מעדכנים את הכתובת החדשה ב-Supabase, מריצים שוב את <code>ai-tests.md</code>, ורק אז מפסיקים לעדכן את הישן.</li>
   </ol>
-  <div class="note"><b>בכל הזמן הזה,</b> המוצר הישן ממשיך לעבוד ב-GitHub Pages. אם המעבר נתקע, יש מוצר.</div>
+  <div class="note"><b>בכל הזמן הזה,</b> המוצר הישן ממשיך לעבוד בפרויקט שלו ב-Vercel. אם המעבר נתקע, יש מוצר.</div>
 </section>
 
 <!-- ================================================================ LOVABLE -->
@@ -379,7 +379,7 @@ td[colspan]{font-weight:400;white-space:normal}
   <p class="cap">שבעת הפרומפטים לא משתנים. הם קוראים את course-stack.md, והוא מפנה לקובץ המשודרג כשהוא קיים.</p>
 </section>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · לפי course-stack-plus.md מ-14.10.2026 · v1 · 14.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · לפי course-stack-plus.md מ-24.10.2026 · v2 · 24.10.2026</footer>
 </div>
 
 </body>
