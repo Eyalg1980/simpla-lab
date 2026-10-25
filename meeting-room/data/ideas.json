@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23",
+ "updated": "2026-10-25",
  "ideas": [
   {
    "id": "I-2026-0489",
@@ -4250,9 +4250,9 @@
    "evidence": null,
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-19"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0524",
@@ -4264,9 +4264,9 @@
    "evidence": "תחקור חמש שורות אחרי כל מפגש 45900, רגיל וחוזר על עצמו, מתועד כ'standing routine' ב-task-management",
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-19"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0525",
@@ -4278,9 +4278,9 @@
    "evidence": null,
    "lesson": "סילבוס UI/UX, 30 מפגשים: מוד בורד עם Midjourney",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-19"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0526",
@@ -4292,9 +4292,9 @@
    "evidence": "מתועד ב-business-expenses.md: העלאה ידנית ל-itk.finbot.co.il בשני סבבים נפרדים (מאי-יוני ויולי-אוגוסט 2026), בלי zip ובלי קישור דרייב, קובץ קובץ ביד לכל אחד מהמסמכים בתיקיה המאורגנת.",
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-20"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0527",
@@ -4306,9 +4306,9 @@
    "evidence": null,
    "lesson": "קורס AI Product Design & UX/UI, שיעור 10 עקרונות נילסן",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-20"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0528",
@@ -4320,9 +4320,9 @@
    "evidence": null,
    "lesson": "קורס AI Product Design & UX/UI, שיעור MoSCoW לתעדוף פיצ'רים",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-20"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0529",
@@ -4337,9 +4337,9 @@
    "evidence": null,
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-21"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0530",
@@ -4354,9 +4354,9 @@
    "evidence": null,
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-21"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0531",
@@ -4368,9 +4368,9 @@
    "evidence": "הרוטינה הקבועה שאתה מדווח עליה: תחקור חמש שורות לקלוד אחרי כל מפגש בקורס 45900, 27 מפגשים",
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "pitched",
    "snoozes": 0,
-   "touchedAt": "2026-10-21"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0532",
@@ -4382,9 +4382,9 @@
    "evidence": null,
    "lesson": "פסיכולוגיה של צבע, קורס עיצוב המוצר",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-21"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0533",
@@ -4396,9 +4396,9 @@
    "evidence": null,
    "lesson": "תחומי העיצוב, קורס UI/UX",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "pitched",
    "snoozes": 0,
-   "touchedAt": "2026-10-21"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0534",
@@ -4413,9 +4413,9 @@
    "evidence": null,
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-22"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0535",
@@ -4430,9 +4430,9 @@
    "evidence": null,
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-22"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0536",
@@ -4444,9 +4444,9 @@
    "evidence": "שלוש הצעות מחיר נפרדות בחודשים האחרונים, CYABRA ורפלקטיפיי לקלאלית מושלם בוודאות ועוד אחת, כל פעם שכפול ידני של gogeek-proposal-v1.pptx ועריכה מאפס לפי אותה מסגרת שהוחלט עליה ב-30.12.2025",
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-22"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0537",
@@ -4458,9 +4458,9 @@
    "evidence": null,
    "lesson": "מיישם AI ואוטומציה 53500, מודול Agentic AI",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-22"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0538",
@@ -4472,9 +4472,9 @@
    "evidence": null,
    "lesson": "מיישם AI ואוטומציה 53500, שיעור נוסחאות הפרומפט",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-22"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0539",
@@ -4489,9 +4489,9 @@
    "evidence": null,
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-23"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0540",
@@ -4503,9 +4503,9 @@
    "evidence": "task-management.md, יומן בריף הבוקר: מופיע כפריט פתוח ב-14.10 (טרם נעול, 18 או 19.10), ב-18.10 (עדיין לא מוגדר), ב-19.10 (עדיין לא נעול), ב-21.10 (הסיכוי לסגור סוף סוף), ו-22.10 (מועבד כלסגור הפתוח). חמש הזכרות ברצף בלי שהתאריך בפועל ננעל.",
    "lesson": null,
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-23"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0541",
@@ -4517,9 +4517,9 @@
    "evidence": null,
    "lesson": "מודול 10 היוריסטיקות של נילסן, קורס 45900",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-23"
+   "touchedAt": "2026-10-25"
   },
   {
    "id": "I-2026-0542",
@@ -4531,9 +4531,51 @@
    "evidence": null,
    "lesson": "מודול MoSCoW לתעדוף פיצ'רים, קורס 45900",
    "sourceInboxId": null,
-   "status": "pool",
+   "status": "rejected",
    "snoozes": 0,
-   "touchedAt": "2026-10-23"
+   "touchedAt": "2026-10-25"
+  },
+  {
+   "id": "I-2026-0543",
+   "title": "מפעיל Weave בלי לפתוח פיגמה",
+   "line": "ראיתי שב-14.10 פיגמה אישרו שאפשר להפעיל workflow שלם של Weave מכלי AI חיצוני דרך MCP, בלי לפתוח את הקובץ. אפשר לבנות ללקוח פקודת צ'אט אחת שמריצה Weave ומחזירה נכס מוכן, בלי שהוא יראה פיגמה בכלל.",
+   "advisor": "visionary",
+   "createdAt": "2026-10-25",
+   "capability": {
+    "name": "Figma Weave workflow ניתן להפעלה מלאה דרך MCP מכלי AI חיצוני",
+    "releasedAt": "2026-10-14"
+   },
+   "evidence": null,
+   "lesson": null,
+   "status": "pitched",
+   "snoozes": 0,
+   "touchedAt": "2026-10-25"
+  },
+  {
+   "id": "I-2026-0544",
+   "title": "שתי הפניות, לא גלילה",
+   "line": "איך נראה מסך שנותן לתלמיד שני רפרנסים מתחרים מ-Mobbin לפני שהוא בוחר, במקום גלילה בלי סוף?",
+   "advisor": "teacher",
+   "createdAt": "2026-10-25",
+   "capability": null,
+   "evidence": null,
+   "lesson": "דפוסי Mobbin, קורס UI/UX",
+   "status": "rejected",
+   "snoozes": 0,
+   "touchedAt": "2026-10-25"
+  },
+  {
+   "id": "I-2026-0545",
+   "title": "שלושת המסננים כניקוד",
+   "line": "איך נראה מסך שמנקד אוטומציה מוצעת בשלושת המסננים (חזרתיות, כללים ברורים, טעות זולה) לפני שמאשרים לבנות אותה?",
+   "advisor": "teacher",
+   "createdAt": "2026-10-25",
+   "capability": null,
+   "evidence": null,
+   "lesson": "מודול 6, בניית אוטומציות, שלושת המסננים, מיישם AI 53500",
+   "status": "rejected",
+   "snoozes": 0,
+   "touchedAt": "2026-10-25"
   }
  ]
 }
