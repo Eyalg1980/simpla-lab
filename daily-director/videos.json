@@ -1,6 +1,47 @@
 {
  "days": [
   {
+   "date": "2026-10-25",
+   "ideas": [
+    {
+     "id": "2026-10-25-figma-use-chat",
+     "world": "סרטוני הסבר",
+     "color": "#FF6B5E",
+     "hook": "קישור אחד לקובץ פיגמה נכנס לצ'אט, ושתי דקות אחר כך חזרה רשימת חריגות מהסטייל גיד, בלי שפיגמה נפתחה פעם אחת.",
+     "concept": "מצלמה מחזיקה על בועת צ'אט ששולחת קו מקווקו דק אל מסגרת קנבס. בתוך המסגרת מופיעים בזה אחר זה סימן וי קטן וסימן אזהרה קטן, אחד אחד, כאילו הקובץ נבדק מבפנים בלי יד אדם.",
+     "execution": "שפה קינטית אדיטוריאלית: רקע פחם עמוק, קורל וצהוב חם, קומפוזיציה גיאומטרית מינימלית. פריים מפתח ב-Nano Banana Pro, תנועה ב-Kling 3 std, בלי קריינות, 16:9, 8 שניות.",
+     "why": "אני באמצע תהליך החזרת לקוח ותיק, והכלי הזה חוסך לי בדיוק את הבדיקה הידנית עין בעין. אותו נכס עולה היום גם כפוסט ראשון בפוסט ברינסטורם.",
+     "competition": null,
+     "srcUrl": "https://help.figma.com/hc/en-us/articles/41301052048791",
+     "srcLabel": "Figma Help Center",
+     "prompts": {
+      "video": "Kinetic typography explainer animation, deep charcoal background, coral and warm yellow accent highlights, clean minimal geometric composition, generous negative space, camera holds on a chat bubble icon sending a thin dashed line into a canvas frame, then reveals a small checkmark icon and a small warning triangle icon appearing one after another inside the frame, calm confident mood, no text, 16:9, 8 seconds",
+      "script": "קח את ההוק \"קישור אחד לקובץ פיגמה נכנס לצ'אט, ושתי דקות אחר כך חזרה רשימת חריגות מהסטייל גיד, בלי שפיגמה נפתחה פעם אחת\" ופתח אותו לסרטון הסברה של 20 עד 30 שניות: לוגליין, תסריט קריינות בעברית עם ציר זמן מדויק, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בסגנון קינטי אדיטוריאלי.",
+      "image": "Kinetic typography style still, deep charcoal background, coral and warm yellow accent highlights, generous negative space, flat minimal composition, a chat bubble icon beside a canvas frame containing a small checkmark icon and a small warning triangle icon, no text",
+      "raw": "הוק: קישור אחד לקובץ פיגמה נכנס לצ'אט, ושתי דקות אחר כך חזרה רשימת חריגות מהסטייל גיד, בלי שפיגמה נפתחה פעם אחת\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: בועת צ'אט שולחת קו מקווקו לקנבס, וי ואזהרה מופיעים בפנים\nביצוע: שפה קינטית אדיטוריאלית, רקע פחם, קורל וצהוב, Nano Banana Pro ו-Kling 3, 16:9\nלמה עכשיו: תהליך החזרת לקוח ותיק ממש עכשיו, אותו נכס עולה היום גם כפוסט"
+     }
+    },
+    {
+     "id": "2026-10-25-four-sticky-notes",
+     "world": "תיעוד תהליך",
+     "color": "#FF6B5E",
+     "hook": "תלמיד שאל אותי למה צריך ארבע מילים לועזיות כדי לתעדף פרויקט, ועניתי לו בארבע פתקיות צבע.",
+     "concept": "מצלמה יורדת לאט על שולחן חרס קטן. יד חרס מניחה פתקית אדומה קדימה, בזמן שפתקיות כתומה, צהובה ואפורה נשארות מאחור בשורה.",
+     "execution": "שפת קליי: פלסטלינה מעוצבת ביד, טביעות אצבע גלויות, רקע סטודיו קרם, פלטת קורל צהוב טורקיז, תאורת סטודיו רכה, עומק שדה רדוד. פריים מפתח ב-Nano Banana Pro, תנועה ב-Kling 3 std, בלי קריינות, 9:16, 8 שניות.",
+     "why": "זה מומנט אמיתי מהכיתה השבוע, ואותו נכס עולה היום גם כפוסט שלישי בפוסט ברינסטורם, פורמט מהכיתה לשטח.",
+     "competition": null,
+     "srcUrl": "https://en.wikipedia.org/wiki/MoSCoW_method",
+     "srcLabel": "MoSCoW method",
+     "prompts": {
+      "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, camera slowly pushes in on a tiny clay desk as a small clay hand places a red sticky note forward of a row of orange, yellow and grey notes, the other three staying still behind it, gentle handheld-feel motion, warm studio light, no text, 9:16, 8 seconds",
+      "script": "קח את ההוק \"תלמיד שאל אותי למה צריך ארבע מילים לועזיות כדי לתעדף פרויקט, ועניתי לו בארבע פתקיות צבע\" ופתח אותו לסרטון תיעוד תהליך של 20 עד 30 שניות: לוגליין, תסריט קריינות בעברית או שקט מלא, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בשפת קליי.",
+      "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, four small round clay sticky notes in red, orange, yellow and grey arranged in a row on a tiny clay desk, a small clay hand placing the red note slightly forward of the others, no text",
+      "raw": "הוק: תלמיד שאל אותי למה צריך ארבע מילים לועזיות כדי לתעדף פרויקט, ועניתי לו בארבע פתקיות צבע\nעולם: תיעוד תהליך\nתחרות: אין\nקונספט: יד חרס מניחה פתקית אדומה קדימה משורה של ארבע פתקיות\nביצוע: שפת קליי, רקע קרם, קורל צהוב טורקיז, Nano Banana Pro ו-Kling 3, 9:16\nלמה עכשיו: מומנט אמיתי מהכיתה השבוע, אותו נכס עולה היום גם כפוסט"
+     }
+    }
+   ]
+  },
+  {
    "date": "2026-10-23",
    "ideas": [
     {
