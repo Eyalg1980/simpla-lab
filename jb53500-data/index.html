@@ -225,6 +225,24 @@ footer{margin-top:10px;text-align:center;font-size:12px;color:var(--soft);border
 .t4 td:first-child{width:21%}
 code.w{white-space:normal;word-break:break-word}
 @media (max-width:520px){.t4{font-size:12.5px}.t4 td,.t4 th{padding:8px 6px}}
+/* What next: a road of numbered stops, with a gate for each submission */
+.road{list-style:none;margin:10px 0 0;padding:0}
+.road>li{position:relative;padding:0 0 18px;padding-inline-start:46px}
+.road>li::before{content:"";position:absolute;inset-inline-start:15px;top:36px;bottom:2px;border-inline-start:2px dashed var(--line)}
+.road>li:last-child::before{display:none}
+.road .rn{position:absolute;inset-inline-start:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--acc-soft);color:var(--acc);font-family:"Poppins",sans-serif;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+.road h3{font-size:16.5px;font-weight:700;line-height:1.35;padding-top:4px;margin-bottom:4px}
+.road h3 small{display:block;font-size:13px;font-weight:500;color:var(--soft)}
+.road p{font-size:14.5px;margin-bottom:6px}
+.road ul,.road ol{padding-inline-start:18px;margin:4px 0 8px}
+.road li li{font-size:14.5px;margin-bottom:3px}
+.phase{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--soft);margin:22px 0 10px}
+.gate{border:2px solid var(--acc);border-radius:16px;padding:12px 14px;margin:4px 0 8px;background:var(--surface);font-size:14.5px}
+.gate .gk{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.04em;background:var(--yel);color:var(--yel-ink);padding:3px 10px;border-radius:999px;margin-bottom:6px}
+.gate b.gt{display:block;font-size:17px;line-height:1.35;margin-bottom:4px}
+.gate ul{padding-inline-start:18px;margin:4px 0 6px}
+.gate li{margin-bottom:3px}
+.tbl.wrap td:first-child{white-space:normal}
 </style>
 </head>
 <body>
@@ -242,6 +260,7 @@ code.w{white-space:normal;word-break:break-word}
   <a class="jump" href="#partA">גיליון</a>
   <a class="jump" href="#partB">Supabase</a>
   <a class="jump" href="#errors">תקלות</a>
+  <a class="jump" href="#next">מה הלאה</a>
   <span class="prog" id="prog"></span>
 </nav>
 
@@ -259,12 +278,12 @@ code.w{white-space:normal;word-break:break-word}
   <div class="fresh"><b>צריך לפני שמתחילים:</b>
     <ul>
       <li>בדיחה בלחיצה עד Milestone 3, באוויר ב-Vercel, לפי <a href="../jb53500-backend/">דף ה-Backend</a>. ממשיכים באותה תיקייה ובאותו ריפו</li>
-      <li>בכיתה: שני הקישורים לגיליון של הכיתה, מהקבוצה</li>
+      <li>בכיתה: שני הקישורים לגיליון של הכיתה, מהקבוצה: קישור העריכה וקישור ה-CSV</li>
       <li>חשבון Supabase. אין? שלב 6</li>
     </ul>
   </div>
   <div class="plan" aria-label="מהלך המפגש">
-    <span><b>12:45</b> בדיחות לגיליון</span>
+    <span><b>12:45</b> מחבר Sheets ובדיחות</span>
     <span><b>14:00</b> Milestone 4</span>
     <span><b>14:25</b> למה Supabase</span>
     <span><b>14:40</b> המחבר של Supabase</span>
@@ -419,9 +438,9 @@ code.w{white-space:normal;word-break:break-word}
 
 <!-- ========== PART A ========== -->
 <div class="part g" id="partA">
-  <div class="pl">Milestone 4 · חמישה שלבים · כ-25 דקות</div>
+  <div class="pl">Milestone 4 · חמישה שלבים · כ-30 דקות</div>
   <h2>בדיחה אקראית מגיליון</h2>
-  <p>אותו פרויקט, אותה תיקייה ואותו ריפו מדף ה-Backend. גיליון אחד לכל הכיתה, ו-Claude מוסיף פונקציה שקוראת ממנו.</p>
+  <p>אותו פרויקט, אותה תיקייה ואותו ריפו מדף ה-Backend. גיליון אחד לכל הכיתה, ש-Claude רואה דרך המחבר של Google Sheets, ופונקציה שקוראת ממנו.</p>
 </div>
 <section class="trackA">
 
@@ -437,6 +456,7 @@ code.w{white-space:normal;word-break:break-word}
 
 מיילסטון 4, בדיחה מהמאגר:
 - כפתור שני מתחת לכפתור הקיים: "בדיחה אקראית מהמאגר".
+- לפני הקוד: בקש ממני את קישור העריכה של הגיליון, וקרא דרך המחבר של Google Sheets את שורה 1 ואת שלוש השורות הראשונות בלשונית JOKES, כדי שהקוד יתאים לגיליון האמיתי. את הקישור אל תשמור באף קובץ.
 - פונקציה api/random.js שקוראת גיליון Google שמפורסם כ-CSV, עם הכותרות TOPIC ו-TEXT. את הכותרות קרא בלי תלות באותיות גדולות או קטנות. הכתובת מגיעה מ-process.env.SHEET_CSV_URL, ולא כתובה בשום קובץ.
 - פענוח CSV אמיתי: בדיחה יכולה להכיל פסיקים, מירכאות ושורות חדשות.
 - הפונקציה שומרת את הגיליון בזיכרון לדקה. הבדיחה מוצגת עם textContent.
@@ -457,33 +477,56 @@ code.w{white-space:normal;word-break:break-word}
   </div>
 </article>
 
-<article class="step" data-s="d2">
-  <div class="sh"><span class="n">2</span><h3>מוסיפים בדיחות לגיליון של הכיתה<span class="mt">Milestone 4</span><small>בכיתה כולם כותבים לאותו גיליון. בבית, גיליון משלכם</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+<article class="step" data-s="d2" id="sheets">
+  <div class="sh"><span class="n">2</span><h3>המחבר של Google Sheets, ושתי בדיחות לגיליון<span class="mt">Milestone 4</span><small>Claude רואה את הגיליון. את הבדיחות כותבים ביד</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
+    <p><b>מחברים, פעם אחת:</b></p>
     <ol>
-      <li>פותחים את קישור העריכה של הגיליון <code>joke-bank</code>, מהקבוצה של הכיתה. הבדיחות בלשונית <code>JOKES</code></li>
-      <li>מוסיפים שתי שורות בסוף: נושא בעמודה <code>TOPIC</code>, והבדיחה בעמודה <code>TEXT</code></li>
-      <li>לא נוגעים בשורה 1. אלה הכותרות</li>
+      <li>ב-Claude Desktop לוחצים <b>Customize</b>, ואז <b>Connectors</b>. לוחצים על ה-<b>+</b>, מחפשים <b>Google Sheets</b>, לוחצים <b>Connect</b>, ונכנסים עם חשבון Google האישי</li>
+      <li>בלשונית <b>Code</b>, בתיקייה <code>joke-app</code>: ב-<b>+</b> שליד תיבת ההודעה, <b>Connectors</b>, ומוודאים ש-Google Sheets דולק. מצב ההרשאות נשאר <b>Manual</b></li>
     </ol>
+    <p><b>מוסיפים שתי בדיחות, ביד:</b></p>
+    <ol>
+      <li>פותחים את קישור העריכה של <code>joke-bank</code> מהקבוצה, בלשונית <code>JOKES</code></li>
+      <li>מוסיפים שתי שורות בסוף: נושא בעמודה <code>TOPIC</code>, והבדיחה בעמודה <code>TEXT</code>. בשורה 1 לא נוגעים</li>
+    </ol>
+    <p><b>בודקים ש-Claude רואה את הגיליון:</b></p>
+    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>דרך המחבר של Google Sheets, פתח את הגיליון שבקישור למטה, בלשונית JOKES.
+כמה בדיחות יש בו, מה הכותרות בשורה 1, ומה שתי השורות האחרונות?
+אל תשנה כלום בגיליון.
+[כאן מדביקים את קישור העריכה מהקבוצה]</pre></div>
+    <p class="see"><b>אמור להופיע:</b> הכותרות <code>TOPIC</code> ו-<code>TEXT</code>, מספר הבדיחות, ושתי הבדיחות שלכם בסוף. Claude ביקש אישור רק לקריאה.</p>
+    <div class="tip"><b>למה כותבים ביד, ולא דרך Claude?</b> כל הכיתה כותבת לאותו גיליון באותה דקה. Claude מחפש את השורה הריקה ואז כותב בה, ובינתיים מישהו אחר כבר כתב שם. כך נדרסת בדיחה של חבר. ביד, Google מסנכרן את זה לבד. זו בדיוק הבעיה שהפונקציה <code>add_laugh</code> פותרת ב-Milestone 5.</div>
     <div class="tip"><b>בכיתה עושים את זה לפני הצהריים.</b> קישור ה-CSV מתעדכן באיחור של כמה דקות. אחרי ההפסקה, הבדיחות של כולם כבר שם.</div>
-    <div class="tip"><b>שמות הכותרות באנגלית, התוכן בעברית.</b> הקוד מחפש עמודה בשם <code>TEXT</code>, ולא משנה לו אם האותיות גדולות או קטנות. מי שמשנה את השם, שובר את האפליקציה. זה בדיוק אחד החסרונות של גיליון.</div>
-    <details class="err more"><summary><span class="pm">+</span><u>בבית, או בלי כיתה: בונים גיליון משלכם</u></summary><div>
-    <p><b>הדרך הקצרה, עם המחבר של Google Drive:</b> מחברים אותו ב-Claude כמו כל מחבר (Customize, Connectors, ואז Connect), וכותבים:</p>
-    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>צור לי ב-Google Drive גיליון בשם joke-bank, עם לשונית בשם JOKES. בשורה הראשונה הכותרות TOPIC ו-TEXT, ומתחתן חמש בדיחות קצרות בעברית, כל אחת עם נושא.</pre></div>
-    <p>את השיתוף ואת הפרסום כ-CSV המחבר לא עושה. אותם עושים ביד, בשלב 3.</p>
-    <p><b>הדרך הידנית:</b></p>
+    <details class="err more"><summary><span class="pm">+</span><u>מה המחבר עושה, ומה לא</u></summary><div>
+      <ul>
+        <li><b>מה הוא יודע:</b> לקרוא תאים, לכתוב בהם ולהוסיף שורות, בכל גיליון שהחשבון שלכם רואה</li>
+        <li><b>מה הוא לא יודע:</b> לפרסם כ-CSV או לשנות שיתוף. את זה עושים ביד, בשלב 3</li>
+        <li><b>גישה:</b> המחבר רואה כל גיליון בחשבון. לכן חשבון Google אישי, ולא של העבודה</li>
+        <li><b>Manual:</b> קריאה מאשרים. כתיבה מאשרים רק אחרי שקראתם מה ייכתב ובאיזה טווח</li>
+      </ul>
+      <p><b>Claude אומר שאין לו גישה לגיליון?</b> בודקים שהדבקתם את קישור העריכה ולא את קישור ה-CSV, ושנכנסתם למחבר עם אותו חשבון שבו פתחתם את הגיליון.</p>
+      <p><b>שמות הכותרות באנגלית, התוכן בעברית.</b> הקוד מחפש עמודה בשם <code>TEXT</code>, באותיות גדולות או קטנות. מי שמשנה את השם, שובר את האפליקציה לכל הכיתה. זה אחד החסרונות של גיליון.</p>
+    </div></details>
+    <details class="err more"><summary><span class="pm">+</span><u>בבית, או בלי כיתה: גיליון משלכם, ו-Claude ממלא אותו</u></summary><div>
     <ol>
       <li>נכנסים ל-<a href="https://sheets.new" target="_blank" rel="noopener">sheets.new</a>, עם חשבון Google אישי</li>
       <li>קוראים לגיליון <code>joke-bank</code>, וללשונית <code>JOKES</code></li>
-      <li>מעתיקים את הבלוק, ומדביקים בתא A1. כל שורה נכנסת לשורה, וכל עמודה לעמודה</li>
+      <li>מעתיקים את הקישור מהדפדפן, ושולחים ל-Claude:</li>
     </ol>
+    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>דרך המחבר של Google Sheets, בגיליון שבקישור למטה, בלשונית JOKES:
+בשורה 1 כתוב את הכותרות TOPIC ו-TEXT, ומתחתן חמש בדיחות קצרות בעברית, כל אחת עם נושא.
+לפני שאתה כותב, הצג לי את הטווח ואת התוכן.
+[כאן מדביקים את הקישור לגיליון]</pre></div>
+    <p>בגיליון שרק אתם כותבים בו, Claude יכול לכתוב בבטחה. אין מי שיידרס.</p>
+    <p><b>בלי מחבר:</b> מעתיקים את הבלוק, ומדביקים בתא A1. כל שורה נכנסת לשורה, וכל עמודה לעמודה.</p>
     <div class="tsv"><span class="pt">להדבקה בתא A1</span><button class="cp" type="button">העתק</button><pre>TOPIC	TEXT
 מחשבים	המחשב שלי כמו ארון: מלא בדברים שאני לא זוכר למה שמרתי.
 חתולים	חתול לא מפיל דברים מהשולחן. הוא בודק שכוח המשיכה עדיין עובד.
 אוכל	הדיאטה שלי הולכת מצוין. כבר שלושה ימים שאני חושב עליה.
 מזג אוויר	בישראל יש שתי עונות: קיץ, ושבוע שבו כולם מדברים על החורף.
 AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא ביקש עוד פרטים על התפקיד.</pre></div>
-    <p class="see"><b>אמור להופיע:</b> בשורה 1 הכותרות <code>TOPIC</code> ו-<code>TEXT</code>, ומתחתן חמש בדיחות. הוסיפו עוד כמה משלכם.</p>
+    <p class="see"><b>אמור להופיע:</b> בשורה 1 הכותרות <code>TOPIC</code> ו-<code>TEXT</code>, ומתחתן חמש בדיחות. את הפרסום כ-CSV עושים בשלב 3.</p>
     </div></details>
   </div>
 </article>
@@ -591,7 +634,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
   </div>
 </article>
 
-<article class="step" data-s="d8">
+<article class="step" data-s="d8" id="readsql">
   <div class="sh"><span class="n">8</span><h3>Claude בונה את Milestone 5<span class="mt">Milestone 5</span><small>שיחה חדשה בשם milestone-5</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <div class="prompt"><span class="pt">שיחה חדשה</span><button class="cp" type="button">העתק</button><pre>קרא את CLAUDE.md ואת קובץ המיילסטונים בתיקיית spec, והתחל את מיילסטון 5.</pre></div>
@@ -808,13 +851,169 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </div></details>
 </section>
 
+<section id="next">
+<div class="label">08 · מה הלאה</div>
+<h2 class="sec">מבדיחה בלחיצה, למוצר שלכם</h2>
+<p class="sec-lead">אפליקציית הבדיחות הייתה אימון. את אותם צעדים עושים עכשיו על המוצר שלכם, באותו סדר. הם מביאים אתכם להגשה 2, ומשם לפרויקט הגמר.</p>
+
+<div class="tblwrap"><table class="tbl wrap">
+  <thead><tr><th>היום, בבדיחה בלחיצה</th><th>במוצר שלכם</th></tr></thead>
+  <tbody>
+    <tr><td><code>spec/MILESTONES.md</code>, Milestone אחרי Milestone</td><td><code>MILESTONES.md</code> מתיקיית המוצר, באותה שגרה</td></tr>
+    <tr><td><code>api/joke.js</code> ומפתח של OpenAI</td><td><code>api/ask.js</code> ומפתח של Gemini, בשכבה החינמית</td></tr>
+    <tr><td>הגיליון <code>joke-bank</code></td><td>תוכן שמישהו מתחזק ביד, אם יש כזה במוצר</td></tr>
+    <tr><td>הטבלה <code>jokes</code></td><td>הטבלאות מ-<code>ARCHITECTURE.md</code></td></tr>
+    <tr><td>הפונקציה <code>add_laugh</code></td><td>כל פעולה שחייבת לקרות בבת אחת: מונה, או תפיסת המקום האחרון</td></tr>
+    <tr><td>בודק הנעילה</td><td>אותו בודק, על כל טבלה של המוצר</td></tr>
+  </tbody>
+</table></div>
+
+<div class="phase">עד הגשה 2 · המוצר באוויר, עם AI ועם נתונים</div>
+<ol class="road">
+  <li><span class="rn">1</span><h3>מכינים את תיקיית המוצר<small>פעם אחת, לפני הכול</small></h3>
+    <ul>
+      <li>בתיקייה: <code>product-10-definitions.md</code>, <code>PRD.md</code>, <code>ARCHITECTURE.md</code>, <code>MILESTONES.md</code> ו-<code>course-stack.md</code></li>
+      <li>מחליפים את <code>course-stack.md</code> בגרסה העדכנית מ<a href="../jb53500-prompts/">דף הפרומפטים</a>. גרסה ישנה עוד אומרת GitHub Pages ו-CORS, ו-Claude יבנה לפיה</li>
+      <li>פותחים את התיקייה בלשונית Code, במצב Local, ומצב ההרשאות Manual</li>
+    </ul>
+  </li>
+  <li><span class="rn">2</span><h3>המוצר עובר ל-Vercel<small>כמו <a href="../jb53500-backend/#s8">שלב 8 בדף ה-Backend</a>, עם ריפו המוצר</small></h3>
+    <ul>
+      <li>בדשבורד של Vercel לוחצים <b>Add New</b>, ואז <b>Project</b>. ליד ריפו המוצר לוחצים <b>Import</b></li>
+      <li>ב-<b>Framework Preset</b> בוחרים <b>Other</b>, ולוחצים <b>Deploy</b>. במסלול React ו-Vite משאירים את מה ש-Vercel בחר</li>
+    </ul>
+    <p class="see"><b>אמור להופיע:</b> כתובת בסגנון <code>my-product.vercel.app</code>. זו הכתובת של המוצר מעכשיו. כפתור ה-AI עוד לא עובד, וזה צפוי.</p>
+  </li>
+  <li><span class="rn">3</span><h3>המפתח של Gemini נכנס ל-Vercel<small>כמו <a href="../jb53500-backend/#s9">שלבים 9 ו-10 בדף ה-Backend</a></small></h3>
+    <ol>
+      <li>ב-<a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio</a>, עם הג׳ימייל של הקורס: <b>Create API key</b></li>
+      <li>ב-Vercel, בפרויקט של המוצר: <b>Settings</b>, ואז <b>Environment Variables</b>. ב-Key כותבים <code>GEMINI_API_KEY</code>, מדביקים את המפתח, ובוחרים <b>Secret</b> עם Production ו-Preview</li>
+      <li>ב-<b>Deployments</b>: שלוש הנקודות ליד הפריסה העליונה, ואז <b>Redeploy</b></li>
+    </ol>
+    <div class="warn"><b>בשכבה החינמית Google רשאית להשתמש בתוכן</b> כדי לשפר את המוצרים שלה. לא שולחים למודל מידע אישי או מידע של לקוחות.</div>
+  </li>
+  <li><span class="rn">4</span><h3>Claude כותב את פונקציית ה-AI<small>כשמגיעים ל-Milestone שצריך AI</small></h3>
+    <details class="err more"><summary><span class="pm">+</span><u>הפרומפט ל-Claude Code</u></summary><div>
+    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>הוסף למוצר פונקציית צד שרת ב-Vercel, שקוראת למודל ה-AI.
+קרא קודם, מתיקיית המוצר:
+- בקובץ course-stack.md: הסעיפים "חוק הברזל: מפתחות", "צד השרת" ו"שכבת ה-AI".
+- בקובץ ARCHITECTURE.md: הסעיף "שכבת ה-AI".
+- בקובץ product-10-definitions.md: הסעיף "שכבת ה-AI והפרומפט המרכזי".
+איך זה בנוי:
+- האתר והפונקציות יחד ב-Vercel, מאותו ריפו. הדף פונה לפונקציה בכתובת יחסית, /api/ask. בלי CORS.
+- המפתח שמור ב-Vercel כ-Secret בשם GEMINI_API_KEY. אל תבקש אותו, ואל תכתוב אותו בשום קובץ.
+- שם המודל נקרא מ-process.env.GEMINI_MODEL, ואם הוא חסר יש ברירת מחדל בקוד.
+המשימה:
+1. הצג לי תוכנית: אילו קבצים תיצור או תשנה, מה הפונקציה מקבלת ומה היא מחזירה. חכה לאישור שלי.
+2. הפונקציה בקובץ api/ask.js, לפי התיעוד העדכני של Vercel לפרויקט בלי framework. ב-package.json יש "type": "module".
+3. לפני הקריאה למודל, קרא את התיעוד העדכני של Gemini API, ובחר ברירת מחדל מבין מודלי ה-Flash העדכניים.
+4. הפונקציה מקבלת רק POST עם JSON, מגבילה את אורך הקלט, ומחזירה תמיד JSON, גם בשגיאה. הפרטים הטכניים ב-console.error.
+5. חבר את הכפתור במסך הראשי ל-/api/ask, עם מצב טעינה, ועם התשובה או הודעת שגיאה בעברית.
+6. ודא ש-.gitignore חוסם את .env ואת .env.* חוץ מ-.env.example, ושיש .claude/settings.json שחוסם לך את הקריאה שלהם.
+אל תדחוף ל-GitHub לפני שאישרתי.</pre></div>
+    </div></details>
+    <p><b>קוראים לפני שמאשרים:</b> <code>process.env.GEMINI_API_KEY</code> בפונקציה, <code>fetch('/api/ask'</code> בדף בכתובת קצרה, ובדיקת אורך על הקלט. בקוד של הדף אין <code>googleapis.com</code>.</p>
+  </li>
+  <li><span class="rn">5</span><h3>הנתונים: Claude בונה את הטבלאות, דרך המחבר של Supabase<small>כשמגיעים ל-Milestone שצריך נתונים</small></h3>
+    <ol>
+      <li>ב-Supabase פותחים פרויקט שני בארגון של הקורס, בשם המוצר. בתוכנית החינמית מותרים שני פרויקטים פעילים: הבדיחות והמוצר</li>
+      <li>Claude בונה את הטבלאות מתוך <code>ARCHITECTURE.md</code>, עם הפרומפט הראשון</li>
+      <li>אותן שלוש בדיקות כמו היום: <a href="#readsql">קוראים את ה-SQL לפני שמאשרים</a> (שלב 8), <a href="#lock">בודק הנעילה</a> על כל טבלה (שלב 9), והמפתח הסודי עובר ל-Vercel (שלב 10)</li>
+      <li>Claude מחבר את הפונקציות לטבלאות, עם הפרומפט השני</li>
+    </ol>
+    <details class="err more"><summary><span class="pm">+</span><u>הפרומפט הראשון: הטבלאות</u></summary><div>
+    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>בנה את בסיס הנתונים של המוצר ב-Supabase, דרך המחבר.
+קרא קודם, מתיקיית המוצר: את ARCHITECTURE.md (הסעיף "מבנה הנתונים"), את PRD.md ואת course-stack.md (הסעיף "נתונים").
+איך זה בנוי: רק הפונקציות ב-Vercel ניגשות לטבלאות, עם המפתח הסודי. הדפדפן לא מדבר עם Supabase ישירות.
+1. הצג לי את הפרויקטים בארגון, ושאל באיזה מהם לעבוד. אל תיצור פרויקט חדש.
+2. הצג לי את הטבלאות שאתה מתכנן: שמות, עמודות וסוגים. חכה לאישור שלי.
+3. צור אותן ב-migration. לכל טבלה: RLS דולק בלי אף policy, revoke all מ-anon ומ-authenticated, ו-grant ל-service_role רק על הפעולות שהמוצר צריך.
+4. פעולה שצריכה לקרות בבת אחת, כמו מונה או תפיסת המקום האחרון, נכתבת כפונקציה בבסיס הנתונים: security invoker, search_path ריק, ו-execute רק ל-service_role.
+5. הכנס לכל טבלה חמש שורות דוגמה בעברית, ושמור את ה-SQL גם כקובץ בתיקייה db.
+6. הרץ get_advisors, הסבר בעברית מה נמצא, ועצור: אני בודק שהטבלאות נעולות.
+את המפתח הסודי אל תבקש ואל תציג. אם משהו שונה ממה שכתוב ב-ARCHITECTURE.md, אמור לי, ואל תעדכן את המסמך לבד.</pre></div>
+    </div></details>
+    <details class="err more"><summary><span class="pm">+</span><u>הפרומפט השני: הפונקציות מתחברות לטבלאות</u></summary><div>
+    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>חבר את המוצר לטבלאות ב-Supabase. כל הגישה עוברת רק דרך הפונקציות ב-Vercel.
+קרא קודם: course-stack.md (הסעיפים "צד השרת", "נתונים" ו"הרשאות") ו-ARCHITECTURE.md.
+1. לקוח אחד ב-lib/supabase.js עם @supabase/supabase-js, ב-dependencies. הכתובת מ-process.env.SUPABASE_URL והמפתח מ-process.env.SUPABASE_SECRET_KEY.
+2. הצג לי תוכנית: אילו פונקציות ב-api, מה כל אחת מקבלת ומחזירה, ולאיזו טבלה היא ניגשת. חכה לאישור שלי.
+3. כל פונקציה בודקת את הקלט ומחזירה תמיד JSON. פונקציה שמשנה נתונים מקבלת רק POST.
+4. פעולה שצריכה לקרות בבת אחת קוראת לפונקציה שבבסיס הנתונים דרך rpc.
+5. אם במוצר יש כניסת משתמשים: הפונקציה מזהה את המשתמש מהטוקן, ולא סומכת על מזהה שהדף שולח.
+6. בדף: נתוני הדמה מתחלפים בנתונים מהפונקציות, מוצגים עם textContent. בלי polling.
+7. המפתח הסודי לא מופיע בשום קובץ, ואל תבקש אותו ממני.
+אל תדחוף ל-GitHub לפני שאישרתי.</pre></div>
+    </div></details>
+    <div class="tip"><b>במוצר עם כניסת משתמשים:</b> הדף משתמש במפתח הציבורי של Supabase רק בשביל הכניסה עצמה. הנתונים ממשיכים לעבור דרך הפונקציות, והפונקציה בודקת מי המשתמש לפני כל גישה.</div>
+  </li>
+  <li><span class="rn">6</span><h3>בודקים, דוחפים, ומכבים את GitHub Pages<small>אותן בדיקות כמו בשלבים 11 ו-12</small></h3>
+    <ol>
+      <li><b>המפתחות:</b> מריצים את הפרומפט של שלב 11 על תיקיית המוצר. מוסיפים לחיפוש את <code>AIza</code>, הפתיחה של מפתחות Gemini, ומעדכנים את שמות המפתחות בסעיף 4</li>
+      <li><b>בטלפון ובחלון פרטי:</b> הפעולה המרכזית עובדת, והרשומה נשארת אחרי רענון</li>
+      <li><b>ב-Network, בכלי המפתחים:</b> בקשות רק לכתובת של המוצר. אין <code>googleapis.com</code> ואין <code>supabase.co</code></li>
+      <li><b>ב-Table Editor וב-Logs:</b> הרשומה בטבלה, ובלוגים אין שורות אדומות</li>
+      <li><b>GitHub Pages:</b> בריפו, <b>Settings</b>, ואז <b>Pages</b>, ו-<b>Unpublish site</b>. כך לא נשארת באוויר גרסה שהכפתור שלה שבור</li>
+    </ol>
+  </li>
+</ol>
+
+<div class="gate"><span class="gk">הגשה 2 · 20%</span>
+  <b class="gt">קישור ציבורי, והפעולה המרכזית רצה בו</b>
+  <p>הבדיקה: פותחים את הקישור בטלפון ובחלון פרטי, ומריצים את הפעולה המרכזית. היא עובדת ושומרת רשומה? עברתם את הסף.</p>
+  <ul>
+    <li><b>מגישים:</b> מסמך של עמוד או שניים. בראשו השם, שם הפרויקט והקישור החי, ואחריו צילומי מסך של הפעולה המרכזית וקישור לקוד</li>
+    <li><b>מתי:</b> התאריך המדויק בלוח ההגשות, ב<a href="../jb53500/">אתר הקורס</a>, באזור "הפרויקט שלי"</li>
+  </ul>
+</div>
+
+<div class="phase">מהגשה 2 לפרויקט הגמר · מוסיפים שכבות לאותה מערכת</div>
+<ol class="road">
+  <li><span class="rn">7</span><h3>בקרת איכות<small>מודול 4 · אתיקה, נגישות ואבטחה</small></h3>
+    <p>עוברים על המערכת החיה ומתקנים בה: שלושה ממצאי נגישות ושני ממצאי אבטחה, כל אחד עם צילום לפני ואחרי.</p>
+  </li>
+  <li><span class="rn">8</span><h3>סוכן AI<small>מודול 5 · נתונים וסוכנים</small></h3>
+    <p>סוכן או צ׳אטבוט שמבצע פעולה אמיתית על המערכת, על הנתונים שלכם. הוא נשאר בגבולות התפקיד שלו, ולא עונה על כל שאלה בעולם.</p>
+  </li>
+  <li><span class="rn">9</span><h3>אוטומציות<small>מודול 6 · תהליכים שרצים בלי אדם</small></h3>
+    <p>לפחות שני תרחישים ב-n8n שרצים באמת. אחד מהם מופעל מטריגר אמיתי, למשל טופס שמישהו ממלא, ומסתיים בתוצאה בלי מגע יד.</p>
+  </li>
+  <li><span class="rn">10</span><h3>מכינים את ההצגה<small>מודול 7 · עשר דקות מול הכיתה</small></h3>
+    <p>הסדר: הבעיה, המשתמש, המוצר החי, הפעולה המרכזית, הסוכן, האוטומציות, ומה למדתם. מתחילים מהבעיה ומהמשתמש, לא מרשימת הכלים.</p>
+  </li>
+</ol>
+
+<div class="gate"><span class="gk">הגשה 3 · 80% · ההצגה היא ההגשה</span>
+  <b class="gt">המערכת עובדת כמכלול אחד</b>
+  <p>נבדק הפרויקט השלם, כולל מה שכבר נבדק בהגשה 2. חלק שיושב בצד, כתרגיל נפרד, לא נספר.</p>
+  <ul>
+    <li>הקישור הסופי נפתח מהטלפון ומדפדפן אחר, והמסע המרכזי עובר מקצה לקצה</li>
+    <li>בסיס נתונים עם הטבלאות והקשרים של המיזם</li>
+    <li>סוכן AI או צ׳אטבוט שמבצע פעולה אמיתית</li>
+    <li>מפת התהליך העסקי, על עמוד אחד</li>
+    <li>שני תרחישי אוטומציה פעילים, ואחד מהם מטריגר אמיתי</li>
+    <li>לפחות שני תיקוני נגישות, אתיקה או אבטחה שבוצעו בפועל</li>
+    <li>סיכום קצר: מה נבנה, מה היה הקושי המרכזי, ואיך פתרתם</li>
+  </ul>
+</div>
+
+<div class="card" style="margin-top:14px"><b>ארבעה כללים, עד ההצגה</b>
+  <ol style="padding-inline-start:18px;margin-top:4px">
+    <li>קומיט אחרי כל שלב שעובד, ולא קומיט אחד בסוף</li>
+    <li>אחרי כל דחיפה פותחים את הקישור בחלון פרטי ובטלפון</li>
+    <li>את בדיקת המפתחות של שלב 11 מריצים על המוצר לפני כל הגשה</li>
+    <li>פרויקט Supabase בחינם מושהה אחרי שבוע בלי פעילות. יום לפני כל הגשה נכנסים לדשבורד, ובודקים שהוא פעיל</li>
+  </ol>
+</div>
+</section>
+
 <nav class="next" aria-label="לאן ממשיכים">
   <a class="nx" href="../jb53500-backend/"><span class="pl">השלב הקודם</span><b>Backend ב-Vercel</b><span>אפליקציית הבדיחות, המפתח של OpenAI, וה-PWA</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
   <a class="nx" href="../jb53500-home/"><span class="pl">53500</span><b>הדף הראשי</b><span>כל התרגילים, הקבצים והמצגות</span><svg class="ic" viewBox="0 0 24 24"><path d="m14.5 5-6.5 7 6.5 7"/></svg></a>
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v8 · 26.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v9 · 26.10.2026</footer>
 
 <script>
 (function(){
