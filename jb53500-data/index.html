@@ -222,6 +222,7 @@ code.w{white-space:normal;word-break:break-word}
 <nav class="osbar" aria-label="קפיצה בדף">
   <a class="jump" href="#why">למה דאטה</a>
   <a class="jump" href="#compare">השוואה</a>
+  <a class="jump" href="#memory">מי זוכר מה</a>
   <a class="jump" href="#partA">גיליון</a>
   <a class="jump" href="#partB">Supabase</a>
   <a class="jump" href="#errors">תקלות</a>
@@ -242,16 +243,18 @@ code.w{white-space:normal;word-break:break-word}
   <div class="fresh"><b>צריך לפני שמתחילים:</b>
     <ul>
       <li>אפליקציית הבדיחות מ<a href="../jb53500-backend/">המפגש הקודם</a>, באוויר ב-Vercel</li>
-      <li>חשבון Google אישי, לא של העבודה</li>
-      <li>חשבון ופרויקט Supabase מתרגיל הבית. אין? <a href="../jb53500-supabase/">שלב 1 בדף Supabase</a></li>
+      <li>בכיתה: שני הקישורים לגיליון של הכיתה, מהקבוצה. גיליון משלכם בונים רק בבית, עם חשבון Google אישי</li>
+      <li>חשבון ופרויקט Supabase מתרגיל הבית. אין? <a href="../jb53500-supabase/#home">הצעד הראשון בדף Supabase</a></li>
+      <li>שני המחברים ב-Claude, <a href="../jb53500-supabase/#connector">Supabase</a> ו-<a href="../jb53500-vercel/#connector">Vercel</a>. כל אחד בצעד "מחברים את המחבר" בדף שלו</li>
     </ul>
   </div>
   <div class="plan" aria-label="מהלך המפגש">
-    <span><b>10 דק׳</b> למה דאטה</span>
-    <span><b>35 דק׳</b> הגיליון</span>
-    <span><b>5 דק׳</b> הקיר</span>
-    <span><b>60 דק׳</b> Supabase</span>
-    <span><b>10 דק׳</b> בדיקות</span>
+    <span><b>12:45</b> בדיחות לגיליון</span>
+    <span><b>14:00</b> הגיליון והקיר</span>
+    <span><b>14:25</b> למה Supabase</span>
+    <span><b>14:40</b> המחברים</span>
+    <span><b>14:55</b> Supabase</span>
+    <span><b>16:00</b> בדיקות ומי זוכר מה</span>
   </div>
 </header>
 
@@ -296,7 +299,7 @@ code.w{white-space:normal;word-break:break-word}
   <text x="280" y="405" text-anchor="middle" font-size="11" class="soft">כותבים וקוראים</text>
   <text x="170" y="450" text-anchor="middle" font-size="12" class="soft">הטלפון לא מדבר עם אף אחד מהשלושה ישירות</text>
 </svg>
-<div class="tip"><b>אותו כלל כמו במפגש הקודם:</b> הדף מדבר רק עם <code>/api</code>. מי שמדבר עם המאגרים הוא השרת, והמפתחות יושבים אצלו.</div>
+<div class="tip"><b>הדפדפן לא מחזיק אף סוד. רק השרת.</b> הדף מדבר רק עם <code>/api</code>. הפונקציה ב-Vercel היא המלצר: הדף מזמין, והמלצר הולך למטבח (OpenAI) ולמקרר (Supabase). המפתח של Supabase הוא פשוט מפתח שני, באותו מקום של המפתח של OpenAI.</div>
 </section>
 
 <section id="compare">
@@ -332,17 +335,45 @@ code.w{white-space:normal;word-break:break-word}
 <div class="note"><b>Google Sheets לא בסטאק של הקורס.</b> הוא כאן כי הוא מצוין לתוכן שאדם מתחזק, ויש לא מעט מוצרים כאלה. בסטאק, החלופה הגיליונית היא Airtable. בסיס הנתונים של הקורס הוא Supabase.</div>
 </section>
 
+<section id="memory">
+<div class="label">03 · מי זוכר מה</div>
+<h2 class="sec">GitHub זוכר איך האפליקציה בנויה. Supabase זוכר מה קרה בה.</h2>
+<p class="sec-lead">שאלה שעלתה בכיתה: אם Supabase כבר שומר, למה צריך גם GitHub? כי כל אחד מהם שומר משהו אחר.</p>
+<div class="cmp">
+  <div><b>GitHub: הקוד, עם גרסאות</b>כל מה שכתוב בקבצים. הדף, הפונקציות בתיקייה <code>api</code>, וגם מבנה הטבלה, כקובץ SQL שנשמר בתיקייה. כל commit הוא גרסה, ואפשר לחזור לכל אחת.</div>
+  <div><b>Supabase: הנתונים, בלי גרסאות</b>המצב של עכשיו: הבדיחות והצחוקים שהמשתמשים יצרו. אין "גרסה קודמת" של הנתונים. בתוכנית החינמית אין גם גיבוי אוטומטי. שורה שנמחקה, נמחקה.</div>
+</div>
+<div class="card"><b>ההדגמה, שתי דקות</b>
+  <ol style="padding-inline-start:18px;margin-top:4px">
+    <li>מחזירים ב-GitHub את הקומיט האחרון. הקוד חוזר לגרסה הקודמת, והבדיחות בטבלה נשארות במקום</li>
+    <li>מוחקים שורה אחת ב-Table Editor. שום commit לא מחזיר אותה</li>
+  </ol>
+</div>
+<div class="tip"><b>מי מחובר למי:</b> GitHub מחובר ל-Vercel, וכל push הופך לפריסה. Vercel מחובר ל-Supabase דרך המפתחות. GitHub ו-Supabase לא צריכים לדבר ביניהם בקורס. GitHub הוא עמוד השדרה של הקוד, לא המרכזייה של הכול.</div>
+<div class="note"><b>ומה עם "הגרסאות" ב-Supabase?</b> רשימת ה-migrations מתעדת שינויים במבנה הטבלאות, לא בנתונים עצמם. לכן Claude שומר כל migration גם כקובץ בתיקיית הפרויקט, וככה המבנה נכנס ל-GitHub יחד עם הקוד.</div>
+</section>
+
 <!-- ========== PART A ========== -->
 <div class="part g" id="partA">
-  <div class="pl">חלק א · חמישה שלבים · כ-35 דקות</div>
+  <div class="pl">חלק א · חמישה שלבים · כ-25 דקות</div>
   <h2>בדיחה אקראית מגיליון</h2>
-  <p>גיליון אחד, קישור אחד, פונקציה אחת. האפליקציה רק קוראת.</p>
+  <p>גיליון אחד לכל הכיתה, קישור אחד, פונקציה אחת. האפליקציה רק קוראת.</p>
 </div>
 <section class="trackA">
 
 <article class="step" data-s="s1">
-  <div class="sh"><span class="n">1</span><h3>יוצרים גיליון<small>עשיתם את <a href="../jb53500-sheets/">תרגיל הבית של Sheets</a>? מסמנים את 1 ו-2 וממשיכים</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">1</span><h3>מוסיפים בדיחות לגיליון של הכיתה<small>בכיתה כולם כותבים לאותו גיליון. בבית, גיליון משלכם</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
+    <ol>
+      <li>פותחים את קישור העריכה של הגיליון <code>joke-bank</code>, מהקבוצה של הכיתה</li>
+      <li>מוסיפים שתי שורות בסוף: נושא בעמודה <code>topic</code>, והבדיחה בעמודה <code>text</code></li>
+      <li>לא נוגעים בשורה 1. אלה הכותרות</li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> השורות שלכם בגיליון, ליד הבדיחות של כל הכיתה.</p>
+    <div class="tip"><b>בכיתה עושים את זה לפני הצהריים.</b> קישור ה-CSV מתעדכן באיחור של כמה דקות. אחרי ההפסקה, הבדיחות של כולם כבר שם.</div>
+    <div class="tip"><b>שמות הכותרות באנגלית, התוכן בעברית.</b> הקוד מחפש עמודה בשם <code>text</code>. מי שמשנה את השם, שובר את האפליקציה. זה בדיוק אחד החסרונות של גיליון.</div>
+    <details class="err more"><summary><span class="pm">+</span><u>בבית, או בלי כיתה: בונים גיליון משלכם</u></summary><div>
+    <p>עשיתם את <a href="../jb53500-sheets/">תרגיל הבית של Sheets</a>? הגיליון כבר קיים, ממשיכים לשלב 2.</p>
     <ol>
       <li>נכנסים ל-<a href="https://sheets.new" target="_blank" rel="noopener">sheets.new</a>, עם חשבון Google אישי</li>
       <li>קוראים לגיליון <code>joke-bank</code></li>
@@ -355,22 +386,25 @@ code.w{white-space:normal;word-break:break-word}
 מזג אוויר	בישראל יש שתי עונות: קיץ, ושבוע שבו כולם מדברים על החורף.
 AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא ביקש עוד פרטים על התפקיד.</pre></div>
     <p class="see"><b>אמור להופיע:</b> בשורה 1 הכותרות <code>topic</code> ו-<code>text</code>, ומתחתן חמש בדיחות. הוסיפו עוד כמה משלכם.</p>
-    <div class="tip"><b>שמות הכותרות באנגלית, התוכן בעברית.</b> הקוד מחפש עמודה בשם <code>text</code>. מי שמשנה את השם, שובר את האפליקציה. זה בדיוק אחד החסרונות של גיליון.</div>
+    </div></details>
   </div>
 </article>
 
 <article class="step" data-s="s2">
-  <div class="sh"><span class="n">2</span><h3>מפרסמים אותו כ-CSV<small>הופכים גיליון לכתובת שהשרת יכול לקרוא</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">2</span><h3>לוקחים את קישור ה-CSV<small>בכיתה מהקבוצה. בבית מפרסמים בעצמכם</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
+    <p><b>בכיתה:</b> מעתיקים מהקבוצה את הקישור השני, קישור ה-CSV של הגיליון. זו הכתובת שהשרת קורא.</p>
+    <p class="see"><b>אמור להופיע:</b> קישור שמסתיים ב-<code>output=csv</code>. פותחים אותו בלשונית חדשה, ורואים את הבדיחות מופרדות בפסיקים, או שהקובץ יורד.</p>
+    <div class="warn"><b>פרסום פותח את התוכן לכל מי שיש לו את הקישור,</b> גם אם הגיליון עצמו לא משותף עם אף אחד. בגיליון כזה שמים רק תוכן שמותר לכל העולם לראות. אף פעם לא שמות, טלפונים או מיילים.</div>
+    <details class="err more"><summary><span class="pm">+</span><u>בבית: מפרסמים גיליון משלכם כ-CSV</u></summary><div>
     <ol>
       <li>בתפריט: <b>File</b>, ואז <b>Share</b>, ואז <b>Publish to web</b>. בממשק בעברית: קובץ, שיתוף, פרסום באינטרנט</li>
       <li>בתיבה הראשונה בוחרים את שם הגיליון, במקום כל המסמך</li>
       <li>בתיבה השנייה בוחרים <b>Comma-separated values (.csv)</b></li>
       <li>לוחצים <b>Publish</b>, מאשרים, ומעתיקים את הקישור</li>
     </ol>
-    <p class="see"><b>אמור להופיע:</b> קישור שמסתיים ב-<code>output=csv</code>. פותחים אותו בלשונית חדשה, ורואים את הבדיחות מופרדות בפסיקים, או שהקובץ יורד.</p>
-    <div class="warn"><b>פרסום פותח את התוכן לכל מי שיש לו את הקישור,</b> גם אם הגיליון עצמו לא משותף עם אף אחד. בגיליון כזה שמים רק תוכן שמותר לכל העולם לראות. אף פעם לא שמות, טלפונים או מיילים.</div>
     <div class="tip"><b>אין לכם Publish to web?</b> בחשבון של עבודה או של לימודים, המנהל עלול לחסום פרסום. עובדים עם חשבון Gmail אישי.</div>
+    </div></details>
   </div>
 </article>
 
@@ -413,10 +447,10 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
     <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>תעשה commit עם ההודעה "<span class="l">random joke from sheet</span>" ותדחוף ל-main.</pre></div>
     <ol>
       <li>מחכים שהפריסה ב-Vercel תהיה <b>Ready</b>, ולוחצים כמה פעמים על הכפתור החדש</li>
-      <li><b>בדיקה 1, העיכוב:</b> משנים בדיחה בגיליון, ולוחצים שוב. הישנה תופיע עוד כמה דקות. Google מעדכן את הקישור באיחור, והפונקציה שומרת עותק לדקה</li>
+      <li><b>בדיקה 1, העיכוב:</b> מוסיפים בדיחה חדשה לגיליון, ולוחצים שוב. היא תופיע רק אחרי כמה דקות. Google מעדכן את הקישור באיחור, והפונקציה שומרת עותק לדקה</li>
       <li><b>בדיקה 2, הפרטיות:</b> פותחים את קישור ה-CSV בחלון גלישה בסתר. כל אחד יכול לקרוא אותו, בלי להתחבר</li>
     </ol>
-    <p class="see"><b>אמור להופיע:</b> בדיחה מהגיליון, עם הכיתוב "מהמאגר". בלי כפתור "צחקתי", כי אין איפה לשמור צחוק.</p>
+    <p class="see"><b>אמור להופיע:</b> בדיחה מהגיליון, עם הכיתוב "מהמאגר". בדיחות של כל הכיתה מופיעות אצל כולם, בלי commit ובלי deploy. ובלי כפתור "צחקתי", כי אין איפה לשמור צחוק.</p>
   </div>
 </article>
 </section>
@@ -455,10 +489,10 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </article>
 
 <article class="step" data-s="s7">
-  <div class="sh"><span class="n">7</span><h3>מדליקים את המחבר של Supabase<small>חיברתם בתרגיל הבית? מסמנים וממשיכים</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">7</span><h3>מדליקים את המחבר של Supabase<small>חיברתם בבית? רק מוודאים שהוא דולק בתיקייה</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
-      <li>ב-Claude: <b>Customize</b> בסרגל הצד, ואז <b>Connectors</b>. מחפשים <b>Supabase</b>, לוחצים <b>Connect</b>, ומתחברים בדפדפן שנפתח</li>
+      <li>עוד לא חיברתם? <a href="../jb53500-supabase/#connector">הצעד "מחברים את המחבר" בדף Supabase</a>, כחמש דקות</li>
       <li>בלשונית <b>Code</b> פותחים את התיקייה <code>joke-app</code></li>
       <li>במצב ההרשאות, ליד כפתור השליחה, בוחרים <b>Manual</b></li>
       <li>לוחצים על ה-<b>+</b> שליד תיבת ההודעה, <b>Connectors</b>, ומוודאים ש-Supabase דולק</li>
@@ -477,6 +511,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 3. grant select, insert, update על הטבלה ל-service_role בלבד, ו-revoke all מ-anon ומ-authenticated.
 4. פונקציה <span class="l">public.add_laugh(joke_id uuid)</span> שמחזירה integer: מעלה את laughs ב-1 ומחזירה את המספר החדש. security invoker, עם search_path ריק ושמות מלאים.
 5. revoke execute על הפונקציה מ-public, מ-anon ומ-authenticated, ו-grant execute ל-service_role.
+6. שמור את אותו SQL גם כקובץ <span class="l">db/create_jokes.sql</span> בתיקייה, כדי שמבנה הטבלה ייכנס ל-GitHub יחד עם הקוד.
 לפני ההרצה הראה לי את ה-SQL המלא. אחרי ההרצה הרץ get_advisors, ותגיד לי בעברית פשוטה מה הוא מצא.</pre></div>
     <p><b>קוראים לפני שמאשרים.</b> Claude יציג את <code>apply_migration</code> עם ה-SQL. מחפשים חמישה דברים:</p>
     <ul class="readsql">
@@ -486,7 +521,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
       <li><code>from anon, authenticated</code> ב-revoke: הדפדפן בחוץ</li>
       <li><code>set search_path = ''</code> בפונקציה</li>
     </ul>
-    <p class="see"><b>אמור להופיע:</b> אחרי האישור, Claude מדווח שה-migration הצליח. מ-get_advisors צפויה הערה אחת: RLS דולק בלי policy. זה בכוונה.</p>
+    <p class="see"><b>אמור להופיע:</b> אחרי האישור, Claude מדווח שה-migration הצליח, והקובץ <code>db/create_jokes.sql</code> נמצא בתיקייה. מ-get_advisors צפויה הערה אחת: RLS דולק בלי policy. זה בכוונה.</p>
     <div class="note"><b>למה צריך grant בכלל?</b> מ-30.10.2026 Supabase כבר לא פותחת טבלה חדשה לגישה מבחוץ אוטומטית, גם לא לשרת. בלי השורה הזו, השרת שלכם יקבל <code class="w">42501 permission denied for table jokes</code>. מדריכים וסרטונים ישנים לא מזכירים את זה.</div>
   </div>
 </article>
@@ -592,13 +627,14 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
       <li><b>בבודק הנעילה, בשלב 9:</b> עדיין "נעול". גם עכשיו, כשיש בטבלה שורות</li>
     </ol>
     <p class="see"><b>אמור להופיע:</b> האפליקציה זוכרת. והעולם עדיין לא יכול לקרוא את מה שהיא זוכרת.</p>
+    <div class="tip"><b>הפריסה נכשלה?</b> מי שחיבר את <a href="../jb53500-vercel/#connector">המחבר של Vercel</a> לא צריך לחפש בלוגים. כותבים ל-Claude: "בדוק דרך המחבר של Vercel את הפריסה האחרונה. אם היא נכשלה, הסבר את השגיאה מהלוג במשפט אחד. אל תשנה כלום."</div>
     <div class="tip"><b>ניסוי בונוס:</b> בקשו מחבר לפתוח את האפליקציה בטלפון שלו ולצחוק על בדיחה שלכם. היא תעלה אצלכם ברשימה. זה ההבדל בין זיכרון של מכשיר לזיכרון של מוצר.</div>
   </div>
 </article>
 </section>
 
 <section id="errors">
-<div class="label">03 · כשמשהו לא עובד</div>
+<div class="label">04 · כשמשהו לא עובד</div>
 <h2 class="sec">מה כתוב, ומה עושים</h2>
 <p class="sec-lead">ההודעה בדף אומרת איפה לחפש. הפרטים המלאים תמיד ב-Logs של Vercel.</p>
 
@@ -648,7 +684,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </section>
 
 <section id="security">
-<div class="label">04 · אבטחה</div>
+<div class="label">05 · אבטחה</div>
 <h2 class="sec">מה מגן עליכם, ומה עוד לא</h2>
 <div class="cards">
   <div class="card"><b>המפתח הסודי</b>עוקף את כל המנעולים, ולכן הוא רק ב-Vercel, כ-Secret. Supabase אפילו מסרבת לו כשהוא מגיע מדפדפן. דלף? יוצרים מפתח חדש ב-API Keys, מעדכנים ב-Vercel, עושים Redeploy, ורק אז מוחקים את הישן.</div>
@@ -660,7 +696,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </section>
 
 <section id="more">
-<div class="label">05 · להעמקה</div>
+<div class="label">06 · להעמקה</div>
 
 <details class="err more" id="rndsb"><summary><span class="pm">+</span><u>גם הבדיחה האקראית מ-Supabase</u></summary><div>
   <p>אחרי שהטבלה מתמלאת, אפשר להגריל ממנה במקום מהגיליון:</p>
@@ -725,7 +761,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v3 · 24.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v4 · 26.10.2026</footer>
 
 <script>
 (function(){

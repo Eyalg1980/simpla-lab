@@ -187,6 +187,7 @@ details.err>div ul{padding-inline-start:18px;margin-bottom:8px}
 </div>
 <div class="osbar">
   <a class="jump" href="#home">בבית</a>
+  <a class="jump" href="#connector">המחבר</a>
   <a class="jump" href="#class">בכיתה</a>
   <a class="jump" href="#partB">המוצר</a>
   <span class="prog" id="prog"></span>
@@ -195,8 +196,8 @@ details.err>div ul{padding-inline-start:18px;margin-bottom:8px}
 <header class="hero">
   <span class="kicker">תרגיל התקנה בבית · 3 מתוך 5</span>
   <h1>Supabase <b>חשבון ופרויקט</b></h1>
-  <p class="lead">כעשר דקות. פותחים חשבון, ארגון ופרויקט אחד.</p>
-  <p class="fresh"><b>עודכן ב-24.10.2026.</b> הטבלאות נעולות לעולם, ורק הפונקציות ב-Vercel ניגשות אליהן, עם המפתח הסודי. הדפדפן כבר לא מדבר עם Supabase ישירות.</p>
+  <p class="lead">כרבע שעה. פותחים חשבון, ארגון ופרויקט אחד, ומחברים את Supabase ל-Claude.</p>
+  <p class="fresh"><b>עודכן ב-26.10.2026:</b> חיבור המחבר ל-Claude עבר לבית, כצעד שני. <b>מ-24.10.2026:</b> הטבלאות נעולות לעולם, ורק הפונקציות ב-Vercel ניגשות אליהן, עם המפתח הסודי. הדפדפן כבר לא מדבר עם Supabase ישירות.</p>
 </header>
 
 <div class="idea">
@@ -225,7 +226,29 @@ details.err>div ul{padding-inline-start:18px;margin-bottom:8px}
   </div>
 </article>
 
-<div class="donew" id="doneBox"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><div><b>סיימתם כש:</b> מסך הבית של הפרויקט נפתח, והסיסמה של בסיס הנתונים שמורה אצלכם.</div></div>
+<article class="step" data-s="a2" id="connector">
+  <div class="sh"><span class="n"><svg class="ic" viewBox="0 0 24 24"><path d="M4 11.5 12 4l8 7.5M6.5 9.8V20h11V9.8M10 20v-5.5h4V20"/></svg></span><h2>מחברים את Supabase ל-Claude<small>המחבר: Claude בונה ובודק טבלאות, ואתם מאשרים כל פעולה</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="body">
+    <p>מחבר (Connector) נותן ל-Claude גישה לחשבון ה-Supabase שלכם. במקום לפתוח טבלאות ביד בדשבורד, מבקשים מ-Claude, והוא מציג כל פעולה לפני שהיא רצה.</p>
+    <ol>
+      <li>ב-Claude Desktop לוחצים <b>Customize</b> בסרגל הצד, ואז <b>Connectors</b></li>
+      <li>לוחצים על ה-<b>+</b>, מחפשים <b>Supabase</b>, ולוחצים <b>Connect</b></li>
+      <li>בדפדפן שנפתח מתחברים ל-Supabase, ובוחרים את <b>הארגון של הקורס</b>, לא ארגון אחר</li>
+      <li>חוזרים ל-Claude. Supabase מופיע ברשימת המחברים, מחובר</li>
+    </ol>
+    <p>מחבר שחיברתם ב-Claude זמין לבד גם בלשונית <b>Code</b>, כל עוד אתם מחוברים לאותו חשבון. לא מחברים פעמיים.</p>
+    <p class="see"><b>בדיקה מהירה:</b> שואלים את Claude "אילו פרויקטים יש לי ב-Supabase?". הפרויקט שפתחתם בצעד הקודם מופיע בתשובה.</p>
+    <div class="locks">
+      <div class="lock"><b>מה הוא יודע</b>לבנות טבלאות, להריץ SQL, לקרוא לוגים, ולהריץ בדיקת אבטחה על הפרויקט</div>
+      <div class="lock"><b>מה הוא לא יודע</b>לקרוא את המפתח הסודי. אותו מעתיקים ביד, ורק ל-Vercel</div>
+      <div class="lock"><b>איך עובדים איתו</b>במצב Manual. קוראים כל פעולה לפני שמאשרים</div>
+    </div>
+    <div class="warn"><b>המחבר מקבל את הגישה שיש לכם בארגון שבחרתם.</b> Supabase עצמם מגדירים אותו ככלי לפרויקטים של פיתוח ובדיקות. לכן ארגון נפרד לקורס, רק נתוני דוגמה, ולא מאשרים "תמיד" לפעולה שכותבת.</div>
+    <div class="tip"><b>פרויקט עם נתונים אמיתיים, בעבודה למשל?</b> שם מחברים את Supabase במצב קריאה בלבד (read only), כדי ש-Claude לא יוכל לשנות כלום. בקורס לא צריך.</div>
+  </div>
+</article>
+
+<div class="donew" id="doneBox"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><div><b>סיימתם כש:</b> מסך הבית של הפרויקט נפתח, הסיסמה של בסיס הנתונים שמורה אצלכם, ו-Claude עונה על "אילו פרויקטים יש לי ב-Supabase?" עם הפרויקט שלכם.</div></div>
 </section>
 
 <div class="label" id="class">בכיתה · לא צריך להכין בבית</div>
@@ -267,11 +290,10 @@ details.err>div ul{padding-inline-start:18px;margin-bottom:8px}
 </article>
 
 <article class="step" data-s="q2">
-  <div class="sh"><span class="n">ב2</span><h2>מחברים את Supabase ל-Claude, ומדליקים את המחבר<small>חיברתם במפגש הדאטה? מסמנים וממשיכים</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">ב2</span><h2>מחברים את Supabase ל-Claude, ומדליקים את המחבר<small>חיברתם בבית? רק מוודאים שהוא דולק בתיקייה</small></h2><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
-      <li>ב-Claude Desktop לוחצים <b>Customize</b> בסרגל הצד, ואז <b>Connectors</b></li>
-      <li>לוחצים על ה-<b>+</b>, מחפשים <b>Supabase</b>, ולוחצים <b>Connect</b>. בדפדפן שנפתח בוחרים את <b>הארגון של הקורס</b>, לא ארגון אחר</li>
+      <li>עוד לא חיברתם? <a href="#connector">הצעד "מחברים את Supabase ל-Claude"</a>, בחלק "בבית" למעלה</li>
       <li>בלשונית <b>Code</b> בוחרים <b>Local</b>, ואז את תיקיית המוצר</li>
       <li>במצב ההרשאות, ליד כפתור השליחה, בוחרים <b>Manual</b></li>
       <li>לוחצים על ה-<b>+</b> שליד תיבת ההודעה, בוחרים <b>Connectors</b>, ומוודאים ש-Supabase דולק</li>
@@ -468,7 +490,7 @@ export function getSupabase() {
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v4 · 24.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v5 · 26.10.2026</footer>
 
 <script>
 (function(){
