@@ -456,8 +456,8 @@ code.w{white-space:normal;word-break:break-word}
 
 מיילסטון 4, בדיחה מהמאגר:
 - כפתור שני מתחת לכפתור הקיים: "בדיחה אקראית מהמאגר".
-- לפני הקוד: בקש ממני את קישור העריכה של הגיליון, וקרא דרך המחבר של Google Sheets את שורה 1 ואת שלוש השורות הראשונות בלשונית JOKES, כדי שהקוד יתאים לגיליון האמיתי. את הקישור אל תשמור באף קובץ.
-- פונקציה api/random.js שקוראת גיליון Google שמפורסם כ-CSV, עם הכותרות TOPIC ו-TEXT. את הכותרות קרא בלי תלות באותיות גדולות או קטנות. הכתובת מגיעה מ-process.env.SHEET_CSV_URL, ולא כתובה בשום קובץ.
+- לפני הקוד: בקש ממני את קישור העריכה של הגיליון, וקרא דרך המחבר של Google Sheets את שורה 1 ואת שלוש השורות הראשונות בלשונית jokes, כדי שהקוד יתאים לגיליון האמיתי. את הקישור אל תשמור באף קובץ.
+- פונקציה api/random.js שקוראת גיליון Google שמפורסם כ-CSV, עם הכותרות topic ו-text. את הכותרות קרא בלי תלות באותיות גדולות או קטנות. הכתובת מגיעה מ-process.env.SHEET_CSV_URL, ולא כתובה בשום קובץ.
 - פענוח CSV אמיתי: בדיחה יכולה להכיל פסיקים, מירכאות ושורות חדשות.
 - הפונקציה שומרת את הגיליון בזיכרון לדקה. הבדיחה מוצגת עם textContent.
 - הודעות קצרות בעברית כשחסרה כתובת, כשהגיליון לא מפורסם כ-CSV, וכשהוא ריק. הפרטים ב-console.error.
@@ -487,15 +487,15 @@ code.w{white-space:normal;word-break:break-word}
     </ol>
     <p><b>מוסיפים שתי בדיחות, ביד:</b></p>
     <ol>
-      <li>פותחים את קישור העריכה של <code>joke-bank</code> מהקבוצה, בלשונית <code>JOKES</code></li>
-      <li>מוסיפים שתי שורות בסוף: נושא בעמודה <code>TOPIC</code>, והבדיחה בעמודה <code>TEXT</code>. בשורה 1 לא נוגעים</li>
+      <li>פותחים את קישור העריכה של <code>joke-bank</code> מהקבוצה, בלשונית <code>jokes</code></li>
+      <li>מוסיפים שתי שורות בסוף: נושא בעמודה <code>topic</code>, והבדיחה בעמודה <code>text</code>. בשורה 1 לא נוגעים</li>
     </ol>
     <p><b>בודקים ש-Claude רואה את הגיליון:</b></p>
-    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>דרך המחבר של Google Sheets, פתח את הגיליון שבקישור למטה, בלשונית JOKES.
+    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>דרך המחבר של Google Sheets, פתח את הגיליון שבקישור למטה, בלשונית jokes.
 כמה בדיחות יש בו, מה הכותרות בשורה 1, ומה שתי השורות האחרונות?
 אל תשנה כלום בגיליון.
 [כאן מדביקים את קישור העריכה מהקבוצה]</pre></div>
-    <p class="see"><b>אמור להופיע:</b> הכותרות <code>TOPIC</code> ו-<code>TEXT</code>, מספר הבדיחות, ושתי הבדיחות שלכם בסוף. Claude ביקש אישור רק לקריאה.</p>
+    <p class="see"><b>אמור להופיע:</b> הכותרות <code>topic</code> ו-<code>text</code>, מספר הבדיחות, ושתי הבדיחות שלכם בסוף. Claude ביקש אישור רק לקריאה.</p>
     <div class="tip"><b>למה כותבים ביד, ולא דרך Claude?</b> כל הכיתה כותבת לאותו גיליון באותה דקה. Claude מחפש את השורה הריקה ואז כותב בה, ובינתיים מישהו אחר כבר כתב שם. כך נדרסת בדיחה של חבר. ביד, Google מסנכרן את זה לבד. זו בדיוק הבעיה שהפונקציה <code>add_laugh</code> פותרת ב-Milestone 5.</div>
     <div class="tip"><b>בכיתה עושים את זה לפני הצהריים.</b> קישור ה-CSV מתעדכן באיחור של כמה דקות. אחרי ההפסקה, הבדיחות של כולם כבר שם.</div>
     <details class="err more"><summary><span class="pm">+</span><u>מה המחבר עושה, ומה לא</u></summary><div>
@@ -506,27 +506,27 @@ code.w{white-space:normal;word-break:break-word}
         <li><b>Manual:</b> קריאה מאשרים. כתיבה מאשרים רק אחרי שקראתם מה ייכתב ובאיזה טווח</li>
       </ul>
       <p><b>Claude אומר שאין לו גישה לגיליון?</b> בודקים שהדבקתם את קישור העריכה ולא את קישור ה-CSV, ושנכנסתם למחבר עם אותו חשבון שבו פתחתם את הגיליון.</p>
-      <p><b>שמות הכותרות באנגלית, התוכן בעברית.</b> הקוד מחפש עמודה בשם <code>TEXT</code>, באותיות גדולות או קטנות. מי שמשנה את השם, שובר את האפליקציה לכל הכיתה. זה אחד החסרונות של גיליון.</p>
+      <p><b>שמות הכותרות באנגלית, התוכן בעברית.</b> הקוד מחפש עמודה בשם <code>text</code>, באותיות גדולות או קטנות. מי שמשנה את השם, שובר את האפליקציה לכל הכיתה. זה אחד החסרונות של גיליון.</p>
     </div></details>
     <details class="err more"><summary><span class="pm">+</span><u>בבית, או בלי כיתה: גיליון משלכם, ו-Claude ממלא אותו</u></summary><div>
     <ol>
       <li>נכנסים ל-<a href="https://sheets.new" target="_blank" rel="noopener">sheets.new</a>, עם חשבון Google אישי</li>
-      <li>קוראים לגיליון <code>joke-bank</code>, וללשונית <code>JOKES</code></li>
+      <li>קוראים לגיליון <code>joke-bank</code>, וללשונית <code>jokes</code></li>
       <li>מעתיקים את הקישור מהדפדפן, ושולחים ל-Claude:</li>
     </ol>
-    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>דרך המחבר של Google Sheets, בגיליון שבקישור למטה, בלשונית JOKES:
-בשורה 1 כתוב את הכותרות TOPIC ו-TEXT, ומתחתן חמש בדיחות קצרות בעברית, כל אחת עם נושא.
+    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>דרך המחבר של Google Sheets, בגיליון שבקישור למטה, בלשונית jokes:
+בשורה 1 כתוב את הכותרות topic ו-text, ומתחתן חמש בדיחות קצרות בעברית, כל אחת עם נושא.
 לפני שאתה כותב, הצג לי את הטווח ואת התוכן.
 [כאן מדביקים את הקישור לגיליון]</pre></div>
     <p>בגיליון שרק אתם כותבים בו, Claude יכול לכתוב בבטחה. אין מי שיידרס.</p>
     <p><b>בלי מחבר:</b> מעתיקים את הבלוק, ומדביקים בתא A1. כל שורה נכנסת לשורה, וכל עמודה לעמודה.</p>
-    <div class="tsv"><span class="pt">להדבקה בתא A1</span><button class="cp" type="button">העתק</button><pre>TOPIC	TEXT
+    <div class="tsv"><span class="pt">להדבקה בתא A1</span><button class="cp" type="button">העתק</button><pre>topic	text
 מחשבים	המחשב שלי כמו ארון: מלא בדברים שאני לא זוכר למה שמרתי.
 חתולים	חתול לא מפיל דברים מהשולחן. הוא בודק שכוח המשיכה עדיין עובד.
 אוכל	הדיאטה שלי הולכת מצוין. כבר שלושה ימים שאני חושב עליה.
 מזג אוויר	בישראל יש שתי עונות: קיץ, ושבוע שבו כולם מדברים על החורף.
 AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא ביקש עוד פרטים על התפקיד.</pre></div>
-    <p class="see"><b>אמור להופיע:</b> בשורה 1 הכותרות <code>TOPIC</code> ו-<code>TEXT</code>, ומתחתן חמש בדיחות. את הפרסום כ-CSV עושים בשלב 3.</p>
+    <p class="see"><b>אמור להופיע:</b> בשורה 1 הכותרות <code>topic</code> ו-<code>text</code>, ומתחתן חמש בדיחות. את הפרסום כ-CSV עושים בשלב 3.</p>
     </div></details>
   </div>
 </article>
@@ -546,7 +546,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
     <details class="err more"><summary><span class="pm">+</span><u>בבית: מפרסמים גיליון משלכם כ-CSV</u></summary><div>
     <ol>
       <li>בתפריט: <b>File</b>, ואז <b>Share</b>, ואז <b>Publish to web</b>. בממשק בעברית: קובץ, שיתוף, פרסום באינטרנט</li>
-      <li>בתיבה הראשונה בוחרים את הלשונית <code>JOKES</code>, במקום כל המסמך</li>
+      <li>בתיבה הראשונה בוחרים את הלשונית <code>jokes</code>, במקום כל המסמך</li>
       <li>בתיבה השנייה בוחרים <b>Comma-separated values (.csv)</b></li>
       <li>לוחצים <b>Publish</b>, מאשרים, ומעתיקים את הקישור</li>
     </ol>
@@ -741,7 +741,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
   <p>אין ב-Vercel משתנה בשם <code>SHEET_CSV_URL</code>, או שלא הייתה פריסה מאז שהוספתם אותו. בודקים את השם, ועושים Redeploy.</p>
 </div></details>
 <details class="err"><summary><span class="pm">+</span><u>"הגיליון ריק"</u></summary><div>
-  <p>בשורה 1 צריכות להיות הכותרות <code>TOPIC</code> ו-<code>TEXT</code>, והבדיחות בעמודה <code>TEXT</code>. כותרת בעברית או עם רווח שוברת את החיפוש. ואם בחרתם בפרסום לשונית אחרת, בוחרים שוב את <code>JOKES</code>.</p>
+  <p>בשורה 1 צריכות להיות הכותרות <code>topic</code> ו-<code>text</code>, והבדיחות בעמודה <code>text</code>. כותרת בעברית או עם רווח שוברת את החיפוש. ואם בחרתם בפרסום לשונית אחרת, בוחרים שוב את <code>jokes</code>.</p>
 </div></details>
 <details class="err"><summary><span class="pm">+</span><u>שיניתי בדיחה בגיליון, ובאפליקציה עדיין הישנה</u></summary><div>
   <p>צפוי. Google מעדכן את הקישור תוך כמה דקות, והפונקציה שומרת עותק לדקה. בהגדרות הפרסום מוודאים ש-<b>Automatically republish when changes are made</b> מסומן.</p>
@@ -1013,7 +1013,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v9 · 26.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v10 · 26.10.2026</footer>
 
 <script>
 (function(){
