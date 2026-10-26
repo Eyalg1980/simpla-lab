@@ -245,6 +245,7 @@ code.w{white-space:normal;word-break:break-word}
 .gate ul{padding-inline-start:18px;margin:4px 0 6px}
 .gate li{margin-bottom:3px}
 .tbl.wrap td:first-child{white-space:normal}
+.prompt pre{overflow-wrap:anywhere}
 </style>
 </head>
 <body>
@@ -507,33 +508,32 @@ code.w{white-space:normal;word-break:break-word}
 </article>
 
 <article class="step" data-s="d2" id="sheets">
-  <div class="sh"><span class="n">2</span><h3>המחבר של Google Sheets, ושתי בדיחות לגיליון<span class="mt">Milestone 4</span><small>Claude רואה את הגיליון. את הבדיחות כותבים ביד</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">2</span><h3>המחבר של Google Sheets, ושתי בדיחות לגיליון<span class="mt">Milestone 4</span><small>Claude כותב לגיליון של הכיתה, וקורא ממנו</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <p><b>מחברים, פעם אחת:</b></p>
     <ol>
       <li>ב-Claude Desktop לוחצים <b>Customize</b>, ואז <b>Connectors</b>. לוחצים על ה-<b>+</b>, מחפשים <b>Google Sheets</b>, לוחצים <b>Connect</b>, ונכנסים עם חשבון Google האישי</li>
       <li>בלשונית <b>Code</b>, בתיקייה <code>joke-app</code>: ב-<b>+</b> שליד תיבת ההודעה, <b>Connectors</b>, ומוודאים ש-Google Sheets דולק. מצב ההרשאות נשאר <b>Manual</b></li>
     </ol>
-    <p><b>מוסיפים שתי בדיחות, ביד:</b></p>
-    <ol>
-      <li>פותחים את <a href="https://docs.google.com/spreadsheets/d/1KcfReqH2alk3apKi3-C1rBe4rwKeNTTS9hl8f6m8Yy8/edit?usp=sharing" target="_blank" rel="noopener">הגיליון <code>joke-bank</code></a>, בלשונית <code>jokes</code></li>
-      <li>מוסיפים שתי שורות בסוף: נושא בעמודה <code>topic</code>, והבדיחה בעמודה <code>text</code>. בשורה 1 לא נוגעים</li>
-    </ol>
-    <p><b>בודקים ש-Claude רואה את הגיליון:</b></p>
-    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>דרך המחבר של Google Sheets, פתח את הגיליון שבקישור למטה, בלשונית jokes.
-כמה בדיחות יש בו, מה הכותרות בשורה 1, ומה שתי השורות האחרונות?
-אל תשנה כלום בגיליון.
+    <p><b>Claude מוסיף שתי בדיחות לגיליון של הכיתה.</b> כותבים במקום הסוגריים שתי בדיחות קצרות משלכם, ושולחים:</p>
+    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>דרך המחבר של Google Sheets, הוסף שתי בדיחות לגיליון שבקישור למטה, בלשונית jokes.
+השתמש ב-append_values, כדי שהשורות ייכנסו בסוף הטבלה. אל תכתוב לשורה מסוימת, ואל תשנה שורות קיימות.
+בעמודה topic הנושא, ובעמודה text הבדיחה:
+1. הנושא: [כאן], הבדיחה: [כאן]
+2. הנושא: [כאן], הבדיחה: [כאן]
+לפני הכתיבה הצג לי מה תוסיף. אחרי הכתיבה קרא את הגיליון, ואמור לי כמה בדיחות יש בו ואם שתי הבדיחות שלי בסוף.
 הקישור: https://docs.google.com/spreadsheets/d/1KcfReqH2alk3apKi3-C1rBe4rwKeNTTS9hl8f6m8Yy8/edit?usp=sharing</pre></div>
-    <p class="see"><b>אמור להופיע:</b> הכותרות <code>topic</code> ו-<code>text</code>, מספר הבדיחות, ושתי הבדיחות שלכם בסוף. Claude ביקש אישור רק לקריאה.</p>
-    <div class="tip"><b>למה כותבים ביד, ולא דרך Claude?</b> כל הכיתה כותבת לאותו גיליון באותה דקה. Claude מחפש את השורה הריקה ואז כותב בה, ובינתיים מישהו אחר כבר כתב שם. כך נדרסת בדיחה של חבר. ביד, Google מסנכרן את זה לבד. זו בדיוק הבעיה שהפונקציה <code>add_laugh</code> פותרת ב-Milestone 5.</div>
+    <p class="see"><b>אמור להופיע:</b> Claude מציג את שתי השורות ומבקש אישור ל-<code>append_values</code>. אחרי האישור הוא מדווח כמה בדיחות יש, ושתי שלכם בסוף. בדיקה בעיניים: <a href="https://docs.google.com/spreadsheets/d/1KcfReqH2alk3apKi3-C1rBe4rwKeNTTS9hl8f6m8Yy8/edit?usp=sharing" target="_blank" rel="noopener">פותחים את הגיליון</a>.</p>
+    <div class="tip"><b>למה דווקא append_values?</b> כל הכיתה כותבת לאותו גיליון באותה דקה. <code>append_values</code> מבקש מ-Google להוסיף בסוף הטבלה, ו-Google מסדר את התור בצד שלו, כך שאף אחד לא נדרס. כתיבה לשורה מסוימת הייתה דורסת: Claude מחפש שורה ריקה, ובינתיים מישהו אחר כבר כתב בה. זו בדיוק הבעיה שהפונקציה <code>add_laugh</code> פותרת ב-Milestone 5.</div>
     <div class="tip"><b>בכיתה עושים את זה לפני הצהריים.</b> קישור ה-CSV מתעדכן באיחור של כמה דקות. אחרי ההפסקה, הבדיחות של כולם כבר שם.</div>
     <details class="err more"><summary><span class="pm">+</span><u>מה המחבר עושה, ומה לא</u></summary><div>
       <ul>
         <li><b>מה הוא יודע:</b> לקרוא תאים, לכתוב בהם ולהוסיף שורות, בכל גיליון שהחשבון שלכם רואה</li>
         <li><b>מה הוא לא יודע:</b> לפרסם כ-CSV או לשנות שיתוף. את זה עושים ביד, בשלב 3</li>
         <li><b>גישה:</b> המחבר רואה כל גיליון בחשבון. לכן חשבון Google אישי, ולא של העבודה</li>
-        <li><b>Manual:</b> קריאה מאשרים. כתיבה מאשרים רק אחרי שקראתם מה ייכתב ובאיזה טווח</li>
+        <li><b>Manual:</b> קריאה מאשרים. בגיליון של הכיתה מאשרים כתיבה רק ב-<code>append_values</code>. על <code>update_values</code> או <code>batch_clear_values</code> שם עוצרים ושואלים</li>
       </ul>
+      <p><b>המחבר לא עובד, והשיעור ממשיך?</b> פותחים את הגיליון ומוסיפים את שתי השורות ביד, בסוף. בשורה 1 לא נוגעים.</p>
       <p><b>Claude אומר שאין לו גישה לגיליון?</b> בודקים שהדבקתם את קישור העריכה ולא את קישור ה-CSV, ושנכנסתם למחבר עם אותו חשבון שבו פתחתם את הגיליון.</p>
       <p><b>שמות הכותרות באנגלית, התוכן בעברית.</b> הקוד מחפש עמודה בשם <code>text</code>, באותיות גדולות או קטנות. מי שמשנה את השם, שובר את האפליקציה לכל הכיתה. זה אחד החסרונות של גיליון.</p>
     </div></details>
@@ -1043,7 +1043,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v14 · 26.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v15 · 26.10.2026</footer>
 
 <script>
 (function(){
