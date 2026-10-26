@@ -133,16 +133,18 @@ details.err>div p{margin-bottom:8px}
 details.err>div ul,details.err>div ol{padding-inline-start:18px;margin-bottom:8px}
 details.err.more>summary .pm{color:var(--soft)}
 /* Section fold: the label, title and lead stay visible, the body opens with the round + button */
-details.secfold>summary{list-style:none;cursor:pointer;display:block;border-radius:12px}
+details.secfold{margin-top:34px;border:1.5px solid var(--line);border-radius:var(--r);background:var(--acc-soft);transition:border-color .15s}
+details.secfold:hover,details.secfold[open]{border-color:var(--acc)}
+details.secfold>summary{list-style:none;cursor:pointer;display:block;border-radius:var(--r);padding:14px 16px 10px}
 details.secfold>summary::-webkit-details-marker{display:none}
-details.secfold>summary:focus-visible{outline:2px solid var(--acc);outline-offset:4px}
+details.secfold>summary:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+details.secfold>summary .label{margin-top:0}
 details.secfold .sfrow{display:flex;align-items:flex-start;gap:12px}
 details.secfold .sfrow h2{flex:1}
-details.secfold .sfbtn{flex:none;width:36px;height:36px;margin-top:-2px;border-radius:50%;border:1.5px dashed var(--line);display:flex;align-items:center;justify-content:center;font-family:"Poppins",sans-serif;font-size:20px;font-weight:600;line-height:1;color:var(--acc)}
-details.secfold>summary:hover .sfbtn{border-color:var(--acc)}
+details.secfold .sfbtn{flex:none;width:36px;height:36px;margin-top:-2px;border-radius:50%;border:1.5px dashed var(--acc);background:var(--surface);display:flex;align-items:center;justify-content:center;font-family:"Poppins",sans-serif;font-size:20px;font-weight:600;line-height:1;color:var(--acc)}
 details.secfold[open] .sfbtn{background:var(--acc);color:var(--acc-ink);border:1.5px solid var(--acc)}
-details.secfold>summary .sec-lead{margin-bottom:4px}
-details.secfold .sfb{padding-top:6px}
+details.secfold>summary .sec-lead{margin-bottom:0}
+details.secfold .sfb{padding:4px 16px 16px;border-top:1.5px dashed var(--line);margin-top:4px;padding-top:14px}
 .jv{direction:ltr;text-align:left}
 .dl{display:flex;gap:12px;align-items:center;text-decoration:none;border:2px solid var(--acc);border-radius:14px;padding:12px 14px;margin:10px 0;background:var(--surface)}
 .dl .ic{width:24px;height:24px;color:var(--acc)}
@@ -1013,7 +1015,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v10 · 26.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v11 · 26.10.2026</footer>
 
 <script>
 (function(){
