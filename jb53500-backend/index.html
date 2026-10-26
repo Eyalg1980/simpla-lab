@@ -311,6 +311,7 @@ details.api-cat.nomatch{display:none}
       <li>חשבון GitHub ו-Git שעובד, כמו בתרגיל הסנייק</li>
       <li>Claude Code מותקן ומחובר, כמו בתרגיל סיימון</li>
       <li>כרטיס אשראי לקרדיט של 5 דולר ב-OpenAI</li>
+      <li>חשבון Vercel והמחבר שלו ב-Claude, מ<a href="../jb53500-vercel/#home">תרגיל הבית של Vercel</a>. אין? שלב 7</li>
     </ul>
   </div>
 </header>
@@ -404,7 +405,7 @@ details.api-cat.nomatch{display:none}
 <div class="part" id="partA">
   <div class="pl">חלק א · שני שלבים</div>
   <h2>מכינים את OpenAI</h2>
-  <p>קרדיט, פרויקט ומגבלת הוצאה. את המפתח עצמו יוצרים רק בשלב 9, ברגע שצריך אותו. עשיתם את <a href="../jb53500-vercel/">תרגיל הבית של Vercel</a>? הקרדיט כבר קיים. פותחים את הפרויקט בסוף שלב 1, ומגדירים לו מגבלה בשלב 2: המגבלה מהתרגיל נמצאת ב-Default project, והיא לא חלה על הפרויקט החדש.</p>
+  <p>קרדיט, פרויקט ומגבלת הוצאה. את המפתח יוצרים רק בשלב 9. עשיתם את <a href="../jb53500-vercel/">תרגיל הבית של Vercel</a>? הקרדיט כבר קיים. פותחים פרויקט חדש ומגדירים לו מגבלה, כי המגבלה מהתרגיל לא חלה עליו.</p>
 </div>
 <section class="trackA">
 
@@ -427,8 +428,7 @@ details.api-cat.nomatch{display:none}
       <li>מוודאים ש-<code>joke-app</code> נבחר בבורר. המגבלה בשלב 2 והמפתח בשלב 9 נכנסים לפרויקט הזה</li>
     </ol>
     <p class="see"><b>אמור להופיע:</b> יתרה של 5 דולר בדף ה-Billing, ו-<code>joke-app</code> בבורר הפרויקטים.</p>
-    <div class="tip"><b>למה פרויקט:</b> מפתח ומגבלת הוצאה שייכים לפרויקט. המגבלה של <code>joke-app</code> חלה רק על מפתחות שנוצרו בו. ככה כל אפליקציה מקבלת מפתח, מגבלה ודוח שימוש משלה.</div>
-    <div class="tip"><b>תוקף:</b> קרדיט שנקנה פג אחרי שנה.</div>
+    <div class="tip"><b>למה פרויקט:</b> מפתח ומגבלת הוצאה שייכים לפרויקט. ככה לכל אפליקציה מפתח, מגבלה ודוח שימוש משלה.</div>
   </div>
 </article>
 
@@ -441,8 +441,7 @@ details.api-cat.nomatch{display:none}
       <li>ב-<b>Monthly spend limit</b> כותבים 5</li>
       <li>מפעילים <b>Enforce a hard limit</b> ושומרים</li>
     </ol>
-    <p>מעכשיו, כשמגיעים ל-5 דולר בחודש, OpenAI פשוט מפסיקה לענות עד החודש הבא. בלי הפתעות בחשבון.</p>
-    <div class="tip"><b>למה זה חשוב:</b> הכתובת של האפליקציה שלכם פתוחה לכל העולם. המגבלה מבטיחה שגם אם מישהו ינצל אותה, ההפסד מוגבל.</div>
+    <div class="tip"><b>למה:</b> הכתובת של האפליקציה פתוחה לכל העולם. כשמגיעים ל-5 דולר בחודש, OpenAI מפסיקה לענות עד החודש הבא.</div>
   </div>
 </article>
 </section>
@@ -494,7 +493,7 @@ details.api-cat.nomatch{display:none}
 <article class="step" data-s="s4">
   <div class="sh"><span class="n">4</span><h3>מדביקים את הפרומפט<span class="mt">הקמה</span><small>בשיחה הראשונה. Claude מקים את הפרויקט</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
-    <p>זה הפרומפט מ<a href="../jb53500-prompts/#opt-b">אופציה ב בדף הפרומפטים</a>, מותאם לפרויקט: Claude יוצר את הריפו ואת קבצי ההגנה על המפתחות, והלינק החי הוא ב-Vercel. קודם מחליפים בו את שם המשתמש בשם שלכם ב-GitHub.</p>
+    <p>הפרומפט מ<a href="../jb53500-prompts/#opt-b">אופציה ב בדף הפרומפטים</a>, מותאם לפרויקט. קודם מחליפים בו את שם המשתמש בשם שלכם ב-GitHub.</p>
     <div class="prompt"><span class="pt">Claude Code, שיחה ראשונה</span><button class="cp" type="button">העתק</button><pre>מצורפים בתיקייה שבעת מסמכי הספק של הפרויקט. אנא בצע את הפעולות הבאות:
 
 שפת האפליקציה:
@@ -515,12 +514,11 @@ details.api-cat.nomatch{display:none}
 עבודה שוטפת - מיילסטונים:
 1. קרא את שבעת המסמכים, בדוק אותם ובנה את התוכנית המתאימה לבניית הפרויקט.
 2. בנה את הפרויקט מיילסטון אחרי מיילסטון, לפי קובץ המיילסטונים. לכל מיילסטון אפתח שיחה חדשה תחת אותה תיקייה.
-3. לכל מיילסטון ארבעה שלבים: תכנון, בנייה, הרצה (כדי שאוכל לבדוק: בכתובת של Vercel, או במחשב עם vercel dev, לפי מה שאבחר), דחיפה (כדי שאוכל לצפות בלינק).<span class="ast" aria-hidden="true"></span>
+3. לכל מיילסטון ארבעה שלבים: תכנון, בנייה, הרצה (כדי שאוכל לבדוק: בכתובת של Vercel, או במחשב עם vercel dev, לפי מה שאבחר), דחיפה (כדי שאוכל לצפות בלינק).
 
 כלל חשוב:
 לפני שאתה שואל שאלות: קרא קודם את הקבצים, חדד מולי את הנקודות שציינתי, ואז התחל</pre></div>
-    <p class="astn">בפרומפט המקורי יש בעבודה השוטפת סעיף רביעי: <s>בסוף כל מיילסטון צור קובץ build שאפשר להעלות לאוויר ולבדוק</s>. כאן הוא ירד, כי לאפליקציה הזו אין שלב build: היא HTML, CSS ו-JavaScript רגילים, ו-Vercel מעלה כל push לאוויר כמו שהוא. מאותה סיבה הלינק החי בסעיף 5 הוא ב-Vercel ולא ב-GitHub Pages, שמגיש רק קבצים ולא מריץ את <code>api/joke.js</code>.</p>
-    <p class="see"><b>אמור להופיע:</b> Claude ממליץ על מודל, מסדר את הקבצים בתיקיית <code>spec</code>, פותח את <code>plans</code>, יוצר את <code dir="ltr">.gitignore</code>, את <code dir="ltr">.env.example</code> ואת <code dir="ltr">.claude/settings.json</code>, יוצר את הריפו <code>joke-app</code> וכותב <code>CLAUDE.md</code>. עונים לשאלות שלו, צעד אחר צעד.</p>
+<p class="see"><b>אמור להופיע:</b> Claude ממליץ על מודל, מסדר את התיקייה, יוצר את שלושת קבצי ההגנה, <code dir="ltr">.gitignore</code>,‏ <code dir="ltr">.env.example</code> ו-<code dir="ltr">.claude/settings.json</code>, יוצר את הריפו <code>joke-app</code> וכותב <code>CLAUDE.md</code>. עונים לשאלות שלו.</p>
     <div class="tip"><b>ציבורי זה בסדר.</b> אין בקוד שום סוד. המפתח לא ייכנס לריפו אף פעם.</div>
   </div>
 </article>
@@ -530,33 +528,30 @@ details.api-cat.nomatch{display:none}
   <div class="body">
     <p>כשההקמה נגמרת, פותחים שיחה חדשה באותה תיקייה, קוראים לה <code>milestone-1</code>, ומדביקים:</p>
     <div class="prompt"><span class="pt">שיחה חדשה לכל Milestone</span><button class="cp" type="button">העתק</button><pre>קרא את CLAUDE.md ואת קובץ המיילסטונים בתיקיית spec, והתחל את מיילסטון 1.</pre></div>
-    <p>בכל Milestone ארבעה שלבים: תכנון, בנייה, הרצה כדי שתבדקו, ודחיפה. בסוף Claude עוצר ומחכה לאישור שלכם. ב-Milestone הבא מחליפים את המספר, גם בשם השיחה.</p>
+    <p>Claude מתכנן, בונה, מריץ ודוחף, ואז עוצר לאישור. ב-Milestone הבא מחליפים את המספר, גם בשם השיחה.</p>
     <ol class="msl">
       <li><b>Walking Skeleton</b>הדף והפונקציה באוויר ב-Vercel, עם בדיחה זמנית מהשרת, והמפתח כבר שמור שם. עוד בלי AI.<span class="hand">ביד: <a href="#s7">שלבים 7</a>, <a href="#s8">8</a>, <a href="#s9">9</a> ו-<a href="#s10">10</a></span></li>
       <li><b>בדיחה מ-GPT-5</b>הפונקציה פונה ל-GPT-5 עם המפתח שכבר בשרת. אחרי הדחיפה בודקים את הקוד, ואז את האתר.<span class="hand">ביד: <a href="#s6">שלב 6</a> ו-<a href="#s11">11</a></span></li>
       <li><b>התקנה בטלפון</b>manifest, אייקונים ו-service worker. האתר נפתח כאפליקציה.<span class="hand">ביד: <a href="#s12">שלב 12</a></span></li>
     </ol>
-    <div class="tip"><b>מתי ממשיכים:</b> כשכל תנאי ההשלמה של ה-Milestone ב-<code>MILESTONES.md</code> מתקיימים. רק אז כותבים ל-Claude שאפשר להמשיך.</div>
-    <div class="note"><b>איפה מריצים? אתם בוחרים.</b> אפשר לבדוק כל Milestone בכתובת של Vercel אחרי push, ואפשר להריץ גם במחשב עם <code>vercel dev</code>. מי שמריץ במחשב מוסיף ב-Milestone 1 מפתח dev ואת הקובץ <code dir="ltr">.env.local</code>, <a href="#s9">בסוף שלב 9</a>.</div>
-    <div class="warn"><b>Claude מבקש מפתח?</b> לא נותנים. לא לצ׳אט, ולא לקובץ ש-Claude כותב. מפתח ה-production הולך רק ל-Vercel, בשלב 9. מפתח ה-dev אתם מדביקים בעצמכם ב-<code dir="ltr">.env.local</code>.</div>
-    <div class="note"><b>על GPT-5:</b> הוא עובד, אבל OpenAI כבר סימנה אותו כמודל קודם. הגרסה ש-<code>gpt-5</code> מצביע עליה היום מתוכננת להיכבות ב-11.12.2026. לכן שם המודל נשמר כמשתנה, <code>OPENAI_MODEL</code>, וכדי להחליף מודל לא נוגעים בקוד. איך מחליפים, בסוף הדף.</div>
-  </div>
+    <div class="tip"><b>ממשיכים רק</b> כשכל תנאי ההשלמה של ה-Milestone ב-<code>MILESTONES.md</code> מתקיימים.</div>
+</div>
 </article>
 
 <article class="step" data-s="s6" id="s6">
-  <div class="sh"><span class="n">6</span><h3>בודקים חמישה דברים<span class="mt">Milestone 2</span><small>אתם מאשרים את הקוד, לא רק Claude</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">6</span><h3>בודקים שהמפתח לא חשוף<span class="mt">Milestone 2</span><small>לפני שמאשרים ל-Claude להמשיך</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
-    <p>בסוף Milestone 2, לפני שמאשרים ל-Claude להמשיך, פותחים את הקבצים ובודקים בעצמכם:</p>
-    <ol>
-      <li>הקובץ נמצא בנתיב <code>api/joke.js</code>, בדיוק</li>
-      <li>בקובץ הזה המפתח מגיע מ-<code>process.env.OPENAI_API_KEY</code>, ולא כתוב בו שום מפתח</li>
-      <li>ב-<code>index.html</code> הפנייה היא ל-<code>/api/joke</code>, ואין שם <code>api.openai.com</code></li>
-      <li>ב-<code>package.json</code> יש <code>"type": "module"</code></li>
-      <li>ב-<code dir="ltr">.gitignore</code> יש <code dir="ltr">.env</code> ו-<code dir="ltr">.env.*</code>, ובריפו ב-GitHub אין <code dir="ltr">.env.local</code></li>
-    </ol>
-    <p>ובדיקה אחרונה, ש-Claude יעשה בשבילכם:</p>
-    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>חפש בכל הקבצים בתיקייה את המחרוזת sk- ואת המחרוזת api.openai.com. תגיד לי באילו קבצים כל אחת מופיעה.</pre></div>
-    <p class="see"><b>אמור להופיע:</b> <code>sk-</code> לא מופיע בשום מקום. <code>api.openai.com</code> מופיע רק ב-<code>api/joke.js</code>.</p>
+    <p>שלושת קבצי ההגנה נוצרו בשלב ההקמה. עכשיו בודקים שהם עושים את העבודה. Claude בודק, ואתם קוראים את התשובה:</p>
+    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>בדוק שהמפתחות בפרויקט לא חשופים, ותן לי טבלה עם כן או לא לכל סעיף:
+1. git grep לא מוצא את המחרוזת sk- באף קובץ שעולה ל-GitHub.
+2. api.openai.com מופיע רק ב-api/joke.js, והמפתח שם מגיע מ-process.env.OPENAI_API_KEY.
+3. ב-.gitignore יש .env ו-.env.*, עם החריגה !.env.example.
+4. git ls-files לא מראה אף קובץ .env חוץ מ-.env.example.
+5. ב-.env.example יש רק השורה OPENAI_API_KEY=, בלי ערך.
+6. ‎.claude/settings.json חוסם לך את הקריאה של .env ושל .env.*.
+אל תפתח ואל תקרא את .env.local.</pre></div>
+    <p class="see"><b>אמור להופיע:</b> כן, בכל ששת הסעיפים. ובדיקה אחת בעיניים: ברשימת הקבצים של הריפו ב-GitHub אין <code dir="ltr">.env.local</code>.</p>
+    <div class="warn"><b>יש "לא"?</b> מבקשים מ-Claude לתקן, לפני כל דחיפה נוספת. מפתח שכבר הגיע ל-GitHub נחשב חשוף: מחליפים אותו, כמו ב<a href="#security">אבטחה</a> למטה.</div>
   </div>
 </article>
 
@@ -571,13 +566,22 @@ details.api-cat.nomatch{display:none}
 <section class="trackC">
 
 <article class="step" data-s="s7" id="s7">
-  <div class="sh"><span class="n">7</span><h3>חשבון Vercel<span class="mt">Milestone 1</span><small>מי שכבר פתח, מסמן ועובר הלאה</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">7</span><h3>חשבון Vercel, והמחבר שלו ב-Claude<span class="mt">Milestone 1</span><small>עשיתם בתרגיל הבית? מסמנים וממשיכים</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
+    <p><b>החשבון:</b></p>
     <ol>
       <li>נכנסים ל-<a href="https://vercel.com/signup" target="_blank" rel="noopener">vercel.com/signup</a></li>
       <li>נרשמים עם <b>GitHub</b>, באותו חשבון שבו נמצא הריפו</li>
       <li>בוחרים בתוכנית <b>Hobby</b>, החינמית</li>
     </ol>
+    <p id="connector"><b>המחבר:</b> עם המחבר, Claude קורא בעצמו פריסות ולוגים, ומסביר מה נשבר. בלי להעתיק שגיאות מהדשבורד.</p>
+    <ol>
+      <li>ב-Claude Desktop לוחצים <b>Customize</b> בסרגל הצד, ואז <b>Connectors</b></li>
+      <li>לוחצים על ה-<b>+</b>, מחפשים <b>Vercel</b>, לוחצים <b>Connect</b>, ומתחברים לאותו חשבון</li>
+      <li>בלשונית <b>Code</b>, ב-<b>+</b> שליד תיבת ההודעה, בוחרים <b>Connectors</b> ומוודאים ש-Vercel דולק</li>
+    </ol>
+    <p class="see"><b>בדיקה:</b> שואלים את Claude "אילו פרויקטים יש לי ב-Vercel?". רשימה, גם ריקה, אומרת שהמחבר עובד.</p>
+    <div class="warn"><b>את המפתח לא מעבירים דרך המחבר.</b> הוא נכנס ביד, בשלב 9. הסבר מלא על המחבר ב<a href="../jb53500-vercel/#connector">דף Vercel</a>.</div>
   </div>
 </article>
 
@@ -591,7 +595,7 @@ details.api-cat.nomatch{display:none}
       <li>לוחצים <b>Deploy</b></li>
     </ol>
     <p class="see"><b>אמור להופיע:</b> כתובת בסגנון <code>joke-app-xxxx.vercel.app</code>. פותחים אותה, כותבים "חתולים", ולוחצים. מופיע "בדיחה זמנית מהשרת: חתולים. המפתח: חסר".</p>
-    <div class="tip"><b>"המפתח: חסר"? מצוין.</b> זה אומר שהשרת עובד: הדף דיבר עם <code>/api/joke</code> באותה כתובת, והפונקציה ענתה. רק המפתח חסר, וזה השלב הבא. הבדיחה האמיתית מגיעה ב-Milestone 2.</div>
+    <div class="tip"><b>"המפתח: חסר" זה טוב.</b> הדף דיבר עם השרת, והשרת ענה. המפתח מגיע בשלב הבא, והבדיחה האמיתית ב-Milestone 2.</div>
   </div>
 </article>
 
@@ -609,13 +613,13 @@ details.api-cat.nomatch{display:none}
       <li>בפרויקט <code>joke-app</code> פותחים <b>Settings</b>, ואז <b>Environment Variables</b> בתפריט הצד</li>
       <li>ב-<b>Key</b> כותבים בדיוק <code>OPENAI_API_KEY</code></li>
       <li>ב-<b>Value</b> מדביקים את המפתח</li>
-      <li>ב-<b>Type</b> בוחרים <b>Secret</b>, ובסביבות מסמנים <b>Production</b> ו-<b>Preview</b>. סביבת Development לא זמינה למשתנה Secret, ולכן להרצה מקומית יש מפתח נפרד</li>
+      <li>ב-<b>Type</b> בוחרים <b>Secret</b>, ובסביבות מסמנים <b>Production</b> ו-<b>Preview</b></li>
       <li>שומרים, וסוגרים את החלון של OpenAI</li>
     </ol>
     <p class="see"><b>אמור להופיע:</b> שורה בטבלה עם <code>OPENAI_API_KEY</code> והתווית Secret. הערך מוסתר, וגם אתם כבר לא יכולים לקרוא אותו.</p>
-    <div class="warn"><b>מפתח ה-production נכנס רק לכאן.</b> לא לקובץ בתיקייה, לא לצ׳אט עם Claude, לא לוואטסאפ, ולא לפתק במחשב. אבד? יוצרים חדש. זה לוקח דקה.</div>
+    <div class="warn"><b>מפתח ה-production נכנס רק לכאן.</b> לא לקובץ, לא לצ׳אט עם Claude ולא לוואטסאפ. אבד? יוצרים חדש.</div>
     <details class="err more" id="local-run"><summary><span class="pm">+</span><u>מריצים גם במחשב? מפתח dev והקובץ <span dir="ltr">.env.local</span></u></summary><div>
-      <p>רק למי שבחר להריץ במחשב עם <code>vercel dev</code>. מי שבודק בכתובת של Vercel מדלג.</p>
+      <p>רק למי שמריץ במחשב עם <code>vercel dev</code>. משתנה Secret לא זמין במחשב, ולכן יש מפתח נפרד.</p>
       <ol>
         <li>ב-OpenAI יוצרים מפתח נוסף, מפתח dev, בשם <code>joke-in-a-click-dev</code>. אף פעם לא את מפתח ה-production</li>
         <li>בטרמינל, בתיקיית הפרויקט, מעתיקים את קובץ הדוגמה ופותחים את העותק:</li>
@@ -633,7 +637,7 @@ vercel link</pre></div>
         <li>מריצים: <code>vercel dev</code>, ופותחים את <code>http://localhost:3000</code>. גם Claude יכול להריץ את הפקודה בשבילכם</li>
       </ol>
       <p class="see"><b>אמור להופיע:</b> אותה תוצאה כמו בכתובת של Vercel. ב-GitHub אין <code dir="ltr">.env.local</code>, כי הוא ב-<code dir="ltr">.gitignore</code>.</p>
-      <div class="note"><b>ארבעת הכללים של <code dir="ltr">.env.local</code>:</b> <code dir="ltr">.gitignore</code> לפני הקומיט הראשון. <code dir="ltr">.claude/settings.json</code> שחוסם ל-Claude את הקריאה שלו. מפתח dev נפרד, שאתם מדביקים בעצמכם. ו-<code dir="ltr">.env.example</code> בריפו, עם שורת המפתח בלבד. Claude יצר את שלושת הקבצים בשלב ההקמה.</div>
+      <div class="note"><b>ארבעת הכללים של <code dir="ltr">.env.local</code>:</b> <code dir="ltr">.gitignore</code> לפני הקומיט הראשון, חסימת קריאה ל-Claude, מפתח dev שאתם מדביקים בעצמכם, ו-<code dir="ltr">.env.example</code> עם שם המפתח בלבד. בשלב 6 בודקים שכולם עובדים.</div>
     </div></details>
   </div>
 </article>
@@ -647,7 +651,7 @@ vercel link</pre></div>
       <li>מחכים שהסטטוס יהיה <b>Ready</b></li>
     </ol>
     <p class="see"><b>אמור להופיע:</b> אותה לחיצה בכתובת מציגה עכשיו "המפתח: נמצא". רק כן או לא, אף פעם לא המפתח עצמו.</p>
-    <div class="tip"><b>למה צריך את זה:</b> הפונקציה מקבלת את המשתנים ברגע הפריסה. פריסה שכבר רצה לא יודעת שהוספתם מפתח. גם כל push חדש יפתור את זה.</div>
+    <div class="tip"><b>למה:</b> פריסה קוראת את המשתנים רק כשהיא נוצרת. גם push חדש יפתור את זה.</div>
   </div>
 </article>
 
@@ -657,7 +661,7 @@ vercel link</pre></div>
     <ol>
       <li><b>בטלפון:</b> פותחים את הכתובת. "חתולים" מביא בדיחה על חתולים. תיבה ריקה מביאה בדיחה כללית</li>
       <li><b>ב-Network, במחשב:</b> F12, לשונית Network, ולוחצים על הכפתור. הבקשה הולכת ל-<code>joke</code> בכתובת שלכם, ולא ל-<code>api.openai.com</code>. בתשובה יש רק <code>joke</code></li>
-      <li><b>בקוד הדף:</b> Ctrl+U, ואז Ctrl+F ומחפשים <code>sk-</code>. אין תוצאות</li>
+      <li><b>בקוד הדף:</b> Ctrl+U, ואז Ctrl+F ומחפשים <code>sk-</code>. אין תוצאות. זה הצד של הדפדפן לבדיקה משלב 6</li>
       <li><b>ב-Logs של Vercel:</b> בתפריט הצד של הפרויקט. מופיעה שורה על כל בדיחה שהוגשה</li>
     </ol>
     <p class="see"><b>אמור להופיע:</b> בדיחה בטלפון, ובשום מקום בדפדפן אין זכר למפתח.</p>
@@ -670,7 +674,7 @@ vercel link</pre></div>
     <p><b>אנדרואיד, ב-Chrome:</b> פותחים את הכתובת, לוחצים על שלוש הנקודות בפינה, ובוחרים "התקנת אפליקציה" או "הוספה למסך הבית". השם משתנה בין גרסאות.</p>
     <p><b>אייפון, ב-Safari:</b> פותחים את הכתובת, לוחצים על כפתור השיתוף, ובוחרים "הוספה למסך הבית". מ-iOS 16.4 זה עובד גם מ-Chrome, Edge ו-Firefox.</p>
     <p class="see"><b>אמור להופיע:</b> אייקון של כפתור אדום צוחק, על רקע צהוב, במסך הבית. האפליקציה נפתחת על כל המסך, בלי שורת כתובת.</p>
-    <div class="tip"><b>למה זה עובד עכשיו:</b> כדי שאתר יותקן צריך HTTPS, קובץ manifest, ואייקונים בגודל 192 ו-512. את ה-HTTPS נותן Vercel, ואת השאר כתב Claude ב-Milestone 3.</div>
+    <div class="tip"><b>למה זה עובד:</b> התקנה צריכה HTTPS, manifest ואייקונים. Vercel נותן HTTPS, ואת השאר Claude כתב ב-Milestone 3.</div>
   </div>
 </article>
 
@@ -728,7 +732,7 @@ vercel link</pre></div>
 </div></details>
 
 <details class="err"><summary><span class="pm">+</span><u>הפריסה נכשלה, Error ב-Deployments</u></summary><div>
-  <p>פותחים את הפריסה, מעתיקים את השגיאה מה-Build Logs, ומדביקים ל-Claude Code עם הבקשה "תתקן ותדחוף".</p>
+  <p>עם המחבר, כותבים ל-Claude Code: "בדוק דרך המחבר של Vercel למה הפריסה האחרונה של joke-app נכשלה. הסבר במשפט אחד, תתקן ותדחוף". בלי המחבר: מעתיקים את השגיאה מה-Build Logs ומדביקים.</p>
 </div></details>
 
 <details class="err"><summary><span class="pm">+</span><u>אין בטלפון אפשרות להתקין</u></summary><div>
@@ -759,6 +763,7 @@ vercel link</pre></div>
 <div class="label">06 · להעמקה</div>
 
 <details class="err more" id="model"><summary><span class="pm">+</span><u>מחליפים מודל בלי לגעת בקוד</u></summary><div>
+  <p>GPT-5 עובד, אבל OpenAI כבר סימנה אותו כמודל קודם, והוא מתוכנן להיכבות ב-11.12.2026. לכן שם המודל הוא משתנה, <code>OPENAI_MODEL</code>.</p>
   <ol>
     <li>ב-Vercel, ב-Environment Variables, מוסיפים <code>OPENAI_MODEL</code> מסוג <b>Config</b>. זה לא סוד, ולכן אפשר שיישאר קריא</li>
     <li>בערך כותבים את שם המודל</li>
@@ -775,11 +780,6 @@ vercel link</pre></div>
     <li>מוסיפים את הרשומה אצל הרשם, ומחכים שהסטטוס ב-Vercel יהיה תקין. שינויי DNS לוקחים זמן להתפשט</li>
   </ol>
   <p>בתוכנית Hobby אפשר עד 50 דומיינים לפרויקט.</p>
-</div></details>
-
-<details class="err more" id="connector"><summary><span class="pm">+</span><u>Vercel בתוך Claude</u></summary><div>
-  <p>יש ל-Claude מחבר בשם Vercel, בספריית המחברים. דרכו Claude רואה את הפרויקטים, הפריסות והשגיאות שלכם. שימושי במיוחד כשפריסה נכשלת: "תבדוק למה הפריסה האחרונה של joke-app נכשלה".</p>
-  <p>המחבר מקבל את אותה גישה שיש לחשבון שלכם. מחברים רק כשצריך.</p>
 </div></details>
 
 <details class="err more" id="code"><summary><span class="pm">+</span><u>הקוד המלא של השרת, ופתרון להורדה</u></summary><div>
@@ -1855,7 +1855,7 @@ vercel link</pre></div>
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v9 · 26.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v10 · 26.10.2026</footer>
 
 <script>
 (function(){
