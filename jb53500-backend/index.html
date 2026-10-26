@@ -404,13 +404,14 @@ details.api-cat.nomatch{display:none}
 <div class="part" id="partA">
   <div class="pl">חלק א · שני שלבים</div>
   <h2>מכינים את OpenAI</h2>
-  <p>קרדיט ומגבלת הוצאה. את המפתח עצמו יוצרים רק בשלב 9, ברגע שצריך אותו. עשיתם את <a href="../jb53500-vercel/">תרגיל הבית של Vercel</a>? שני השלבים כבר מאחוריכם: מסמנים וממשיכים.</p>
+  <p>קרדיט, פרויקט ומגבלת הוצאה. את המפתח עצמו יוצרים רק בשלב 9, ברגע שצריך אותו. עשיתם את <a href="../jb53500-vercel/">תרגיל הבית של Vercel</a>? הקרדיט כבר קיים. פותחים את הפרויקט בסוף שלב 1, ומגדירים לו מגבלה בשלב 2: המגבלה מהתרגיל נמצאת ב-Default project, והיא לא חלה על הפרויקט החדש.</p>
 </div>
 <section class="trackA">
 
 <article class="step" data-s="s1">
-  <div class="sh"><span class="n">1</span><h3>חשבון OpenAI וקרדיט<small>platform.openai.com, לא chatgpt.com</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">1</span><h3>חשבון, קרדיט ופרויקט<small>platform.openai.com, לא chatgpt.com</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
+    <p><b>חשבון וקרדיט:</b></p>
     <ol>
       <li>נכנסים ל-<a href="https://platform.openai.com/" target="_blank" rel="noopener">platform.openai.com</a> ונרשמים או מתחברים</li>
       <li>עוברים לדף ה-<a href="https://platform.openai.com/account/billing" target="_blank" rel="noopener">Billing</a></li>
@@ -418,7 +419,15 @@ details.api-cat.nomatch{display:none}
       <li>קונים 5 דולר, המינימום</li>
       <li>מכבים את <b>Auto recharge</b>. הוא מופעל כברירת מחדל, וטוען כסף לבד כשהיתרה יורדת</li>
     </ol>
-    <p class="see"><b>אמור להופיע:</b> יתרה של 5 דולר בדף ה-Billing.</p>
+    <p><b>פרויקט:</b></p>
+    <ol>
+      <li>פותחים את בורר הפרויקטים בראש המסך. בחשבון חדש כתוב בו <b>Default project</b></li>
+      <li>לוחצים <b>Create project</b></li>
+      <li>ב-<b>Name</b> כותבים <code>joke-app</code>, ולוחצים <b>Create</b></li>
+      <li>מוודאים ש-<code>joke-app</code> נבחר בבורר. המגבלה בשלב 2 והמפתח בשלב 9 נכנסים לפרויקט הזה</li>
+    </ol>
+    <p class="see"><b>אמור להופיע:</b> יתרה של 5 דולר בדף ה-Billing, ו-<code>joke-app</code> בבורר הפרויקטים.</p>
+    <div class="tip"><b>למה פרויקט:</b> מפתח ומגבלת הוצאה שייכים לפרויקט. המגבלה של <code>joke-app</code> חלה רק על מפתחות שנוצרו בו. ככה כל אפליקציה מקבלת מפתח, מגבלה ודוח שימוש משלה.</div>
     <div class="tip"><b>תוקף:</b> קרדיט שנקנה פג אחרי שנה.</div>
   </div>
 </article>
@@ -427,7 +436,7 @@ details.api-cat.nomatch{display:none}
   <div class="sh"><span class="n">2</span><h3>מגבלת הוצאה חודשית<small>רשת ביטחון. שתי דקות</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
-      <li>נכנסים ל-<a href="https://platform.openai.com/settings/" target="_blank" rel="noopener">Settings</a> של הפרויקט, ללשונית <b>Limits</b></li>
+      <li>כש-<code>joke-app</code> נבחר בבורר, נכנסים ל-<a href="https://platform.openai.com/settings/" target="_blank" rel="noopener">Settings</a> של הפרויקט, ללשונית <b>Limits</b></li>
       <li>תחת <b>Spend</b> לוחצים <b>Edit spend limit</b></li>
       <li>ב-<b>Monthly spend limit</b> כותבים 5</li>
       <li>מפעילים <b>Enforce a hard limit</b> ושומרים</li>
@@ -591,8 +600,8 @@ details.api-cat.nomatch{display:none}
   <div class="body">
     <p><b>לשונית 1, OpenAI:</b></p>
     <ol>
-      <li>נכנסים ל-<a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">platform.openai.com/api-keys</a></li>
-      <li>לוחצים <b>Create new secret key</b>, קוראים לו <code>joke-in-a-click</code>, ויוצרים</li>
+      <li>מוודאים ש-<code>joke-app</code> נבחר בבורר הפרויקטים, ונכנסים ל-<a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">platform.openai.com/api-keys</a></li>
+      <li>לוחצים <b>Create new secret key</b>, קוראים לו <code>joke-in-a-click</code>, ויוצרים. אם יש שדה <b>Project</b>, בוחרים בו <code>joke-app</code></li>
       <li>מעתיקים את המפתח. הוא מוצג במלואו רק פעם אחת</li>
     </ol>
     <p><b>לשונית 2, Vercel:</b></p>
@@ -1846,7 +1855,7 @@ vercel link</pre></div>
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v8 · 24.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v9 · 26.10.2026</footer>
 
 <script>
 (function(){
