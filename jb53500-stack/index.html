@@ -302,7 +302,7 @@ footer{margin-top:60px;text-align:center;font-size:12.5px;color:var(--soft);bord
     <p class="what">השירות שמעלה לאוויר את האתר ואת הפונקציות יחד, ישר מהריפו ב-GitHub.</p>
     <dl class="facts">
       <dt>מה הוא עושה</dt><dd>כל דחיפה לענף main מתפרסמת אוטומטית, בכתובת בסגנון <code>my-product.vercel.app</code>. הדף והפונקציות יושבים באותה כתובת.</dd>
-      <dt>למה הוא</dt><dd>הדף פונה לפונקציה בכתובת קצרה, <code>/api/ask</code>. בלי CORS, ובלי שתי כתובות שצריך להתאים. המדריך בדף <a href="../jb53500-vercel/">Vercel</a>.</dd>
+      <dt>למה הוא</dt><dd>הדף פונה לפונקציה בכתובת קצרה, <code>/api/ask</code>. בלי CORS, ובלי שתי כתובות שצריך להתאים. המדריך בדף <a href="../jb53500-backend/">ה-Backend</a>.</dd>
       <dt>הכללים</dt><dd><ul>
         <li>Framework Preset: Other. הקובץ הראשי נקרא <code>index.html</code>, בשורש הריפו.</li>
         <li>הריפו ציבורי. לכן אין בו מפתח, אין בו דף סודי, ואין בו סיסמה שנבדקת ב-JavaScript.</li>
@@ -388,7 +388,7 @@ footer{margin-top:60px;text-align:center;font-size:12.5px;color:var(--soft);bord
     <p class="what">בסיס נתונים מסוג Postgres, עם התחברות משתמשים ואחסון קבצים, בדשבורד אחד.</p>
     <dl class="facts">
       <dt>מה הוא עושה</dt><dd>מחזיק את הטבלאות של המוצר. רק הפונקציות ניגשות אליו, עם המפתח הסודי. הדפדפן לא פונה אליו ישירות.</dd>
-      <dt>למה הוא</dt><dd>Postgres אמיתי, עם התחברות משתמשים וקבצים במקום אחד, ומחבר שדרכו Claude בונה את הטבלאות. המדריך בדף <a href="../jb53500-supabase/">Supabase</a>.</dd>
+      <dt>למה הוא</dt><dd>Postgres אמיתי, עם התחברות משתמשים וקבצים במקום אחד, ומחבר שדרכו Claude בונה את הטבלאות. המדריך בדף <a href="../jb53500-data/#partB">הדאטה</a>.</dd>
       <dt>הנעילה</dt><dd>בכל טבלה <b>RLS</b> דולק, בלי אף <b>Policy</b>. <b>Grant</b> רק ל-<code>service_role</code>, התפקיד של המפתח הסודי, ו-revoke מ-<code>anon</code> ומ-<code>authenticated</code>. מ-30.10.2026 Supabase לא נותנת את ה-grant הזה אוטומטית, ולכן כותבים אותו בכל migration.</dd>
       <dt>הכללים</dt><dd><ul>
         <li>עד שלוש טבלאות. אם נראה שצריך ארבע, עוצרים ושואלים.</li>
@@ -570,7 +570,7 @@ footer{margin-top:60px;text-align:center;font-size:12.5px;color:var(--soft);bord
   <div class="note"><b>מה לא השתנה מהיום הראשון:</b> אתר סטטי בלי שלב בנייה, Supabase כברירת המחדל לנתונים, n8n לאוטומציות, Git עם ענף main בלבד, וחוק המפתחות.</div>
 </section>
 
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · לפי course-stack.md מ-25.10.2026 · v8 · 25.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · לפי course-stack.md מ-25.10.2026 · v9 · 26.10.2026</footer>
 </div>
 </body>
 </html>
