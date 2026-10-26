@@ -467,7 +467,7 @@ body.gated{padding-bottom:0}
 <script>
 (function(){
 'use strict';
-const D=window.D, VER='2027.8';
+const D=window.D, VER='2027.9';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const strip=s=>String(s||'').replace(/<[^>]+>/g,'');
@@ -669,11 +669,9 @@ const LK=[
   {i:'slides',t:'Claude: היכרות',d:'Google Slides',w:'מפגש 8',m:[8],u:'https://docs.google.com/presentation/d/1hVdQgizzvS_J8tYTneQVB3xkWEh2hGpA/edit?usp=sharing'},
   {i:'slides',t:'Claude: סקירה מלאה',d:'Google Slides',w:'מפגשים 8 ו-9',m:[8,9],u:'https://docs.google.com/presentation/d/1OvrCU4fcclGdCV58sPdvqO6Yhv9g-uS9BBvnBu4kRGs/edit?usp=sharing'},
   {i:'slides',t:'פרומפטים ותרגילים',d:'Google Slides',w:'מפגשים 8 ו-9',m:[8,9],u:'https://docs.google.com/presentation/d/1QnCoF3Qek1uyeiJEqThvDNusmgk8BqteCEfJ-7hKhiM/edit?usp=sharing'},
-  {i:'slides',t:'המקבילות: ChatGPT, Gemini ו-Claude',d:'Google Slides',w:'העשרה',u:'https://docs.google.com/presentation/d/1TeF1t4ojbzes6P1am995e3osNI2Z5xmAmYoU8nt_AJU/edit?usp=sharing'},
-  {i:'slides',t:'Vercel: צד השרת של המוצר',d:'Claude Slides',w:'מפגש ההשלמות, אחרי מפגש 11',m:[11],u:'https://claude.ai/artifact/6Xx99CWno9uyNAWj95k3PZ'},
-  {i:'slides',t:'Vercel: צד השרת, גרסה קלה',d:'Claude Slides',w:'מפגש ההשלמות, אחרי מפגש 11',m:[11],u:'https://claude.ai/artifact/B6L6jUfvumqucvhjgnUNGc'},
-  {i:'slides',t:'Supabase עם Claude',d:'Claude Slides',w:'מפגש ההשלמות, אחרי מפגש 11',m:[11],u:'https://claude.ai/artifact/Nxv633h44ugoN4QiTnypyQ'},
-  {i:'slides',t:'Supabase עם Claude, גרסה קלה',d:'Claude Slides',w:'מפגש ההשלמות, אחרי מפגש 11',m:[11],u:'https://claude.ai/artifact/JpfEwJHSY9kfJayUKQ2v3o'}
+  {i:'slides',t:'גרסאות ב-Git',d:'Google Slides',w:'מפגש 10',m:[10],u:'https://docs.google.com/presentation/d/1c0KlL1dZ3sEJTKOuid-RwoAC94Wv_munX-gpX_vZHA0/edit?usp=sharing'},
+  {i:'slides',t:'Backend ודאטה',d:'Google Slides · Backend, API Keys, העלאה לאינטרנט, Sheets ו-Supabase',w:'מפגש 11 ומפגש ההשלמות',m:[11],u:'https://docs.google.com/presentation/d/1GWVOEa9Y0J3ots2xUtpRWuwu-23hqhoEy00pkyuTvUU/edit?usp=sharing'},
+  {i:'slides',t:'Claude: מה שלא הספקנו',d:'Google Slides · Artifacts, Design System, המקבילות, Skills ו-Plugins',w:'מפגש 11',m:[11],u:'https://docs.google.com/presentation/d/1dAYFYJ7N7t0eKJds-nxI9BzzizvIuoAVY2fbXMAzmYM/edit?usp=sharing'}
  ]},
  {k:'skills',h:'מאגרי סקילים ותוספים',warn:'<b>לפני שמתקינים:</b> סקיל מהקהילה הוא הוראות, ולפעמים גם קוד, שרצים אצלכם. קוראים את <span dir="ltr" lang="en">SKILL.md</span> לפני שמתקינים.',items:[
   {i:'globe',t:'Practice AI',d:'practice-ai.co.il/skills',en:1,w:'מפגש 9',u:'https://practice-ai.co.il/skills'},
