@@ -311,7 +311,7 @@ details.api-cat.nomatch{display:none}
       <li>חשבון GitHub ו-Git שעובד, כמו בתרגיל הסנייק</li>
       <li>Claude Code מותקן ומחובר, כמו בתרגיל סיימון</li>
       <li>כרטיס אשראי לקרדיט של 5 דולר ב-OpenAI</li>
-      <li>חשבון Vercel והמחבר שלו ב-Claude, מ<a href="../jb53500-vercel/#home">תרגיל הבית של Vercel</a>. אין? שלב 7</li>
+      <li>חשבון Vercel, מ<a href="../jb53500-vercel/#home">תרגיל הבית של Vercel</a>. את המחבר שלו ב-Claude מחברים בשלב 7</li>
     </ul>
   </div>
 </header>
@@ -566,7 +566,7 @@ details.api-cat.nomatch{display:none}
 <section class="trackC">
 
 <article class="step" data-s="s7" id="s7">
-  <div class="sh"><span class="n">7</span><h3>חשבון Vercel, והמחבר שלו ב-Claude<span class="mt">Milestone 1</span><small>עשיתם בתרגיל הבית? מסמנים וממשיכים</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">7</span><h3>חשבון Vercel, והמחבר שלו ב-Claude<span class="mt">Milestone 1</span><small>חשבון כבר יש? מחברים רק את המחבר</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <p><b>החשבון:</b></p>
     <ol>
@@ -581,7 +581,17 @@ details.api-cat.nomatch{display:none}
       <li>בלשונית <b>Code</b>, ב-<b>+</b> שליד תיבת ההודעה, בוחרים <b>Connectors</b> ומוודאים ש-Vercel דולק</li>
     </ol>
     <p class="see"><b>בדיקה:</b> שואלים את Claude "אילו פרויקטים יש לי ב-Vercel?". רשימה, גם ריקה, אומרת שהמחבר עובד.</p>
-    <div class="warn"><b>את המפתח לא מעבירים דרך המחבר.</b> הוא נכנס ביד, בשלב 9. הסבר מלא על המחבר ב<a href="../jb53500-vercel/#connector">דף Vercel</a>.</div>
+    <div class="warn"><b>את המפתח לא מעבירים דרך המחבר.</b> הוא נכנס ביד, בשלב 9.</div>
+    <details class="err more"><summary><span class="pm">+</span><u>מה המחבר עושה, ומה לא</u></summary><div>
+      <ul>
+        <li><b>מה הוא חוסך:</b> את החיפוש בלוגים. Claude פותח את הפריסה, קורא את הלוג שלה ומסביר את השגיאה</li>
+        <li><b>מה לא נותנים לו:</b> את המפתחות. המחבר יודע לכתוב משתני סביבה, אבל מפתח מדביקים רק ביד, ב-Environment Variables</li>
+        <li><b>פריסה:</b> נשארת דרך GitHub. כל push עולה לבד, גם בלי המחבר</li>
+        <li><b>גישה:</b> המחבר מקבל את מה שיש לחשבון שלכם ב-Vercel. נשארים במצב Manual, ולא מאשרים "תמיד" לפעולה שמשנה משהו</li>
+        <li><b>ב-Code:</b> מחבר שחיברתם ב-Claude זמין לבד גם בלשונית Code, כל עוד אתם מחוברים לאותו חשבון</li>
+      </ul>
+      <p>לא הצלחתם לחבר? לא נתקעים. המחבר עוזר לתקן תקלות, הוא לא תנאי לתרגיל.</p>
+    </div></details>
   </div>
 </article>
 
@@ -1855,7 +1865,7 @@ vercel link</pre></div>
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v10 · 26.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · מפגש 11 · v11 · 26.10.2026</footer>
 
 <script>
 (function(){
