@@ -1,6 +1,54 @@
 {
  "days": [
   {
+   "date": "2026-10-26",
+   "ideas": [
+    {
+     "id": "2026-10-26-video-ceiling-break",
+     "world": "סרטוני הסבר",
+     "color": "#FF6B5E",
+     "hook": "היגספילד שברו את תקרת עשר הדקות לווידאו AI. השאלה שמעניינת אותי היא לא כמה זמן, זו מה נשאר מדיסציפלינת השוט ליסט כשאין יותר תקרה.",
+     "concept": "מצלמה מחזיקה על שורת תמונות ממוזערות של קליפים קצרים, מתחת לקו מקווקו דק שמשמש כתקרה. הקו נמחק, ואחת מהתמונות הממוזערות מתמשכת לרצועה אחת רצופה שתופסת את מקום כל השורה.",
+     "execution": "שפה קינטית אדיטוריאלית: רקע פחם עמוק, קורל וצהוב חם, קומפוזיציה גיאומטרית מינימלית. פריים מפתח ב-Nano Banana Pro, תנועה ב-Kling 3 std, בלי קריינות, 16:9, 8 שניות.",
+     "why": "אני בודק את השאלה הזו ממש עכשיו בהבמאי היומי, שבנוי כולו על שוט ליסט קצוב. אותו נכס עולה היום גם כפוסט שני בפוסט ברינסטורם.",
+     "competition": null,
+     "srcUrl": "https://welcome.ai/content/higgsfield-ai-expands-video-production-capabilities-for-creators",
+     "srcLabel": "welcome.ai · Higgsfield GPT-6 Astra, 13.10",
+     "prompts": {
+      "video": "Kinetic typography explainer animation, deep charcoal background, coral and warm yellow accent highlights, clean minimal geometric composition, generous negative space, camera holds on a row of short dashed clip-thumbnail rectangles beneath a thin dashed ceiling line, the ceiling line dissolves and one thumbnail stretches smoothly into a single long unbroken strip replacing the row, calm confident mood, no text, 16:9, 8 seconds",
+      "script": "קח את ההוק \"היגספילד שברו את תקרת עשר הדקות לווידאו AI, השאלה שמעניינת אותי היא מה נשאר מדיסציפלינת השוט ליסט כשאין יותר תקרה\" ופתח אותו לסרטון הסברה של 20 עד 30 שניות: לוגליין, תסריט קריינות בעברית עם ציר זמן מדויק, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בסגנון קינטי אדיטוריאלי.",
+      "image": "Kinetic typography style still, deep charcoal background, coral and warm yellow accent highlights, generous negative space, flat minimal composition, a row of short dashed clip-thumbnail rectangles beneath a thin dashed ceiling line, one thumbnail just beginning to stretch past it, no text",
+      "raw": "הוק: היגספילד שברו את תקרת עשר הדקות לווידאו AI, השאלה שמעניינת אותי היא מה נשאר מדיסציפלינת השוט ליסט כשאין יותר תקרה\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: שורת קליפים קצרים מתחת לתקרה מקווקוות, התקרה נמחקת ואחד מהם מתמשך לרצועה רצופה\nביצוע: שפה קינטית אדיטוריאלית, רקע פחם, קורל וצהוב, Nano Banana Pro ו-Kling 3, 16:9\nלמה עכשיו: בודק את זה ממש עכשיו בהבמאי היומי, אותו נכס עולה היום גם כפוסט"
+     }
+    },
+    {
+     "id": "2026-10-26-agent-unlocks-but-eats",
+     "world": "תיעוד תהליך",
+     "color": "#FF6B5E",
+     "hook": "לפני שלושה ימים כתבתי שסוכן פיגמה נעול בבטא סגורה. הוא עבר ל-GA שבועיים לפני שכתבתי את זה, וגם זה לא היה מדויק.",
+     "concept": "מצלמה על מנעול מקווקו שנראה סגור, ואז נפתח בפתאומיות. ברגע שהוא נפתח, מד קרדיטים עגול קטן לצידו מתחיל להתרוקן בהדרגה, כאילו הפתיחה עצמה עולה משהו.",
+     "execution": "שפה קינטית אדיטוריאלית: רקע פחם עמוק, קורל וצהוב חם, קומפוזיציה גיאומטרית מינימלית. פריים מפתח ב-Nano Banana Pro, תנועה ב-Kling 3 std, בלי קריינות, 16:9, 8 שניות.",
+     "why": "תיקון ישיר לפוסט שלי מלפני שלושה ימים, שהסתמך על כתבה ישנה במקום לבדוק את מרכז העזרה של פיגמה עצמה. אותו נכס עולה היום גם כפוסט ראשון בפוסט ברינסטורם.",
+     "competition": null,
+     "srcUrl": "https://help.figma.com/hc/en-us/articles/42614902212887",
+     "srcLabel": "Figma Help Center · AI credit updates FAQ, 6.10",
+     "prompts": {
+      "video": "Kinetic typography explainer animation, deep charcoal background, coral and warm yellow accent highlights, clean minimal geometric composition, generous negative space, camera holds on a small dashed padlock icon shown locked, it suddenly swings open, and a thin circular credit meter icon beside it visibly drains a notch the moment it opens, calm confident mood, no text, 16:9, 8 seconds",
+      "script": "קח את ההוק \"לפני שלושה ימים כתבתי שסוכן פיגמה נעול בבטא סגורה, הוא עבר ל-GA שבועיים לפני שכתבתי את זה\" ופתח אותו לסרטון תיעוד תהליך של 20 עד 30 שניות: לוגליין, תסריט קריינות בעברית עם ציר זמן מדויק, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בסגנון קינטי אדיטוריאלי.",
+      "image": "Kinetic typography style still, deep charcoal background, coral and warm yellow accent highlights, generous negative space, flat minimal composition, a small dashed padlock icon shown open beside a thin circular credit meter icon already partway drained, no text",
+      "raw": "הוק: לפני שלושה ימים כתבתי שסוכן פיגמה נעול בבטא סגורה, הוא עבר ל-GA שבועיים לפני שכתבתי את זה\nעולם: תיעוד תהליך\nתחרות: אין\nקונספט: מנעול מקווקו נפתח בפתאומיות, מד קרדיטים לצידו מתחיל להתרוקן\nביצוע: שפה קינטית אדיטוריאלית, רקע פחם, קורל וצהוב, Nano Banana Pro ו-Kling 3, 16:9\nלמה עכשיו: תיקון לפוסט שלי מלפני שלושה ימים, אותו נכס עולה היום גם כפוסט"
+     }
+    }
+   ],
+   "watch": [
+    {
+     "title": "Higgsfield מרחיב ייצור וידאו ליוצרים",
+     "url": "https://welcome.ai/content/higgsfield-ai-expands-video-production-capabilities-for-creators",
+     "note": "אותו מקור של רעיון 1, שווה לקרוא במלואו לפני שמתכננים סצנה ברצף ארוך"
+    }
+   ]
+  },
+  {
    "date": "2026-10-25",
    "ideas": [
     {
