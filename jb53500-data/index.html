@@ -465,16 +465,43 @@ code.w{white-space:normal;word-break:break-word}
 - הודעות קצרות בעברית כשחסרה כתובת, כשהגיליון לא מפורסם כ-CSV, וכשהוא ריק. הפרטים ב-console.error.
 
 מיילסטון 5, האפליקציה זוכרת:
-- דרך המחבר של Supabase, migration בשם create_jokes. אם יש לי יותר מפרויקט אחד, שאל באיזה.
-- טבלה public.jokes: id מסוג uuid, מפתח ראשי, עם gen_random_uuid(). created_at מסוג timestamptz עם now(). topic מסוג text. text מסוג text, חובה. laughs מסוג integer, חובה, עם 0.
-- RLS דולק בלי אף policy. grant select, insert, update על הטבלה ל-service_role בלבד, ו-revoke all מ-anon ומ-authenticated.
-- פונקציה public.add_laugh(joke_id uuid) שמחזירה את המספר החדש: security invoker, search_path ריק ושמות מלאים. revoke execute מ-public, anon ו-authenticated, ו-grant execute ל-service_role.
-- את ה-SQL שמור גם כקובץ db/create_jokes.sql. לפני ההרצה הצג לי אותו. אחרי ההרצה הרץ get_advisors והסבר בעברית מה נמצא, ועצור: אני בודק שהטבלה נעולה.
-- לקוח אחד ב-lib/supabase.js עם @supabase/supabase-js, ב-dependencies. הכתובת מ-process.env.SUPABASE_URL והמפתח מ-process.env.SUPABASE_SECRET_KEY.
-- api/joke.js שומר כל בדיחת AI ומחזיר גם id. אם השמירה נכשלת, הבדיחה עדיין מגיעה, והשגיאה ב-console.error.
-- api/laugh.js מקבל POST עם id, בודק שזה uuid, וקורא ל-add_laugh דרך rpc. api/top.js מחזיר את חמש הבדיחות עם הכי הרבה צחוקים, רק כאלה עם צחוק אחד לפחות.
-- בדף: כפתור "צחקתי" עם מונה מתחת לבדיחת AI, שננעל אחרי לחיצה, ורשימת "הכי מצחיקות" שמתעדכנת אחרי כל צחוק. בלי polling. בדיחות מהגיליון לא נשמרות.
-- לפני הדחיפה עצור: אני שם את המפתח הסודי ב-Vercel. אל תבקש אותו ממני.</pre></div>
+
+מה רואים בדף:
+- מתחת לכל בדיחת AI, כפתור "צחקתי" עם מונה. אחרי לחיצה הכפתור ננעל.
+- רשימת "הכי מצחיקות": חמש הבדיחות עם הכי הרבה צחוקים, רק כאלה עם צחוק אחד לפחות. היא מתעדכנת אחרי כל צחוק, בלי polling.
+- בדיחות מהגיליון לא נשמרות, ואין להן כפתור "צחקתי".
+
+הטבלה, דרך המחבר של Supabase:
+- אם יש לי יותר מפרויקט אחד, שאל באיזה לעבוד.
+- צור migration בשם create_jokes, עם טבלה בשם public.jokes ובה חמש עמודות:
+  - עמודה id מסוג uuid, מפתח ראשי, וברירת המחדל שלה מ-gen_random_uuid.
+  - עמודה created_at מסוג timestamptz, וברירת המחדל שלה מ-now.
+  - עמודה topic מסוג text.
+  - עמודה text מסוג text, חובה.
+  - עמודה laughs מסוג integer, חובה, וברירת המחדל שלה 0.
+
+הנעילה, כדי שרק השרת ייגש לטבלה:
+- הפעל RLS, בלי אף policy.
+- תן grant select, insert, update על הטבלה ל-service_role בלבד.
+- עשה revoke all מ-anon ומ-authenticated.
+
+ספירת הצחוקים, כדי ששתי לחיצות באותו רגע לא ידרסו זו את זו:
+- צור פונקציה בשם public.add_laugh, שמקבלת joke_id מסוג uuid, מוסיפה 1 למונה, ומחזירה את המספר החדש.
+- בתוכה: security invoker, search_path ריק, ושמות מלאים כמו public.jokes.
+- הרשאות: revoke execute מ-public, anon ו-authenticated, ו-grant execute ל-service_role.
+
+עצירה ראשונה, סביב ה-SQL:
+- שמור את ה-SQL גם כקובץ db/create_jokes.sql, והצג לי אותו לפני ההרצה.
+- אחרי ההרצה הרץ get_advisors, הסבר בעברית מה נמצא, ועצור. אני בודק שהטבלה נעולה.
+
+הקוד בשרת:
+- לקוח אחד בקובץ lib/supabase.js, מהחבילה npm @supabase/supabase-js, ב-dependencies. הכתובת מ-process.env.SUPABASE_URL, והמפתח מ-process.env.SUPABASE_SECRET_KEY.
+- הפונקציה api/joke.js שומרת כל בדיחת AI בטבלה, ומחזירה גם את ה-id שלה. אם השמירה נכשלת, הבדיחה עדיין מגיעה למשתמש, והשגיאה נרשמת ב-console.error.
+- הפונקציה api/laugh.js מקבלת POST עם id, בודקת שזה uuid, וקוראת ל-add_laugh דרך rpc.
+- הפונקציה api/top.js מחזירה את רשימת "הכי מצחיקות".
+
+עצירה שנייה, לפני הדחיפה:
+- עצור לפני הדחיפה. אני שם את המפתח הסודי ב-Vercel. אל תבקש אותו ממני.</pre></div>
     <p class="see"><b>אמור להופיע:</b> שני Milestones חדשים ב-<code>MILESTONES.md</code>, והשורה <code>SUPABASE_SECRET_KEY=</code> ב-<code dir="ltr">.env.example</code>. שום קוד חדש עדיין.</p>
   </div>
 </article>
@@ -1016,7 +1043,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v12 · 26.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v13 · 26.10.2026</footer>
 
 <script>
 (function(){
