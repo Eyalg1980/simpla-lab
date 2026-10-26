@@ -437,7 +437,7 @@ code.w{white-space:normal;word-break:break-word}
 
 מיילסטון 4, בדיחה מהמאגר:
 - כפתור שני מתחת לכפתור הקיים: "בדיחה אקראית מהמאגר".
-- פונקציה api/random.js שקוראת גיליון Google שמפורסם כ-CSV, עם הכותרות topic ו-text. הכתובת מגיעה מ-process.env.SHEET_CSV_URL, ולא כתובה בשום קובץ.
+- פונקציה api/random.js שקוראת גיליון Google שמפורסם כ-CSV, עם הכותרות TOPIC ו-TEXT. את הכותרות קרא בלי תלות באותיות גדולות או קטנות. הכתובת מגיעה מ-process.env.SHEET_CSV_URL, ולא כתובה בשום קובץ.
 - פענוח CSV אמיתי: בדיחה יכולה להכיל פסיקים, מירכאות ושורות חדשות.
 - הפונקציה שומרת את הגיליון בזיכרון לדקה. הבדיחה מוצגת עם textContent.
 - הודעות קצרות בעברית כשחסרה כתובת, כשהגיליון לא מפורסם כ-CSV, וכשהוא ריק. הפרטים ב-console.error.
@@ -461,29 +461,29 @@ code.w{white-space:normal;word-break:break-word}
   <div class="sh"><span class="n">2</span><h3>מוסיפים בדיחות לגיליון של הכיתה<span class="mt">Milestone 4</span><small>בכיתה כולם כותבים לאותו גיליון. בבית, גיליון משלכם</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
-      <li>פותחים את קישור העריכה של הגיליון <code>joke-bank</code>, מהקבוצה של הכיתה</li>
-      <li>מוסיפים שתי שורות בסוף: נושא בעמודה <code>topic</code>, והבדיחה בעמודה <code>text</code></li>
+      <li>פותחים את קישור העריכה של הגיליון <code>joke-bank</code>, מהקבוצה של הכיתה. הבדיחות בלשונית <code>JOKES</code></li>
+      <li>מוסיפים שתי שורות בסוף: נושא בעמודה <code>TOPIC</code>, והבדיחה בעמודה <code>TEXT</code></li>
       <li>לא נוגעים בשורה 1. אלה הכותרות</li>
     </ol>
     <div class="tip"><b>בכיתה עושים את זה לפני הצהריים.</b> קישור ה-CSV מתעדכן באיחור של כמה דקות. אחרי ההפסקה, הבדיחות של כולם כבר שם.</div>
-    <div class="tip"><b>שמות הכותרות באנגלית, התוכן בעברית.</b> הקוד מחפש עמודה בשם <code>text</code>. מי שמשנה את השם, שובר את האפליקציה. זה בדיוק אחד החסרונות של גיליון.</div>
+    <div class="tip"><b>שמות הכותרות באנגלית, התוכן בעברית.</b> הקוד מחפש עמודה בשם <code>TEXT</code>, ולא משנה לו אם האותיות גדולות או קטנות. מי שמשנה את השם, שובר את האפליקציה. זה בדיוק אחד החסרונות של גיליון.</div>
     <details class="err more"><summary><span class="pm">+</span><u>בבית, או בלי כיתה: בונים גיליון משלכם</u></summary><div>
     <p><b>הדרך הקצרה, עם המחבר של Google Drive:</b> מחברים אותו ב-Claude כמו כל מחבר (Customize, Connectors, ואז Connect), וכותבים:</p>
-    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>צור לי ב-Google Drive גיליון בשם joke-bank. בשורה הראשונה הכותרות topic ו-text, ומתחתן חמש בדיחות קצרות בעברית, כל אחת עם נושא.</pre></div>
+    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>צור לי ב-Google Drive גיליון בשם joke-bank, עם לשונית בשם JOKES. בשורה הראשונה הכותרות TOPIC ו-TEXT, ומתחתן חמש בדיחות קצרות בעברית, כל אחת עם נושא.</pre></div>
     <p>את השיתוף ואת הפרסום כ-CSV המחבר לא עושה. אותם עושים ביד, בשלב 3.</p>
     <p><b>הדרך הידנית:</b></p>
     <ol>
       <li>נכנסים ל-<a href="https://sheets.new" target="_blank" rel="noopener">sheets.new</a>, עם חשבון Google אישי</li>
-      <li>קוראים לגיליון <code>joke-bank</code></li>
+      <li>קוראים לגיליון <code>joke-bank</code>, וללשונית <code>JOKES</code></li>
       <li>מעתיקים את הבלוק, ומדביקים בתא A1. כל שורה נכנסת לשורה, וכל עמודה לעמודה</li>
     </ol>
-    <div class="tsv"><span class="pt">להדבקה בתא A1</span><button class="cp" type="button">העתק</button><pre>topic	text
+    <div class="tsv"><span class="pt">להדבקה בתא A1</span><button class="cp" type="button">העתק</button><pre>TOPIC	TEXT
 מחשבים	המחשב שלי כמו ארון: מלא בדברים שאני לא זוכר למה שמרתי.
 חתולים	חתול לא מפיל דברים מהשולחן. הוא בודק שכוח המשיכה עדיין עובד.
 אוכל	הדיאטה שלי הולכת מצוין. כבר שלושה ימים שאני חושב עליה.
 מזג אוויר	בישראל יש שתי עונות: קיץ, ושבוע שבו כולם מדברים על החורף.
 AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא ביקש עוד פרטים על התפקיד.</pre></div>
-    <p class="see"><b>אמור להופיע:</b> בשורה 1 הכותרות <code>topic</code> ו-<code>text</code>, ומתחתן חמש בדיחות. הוסיפו עוד כמה משלכם.</p>
+    <p class="see"><b>אמור להופיע:</b> בשורה 1 הכותרות <code>TOPIC</code> ו-<code>TEXT</code>, ומתחתן חמש בדיחות. הוסיפו עוד כמה משלכם.</p>
     </div></details>
   </div>
 </article>
@@ -503,7 +503,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
     <details class="err more"><summary><span class="pm">+</span><u>בבית: מפרסמים גיליון משלכם כ-CSV</u></summary><div>
     <ol>
       <li>בתפריט: <b>File</b>, ואז <b>Share</b>, ואז <b>Publish to web</b>. בממשק בעברית: קובץ, שיתוף, פרסום באינטרנט</li>
-      <li>בתיבה הראשונה בוחרים את שם הגיליון, במקום כל המסמך</li>
+      <li>בתיבה הראשונה בוחרים את הלשונית <code>JOKES</code>, במקום כל המסמך</li>
       <li>בתיבה השנייה בוחרים <b>Comma-separated values (.csv)</b></li>
       <li>לוחצים <b>Publish</b>, מאשרים, ומעתיקים את הקישור</li>
     </ol>
@@ -698,7 +698,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
   <p>אין ב-Vercel משתנה בשם <code>SHEET_CSV_URL</code>, או שלא הייתה פריסה מאז שהוספתם אותו. בודקים את השם, ועושים Redeploy.</p>
 </div></details>
 <details class="err"><summary><span class="pm">+</span><u>"הגיליון ריק"</u></summary><div>
-  <p>בשורה 1 צריכות להיות הכותרות <code>topic</code> ו-<code>text</code>, והבדיחות בעמודה <code>text</code>. כותרת בעברית או עם רווח שוברת את החיפוש.</p>
+  <p>בשורה 1 צריכות להיות הכותרות <code>TOPIC</code> ו-<code>TEXT</code>, והבדיחות בעמודה <code>TEXT</code>. כותרת בעברית או עם רווח שוברת את החיפוש. ואם בחרתם בפרסום לשונית אחרת, בוחרים שוב את <code>JOKES</code>.</p>
 </div></details>
 <details class="err"><summary><span class="pm">+</span><u>שיניתי בדיחה בגיליון, ובאפליקציה עדיין הישנה</u></summary><div>
   <p>צפוי. Google מעדכן את הקישור תוך כמה דקות, והפונקציה שומרת עותק לדקה. בהגדרות הפרסום מוודאים ש-<b>Automatically republish when changes are made</b> מסומן.</p>
@@ -814,7 +814,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v7 · 26.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v8 · 26.10.2026</footer>
 
 <script>
 (function(){
