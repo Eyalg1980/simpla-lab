@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="השכבה השלישית בקורס 53500: אפליקציית הבדיחות קוראת מגיליון Google, ושומרת בדיחות וצחוקים ב-Supabase. הכול דרך השרת ב-Vercel.">
+<meta name="description" content="השכבה השלישית בקורס 53500: אפליקציית הבדיחות שומרת בדיחות וצחוקים ב-Supabase, ו-Claude בונה את הטבלה דרך המחבר.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F7F5F0">
 <title>Data ב-Supabase · 53500</title>
@@ -257,40 +257,37 @@ code.w{white-space:normal;word-break:break-word}
 </div>
 <nav class="osbar" aria-label="קפיצה בדף">
   <a class="jump" href="#why">למה דאטה</a>
-  <a class="jump" href="#compare">השוואה</a>
+  <a class="jump" href="#compare">מה זה Supabase</a>
   <a class="jump" href="#memory">מי זוכר מה</a>
   <a class="jump" href="#json">JSON</a>
-  <a class="jump" href="#partA">גיליון</a>
-  <a class="jump" href="#partB">Supabase</a>
+  <a class="jump" href="#partB">Milestone 4</a>
   <a class="jump" href="#errors">תקלות</a>
   <a class="jump" href="#next">מה הלאה</a>
   <span class="prog" id="prog"></span>
 </nav>
 
 <header class="hero">
-  <span class="kicker">בדיחה בלחיצה · Milestones 4 ו-5</span>
-  <h1>דאטה <b>מהגיליון אל Supabase</b></h1>
-  <p class="lead">אותו פרויקט מדף ה-Backend, שני Milestones חדשים. Milestone 4: בדיחה אקראית מגיליון Google. Milestone 5: האפליקציה שומרת כל בדיחה, וסופרת מי צחק.</p>
-  <div class="phone"><img src="app-v2-shot.webp" width="390" height="900" alt="מסך האפליקציה בדיחה בלחיצה: לוגו צבעוני, כפתור אדום עוד בדיחה וכפתור לבן בדיחה אקראית מהמאגר, בועה עם בדיחה על חתול וכפתור צחקתי, ומתחת רשימת הכי מצחיקות"></div>
-  <p class="cap">כך זה ייראה בסוף. כפתור שני, כפתור "צחקתי", ורשימה שנשמרת.</p>
+  <span class="kicker">בדיחה בלחיצה · Milestone 4</span>
+  <h1>דאטה <b>ב-Supabase</b></h1>
+  <p class="lead">אותו פרויקט מדף ה-Backend, ו-Milestone אחד חדש: האפליקציה שומרת כל בדיחה ב-Supabase, סופרת מי צחק, ומציגה את הכי מצחיקות.</p>
+  <div class="phone"><img src="app-v3-shot.webp" width="390" height="900" alt="מסך האפליקציה בדיחה בלחיצה: לוגו צבעוני, כפתור אדום עוד בדיחה, בועה עם בדיחה על חתול וכפתור צחקתי, ומתחת רשימת הכי מצחיקות"></div>
+  <p class="cap">כך זה ייראה בסוף. כפתור "צחקתי", ורשימה שנשמרת.</p>
   <div class="idea">
-    <div><span class="k">הגיליון</span><b><code>api/random.js</code></b>בדיחות שאתם כותבים ביד, ב-Google Sheets. האפליקציה רק קוראת.</div>
-    <div><span class="k">בסיס הנתונים</span><b><code>jokes</code></b>טבלה ב-Supabase. האפליקציה כותבת לתוכה וקוראת ממנה.</div>
+    <div><span class="k">הטבלה</span><b><code>jokes</code></b>כל בדיחת AI נשמרת כשורה ב-Supabase. האפליקציה כותבת וקוראת.</div>
+    <div><span class="k">הספירה</span><b><code>add_laugh</code></b>פונקציה בבסיס הנתונים שסופרת צחוק, גם כשכולם לוחצים יחד.</div>
     <div><span class="k">המפתח</span><b><code>SUPABASE_SECRET_KEY</code></b>רק ב-Vercel, ליד המפתח של OpenAI. לא בקוד.</div>
   </div>
   <div class="fresh"><b>צריך לפני שמתחילים:</b>
     <ul>
       <li>בדיחה בלחיצה עד Milestone 3, באוויר ב-Vercel, לפי <a href="../jb53500-backend/">דף ה-Backend</a>. ממשיכים באותה תיקייה ובאותו ריפו</li>
-      <li>בכיתה: שני הקישורים לגיליון של הכיתה, מהקבוצה: קישור העריכה וקישור ה-CSV</li>
-      <li>חשבון Supabase. אין? שלב 6</li>
+      <li>חשבון Supabase. אין? שלב 2</li>
     </ul>
   </div>
   <div class="plan" aria-label="מהלך המפגש">
-    <span><b>12:45</b> מחבר Sheets ובדיחות</span>
-    <span><b>14:00</b> Milestone 4</span>
-    <span><b>14:25</b> למה Supabase</span>
-    <span><b>14:40</b> המחבר של Supabase</span>
-    <span><b>14:55</b> Milestone 5</span>
+    <span><b>12:45</b> חשבון ב-Supabase</span>
+    <span><b>14:00</b> מה זה Supabase</span>
+    <span><b>14:20</b> המחבר של Supabase</span>
+    <span><b>14:35</b> Milestone 4</span>
     <span><b>16:00</b> בדיקות ומי זוכר מה</span>
   </div>
 </header>
@@ -298,9 +295,9 @@ code.w{white-space:normal;word-break:break-word}
 <section id="why">
 <div class="label">01 · למה דאטה</div>
 <h2 class="sec">רעננו את הדף. הבדיחה נעלמה.</h2>
-<p class="sec-lead">לאפליקציה אין זיכרון. כל בדיחה נכתבת, מוצגת, ונשכחת. היום היא מקבלת שני דברים: מאגר שאתם כותבים, וזיכרון שהיא כותבת בעצמה.</p>
+<p class="sec-lead">לאפליקציה אין זיכרון. כל בדיחה נכתבת, מוצגת, ונשכחת. היום היא מקבלת זיכרון: כל בדיחה נשמרת, וכל צחוק נספר.</p>
 
-<svg class="dgm" viewBox="0 0 340 470" role="img" aria-label="תרשים שלוש השכבות: הטלפון פונה ל-Vercel בלבד. Vercel פונה לשלושה מקומות: OpenAI שכותבת בדיחות, גיליון Google שממנו רק קוראים, ו-Supabase שאליו כותבים וממנו קוראים." direction="ltr">
+<svg class="dgm" viewBox="0 0 340 470" role="img" aria-label="תרשים שלוש השכבות: הטלפון פונה ל-Vercel בלבד. Vercel פונה לשני מקומות: OpenAI שכותבת בדיחות, ו-Supabase שאליו כותבים וממנו קוראים." direction="ltr">
   <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0 10 5 0 10z"/></marker></defs>
   <text x="330" y="22" text-anchor="end" font-size="11" font-weight="700" class="soft">1 FRONTEND</text>
   <rect class="box" x="60" y="32" width="220" height="58" rx="16"/>
@@ -314,64 +311,44 @@ code.w{white-space:normal;word-break:break-word}
   <rect class="vb" x="14" y="142" width="312" height="132" rx="18"/>
   <text x="170" y="168" text-anchor="middle" font-size="18" font-weight="800" style="font-family:Poppins,sans-serif">Vercel</text>
   <rect class="chip" x="34" y="180" width="128" height="26" rx="13"/><text x="98" y="197" text-anchor="middle" font-size="11.5" class="mono">api/joke.js</text>
-  <rect class="chip" x="178" y="180" width="128" height="26" rx="13"/><text x="242" y="197" text-anchor="middle" font-size="11.5" class="mono">api/random.js</text>
-  <rect class="chip" x="34" y="214" width="128" height="26" rx="13"/><text x="98" y="231" text-anchor="middle" font-size="11.5" class="mono">api/laugh.js</text>
+  <rect class="chip" x="178" y="180" width="128" height="26" rx="13"/><text x="242" y="197" text-anchor="middle" font-size="11.5" class="mono">api/laugh.js</text>
+  <rect class="chip" x="34" y="214" width="128" height="26" rx="13"/><text x="98" y="231" text-anchor="middle" font-size="11.5" class="mono">lib/supabase.js</text>
   <rect class="chip" x="178" y="214" width="128" height="26" rx="13"/><text x="242" y="231" text-anchor="middle" font-size="11.5" class="mono">api/top.js</text>
   <text x="170" y="262" text-anchor="middle" font-size="12" font-weight="600">שני מפתחות סודיים, רק כאן</text>
 
-  <line class="ar" x1="60" y1="276" x2="60" y2="352" marker-end="url(#ah)"/>
-  <line class="ar2" x1="170" y1="352" x2="170" y2="276" marker-end="url(#ah)"/>
-  <line class="ar" x1="256" y1="276" x2="256" y2="352" marker-end="url(#ah)"/>
-  <line class="ar" x1="276" y1="352" x2="276" y2="276" marker-end="url(#ah)"/>
+  <line class="ar" x1="92" y1="276" x2="92" y2="352" marker-end="url(#ah)"/>
+  <line class="ar" x1="238" y1="276" x2="238" y2="352" marker-end="url(#ah)"/>
+  <line class="ar" x1="260" y1="352" x2="260" y2="276" marker-end="url(#ah)"/>
 
   <text x="330" y="346" text-anchor="end" font-size="11" font-weight="700" class="soft">3 DATA</text>
-  <rect class="box" x="8" y="358" width="104" height="62" rx="14"/>
-  <text x="60" y="385" text-anchor="middle" font-size="14" font-weight="700">OpenAI</text>
-  <text x="60" y="405" text-anchor="middle" font-size="11" class="soft">כותבת בדיחה</text>
-  <rect class="gb" x="118" y="358" width="104" height="62" rx="14"/>
-  <text x="170" y="385" text-anchor="middle" font-size="14" font-weight="700">Google Sheet</text>
-  <text x="170" y="405" text-anchor="middle" font-size="11" class="soft">רק קוראים</text>
-  <rect class="sb" x="228" y="358" width="104" height="62" rx="14"/>
-  <text x="280" y="385" text-anchor="middle" font-size="14" font-weight="700">Supabase</text>
-  <text x="280" y="405" text-anchor="middle" font-size="11" class="soft">כותבים וקוראים</text>
-  <text x="170" y="450" text-anchor="middle" font-size="12" class="soft">הטלפון לא מדבר עם אף אחד מהשלושה ישירות</text>
+  <rect class="box" x="30" y="358" width="124" height="62" rx="14"/>
+  <text x="92" y="385" text-anchor="middle" font-size="14" font-weight="700">OpenAI</text>
+  <text x="92" y="405" text-anchor="middle" font-size="11" class="soft">כותבת בדיחה</text>
+  <rect class="sb" x="186" y="358" width="124" height="62" rx="14"/>
+  <text x="248" y="385" text-anchor="middle" font-size="14" font-weight="700">Supabase</text>
+  <text x="248" y="405" text-anchor="middle" font-size="11" class="soft">כותבים וקוראים</text>
+  <text x="170" y="450" text-anchor="middle" font-size="12" class="soft">הטלפון לא מדבר עם אף אחד מהשניים ישירות</text>
 </svg>
 <div class="tip"><b>הדפדפן לא מחזיק אף סוד. רק השרת.</b> הדף מדבר רק עם <code>/api</code>. הפונקציה ב-Vercel היא המלצר: הדף מזמין, והמלצר הולך למטבח (OpenAI) ולמקרר (Supabase). המפתח של Supabase הוא פשוט מפתח שני, באותו מקום של המפתח של OpenAI.</div>
 </section>
 
 <section id="compare">
-<div class="label">02 · איפה שומרים נתונים</div>
-<h2 class="sec">שלושה מקומות, שלושה תפקידים</h2>
-<p class="sec-lead">אין "הכי טוב". יש מה שמתאים לנתונים שלכם.</p>
-<div class="tblwrap"><table class="tbl t3 t4">
-  <thead><tr><th></th><th>קובץ JSON בריפו</th><th>Google Sheet</th><th>Supabase</th></tr></thead>
-  <tbody>
-    <tr><td>מי עורך</td><td>מי שעובד עם Git</td><td>כל אחד, גם מהטלפון</td><td>האפליקציה, ואתם בדשבורד</td></tr>
-    <tr><td>האפליקציה כותבת?</td><td>לא</td><td>לא בקלות</td><td>כן</td></tr>
-    <tr><td>שינוי נראה</td><td>אחרי push</td><td>אחרי כמה דקות</td><td>מיד</td></tr>
-    <tr><td>מי יכול לקרוא</td><td>כל העולם</td><td>כל מי שיש לו את הקישור</td><td>רק מי שיש לו מפתח</td></tr>
-    <tr><td>מיון וספירה</td><td>בקוד שלכם</td><td>ביד, בגיליון</td><td>שאילתה של שורה</td></tr>
-    <tr><td>מתי</td><td>רשימה קבועה: קטגוריות, ערים</td><td>תוכן שבעל העסק מתחזק</td><td>כל מה שמשתמשים יוצרים</td></tr>
-  </tbody>
-</table></div>
-
-<details class="err more"><summary><span class="pm">+</span><u>יתרונות וחסרונות, בפירוט</u></summary><div>
-<div class="pc">
-  <div class="pcard2"><h3><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="M4 9h16M4 14.5h16M10 9v11.5"/></svg>Google Sheet</h3>
-    <div class="two">
-      <div class="pro"><b>יתרונות</b><ul><li>כולם יודעים לערוך גיליון</li><li>עורכים מהטלפון, בלי לגעת בקוד</li><li>חינם, ובלי עוד חשבון</li><li>בעל העסק מתחזק את התוכן לבד</li></ul></div>
-      <div class="con"><b>חסרונות</b><ul><li>הקישור פתוח לכל מי שמחזיק בו</li><li>שינוי מתעדכן אחרי כמה דקות</li><li>קריאה בלבד. כתיבה דורשת Google Cloud</li><li>אין מבנה: עמודה שנמחקה שוברת את האפליקציה</li><li>אסור לשים בו מידע אישי</li></ul></div>
-    </div>
-  </div>
-  <div class="pcard2"><h3><svg class="ic" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7.5" ry="2.8"/><path d="M4.5 6v12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V6M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8"/></svg>Supabase</h3>
-    <div class="two">
-      <div class="pro"><b>יתרונות</b><ul><li>האפליקציה כותבת וקוראת</li><li>מיון, סינון וספירה בשורה אחת</li><li>הרשאות על כל שורה</li><li>גדל עם המוצר: התחברות וקבצים</li></ul></div>
-      <div class="con"><b>חסרונות</b><ul><li>עוד חשבון, ועוד מושגים: טבלה, RLS, grant</li><li>פרויקט חינמי מושהה אחרי שבוע בלי פעילות</li><li>עריכה ידנית פחות נוחה מגיליון</li><li>עד שני פרויקטים פעילים בחינם</li></ul></div>
-    </div>
-  </div>
+<div class="label">02 · מה זה Supabase</div>
+<h2 class="sec">בסיס נתונים בענן, עם דשבורד</h2>
+<p class="sec-lead">Supabase מחזיק בשבילכם בסיס נתונים מסוג Postgres. לא מתקינים שרת ולא מגבים דיסקים: נכנסים לדשבורד, ויש טבלאות.</p>
+<div class="cards">
+  <div class="card"><b>טבלה, כמו גיליון עם כללים</b>שורה לכל בדיחה, ועמודה לכל פרט עליה. בניגוד לגיליון, לכל עמודה יש סוג, כמו טקסט או מספר, ואי אפשר לשבור את המבנה בטעות.</div>
+  <div class="card"><b>האפליקציה כותבת, לא רק קוראת</b>כל בדיחה חדשה וכל צחוק נשמרים מיד. מיון וספירה, כמו "חמש הבדיחות הכי מצחיקות", בשאילתה אחת.</div>
+  <div class="card"><b>מנעול על כל שורה</b>אצלנו הטבלה נעולה לכל העולם. רק השרת ב-Vercel נכנס, עם מפתח סודי. הדפדפן לא מדבר עם Supabase בכלל.</div>
+  <div class="card"><b>Claude בונה, אתם מאשרים</b>את הטבלה לא בונים ביד בדשבורד. Claude בונה אותה דרך המחבר של Supabase, ואתם קוראים כל פעולה לפני שהיא רצה.</div>
 </div>
+<details class="err more"><summary><span class="pm">+</span><u>יתרונות וחסרונות</u></summary><div>
+  <div class="pcard2"><div class="two">
+    <div class="pro"><b>יתרונות</b><ul><li>האפליקציה כותבת וקוראת</li><li>מיון, סינון וספירה בשורה אחת</li><li>הרשאות על כל שורה</li><li>גדל עם המוצר: התחברות וקבצים</li></ul></div>
+    <div class="con"><b>חסרונות</b><ul><li>עוד חשבון, ועוד מושגים: טבלה, RLS, grant</li><li>פרויקט חינמי מושהה אחרי שבוע בלי פעילות</li><li>בתוכנית החינמית אין גיבוי אוטומטי</li><li>עד שני פרויקטים פעילים בחינם</li></ul></div>
+  </div></div>
 </div></details>
-<div class="note"><b>Google Sheets לא בסטאק של הקורס.</b> הוא כאן כי הוא מצוין לתוכן שאדם מתחזק. בסיס הנתונים של הקורס הוא Supabase.</div>
+<div class="note"><b>Supabase הוא בסיס הנתונים של הקורס.</b> היום לומדים אותו על הבדיחות. את אותו דבר עושים אחר כך על המוצר שלכם, לפי <a href="#next">מה הלאה</a> בסוף הדף.</div>
 </section>
 
 <section id="memory">
@@ -401,13 +378,12 @@ code.w{white-space:normal;word-break:break-word}
 <div class="sfrow"><h2 class="sec">ככה נראית בדיחה כשהיא עוברת מהשרת לדף</h2><span class="sfbtn pm" aria-hidden="true">+</span></div>
 <p class="sec-lead">JSON הוא הפורמט שבו השרת עונה לדף. כל לחיצה על כפתור באפליקציה מחזירה טקסט כזה.</p>
 </summary><div class="sfb">
-<p>זה מה שהדף מקבל מ-<code>/api/random</code> אחרי Milestone 4. בדיחה אחת, עם שלושה שדות:</p>
-<div class="term"><span class="fn">/api/random</span><pre>{
+<p>זה מה שהדף מקבל מ-<code>/api/joke</code> אחרי Milestone 4. הבדיחה, והמזהה שלה בטבלה:</p>
+<div class="term"><span class="fn">/api/joke</span><pre>{
   "joke": "למה המחשב חולה? יש לו וירוס",
-  "topic": "מחשבים",
-  "source": "sheet"
+  "id": "8f3c2a71-4b6e-4d2a-9c1f-2e7b5d90a613"
 }</pre></div>
-<p>וזו הרשימה מ-<code>/api/top</code> אחרי Milestone 5, בקיצור. רשימה של בדיחות, וכל אחת עם המספר שלה:</p>
+<p>וזו הרשימה מ-<code>/api/top</code>, בקיצור. רשימה של בדיחות, וכל אחת עם המספר שלה:</p>
 <div class="term"><span class="fn">/api/top</span><pre>{
   "jokes": [
     {"text": "בדיחה ראשונה", "laughs": 12},
@@ -430,47 +406,38 @@ code.w{white-space:normal;word-break:break-word}
   <ul style="padding-inline-start:18px;margin-top:4px">
     <li><b style="display:inline;font-size:inherit">טופס מוסכם.</b> השרת והדף הם שתי תוכנות נפרדות. הדף יודע לחפש את הבדיחה בשדה <code>joke</code>, כי שניהם מסכימים על הטופס</li>
     <li><b style="display:inline;font-size:inherit">כולם כבר מדברים בו.</b> OpenAI עונה לפונקציה ב-JSON. גם Supabase מחזיר שורות כ-JSON, והפונקציה עונה לדף באותו פורמט</li>
-    <li><b style="display:inline;font-size:inherit">הגיליון יוצא דופן.</b> הוא מחזיר CSV, טקסט עם פסיקים. הפונקציה של Milestone 4 הופכת אותו ל-JSON, וכך לדף לא משנה מאיפה הבדיחה הגיעה</li>
     <li><b style="display:inline;font-size:inherit">קוראים, לא כותבים.</b> את ה-JSON כותב Claude. אתם צריכים לדעת לקרוא אותו: בלוגים, בתשובות של המחברים, ובקבצים כמו <code>package.json</code> ו-<code>.claude/settings.json</code></li>
   </ul>
 </div>
-<div class="tip"><b>נסו עכשיו:</b> פותחים בדפדפן את הכתובת של האפליקציה ב-Vercel, ומוסיפים בסופה <code>/api/random</code>. מה שמופיע על המסך הוא בדיוק מה שהדף מקבל.</div>
+<div class="tip"><b>נסו אחרי Milestone 4:</b> פותחים בדפדפן את הכתובת של האפליקציה ב-Vercel, ומוסיפים בסופה <code>/api/top</code>. מה שמופיע על המסך הוא בדיוק מה שהדף מקבל. עוד לא צחקו על כלום? תופיע רשימה ריקה.</div>
 <div class="note"><b>השגיאה שתפגשו:</b> <span class="l">Unexpected token '&lt;'</span>. הדף ציפה ל-JSON וקיבל דף שגיאה של HTML, בדרך כלל כי הכתובת של <code>/api</code> שגויה או שהפונקציה קרסה. בודקים ב-Logs של Vercel, ומדביקים ל-Claude את השגיאה עצמה.</div>
 </div></details>
 </section>
 
-<!-- ========== PART A ========== -->
-<div class="part g" id="partA">
-  <div class="pl">Milestone 4 · חמישה שלבים · כ-30 דקות</div>
-  <h2>בדיחה אקראית מגיליון</h2>
-  <p>אותו פרויקט, אותה תיקייה ואותו ריפו מדף ה-Backend. גיליון אחד לכל הכיתה, ש-Claude רואה דרך המחבר של Google Sheets, ופונקציה שקוראת ממנו.</p>
+<!-- ========== MILESTONE 4 ========== -->
+<span id="partA"></span>
+<div class="part" id="partB">
+  <div class="pl">Milestone 4 · שמונה שלבים · כשעה וחצי</div>
+  <h2>האפליקציה זוכרת</h2>
+  <p>אותו פרויקט, אותה תיקייה ואותו ריפו מדף ה-Backend. Claude בונה טבלה דרך המחבר של Supabase, ומחבר אליה את הפונקציות. אתם קוראים כל פעולה לפני שהיא רצה.</p>
 </div>
-<section class="trackA">
+<section class="trackB">
 
 <article class="step" data-s="d1">
-  <div class="sh"><span class="n">1</span><h3>מוסיפים לתוכנית שני Milestones<span class="mt">הקמה</span><small>האיפיון מתעדכן לפני הקוד</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">1</span><h3>מוסיפים לתוכנית את Milestone 4<span class="mt">הקמה</span><small>האיפיון מתעדכן לפני הקוד</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <p>פותחים את התיקייה <code>joke-app</code> ב-Claude Code, במצב <b>Local</b>, ומדביקים בשיחה חדשה:</p>
-    <div class="prompt"><span class="pt">Claude Code, שיחה חדשה</span><button class="cp" type="button">העתק</button><pre>עדכן את תיקיית spec לשני Milestones חדשים. אל תתחיל לבנות.
-1. הוסף ל-MILESTONES.md את מיילסטון 4 ואת מיילסטון 5, עם תנאי השלמה לכל אחד, לפי הפירוט למטה.
-2. עדכן את ARCHITECTURE.md ואת CLAUDE.md: גיליון Google לקריאה, Supabase לשמירה, ורק הפונקציות בתיקיית api מדברות איתם. הדף מדבר רק עם /api.
+    <div class="prompt"><span class="pt">Claude Code, שיחה חדשה</span><button class="cp" type="button">העתק</button><pre>עדכן את תיקיית spec ל-Milestone חדש. אל תתחיל לבנות.
+1. הוסף ל-MILESTONES.md את מיילסטון 4, עם תנאי השלמה, לפי הפירוט למטה.
+2. עדכן את ARCHITECTURE.md ואת CLAUDE.md: Supabase לשמירה, ורק הפונקציות בתיקיית api מדברות איתו. הדף מדבר רק עם /api.
 3. הוסף ל-.env.example את השורה SUPABASE_SECRET_KEY=, בלי ערך.
-בכל מיילסטון עדכן את גרסת ה-service worker.
+4. עדכן את גרסת ה-service worker.
 
-מיילסטון 4, בדיחה מהמאגר:
-- כפתור שני מתחת לכפתור הקיים: "בדיחה אקראית מהמאגר".
-- לפני הקוד: בקש ממני את קישור העריכה של הגיליון, וקרא דרך המחבר של Google Sheets את שורה 1 ואת שלוש השורות הראשונות בלשונית jokes, כדי שהקוד יתאים לגיליון האמיתי. את הקישור אל תשמור באף קובץ.
-- פונקציה api/random.js שקוראת גיליון Google שמפורסם כ-CSV, עם הכותרות topic ו-text. את הכותרות קרא בלי תלות באותיות גדולות או קטנות. הכתובת מגיעה מ-process.env.SHEET_CSV_URL, ולא כתובה בשום קובץ.
-- פענוח CSV אמיתי: בדיחה יכולה להכיל פסיקים, מירכאות ושורות חדשות.
-- הפונקציה שומרת את הגיליון בזיכרון לדקה. הבדיחה מוצגת עם textContent.
-- הודעות קצרות בעברית כשחסרה כתובת, כשהגיליון לא מפורסם כ-CSV, וכשהוא ריק. הפרטים ב-console.error.
-
-מיילסטון 5, האפליקציה זוכרת:
+מיילסטון 4, האפליקציה זוכרת:
 
 מה רואים בדף:
 - מתחת לכל בדיחת AI, כפתור "צחקתי" עם מונה. אחרי לחיצה הכפתור ננעל.
 - רשימת "הכי מצחיקות": חמש הבדיחות עם הכי הרבה צחוקים, רק כאלה עם צחוק אחד לפחות. היא מתעדכנת אחרי כל צחוק, בלי polling.
-- בדיחות מהגיליון לא נשמרות, ואין להן כפתור "צחקתי".
 
 הטבלה, דרך המחבר של Supabase:
 - אם יש לי יותר מפרויקט אחד, שאל באיזה לעבוד.
@@ -503,133 +470,12 @@ code.w{white-space:normal;word-break:break-word}
 
 עצירה שנייה, לפני הדחיפה:
 - עצור לפני הדחיפה. אני שם את המפתח הסודי ב-Vercel. אל תבקש אותו ממני.</pre></div>
-    <p class="see"><b>אמור להופיע:</b> שני Milestones חדשים ב-<code>MILESTONES.md</code>, והשורה <code>SUPABASE_SECRET_KEY=</code> ב-<code dir="ltr">.env.example</code>. שום קוד חדש עדיין.</p>
+    <p class="see"><b>אמור להופיע:</b> Milestone 4 חדש ב-<code>MILESTONES.md</code>, והשורה <code>SUPABASE_SECRET_KEY=</code> ב-<code dir="ltr">.env.example</code>. שום קוד חדש עדיין.</p>
   </div>
 </article>
-
-<article class="step" data-s="d2" id="sheets">
-  <div class="sh"><span class="n">2</span><h3>המחבר של Google Sheets, ושתי בדיחות לגיליון<span class="mt">Milestone 4</span><small>Claude כותב לגיליון של הכיתה, וקורא ממנו</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
-    <p><b>מחברים, פעם אחת:</b></p>
-    <ol>
-      <li>ב-Claude Desktop לוחצים <b>Customize</b>, ואז <b>Connectors</b>. לוחצים על ה-<b>+</b>, מחפשים <b>Google Sheets</b>, לוחצים <b>Connect</b>, ונכנסים עם חשבון Google האישי</li>
-      <li>בלשונית <b>Code</b>, בתיקייה <code>joke-app</code>: ב-<b>+</b> שליד תיבת ההודעה, <b>Connectors</b>, ומוודאים ש-Google Sheets דולק. מצב ההרשאות נשאר <b>Manual</b></li>
-    </ol>
-    <p><b>Claude מוסיף שתי בדיחות לגיליון של הכיתה.</b> כותבים במקום הסוגריים שתי בדיחות קצרות משלכם, ושולחים:</p>
-    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>דרך המחבר של Google Sheets, הוסף שתי בדיחות לגיליון שבקישור למטה, בלשונית jokes.
-השתמש ב-append_values, כדי שהשורות ייכנסו בסוף הטבלה. אל תכתוב לשורה מסוימת, ואל תשנה שורות קיימות.
-בעמודה topic הנושא, ובעמודה text הבדיחה:
-1. הנושא: [כאן], הבדיחה: [כאן]
-2. הנושא: [כאן], הבדיחה: [כאן]
-לפני הכתיבה הצג לי מה תוסיף. אחרי הכתיבה קרא את הגיליון, ואמור לי כמה בדיחות יש בו ואם שתי הבדיחות שלי בסוף.
-הקישור: https://docs.google.com/spreadsheets/d/1KcfReqH2alk3apKi3-C1rBe4rwKeNTTS9hl8f6m8Yy8/edit?usp=sharing</pre></div>
-    <p class="see"><b>אמור להופיע:</b> Claude מציג את שתי השורות ומבקש אישור ל-<code>append_values</code>. אחרי האישור הוא מדווח כמה בדיחות יש, ושתי שלכם בסוף. בדיקה בעיניים: <a href="https://docs.google.com/spreadsheets/d/1KcfReqH2alk3apKi3-C1rBe4rwKeNTTS9hl8f6m8Yy8/edit?usp=sharing" target="_blank" rel="noopener">פותחים את הגיליון</a>.</p>
-    <div class="tip"><b>למה דווקא append_values?</b> כל הכיתה כותבת לאותו גיליון באותה דקה. <code>append_values</code> מבקש מ-Google להוסיף בסוף הטבלה, ו-Google מסדר את התור בצד שלו, כך שאף אחד לא נדרס. כתיבה לשורה מסוימת הייתה דורסת: Claude מחפש שורה ריקה, ובינתיים מישהו אחר כבר כתב בה. זו בדיוק הבעיה שהפונקציה <code>add_laugh</code> פותרת ב-Milestone 5.</div>
-    <div class="tip"><b>בכיתה עושים את זה לפני הצהריים.</b> קישור ה-CSV מתעדכן באיחור של כמה דקות. אחרי ההפסקה, הבדיחות של כולם כבר שם.</div>
-    <details class="err more"><summary><span class="pm">+</span><u>מה המחבר עושה, ומה לא</u></summary><div>
-      <ul>
-        <li><b>מה הוא יודע:</b> לקרוא תאים, לכתוב בהם ולהוסיף שורות, בכל גיליון שהחשבון שלכם רואה</li>
-        <li><b>מה הוא לא יודע:</b> לפרסם כ-CSV או לשנות שיתוף. את זה עושים ביד, בשלב 3</li>
-        <li><b>גישה:</b> המחבר רואה כל גיליון בחשבון. לכן חשבון Google אישי, ולא של העבודה</li>
-        <li><b>Manual:</b> קריאה מאשרים. בגיליון של הכיתה מאשרים כתיבה רק ב-<code>append_values</code>. על <code>update_values</code> או <code>batch_clear_values</code> שם עוצרים ושואלים</li>
-      </ul>
-      <p><b>המחבר לא עובד, והשיעור ממשיך?</b> פותחים את הגיליון ומוסיפים את שתי השורות ביד, בסוף. בשורה 1 לא נוגעים.</p>
-      <p><b>Claude אומר שאין לו גישה לגיליון?</b> בודקים שהדבקתם את קישור העריכה ולא את קישור ה-CSV, ושנכנסתם למחבר עם אותו חשבון שבו פתחתם את הגיליון.</p>
-      <p><b>שמות הכותרות באנגלית, התוכן בעברית.</b> הקוד מחפש עמודה בשם <code>text</code>, באותיות גדולות או קטנות. מי שמשנה את השם, שובר את האפליקציה לכל הכיתה. זה אחד החסרונות של גיליון.</p>
-    </div></details>
-    <details class="err more"><summary><span class="pm">+</span><u>בבית, או בלי כיתה: גיליון משלכם, ו-Claude ממלא אותו</u></summary><div>
-    <ol>
-      <li>נכנסים ל-<a href="https://sheets.new" target="_blank" rel="noopener">sheets.new</a>, עם חשבון Google אישי</li>
-      <li>קוראים לגיליון <code>joke-bank</code>, וללשונית <code>jokes</code></li>
-      <li>מעתיקים את הקישור מהדפדפן, ושולחים ל-Claude:</li>
-    </ol>
-    <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>דרך המחבר של Google Sheets, בגיליון שבקישור למטה, בלשונית jokes:
-בשורה 1 כתוב את הכותרות topic ו-text, ומתחתן חמש בדיחות קצרות בעברית, כל אחת עם נושא.
-לפני שאתה כותב, הצג לי את הטווח ואת התוכן.
-[כאן מדביקים את הקישור לגיליון]</pre></div>
-    <p>בגיליון שרק אתם כותבים בו, Claude יכול לכתוב בבטחה. אין מי שיידרס.</p>
-    <p><b>בלי מחבר:</b> מעתיקים את הבלוק, ומדביקים בתא A1. כל שורה נכנסת לשורה, וכל עמודה לעמודה.</p>
-    <div class="tsv"><span class="pt">להדבקה בתא A1</span><button class="cp" type="button">העתק</button><pre>topic	text
-מחשבים	המחשב שלי כמו ארון: מלא בדברים שאני לא זוכר למה שמרתי.
-חתולים	חתול לא מפיל דברים מהשולחן. הוא בודק שכוח המשיכה עדיין עובד.
-אוכל	הדיאטה שלי הולכת מצוין. כבר שלושה ימים שאני חושב עליה.
-מזג אוויר	בישראל יש שתי עונות: קיץ, ושבוע שבו כולם מדברים על החורף.
-AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא ביקש עוד פרטים על התפקיד.</pre></div>
-    <p class="see"><b>אמור להופיע:</b> בשורה 1 הכותרות <code>topic</code> ו-<code>text</code>, ומתחתן חמש בדיחות. את הפרסום כ-CSV עושים בשלב 3.</p>
-    </div></details>
-  </div>
-</article>
-
-<article class="step" data-s="d3">
-  <div class="sh"><span class="n">3</span><h3>קישור ה-CSV עובר ל-Vercel<span class="mt">Milestone 4</span><small>בכיתה הקישור מהקבוצה. לא בקוד</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
-    <p><b>בכיתה:</b> מעתיקים מהקבוצה את הקישור השני, קישור ה-CSV. הוא מסתיים ב-<code>output=csv</code>.</p>
-    <ol>
-      <li>בפרויקט <code>joke-app</code> ב-Vercel: <b>Settings</b>, ואז <b>Environment Variables</b></li>
-      <li>ב-<b>Key</b> כותבים <code>SHEET_CSV_URL</code></li>
-      <li>ב-<b>Value</b> מדביקים את הקישור</li>
-      <li>ב-<b>Type</b> בוחרים <b>Config</b>, ושומרים</li>
-    </ol>
-    <div class="tip"><b>פתחתם את הקישור לבדיקה?</b> הוא מוריד קובץ CSV, ולא נפתח בדפדפן. Excel מציג את העברית בו כג׳יבריש, כי הוא לא מזהה את הקידוד. הקובץ תקין, והאפליקציה קוראת אותו נכון. רוצים לראות את הבדיחות? פותחים את הקובץ ב-Notepad.</div>
-    <div class="tip"><b>למה Config ולא Secret?</b> הקישור הוא לא סיסמה. אבל הוא לא שייך לקוד: ככה מחליפים גיליון בלי לגעת בקוד, וכתובת הגיליון לא מופיעה בריפו הציבורי.</div>
-    <div class="warn"><b>פרסום פותח את התוכן לכל מי שיש לו את הקישור,</b> גם אם הגיליון עצמו לא משותף עם אף אחד. בגיליון כזה שמים רק תוכן שמותר לכל העולם לראות. אף פעם לא שמות, טלפונים או מיילים.</div>
-    <details class="err more"><summary><span class="pm">+</span><u>בבית: מפרסמים גיליון משלכם כ-CSV</u></summary><div>
-    <ol>
-      <li>בתפריט: <b>File</b>, ואז <b>Share</b>, ואז <b>Publish to web</b>. בממשק בעברית: קובץ, שיתוף, פרסום באינטרנט</li>
-      <li>בתיבה הראשונה בוחרים את הלשונית <code>jokes</code>, במקום כל המסמך</li>
-      <li>בתיבה השנייה בוחרים <b>Comma-separated values (.csv)</b></li>
-      <li>לוחצים <b>Publish</b>, מאשרים, ומעתיקים את הקישור</li>
-    </ol>
-    <div class="tip"><b>אין לכם Publish to web?</b> בחשבון של עבודה או של לימודים, המנהל עלול לחסום פרסום. עובדים עם חשבון Gmail אישי.</div>
-    </div></details>
-  </div>
-</article>
-
-<article class="step" data-s="d4">
-  <div class="sh"><span class="n">4</span><h3>Claude בונה את Milestone 4<span class="mt">Milestone 4</span><small>שיחה חדשה בשם milestone-4</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
-    <div class="prompt"><span class="pt">שיחה חדשה</span><button class="cp" type="button">העתק</button><pre>קרא את CLAUDE.md ואת קובץ המיילסטונים בתיקיית spec, והתחל את מיילסטון 4.</pre></div>
-    <p>אותו נוהל כמו בדף ה-Backend: Claude מתכנן, בונה, מריץ ודוחף, ואז עוצר לאישור.</p>
-    <p class="see"><b>אמור להופיע:</b> קובץ חדש <code>api/random.js</code>, כפתור חדש בדף, ופריסה חדשה ב-Vercel.</p>
-  </div>
-</article>
-
-<article class="step" data-s="d5">
-  <div class="sh"><span class="n">5</span><h3>בודקים, ורואים את החסרונות בעצמכם<span class="mt">Milestone 4</span><small>לא רק "זה עובד"</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
-  <div class="body">
-    <ol>
-      <li>מחכים שהפריסה ב-Vercel תהיה <b>Ready</b>, ולוחצים כמה פעמים על הכפתור החדש</li>
-      <li><b>בדיקה 1, העיכוב:</b> מוסיפים בדיחה חדשה לגיליון, ולוחצים שוב. היא תופיע רק אחרי כמה דקות. Google מעדכן את הקישור באיחור, והפונקציה שומרת עותק לדקה</li>
-      <li><b>בדיקה 2, הפרטיות:</b> פותחים את קישור ה-CSV בחלון גלישה בסתר. כל אחד יכול לקרוא אותו, בלי להתחבר</li>
-    </ol>
-    <p class="see"><b>אמור להופיע:</b> בדיחה מהגיליון, עם הכיתוב "מהמאגר". בדיחות של כל הכיתה מופיעות אצל כולם, בלי commit ובלי deploy.</p>
-  </div>
-</article>
-</section>
-
-<div class="wall" id="wall">
-  <div class="pl">הקיר · 5 דקות</div>
-  <h2>עכשיו שהאפליקציה תשמור כל בדיחה. בגיליון?</h2>
-  <p>כדי שהשרת יכתוב לגיליון צריך:</p>
-  <ol>
-    <li>פרויקט ב-Google Cloud, והפעלה של Google Sheets API</li>
-    <li>חשבון שירות, וקובץ מפתח שלו</li>
-    <li>לשתף את הגיליון עם המייל של חשבון השירות</li>
-    <li>ואז לכתוב את הקוד</li>
-  </ol>
-  <p>ואחרי כל זה, עדיין אין "חמש הבדיחות הכי מצחיקות" בשורה אחת, ואין מנעול על שורות. <b>זה הרגע לבסיס נתונים.</b></p>
-</div>
-
-<!-- ========== PART B ========== -->
-<div class="part" id="partB">
-  <div class="pl">Milestone 5 · שבעה שלבים · כשעה</div>
-  <h2>האפליקציה זוכרת</h2>
-  <p>Claude בונה טבלה דרך המחבר של Supabase, ומחבר אליה את הפונקציות. אתם קוראים כל פעולה לפני שהיא רצה.</p>
-</div>
-<section class="trackB">
 
 <article class="step" data-s="d6">
-  <div class="sh"><span class="n">6</span><h3>חשבון ופרויקט ב-Supabase<span class="mt">Milestone 5</span><small>יש כבר מהבית? רק מוודאים שהוא פעיל</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">2</span><h3>חשבון ופרויקט ב-Supabase<span class="mt">Milestone 4</span><small>יש כבר מהבית? רק מוודאים שהוא פעיל</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li>נכנסים ל-<a href="https://supabase.com/dashboard" target="_blank" rel="noopener">supabase.com/dashboard</a>, ונרשמים עם הג׳ימייל של הקורס</li>
@@ -643,7 +489,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </article>
 
 <article class="step" data-s="d7" id="connector">
-  <div class="sh"><span class="n">7</span><h3>מחברים את Supabase ל-Claude<span class="mt">Milestone 5</span><small>חיברתם בבית? רק מוודאים שהוא דולק</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">3</span><h3>מחברים את Supabase ל-Claude<span class="mt">Milestone 4</span><small>חיברתם בבית? רק מוודאים שהוא דולק</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li>ב-Claude Desktop לוחצים <b>Customize</b> בסרגל הצד, ואז <b>Connectors</b></li>
@@ -665,9 +511,9 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </article>
 
 <article class="step" data-s="d8" id="readsql">
-  <div class="sh"><span class="n">8</span><h3>Claude בונה את Milestone 5<span class="mt">Milestone 5</span><small>שיחה חדשה בשם milestone-5</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">4</span><h3>Claude בונה את Milestone 4<span class="mt">Milestone 4</span><small>שיחה חדשה בשם milestone-4</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
-    <div class="prompt"><span class="pt">שיחה חדשה</span><button class="cp" type="button">העתק</button><pre>קרא את CLAUDE.md ואת קובץ המיילסטונים בתיקיית spec, והתחל את מיילסטון 5.</pre></div>
+    <div class="prompt"><span class="pt">שיחה חדשה</span><button class="cp" type="button">העתק</button><pre>קרא את CLAUDE.md ואת קובץ המיילסטונים בתיקיית spec, והתחל את מיילסטון 4.</pre></div>
     <p><b>קוראים לפני שמאשרים.</b> Claude יציג את <code>apply_migration</code> עם ה-SQL. מחפשים חמישה דברים:</p>
     <ul class="readsql">
       <li><code>enable row level security</code>: המנעול על השורות דולק</li>
@@ -676,13 +522,13 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
       <li><code>from anon, authenticated</code> ב-revoke: הדפדפן בחוץ</li>
       <li><code>set search_path = ''</code> בפונקציה</li>
     </ul>
-    <p class="see"><b>אמור להופיע:</b> ה-migration הצליח, הקובץ <code>db/create_jokes.sql</code> בתיקייה, ומ-get_advisors הערה אחת: RLS דולק בלי policy. זה בכוונה. אחר כך Claude עוצר לשלב 9.</p>
+    <p class="see"><b>אמור להופיע:</b> ה-migration הצליח, הקובץ <code>db/create_jokes.sql</code> בתיקייה, ומ-get_advisors הערה אחת: RLS דולק בלי policy. זה בכוונה. אחר כך Claude עוצר לשלב 5.</p>
     <div class="note"><b>למה צריך grant בכלל?</b> מ-30.10.2026 Supabase כבר לא פותחת טבלה חדשה לגישה מבחוץ אוטומטית, גם לא לשרת. בלי השורה הזו, השרת שלכם יקבל <code class="w">42501 permission denied for table jokes</code>. מדריכים וסרטונים ישנים לא מזכירים את זה.</div>
   </div>
 </article>
 
 <article class="step" data-s="d9" id="lock">
-  <div class="sh"><span class="n">9</span><h3>בודקים שהטבלה נעולה לעולם<span class="mt">Milestone 5</span><small>כש-Claude עוצר אחרי בניית הטבלה. נכשלים בכוונה</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">5</span><h3>בודקים שהטבלה נעולה לעולם<span class="mt">Milestone 4</span><small>כש-Claude עוצר אחרי בניית הטבלה. נכשלים בכוונה</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li>בדשבורד: <b>Table Editor</b>. הטבלה <code>jokes</code> מופיעה, ריקה</li>
@@ -707,7 +553,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </article>
 
 <article class="step" data-s="d10">
-  <div class="sh"><span class="n">10</span><h3>המפתח הסודי עובר ל-Vercel<span class="mt">Milestone 5</span><small>כש-Claude עוצר לפני הדחיפה</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">6</span><h3>המפתח הסודי עובר ל-Vercel<span class="mt">Milestone 4</span><small>כש-Claude עוצר לפני הדחיפה</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <p><b>לשונית 1, Supabase:</b></p>
     <ol>
@@ -718,20 +564,20 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
     <div class="tblwrap"><table class="tbl">
       <thead><tr><th>Key</th><th>Value</th><th>Type</th></tr></thead>
       <tbody>
-        <tr><td><code>SUPABASE_URL</code></td><td>כתובת הפרויקט משלב 9</td><td>Config</td></tr>
+        <tr><td><code>SUPABASE_URL</code></td><td>כתובת הפרויקט משלב 5</td><td>Config</td></tr>
         <tr><td><code>SUPABASE_SECRET_KEY</code></td><td>המפתח הסודי</td><td>Secret</td></tr>
       </tbody>
     </table></div>
-    <div class="warn"><b>המפתח הסודי עוקף את כל המנעולים.</b> הוא נכנס רק ל-Vercel. לא לקובץ, לא לצ׳אט עם Claude, ולא לבודק בשלב 9. גם המחבר של Supabase לא יודע לקרוא אותו, וזה בכוונה.</div>
-        <div class="tip"><b>מריצים גם במחשב?</b> אותם ארבעה כללים של <a href="../jb53500-backend/#local-run"><code dir="ltr">.env.local</code> מדף ה-Backend</a>. ב-Supabase יוצרים מפתח סודי נוסף בשם <code>dev</code>, ומדביקים אותו ביד ב-<code dir="ltr">.env.local</code>. את המפתח של Vercel לא מעתיקים לשם. בקובץ יש שתי שורות בלבד, <code>OPENAI_API_KEY</code> ו-<code>SUPABASE_SECRET_KEY</code>. הכתובות, <code>SUPABASE_URL</code> ו-<code>SHEET_CSV_URL</code>, נשארות ב-Vercel כ-Config.</div>
+    <div class="warn"><b>המפתח הסודי עוקף את כל המנעולים.</b> הוא נכנס רק ל-Vercel. לא לקובץ, לא לצ׳אט עם Claude, ולא לבודק בשלב 5. גם המחבר של Supabase לא יודע לקרוא אותו, וזה בכוונה.</div>
+        <div class="tip"><b>מריצים גם במחשב?</b> אותם ארבעה כללים של <a href="../jb53500-backend/#local-run"><code dir="ltr">.env.local</code> מדף ה-Backend</a>. ב-Supabase יוצרים מפתח סודי נוסף בשם <code>dev</code>, ומדביקים אותו ביד ב-<code dir="ltr">.env.local</code>. את המפתח של Vercel לא מעתיקים לשם. בקובץ יש שתי שורות בלבד, <code>OPENAI_API_KEY</code> ו-<code>SUPABASE_SECRET_KEY</code>. הכתובת <code>SUPABASE_URL</code> נשארת ב-Vercel כ-Config.</div>
   </div>
 </article>
 
 <article class="step" data-s="d11">
-  <div class="sh"><span class="n">11</span><h3>בודקים שהמפתחות לא חשופים<span class="mt">Milestone 5</span><small>כמו שלב 6 בדף ה-Backend, עם המפתח השני</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">7</span><h3>בודקים שהמפתחות לא חשופים<span class="mt">Milestone 4</span><small>כמו שלב 6 בדף ה-Backend, עם המפתח השני</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>בדוק שהמפתחות בפרויקט לא חשופים, ותן לי טבלה עם כן או לא לכל סעיף:
-1. git grep לא מוצא את המחרוזות sk-, sb_secret_ ו-docs.google.com באף קובץ שעולה ל-GitHub.
+1. git grep לא מוצא את המחרוזות sk- ו-sb_secret_ באף קובץ שעולה ל-GitHub.
 2. ב-lib/supabase.js המפתח מגיע מ-process.env.SUPABASE_SECRET_KEY, ובדף index.html אין את המילה supabase בכלל.
 3. git ls-files לא מראה אף קובץ .env חוץ מ-.env.example.
 4. ב-.env.example יש רק שתי שורות, OPENAI_API_KEY= ו-SUPABASE_SECRET_KEY=, בלי ערכים.
@@ -743,13 +589,13 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </article>
 
 <article class="step" data-s="d12">
-  <div class="sh"><span class="n">12</span><h3>בודקים בארבעה מקומות<span class="mt">Milestone 5</span><small>הבדיחה, הטבלה, הלוגים, והמנעול</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
+  <div class="sh"><span class="n">8</span><h3>בודקים בארבעה מקומות<span class="mt">Milestone 4</span><small>הבדיחה, הטבלה, הלוגים, והמנעול</small></h3><button class="chk" type="button" role="checkbox" aria-checked="false" aria-label="סיימתי"><svg class="ic" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button></div>
   <div class="body">
     <ol>
       <li><b>בטלפון:</b> סוגרים את האפליקציה ופותחים מחדש. מבקשים בדיחה, לוחצים "צחקתי", והיא מופיעה ב"הכי מצחיקות". מרעננים: הרשימה נשארת</li>
       <li><b>ב-Table Editor של Supabase:</b> כל בדיחת AI היא שורה. העמודה <code>laughs</code> עולה כשלוחצים</li>
       <li><b>ב-Logs של Vercel:</b> בכל בדיחה כתוב <code>saved: yes</code></li>
-      <li><b>בבודק הנעילה, בשלב 9:</b> עדיין "נעול". גם עכשיו, כשיש בטבלה שורות</li>
+      <li><b>בבודק הנעילה, בשלב 5:</b> עדיין "נעול". גם עכשיו, כשיש בטבלה שורות</li>
     </ol>
     <p class="see"><b>אמור להופיע:</b> האפליקציה זוכרת. והעולם עדיין לא יכול לקרוא את מה שהיא זוכרת.</p>
     <div class="tip"><b>הפריסה נכשלה?</b> מי שחיבר את <a href="../jb53500-backend/#s7">המחבר של Vercel</a> לא צריך לחפש בלוגים. כותבים ל-Claude: "בדוק דרך המחבר של Vercel את הפריסה האחרונה. אם היא נכשלה, הסבר את השגיאה מהלוג במשפט אחד. אל תשנה כלום."</div>
@@ -763,21 +609,6 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 <h2 class="sec">מה כתוב, ומה עושים</h2>
 <p class="sec-lead">ההודעה בדף אומרת איפה לחפש. הפרטים המלאים תמיד ב-Logs של Vercel.</p>
 
-<div class="errgrp">בגיליון</div>
-<details class="err"><summary><span class="pm">+</span><u>"הגיליון לא מפורסם כ-CSV"</u></summary><div>
-  <p>Google החזיר דף אינטרנט במקום קובץ. בודקים בשלב 3: נבחר הגיליון הנכון, הפורמט הוא CSV, והקישור מסתיים ב-<code>output=csv</code>. מעדכנים את <code>SHEET_CSV_URL</code> ב-Vercel ועושים Redeploy.</p>
-</div></details>
-<details class="err"><summary><span class="pm">+</span><u>"חסרה כתובת הגיליון בשרת"</u></summary><div>
-  <p>אין ב-Vercel משתנה בשם <code>SHEET_CSV_URL</code>, או שלא הייתה פריסה מאז שהוספתם אותו. בודקים את השם, ועושים Redeploy.</p>
-</div></details>
-<details class="err"><summary><span class="pm">+</span><u>"הגיליון ריק"</u></summary><div>
-  <p>בשורה 1 צריכות להיות הכותרות <code>topic</code> ו-<code>text</code>, והבדיחות בעמודה <code>text</code>. כותרת בעברית או עם רווח שוברת את החיפוש. ואם בחרתם בפרסום לשונית אחרת, בוחרים שוב את <code>jokes</code>.</p>
-</div></details>
-<details class="err"><summary><span class="pm">+</span><u>שיניתי בדיחה בגיליון, ובאפליקציה עדיין הישנה</u></summary><div>
-  <p>צפוי. Google מעדכן את הקישור תוך כמה דקות, והפונקציה שומרת עותק לדקה. בהגדרות הפרסום מוודאים ש-<b>Automatically republish when changes are made</b> מסומן.</p>
-</div></details>
-
-<div class="errgrp">ב-Supabase</div>
 <details class="err"><summary><span class="pm">+</span><u>אין כפתור "צחקתי" אחרי בדיחת AI</u></summary><div>
   <p>הבדיחה לא נשמרה, ולכן אין לה id. ב-Logs של Vercel מחפשים שורה שמתחילה ב-<code>Not saved</code>. הסיבה כתובה אחריה, ואחת מהתקלות שלמטה.</p>
 </div></details>
@@ -814,7 +645,6 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 <div class="cards">
   <div class="card"><b>המפתח הסודי</b>עוקף את כל המנעולים, ולכן הוא רק ב-Vercel, כ-Secret. Supabase אפילו מסרבת לו כשהוא מגיע מדפדפן. דלף? יוצרים מפתח חדש ב-API Keys, מעדכנים ב-Vercel, עושים Redeploy, ורק אז מוחקים את הישן.</div>
   <div class="card"><b>הטבלה נעולה משלושה כיוונים</b>RLS דולק, אין אף policy, ואין grant ל-anon. בודק הנעילה מוכיח את זה. רק השרת שלכם נכנס.</div>
-  <div class="card"><b>הגיליון ציבורי</b>מי שיש לו את הקישור קורא הכול. רק תוכן שמותר לכל העולם. מפסיקים בכל רגע: Publish to web, ואז Stop publishing.</div>
   <div class="card"><b>מה עוד לא עשינו</b>כל אחד יכול לשלוח ל-<code>/api/laugh</code> אלף בקשות ולנפח צחוקים. הנעילה של הכפתור במכשיר היא נוחות, לא הגנה. הגבלת קצב נלמד במפגש האבטחה.</div>
   <div class="card"><b>המחבר</b>מחברים רק לפרויקט של תרגול, ומשאירים Manual. תוכן שנמצא בטבלה יכול להכיל הוראות שינסו להטעות את Claude. קוראים כל פעולה לפני שמאשרים.</div>
 </div>
@@ -823,27 +653,29 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 <section id="more">
 <div class="label">07 · להעמקה</div>
 
-<details class="err more" id="rndsb"><summary><span class="pm">+</span><u>גם הבדיחה האקראית מ-Supabase</u></summary><div>
-  <p>אחרי שהטבלה מתמלאת, אפשר להגריל ממנה במקום מהגיליון:</p>
-  <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>שנה את api/random.js כך שיגריל בדיחה מהטבלה jokes ב-Supabase, ורק אם הטבלה ריקה יגריל מהגיליון. להגרלה צור דרך המחבר פונקציה public.random_joke() עם אותם כללי grant כמו add_laugh.</pre></div>
+<details class="err more" id="rndsb"><summary><span class="pm">+</span><u>כפתור שני: בדיחה אקראית מהטבלה</u></summary><div>
+  <p>אחרי שהטבלה מתמלאת, אפשר להגריל ממנה בדיחה שכבר נכתבה:</p>
+  <div class="prompt"><span class="pt">פרומפט</span><button class="cp" type="button">העתק</button><pre>הוסף מתחת לכפתור הקיים כפתור שני, "בדיחה אקראית מהמאגר", שמגריל בדיחה מהטבלה jokes ב-Supabase.
+דרך המחבר צור פונקציה בשם public.random_joke, עם אותם כללי grant כמו add_laugh.
+הוסף פונקציה api/random.js שקוראת לה דרך rpc. הצג לי תוכנית לפני שאתה מתחיל.</pre></div>
 </div></details>
 
-<details class="err more" id="sync"><summary><span class="pm">+</span><u>הגיליון כמסך ניהול</u></summary><div>
-  <p>אפשר לשלב: בעל העסק כותב בגיליון, ואוטומציה ב-n8n מעתיקה כל שעה שורות חדשות לטבלה ב-Supabase. ככה מקבלים את הנוחות של גיליון ואת הכוח של בסיס נתונים. את זה נבנה במודול האוטומציות.</p>
+<details class="err more" id="sync"><summary><span class="pm">+</span><u>רוצים גם גיליון Google?</u></summary><div>
+  <p>יש גרסה מורחבת של הדף, עם Milestone נוסף: בדיחות שהכיתה כותבת בגיליון Google משותף, והאפליקציה קוראת אותן דרך קישור CSV. מתאים כשבעל העסק רוצה לתחזק תוכן בעצמו.</p>
+  <p><a href="../jb53500-data-sheets/">לגרסת Google Sheet</a></p>
 </div></details>
 
 <details class="err more" id="code"><summary><span class="pm">+</span><u>הקוד המלא, ופתרון להורדה</u></summary><div>
   <p>כך נראית הגרסה שבנינו ובדקנו. אצלכם Claude יכתוב משהו דומה, לא זהה.</p>
   <div class="tabs" role="tablist" id="codeTabs">
     <button type="button" role="tab" data-f="joke.js" aria-selected="true">api/joke.js</button>
-    <button type="button" role="tab" data-f="random.js" aria-selected="false">api/random.js</button>
     <button type="button" role="tab" data-f="laugh.js" aria-selected="false">api/laugh.js</button>
     <button type="button" role="tab" data-f="top.js" aria-selected="false">api/top.js</button>
     <button type="button" role="tab" data-f="supabase.js" aria-selected="false">lib/supabase.js</button>
     <button type="button" role="tab" data-f="create_jokes.sql" aria-selected="false">create_jokes.sql</button>
   </div>
   <div class="term"><span class="fn" id="codeName">api/joke.js</span><button class="cp" type="button">העתק</button><pre id="codeView">טוען...</pre></div>
-  <a class="dl" href="joke-app-v2.zip" download><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg><div><b>joke-app-v2.zip</b><span>כל הקבצים, למי שנתקע. את ה-SQL מריצים דרך Claude, ואת שלושת המשתנים שמים ב-Vercel.</span></div></a>
+  <a class="dl" href="joke-app-v3.zip" download><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg><div><b>joke-app-v3.zip</b><span>כל הקבצים, למי שנתקע. את ה-SQL מריצים דרך Claude, ואת שני המשתנים של Supabase שמים ב-Vercel.</span></div></a>
 </div></details>
 
 <details class="err more" id="glossary"><summary><span class="pm">+</span><u>מילון</u></summary><div>
@@ -851,9 +683,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
   <tbody>
     <tr><td>Database</td><td>בסיס נתונים. מקום שבו האפליקציה שומרת וקוראת מידע</td></tr>
     <tr><td>Table, Row, Column</td><td>טבלה, שורה ועמודה. כל בדיחה היא שורה, וכל פרט עליה הוא עמודה</td></tr>
-    <tr><td>CSV</td><td>טבלה כטקסט: שורה בכל שורה, ופסיק בין העמודות</td></tr>
     <tr><td>JSON</td><td>הפורמט שבו השרת עונה לדף: שדות עם שמות, בתוך <code>{ }</code>, ורשימות בתוך <code>[ ]</code>. <a href="#json">בסעיף 04</a></td></tr>
-    <tr><td>Publish to web</td><td>פרסום גיליון כקישור שכל אחד יכול לקרוא</td></tr>
     <tr><td>Query</td><td>שאילתה. שאלה לבסיס הנתונים, כמו "חמש הבדיחות הכי מצחיקות"</td></tr>
     <tr><td>Migration</td><td>שינוי במבנה בסיס הנתונים, שנשמר עם שם, כדי שאפשר יהיה לחזור עליו</td></tr>
     <tr><td>RLS</td><td>Row Level Security. מנעול על כל השורות בטבלה</td></tr>
@@ -873,7 +703,6 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
     <li><a href="https://supabase.com/docs/guides/database/functions" target="_blank" rel="noopener">Supabase: Database functions</a></li>
     <li><a href="https://supabase.com/docs/guides/ai-tools/mcp" target="_blank" rel="noopener">Supabase: MCP server</a></li>
     <li><a href="https://supabase.com/pricing" target="_blank" rel="noopener">Supabase: Pricing</a></li>
-    <li><a href="https://support.google.com/docs/answer/183965" target="_blank" rel="noopener">Google: Make Docs, Sheets, Slides and Forms public</a></li>
     <li><a href="https://vercel.com/docs/functions/runtimes/node-js" target="_blank" rel="noopener">Vercel: Node.js runtime</a> ו-<a href="https://vercel.com/docs/functions/runtimes/node-js/node-js-versions" target="_blank" rel="noopener">Supported Node.js versions</a></li>
     <li><a href="https://vercel.com/docs/environment-variables/sensitive-environment-variables" target="_blank" rel="noopener">Vercel: Config and Secret environment variables</a></li>
     <li><a href="https://www.npmjs.com/package/@supabase/supabase-js" target="_blank" rel="noopener">npm: @supabase/supabase-js</a></li>
@@ -891,7 +720,6 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
   <tbody>
     <tr><td><code>spec/MILESTONES.md</code>, Milestone אחרי Milestone</td><td><code>MILESTONES.md</code> מתיקיית המוצר, באותה שגרה</td></tr>
     <tr><td><code>api/joke.js</code> ומפתח של OpenAI</td><td><code>api/ask.js</code> ומפתח של Gemini, בשכבה החינמית</td></tr>
-    <tr><td>הגיליון <code>joke-bank</code></td><td>תוכן שמישהו מתחזק ביד, אם יש כזה במוצר</td></tr>
     <tr><td>הטבלה <code>jokes</code></td><td>הטבלאות מ-<code>ARCHITECTURE.md</code></td></tr>
     <tr><td>הפונקציה <code>add_laugh</code></td><td>כל פעולה שחייבת לקרות בבת אחת: מונה, או תפיסת המקום האחרון</td></tr>
     <tr><td>בודק הנעילה</td><td>אותו בודק, על כל טבלה של המוצר</td></tr>
@@ -948,7 +776,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
     <ol>
       <li>ב-Supabase פותחים פרויקט שני בארגון של הקורס, בשם המוצר. בתוכנית החינמית מותרים שני פרויקטים פעילים: הבדיחות והמוצר</li>
       <li>Claude בונה את הטבלאות מתוך <code>ARCHITECTURE.md</code>, עם הפרומפט הראשון</li>
-      <li>אותן שלוש בדיקות כמו היום: <a href="#readsql">קוראים את ה-SQL לפני שמאשרים</a> (שלב 8), <a href="#lock">בודק הנעילה</a> על כל טבלה (שלב 9), והמפתח הסודי עובר ל-Vercel (שלב 10)</li>
+      <li>אותן שלוש בדיקות כמו היום: <a href="#readsql">קוראים את ה-SQL לפני שמאשרים</a> (שלב 4), <a href="#lock">בודק הנעילה</a> על כל טבלה (שלב 5), והמפתח הסודי עובר ל-Vercel (שלב 6)</li>
       <li>Claude מחבר את הפונקציות לטבלאות, עם הפרומפט השני</li>
     </ol>
     <details class="err more"><summary><span class="pm">+</span><u>הפרומפט הראשון: הטבלאות</u></summary><div>
@@ -977,9 +805,9 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
     </div></details>
     <div class="tip"><b>במוצר עם כניסת משתמשים:</b> הדף משתמש במפתח הציבורי של Supabase רק בשביל הכניסה עצמה. הנתונים ממשיכים לעבור דרך הפונקציות, והפונקציה בודקת מי המשתמש לפני כל גישה.</div>
   </li>
-  <li><span class="rn">6</span><h3>בודקים, דוחפים, ומכבים את GitHub Pages<small>אותן בדיקות כמו בשלבים 11 ו-12</small></h3>
+  <li><span class="rn">6</span><h3>בודקים, דוחפים, ומכבים את GitHub Pages<small>אותן בדיקות כמו בשלבים 7 ו-8</small></h3>
     <ol>
-      <li><b>המפתחות:</b> מריצים את הפרומפט של שלב 11 על תיקיית המוצר. מוסיפים לחיפוש את <code>AIza</code>, הפתיחה של מפתחות Gemini, ומעדכנים את שמות המפתחות בסעיף 4</li>
+      <li><b>המפתחות:</b> מריצים את הפרומפט של שלב 7 על תיקיית המוצר. מוסיפים לחיפוש את <code>AIza</code>, הפתיחה של מפתחות Gemini, ומעדכנים את שמות המפתחות בסעיף 4</li>
       <li><b>בטלפון ובחלון פרטי:</b> הפעולה המרכזית עובדת, והרשומה נשארת אחרי רענון</li>
       <li><b>ב-Network, בכלי המפתחים:</b> בקשות רק לכתובת של המוצר. אין <code>googleapis.com</code> ואין <code>supabase.co</code></li>
       <li><b>ב-Table Editor וב-Logs:</b> הרשומה בטבלה, ובלוגים אין שורות אדומות</li>
@@ -1031,7 +859,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
   <ol style="padding-inline-start:18px;margin-top:4px">
     <li>קומיט אחרי כל שלב שעובד, ולא קומיט אחד בסוף</li>
     <li>אחרי כל דחיפה פותחים את הקישור בחלון פרטי ובטלפון</li>
-    <li>את בדיקת המפתחות של שלב 11 מריצים על המוצר לפני כל הגשה</li>
+    <li>את בדיקת המפתחות של שלב 7 מריצים על המוצר לפני כל הגשה</li>
     <li>פרויקט Supabase בחינם מושהה אחרי שבוע בלי פעילות. יום לפני כל הגשה נכנסים לדשבורד, ובודקים שהוא פעיל</li>
   </ol>
 </div>
@@ -1043,7 +871,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
 </nav>
 
 <div class="foot2"><button class="reset" id="resetBtn" type="button">לאפס את הסימונים</button></div>
-<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v15 · 26.10.2026</footer>
+<footer>מיישם AI ואוטומציה · 53500 · ג׳ון ברייס · v16 · 26.10.2026</footer>
 
 <script>
 (function(){
@@ -1084,7 +912,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
   if(location.hash.length>1){var t0=reveal(location.hash.slice(1));if(t0)setTimeout(function(){t0.scrollIntoView();},60);}
 
   // Code viewer: files are read from the code/ folder, the same files that are in the ZIP
-  var NAMES={'joke.js':'api/joke.js','random.js':'api/random.js','laugh.js':'api/laugh.js','top.js':'api/top.js','supabase.js':'lib/supabase.js','create_jokes.sql':'supabase/create_jokes.sql'};
+  var NAMES={'joke.js':'api/joke.js','laugh.js':'api/laugh.js','top.js':'api/top.js','supabase.js':'lib/supabase.js','create_jokes.sql':'supabase/create_jokes.sql'};
   var cv=document.getElementById('codeView'),cn=document.getElementById('codeName'),cache={};
   var tabs=[].slice.call(document.querySelectorAll('#codeTabs button'));
   function show(f){
@@ -1092,7 +920,7 @@ AI	שאלתי את ה-AI אם הוא יכול להחליף אותי. הוא בי
     cn.textContent=NAMES[f];
     if(cache[f]){cv.textContent=cache[f];return;}
     cv.textContent='טוען...';
-    fetch('code/'+f).then(function(r){if(!r.ok)throw 0;return r.text();}).then(function(t){cache[f]=t;cv.textContent=t;}).catch(function(){cv.textContent='// Download joke-app-v2.zip to see the full code';});
+    fetch('code/'+f).then(function(r){if(!r.ok)throw 0;return r.text();}).then(function(t){cache[f]=t;cv.textContent=t;}).catch(function(){cv.textContent='// Download joke-app-v3.zip to see the full code';});
   }
   tabs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.f);});});
   var codeBox=document.getElementById('code');
