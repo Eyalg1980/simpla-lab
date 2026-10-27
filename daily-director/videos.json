@@ -1,6 +1,59 @@
 {
  "days": [
   {
+   "date": "2026-10-27",
+   "ideas": [
+    {
+     "id": "2026-10-27-figma-motion-typed-animation",
+     "world": "סרטוני הסבר",
+     "color": "#FF6B5E",
+     "hook": "פיגמה נותנת לך להקליד משפט אחד על תנועה, והסוכן שלה מוסיף בעצמו את הקיי-פריימים לציר הזמן.",
+     "concept": "מצלמה מחזיקה על בועת צ'אט קטנה עם שלוש שורות מקווקוות בתוכה, כאילו משפט הוקלד. לצידה ציר זמן מקווקו דק מתמלא בזה אחר זה בסמני יהלום, בקצב קבוע.",
+     "execution": "שפה קינטית אדיטוריאלית: רקע פחם עמוק, קורל וצהוב חם, קומפוזיציה גיאומטרית מינימלית. פריים מפתח ב-Nano Banana Pro, תנועה ב-Kling 3 std, בלי קריינות, 16:9, 8 שניות.",
+     "why": "אותו נכס עולה היום גם כפוסט ראשון בפוסט ברינסטורם, ואני בדיוק צריך להראות את זה בפעם הראשונה בסדנת Weave.",
+     "competition": null,
+     "srcUrl": "https://help.figma.com/hc/en-us/articles/39582753756695",
+     "srcLabel": "Figma Help Center · Figma Motion, 24.6",
+     "prompts": {
+      "video": "Kinetic typography explainer animation, deep charcoal background, coral and warm yellow accent highlights, clean minimal geometric composition, generous negative space, camera holds on a small chat bubble icon containing three short dashed lines suggesting typed text, then a thin dashed timeline bar beside it fills with diamond-shaped keyframe markers appearing one by one in a steady rhythm, calm confident mood, no text, 16:9, 8 seconds",
+      "script": "קח את ההוק \"פיגמה נותנת לך להקליד משפט אחד על תנועה, והסוכן שלה מוסיף בעצמו את הקיי-פריימים לציר הזמן\" ופתח אותו לסרטון הסברה של 20 עד 30 שניות: לוגליין, תסריט קריינות בעברית עם ציר זמן מדויק, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בסגנון קינטי אדיטוריאלי.",
+      "image": "Kinetic typography style still, deep charcoal background, coral and warm yellow accent highlights, generous negative space, flat minimal composition, a small chat bubble icon with three short dashed lines beside a thin dashed timeline bar holding a few diamond-shaped keyframe markers, no text",
+      "raw": "הוק: פיגמה נותנת לך להקליד משפט אחד על תנועה, והסוכן שלה מוסיף בעצמו את הקיי-פריימים לציר הזמן\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: בועת צ'אט עם משפט מוקלד, ציר זמן מקווקו מתמלא בקיי-פריימים\nביצוע: שפה קינטית אדיטוריאלית, רקע פחם, קורל וצהוב, Nano Banana Pro ו-Kling 3, 16:9\nלמה עכשיו: אותו נכס עולה היום גם כפוסט, וזה הפיצ'ר שממחיש את הגשר בין עיצוב לקוד בסדנאות Weave"
+     }
+    },
+    {
+     "id": "2026-10-27-research-hype-gap",
+     "world": "סרטוני הסבר",
+     "color": "#FF6B5E",
+     "hook": "88 אחוז מהחוקרים אומרים ש-AI הוא הטרנד המוביל במחקר UX. רק 8 אחוז מהם בפועל משתמשים בו כדי לסנתז תובנות בין כמה מחקרים.",
+     "concept": "מצלמה מחזיקה על שני טבעות התקדמות מקווקוות זו לצד זו. הטבעת השמאלית מתמלאת כמעט לגמרי, הימנית נשארת כמעט ריקה. זכוכית מגדלת קטנה מתיישבת על הטבעת הריקה.",
+     "execution": "שפה קינטית אדיטוריאלית: רקע פחם עמוק, קורל וצהוב חם, קומפוזיציה גיאומטרית מינימלית. פריים מפתח ב-Nano Banana Pro, תנועה ב-Kling 3 std, בלי קריינות, 16:9, 8 שניות.",
+     "why": "אותו נכס עולה היום גם כפוסט שני בפוסט ברינסטורם, ואני רואה את הפער הזה כל שבוע בסדנאות.",
+     "competition": null,
+     "srcUrl": "https://blog.mean.ceo/?p=11521",
+     "srcLabel": "blog.mean.ceo · UX Research Statistics 2026, 23.10",
+     "prompts": {
+      "video": "Kinetic typography explainer animation, deep charcoal background, coral and warm yellow accent highlights, clean minimal geometric composition, generous negative space, camera holds on two dashed circular progress rings side by side, the left ring fills almost completely while the right ring barely fills at all, a small magnifying glass icon settles over the mostly empty ring, calm deliberate mood, no text, 16:9, 8 seconds",
+      "script": "קח את ההוק \"88 אחוז מהחוקרים אומרים ש-AI הוא הטרנד המוביל במחקר UX, רק 8 אחוז מהם בפועל משתמשים בו כדי לסנתז תובנות בין כמה מחקרים\" ופתח אותו לסרטון הסברה של 20 עד 30 שניות: לוגליין, תסריט קריינות בעברית עם ציר זמן מדויק, שוט ליסט מלא (משך, מצלמה, פעולה לכל שוט), ופרומפט ג'נרציה מוכן לכל שוט בסגנון קינטי אדיטוריאלי.",
+      "image": "Kinetic typography style still, deep charcoal background, coral and warm yellow accent highlights, generous negative space, flat minimal composition, two dashed circular progress rings side by side, one almost full and one almost empty, a small magnifying glass hovering over the empty one, no text",
+      "raw": "הוק: 88 אחוז מהחוקרים אומרים ש-AI הוא הטרנד המוביל במחקר UX, רק 8 אחוז מהם בפועל משתמשים בו כדי לסנתז תובנות\nעולם: סרטוני הסבר\nתחרות: אין\nקונספט: שתי טבעות התקדמות, אחת מלאה אחת ריקה, זכוכית מגדלת על הריקה\nביצוע: שפה קינטית אדיטוריאלית, רקע פחם, קורל וצהוב, Nano Banana Pro ו-Kling 3, 16:9\nלמה עכשיו: אותו נכס עולה היום גם כפוסט, הפער הזה חוזר כל שבוע בסדנאות"
+     }
+    }
+   ],
+   "watch": [
+    {
+     "title": "מחקר UX ב-2026 במספרים",
+     "url": "https://blog.mean.ceo/?p=11521",
+     "note": "המקור המלא של רעיון 2, שווה לקרוא את כל הפירוט לפני שמתכננים את הסרטון"
+    },
+    {
+     "title": "Figma Motion, המדריך המלא",
+     "url": "https://help.figma.com/hc/en-us/articles/39582753756695",
+     "note": "התיעוד הרשמי של רעיון 1, כולל כל יכולות הייצוא וה-Dev Mode"
+    }
+   ]
+  },
+  {
    "date": "2026-10-26",
    "ideas": [
     {
