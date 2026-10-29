@@ -1,6 +1,48 @@
 {
-  "updated": "2026-10-28",
+  "updated": "2026-10-29",
   "ideas": [
+    {
+      "id": "I-2026-0558",
+      "title": "לוח דמות",
+      "line": "איך נראה מסך שמלמד תלמיד לבנות Character Sheet לדמות אחידה, לפני שהוא בכלל נוגע בפרומפט וידאו?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-29",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס Figma Weave מקוון (JB, עודכן 22.10.2026), החלק על Character Sheet לעקביות דמות בווידאו",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-29"
+    },
+    {
+      "id": "I-2026-0559",
+      "title": "זיכרון מול קריאה",
+      "line": "איך נראה מסך שמראה לתלמיד את ההבדל בין קריאה חד פעמית מה-MCP לזיכרון מתמשך של סוכן?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-29",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס Figma Weave מקוון (JB), שני המפגשים על Claude ו-MCP",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-29"
+    },
+    {
+      "id": "I-2026-0560",
+      "title": "מכולת לבד",
+      "line": "כל יום רביעי 13:00 מאז 9.9.2026, לפחות שמונה פעמים ברצף, משימת ROUTINE מזכירה הזמנת מכולת מרמי לוי, ואתה עדיין מזמין ביד בכל פעם בלי שאף דבר ממלא את העגלה בשבילך.",
+      "advisor": "pain",
+      "createdAt": "2026-10-29",
+      "capability": null,
+      "evidence": "ROUTINE שבועית ברביעי 13:00 מ-9.9.2026, לפחות שמונה חזרות רצופות עד 28.10.2026, כל פעם הזמנה ידנית",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-29"
+    },
     {
       "id": "I-2026-0555",
       "title": "משווים גודל קובץ, לא שם ספק",

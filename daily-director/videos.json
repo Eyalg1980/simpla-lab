@@ -1,6 +1,57 @@
 {
   "days": [
     {
+      "date": "2026-10-29",
+      "ideas": [
+        {
+          "id": "2026-10-29-1",
+          "world": "תיעוד תהליך",
+          "hook": "אני בונה קורס פיגמה ויב חדש, ומפגש שלם מוקדש לCharacter Sheet לפני שנוגעים בפרומפט וידאו בכלל.",
+          "concept": "סרטון קצר שמתעד בקול שלי את ההחלטה הזו: למה עיגון דמות קודם לכל פרומפט, איזו טעות ראיתי הכי הרבה בסדנאות, ואיך זה נראה בפועל כשסטודנט בונה Character Sheet במקום לקפוץ ישר לווידאו.",
+          "execution": "סטילס קלאיי שנוצרים ב-Higgsfield (nano_banana_2_lite לכל פריים, עקביות דמות בין הפריימים), שלושה קאטים קצרים ב-Kling 3.0 std בערך 3 שניות כל אחד, יחס 9:16, 20-25 שניות סופי, HeyGen לא נדרש כאן.",
+          "why": "זה אותו אסט שעומד מאחורי פוסט הברייינסטורם של היום על קורס Weave, ערוץ שני לאותו רעיון.",
+          "srcUrl": "https://www.figma.com/blog/figma-weave/",
+          "srcLabel": "Figma Blog - Weave",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. A small clay figure pins character reference sheets, showing the same character from multiple angles, onto a cream studio wall, camera slowly pushes in, gentle stop-motion flicker, 9:16, 22 seconds",
+            "script": "קח את ההוק \"אני בונה קורס פיגמה ויב חדש, ומפגש שלם מוקדש לCharacter Sheet לפני שנוגעים בפרומפט וידאו בכלל\" ופתח אותו ללוגליין, קריינות בעברית עם תזמון בשניות, שוט ליסט מלא, ופרומפט ג'נרציה לכל שוט בנפרד.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. A small clay figure standing in front of a wall covered in pinned character reference sheets of the same clay character from different angles, no text",
+            "raw": "אני בונה קורס פיגמה ויב חדש, ומפגש שלם מוקדש לCharacter Sheet לפני שנוגעים בפרומפט וידאו בכלל\nעולם: תיעוד תהליך\nקונספט: מתעד בקול שלי למה עיגון דמות קודם לכל פרומפט, אילו טעויות ראיתי בסדנאות, ואיך זה נראה בפועל\nביצוע: סטילס קלאיי ב-Higgsfield nano_banana_2_lite, שלושה קאטים ב-Kling 3.0 std כ-3 שניות כל אחד, 9:16, 20-25 שניות\nלמה עכשיו: ערוץ שני לאותו רעיון שעלה היום בפוסט ברייינסטורם על קורס Weave"
+          },
+          "used": false
+        },
+        {
+          "id": "2026-10-29-2",
+          "world": "סרטוני הסבר",
+          "hook": "קלוד קוד, Codex ו-Cursor יכולים כבר לשלוט ישירות בהיגספילד ולהפיק תוכן ויזואלי במקביל לכתיבת הקוד.",
+          "concept": "סרטון הסבר קצר על מה שקורה כש-MCP מחבר סוכן קוד לכלי ג'נרציה ויזואלית: הסוכן לא רק כותב, הוא מפיק. אותו אסט בדיוק עומד מאחורי פוסט הברייינסטורם של היום על UX+AI.",
+          "execution": "editorial kinetic style, B-roll של חלון טרמינל שמתחבר בקו מקווקו לגריד תמונות ב-Higgsfield Cinema Studio, Kling 3.0 std, יחס 9:16, 15-18 שניות.",
+          "why": "MCP הופך סוכן קוד לבמאי, וזה בדיוק הקו שאני מלמד במודול הסוכנים האוטונומיים.",
+          "srcUrl": "https://blog.mean.ceo/?p=11502",
+          "srcLabel": "Higgsfield News, אוקטובר 2026",
+          "prompts": {
+            "video": "Editorial kinetic style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A terminal window with scrolling command-line text on the left side of frame connects via a single pulsing dashed line to a grid of video thumbnail frames on the right, thumbnails flicker into existence one by one in sequence, 9:16, 16 seconds",
+            "script": "קח את ההוק \"קלוד קוד, Codex ו-Cursor יכולים כבר לשלוט ישירות בהיגספילד ולהפיק תוכן ויזואלי במקביל לכתיבת הקוד\" ופתח אותו ללוגליין, קריינות בעברית עם תזמון בשניות, שוט ליסט מלא, ופרומפט ג'נרציה לכל שוט בנפרד.",
+            "image": "Editorial kinetic style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, a terminal window connected by a single dashed line to a grid of video thumbnail frames, no text",
+            "raw": "קלוד קוד, Codex ו-Cursor יכולים כבר לשלוט ישירות בהיגספילד ולהפיק תוכן ויזואלי במקביל לכתיבת הקוד\nעולם: סרטוני הסבר\nקונספט: מה קורה כש-MCP מחבר סוכן קוד לכלי ג'נרציה ויזואלית, הסוכן לא רק כותב הוא מפיק\nביצוע: editorial kinetic, B-roll טרמינל מתחבר לגריד תמונות ב-Higgsfield Cinema Studio, Kling 3.0 std, 9:16, 15-18 שניות\nלמה עכשיו: אותו אסט כמו פוסט הברייינסטורם של היום על UX+AI"
+          },
+          "used": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "פיגמה: 21 עדכוני מוצר באוקטובר 2026",
+          "url": "https://spyingbee.com/updates/figma/2026-10",
+          "note": "סקירה חודשית, שווה מעבר לפני שבוחרים את רעיון הבמאי הבא"
+        },
+        {
+          "title": "Higgsfield News, אוקטובר 2026",
+          "url": "https://blog.mean.ceo/?p=11502",
+          "note": "המקור של רעיון 2, יש שם גם רשימת מודלי וידאו עדכנית"
+        }
+      ]
+    },
+    {
       "date": "2026-10-28",
       "ideas": [
         {
