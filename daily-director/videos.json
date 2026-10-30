@@ -1,6 +1,57 @@
 {
   "days": [
     {
+      "date": "2026-10-30",
+      "ideas": [
+        {
+          "id": "2026-10-30-1",
+          "world": "תיעוד תהליך",
+          "hook": "פיגמה הפכה היום workflow אחד שבנית לכלי שכל אחד מפעיל על הקנבס. זה בדיוק מה שהפרויקט המסכם בקורס Weave שלי מבקש מהתלמידים לבנות.",
+          "concept": "סרטון קצר שמתעד את הרגע שבו שני דברים נפגשים: עדכון Weave האחרון שמאפשר לפרסם כלי מותאם אישית לקהילה ולהפעיל אותו ישירות על הקנבס, לצד הפרויקט המסכם החדש בקורס שמבקש מהתלמידים בדיוק את זה, ערכת תוכן למותג לשימוש חוזר.",
+          "execution": "סטילס קלאיי שנוצרים ב-Higgsfield (nano_banana_2_lite לכל פריים, עקביות דמות בין הפריימים), שני קאטים קצרים ב-Kling 3.0 std בערך 3 שניות כל אחד, יחס 9:16, 18-20 שניות סופי.",
+          "why": "אותו אסט בדיוק עומד מאחורי פוסט הברייינסטורם של היום על Figma Weave, ערוץ שני לאותו רעיון.",
+          "srcUrl": "https://releases.sh/figma/overview.md",
+          "srcLabel": "Figma Changelog, releases.sh",
+          "prompts": {
+            "video": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field. A small clay figure places a single tool-shaped clay token onto a shared pinboard, the token then duplicates into two more identical tokens that glide to two other small clay figures standing nearby, gentle stop-motion flicker, 9:16, 19 seconds",
+            "script": "קח את ההוק \"פיגמה הפכה היום workflow אחד שבנית לכלי שכל אחד מפעיל על הקנבס, זה בדיוק מה שהפרויקט המסכם בקורס Weave שלי מבקש מהתלמידים לבנות\" ופתח אותו ללוגליין, קריינות בעברית עם תזמון בשניות, שוט ליסט מלא, ופרומפט ג'נרציה לכל שוט בנפרד.",
+            "image": "Claymation stop-motion style, handcrafted plasticine, visible fingerprints in clay, cream studio background, coral yellow teal palette, soft studio lighting, shallow depth of field, a small clay figure pinning a single tool-shaped clay token onto a shared pinboard while two other clay figures reach toward identical copies of it, no text",
+            "raw": "פיגמה הפכה היום workflow אחד שבנית לכלי שכל אחד מפעיל על הקנבס, זה בדיוק מה שהפרויקט המסכם בקורס Weave שלי מבקש מהתלמידים לבנות\nעולם: תיעוד תהליך\nקונספט: עדכון Weave שמאפשר לפרסם כלי מותאם אישית לקהילה, לצד הפרויקט המסכם בקורס שמבקש מהתלמידים בדיוק את זה\nביצוע: סטילס קלאיי ב-Higgsfield nano_banana_2_lite, שני קאטים ב-Kling 3.0 std כ-3 שניות כל אחד, 9:16, 18-20 שניות\nלמה עכשיו: ערוץ שני לאותו רעיון שעלה היום בפוסט ברייינסטורם על Figma Weave"
+          },
+          "used": false
+        },
+        {
+          "id": "2026-10-30-2",
+          "world": "סרטוני הסבר",
+          "hook": "פרומפט הוא בקשה חד פעמית. סקיל הוא זיכרון קבוע שחולקים עם כל הצוות.",
+          "concept": "סרטון הסבר קצר שמנגיד חזותית פתק דביק חד פעמי מול לולאה שחוזרת על עצמה בין כמה דמויות, ההבדל בין פרומפט לסקיל בלי אף מילה מורכבת. אותו אסט בדיוק עומד מאחורי פוסט הברייינסטורם של היום על הקורס.",
+          "execution": "editorial kinetic style, B-roll של פתק דביק נעלם מול אייקון לולאה שעובר בין שלוש דמויות, Kling 3.0 std, יחס 9:16, 15 שניות.",
+          "why": "ההסבר הזה בדיוק עלה בפוסט הברייינסטורם של היום על קורס 45900 וסדנת הסקילים.",
+          "srcUrl": "https://eyalg1980.github.io/simpla-lab/jb45900/",
+          "srcLabel": "דף הסטטוס החי, קורס 45900",
+          "prompts": {
+            "video": "Editorial kinetic style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space. A single sticky-note icon on the left flickers and dissolves into particles, while on the right a circular looping arrow icon stays lit and sends a pulse along three dashed lines toward three small silhouette figures in sequence, 9:16, 15 seconds",
+            "script": "קח את ההוק \"פרומפט הוא בקשה חד פעמית, סקיל הוא זיכרון קבוע שחולקים עם כל הצוות\" ופתח אותו ללוגליין, קריינות בעברית עם תזמון בשניות, שוט ליסט מלא, ופרומפט ג'נרציה לכל שוט בנפרד.",
+            "image": "Editorial kinetic style, deep charcoal background, coral and warm yellow accents, minimal geometric composition, generous negative space, a dissolving sticky-note icon beside a glowing circular looping arrow icon connected by dashed lines to three small silhouette figures, no text",
+            "raw": "פרומפט הוא בקשה חד פעמית, סקיל הוא זיכרון קבוע שחולקים עם כל הצוות\nעולם: סרטוני הסבר\nקונספט: ניגוד חזותי בין פתק דביק חד פעמי ללולאה שחוזרת בין כמה דמויות\nביצוע: editorial kinetic, B-roll פתק דביק נגד לולאת אייקון, Kling 3.0 std, 9:16, 15 שניות\nלמה עכשיו: אותו הסבר עלה היום בפוסט הברייינסטורם על קורס 45900"
+          },
+          "used": false
+        }
+      ],
+      "watch": [
+        {
+          "title": "פיגמה: עשרים כלי Weave ישר על הקנבס",
+          "url": "https://www.createwith.com/tool/figma/updates/figma-brings-20-weave-tools-directly-into-the-design-canvas",
+          "note": "הרחבה על עדכון Weave שעומד מאחורי רעיון 1 היום"
+        },
+        {
+          "title": "יומן השינויים המלא של פיגמה, אוקטובר 2026",
+          "url": "https://releases.sh/figma/overview.md",
+          "note": "Motion, Code Connect ו-Auto Layout, כל מה שהתעדכן בשבועות האחרונים"
+        }
+      ]
+    },
+    {
       "date": "2026-10-29",
       "ideas": [
         {

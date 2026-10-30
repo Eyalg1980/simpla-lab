@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29",
+  "updated": "2026-10-30",
   "ideas": [
     {
       "id": "I-2026-0558",
@@ -4792,6 +4792,79 @@
       "status": "rejected",
       "snoozes": 0,
       "touchedAt": "2026-10-25"
+    },
+    {
+      "id": "I-2026-0561",
+      "title": "כלי Weave לפרסום",
+      "line": "ראיתי שפיגמה פתחו בעדכון האחרון (15 עד 22.10.2026) פרסום של כלי Weave מותאם אישית לקהילה, מופעל ישירות על קנבס של כל אחד בלי לפתוח Weave כלל.",
+      "advisor": "visionary",
+      "createdAt": "2026-10-30",
+      "capability": {
+        "name": "Figma Custom Weave tools, publish to Community",
+        "releasedAt": "2026-10-22"
+      },
+      "evidence": null,
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-30"
+    },
+    {
+      "id": "I-2026-0562",
+      "title": "אימות תחרות שנדחה בגלל תקציב",
+      "line": "ארבע פעמים נפרדות בין 14.10 ל-19.10.2026 תקציב המחקר המשותף נוצל כולו על Part A ו-B, והאימות הישיר של תחרות שהתקרבה לדדליין נדחה בכל אחת מהן.",
+      "advisor": "pain",
+      "createdAt": "2026-10-30",
+      "capability": null,
+      "evidence": "competitions.json, הערות telaviv-ai-festival (14.10, 15.10, 16.10) ו-ia-en-corto (19.10): בכל אחת מארבע הריצות הללו נכתב במפורש שתקציב המחקר המשותף לשלושת המנועים הופנה כולו ל-Part A ו-B, ולא בוצע ניסיון אימות נוסף לתחרות שהתקרבה לדדליין שלה.",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-30"
+    },
+    {
+      "id": "I-2026-0563",
+      "title": "PROVENANCE_REQUIRED בכל פעם שזה חשוב",
+      "line": "שלוש פעמים נפרדות, 15.10, 28.10 ושוב היום 30.10.2026, ניסיון אימות ישיר של תחרות מול האתר הרשמי שלה נכשל בדיוק עם השגיאה PROVENANCE_REQUIRED, ובשלושתן זה קרה על תחרות שהדדליין שלה קרוב.",
+      "advisor": "pain",
+      "createdAt": "2026-10-30",
+      "capability": null,
+      "evidence": "competitions.json ו-DIRECTOR-SPEC: 15.10 נגד kajimelo.com, 28.10 נגד open-arthouse.com ו-higgsfield.ai/contests, ו-30.10 נגד filmfreeway.com/AIFilmFestivalAfrica (דדליין למחרת) ונגד arcads.ai, כל הכישלונות עם אותה שגיאה בדיוק, כל הריצות ללא השגחה.",
+      "lesson": null,
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-30"
+    },
+    {
+      "id": "I-2026-0564",
+      "title": "איזה מודל בשביל מה",
+      "line": "איך נראה מסך שנותן לתלמיד שלושה קליפים זהים שנוצרו בשלושה מודלי וידאו שונים, ומבקש ממנו לנחש איזה מודל יצר כל אחד, לפני שהוא לומד למה בוחרים מודל אחד על פני אחר?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-30",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס Figma Weave מקוון (JB), החלק על מודלי הווידאו השונים",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-30"
+    },
+    {
+      "id": "I-2026-0565",
+      "title": "לתקן, לא לייצר מחדש",
+      "line": "איך נראה מסך שנותן לתלמיד קליפ גמור עם פגם קטן אחד, ומבקש ממנו לתקן רק את הפגם בלי ליצור את כל הקליפ מחדש, לפני שהוא לומד את עריכת הווידאו הקיים בכלל?",
+      "advisor": "teacher",
+      "createdAt": "2026-10-30",
+      "capability": null,
+      "evidence": null,
+      "lesson": "קורס Figma Weave מקוון (JB), עריכת וידאו קיים",
+      "sourceInboxId": null,
+      "status": "pool",
+      "snoozes": 0,
+      "touchedAt": "2026-10-30"
     }
   ]
 }
