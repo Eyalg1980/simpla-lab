@@ -1,0 +1,394 @@
+<body>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Simpla, back to top"><i aria-hidden="true"></i>simpla</a>
+  <nav class="links" aria-label="Main navigation">
+    <a href="#canvas">Your flow</a>
+    <a href="#weave">Figma Weave</a>
+    <a href="#work">Work</a>
+    <a href="#clients">Clients</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#about">About</a>
+    <a href="#onair">On air</a>
+  </nav>
+  <div class="nav-end">
+    <a class="route-pill" href="#canvas" id="routePill" aria-label="Your flow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 6h7M6 8.5v3a4 4 0 0 0 4 4h5.5"/></svg>
+      <span class="rp-t">Your flow</span><span class="cnt z" id="navCnt">0</span>
+    </a>
+    <a class="lang" href="{{ALT_URL}}" hreflang="he" lang="he" data-lang-switch aria-label="גרסה בעברית">עב</a>
+    <button class="icon-btn" id="theme" type="button" aria-label="Switch between light and dark mode">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+    </button>
+    <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+    </button>
+    <a class="btn btn-coral btn-sm cta" href="#contact">Let's talk</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===== 1. the film: one take, seven states ===== -->
+  <section class="stage" id="film" aria-label="The film: one lump of clay, seven states">
+    <div class="sticky">
+      <div class="media" id="media" aria-hidden="true"></div>
+      <p class="counter" aria-hidden="true"><b id="cnt">01</b> / 07</p>
+      <div class="copy" id="copy">
+        <article class="chapter on" data-ch="0">
+          <p class="kicker">Simpla · UX and AI studio · Tel Aviv</p>
+          <h1>Everything starts as an idea <b>without a shape</b></h1>
+          <p>That's how most projects reach us: as a lump. There's something in it, but no form yet. We know how to work with it, and we're in no rush to leave it.</p>
+          <div class="hint"><span></span>Scroll, and pick up what you need along the way</div>
+        </article>
+        <article class="chapter" data-ch="1">
+          <p class="kicker"><span class="num">01</span>Studio</p>
+          <h2><b>Films</b> that look like a big production</h2>
+          <p>Brand films, ads, product explainers and contest films. A filmmaker's direction, a product designer's precision, and an AI timeline.</p>
+          <ul class="tags"><li>Brand film</li><li>Product explainer</li><li>Mascot</li><li>Contest film</li></ul>
+          <button class="ch-add" type="button" data-sol="studio"></button>
+        </article>
+        <article class="chapter" data-ch="2">
+          <p class="kicker"><span class="num">02</span>Spec</p>
+          <h2><b>Products</b> a dev team can actually build</h2>
+          <p>Before anyone writes a line of code, we work out what's being built. Research, flows, wireframes and a prototype, with nine years of leading UX and product at TipRanks behind us.</p>
+          <ul class="tags"><li>PRD</li><li>User research</li><li>Wireframes</li><li>Prototype</li></ul>
+          <button class="ch-add" type="button" data-sol="spec"></button>
+        </article>
+        <article class="chapter" data-ch="3">
+          <p class="kicker"><span class="num">03</span>Workflows</p>
+          <h2><b>Systems</b> that make consistent content</h2>
+          <p>Not one file, but a small factory. Figma Weave adoption, a model that has learned your brand language, and apps your team runs in one click.</p>
+          <ul class="tags"><li>Figma Weave</li><li>LoRA</li><li>Design Apps</li><li>Automation</li></ul>
+          <button class="ch-add" type="button" data-sol="flows"></button><a class="wv-link" href="#weave">Go to Figma Weave</a>
+        </article>
+        <article class="chapter" data-ch="4">
+          <p class="kicker"><span class="num">04</span>Training</p>
+          <h2><b>Teams</b> working with AI by tomorrow morning</h2>
+          <p>Hands-on workshops for designers, marketers, editors and managers. Everyone leaves with something that works, not just inspiration.</p>
+          <ul class="tags"><li>Workshops</li><li>Courses</li><li>Lecturer training</li><li>Prompt kits</li></ul>
+          <button class="ch-add" type="button" data-sol="lab"></button>
+        </article>
+        <article class="chapter" data-ch="5">
+          <p class="kicker"><span class="num">05</span>Adoption</p>
+          <h2><b>Organizations</b> where AI is actually in use</h2>
+          <p>Diagnosis, a map of use cases, tool selection, ground rules and a pilot. From management to the last employee, in language everyone understands.</p>
+          <ul class="tags"><li>Diagnosis</li><li>Policy</li><li>Pilot</li><li>Measurement</li></ul>
+          <button class="ch-add" type="button" data-sol="adopt"></button>
+        </article>
+        <article class="chapter" data-ch="6">
+          <p class="kicker"><span class="num">06</span>Object</p>
+          <h2>Same material. <b>Now finished.</b></h2>
+          <p>From an idea without a shape, through film, spec and system, to a team that runs it all on its own. Now it's your turn: connect the nodes, and watch them go on air.</p>
+          <div class="actions">
+            <a class="btn btn-coral" href="#canvas">Build your flow</a>
+            <a class="btn btn-dash" href="#onair">On air</a>
+          </div>
+        </article>
+      </div>
+      <nav class="rail" id="rail" aria-label="Film chapters"></nav>
+    </div>
+  </section>
+
+  <!-- ===== 2. clients ===== -->
+  <section class="sec" id="clients">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">CLIENTS</p>
+        <h2 class="h2">We've worked <b>with</b></h2>
+        <p class="lede">Organizations where we brought AI in, teams we ran workshops for, and clients we built products with.</p>
+      </div>
+      <div id="clientsBox" class="reveal"></div>
+    </div>
+  </section>
+
+  <!-- ===== 3. the canvas: the film, taken apart into nodes ===== -->
+  <section class="sec grid-bg" id="canvas" aria-label="The canvas: build your flow">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">WORKFLOW · OBJECT TRACK</p>
+        <h2 class="h2">The film you just watched is a <b>workflow</b></h2>
+        <p class="lede">Every chapter of the film is a node. Tell us where you're coming from, or mark the nodes you need yourself. The flow you build goes on air at the end of the page.</p>
+      </div>
+      <p class="ask">Where are you coming from?</p>
+      <div class="presets" id="presets" role="group" aria-label="Ready-made flows by type of client"></div>
+      <div class="board" id="board">
+        <svg class="wires" id="wires" aria-hidden="true"></svg>
+        <div class="nodes" id="nodes"></div>
+        <div class="cbar" id="cbar">
+          <button class="icon-btn" id="cPrev" type="button" aria-label="Previous node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <div class="dots" id="dots" role="group" aria-label="Nodes"></div>
+          <span class="ct" id="cCount">1 / 7</span>
+          <button class="icon-btn" id="cNext" type="button" aria-label="Next node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+        <aside class="summary" id="summary" aria-live="polite"></aside>
+      </div>
+      <div class="insp" id="insp">
+        <div class="insp-mon" id="mon"><img id="monStill" alt=""><span class="mon-tag" id="monTag"><i></i>PREVIEW</span></div>
+        <div class="insp-info" id="inspInfo" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. Figma Weave in organizations ===== -->
+  <section class="weave" id="weave" aria-label="Figma Weave adoption in organizations">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="wv-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7c4 0 5 10 9 10s5-10 9-10"/><path d="M3 17c4 0 5-10 9-10s5 10 9 10"/></svg>Figma Weave</span>
+        <p class="label">FIGMA WEAVE · ADOPTION IN ORGANIZATIONS</p>
+        <h2 class="h2">From a one-off prompt to a <b>system</b> your team runs on its own</h2>
+        <p class="lede">Figma Weave, formerly Weavy, is a node-based platform for creating with AI, acquired by Figma. On one canvas you connect image, language and video models, editing tools and trained models. We bring it into design, marketing and video teams: we build your brand language with you, train a model on it, and leave you with apps that produce content in one click.</p>
+      </div>
+
+      <div class="blocks">
+        <article class="blk reveal">
+          <div class="bh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 6h14M5 12h10M5 18h7"/></svg>PROMPT TEMPLATE</div>
+          <h3>Prompt template</h3>
+          <p>A fixed structure with variables that keeps every run consistent. The visual language is written once, and written precisely.</p>
+          <span class="port o"></span>
+        </article>
+        <article class="blk reveal">
+          <div class="bh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/></svg>LORA</div>
+          <h3>Trained model</h3>
+          <p>A LoRA that has learned your brand language and brings it back in every image, without explaining it again in every prompt.</p>
+          <span class="port i"></span><span class="port o"></span>
+        </article>
+        <article class="blk b3 reveal">
+          <div class="bh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 6h7M6 8.5v3a4 4 0 0 0 4 4h5.5"/></svg>WORKFLOW · APP</div>
+          <h3>Workflow and app</h3>
+          <p>Connects the two with more AI tools into one process, then wraps it in a simple interface anyone on the team can run.</p>
+          <span class="port i"></span>
+        </article>
+      </div>
+
+      <div class="tour reveal" id="tour">
+        <div class="tour-tabs" id="tourTabs" role="tablist" aria-label="A tour of a real workflow"></div>
+        <figure class="tour-win">
+          <div class="tw-bar"><span class="tw-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="tw-file" id="twFile"></span><span class="tw-step" id="twStep"></span></div>
+          <div class="tw-shot"><img id="twImg" alt="" loading="lazy" decoding="async"></div>
+          <figcaption class="tw-cap">
+            <div><h3 id="twTitle"></h3>
+              <div class="tw-nav">
+                <button class="icon-btn" id="twPrev" type="button" aria-label="Previous step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+                <button class="icon-btn" id="twNext" type="button" aria-label="Next step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+              </div>
+            </div>
+            <p id="twText"></p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="wv-sub reveal">
+        <h3>Adoption <b>in your organization</b></h3>
+        <p>Six steps, side by side with your design and marketing teams. By the end, the team builds and maintains it on its own, with no outside dependency.</p>
+      </div>
+      <div class="pipe6 reveal" id="pipe6" role="list"><span class="pk6" aria-hidden="true"></span></div>
+
+      <div class="wv-two">
+        <div class="wv-card reveal">
+          <h3>What stays with you</h3>
+          <ul class="gets" id="wvGets"></ul>
+          <a class="btn btn-dash btn-sm" href="mailto:studio@simplaux.com?subject=Figma%20Weave%20adoption">Book a mapping call</a>
+        </div>
+        <div class="wv-card reveal">
+          <h3>What it produces</h3>
+          <div class="cases">
+            <article class="case"><span class="tg">WEAVE · CONTENT SYSTEM</span><h4>A content factory for a SaaS company</h4>
+              <p>A mascot with three variations, prompts for blog illustrations and videos, all as one system the team runs itself.</p></article>
+            <article class="case"><span class="tg">WEAVE · PRODUCT RENDERS</span><h4>A render pipeline for a manufacturer</h4>
+              <p>From orthographic drawings to clean isometric renders, in one process that repeats for every new product in the catalog.</p></article>
+            <article class="case"><span class="tg">WEAVE · CREATIVE</span><h4>Banner Generator</h4>
+              <p>One creative that comes out in four formats, 9:16, 1:1, 4:5 and 16:9, plus complete carousels from a single CSV file.</p></article>
+          </div>
+        </div>
+      </div>
+
+      <div class="wv-at reveal">
+        <p class="t"><span>IMPLEMENTED AT</span>Adoptions and trainings</p>
+        <div><div id="wvLogos"></div><p class="also">And more, including Shurat HaDin.</p></div>
+      </div>
+
+      <div class="ways">
+        <article class="way reveal"><span class="tg">SIMPLA LAB</span><h3>A Weave workshop for your team</h3>
+          <p>Three hours or an intensive day. Everyone leaves with a working workflow, built on a real brief from your team.</p>
+          <a class="btn btn-dash btn-sm" href="mailto:studio@simplaux.com?subject=Figma%20Weave%20workshop">Book a workshop</a></article>
+        <article class="way hl reveal"><span class="tg">SIMPLA FLOWS · ADOPT</span><h3>Full adoption in your organization</h3>
+          <p>All six steps, from mapping your assets to a team that builds and maintains on its own. Including a LoRA, a workflow library and apps.</p>
+          <button class="btn btn-coral btn-sm" type="button" id="wvAdd"></button></article>
+        <article class="way reveal"><span class="tg">SIMPLA ACADEMY</span><h3>Figma Weave course</h3>
+          <p>A hands-on course with a final project: a reusable brand content kit. Image, video, apps and Claude.</p>
+          <a class="btn btn-dash btn-sm" href="mailto:studio@simplaux.com?subject=Figma%20Weave%20course">Course details</a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. work ===== -->
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">OUTPUTS</p>
+        <h2 class="h2">What <b>came out</b> of the nodes</h2>
+        <p class="lede">Films, products and site films. Filter by node, then tap any piece to watch it full screen, with sound, and move on to the next.</p>
+      </div>
+      <div class="wf" id="wf" role="group" aria-label="Filter work by node"></div>
+      <div class="wgrid" id="wgrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== 6. teaching ===== -->
+  <section class="sec" id="teaching">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">TEACHING</p>
+        <h2 class="h2">We teach what <b>we make</b></h2>
+        <p class="lede">Every tool we teach, we used on a real project first. It works the other way too: what works in class goes into the work.</p>
+      </div>
+      <div class="stats reveal">
+        <div class="stat"><b class="en">600</b><span>attendees at each DESIGN AI keynote</span></div>
+        <div class="stat"><b class="en">37</b><span>hours in the AI program for designers and filmmakers at InMotion</span></div>
+        <div class="stat"><b class="en">9</b><span>years leading UX and product at TipRanks</span></div>
+      </div>
+      <div class="teach">
+        <article class="t-item reveal"><span class="who">John Bryce</span><h3>John Bryce College</h3>
+          <p>Courses in UX and product design, and a course for AI implementers in organizations: from images and video to building apps.</p></article>
+        <article class="t-item reveal"><span class="who">InMotion</span><h3>AI for designers and filmmakers</h3>
+          <p>A nine-session program for editors, animators and designers: from a first prompt to a finished film.</p></article>
+        <article class="t-item reveal"><span class="who">DESIGN AI</span><h3>Keynote, 2024 and 2025</h3>
+          <p>On building workflows and setting up brand infrastructure that works with AI. About half an hour in front of roughly 600 people, twice.</p></article>
+        <article class="t-item reveal"><span class="who">Enterprise</span><h3>Workshops for organizations</h3>
+          <p>AI workshops for government and enterprise organizations, together with Reflectify AI. Every participant leaves with an output.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7. about ===== -->
+  <section class="sec" id="about">
+    <div class="wrap about">
+      <div class="reveal">
+        <div class="about-top">
+          <figure class="portrait"><img src="{{ASSETS}}eyal-gershon-profile.jpg" alt="Eyal Gershon" loading="lazy" decoding="async"></figure>
+          <div>
+            <p class="label">ABOUT</p>
+            <h2 class="h2">Eyal <b>Gershon</b></h2>
+            <p class="lede" style="margin-top:10px">Founder of Simpla. Product designer, director and lecturer.</p>
+          </div>
+        </div>
+        <p>Simpla is a boutique UX and AI studio in Tel Aviv. We work where product design, filmmaking and teaching meet, so we produce, write specs, build systems and teach.</p>
+        <p>Eyal has been a designer for 18 years. Before Simpla he led UX, and later product and UX, at TipRanks. Today he guides design, marketing and video teams through Figma Weave adoption, teaches at John Bryce, and directs AI films.</p>
+        <ul class="awards" aria-label="Awards from the TipRanks years">
+          <li class="en">Finovate 2013, 2014</li>
+          <li class="en">IBM Watson 2015 · 1st</li>
+          <li class="en">KPMG Fintech 100 · 2016</li>
+        </ul>
+        <p class="note">The awards went to TipRanks in the years Eyal led its user experience.</p>
+      </div>
+      <ol class="tl reveal" aria-label="Timeline">
+        <li><span class="yr">2025</span><span>Lecturer at John Bryce, UX and AI</span></li>
+        <li><span class="yr">2020</span><span>Founded Simpla</span></li>
+        <li><span class="yr">2013 · 2022</span><span>TipRanks, Head of UX, then Head of Product and UX</span></li>
+        <li><span class="yr">2012</span><span>IQURIO, co-founder and chief creative</span></li>
+        <li><span class="yr">2011</span><span>Gurimi, studio manager</span></li>
+        <li><span class="yr">2010</span><span>In House, production design and animation</span></li>
+        <li><span class="yr">2009</span><span>Gitam BBDO, interactive art director</span></li>
+        <li><span class="yr">2008</span><span>Saatchi &amp; Saatchi and Publicis, digital design</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== 8. on air: the flow you built, broadcast on the TV ===== -->
+  <section class="onair" id="onair" aria-label="Your flow, on air">
+    <div class="oa-in">
+      <div class="tvcol">
+        <div class="tvbox" id="tvbox" role="button" tabindex="0" aria-label="Watch what's on now">
+          <div class="tv">
+            <img id="tvimg" alt="">
+            <div class="screen" id="screen">
+              <img class="still" id="still" alt="">
+              <canvas id="noise" width="160" height="120"></canvas>
+              <div class="osd" id="osd">CH 01</div>
+              <span class="tap" id="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg><span>Watch with sound</span></span>
+            </div>
+          </div>
+        </div>
+        <nav class="remote" id="remote" aria-label="Remote: pick a channel"></nav>
+      </div>
+      <div class="oa-head">
+        <p class="label">ON AIR · YOUR CHANNEL</p>
+        <p class="oa-guide"><span class="live">LIVE</span><b id="oaCh">CH 01</b><span id="oaName"></span></p>
+        <h2 class="oa-h">Your flow, <b>on air</b></h2>
+        <p class="oa-lead" id="oaLead"></p>
+        <ol class="lineup" id="lineup" aria-label="Program guide"></ol>
+        <div class="oa-actions">
+          <a class="btn btn-coral" id="oaSend" href="#contact">Book the broadcast</a>
+          <button class="btn btn-dash" id="oaEnd" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg>End of broadcast</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 9. contact ===== -->
+  <section class="sec" id="contact">
+    <div class="wrap contact">
+      <div class="reveal">
+        <p class="label">PLEASE STAND BY</p>
+        <h2 class="h2">What's <b>your idea</b>?</h2>
+        <p class="lede">Tell us what you're building and where it's stuck. We'll come back with a proposal for the first two weeks.</p>
+        <div class="actions">
+          <a class="btn btn-coral" href="mailto:studio@simplaux.com?subject=Intro%20call">Book a call</a>
+          <a class="btn btn-dash" href="mailto:studio@simplaux.com?subject=Figma%20Weave%20adoption">Figma Weave adoption</a>
+          <a class="btn btn-dash" href="mailto:studio@simplaux.com?subject=Team%20workshop">Book a workshop</a>
+        </div>
+        <dl>
+          <div><dt>Email</dt><dd><a class="en" href="mailto:studio@simplaux.com">studio@simplaux.com</a></dd></div>
+          <div><dt>Studio</dt><dd>Urban Place, Shalom Meir Tower, 9 Ahad Ha'am St., Tel Aviv</dd></div>
+        </dl>
+      </div>
+      <div class="testcard reveal" aria-hidden="true">
+        <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="bars2"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="tc-low"><b class="en">SIMPLA <span>●</span> PLEASE STAND BY</b></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>Simpla · UX and AI studio · Tel Aviv</span>
+      <span><a href="https://www.simplaux.com/terms-and-conditions">Terms</a> · <a href="{{ALT_URL}}" hreflang="he" lang="he" data-lang-switch>עברית</a> · <span class="en">v1.3 · 31.10.2026</span></span>
+    </div>
+  </footer>
+</main>
+
+<dialog id="sheet" class="sheet" aria-labelledby="sheetTitle">
+  <div class="sh-top">
+    <b id="sheetTitle">simpla</b>
+    <button class="icon-btn" id="sheetClose" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <nav class="sh-list" id="sheetList" aria-label="Navigation"></nav>
+</dialog>
+
+<dialog id="viewer" class="viewer" aria-labelledby="vTitle">
+  <div class="v-top">
+    <span class="v-count" id="vCount"></span>
+    <button class="icon-btn v-close" id="vClose" type="button" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="v-body">
+    <div class="v-media"><video id="vVideo" controls playsinline preload="metadata"></video></div>
+    <div class="v-info">
+      <p class="v-kind" id="vKind"></p>
+      <h3 id="vTitle"></h3>
+      <p class="v-sub" id="vSub"></p>
+      <p class="v-text" id="vText"></p>
+      <ul class="pills" id="vGets" aria-label="What we did"></ul>
+      <div class="v-nav">
+        <button class="btn btn-dash" id="vPrev" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Previous</button>
+        <button class="btn btn-coral" id="vNext" type="button">Next<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script src="{{ASSETS}}clients.js?v=2"></script>

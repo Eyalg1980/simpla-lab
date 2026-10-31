@@ -8,7 +8,7 @@
   flattened to one colour, and Backstage, Juganu, Tetrisponse and ADVFN were traced from raster.
   Cyberpeople is a typographic placeholder until we have the real file.
 
-  Usage: SimplaClients.render(container, { groups: ["adopt", "lab", "clients"], notes: true })
+  Usage: SimplaClients.render(container, { groups: ["adopt", "lab", "clients"], notes: true, lang: "he" | "en" })
   Markup: .cl-groups > .cl-group > (.cl-h > .cl-t + .cl-en) + ul.cl-row > li.cl-item > (.lg + .cl-note)
   Each site styles the layout; this file only injects the mask rules for .lg.
 */
@@ -35,14 +35,15 @@
     advfn:       { name: "ADVFN",       i: 13, w: 485,  s: 0.8 }
   };
 
+  // items: [logo id, Hebrew note, English note]. titleEn is used by render(box, { lang: "en" })
   var GROUPS = {
-    adopt:   { title: "הטמעת AI בארגונים", en: "AI ADOPTION",
+    adopt:   { title: "הטמעת AI בארגונים", titleEn: "AI adoption in organizations", en: "AI ADOPTION",
                items: [["cyabra"], ["empathy"], ["connecteam"], ["moonshot"], ["finout"]] },
-    lab:     { title: "סדנאות", en: "WORKSHOPS",
+    lab:     { title: "סדנאות", titleEn: "Workshops", en: "WORKSHOPS",
                items: [["monday"], ["lightricks"], ["meitav"]] },
-    clients: { title: "לקוחות ופרויקטים", en: "CLIENTS",
-               items: [["juganu", "לקוח"], ["tipranks", "לקוח וסדנה"], ["advfn", "לקוח"], ["backstage", "פרויקט"],
-                       ["tetrisponse", "סייבר"], ["cyberpeople", "סייבר"]] }
+    clients: { title: "לקוחות ופרויקטים", titleEn: "Clients and projects", en: "CLIENTS",
+               items: [["juganu", "לקוח", "Client"], ["tipranks", "לקוח וסדנה", "Client and workshop"], ["advfn", "לקוח", "Client"],
+                       ["backstage", "פרויקט", "Project"], ["tetrisponse", "סייבר", "Cyber"], ["cyberpeople", "סייבר", "Cyber"]] }
   };
 
   var css =
@@ -68,23 +69,24 @@
 
   function render(box, opts) {
     opts = opts || {};
-    var ids = opts.groups || ["adopt", "lab", "clients"];
+    var ids = opts.groups || ["adopt", "lab", "clients"], isEn = opts.lang === "en";
     var wrap = el("div", "cl-groups");
     ids.forEach(function (gid) {
       var g = GROUPS[gid]; if (!g) return;
       var grp = el("div", "cl-group"); grp.dataset.group = gid;
       if (opts.heads !== false) {
         var h = el("p", "cl-h");
-        h.appendChild(el("span", "cl-t", g.title));
-        h.appendChild(el("span", "cl-en", g.en));
+        h.appendChild(el("span", "cl-t", isEn ? g.titleEn : g.title));
+        if (!isEn) h.appendChild(el("span", "cl-en", g.en));
         grp.appendChild(h);
       }
       var ul = el("ul", "cl-row");
-      ul.setAttribute("aria-label", g.title);
+      ul.setAttribute("aria-label", isEn ? g.titleEn : g.title);
       g.items.forEach(function (it) {
         var li = el("li", "cl-item");
         li.appendChild(logo(it[0]));
-        if (opts.notes !== false && it[1]) li.appendChild(el("span", "cl-note", it[1]));
+        var note = isEn ? it[2] : it[1];
+        if (opts.notes !== false && note) li.appendChild(el("span", "cl-note", note));
         ul.appendChild(li);
       });
       grp.appendChild(ul);

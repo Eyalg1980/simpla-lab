@@ -9,6 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Simpla · מאבסטרקט לאובייקט">
 <meta property="og:description" content="סטודיו בוטיק ל-UX ו-AI בתל אביב. סרטים, אפיון, Figma Weave, סדנאות והטמעה.">
+<meta property="og:locale" content="he_IL">
 <meta property="og:image" content="https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/85e5717d-67b8-41a7-9bfd-41a6d14b11de.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231B2D6B'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23F7636B'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,7 +118,11 @@
   .links a:hover{opacity:1;border-bottom-color:var(--coral)}
   .nav-end{margin-inline-start:auto;display:flex;align-items:center;gap:10px}
   .route-pill{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:14px;font-weight:500;
-    padding:7px 10px 7px 14px;border-radius:999px;border:1.5px dashed currentColor;white-space:nowrap}
+    padding-block:7px;padding-inline:14px 10px;border-radius:999px;border:1.5px dashed currentColor;white-space:nowrap}
+  .lang{display:inline-grid;place-items:center;min-width:38px;height:38px;padding:0 10px;border-radius:999px;flex:0 0 auto;
+    border:1.5px dashed currentColor;font-family:var(--en);font-weight:600;font-size:13px;letter-spacing:.04em;text-decoration:none;opacity:.85}
+  .lang:hover{opacity:1}
+  .lang[lang="he"]{font-family:var(--he);font-weight:500;font-size:14px;letter-spacing:0}
   .route-pill svg{width:16px;height:16px}
   .route-pill .cnt.z{color:inherit;box-shadow:inset 0 0 0 1px currentColor;opacity:.7}
   #menuBtn{display:none}
@@ -612,7 +617,7 @@
     .nav{padding:10px var(--gut);gap:10px}
     .nav-end{gap:8px}
     .nav-end .cta{display:none}
-    .route-pill{padding:6px 8px 6px 11px;font-size:13px}
+    .route-pill{padding-block:6px;padding-inline:11px 8px;font-size:13px}
     .copy{inset-inline:var(--gut);width:auto;top:auto;bottom:calc(64px + env(safe-area-inset-bottom));transform:none}
     .chapter h1,.chapter h2{font-size:clamp(30px,8.6vw,40px)}
     .chapter p{font-size:15.5px;margin-top:12px}
@@ -683,6 +688,26 @@
     .hint span::after,.caret,.mon-tag i,.pipe6 .pk6{animation:none}
     html{scroll-behavior:auto}
   }
+
+  /* ---------- left to right (the English page) ---------- */
+  [dir="ltr"] .counter{left:auto;right:var(--gut)}
+  [dir="ltr"] .wcard .len{left:auto;right:10px}
+  [dir="ltr"] .wcard .rtag{left:auto;right:10px}
+  [dir="ltr"] .n-nm,[dir="ltr"] .insp .nm,[dir="ltr"] .t-item .who,[dir="ltr"] .tl .yr,[dir="ltr"] .slot .tm,[dir="ltr"] .slot .ch{text-align:left}
+  [dir="ltr"] .blk .port.o{left:auto;right:-7px}
+  [dir="ltr"] .blk .port.i{right:auto;left:-7px}
+  [dir="ltr"] .blk:not(:last-child)::after{left:auto;right:-17px}
+  [dir="ltr"] .pipe6 .pk6{right:auto;left:24px;animation-name:pk6l}
+  @keyframes pk6l{to{left:calc(100% - 34px)}}
+  [dir="ltr"] .chapter h1,[dir="ltr"] .chapter h2,[dir="ltr"] .h2,[dir="ltr"] .oa-h{letter-spacing:-.02em}
+  @media (max-width:1023px){
+    [dir="ltr"] .node::after{left:auto;right:-17px}
+    [dir="ltr"] .pipe6::before{right:auto;left:21px}
+  }
+  @media (max-width:760px){
+    [dir="ltr"] .wcard .len{right:7px}
+    [dir="ltr"] .wcard .rtag{right:7px}
+  }
 </style>
 </head>
 <body>
@@ -703,6 +728,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 6h7M6 8.5v3a4 4 0 0 0 4 4h5.5"/></svg>
       <span class="rp-t">המסלול</span><span class="cnt z" id="navCnt">0</span>
     </a>
+    <a class="lang" href="en/" hreflang="en" lang="en" data-lang-switch aria-label="English version">EN</a>
     <button class="icon-btn" id="theme" type="button" aria-label="החלפת מצב בהיר או כהה">
       <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
@@ -1041,7 +1067,7 @@
   <footer>
     <div class="wrap">
       <span>Simpla · סטודיו ל-UX ו-AI · תל אביב</span>
-      <span>הסרט, הקנבס והשידור, בעמוד אחד. <span class="en">v1.2 · 31.10.2026</span></span>
+      <span><a href="https://www.simplaux.com/terms-and-conditions">תנאי שימוש</a> · <a href="en/" hreflang="en" lang="en" data-lang-switch>English</a> · <span class="en">v1.3 · 31.10.2026</span></span>
     </div>
   </footer>
 </main>
@@ -1077,10 +1103,11 @@
   </div>
 </dialog>
 
-<script src="../assets/clients.js?v=1"></script>
+<script src="../assets/clients.js?v=2"></script>
 <script>
 (function () {
   "use strict";
+
 
   /* ================= media ================= */
   var HF = "https://d2ol7oe51mr4n9.cloudfront.net/user_348jNuehm4zmcU1si73jLXDcXDZ/";
@@ -1275,6 +1302,56 @@
       gets: ["טייק אחד", "וידאו לגלילה"] }
   ];
 
+  /* ================= interface strings ================= */
+  var T = {
+    lang: "he",
+    mailHello: "שלום,\nבנינו מסלול באתר וזה מה שאנחנו צריכים:\n",
+    mailAbout: "\n\nקצת עלינו:\n",
+    mailSubjectRoute: "מסלול מהאתר",
+    mailSubjectBroadcast: "השידור שלנו",
+    routeAria: function (n) { return "המסלול שלכם, " + n + " צמתים"; },
+    chapter: "פרק ",
+    node: "צומת ",
+    channel: "ערוץ ",
+    addToRoute: "הוסיפו למסלול",
+    inYourRoute: "במסלול שלכם",
+    inRoute: "במסלול",
+    inRouteRemove: "במסלול. לחצו להסרה",
+    watch: "לצפות: ",
+    inputTitle: "הקלט שלכם",
+    inputOne: "בחרו למעלה מאיפה אתם מגיעים, והמסלול יסומן לבד.",
+    outputTitle: "האובייקט",
+    outputOne: "מה שנשאר אצלכם: צוות שמפעיל הכול לבד.",
+    detailsSuffix: ", פרטים",
+    details: "פרטים",
+    works: "עבודות",
+    toAir: "לשידור",
+    changeInput: "שינוי הקלט",
+    yourRoute: "המסלול שלכם",
+    emptyRoute: "עוד לא בחרתם צמתים. סמנו ״הוסיפו למסלול״ על צומת, או בחרו למעלה מאיפה אתם מגיעים.",
+    remove: "להסיר: ",
+    extras: "תוספות לכל מסלול:",
+    sendUs: "שלחו לנו",
+    clear: "ניקוי",
+    inspInput: "כל פרויקט מתחיל במשפט אחד: מה יש לכם, ומה תקוע. בחרו מאיפה אתם מגיעים, והמסלול יסומן על הקנבס.",
+    inspOutput: "אותו חומר שנכנס כרעיון, יוצא כסרט, מוצר, מערכת וצוות שמפעיל הכול לבד. מה שבחרתם עולה בסוף העמוד לשידור, ערוץ לכל צומת.",
+    noNodes: "עוד לא נבחרו צמתים",
+    toWeave: "לאזור Figma Weave",
+    all: "הכול",
+    tvWatch: function (t) { return "לצפות בעבודות של " + t + ", עם סאונד"; },
+    zapAria: "לזפזף לערוץ הבא",
+    zap: "זפזפו",
+    endSlot: "סוף השידורים: שידורי לילה",
+    leadBuilt: function (n) {
+      return (n === 1 ? "בניתם ערוץ אחד." : "בניתם " + n + " ערוצים.") +
+        " כל צומת שבחרתם משודר כאן. זפזפו בשלט, ולחצו על המסך כדי לצפות בעבודות עם סאונד.";
+    },
+    leadEmpty: ["עוד לא בניתם מסלול, אז הערב משודרים כל הערוצים. ", "בנו מסלול בקנבס", ", והשידור יתחלף לשלכם."],
+    menu: [["#film", "הסרט", "FILM"], ["#canvas", "המסלול שלכם", "FLOW"], ["#weave", "Figma Weave", "WEAVE"], ["#work", "עבודות", "WORK"],
+      ["#clients", "לקוחות", "CLIENTS"], ["#teaching", "הוראה", "TEACHING"], ["#about", "אודות", "ABOUT"], ["#onair", "בשידור", "ON AIR"], ["#contact", "קשר", "CONTACT"]]
+  };
+
+
   var WBY = {};
   WORKS.forEach(function (w) { WBY[w.id] = w; });
   function worksOf(node) { return WORKS.filter(function (w) { return w.nodes.indexOf(node) >= 0; }).map(function (w) { return w.id; }); }
@@ -1313,6 +1390,16 @@
   var mobileQ = window.matchMedia("(max-width: 760px)");
   var deskQ = window.matchMedia("(min-width: 1024px)");
   function pad(n) { return (n < 10 ? "0" : "") + n; }
+  var RTL = document.documentElement.dir === "rtl";
+  var KEY_FWD = RTL ? "ArrowLeft" : "ArrowRight", KEY_BACK = RTL ? "ArrowRight" : "ArrowLeft";
+
+  // the language switch keeps the visitor in the same section of the other page
+  Array.prototype.forEach.call(document.querySelectorAll("a[data-lang-switch]"), function (a) {
+    a.addEventListener("click", function () {
+      var h = location.hash;
+      if (h && /^#[a-z]+$/.test(h) && document.getElementById(h.slice(1))) a.href = a.getAttribute("href").split("#")[0] + h;
+    });
+  });
 
   /* ================= theme + nav ================= */
   $("theme").addEventListener("click", function () {
@@ -1336,15 +1423,15 @@
   }
   function toggle(id) { var r = route.slice(), i = r.indexOf(id); if (i >= 0) r.splice(i, 1); else r.push(id); setRoute(r, true); }
   function mailRoute(subject) {
-    var body = "שלום,\nבנינו מסלול באתר וזה מה שאנחנו צריכים:\n" +
-      route.map(function (id) { return "- " + SOL[id].title + " (" + SOL[id].name + ")"; }).join("\n") + "\n\nקצת עלינו:\n";
+    var body = T.mailHello +
+      route.map(function (id) { return "- " + SOL[id].title + " (" + SOL[id].name + ")"; }).join("\n") + T.mailAbout;
     return "mailto:studio@simplaux.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
   }
 
   var navCnt = $("navCnt");
   listeners.push(function (bump) {
     setCnt(navCnt, route.length, bump);
-    $("routePill").setAttribute("aria-label", "המסלול שלכם, " + route.length + " צמתים");
+    $("routePill").setAttribute("aria-label", T.routeAria(route.length));
   });
 
   /* ================= 1. the film ================= */
@@ -1361,7 +1448,7 @@
   var fills = [], railBtns = [];
   FILM.rail.forEach(function (name, i) {
     var b = el("button"); b.type = "button";
-    b.setAttribute("aria-label", "פרק " + (i + 1) + ", " + name);
+    b.setAttribute("aria-label", T.chapter + (i + 1) + ", " + name);
     var bar = el("span", "bar"), f = el("span", "fill"); bar.appendChild(f); b.appendChild(bar);
     var lab = el("span"); lab.appendChild(el("span", "num", "0" + (i + 1))); lab.appendChild(document.createTextNode(name));
     lab.appendChild(el("span", "dot")); b.appendChild(lab);
@@ -1457,7 +1544,7 @@
     chAdds.forEach(function (b) {
       var on = inRoute(b.dataset.sol);
       b.setAttribute("aria-pressed", on ? "true" : "false");
-      b.innerHTML = icon(on ? "check" : "plus", 2.2) + "<span>" + (on ? "במסלול שלכם" : "הוסיפו למסלול") + "</span>";
+      b.innerHTML = icon(on ? "check" : "plus", 2.2) + "<span>" + (on ? T.inYourRoute : T.addToRoute) + "</span>";
       if (on) { var c = el("span", "cnt", String(route.length)); b.appendChild(c); }
     });
     railBtns.forEach(function (b, i) { var n = NODES[i]; b.classList.toggle("r", n.kind === "sol" && inRoute(n.id)); });
@@ -1465,8 +1552,8 @@
 
   /* ================= 2. clients ================= */
   if (window.SimplaClients) {
-    window.SimplaClients.render($("clientsBox"));
-    window.SimplaClients.render($("wvLogos"), { groups: ["adopt"], heads: false });
+    window.SimplaClients.render($("clientsBox"), { lang: T.lang });
+    window.SimplaClients.render($("wvLogos"), { groups: ["adopt"], heads: false, lang: T.lang });
   }
 
   /* ================= 3. the canvas ================= */
@@ -1479,7 +1566,7 @@
     var box = el("div", "wthumbs"); max = max || 4;
     ids.slice(0, max).forEach(function (id, k) {
       var w = WBY[id], b = el("button", "wthumb"); b.type = "button";
-      b.setAttribute("aria-label", "לצפות: " + (w.client ? w.client + ", " : "") + w.title);
+      b.setAttribute("aria-label", T.watch + (w.client ? w.client + ", " : "") + w.title);
       var im = el("img"); im.src = w.poster; im.alt = ""; im.loading = "lazy"; b.appendChild(im);
       b.insertAdjacentHTML("beforeend", PLAY);
       if (k === max - 1 && ids.length > max) b.appendChild(el("span", "more", "+" + (ids.length - max)));
@@ -1512,7 +1599,7 @@
     if (n.kind === "input") hd.innerHTML = icon("text") + "<span>INPUT · TEXT</span>";
     else if (n.kind === "output") hd.innerHTML = icon("out") + "<span>OUTPUT · OBJECT</span>";
     else hd.innerHTML = icon(s.icon) + "<span>" + s.tag + " · 0" + i + "</span>";
-    hd.appendChild(el("span", "rt", "במסלול"));
+    hd.appendChild(el("span", "rt", T.inRoute));
     card.appendChild(hd);
 
     var main = el("button", "n-main"); main.type = "button";
@@ -1521,11 +1608,11 @@
     else { var im = el("img"); im.src = FR[i]; im.alt = ""; im.loading = "lazy"; im.decoding = "async"; md.appendChild(im); }
     main.appendChild(md);
     var bd = el("span", "n-bd");
-    if (n.kind === "input") { bd.appendChild(el("b", "n-t", "הקלט שלכם")); bd.appendChild(el("span", "n-one", "בחרו למעלה מאיפה אתם מגיעים, והמסלול יסומן לבד.")); }
-    else if (n.kind === "output") { bd.appendChild(el("b", "n-t", "האובייקט")); bd.appendChild(el("span", "n-one", "מה שנשאר אצלכם: צוות שמפעיל הכול לבד.")); }
+    if (n.kind === "input") { bd.appendChild(el("b", "n-t", T.inputTitle)); bd.appendChild(el("span", "n-one", T.inputOne)); }
+    else if (n.kind === "output") { bd.appendChild(el("b", "n-t", T.outputTitle)); bd.appendChild(el("span", "n-one", T.outputOne)); }
     else { bd.appendChild(el("b", "n-t", s.title)); bd.appendChild(el("span", "n-nm en", s.name)); bd.appendChild(el("span", "n-one", s.one)); }
     main.appendChild(bd);
-    main.setAttribute("aria-label", n.kind === "sol" ? s.title + ", פרטים" : n.kind === "input" ? "הקלט שלכם" : "האובייקט");
+    main.setAttribute("aria-label", n.kind === "sol" ? s.title + T.detailsSuffix : n.kind === "input" ? T.inputTitle : T.outputTitle);
     main.addEventListener("click", function () {
       if (desk) { select(i); return; }
       if (i !== cur) goNode(i); else if (det) det.click();
@@ -1538,16 +1625,16 @@
       add.addEventListener("click", function () { toggle(n.id); });
       ft.appendChild(add);
       var wl = worksOf(n.id);
-      var wk = el("span", "n-works"); wk.appendChild(document.createTextNode("עבודות")); wk.appendChild(el("span", wl.length ? "cnt" : "cnt z", String(wl.length)));
+      var wk = el("span", "n-works"); wk.appendChild(document.createTextNode(T.works)); wk.appendChild(el("span", wl.length ? "cnt" : "cnt z", String(wl.length)));
       ft.appendChild(wk);
     } else if (n.kind === "output") {
-      var go = el("a", "n-go", "לשידור"); go.href = "#onair"; ft.appendChild(go);
+      var go = el("a", "n-go", T.toAir); go.href = "#onair"; ft.appendChild(go);
     } else {
-      var ch = el("a", "n-go", "שינוי הקלט"); ch.href = "#presets"; ft.appendChild(ch);
+      var ch = el("a", "n-go", T.changeInput); ch.href = "#presets"; ft.appendChild(ch);
     }
     if (n.kind === "sol") {
       det = el("button", "n-det"); det.type = "button"; det.setAttribute("aria-expanded", "false");
-      det.innerHTML = '<span class="pm">+</span><span>פרטים</span>';
+      det.innerHTML = '<span class="pm">+</span><span>' + T.details + '</span>';
       det.addEventListener("click", function () {
         var o = !card.classList.contains("open"); card.classList.toggle("open", o);
         det.setAttribute("aria-expanded", o ? "true" : "false"); det.firstChild.textContent = o ? "-" : "+";
@@ -1585,21 +1672,21 @@
   function paintSummary(bump) {
     summary.innerHTML = "";
     var hd = el("div", "n-hd"); hd.innerHTML = icon("tv") + "<span>OUTPUT · ON AIR</span>"; summary.appendChild(hd);
-    var h = el("h3"); h.appendChild(document.createTextNode("המסלול שלכם"));
+    var h = el("h3"); h.appendChild(document.createTextNode(T.yourRoute));
     var c = el("span", "cnt"); setCnt(c, route.length, bump); h.appendChild(c); summary.appendChild(h);
     if (!route.length) {
-      summary.appendChild(el("p", "s-empty", "עוד לא בחרתם צמתים. סמנו ״הוסיפו למסלול״ על צומת, או בחרו למעלה מאיפה אתם מגיעים."));
+      summary.appendChild(el("p", "s-empty", T.emptyRoute));
     } else {
       var ol = el("ol", "chain");
       route.forEach(function (id) {
         var li = el("li"); li.appendChild(el("span", null, SOL[id].title));
-        var x = el("button", "x"); x.type = "button"; x.innerHTML = icon("x", 2.2); x.setAttribute("aria-label", "להסיר: " + SOL[id].title);
+        var x = el("button", "x"); x.type = "button"; x.innerHTML = icon("x", 2.2); x.setAttribute("aria-label", T.remove + SOL[id].title);
         x.addEventListener("click", function () { toggle(id); });
         li.appendChild(x); ol.appendChild(li);
       });
       summary.appendChild(ol);
     }
-    var ex = el("div", "extras"); ex.appendChild(el("p", null, "תוספות לכל מסלול:"));
+    var ex = el("div", "extras"); ex.appendChild(el("p", null, T.extras));
     ["guide", "academy"].forEach(function (id) {
       var b = el("button", "xpill"); b.type = "button"; var on = inRoute(id);
       b.setAttribute("aria-pressed", on ? "true" : "false");
@@ -1610,12 +1697,12 @@
     });
     summary.appendChild(ex);
     var ac = el("div", "s-actions");
-    var tv = el("a", "btn btn-coral"); tv.href = "#onair"; tv.innerHTML = icon("tv"); tv.appendChild(document.createTextNode("לשידור"));
+    var tv = el("a", "btn btn-coral"); tv.href = "#onair"; tv.innerHTML = icon("tv"); tv.appendChild(document.createTextNode(T.toAir));
     ac.appendChild(tv);
     if (route.length) {
-      var snd = el("a", "btn btn-dash"); snd.href = mailRoute("מסלול מהאתר"); snd.innerHTML = icon("send"); snd.appendChild(document.createTextNode("שלחו לנו"));
+      var snd = el("a", "btn btn-dash"); snd.href = mailRoute(T.mailSubjectRoute); snd.innerHTML = icon("send"); snd.appendChild(document.createTextNode(T.sendUs));
       ac.appendChild(snd);
-      var clr = el("button", "linkbtn", "ניקוי"); clr.type = "button"; clr.addEventListener("click", function () { aud = ""; store("simpla-hybrid-aud", ""); paintPresets(); typePrompt(); setRoute([]); });
+      var clr = el("button", "linkbtn", T.clear); clr.type = "button"; clr.addEventListener("click", function () { aud = ""; store("simpla-hybrid-aud", ""); paintPresets(); typePrompt(); setRoute([]); });
       ac.appendChild(clr);
     }
     summary.appendChild(ac);
@@ -1629,7 +1716,7 @@
       card.classList.toggle("in-route", on); card.classList.toggle("off", !on);
       var add = card.querySelector(".n-add");
       add.setAttribute("aria-pressed", on ? "true" : "false");
-      add.innerHTML = icon(on ? "check" : "plus", 2.2) + "<span>" + (on ? "במסלול" : "הוסיפו למסלול") + "</span>";
+      add.innerHTML = icon(on ? "check" : "plus", 2.2) + "<span>" + (on ? T.inRoute : T.addToRoute) + "</span>";
     });
     dotBtns.forEach(function (b, i) { var n = NODES[i]; b.classList.toggle("r", n.kind === "sol" && inRoute(n.id)); });
   }
@@ -1687,8 +1774,8 @@
     var k = el("div", "k"); k.appendChild(el("span", null, "PROPERTIES")); k.appendChild(el("span", null, "NODE " + (selected + 1) + "/" + NODES.length)); w.appendChild(k);
     if (n.kind === "input") {
       var a = audience();
-      w.appendChild(el("h3", null, a ? a.name : "הקלט שלכם"));
-      w.appendChild(el("p", null, a ? a.problem : "כל פרויקט מתחיל במשפט אחד: מה יש לכם, ומה תקוע. בחרו מאיפה אתם מגיעים, והמסלול יסומן על הקנבס."));
+      w.appendChild(el("h3", null, a ? a.name : T.inputTitle));
+      w.appendChild(el("p", null, a ? a.problem : T.inspInput));
       if (a) {
         w.appendChild(el("h4", null, "WHAT YOU GET")); w.appendChild(el("p", "who", a.outcome));
         w.appendChild(el("h4", null, "FIRST STEP")); w.appendChild(el("p", "who", a.first));
@@ -1697,14 +1784,14 @@
         var ul0 = el("ul", "pills"); AUDIENCES.forEach(function (x) { ul0.appendChild(el("li", null, x.chip)); }); w.appendChild(ul0);
       }
     } else if (n.kind === "output") {
-      w.appendChild(el("h3", null, "האובייקט"));
-      w.appendChild(el("p", null, "אותו חומר שנכנס כרעיון, יוצא כסרט, מוצר, מערכת וצוות שמפעיל הכול לבד. מה שבחרתם עולה בסוף העמוד לשידור, ערוץ לכל צומת."));
+      w.appendChild(el("h3", null, T.outputTitle));
+      w.appendChild(el("p", null, T.inspOutput));
       w.appendChild(el("h4", null, "YOUR FLOW · " + route.length));
       var ul1 = el("ul", "pills");
       if (route.length) route.forEach(function (id) { ul1.appendChild(el("li", null, SOL[id].title)); });
-      else ul1.appendChild(el("li", null, "עוד לא נבחרו צמתים"));
+      else ul1.appendChild(el("li", null, T.noNodes));
       w.appendChild(ul1);
-      var acts0 = el("div", "acts"); var g = el("a", "btn btn-coral btn-sm"); g.href = "#onair"; g.innerHTML = icon("tv"); g.appendChild(document.createTextNode("לשידור")); acts0.appendChild(g); w.appendChild(acts0);
+      var acts0 = el("div", "acts"); var g = el("a", "btn btn-coral btn-sm"); g.href = "#onair"; g.innerHTML = icon("tv"); g.appendChild(document.createTextNode(T.toAir)); acts0.appendChild(g); w.appendChild(acts0);
     } else {
       w.appendChild(el("h3", null, s.title)); w.appendChild(el("span", "nm", s.name));
       w.appendChild(el("p", null, s.text));
@@ -1715,10 +1802,10 @@
       if (wl.length) { w.appendChild(el("h4", null, "OUTPUTS · " + wl.length)); w.appendChild(thumbs(wl, 6)); }
       var acts = el("div", "acts"), on = inRoute(n.id);
       var b = el("button", "btn btn-dash btn-sm"); b.type = "button"; b.setAttribute("aria-pressed", on ? "true" : "false");
-      b.innerHTML = icon(on ? "check" : "plus", 2.2); b.appendChild(document.createTextNode(on ? "במסלול. לחצו להסרה" : "הוסיפו למסלול"));
+      b.innerHTML = icon(on ? "check" : "plus", 2.2); b.appendChild(document.createTextNode(on ? T.inRouteRemove : T.addToRoute));
       b.addEventListener("click", function () { toggle(n.id); });
       acts.appendChild(b);
-      if (n.id === "flows") { var wv = el("a", "btn btn-coral btn-sm", "לאזור Figma Weave"); wv.href = "#weave"; acts.appendChild(wv); }
+      if (n.id === "flows") { var wv = el("a", "btn btn-coral btn-sm", T.toWeave); wv.href = "#weave"; acts.appendChild(wv); }
       w.appendChild(acts);
     }
     inspInfo.appendChild(w);
@@ -1737,9 +1824,14 @@
     var seq = nodeEls.concat([summary]);
     for (var i = 0; i < seq.length - 1; i++) {
       var A = box(seq[i]), B = box(seq[i + 1]), d, sx, sy, ex, ey;
-      if (i < 3) { sx = A.l; sy = my(seq[i]); ex = B.r; ey = my(seq[i + 1]); d = "M" + sx + "," + sy + " C" + (sx - (sx - ex) / 2) + "," + sy + " " + (ex + (sx - ex) / 2) + "," + ey + " " + ex + "," + ey; }
-      else if (i === 3) { sx = A.cx; sy = A.b; ex = B.cx; ey = B.t; var dy = (ey - sy) / 2; d = "M" + sx + "," + sy + " C" + sx + "," + (sy + dy) + " " + ex + "," + (ey - dy) + " " + ex + "," + ey; }
-      else { sx = A.r; sy = my(seq[i]); ex = B.l; ey = i === 6 ? my(seq[i]) : my(seq[i + 1]); var dx = (ex - sx) / 2; d = "M" + sx + "," + sy + " C" + (sx + dx) + "," + sy + " " + (ex - dx) + "," + ey + " " + ex + "," + ey; }
+      if (i === 3) { sx = A.cx; sy = A.b; ex = B.cx; ey = B.t; var dy = (ey - sy) / 2; d = "M" + sx + "," + sy + " C" + sx + "," + (sy + dy) + " " + ex + "," + (ey - dy) + " " + ex + "," + ey; }
+      else {
+        // the next node sits to the left or to the right depending on the row and the page direction
+        var leftward = B.cx < A.cx;
+        sx = leftward ? A.l : A.r; ex = leftward ? B.r : B.l;
+        sy = my(seq[i]); ey = i === 6 ? sy : my(seq[i + 1]);
+        var dx = (ex - sx) / 2; d = "M" + sx + "," + sy + " C" + (sx + dx) + "," + sy + " " + (ex - dx) + "," + ey + " " + ex + "," + ey;
+      }
       var base = ns("path", { d: d, "class": "base" }), live = ns("path", { d: d, "class": "live" });
       wiresSvg.appendChild(base); wiresSvg.appendChild(live);
       var len = live.getTotalLength();
@@ -1782,7 +1874,7 @@
   var dotsBox = $("dots"), cCount = $("cCount"), cPrev = $("cPrev"), cNext = $("cNext"), dotBtns = [], cur = -1;
   NODES.forEach(function (n, i) {
     var b = el("button"); b.type = "button";
-    b.setAttribute("aria-label", "צומת " + (i + 1) + ", " + (n.kind === "sol" ? SOL[n.id].title : n.kind === "input" ? "הקלט" : "האובייקט"));
+    b.setAttribute("aria-label", T.node + (i + 1) + ", " + (n.kind === "sol" ? SOL[n.id].title : n.kind === "input" ? T.inputTitle : T.outputTitle));
     b.addEventListener("click", function () { goNode(i); });
     dotsBox.appendChild(b); dotBtns.push(b);
   });
@@ -1844,8 +1936,8 @@
     b.appendChild(el("span", "n", pad(i + 1))); b.appendChild(el("b", null, t.tab));
     b.addEventListener("click", function () { tourGo(i); });
     b.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowLeft") { e.preventDefault(); tourGo(i + 1, true); }
-      if (e.key === "ArrowRight") { e.preventDefault(); tourGo(i - 1, true); }
+      if (e.key === KEY_FWD) { e.preventDefault(); tourGo(i + 1, true); }
+      if (e.key === KEY_BACK) { e.preventDefault(); tourGo(i - 1, true); }
     });
     tourTabs.appendChild(b); tabs.push(b);
     var pre = new Image(); pre.decoding = "async"; if (i) setTimeout(function () { pre.src = t.img; }, 2500);
@@ -1883,7 +1975,7 @@
   listeners.push(function () {
     var both = inRoute("flows") && inRoute("adopt");
     wvAdd.setAttribute("aria-pressed", both ? "true" : "false");
-    wvAdd.innerHTML = icon(both ? "check" : "plus", 2.2) + "<span>" + (both ? "במסלול שלכם" : "הוסיפו למסלול") + "</span>";
+    wvAdd.innerHTML = icon(both ? "check" : "plus", 2.2) + "<span>" + (both ? T.inYourRoute : T.addToRoute) + "</span>";
   });
 
   /* ================= 5. work gallery ================= */
@@ -1892,7 +1984,7 @@
   function inF(w, f) { return f === "all" || (f === "route" ? routeWorks(w) : w.nodes.indexOf(f) >= 0); }
   WORKS.forEach(function (w) {
     var b = el("button", "wcard"); b.type = "button"; b.dataset.id = w.id;
-    b.setAttribute("aria-label", "לצפות: " + (w.client ? w.client + ", " : "") + w.title);
+    b.setAttribute("aria-label", T.watch + (w.client ? w.client + ", " : "") + w.title);
     var th = el("span", "th");
     if (w.shape) { var bg = el("img", "blur"); bg.src = w.poster; bg.alt = ""; bg.loading = "lazy"; th.appendChild(bg); }
     var im = el("img", w.shape ? "fit" : null); im.src = w.poster; im.alt = ""; im.loading = "lazy"; im.decoding = "async"; th.appendChild(im);
@@ -1903,7 +1995,7 @@
       pv.dataset.src = w.preview; th.appendChild(pv);
     }
     th.appendChild(el("span", "kind", w.kind));
-    th.appendChild(el("span", "rtag", "במסלול"));
+    th.appendChild(el("span", "rtag", T.inRoute));
     if (w.len) th.appendChild(el("span", "len", w.len));
     var pl = el("span", "play"); pl.innerHTML = PLAY; th.appendChild(pl);
     b.appendChild(th);
@@ -1918,8 +2010,8 @@
     wgrid.appendChild(b); cards.push(b);
   });
   function paintWorks() {
-    var cats = [["all", "הכול"]];
-    if (route.some(function (x) { return CORE.indexOf(x) >= 0; })) cats.push(["route", "במסלול שלכם"]);
+    var cats = [["all", T.all]];
+    if (route.some(function (x) { return CORE.indexOf(x) >= 0; })) cats.push(["route", T.inYourRoute]);
     CORE.forEach(function (id) { cats.push([id, SOL[id].label]); });
     if (!cats.some(function (c) { return c[0] === filter; })) filter = "all";
     wf.innerHTML = "";
@@ -2007,7 +2099,7 @@
     var wl = worksOf(id);
     tap.hidden = !wl.length;
     tvbox.style.cursor = wl.length ? "" : "default";
-    tvbox.setAttribute("aria-label", wl.length ? "לצפות בעבודות של " + s.title + ", עם סאונד" : "ערוץ " + pad(chPos + 1) + ", " + s.title);
+    tvbox.setAttribute("aria-label", wl.length ? T.tvWatch(s.title) : T.channel + pad(chPos + 1) + ", " + s.title);
   }
   function userTune(k) { autoZap = false; tune(k, true); }
   function paintTV() {
@@ -2015,12 +2107,12 @@
     ids = route.length ? route.slice() : ALLCH.slice();
     remote.innerHTML = ""; remoteBtns = [];
     ids.forEach(function (id, i) {
-      var b = el("button", null, pad(i + 1)); b.type = "button"; b.setAttribute("aria-label", "ערוץ " + pad(i + 1) + ", " + SOL[id].title);
+      var b = el("button", null, pad(i + 1)); b.type = "button"; b.setAttribute("aria-label", T.channel + pad(i + 1) + ", " + SOL[id].title);
       b.addEventListener("click", function () { userTune(i); });
       remote.appendChild(b); remoteBtns.push(b);
     });
-    var z = el("button", "zap"); z.type = "button"; z.setAttribute("aria-label", "לזפזף לערוץ הבא");
-    z.innerHTML = icon("zap") + "<span>זפזפו</span>";
+    var z = el("button", "zap"); z.type = "button"; z.setAttribute("aria-label", T.zapAria);
+    z.innerHTML = icon("zap") + "<span>" + T.zap + "</span>";
     z.addEventListener("click", function () { userTune(chPos + 1); });
     remote.appendChild(z);
     lineup.innerHTML = ""; slots = [];
@@ -2034,19 +2126,18 @@
     });
     var le = el("li"), be = el("button", "slot end"); be.type = "button";
     be.appendChild(el("span", "tm", slotTime(ids.length))); be.appendChild(el("span", "ch", "END"));
-    be.appendChild(el("span", "ti", "סוף השידורים: שידורי לילה")); be.appendChild(el("span", "cnt", "1"));
+    be.appendChild(el("span", "ti", T.endSlot)); be.appendChild(el("span", "cnt", "1"));
     be.addEventListener("click", function () { openWork("night", ["night"]); });
     le.appendChild(be); lineup.appendChild(le);
     oaLead.innerHTML = "";
     if (route.length) {
-      oaLead.appendChild(document.createTextNode((route.length === 1 ? "בניתם ערוץ אחד." : "בניתם " + route.length + " ערוצים.") +
-        " כל צומת שבחרתם משודר כאן. זפזפו בשלט, ולחצו על המסך כדי לצפות בעבודות עם סאונד."));
+      oaLead.appendChild(document.createTextNode(T.leadBuilt(route.length)));
     } else {
-      oaLead.appendChild(document.createTextNode("עוד לא בניתם מסלול, אז הערב משודרים כל הערוצים. "));
-      var a = el("a", null, "בנו מסלול בקנבס"); a.href = "#canvas"; oaLead.appendChild(a);
-      oaLead.appendChild(document.createTextNode(", והשידור יתחלף לשלכם."));
+      oaLead.appendChild(document.createTextNode(T.leadEmpty[0]));
+      var a = el("a", null, T.leadEmpty[1]); a.href = "#canvas"; oaLead.appendChild(a);
+      oaLead.appendChild(document.createTextNode(T.leadEmpty[2]));
     }
-    oaSend.href = route.length ? mailRoute("השידור שלנו") : "#contact";
+    oaSend.href = route.length ? mailRoute(T.mailSubjectBroadcast) : "#contact";
     var k = ids.indexOf(was); tune(k >= 0 ? k : 0);
   }
   listeners.push(paintTV);
@@ -2071,8 +2162,7 @@
 
   /* ================= mobile menu ================= */
   var sheet = $("sheet"), sheetList = $("sheetList"), sheetCnt = null;
-  [["#film", "הסרט", "FILM"], ["#canvas", "המסלול שלכם", "ROUTE"], ["#weave", "Figma Weave", "WEAVE"], ["#work", "עבודות", "WORK"],
-   ["#clients", "לקוחות", "CLIENTS"], ["#teaching", "הוראה", "TEACHING"], ["#about", "אודות", "ABOUT"], ["#onair", "בשידור", "ON AIR"], ["#contact", "קשר", "CONTACT"]].forEach(function (r) {
+  T.menu.forEach(function (r) {
     var a = el("a"); a.href = r[0];
     var t = el("span"); t.appendChild(document.createTextNode(r[1]));
     if (r[0] === "#canvas") { sheetCnt = el("span", "cnt z", "0"); t.appendChild(document.createTextNode(" ")); t.appendChild(sheetCnt); }
@@ -2138,9 +2228,9 @@
   viewer.addEventListener("cancel", function (e) { e.preventDefault(); closeViewer(); });
   viewer.addEventListener("keydown", function (e) {
     if (e.target === vV) return;
-    // right to left: the left arrow moves forward
-    if (e.key === "ArrowLeft") { e.preventDefault(); step(1); }
-    if (e.key === "ArrowRight") { e.preventDefault(); step(-1); }
+    // the arrow that points the way the page reads moves forward
+    if (e.key === KEY_FWD) { e.preventDefault(); step(1); }
+    if (e.key === KEY_BACK) { e.preventDefault(); step(-1); }
   });
 
   /* ================= lazy previews + reveals ================= */
