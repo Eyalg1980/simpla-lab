@@ -1,0 +1,16 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/solutions",
+      "destination": "/#canvas",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/:slug*",
+      "destination": "/#canvas",
+      "permanent": true
+    }
+  ]
+}
