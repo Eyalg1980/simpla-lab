@@ -1088,21 +1088,26 @@ function setEdQuiet(e){ ED=e; put('ed',e); IDX=null; recalc(); $('#edLbl').textC
 /* code entry: one field, the code decides the role. Same codes as the current site. */
 function wireGate(){
   const f=$('#gform'); if(!f) return;
-  f.addEventListener('submit',e=>{ e.preventDefault();
+  f.addEventListener('submit',async e=>{ e.preventDefault();
     const c=$('#gcode').value.trim(), sel=$('#grole').value, err=$('#gerr');
     if(!c){ err.textContent='צריך להזין סיסמה.'; $('#gcode').focus(); return; }
-    const r=codeRole(c,sel);
+    const r=await codeRole(c,sel);
     if(!r){ err.textContent='הסיסמה לא מתאימה לתפקיד שנבחר. בדקו את הסיסמה ואת התפקיד.'; $('#gcode').select(); return; }
     ROLE=r; put('role',r); put('lastRole',sel); if(needsDS()) needStaff(()=>{}); location.hash='#/'; route(); toast('נכנסתם בתור '+ROLES[r]+'.');
   });
   $('#grole').addEventListener('change',()=>{ $('#gerr').textContent=''; });
   setTimeout(()=>{ const i=$('#gcode'); if(i) i.focus(); },50);
 }
-/* SHA-256 of SALT + password, copied from the current site. The plain passwords are not in this file. */
-const SALT='jb53500.gate.2026|', MASTER='7be0f1b891b4ff7a2a1e1ce826f7624929662a173f002de680c512e75b48f96d',
- CODES={lecturer:'8cd6434b0e5b2609b8720a07963764135b5f02ca2a0f3652ece78d13e38890c3',admin:'8cd6434b0e5b2609b8720a07963764135b5f02ca2a0f3652ece78d13e38890c3',
-  student:'ddd294a87c7f4c1ce6edf4c48fd9c89daedca6719bbeb35e275f38af47059ff5',marketing:'8cd6434b0e5b2609b8720a07963764135b5f02ca2a0f3652ece78d13e38890c3'};
-function codeRole(c,sel){ if(sha256(SALT+c)===MASTER) return 'owner'; return sha256(SALT+c.toUpperCase())===CODES[sel]?sel:null; }
+/* Passwords are checked on the server (middleware.js at the repo root, against the
+   passwords stored in Vercel). Nothing secret lives in this file. 31.10.2026. */
+async function codeRole(c,sel){
+  try{
+    const r=await fetch('/_auth/login',{method:'POST',headers:{'x-sl-json':'1'},
+      body:new URLSearchParams({password:c,as:sel,next:location.pathname})});
+    const j=await r.json();
+    return j&&j.ok&&ROLES[j.as]?j.as:null;
+  }catch(e){ return null; }
+}
 function sha256(msg){
   const K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
   0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
