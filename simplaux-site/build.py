@@ -19,7 +19,6 @@ reps = [
     ('../assets/clients.js', 'assets/clients.js'),
     ('../assets/eyal-gershon-profile.jpg', 'assets/eyal-gershon-profile.jpg'),
     ('../jb-weave/img/', 'img/weave/'),
-    ('href="../jb-weave/"', 'href="https://eyalg1980.github.io/simpla-lab/jb-weave/" target="_blank" rel="noopener"'),
 ]
 for a, b in reps:
     if a not in src:
