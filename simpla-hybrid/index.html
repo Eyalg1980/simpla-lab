@@ -175,6 +175,7 @@
   .counter{position:absolute;z-index:3;top:84px;inset-inline-end:var(--gut);font-family:var(--en);font-weight:600;
     font-size:13px;letter-spacing:.12em;color:var(--stage-muted)}
   .counter b{color:var(--stage-ink)}
+  .counter{direction:ltr;unicode-bidi:isolate;inset-inline-end:auto;right:auto;left:var(--gut)}
   .stage.static .sticky{position:relative;height:auto;overflow:visible}
   .stage.static .media,.stage.static .rail,.stage.static .counter{display:none}
   .stage.static .copy{position:static;transform:none;width:auto;padding:110px var(--gut) 40px;max-width:var(--max);margin:0 auto}
@@ -507,7 +508,7 @@
   .slot .tm{font-family:var(--mono);font-size:12.5px;color:#8C93B0;direction:ltr;text-align:right}
   .slot .ch{font-family:var(--osd);font-size:21px;line-height:1;color:#6F7898;direction:ltr;text-align:right;white-space:nowrap}
   .slot .ti{font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .slot .nw{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--coral);margin-inline-start:8px;display:none}
+  .slot .nw{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--coral);margin-inline-start:8px;display:none;unicode-bidi:isolate;direction:ltr}
   .slot.on .ch{color:var(--phos)}
   .slot.on .ti{font-weight:700}
   .slot.on .nw{display:inline}
@@ -1040,7 +1041,7 @@
   <footer>
     <div class="wrap">
       <span>Simpla · סטודיו ל-UX ו-AI · תל אביב</span>
-      <span>הסרט, הקנבס והשידור, בעמוד אחד. <span class="en">v1.0 · 31.10.2026</span></span>
+      <span>הסרט, הקנבס והשידור, בעמוד אחד. <span class="en">v1.1 · 31.10.2026</span></span>
     </div>
   </footer>
 </main>
@@ -1759,7 +1760,7 @@
   function kickPackets() { if (!pkRun && desk && canvasIn && route.length && !reduce && WIRES.length) { pkRun = true; t0 = performance.now(); requestAnimationFrame(pkTick); } }
   function pkTick(now) {
     if (!desk || !canvasIn || !route.length || !WIRES.length) { pkRun = false; if (pkD) { pkD.style.opacity = 0; pkH.style.opacity = 0; } return; }
-    var u = ((now - t0) / 950) % (WIRES.length + 1.2);
+    var u = (Math.max(0, now - t0) / 950) % (WIRES.length + 1.2);
     if (u >= WIRES.length) { pkD.style.opacity = 0; pkH.style.opacity = 0; lastSeg = -1; requestAnimationFrame(pkTick); return; }
     var k = Math.floor(u), f = u - k, w = WIRES[k];
     var e = f < 0.5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;
@@ -1999,7 +2000,8 @@
     burst(user ? 380 : 260);
     showOsd("CH " + pad(chPos + 1));
     oaCh.textContent = "CH " + pad(chPos + 1);
-    oaName.textContent = s.title + " · " + slotTime(chPos);
+    oaName.innerHTML = ""; oaName.appendChild(el("bdi", null, s.title)); oaName.appendChild(document.createTextNode(" · "));
+    oaName.appendChild(el("span", "en", slotTime(chPos)));
     remoteBtns.forEach(function (b, i) { b.classList.toggle("on", i === chPos); b.setAttribute("aria-pressed", i === chPos ? "true" : "false"); });
     slots.forEach(function (b, i) { b.classList.toggle("on", i === chPos); if (i === chPos) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current"); });
     var wl = worksOf(id);
@@ -2025,7 +2027,7 @@
     ids.forEach(function (id, i) {
       var li = el("li"), b = el("button", "slot"); b.type = "button";
       b.appendChild(el("span", "tm", slotTime(i))); b.appendChild(el("span", "ch", "CH " + pad(i + 1)));
-      var ti = el("span", "ti", SOL[id].title); ti.appendChild(el("span", "nw", "NOW")); b.appendChild(ti);
+      var ti = el("span", "ti"); ti.appendChild(el("bdi", null, SOL[id].title)); ti.appendChild(el("span", "nw", "NOW")); b.appendChild(ti);
       var n = worksOf(id).length; b.appendChild(el("span", n ? "cnt" : "cnt z", String(n)));
       b.addEventListener("click", function () { userTune(i); });
       li.appendChild(b); lineup.appendChild(li); slots.push(b);
