@@ -8,7 +8,11 @@ Umbrella repo for all live web projects Eyal builds with Claude. Each project li
 
 Read it before any push, from any repo. It is the only copy, on purpose: this section used to hold a second copy of the same rules, and when the push form changed on 5.8.2026 the copies drifted apart and the morning brief kept failing against stale instructions.
 
-Two things worth knowing before you even open it: `daily-board` is a **private** repo and needs the auth header to clone, and a push without a passing `tools/jscheck.py` run is a failed run.
+Three things worth knowing before you even open it: `simpla-lab` and `daily-board` are **private** repos and need the auth header to clone, a push without a passing `tools/jscheck.py` run is a failed run, and **a new folder here is public on the internet unless `middleware.js` says otherwise**.
+
+## Hosting and access (moved 31.10.2026)
+
+The lab is served by Vercel at **https://lab.simplaux.com/**, not GitHub Pages. `middleware.js` at the repo root is the only access gate: it checks a password on the server before any protected file leaves Vercel. Who sees what is its `RULES` list; the passwords are Vercel environment variables and never appear in the repo. Full rules in `DEPLOY-RUNBOOK.md` section 10. Never add an in-page code gate, a password, or a hash of one to any file: the browser already holds everything a page ships.
 
 ## Design language (the Daily Board family, settled 1.8.2026)
 
@@ -37,7 +41,7 @@ All the live apps (Daily Board, Post Brainstorm, Daily Director) and this lab in
 
 ## Moving Higgsfield images into the repo (verified 8.8.2026)
 
-The Cowork sandbox proxy blocks the Higgsfield CDN (cloudfront), but the **Higgsfield sandbox (`sandbox_exec`) has open egress to both the CDN and github.com**. So never relay images through context/subagents again — run the whole pipeline inside `sandbox_exec`: sparse-clone the repo (`--depth 1 --filter=blob:none --sparse`), `curl` each CDN URL from the project's `imgfetch.txt`, convert with ImageMagick (`-resize '1600>' -quality 82` to webp into `<project>/img/N.webp`), one commit, push with the usual Basic-auth `http.extraHeader`. 33 images took ~45s. Use `background:true` + polling, and delete the auth file from the sandbox when done. Each new-world page maps images via its `IMAGES` object and `imgfetch.txt` holds `N URL` lines — keep that convention.
+The Cowork sandbox proxy blocks the Higgsfield CDN (cloudfront), but the **Higgsfield sandbox (`sandbox_exec`) has open egress to both the CDN and github.com**. So never relay images through context/subagents again — run the whole pipeline inside `sandbox_exec`: sparse-clone the repo with the same auth header, since the repo is private (`--depth 1 --filter=blob:none --sparse`), `curl` each CDN URL from the project's `imgfetch.txt`, convert with ImageMagick (`-resize '1600>' -quality 82` to webp into `<project>/img/N.webp`), one commit, push with the usual Basic-auth `http.extraHeader`. 33 images took ~45s. Use `background:true` + polling, and delete the auth file from the sandbox when done. Each new-world page maps images via its `IMAGES` object and `imgfetch.txt` holds `N URL` lines — keep that convention.
 
 ## Burning Hebrew captions into a film (learned 1.8.2026, the hard way)
 

@@ -1,0 +1,8 @@
+{
+  "name": "simpla-lab",
+  "private": true,
+  "description": "Static sites. The only code that runs on the server is middleware.js, the access gate.",
+  "dependencies": {
+    "@vercel/functions": "^3.0.0"
+  }
+}

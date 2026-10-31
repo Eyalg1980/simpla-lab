@@ -51,18 +51,21 @@ AUTH="Authorization: Basic $(printf 'x-access-token:%s' "$TOKEN" | base64 -w0)"
 
 | repo | visibility | clone command |
 |---|---|---|
-| `simpla-lab` | public | plain URL works |
+| `simpla-lab` | **private** (security move, 31.10.2026) | **needs the auth header** |
 | `ai-post-brainstorm` | public | plain URL works |
 | `daily-board` | **private** | **needs the auth header** |
 
 ```bash
-# public repos
-git clone --depth 1 https://github.com/Eyalg1980/simpla-lab.git
+# ai-post-brainstorm is the only public repo left
+git clone --depth 1 https://github.com/Eyalg1980/ai-post-brainstorm.git
 
-# daily-board is private: a plain clone fails with
+# simpla-lab and daily-board are private: a plain clone fails with
 #   fatal: could not read Username for 'https://github.com': terminal prompts disabled
+git -c http.extraHeader="$AUTH" clone --depth 1 https://github.com/Eyalg1980/simpla-lab.git
 git -c http.extraHeader="$AUTH" clone --depth 1 https://github.com/Eyalg1980/daily-board.git
 ```
+
+If a plain clone of `simpla-lab` still works, Eyal has not flipped it to private yet. Use the header anyway: it works on public repos too. `raw.githubusercontent.com` stops serving a repo once it is private, so read SPEC files from the clone, not from raw URLs.
 
 Never embed the token in the URL, not even for clone. Use the header.
 
@@ -112,9 +115,9 @@ The trap it exists to catch: a single quote inside a single-quoted JS string. He
 ## 6. Verify the push actually landed
 
 ```bash
-# public repos
+# ai-post-brainstorm (public)
 git fetch origin main
-# daily-board is private, the fetch needs the header too
+# simpla-lab and daily-board are private, the fetch needs the header too
 git -c http.extraHeader="$AUTH" fetch origin main
 
 git log origin/main..main    # must be empty
@@ -161,13 +164,31 @@ Do not spend turns rediscovering these:
 
 ## 9. Live URLs
 
-- https://eyalg1980.github.io/simpla-lab/
-- https://eyalg1980.github.io/ai-post-brainstorm/
-- https://eyalg1980.github.io/daily-board/
+Hosting moved from GitHub Pages to Vercel on 31.10.2026. A push to `main` still goes live, Vercel builds it in about ten seconds.
+
+- https://lab.simplaux.com/ : simpla-lab (Vercel project `simpla-lab`; fallback https://simpla-lab.vercel.app/)
+- https://daily-board-swart.vercel.app/ : daily-board (Vercel project `daily-board`, Vercel Authentication, Eyal's login only)
+- https://eyalg1980.github.io/ai-post-brainstorm/ : unchanged, still GitHub Pages
+- https://www.simplaux.com/ : Vercel project `simplaux`, built from `simpla-lab/simplaux-site`
+
+The old `eyalg1980.github.io/simpla-lab/...` and `/daily-board/...` addresses are caught by `404.html` in the public repo `eyalg1980.github.io` and redirected to the same path on the new host.
+
+---
+
+## 10. Access control (read before adding or moving a folder)
+
+Nothing in a repo is private just because a page asks for a code. The only gate is `simpla-lab/middleware.js`, which runs on Vercel before every request.
+
+- **Who sees what** is the `RULES` list at the top of `middleware.js`. First match wins, anything unmatched is public. Today: owner only for the lab index `/`, root `.md`/`.json`/`.js` files, `_qc/`, `cardio/`; client role `juganu` for `juganu/`; staff for `jb53500-plan/`, `jb53500-align/`, `jb45900/` and `jb53500-2027/data-staff.js`; students for every other `jb53500*` folder and `jb45900-guide/`.
+- **A new folder is public by default.** If it holds client prices, staff material, personal data or anything not meant for the internet, add a rule in the same commit.
+- **Passwords live only in Vercel Environment Variables** (type Sensitive): `LAB_PASS_OWNER`, `LAB_PASS_STAFF`, `LAB_PASS_STUDENT`, plus `LAB_PASS_<CLIENT>` per client role. Never write a password, a hash of one, or a token into any file, prompt or memory. Rotating a variable logs out everyone who used the old value; it needs a redeploy to take effect.
+- The old in-page gates (`gate.js`, the code screens in `jb53500/` and `jb53500-2027/`) are cosmetic now. The login page pre-fills their role keys, so nobody is asked twice.
+- Verify protection with an anonymous request: a protected path must answer 401 with the login page, a public one 200.
 
 ---
 
 ## Changelog of this runbook
 
+- **31.10.2026** security move. Hosting moved to Vercel with server-side access control (`middleware.js`, section 10). `simpla-lab` becomes private, so it now needs the auth header to clone and fetch (sections 2 and 6), and raw.githubusercontent URLs to it stop working. Live URLs updated (section 9). Reason: the in-page gates only hid content that was already downloaded, the old 53500 codes sat in plain text in the public history, and the private daily-board repo still had a public Pages site.
 - **9.8.2026** amended same day: private-repo `git fetch` also needs the auth header, added to section 6 after hitting it live.
 - **9.8.2026** created, by extracting the deploy section out of `CLAUDE.md` so there is exactly one copy. Added: `daily-board` is private and needs the auth header to clone (previously documented everywhere as "plain URL, no token needed", which is false for that repo); the `jscheck.py` syntax gate; STEP 0 as a general rule rather than one task's habit.
