@@ -6172,14 +6172,10 @@ function sha256(msg){
   }
   return H.map(x=>((x>>>0).toString(16).padStart(8,'0'))).join('');
 }
-const SALT='jb53500.gate.2026|';
-/* SHA-256 of SALT + code. The plain codes are not present in this file. */
-const CODES={lecturer:'8cd6434b0e5b2609b8720a07963764135b5f02ca2a0f3652ece78d13e38890c3',
-             admin:'8cd6434b0e5b2609b8720a07963764135b5f02ca2a0f3652ece78d13e38890c3',
-             student:'ddd294a87c7f4c1ce6edf4c48fd9c89daedca6719bbeb35e275f38af47059ff5',
-             /* same code as lecturer and admin, by Eyal's decision */
-             marketing:'8cd6434b0e5b2609b8720a07963764135b5f02ca2a0f3652ece78d13e38890c3'};
-const MASTER='7be0f1b891b4ff7a2a1e1ce826f7624929662a173f002de680c512e75b48f96d';
+/* Entry codes are checked on the server (middleware.js at the repo root, against
+   the passwords stored in Vercel). Nothing secret lives in this file. 31.10.2026.
+   staff code: lecturer, admin, marketing, student. student code: student.
+   owner code: always enters as owner (all areas). */
 const GKEY='jb53500.role';
 let ROLE=null;
 
@@ -6213,14 +6209,24 @@ function enterAs(role){
   applyAccess();
 }
 
-function tryEnter(){
+async function tryEnter(){
   const sel=document.getElementById('grole').value;
   const code=document.getElementById('gcode').value.trim();
   const err=document.getElementById('gerr');
+  const btn=document.getElementById('gbtn');
   if(!code){ err.textContent='צריך להזין קוד כניסה.'; err.classList.add('on'); return; }
-  if(sha256(SALT+code)===MASTER){ enterAs('owner'); return; }
-  if(sha256(SALT+code.toUpperCase())===CODES[sel]){ enterAs(sel); return; }
-  err.textContent='הקוד לא מתאים לתפקיד שנבחר. בדקו את הקוד ואת הבחירה בתפריט.';
+  btn.disabled=true;
+  let res=null;
+  try{
+    const r=await fetch('/_auth/login',{method:'POST',headers:{'x-sl-json':'1'},
+      body:new URLSearchParams({password:code,as:sel,next:location.pathname})});
+    res=await r.json();
+  }catch(e){ res={ok:false,error:'net'}; }
+  btn.disabled=false;
+  if(res && res.ok && ROLE_AREAS[res.as]){ err.classList.remove('on'); enterAs(res.as); return; }
+  err.textContent = res && res.error==='password' ? 'הקוד לא נכון. בדקו אותו ונסו שוב.'
+    : res && res.error==='net' ? 'אין חיבור לשרת. בדקו את האינטרנט ונסו שוב.'
+    : 'הקוד לא מתאים לתפקיד שנבחר. בדקו את הקוד ואת הבחירה בתפריט.';
   err.classList.add('on');
   document.getElementById('gcode').select();
 }
