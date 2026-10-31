@@ -169,7 +169,69 @@ function page(title, body) {
     '</style></head><body><main class="box">' + body + '</main></body></html>';
 }
 
-function loginPage(nextPath, msg, status) {
+/* ---------- course roles (the John Bryce sites) ----------
+   The course pages have their own role picker. A password opens a set of roles:
+   owner: everything, always entered as 'owner' (admin of all roles)
+   staff: lecturer, admin (operations), marketing, and student
+   student: student only */
+const PAGE_ROLES = ['lecturer', 'admin', 'student', 'marketing'];
+const PAGE_LABEL = { lecturer: 'מרצה', admin: 'מנהלה', student: 'סטודנט', marketing: 'מרקטינג' };
+
+function pageRoleFor(serverRole, as) {
+  if (serverRole === 'owner') return 'owner';
+  if (!as) return serverRole === 'student' ? 'student' : serverRole === 'staff' ? 'STAFF' : null;
+  if (serverRole === 'staff') return PAGE_ROLES.includes(as) ? as : null;
+  if (serverRole === 'student') return as === 'student' ? 'student' : null;
+  return null;
+}
+
+function isCourse(p) {
+  return normalize(p).startsWith('/jb53500');
+}
+
+function courseLoginPage(nextPath, msg, status, as) {
+  const sel = PAGE_ROLES.includes(as) ? as : 'student';
+  const opts = PAGE_ROLES.map((r) => '<option value="' + r + '"' + (r === sel ? ' selected' : '') + '>' + PAGE_LABEL[r] + '</option>').join('');
+  const html = '<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8">' +
+    '<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">' +
+    '<title>כניסה · מיישם AI ואוטומציה 53500</title>' +
+    '<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800;900&family=Poppins:wght@700&display=swap" rel="stylesheet">' +
+    '<style>' +
+    ':root{--navy:#1B2D6B;--coral:#E4002B;--coral-soft:#FCE6EA;--red-dk:#B00020;--paper:#FFFFFF;--ink:#1E1E1E;--ink-2:#555555;--ink-3:#8A8A8A;--line:#E2E2E2;--dash:#C9C9C9}' +
+    '*{box-sizing:border-box;margin:0;padding:0}' +
+    'body{min-height:100vh;min-height:100svh;font-family:"Heebo",-apple-system,sans-serif;background:var(--navy);color:var(--ink);display:flex;align-items:center;justify-content:center;padding:24px 16px;position:relative}' +
+    'body::before{content:"";position:fixed;inset:0;background:radial-gradient(1100px 620px at 78% -12%,rgba(228,0,43,.34),transparent 62%),radial-gradient(760px 520px at 6% 106%,rgba(42,64,144,.62),transparent 60%)}' +
+    '.gcard{position:relative;width:100%;max-width:480px;background:var(--paper);border-radius:8px;padding:38px 38px 32px;box-shadow:0 30px 70px -28px rgba(0,0,0,.65)}' +
+    '.gk{display:inline-block;background:var(--coral);color:#fff;font-family:"Poppins",sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;padding:5px 11px;border-radius:99px;margin-bottom:18px;direction:ltr}' +
+    'h1{font-size:29px;font-weight:900;color:var(--navy);line-height:1.2;margin-bottom:10px}' +
+    '.gp{font-size:15px;color:var(--ink-2);line-height:1.75;margin-bottom:24px}' +
+    'label{display:block;font-size:13px;font-weight:800;color:var(--ink);margin:0 0 7px}' +
+    'select,input{width:100%;padding:12px 14px;font:inherit;font-size:15px;border:1.5px solid var(--line);border-radius:5px;background:#fff;color:var(--ink);margin-bottom:17px}' +
+    'select:focus,input:focus{outline:none;border-color:var(--coral)}' +
+    'input{letter-spacing:.06em}' +
+    'button{width:100%;padding:13px;border:0;border-radius:5px;background:var(--coral);color:#fff;font:inherit;font-size:16px;font-weight:800;cursor:pointer}' +
+    'button:hover{background:var(--red-dk)}button:focus-visible{outline:3px solid var(--navy);outline-offset:2px}' +
+    '.gerr{background:var(--coral-soft);border:1px solid #F6C4CD;color:var(--red-dk);border-radius:5px;padding:11px 14px;font-size:14px;font-weight:700;margin-bottom:16px}' +
+    '.gfoot{margin-top:22px;padding-top:16px;border-top:2px dashed var(--dash);font-size:12.5px;color:var(--ink-3);line-height:1.7}' +
+    '@media (max-width:700px){.gcard{padding:28px 22px 24px}h1{font-size:24px}}' +
+    '</style></head><body><main class="gcard">' +
+    '<span class="gk">JOHN BRYCE / MATRIX</span>' +
+    '<h1>מיישם AI ואוטומציה<br>מק"ט 53500</h1>' +
+    '<p class="gp">מרחב העבודה של הקורס: הסילבוס המלא, הפרויקט שמלווה כל תלמיד, ארגז כלים עם הפרומפטים והמושגים, השקפים של הכיתה ועזר למכירות. בחרו את התפקיד שלכם והזינו את הקוד שקיבלתם.</p>' +
+    (msg ? '<div class="gerr" role="alert">' + esc(msg) + '</div>' : '') +
+    '<form method="post" action="/_auth/login">' +
+    '<input type="hidden" name="next" value="' + esc(nextPath) + '">' +
+    '<label for="grole">אני</label><select id="grole" name="as">' + opts + '</select>' +
+    '<label for="gcode">קוד כניסה</label>' +
+    '<input id="gcode" name="password" type="password" autocomplete="current-password" placeholder="הזינו את הקוד" required autofocus spellcheck="false">' +
+    '<button type="submit">כניסה</button></form>' +
+    '<div class="gfoot">לא קיבלתם קוד? פנו לרכזת הקורס או למרצה.</div>' +
+    '</main></body></html>';
+  return new Response(html, { status: status || 401, headers: NOCACHE });
+}
+
+function loginPage(nextPath, msg, status, as) {
+  if (isCourse(nextPath.split('?')[0])) return courseLoginPage(nextPath, msg, status, as);
   const body =
     '<div class="mark">' + ICON + '</div>' +
     '<div class="wm">Simpla <b>Lab</b></div>' +
@@ -186,12 +248,14 @@ function loginPage(nextPath, msg, status) {
 
 /* After login: set the session cookie, then pre-fill the role keys that the
    course sites' own in-page gates read, so nobody is asked for a second code. */
-function welcome(role, nextPath, cookie) {
-  const keys = {
-    owner: { 'jb53500.role': 'owner', 'jb27.role': 'owner', 'sl.gate': 'NOW' },
-    staff: { 'jb53500.role': 'STAFF', 'jb27.role': 'STAFF', 'sl.gate': 'NOW' },
-    student: { 'jb53500.role': 'student', 'jb27.role': 'student' },
-  }[role] || {};
+function welcome(role, pageRole, as, nextPath, cookie) {
+  const keys = {};
+  if (pageRole) {
+    keys['jb53500.role'] = pageRole;
+    keys['jb27.role'] = pageRole;
+  }
+  if (as) keys['jb27.lastRole'] = as;
+  if (role === 'owner' || role === 'staff') keys['sl.gate'] = 'NOW';
   const js =
     '(function(){var K=' + JSON.stringify(keys) + ',S=["lecturer","admin","marketing"];' +
     'try{for(var k in K){var v=K[k];if(v==="NOW")v=String(Date.now());' +
@@ -230,20 +294,37 @@ export default async function middleware(request) {
     }
     let form;
     try { form = await request.formData(); } catch (e) { form = new FormData(); }
+    const json = request.headers.get('x-sl-json') === '1';
     const nextPath = safeNext(String(form.get('next') || '/'));
+    const asRaw = String(form.get('as') || '');
+    const as = PAGE_ROLES.includes(asRaw) ? asRaw : '';
+    const fail = (code, msg, status) => json
+      ? new Response(JSON.stringify({ ok: false, error: code }), { status, headers: { 'content-type': 'application/json', 'cache-control': 'no-store' } })
+      : loginPage(nextPath, msg, status, as);
+
     const role = await roleForPassword(String(form.get('password') || ''));
     if (!role) {
       await pause(900); // slows down guessing
-      return loginPage(nextPath, 'הסיסמה לא נכונה. נסו שוב.', 401);
+      return fail('password', isCourse(nextPath) ? 'הקוד לא נכון. בדקו אותו ונסו שוב.' : 'הסיסמה לא נכונה. נסו שוב.', 401);
     }
     const need = needFor(new URL(nextPath, url.origin).pathname);
     if (!allowed(role, need)) {
-      return loginPage(nextPath, 'הסיסמה נכונה, אבל היא לא פותחת את העמוד הזה.', 403);
+      return fail('page', 'הסיסמה נכונה, אבל היא לא פותחת את העמוד הזה.', 403);
+    }
+    const pageRole = pageRoleFor(role, as);
+    if (as && !pageRole) {
+      return fail('role', 'הקוד לא מתאים לתפקיד שנבחר. בדקו את הקוד ואת הבחירה בתפריט.', 403);
     }
     const exp = Math.floor(Date.now() / 1000) + MAX_AGE;
     const sig = await hmac(passFor(role), 'sl1|' + role + '|' + exp);
     const cookie = COOKIE + '=' + role + '.' + exp + '.' + sig + '; Path=/; Max-Age=' + MAX_AGE + '; HttpOnly; Secure; SameSite=Lax';
-    return welcome(role, nextPath, cookie);
+    if (json) {
+      const h = new Headers({ 'content-type': 'application/json', 'cache-control': 'no-store' });
+      h.append('set-cookie', cookie);
+      h.append('set-cookie', HINT + '=' + role + '; Path=/; Max-Age=' + MAX_AGE + '; Secure; SameSite=Lax');
+      return new Response(JSON.stringify({ ok: true, role, as: pageRole === 'STAFF' ? 'lecturer' : pageRole }), { status: 200, headers: h });
+    }
+    return welcome(role, pageRole, as, nextPath, cookie);
   }
 
   const need = needFor(url.pathname);

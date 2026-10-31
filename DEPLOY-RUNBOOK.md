@@ -182,7 +182,8 @@ Nothing in a repo is private just because a page asks for a code. The only gate 
 - **Who sees what** is the `RULES` list at the top of `middleware.js`. First match wins, anything unmatched is public. Today: owner only for the lab index `/`, root `.md`/`.json`/`.js` files, `_qc/`, `cardio/`; client role `juganu` for `juganu/`; staff for `jb53500-plan/`, `jb53500-align/`, `jb45900/` and `jb53500-2027/data-staff.js`; students for every other `jb53500*` folder and `jb45900-guide/`.
 - **A new folder is public by default.** If it holds client prices, staff material, personal data or anything not meant for the internet, add a rule in the same commit.
 - **Passwords live only in Vercel Environment Variables** (type Sensitive): `LAB_PASS_OWNER`, `LAB_PASS_STAFF`, `LAB_PASS_STUDENT`, plus `LAB_PASS_<CLIENT>` per client role. Never write a password, a hash of one, or a token into any file, prompt or memory. Rotating a variable logs out everyone who used the old value; it needs a redeploy to take effect.
-- The old in-page gates (`gate.js`, the code screens in `jb53500/` and `jb53500-2027/`) are cosmetic now. The login page pre-fills their role keys, so nobody is asked twice.
+- **Course pages (`/jb53500*`)** get a John Bryce styled login with the course's role picker. The staff password opens lecturer, admin (operations), marketing and student; the student password opens student only; the owner password always enters as owner, all areas. The login pre-fills the role keys the pages read (`jb53500.role`, `jb27.role`), so nobody is asked twice.
+- The in-page "switch user" screens in `jb53500/` and `jb53500-2027/` hold **no codes**: they POST to `/_auth/login` with the header `x-sl-json: 1` and get back `{ok, as}`. Never put a code or a hash back into a page. `gate.js` is cosmetic and can be deleted once nothing loads it.
 - Verify protection with an anonymous request: a protected path must answer 401 with the login page, a public one 200.
 
 ---
